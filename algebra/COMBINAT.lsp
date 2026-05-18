@@ -114,9 +114,9 @@
 (SDEFUN |COMBINAT;distinct_partition;2I;2| ((|n| (I)) (% (I)))
         (SPROG
          ((|nz| (|Integer|)) (#1=#:G35 NIL)
-          (Q (|IndexedOneDimensionalArray| I (|Zero|))) (|i| NIL)
-          (#2=#:G49 NIL) (|k| NIL) (|l1| (|Integer|)) (|l| (|Integer|))
-          (|u| (|Integer|)) (#3=#:G48 NIL) (|t| (I)) (|s| (I)))
+          (Q (|IndexedOneDimensionalArray| I (|0|))) (|i| NIL) (#2=#:G49 NIL)
+          (|k| NIL) (|l1| (|Integer|)) (|l| (|Integer|)) (|u| (|Integer|))
+          (#3=#:G48 NIL) (|t| (I)) (|s| (I)))
          (SEQ (LETT |nz| (SPADCALL |n| (QREFELT % 26)))
               (EXIT
                (COND
@@ -595,14 +595,13 @@
 
 (MAKEPROP '|IntegerCombinatoricFunctions| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |Zero|) (4 . |One|)
-              'F 'B (|SparseUnivariatePolynomial| 6) (8 . |Zero|) 'S
-              (12 . |One|) (|NonNegativeInteger|)
-              (|IndexedFlexibleArray| 6 (NRTEVAL 0)) (16 . |new|) 'P
-              (|Integer|) (22 . |minIndex|) (|Boolean|) (27 . ~=) (33 . |#|)
-              (38 . <) (44 . |coerce|) (49 . |convert|) (54 . |elt|) (60 . +)
-              (66 . |concat!|) (72 . *) (78 . -) (83 . |setelt!|)
-              |COMBINAT;partition;2I;1|
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |0|) (4 . |1|) 'F 'B
+              (|SparseUnivariatePolynomial| 6) (8 . |0|) 'S (12 . |1|)
+              (|NonNegativeInteger|) (|IndexedFlexibleArray| 6 (NRTEVAL 0))
+              (16 . |new|) 'P (|Integer|) (22 . |minIndex|) (|Boolean|)
+              (27 . ~=) (33 . |#|) (38 . <) (44 . |coerce|) (49 . |convert|)
+              (54 . |elt|) (60 . +) (66 . |concat!|) (72 . *) (78 . -)
+              (83 . |setelt!|) |COMBINAT;partition;2I;1|
               (|IndexedOneDimensionalArray| 6 (NRTEVAL 0)) (90 . |new|)
               (96 . |setelt!|) (103 . -) (109 . |elt|)
               |COMBINAT;distinct_partition;2I;2| (115 . <=) (121 . =)

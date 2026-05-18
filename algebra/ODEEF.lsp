@@ -259,7 +259,7 @@
                                                                              36))))
                       (LETT |op|
                             (SPADCALL
-                             (|compiledLookupCheck| '|Zero| (LIST '%) |Lx|)))
+                             (|compiledLookupCheck| '|0| (LIST '%) |Lx|)))
                       (SEQ G190
                            (COND
                             ((NULL
@@ -373,7 +373,7 @@
                                                                              36))))
                       (LETT |op|
                             (SPADCALL
-                             (|compiledLookupCheck| '|Zero| (LIST '%) |Lx|)))
+                             (|compiledLookupCheck| '|0| (LIST '%) |Lx|)))
                       (SEQ G190
                            (COND
                             ((NULL
@@ -877,26 +877,25 @@
               (|Union| 18 '#2="failed") (|List| 7) (|List| 14)
               |ODEEF;solve;LLSU;7| (|List| 8) |ODEEF;solve;LLSU;2|
               (|Union| 7 '#3="failed") |ODEEF;solve;FBoELU;6|
-              |ODEEF;solve;EBoELU;3| (16 . |Zero|) (|Matrix| 7) (|Vector| 7)
+              |ODEEF;solve;EBoELU;3| (16 . |0|) (|Matrix| 7) (|Vector| 7)
               |ODEEF;solve;MVSU;5| (|Union| (|List| 30) '#4="failed")
               |ODEEF;solve;MSU;4| (|Mapping| 7 7) (|ODEIntegration| 6 7)
               (20 . |diff|) (|Integer|) (25 . |column|) (31 . |retract|)
-              (|Kernel| 7) (36 . |kernel|) (41 . |One|)
+              (|Kernel| 7) (36 . |kernel|) (41 . |1|)
               (|NonLinearFirstOrderODESolver| 6 7) (45 . |solve|)
               (53 . |coerce|) (58 . |elt|) (|Kernel| %) (64 . |retract|)
-              (|List| 47) (|List| %) (69 . |eval|) (76 . |Zero|)
-              (|SparseUnivariatePolynomial| 7) (80 . |Zero|) (|Boolean|)
-              (84 . ~=) (90 . |leadingCoefficient|) (|NonNegativeInteger|)
+              (|List| 47) (|List| %) (69 . |eval|) (76 . |0|)
+              (|SparseUnivariatePolynomial| 7) (80 . |0|) (|Boolean|) (84 . ~=)
+              (90 . |leadingCoefficient|) (|NonNegativeInteger|)
               (95 . |degree|) (100 . |reductum|) (105 . ~=)
               (111 . |differentiate|) (117 . |setRow!|) (124 . |setelt!|)
               (131 . |kernels|) (|List| 40) (|IntegrationTools| 6 7)
               (136 . |varselect|) (142 . |is?|) (148 . |first|)
               (153 . |position|) (159 . |coerce|) (164 . *) (170 . /) (176 . -)
               (181 . |height|) (186 . |zero?|) (191 . |name|)
-              (196 . |monomial|) (202 . |freeOf?|) (208 . |One|)
-              (212 . |coerce|) (217 . +) (223 . |freeOf?|)
-              (|SparseMultivariatePolynomial| 6 47) (229 . |denom|)
-              (|SparseUnivariatePolynomial| %)
+              (196 . |monomial|) (202 . |freeOf?|) (208 . |1|) (212 . |coerce|)
+              (217 . +) (223 . |freeOf?|) (|SparseMultivariatePolynomial| 6 47)
+              (229 . |denom|) (|SparseUnivariatePolynomial| %)
               (|SparseMultivariatePolynomial| 6 40) (234 . |univariate|)
               (|Union| 88 '"failed") (|SparseUnivariatePolynomial| 88)
               (240 . |retractIfCan|) (245 . |numer|) (250 . |degree|)

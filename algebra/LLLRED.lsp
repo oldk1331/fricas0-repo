@@ -394,11 +394,11 @@
 
 (MAKEPROP '|LLLReduction| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|Float|) (0 . |One|) (|Integer|)
+           '#(NIL NIL NIL NIL NIL NIL (|Float|) (0 . |1|) (|Integer|)
               (|Matrix| 6) (4 . |setelt!|) (|Matrix| 8) (12 . |elt|)
               (19 . |coerce|) (|Vector| 6) (24 . |setelt!|) (31 . |row|)
               (37 . |dot|) (43 . |elt|) (49 . /) (55 . |elt|) (62 . *) (68 . -)
-              (74 . |Zero|) (|PositiveInteger|) (78 . |float|) (85 . |round|)
+              (74 . |0|) (|PositiveInteger|) (78 . |float|) (85 . |round|)
               (90 . |retract|) (|Boolean|) (95 . ~=) (101 . |setelt!|)
               (109 . *) (115 . ^) (121 . <=) (127 . +) (133 . |swapRows!|)
               (|NonNegativeInteger|) |LLLRED;extendedLLL!;MNniM;2|

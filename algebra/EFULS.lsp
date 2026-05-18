@@ -814,13 +814,12 @@
 (MAKEPROP '|ElementaryFunctionsUnivariateLaurentSeries| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) 'RATPOWERS 'TRANSFCN 'RATS (0 . |Zero|)
-              (4 . |Zero|) (|NonNegativeInteger|) (8 . |coefficient|)
-              (14 . |One|) (|Boolean|) (18 . =) (|Integer|) (|Fraction| 19)
-              (24 . |coerce|) (29 . |inv|) (34 . ^) (40 . |One|)
-              (44 . |degree|) (49 . |coefficient|) (55 . |zero?|)
-              (60 . |removeZeroes|) (66 . |monomial|) (72 . *) (78 . |taylor|)
-              (83 . |coerce|) (|Union| 8 '"failed")
+              (|local| |#3|) 'RATPOWERS 'TRANSFCN 'RATS (0 . |0|) (4 . |0|)
+              (|NonNegativeInteger|) (8 . |coefficient|) (14 . |1|) (|Boolean|)
+              (18 . =) (|Integer|) (|Fraction| 19) (24 . |coerce|) (29 . |inv|)
+              (34 . ^) (40 . |1|) (44 . |degree|) (49 . |coefficient|)
+              (55 . |zero?|) (60 . |removeZeroes|) (66 . |monomial|) (72 . *)
+              (78 . |taylor|) (83 . |coerce|) (|Union| 8 '"failed")
               |EFULS;nthRootIfCan;ULSNniU;2| (88 . |numer|) (93 . |denom|)
               (98 . ^) (104 . ^) (|Union| 7 '"failed") (110 . |taylorIfCan|)
               (115 . |exp|) |EFULS;expIfCan;ULSU;5| (120 . |sin|)
@@ -843,8 +842,8 @@
               |EFULS;tanIfCan;ULSU;21| |EFULS;cotIfCan;ULSU;22|
               |EFULS;secIfCan;ULSU;23| |EFULS;cscIfCan;ULSU;24| (215 . |order|)
               (221 . *) (227 . -) (|Union| 20 '"failed") (232 . |retractIfCan|)
-              (237 . /) (243 . |pi|) (247 . *) (253 . |Zero|) (257 . >)
-              (263 . |One|) (267 . -) (272 . |atan|) (277 . +) (283 . |coerce|)
+              (237 . /) (243 . |pi|) (247 . *) (253 . |0|) (257 . >)
+              (263 . |1|) (267 . -) (272 . |atan|) (277 . +) (283 . |coerce|)
               (288 . |differentiate|) (293 . |integrate|)
               |EFULS;atanIfCan;ULSU;25| (298 . |acot|) (303 . -)
               |EFULS;acotIfCan;ULSU;26|

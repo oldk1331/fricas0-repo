@@ -70,12 +70,11 @@
 (MAKEPROP '|EvaluateCycleIndicators| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|List| (|Integer|))
-              (|Partition|) (0 . |coerce|) (5 . *) (11 . |One|) (15 . |Zero|)
-              (19 . |Zero|) (|SymmetricPolynomial| 18) (23 . |Zero|)
-              (|Boolean|) (27 . =) (|Fraction| (|Integer|))
-              (33 . |leadingCoefficient|) (38 . |degree|) (43 . *)
-              (49 . |reductum|) (|Mapping| 6 (|Integer|)) |EVALCYC;eval;MSpF;2|
-              (54 . +))
+              (|Partition|) (0 . |coerce|) (5 . *) (11 . |1|) (15 . |0|)
+              (19 . |0|) (|SymmetricPolynomial| 18) (23 . |0|) (|Boolean|)
+              (27 . =) (|Fraction| (|Integer|)) (33 . |leadingCoefficient|)
+              (38 . |degree|) (43 . *) (49 . |reductum|)
+              (|Mapping| 6 (|Integer|)) |EVALCYC;eval;MSpF;2| (54 . +))
            '#(|eval| 60) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)

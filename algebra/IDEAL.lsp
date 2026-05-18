@@ -1102,7 +1102,7 @@
                                 (SPADCALL |vec2| |i| 1 (QREFELT % 122))
                                 (LETT |g|
                                       (SPADCALL
-                                       (|compiledLookupCheck| '|Zero| (LIST '%)
+                                       (|compiledLookupCheck| '|0| (LIST '%)
                                                               |nPoly|)))
                                 (LETT |pol| (|spadConstant| % 123))
                                 (SEQ G190
@@ -1137,7 +1137,7 @@
                                                                             20))
                                                                  (SPADCALL
                                                                   (|compiledLookupCheck|
-                                                                   '|Zero|
+                                                                   '|0|
                                                                    (LIST '%)
                                                                    |DirP|))
                                                                  (|compiledLookupCheck|
@@ -1306,8 +1306,10 @@
                                       ((NULL
                                         (SPADCALL |q|
                                                   (SPADCALL
-                                                   (|compiledLookupCheck|
-                                                    '|Zero| (LIST '%) |nPoly|))
+                                                   (|compiledLookupCheck| '|0|
+                                                                          (LIST
+                                                                           '%)
+                                                                          |nPoly|))
                                                   (|compiledLookupCheck| '~=
                                                                          (LIST
                                                                           (LIST
@@ -1544,26 +1546,26 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) '|Rep| '|newExpon| '|newPoly|
-              (0 . |Zero|) (|Boolean|) (4 . =) (10 . |Zero|)
-              (14 . |leadingCoefficient|) (19 . |Zero|) (23 . |Zero|)
-              (27 . |degree|) (|NonNegativeInteger|) (32 . |construct|)
-              (38 . |monomial|) (44 . |reductum|) (49 . +) (55 . =)
-              (61 . |degree|) (66 . |first|) (71 . ~=) (77 . |reductum|)
+              (0 . |0|) (|Boolean|) (4 . =) (10 . |0|)
+              (14 . |leadingCoefficient|) (19 . |0|) (23 . |0|) (27 . |degree|)
+              (|NonNegativeInteger|) (32 . |construct|) (38 . |monomial|)
+              (44 . |reductum|) (49 . +) (55 . =) (61 . |degree|)
+              (66 . |first|) (71 . ~=) (77 . |reductum|)
               (82 . |leadingCoefficient|) (87 . |second|) (92 . |monomial|)
               (98 . +) (|List| 8) (104 . |variables|) (109 . =)
               (|SparseUnivariatePolynomial| %) (115 . |univariate|)
               (|SparseUnivariatePolynomial| 9) (121 . |leadingCoefficient|)
               (|Union| % '"failed") (126 . |exquo|) (|List| 12)
               (|GroebnerPackage| 6 11 12) (132 . |groebner|) (137 . |member?|)
-              (143 . |append|) (149 . |ground?|) (154 . |One|) (158 . |One|)
+              (143 . |append|) (149 . |ground?|) (154 . |1|) (158 . |1|)
               (|Integer|) (162 . |elt|) (|List| 35) (168 . |concat|) (|List| 9)
-              |IDEAL;generators;%L;35| (174 . |One|) (178 . |position|)
+              |IDEAL;generators;%L;35| (174 . |1|) (178 . |position|)
               (184 . |delete|) (190 . |#|) (195 . >) (|Mapping| 14 35 35)
               (201 . |sort|) (207 . ~=) (213 . |setDifference|)
               |IDEAL;in?;2%B;12| |IDEAL;=;2%B;10| |IDEAL;groebner;2%;13|
               (|GroebnerPackage| 6 7 9) (219 . |normalForm|)
               |IDEAL;element?;DPoly%B;11| (225 . |zero?|) (230 . |groebner|)
-              (235 . |One|) (239 . -) (245 . *) (251 . |concat|)
+              (235 . |1|) (239 . -) (245 . *) (251 . |concat|)
               |IDEAL;intersect;3%;14| (|List| %) |IDEAL;intersect;L%;15|
               |IDEAL;coerce;L%;31| (|GroebnerInternalPackage| 6 7 9)
               (257 . |minGbasis|) |IDEAL;quotient;%DPoly%;16|
@@ -1579,10 +1581,10 @@
               (323 . |coerce|) (|Symbol|) (328 . |convert|) (333 . |monomial|)
               (|List| 110) (|List| 128) (|SuchThat| 115 116)
               (340 . |construct|) (346 . |new|) (|Vector| 21) (350 . |new|)
-              (356 . |setelt!|) (363 . |Zero|) (367 . ~=) (|List| 21)
-              (373 . |degree|) (379 . +) (|Equation| 110) (385 . |Zero|)
+              (356 . |setelt!|) (363 . |0|) (367 . ~=) (|List| 21)
+              (373 . |degree|) (379 . +) (|Equation| 110) (385 . |0|)
               (389 . |coerce|) (394 . =) (400 . =) (406 . |elt|) (412 . ^)
-              (418 . *) (424 . |One|) (428 . *) (434 . |relationsIdeal|)
+              (418 . *) (424 . |1|) (428 . *) (434 . |relationsIdeal|)
               (|OutputForm|) (439 . |coerce|) |IDEAL;coerce;%Of;32|
               |IDEAL;groebnerIdeal;L%;34| |IDEAL;groebner?;%B;36|
               |IDEAL;one?;%B;37| |IDEAL;zero?;%B;38| (|String|)

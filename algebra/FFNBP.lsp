@@ -377,10 +377,10 @@
              (SPADCALL (QREFELT % 23) (QREFELT % 47) (QREFELT % 34))
              (EXIT (SPADCALL |x| |y| (QREFELT % 153))))) 
 
-(SDEFUN |FFNBP;One;%;35| ((% (%)))
+(SDEFUN |FFNBP;1;%;35| ((% (%)))
         (MAKEARR1 (QREFELT % 17) (SPADCALL (QREFELT % 47) (QREFELT % 154)))) 
 
-(SDEFUN |FFNBP;Zero;%;36| ((% (%))) (SPADCALL (QREFELT % 17) (QREFELT % 155))) 
+(SDEFUN |FFNBP;0;%;36| ((% (%))) (SPADCALL (QREFELT % 17) (QREFELT % 155))) 
 
 (SDEFUN |FFNBP;size;Nni;37| ((% (|NonNegativeInteger|)))
         (EXPT (SPADCALL (QREFELT % 119)) (QREFELT % 17))) 
@@ -618,14 +618,12 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|Rep|
               (|Symbol|) (0 . |new|) (|OutputForm|) (4 . |coerce|) '|alpha|
               '|initlog?| '|initelt?| '|initmult?| '|extdeg|
-              (|SparseUnivariatePolynomial| 6) (9 . |Zero|) '|defpol|
-              (13 . |One|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FFNBP;One;%;35|) %))
+              (|SparseUnivariatePolynomial| 6) (9 . |0|) '|defpol| (13 . |1|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FFNBP;1;%;35|) %))
               '|multTable|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |FFNBP;Zero;%;36|) %))
-              (17 . |Zero|) '|vv| (21 . |One|) (|Integer|) (25 . |setelt!|)
-              (|Void|) (|Record| (|:| |value| 6) (|:| |index| 208))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FFNBP;0;%;36|) %))
+              (17 . |0|) '|vv| (21 . |1|) (|Integer|) (25 . |setelt!|) (|Void|)
+              (|Record| (|:| |value| 6) (|:| |index| 208))
               (|Vector| (|List| 31)) (|InnerNormalBasisFieldFunctions| 6)
               (32 . |setFieldInfo|) (|Vector| 6) (38 . |minimalPolynomial|)
               (|NonNegativeInteger|) (43 . |degree|) (48 . ^) (54 . |coerce|)
@@ -725,8 +723,8 @@
               |conditionP| 990 |commutator| 995 |coerce| 1001 |charthRoot| 1026
               |characteristicPolynomial| 1036 |characteristic| 1041 |basis|
               1045 |associator| 1054 |associates?| 1061 |antiCommutator| 1067
-              |annihilate?| 1073 |algebraic?| 1079 ^ 1084 |Zero| 1102 |One|
-              1106 |Frobenius| 1110 D 1121 = 1132 / 1138 - 1150 + 1161 * 1167)
+              |annihilate?| 1073 |algebraic?| 1079 ^ 1084 |Frobenius| 1102 D
+              1113 = 1124 |1| 1130 |0| 1134 / 1138 - 1150 + 1161 * 1167)
            'NIL
            (CONS
             (|makeByteWordVec2| 4
@@ -840,10 +838,10 @@
                                     0 18 0 1 0 0 37 150 0 0 97 166 1 2 97 58 98
                                     3 0 0 0 0 0 1 2 0 56 0 0 1 2 0 0 0 0 1 2 0
                                     56 0 0 1 1 0 56 0 1 2 0 0 0 58 1 2 0 0 0 37
-                                    1 2 0 0 0 28 131 0 0 0 24 0 0 0 22 1 2 0 0
-                                    104 2 2 0 0 37 96 1 2 0 0 1 2 2 0 0 37 1 2
-                                    0 56 0 0 177 2 0 0 0 0 101 2 0 0 0 6 102 2
-                                    0 0 0 0 175 1 0 0 0 171 2 0 0 0 0 173 2 0 0
+                                    1 2 0 0 0 28 131 1 2 0 0 104 2 2 0 0 37 96
+                                    1 2 0 0 1 2 2 0 0 37 1 2 0 56 0 0 177 0 0 0
+                                    22 0 0 0 24 2 0 0 0 0 101 2 0 0 0 6 102 2 0
+                                    0 0 0 175 1 0 0 0 171 2 0 0 0 0 173 2 0 0
                                     58 0 1 2 0 0 0 0 136 2 0 0 28 0 180 2 0 0
                                     37 0 1 2 0 0 0 6 1 2 0 0 6 0 100 2 7 0 0
                                     202 1 2 7 0 202 0 1)))))

@@ -61,7 +61,7 @@
 (MAKEPROP '|ApplyUnivariateSkewPolynomial| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (0 . |Zero|) (|NonNegativeInteger|) (4 . |degree|)
+              (|local| |#3|) (0 . |0|) (|NonNegativeInteger|) (4 . |degree|)
               (9 . |coefficient|) (15 . *) (21 . +) (|Mapping| 7 7)
               |APPLYORE;apply;PM2M;1|)
            '#(|apply| 27) 'NIL

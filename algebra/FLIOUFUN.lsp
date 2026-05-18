@@ -1478,15 +1478,15 @@
 
 (MAKEPROP '|FloatLiouvilianFunctions| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|Float|) (0 . |Zero|) 'G
+           '#(NIL NIL NIL NIL NIL NIL (|Float|) (0 . |0|) 'G
               (|PositiveInteger|) (4 . |bits|) (8 . |precision|) (|Complex| 6)
-              (12 . |complex|) (18 . |bits|) (23 . |One|)
+              (12 . |complex|) (18 . |bits|) (23 . |1|)
               (|FloatSpecialFunctions|) (27 . |digamma|) (32 . -)
-              |FLIOUFUN;gamma;C;1| (37 . *) (43 . |Zero|) (|Integer|)
-              (47 . |coerce|) (52 . /) (|Fraction| 22) (58 . |One|)
-              (62 . |One|) (66 . *) (72 . +) (78 . |pi|) (82 . |sqrt|)
-              (87 . |float|) (94 . /) (100 . |norm|) (|Boolean|) (105 . >)
-              (111 . -) (116 . |exp|) (121 . *) (127 . |order|) (|DoubleFloat|)
+              |FLIOUFUN;gamma;C;1| (37 . *) (43 . |0|) (|Integer|)
+              (47 . |coerce|) (52 . /) (|Fraction| 22) (58 . |1|) (62 . |1|)
+              (66 . *) (72 . +) (78 . |pi|) (82 . |sqrt|) (87 . |float|)
+              (94 . /) (100 . |norm|) (|Boolean|) (105 . >) (111 . -)
+              (116 . |exp|) (121 . *) (127 . |order|) (|DoubleFloat|)
               (132 . |coerce|) (137 . /) (143 . |coerce|)
               (|NonNegativeInteger|) (148 . *) (154 . >) (160 . |round|)
               (165 . |retract|) (170 . |real|) (175 . -) |FLIOUFUN;erf;2C;5|

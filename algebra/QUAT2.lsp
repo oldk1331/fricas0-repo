@@ -1,9 +1,9 @@
 
-(SDEFUN |QUAT2;Zero;%;1| ((% (%)))
+(SDEFUN |QUAT2;0;%;1| ((% (%)))
         (VECTOR (|spadConstant| % 10) (|spadConstant| % 10)
                 (|spadConstant| % 10) (|spadConstant| % 10))) 
 
-(SDEFUN |QUAT2;One;%;2| ((% (%)))
+(SDEFUN |QUAT2;1;%;2| ((% (%)))
         (VECTOR (|spadConstant| % 12) (|spadConstant| % 10)
                 (|spadConstant| % 10) (|spadConstant| % 10))) 
 
@@ -187,10 +187,10 @@
 (MAKEPROP '|GeneralQuaternion| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) '|Rep| (0 . |Zero|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |QUAT2;Zero;%;1|) %))
-              (4 . |One|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |QUAT2;One;%;2|) %))
+              (|local| |#3|) '|Rep| (0 . |0|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |QUAT2;0;%;1|) %))
+              (4 . |1|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |QUAT2;1;%;2|) %))
               |QUAT2;real;%R;3| |QUAT2;imagI;%R;4| |QUAT2;imagJ;%R;5|
               |QUAT2;imagK;%R;6| |QUAT2;quatern;4R%;7| (8 . *) (14 . +)
               (20 . -) |QUAT2;*;3%;8| (|Boolean|) (|String|) (|OutputForm|)
@@ -214,9 +214,8 @@
               |imagI| 247 |exquo| 252 |eval| 258 |elt| 298 |differentiate| 304
               |convert| 354 |conjugate| 359 |commutator| 364 |coerce| 370
               |characteristic| 390 |associator| 394 |associates?| 401
-              |antiCommutator| 407 |annihilate?| 413 |abs| 419 ^ 424 |Zero| 442
-              |One| 446 D 450 >= 500 > 506 = 512 <= 518 < 524 - 530 + 541 *
-              547)
+              |antiCommutator| 407 |annihilate?| 413 |abs| 419 ^ 424 D 442 >=
+              492 > 498 = 504 <= 510 < 516 |1| 522 |0| 526 - 530 + 541 * 547)
            'NIL
            (CONS
             (|makeByteWordVec2| 16
@@ -287,13 +286,13 @@
                                     1 1 0 25 0 1 1 0 0 27 1 1 0 0 6 1 1 20 0 36
                                     1 0 0 29 1 3 0 0 0 0 0 1 2 5 23 0 0 1 2 0 0
                                     0 0 1 2 0 23 0 0 1 1 17 6 0 1 2 0 0 0 26 1
-                                    2 0 0 0 29 1 2 4 0 0 27 1 0 0 0 11 0 0 0 13
-                                    2 0 0 0 31 1 3 0 0 0 31 29 1 1 12 0 0 1 2
-                                    12 0 0 29 1 2 11 0 0 43 1 2 11 0 0 42 1 3
-                                    11 0 0 43 47 1 3 11 0 0 42 29 1 2 8 23 0 0
-                                    1 2 8 23 0 0 1 2 0 23 0 0 1 2 8 23 0 0 1 2
-                                    8 23 0 0 1 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0
-                                    1 2 0 0 26 0 1 2 0 0 0 0 22 2 0 0 27 0 1 2
-                                    0 0 29 0 1 2 0 0 6 0 1 2 0 0 0 6 1 2 19 0
-                                    36 0 1 2 19 0 0 36 1 2 16 0 0 27 1)))))
+                                    2 0 0 0 29 1 2 4 0 0 27 1 2 0 0 0 31 1 3 0
+                                    0 0 31 29 1 1 12 0 0 1 2 12 0 0 29 1 2 11 0
+                                    0 43 1 2 11 0 0 42 1 3 11 0 0 43 47 1 3 11
+                                    0 0 42 29 1 2 8 23 0 0 1 2 8 23 0 0 1 2 0
+                                    23 0 0 1 2 8 23 0 0 1 2 8 23 0 0 1 0 0 0 13
+                                    0 0 0 11 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1
+                                    2 0 0 26 0 1 2 0 0 0 0 22 2 0 0 27 0 1 2 0
+                                    0 29 0 1 2 0 0 6 0 1 2 0 0 0 6 1 2 19 0 36
+                                    0 1 2 19 0 0 36 1 2 16 0 0 27 1)))))
            '|lookupComplete|)) 

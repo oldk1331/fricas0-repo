@@ -1,5 +1,5 @@
 
-(SDEFUN |RMATRIX;Zero;%;1| ((% (%))) (QREFELT % 10)) 
+(SDEFUN |RMATRIX;0;%;1| ((% (%))) (QREFELT % 10)) 
 
 (SDEFUN |RMATRIX;coerce;%Of;2| ((|x| (%)) (% (|OutputForm|)))
         (SPADCALL |x| (QREFELT % 13))) 
@@ -262,9 +262,8 @@
 (MAKEPROP '|RectangularMatrix| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|Matrix| 8) (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (0 . |Zero|) 'ZERO
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |RMATRIX;Zero;%;1|) %))
+              (|local| |#3|) (0 . |0|) 'ZERO
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |RMATRIX;0;%;1|) %))
               (|OutputForm|) (4 . |coerce|) |RMATRIX;coerce;%Of;2| (|Boolean|)
               (|NonNegativeInteger|) (9 . ~=) (|Integer|) (15 . |maxRowIndex|)
               (20 . |maxColIndex|) (|List| 58) |RMATRIX;matrix;L%;3|
@@ -295,7 +294,7 @@
               352 |eval| 358 |eq?| 384 |enumerate| 390 |empty?| 394 |empty| 399
               |elt| 403 |diagonal?| 418 |count| 423 |copy| 435 |convert| 440
               |columnSpace| 445 |column| 450 |coerce| 456 |any?| 466
-              |antisymmetric?| 472 |Zero| 477 = 481 / 487 - 493 + 504 * 510 |#|
+              |antisymmetric?| 472 = 477 |0| 483 / 487 - 493 + 504 * 510 |#|
               546)
            'NIL
            (CONS
@@ -347,8 +346,8 @@
                                     8 0 18 18 8 1 1 12 15 0 1 2 18 16 8 0 1 2
                                     17 16 62 0 1 1 0 0 0 1 1 14 48 0 53 1 10 39
                                     0 40 2 0 29 0 18 31 1 0 12 0 14 1 0 5 0 33
-                                    2 17 15 62 0 1 1 1 15 0 1 0 12 0 11 2 0 15
-                                    0 0 1 2 9 0 0 8 1 2 1 0 0 0 1 1 1 0 0 1 2 0
+                                    2 17 15 62 0 1 1 1 15 0 1 2 0 15 0 0 1 0 12
+                                    0 11 2 9 0 0 8 1 2 1 0 0 0 1 1 1 0 0 1 2 0
                                     0 0 0 1 2 0 0 8 0 1 2 0 0 55 0 1 2 0 0 0 8
                                     1 2 1 0 18 0 1 2 12 0 16 0 1 2 8 0 0 0 1 1
                                     17 16 0 1)))))

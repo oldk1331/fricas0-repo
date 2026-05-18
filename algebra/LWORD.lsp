@@ -351,7 +351,7 @@
 (MAKEPROP '|LyndonWord| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|FreeMagma| 6) (|local| |#1|) '|Rep|
-              (|FreeMonoid| 6) (0 . |One|) (|Boolean|) (4 . =) (10 . |rest|)
+              (|FreeMonoid| 6) (0 . |1|) (|Boolean|) (4 . =) (10 . |rest|)
               (15 . ~=) (21 . |lexico|) |LWORD;lyndon?;FmB;1| (|List| %)
               |LWORD;factor;FmL;6| (|NonNegativeInteger|) (|List| $$)
               (27 . |#|) (32 . |first|) (|Union| % '"failed")

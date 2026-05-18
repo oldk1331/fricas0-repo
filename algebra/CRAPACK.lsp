@@ -259,12 +259,12 @@
 
 (MAKEPROP '|CRApackage| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) 'BB (0 . |Zero|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) 'BB (0 . |0|)
               (|NonNegativeInteger|) (4 . |balancedBinaryTree|) (|List| 6)
               (10 . |setleaves!|) (16 . *) (|Mapping| 6 6 6) (22 . |mapUp!|)
               (28 . |rem|) (34 . |mapDown!|) (41 . |leaves|)
               |CRAPACK;modTree;R2L;1| (|Boolean|) (|Integer|) (46 . ~=)
-              (52 . |One|) (56 . |copy|) (61 . +) (|Mapping| 6 6 6 6 6)
+              (52 . |1|) (56 . |copy|) (61 . +) (|Mapping| 6 6 6 6 6)
               (67 . |mapUp!|) (74 . |value|)
               (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 29 '"failed")
               (79 . |extendedEuclidean|) |CRAPACK;chineseRemainder;2LR;2|

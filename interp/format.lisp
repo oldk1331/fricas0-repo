@@ -702,8 +702,6 @@
       (|formatSignature| |sig|)))))
 
 ; formatOpSymbol(op,sig) ==
-;   if op = 'Zero then op := "0"
-;   else if op = 'One then op := "1"
 ;   null sig => op
 ;   quad := specialChar 'quad
 ;   n := #sig
@@ -722,28 +720,25 @@
 (DEFUN |formatOpSymbol| (|op| |sig|)
   (PROG (|quad| |n|)
     (RETURN
-     (PROGN
-      (COND ((EQ |op| '|Zero|) (SETQ |op| '|0|))
-            ((EQ |op| '|One|) (SETQ |op| '|1|)))
-      (COND ((NULL |sig|) |op|)
-            (#1='T
-             (PROGN
-              (SETQ |quad| (|specialChar| '|quad|))
-              (SETQ |n| (LENGTH |sig|))
-              (COND ((AND (EQ |op| '|elt|) (EQL |n| 3)) |op|)
-                    ((OR (STRINGP |op|) (GETL |op| '|Led|) (GETL |op| '|Nud|))
-                     (COND
-                      ((EQL |n| 3)
-                       (PROGN
-                        (COND ((EQ |op| 'SEGMENT) (SETQ |op| "..")))
-                        (COND
-                         ((EQ |op| '|in|) (LIST |quad| " " |op| " " |quad|))
-                         (#1# (LIST |quad| |op| |quad|)))))
-                      ((EQL |n| 2)
-                       (COND ((NULL (GETL |op| '|Nud|)) (LIST |quad| |op|))
-                             (#1# (LIST |op| |quad|))))
-                      (#1# |op|)))
-                    (#1# |op|)))))))))
+     (COND ((NULL |sig|) |op|)
+           (#1='T
+            (PROGN
+             (SETQ |quad| (|specialChar| '|quad|))
+             (SETQ |n| (LENGTH |sig|))
+             (COND ((AND (EQ |op| '|elt|) (EQL |n| 3)) |op|)
+                   ((OR (STRINGP |op|) (GETL |op| '|Led|) (GETL |op| '|Nud|))
+                    (COND
+                     ((EQL |n| 3)
+                      (PROGN
+                       (COND ((EQ |op| 'SEGMENT) (SETQ |op| "..")))
+                       (COND
+                        ((EQ |op| '|in|) (LIST |quad| " " |op| " " |quad|))
+                        (#1# (LIST |quad| |op| |quad|)))))
+                     ((EQL |n| 2)
+                      (COND ((NULL (GETL |op| '|Nud|)) (LIST |quad| |op|))
+                            (#1# (LIST |op| |quad|))))
+                     (#1# |op|)))
+                   (#1# |op|))))))))
 
 ; dollarPercentTran x ==
 ;     -- Handle %. We actually return %% so that the message
@@ -989,8 +984,8 @@
 ;     STRINGIMAGE SIZE first argl
 ;   op = 'Join => formJoin2String argl
 ;   op = "ATTRIBUTE" => form2String1 first argl
-;   op='Zero => 0
-;   op='One => 1
+;   op = "0" => 0
+;   op = "1" => 1
 ;   op = 'AGGLST => tuple2String [form2String1 x for x in argl]
 ;   op = 'BRACKET =>
 ;     argl' := form2String1 first argl
@@ -1109,7 +1104,7 @@
           (STRINGIMAGE (SIZE (CAR |argl|))))
          ((EQ |op| '|Join|) (|formJoin2String| |argl|))
          ((EQ |op| 'ATTRIBUTE) (|form2String1| (CAR |argl|)))
-         ((EQ |op| '|Zero|) 0) ((EQ |op| '|One|) 1)
+         ((EQ |op| '|0|) 0) ((EQ |op| '|1|) 1)
          ((EQ |op| 'AGGLST)
           (|tuple2String|
            ((LAMBDA (|bfVar#32| |bfVar#31| |x|)
@@ -1413,8 +1408,8 @@
 ;      or op = 'BRACKET or op = 'AGGLST or op = "ATTRIBUTE"_
 ;      or op = "#" =>
 ;         concat('"(", form2String1(x), '")")
-;    op = "Zero" => '"0"
-;    op = "One" => '"1"
+;    op = "0" => '"0"
+;    op = "1" => '"1"
 ;    form2String1 x
 
 (DEFUN |appOrParen| (|x|)
@@ -1450,7 +1445,7 @@
                    (EQ |op| 'SIGNATURE) (EQ |op| 'BRACKET) (EQ |op| 'AGGLST)
                    (EQ |op| 'ATTRIBUTE) (EQ |op| '|#|))
                (|concat| "(" (|form2String1| |x|) ")"))
-              ((EQ |op| '|Zero|) "0") ((EQ |op| '|One|) "1")
+              ((EQ |op| '|0|) "0") ((EQ |op| '|1|) "1")
               (#1# (|form2String1| |x|)))))))))
 
 ; formWrapId id == id

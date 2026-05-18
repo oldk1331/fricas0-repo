@@ -299,11 +299,11 @@
 
 (MAKEPROP '|RDEaux| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |Zero|)
-              (|SparseUnivariatePolynomial| 6) (4 . |Zero|) (|Boolean|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |0|)
+              (|SparseUnivariatePolynomial| 6) (4 . |0|) (|Boolean|)
               (8 . |zero?|) (|Mapping| 10 8) (|List| 8) (13 . |every?|)
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
-              (19 . |extendedEuclidean|) (25 . |One|) (29 . ~=) (35 . *)
+              (19 . |extendedEuclidean|) (25 . |1|) (29 . ~=) (35 . *)
               (|Record| (|:| |quotient| %) (|:| |remainder| %)) (41 . |divide|)
               (47 . +) (53 . -) (|NonNegativeInteger|) (59 . |degree|)
               (|Record| (|:| |ans| 8) (|:| |remainder| 8))

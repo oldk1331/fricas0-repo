@@ -1114,8 +1114,8 @@
 (MAKEPROP '|RootUtilities| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|SingletonAsOrderedSet|) (0 . |create|) '|dummy| (4 . |One|)
-              (8 . |One|) (12 . -) (17 . |sqrt|) '|my_imag|
+              (|SingletonAsOrderedSet|) (0 . |create|) '|dummy| (4 . |1|)
+              (8 . |1|) (12 . -) (17 . |sqrt|) '|my_imag|
               (|Record| (|:| |exponent| 17) (|:| |coef| 7) (|:| |radicand| 7))
               (|NonNegativeInteger|)
               (|PolynomialRoots| (|IndexedExponents| (|Kernel| 7)) (|Kernel| 7)
@@ -1126,9 +1126,9 @@
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 29) (|:| |factor| 20) (|:| |exponent| 17))
               (|List| 30) (|Factored| 20) (61 . |factorList|) (|Integer|)
-              (66 . |elt|) (72 . |degree|) (|Boolean|) (77 . ~=) (83 . |Zero|)
+              (66 . |elt|) (72 . |degree|) (|Boolean|) (77 . ~=) (83 . |0|)
               (87 . |coefficient|) (93 . /) (99 . |my_sqrt|)
-              (|SparseMultivariatePolynomial| 6 (|Kernel| 7)) (104 . |One|)
+              (|SparseMultivariatePolynomial| 6 (|Kernel| 7)) (104 . |1|)
               (|Fraction| 34) (108 . /) (114 . ^) (120 . |my_root3|)
               (|Union| 34 '"failed") (|ElementaryFunctionSign| 6 7)
               (125 . |sign|) (130 . +) (136 . -) (142 . |coerce|)
@@ -1137,9 +1137,9 @@
               (|Record| (|:| |real| 7) (|:| |imag| 7))
               (|Record| (|:| |reals| (|List| 7)) (|:| |complexes| (|List| 64)))
               (|Union| 65 '"failed") (188 . |quartic2|)
-              (194 . |leadingCoefficient|) (199 . |One|) (203 . /)
-              (209 . |One|) (213 . |eval|) (220 . |reductum|) (225 . |ground?|)
-              (230 . |ground|) (235 . |Zero|) (239 . =) (|Union| % '"failed")
+              (194 . |leadingCoefficient|) (199 . |1|) (203 . /) (209 . |1|)
+              (213 . |eval|) (220 . |reductum|) (225 . |ground?|)
+              (230 . |ground|) (235 . |0|) (239 . =) (|Union| % '"failed")
               (245 . |exquo|) (|AlgebraicManipulations| 6 7) (251 . |rootSimp|)
               |ROOTUT;complex_roots;SupU;15| (|Union| (|List| 7) '"failed")
               |ROOTUT;radical_solve;SupU;16|)

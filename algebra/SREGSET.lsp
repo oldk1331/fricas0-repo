@@ -923,9 +923,9 @@
               (67 . |ground?|) (72 . |primitivePart|) (77 . |squareFreePart|)
               (82 . <) (88 . |init|) |SREGSET;invertible?;P%B;28|
               |SREGSET;augment;P%L;26| (|NonNegativeInteger|) (|List| $$)
-              (93 . |#|) (98 . |One|) (102 . ~=) (108 . |first|)
+              (93 . |#|) (98 . |1|) (102 . ~=) (108 . |first|)
               (113 . |algebraic?|) (119 . |select|) (125 . |lazyPrem|)
-              (131 . |zero?|) |SREGSET;removeZero;P%P;22| (136 . |Zero|)
+              (131 . |zero?|) |SREGSET;removeZero;P%P;22| (136 . |0|)
               (140 . |degree|) (146 . |mainMonomial|) (151 . *) (157 . +)
               (163 . |tail|) |SREGSET;internalAugment;P%5BL;25|
               |SREGSET;internalAugment;P2%;23| |SREGSET;internalAugment;L2%;24|

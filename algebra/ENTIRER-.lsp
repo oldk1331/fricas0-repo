@@ -61,7 +61,7 @@
 
 (MAKEPROP '|EntireRing&| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |One|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |1|)
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (4 . |unitNormal|) (9 . |unitNormal|)
               |ENTIRER-;unitCanonical;2S;2| (|Boolean|) (14 . |zero?|)

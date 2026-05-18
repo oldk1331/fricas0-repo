@@ -923,8 +923,8 @@
               |A1AGG-;setelt!;AUs2S;9| (44 . |empty?|) (|Mapping| 7 7 7)
               |A1AGG-;reduce;MAS;10| |A1AGG-;reduce;MA2S;11| (49 . ~=)
               (55 . |reduce|) (63 . |empty|) (67 . |new|) (73 . |first|)
-              (78 . |Zero|) (82 . |Zero|) |A1AGG-;map;M3A;15| (86 . |#|)
-              (91 . |elt|) |A1AGG-;merge;M3A;16| (97 . |incr|) (102 . |sign|)
+              (78 . |0|) (82 . |0|) |A1AGG-;map;M3A;15| (86 . |#|) (91 . |elt|)
+              |A1AGG-;merge;M3A;16| (97 . |incr|) (102 . |sign|)
               |A1AGG-;elt;AUsA;17| |A1AGG-;insert;2AIA;18| |A1AGG-;copy;2A;19|
               |A1AGG-;copyInto!;2AIA;20| |A1AGG-;construct;LA;21|
               (107 . |copy|) |A1AGG-;delete;AUsA;22| |A1AGG-;delete;AIA;23|

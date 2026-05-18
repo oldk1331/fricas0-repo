@@ -166,12 +166,12 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|local| |#5|) (|local| |#6|)
               (|local| |#7|) (|local| |#8|) (|NonNegativeInteger|)
-              (0 . |nrows|) (5 . |ncols|) (10 . |Zero|) (14 . |new|)
-              (|Integer|) (21 . |minRowIndex|) (26 . |maxRowIndex|)
-              (31 . |minRowIndex|) (36 . |maxRowIndex|) (41 . |minColIndex|)
-              (46 . |maxColIndex|) (51 . |minColIndex|) (56 . |maxColIndex|)
-              (61 . |qelt|) (68 . |qsetelt!|) (|Mapping| 10 6)
-              |MATCAT2;map;MM1M2;1| (|Boolean|) (|Union| 10 '"failed") (76 . =)
+              (0 . |nrows|) (5 . |ncols|) (10 . |0|) (14 . |new|) (|Integer|)
+              (21 . |minRowIndex|) (26 . |maxRowIndex|) (31 . |minRowIndex|)
+              (36 . |maxRowIndex|) (41 . |minColIndex|) (46 . |maxColIndex|)
+              (51 . |minColIndex|) (56 . |maxColIndex|) (61 . |qelt|)
+              (68 . |qsetelt!|) (|Mapping| 10 6) |MATCAT2;map;MM1M2;1|
+              (|Boolean|) (|Union| 10 '"failed") (76 . =)
               (|Union| 13 '"failed") (|Mapping| 33 6) |MATCAT2;map;MM1U;2|
               (|Mapping| 10 6 10) |MATCAT2;reduce;MM12R2;3|)
            '#(|reduce| 82 |map| 89) 'NIL

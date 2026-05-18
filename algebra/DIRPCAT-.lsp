@@ -208,7 +208,7 @@
               (|local| |#3|) (|Integer|) (0 . |coerce|) (5 . |coerce|)
               (10 . |coerce|) (|NonNegativeInteger|) (15 . |characteristic|)
               (19 . |characteristic|) (|Mapping| 8 8) (23 . |map|)
-              (29 . |differentiate|) (35 . |Zero|) (|Matrix| 8)
+              (29 . |differentiate|) (35 . |0|) (|Matrix| 8)
               (39 . |maxRowIndex|) (44 . |maxColIndex|) (49 . |qelt|)
               (|Boolean|) (|Matrix| 6) (55 . |empty?|) (60 . |vertConcat|)
               (66 . |maxRowIndex|) (|Vector| 6) (71 . |row|)

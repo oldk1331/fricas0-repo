@@ -564,13 +564,13 @@
 (MAKEPROP '|UnivariatePolynomialDecompositionPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|NonNegativeInteger|) (0 . |degree|) (5 . |One|) (9 . |One|)
+              (|NonNegativeInteger|) (0 . |degree|) (5 . |1|) (9 . |1|)
               (|Union| % '"failed") (13 . |subtractIfCan|)
-              (19 . |leadingCoefficient|) (24 . |monomial|) (30 . |Zero|)
+              (19 . |leadingCoefficient|) (24 . |monomial|) (30 . |0|)
               (|Integer|) (34 . |coerce|) (39 . +) (45 . *) (51 . -)
               (57 . |coefficient|) (63 . |exquo|) (69 . +)
               (75 . |characteristic|) '|char_R| (|Boolean|) (79 . |zero?|)
-              (84 . |Zero|) (88 . =) (94 . ^) (100 . *) (106 . *) (112 . -)
+              (84 . |0|) (88 . =) (94 . ^) (100 . *) (106 . *) (112 . -)
               (|Union| 7 '#1="failed") |UPDECOMP;rightFactorIfCan;UPNniRU;2|
               |UPDECOMP;monicRightFactorIfCan;UPNniU;3| (118 . |zero?|)
               (|Record| (|:| |quotient| 7) (|:| |remainder| 7))

@@ -722,16 +722,16 @@
                             2)))))))
                 (EXIT (CONS 1 "failed"))))) 
 
-(SDEFUN |PATTERN;One;%;38| ((% (%)))
+(SDEFUN |PATTERN;1;%;38| ((% (%)))
         (SPADCALL (|spadConstant| % 92) (QREFELT % 18))) 
 
-(SDEFUN |PATTERN;One;%;39| ((% (%)))
+(SDEFUN |PATTERN;1;%;39| ((% (%)))
         (|PATTERN;taggedElt| 5 (SPADCALL (QREFELT % 93)) %)) 
 
-(SDEFUN |PATTERN;Zero;%;40| ((% (%)))
+(SDEFUN |PATTERN;0;%;40| ((% (%)))
         (SPADCALL (|spadConstant| % 94) (QREFELT % 18))) 
 
-(SDEFUN |PATTERN;Zero;%;41| ((% (%)))
+(SDEFUN |PATTERN;0;%;41| ((% (%)))
         (|PATTERN;taggedElt| 4 (SPADCALL (QREFELT % 93)) %)) 
 
 (SDEFUN |PATTERN;^;%Nni%;42| ((|p| (%)) (|n| (|NonNegativeInteger|)) (% (%)))
@@ -3258,23 +3258,23 @@
            ((|HasCategory| |#1| '(|Monoid|))
             (QSETREFV % 71
                       (CONS #'|makeSpadConstant|
-                            (LIST (|dispatchFunction| |PATTERN;One;%;38|) %
+                            (LIST (|dispatchFunction| |PATTERN;1;%;38|) %
                                   71))))
            ('T
             (QSETREFV % 71
                       (CONS #'|makeSpadConstant|
-                            (LIST (|dispatchFunction| |PATTERN;One;%;39|) %
+                            (LIST (|dispatchFunction| |PATTERN;1;%;39|) %
                                   71)))))
           (COND
            ((|HasCategory| |#1| '(|AbelianMonoid|))
             (QSETREFV % 87
                       (CONS #'|makeSpadConstant|
-                            (LIST (|dispatchFunction| |PATTERN;Zero;%;40|) %
+                            (LIST (|dispatchFunction| |PATTERN;0;%;40|) %
                                   87))))
            ('T
             (QSETREFV % 87
                       (CONS #'|makeSpadConstant|
-                            (LIST (|dispatchFunction| |PATTERN;Zero;%;41|) %
+                            (LIST (|dispatchFunction| |PATTERN;0;%;41|) %
                                   87)))))
           %))) 
 
@@ -3321,28 +3321,27 @@
               |PATTERN;withPredicates;%L%;27| |PATTERN;patternVariable;S3B%;59|
               |PATTERN;coerce;S%;28| (|List| $$) (26 . |rest|) (31 . |empty?|)
               (36 . |first|) (41 . |reverse|) |PATTERN;optpair;LU;30|
-              (46 . |One|) (50 . |max|) (|Mapping| 26 26 26) (|List| 26)
+              (46 . |1|) (50 . |max|) (|Mapping| 26 26 26) (|List| 26)
               (56 . |reduce|) (63 . =) |PATTERN;=;2%B;32| (69 . |second|)
               (|Record| (|:| |val| %) (|:| |exponent| %))
               (|Union| 79 '"failed") |PATTERN;isPower;%U;33| (|Mapping| 19 $$)
-              (74 . |every?|) (80 . |is?|) (86 . |#|) (91 . |last|)
-              (96 . |Zero|) |PATTERN;elt;BoL%;35|
-              (|Record| (|:| |op| 10) (|:| |arg| 56)) (|Union| 89 '"failed")
-              |PATTERN;isOp;%U;36| (100 . |One|) (104 . |empty|) (108 . |Zero|)
-              |PATTERN;^;%Nni%;42| |PATTERN;/;3%;43| (112 . |concat|)
-              (118 . |concat|) (124 . |concat|) |PATTERN;+;3%;44|
-              |PATTERN;*;3%;45| (130 . =) |PATTERN;isOp;%BoU;46|
-              |PATTERN;resetBadValues;2%;49| (136 . |member?|)
-              |PATTERN;addBadValue;%A%;50| |PATTERN;getBadValues;%L;51|
-              (142 . |coerce|) (|String|) (147 . |message|) (152 . |and|)
-              (158 . |coerce|) (163 . |sub|) (169 . |infix|) (176 . |paren|)
-              |PATTERN;variables;%L;53| (181 . |concat!|) (187 . |concat|)
-              (192 . |coerce|) (197 . ^) (203 . /) (209 . +) (215 . *)
-              (221 . |coerce|) (226 . |coerce|) (|Mapping| 49 53)
-              (|Union| 126 '"failed") (231 . |display|) (236 . |name|)
-              (241 . |prefix|) (247 . |copy|) (252 . =) (|Set| 13)
-              (258 . |set|) (263 . =) (269 . =) (|Union| 8 '"failed")
-              |PATTERN;retractIfCan;%U;57|)
+              (74 . |every?|) (80 . |is?|) (86 . |#|) (91 . |last|) (96 . |0|)
+              |PATTERN;elt;BoL%;35| (|Record| (|:| |op| 10) (|:| |arg| 56))
+              (|Union| 89 '"failed") |PATTERN;isOp;%U;36| (100 . |1|)
+              (104 . |empty|) (108 . |0|) |PATTERN;^;%Nni%;42|
+              |PATTERN;/;3%;43| (112 . |concat|) (118 . |concat|)
+              (124 . |concat|) |PATTERN;+;3%;44| |PATTERN;*;3%;45| (130 . =)
+              |PATTERN;isOp;%BoU;46| |PATTERN;resetBadValues;2%;49|
+              (136 . |member?|) |PATTERN;addBadValue;%A%;50|
+              |PATTERN;getBadValues;%L;51| (142 . |coerce|) (|String|)
+              (147 . |message|) (152 . |and|) (158 . |coerce|) (163 . |sub|)
+              (169 . |infix|) (176 . |paren|) |PATTERN;variables;%L;53|
+              (181 . |concat!|) (187 . |concat|) (192 . |coerce|) (197 . ^)
+              (203 . /) (209 . +) (215 . *) (221 . |coerce|) (226 . |coerce|)
+              (|Mapping| 49 53) (|Union| 126 '"failed") (231 . |display|)
+              (236 . |name|) (241 . |prefix|) (247 . |copy|) (252 . =)
+              (|Set| 13) (258 . |set|) (263 . =) (269 . =)
+              (|Union| 8 '"failed") |PATTERN;retractIfCan;%U;57|)
            '#(~= 275 |withPredicates| 281 |variables| 287 |topPredicate| 292
               |symbol?| 297 |setTopPredicate| 302 |setPredicates| 309
               |retractIfCan| 315 |retract| 325 |resetBadValues| 335 |quoted?|
@@ -3352,8 +3351,7 @@
               409 |isExpt| 414 |inR?| 419 |hasTopPredicate?| 424
               |hasPredicate?| 429 |getBadValues| 434 |generic?| 439 |elt| 444
               |depth| 450 |copy| 455 |convert| 460 |constant?| 465 |coerce| 470
-              |addBadValue| 485 ^ 491 |Zero| 503 |One| 507 = 511 / 517 + 523 *
-              529)
+              |addBadValue| 485 ^ 491 = 503 |1| 509 |0| 513 / 517 + 523 * 529)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
@@ -3396,7 +3394,7 @@
                                          44 2 0 0 10 56 88 1 0 26 0 27 1 0 0 0
                                          60 1 0 0 56 57 1 0 19 0 25 1 0 49 0 50
                                          1 0 0 6 18 1 0 0 8 64 2 0 0 0 13 106 2
-                                         0 0 0 26 95 2 0 0 0 0 51 0 0 0 87 0 0
-                                         0 71 2 0 19 0 0 77 2 0 0 0 0 96 2 0 0
-                                         0 0 100 2 0 0 0 0 101)))))
+                                         0 0 0 26 95 2 0 0 0 0 51 2 0 19 0 0 77
+                                         0 0 0 71 0 0 0 87 2 0 0 0 0 96 2 0 0 0
+                                         0 100 2 0 0 0 0 101)))))
            '|lookupComplete|)) 

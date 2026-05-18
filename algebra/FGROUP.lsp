@@ -1,5 +1,5 @@
 
-(SDEFUN |FGROUP;One;%;1| ((% (%))) (SPADCALL (QREFELT % 9))) 
+(SDEFUN |FGROUP;1;%;1| ((% (%))) (SPADCALL (QREFELT % 9))) 
 
 (SDEFUN |FGROUP;one?;%B;2| ((|f| (%)) (% (|Boolean|)))
         (NULL (SPADCALL |f| (QREFELT % 12)))) 
@@ -172,7 +172,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|ListMonoidOps| 6 15 (NRTEVAL 1))
               (|local| |#1|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FGROUP;One;%;1|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FGROUP;1;%;1|) %))
               '|Rep| (0 . |makeUnit|) (|Record| (|:| |gen| 6) (|:| |exp| 15))
               (|List| 10) (4 . |listOfMonoms|) (|Boolean|) |FGROUP;one?;%B;2|
               (|Integer|) (9 . |makeTerm|) |FGROUP;^;SI%;3| (15 . |rightMult|)
@@ -191,7 +191,7 @@
               |one?| 162 |nthFactor| 167 |nthExpon| 173 |mapGen| 179 |mapExpon|
               185 |leftRecip| 191 |leftPower| 196 |latex| 208 |inv| 213
               |factors| 218 |conjugate| 223 |commutator| 229 |coerce| 235 ^ 245
-              |One| 269 = 273 / 279 * 285)
+              = 269 |1| 275 / 279 * 285)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 1 0 0 0 0 0 0 0 0))
                  (CONS
@@ -219,7 +219,7 @@
                                          47 1 2 0 0 0 49 1 1 0 46 0 1 1 0 0 0
                                          26 1 0 11 0 28 2 0 0 0 0 1 2 0 0 0 0 1
                                          1 0 33 0 38 1 0 0 6 1 2 0 0 0 47 1 2 0
-                                         0 0 49 1 2 0 0 0 15 1 2 0 0 6 15 17 0
-                                         0 0 7 2 0 13 0 0 1 2 0 0 0 0 1 2 0 0 0
+                                         0 0 49 1 2 0 0 0 15 1 2 0 0 6 15 17 2
+                                         0 13 0 0 1 0 0 0 7 2 0 0 0 0 1 2 0 0 0
                                          0 43 2 0 0 6 0 21 2 0 0 0 6 19)))))
            '|lookupComplete|)) 

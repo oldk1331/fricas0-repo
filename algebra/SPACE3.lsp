@@ -844,7 +844,7 @@
               (5 . |extractProperty|) (|NonNegativeInteger|)
               (10 . |extractIndex|) (|List| 17) (15 . |pointData|) (|Point| 6)
               (20 . |addPoint2|) (26 . |addPointLast|) |SPACE3;polygon;%L%;2|
-              (34 . |new|) (38 . |Zero|) |SPACE3;create3Space;%;3|
+              (34 . |new|) (38 . |0|) |SPACE3;create3Space;%;3|
               |SPACE3;create3Space;Ss%;4| |SPACE3;numberOfComponents;%Nni;5|
               (42 . |merge|) |SPACE3;merge;L%;6| |SPACE3;merge;3%;7|
               (47 . |separate|) |SPACE3;components;%L;8| (52 . |deepCopy|)
@@ -872,7 +872,7 @@
               (150 . |append|) |SPACE3;mesh;%L2B%;38| (156 . |new|)
               |SPACE3;lp;%L;40| (|List| (|List| 39)) |SPACE3;lllip;%L;41|
               (|List| 84) |SPACE3;llprop;%L;42| |SPACE3;lprop;%L;43|
-              (162 . |One|) (166 . ~=)
+              (162 . |1|) (166 . ~=)
               (|Record| (|:| |points| 13) (|:| |curves| 13) (|:| |polygons| 13)
                         (|:| |constructs| 13))
               |SPACE3;objects;%R;44| |SPACE3;check;2%;45|

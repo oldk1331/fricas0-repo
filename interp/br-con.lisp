@@ -1618,8 +1618,8 @@
 ;     ["%", :storedArgs], get_database(opOf(conform), 'DOCUMENTATION))
 ;       repeat
 ;        op1 :=
-;          op = '(Zero) => 0
-;          op = '(One) => 1
+;          op = ["0"] => 0
+;          op = ["1"] => 1
 ;          op
 ;        for [sig,doc] in alist repeat
 ;          HPUT($docTable,op1,[[conform,:alist],:HGET($docTable,op1)])
@@ -1644,8 +1644,8 @@
                   #1#)
                  (PROGN
                   (SETQ |op1|
-                          (COND ((EQUAL |op| '(|Zero|)) 0)
-                                ((EQUAL |op| '(|One|)) 1) (#1# |op|)))
+                          (COND ((EQUAL |op| (LIST '|0|)) 0)
+                                ((EQUAL |op| (LIST '|1|)) 1) (#1# |op|)))
                   ((LAMBDA (|bfVar#58| |bfVar#57|)
                      (LOOP
                       (COND

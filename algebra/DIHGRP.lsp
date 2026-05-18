@@ -19,7 +19,7 @@
 (SDEFUN |DIHGRP;exponentb;%I;6| ((|x| (%)) (% (|Integer|)))
         (SPADCALL (SPADCALL |x| (QREFELT % 13)) (QREFELT % 17))) 
 
-(SDEFUN |DIHGRP;One;%;7| ((% (%)))
+(SDEFUN |DIHGRP;1;%;7| ((% (%)))
         (|DIHGRP;per| (CONS (|spadConstant| % 19) (|spadConstant| % 20)) %)) 
 
 (SDEFUN |DIHGRP;one?;%B;8| ((|x| (%)) (% (|Boolean|)))
@@ -232,13 +232,12 @@
               (|local| |#3|) '|Rep| (|IntegerMod| (NRTEVAL (QREFELT % 6)))
               |DIHGRP;expa;%Im;3| (|IntegerMod| '2) |DIHGRP;expb;%Im;4|
               (|Integer|) (0 . |convert|) |DIHGRP;exponenta;%I;5|
-              (5 . |convert|) |DIHGRP;exponentb;%I;6| (10 . |Zero|)
-              (14 . |Zero|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |DIHGRP;One;%;7|) %))
+              (5 . |convert|) |DIHGRP;exponentb;%I;6| (10 . |0|) (14 . |0|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |DIHGRP;1;%;7|) %))
               (|Boolean|) (18 . |zero?|) (23 . |zero?|) |DIHGRP;one?;%B;8|
               (|OutputForm|) (28 . |coerce|) (|Symbol|) (33 . |coerce|)
               (38 . |one?|) (43 . |coerce|) (48 . ^) (54 . *)
-              |DIHGRP;coerce;%Of;9| (60 . |One|) (64 . |One|) (|List| %)
+              |DIHGRP;coerce;%Of;9| (60 . |1|) (64 . |1|) (|List| %)
               |DIHGRP;generators;L;10| (68 . +) (74 . -) (80 . +)
               |DIHGRP;*;3%;11| (86 . -) |DIHGRP;inv;2%;12| (91 . |one?|)
               |DIHGRP;order;%I;13| (96 . =) (102 . =) |DIHGRP;=;2%B;14|
@@ -254,7 +253,7 @@
               202 |index| 207 |hashUpdate!| 212 |hash| 218 |generators| 223
               |exponentb| 227 |exponenta| 232 |expb| 237 |expa| 242 |enumerate|
               247 |convert| 251 |conjugate| 256 |commutator| 262 |coerce| 268 ^
-              273 |One| 291 = 295 / 301 * 307)
+              273 = 291 |1| 297 / 301 * 307)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -285,7 +284,7 @@
                                          38 1 0 14 0 18 1 0 14 0 16 1 0 12 0 13
                                          1 0 10 0 11 0 0 37 59 1 0 64 0 1 2 0 0
                                          0 0 1 2 0 0 0 0 1 1 0 26 0 34 2 0 0 0
-                                         54 1 2 0 0 0 51 1 2 0 0 0 14 1 0 0 0
-                                         21 2 0 22 0 0 49 2 0 0 0 0 1 2 0 0 0 0
+                                         54 1 2 0 0 0 51 1 2 0 0 0 14 1 2 0 22
+                                         0 0 49 0 0 0 21 2 0 0 0 0 1 2 0 0 0 0
                                          42)))))
            '|lookupComplete|)) 

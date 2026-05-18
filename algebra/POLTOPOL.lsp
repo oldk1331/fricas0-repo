@@ -124,8 +124,8 @@
               (|MPolyCatFunctions3| 10 9 36 (|IndexedExponents| 9) 7 23 14)
               (22 . |map|) |POLTOPOL;dmpToP;DmpP;4|
               (|MPolyCatFunctions3| 9 10 (|IndexedExponents| 9) 36 7 14 23)
-              (28 . |map|) |POLTOPOL;pToDmp;PDmp;5| (34 . |Zero|) (38 . |Zero|)
-              (|Boolean|) (42 . =) (48 . |Zero|) (52 . |leadingCoefficient|)
+              (28 . |map|) |POLTOPOL;pToDmp;PDmp;5| (34 . |0|) (38 . |0|)
+              (|Boolean|) (42 . =) (48 . |0|) (52 . |leadingCoefficient|)
               (|DirectProduct| (NRTEVAL (LENGTH (QREFELT % 6)))
                                (|NonNegativeInteger|))
               (57 . |degree|) (|Vector| (|NonNegativeInteger|)) (62 . |coerce|)

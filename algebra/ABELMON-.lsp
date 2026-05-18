@@ -36,7 +36,7 @@
 
 (MAKEPROP '|AbelianMonoid&| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |Zero|) (|Boolean|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |0|) (|Boolean|)
               (4 . =) |ABELMON-;zero?;SB;1| (|NonNegativeInteger|) (10 . *)
               (|PositiveInteger|) |ABELMON-;*;Pi2S;2| |ABELMON-;sample;S;3|
               (|RepeatedDoubling| 6) (16 . |double|) (22 . *) (28 . +)

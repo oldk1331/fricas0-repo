@@ -157,9 +157,9 @@
 
 (MAKEPROP '|PathArrayPackage| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |Zero|) (|Stream| 6)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |0|) (|Stream| 6)
               (4 . |cons|) (10 . |first|) (15 . *) (21 . +) (27 . |rest|)
-              (32 . |One|) (|Mapping| 16 16) (|List| 6) (|Stream| 16)
+              (32 . |1|) (|Mapping| 16 16) (|List| 6) (|Stream| 16)
               (36 . |stream|) |PARRPKG;motzkinPathArray;3SS;3|
               |PARRPKG;jacobiPathArray;2SS;4| (42 . |first|) (|Mapping| 6 16)
               (|StreamFunctions2| 16 6) (47 . |map|) |PARRPKG;bottom;SS;5|)

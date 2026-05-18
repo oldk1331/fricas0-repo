@@ -1453,16 +1453,16 @@
               (139 . |first|) (144 . |rest|) |STREAM;concat;L%;33|
               (|UniversalSegment| 32) (149 . |low|) (154 . |hasHi|)
               (159 . |high|) (164 . |rest|) |STREAM;setelt!;%Us2S;34|
-              |STREAM;lazyEvaluate;2%;37| (170 . |Zero|) (174 . |Zero|)
-              (178 . =) (184 . |One|) (188 . |One|) (192 . -)
-              |STREAM;cons;S2%;41| |STREAM;setrest!;3%;49|
-              |STREAM;cycleSplit!;2%;42| |STREAM;concat!;3%;45|
-              |STREAM;concat!;%S%;46| |STREAM;setfirst!;%2S;47| '"first"
-              |STREAM;setelt!;%first2S;48| '"rest" |STREAM;setelt!;%rest2%;50|
-              |STREAM;setlast!;%2S;51| '"last" |STREAM;setelt!;%last2S;52|
-              |STREAM;split!;%Nni%;53| |STREAM;coerce;L%;54|
-              |STREAM;repeating;L%;55| (198 . =) (204 . =) (210 . ~=)
-              (216 . |repeating?|) |STREAM;explicitEntries?;%B;59|
+              |STREAM;lazyEvaluate;2%;37| (170 . |0|) (174 . |0|) (178 . =)
+              (184 . |1|) (188 . |1|) (192 . -) |STREAM;cons;S2%;41|
+              |STREAM;setrest!;3%;49| |STREAM;cycleSplit!;2%;42|
+              |STREAM;concat!;3%;45| |STREAM;concat!;%S%;46|
+              |STREAM;setfirst!;%2S;47| '"first" |STREAM;setelt!;%first2S;48|
+              '"rest" |STREAM;setelt!;%rest2%;50| |STREAM;setlast!;%2S;51|
+              '"last" |STREAM;setelt!;%last2S;52| |STREAM;split!;%Nni%;53|
+              |STREAM;coerce;L%;54| |STREAM;repeating;L%;55| (198 . =)
+              (204 . =) (210 . ~=) (216 . |repeating?|)
+              |STREAM;explicitEntries?;%B;59|
               |STREAM;numberOfComputedEntries;%Nni;60|
               |STREAM;setrest!;%I2%;62| (|Mapping| 6) |STREAM;stream;M%;63|
               |STREAM;stream;MS%;65| |STREAM;filterWhile;M2%;68|

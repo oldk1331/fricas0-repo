@@ -2997,8 +2997,8 @@
               (|List| 110) (|PermutationGroup| 23) (367 . |permutationGroup|)
               (|Union| 113 '"failed") |GROUPP;toPermutationIfCan;%BU;47|
               |GROUPP;toPermutationIfCan;%U;46|
-              |GROUPP;toPermutationIfCan;%LBU;49| (372 . |One|)
-              (376 . |concat|) (382 . |coerce|) (387 . |parts|))
+              |GROUPP;toPermutationIfCan;%LBU;49| (372 . |1|) (376 . |concat|)
+              (382 . |coerce|) (387 . |parts|))
            '#(~= 392 |toPermutationIfCan| 398 |symmetricGroup| 416 |simplify|
               421 |refactor| 432 |quotient| 437 |latex| 449 |groupPresentation|
               454 |directProduct| 469 |dihedralGroup| 475 |cyclicGroup| 480

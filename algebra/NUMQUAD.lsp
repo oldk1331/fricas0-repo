@@ -922,22 +922,21 @@
 
 (MAKEPROP '|NumericalQuadrature| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |Zero|) (4 . -)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |0|) (4 . -)
               (|Integer|) (10 . /) (16 . +) (|OutputForm|) (22 . |coerce|)
               (|Record| (|:| |value| 6) (|:| |error| 6) (|:| |totalpts| 9)
                         (|:| |success| 36))
-              (|Mapping| 6 6) |NUMQUAD;romberg;M4F2IR;4| (27 . |One|)
-              (|List| 12) (31 . |setelt!|) (|String|) (38 . |message|)
-              (|List| %) (43 . |blankSeparate|) (|Void|) (48 . |print|)
-              (53 . |abs|) |NUMQUAD;aromberg;M4F3IR;1|
-              |NUMQUAD;simpson;M4F2IR;5| |NUMQUAD;asimpson;M4F3IR;2|
-              |NUMQUAD;trapezoidal;M4F2IR;6| |NUMQUAD;atrapezoidal;M4F3IR;3|
-              (58 . *) (64 . |coerce|) (|OutputPackage|) (69 . |output|)
-              (|Boolean|) (75 . =) (81 . <) (|PositiveInteger|) (87 . *)
-              (|Vector| 6) (93 . |setelt!|) (100 . |elt|) (|Fraction| 9)
-              (106 . /) (112 . *) (118 . |output|) (123 . |coerce|)
-              |NUMQUAD;rombergo;M4F2IR;7| |NUMQUAD;simpsono;M4F2IR;8|
-              |NUMQUAD;trapezoidalo;M4F2IR;9|)
+              (|Mapping| 6 6) |NUMQUAD;romberg;M4F2IR;4| (27 . |1|) (|List| 12)
+              (31 . |setelt!|) (|String|) (38 . |message|) (|List| %)
+              (43 . |blankSeparate|) (|Void|) (48 . |print|) (53 . |abs|)
+              |NUMQUAD;aromberg;M4F3IR;1| |NUMQUAD;simpson;M4F2IR;5|
+              |NUMQUAD;asimpson;M4F3IR;2| |NUMQUAD;trapezoidal;M4F2IR;6|
+              |NUMQUAD;atrapezoidal;M4F3IR;3| (58 . *) (64 . |coerce|)
+              (|OutputPackage|) (69 . |output|) (|Boolean|) (75 . =) (81 . <)
+              (|PositiveInteger|) (87 . *) (|Vector| 6) (93 . |setelt!|)
+              (100 . |elt|) (|Fraction| 9) (106 . /) (112 . *) (118 . |output|)
+              (123 . |coerce|) |NUMQUAD;rombergo;M4F2IR;7|
+              |NUMQUAD;simpsono;M4F2IR;8| |NUMQUAD;trapezoidalo;M4F2IR;9|)
            '#(|trapezoidalo| 128 |trapezoidal| 139 |simpsono| 150 |simpson| 161
               |rombergo| 172 |romberg| 183 |atrapezoidal| 194 |asimpson| 206
               |aromberg| 218)

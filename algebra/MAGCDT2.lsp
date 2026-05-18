@@ -353,9 +353,9 @@
               |MAGCDT2;pack_exps;2IRSev;2| (17 . |degree|) (|Void|)
               (|PrimitiveArray| 12) |MAGCDT2;repack1;PaUvIRV;3|
               (|SparseUnivariatePolynomial| %) (|Symbol|) (22 . |univariate|)
-              (28 . |One|) (|NonNegativeInteger|)
-              (|SparseUnivariatePolynomial| 10) (32 . |degree|) (37 . |Zero|)
-              (41 . |Zero|) (45 . ~=) (51 . |leadingCoefficient|)
+              (28 . |1|) (|NonNegativeInteger|)
+              (|SparseUnivariatePolynomial| 10) (32 . |degree|) (37 . |0|)
+              (41 . |0|) (45 . ~=) (51 . |leadingCoefficient|)
               (56 . |reductum|) (|Union| 24 '"failed")
               |MAGCDT2;MPtoMPT;PSLRU;4| |MAGCDT2;degree;PaI;7|
               |MAGCDT2;zero?;PaB;6| (|List| 12) (61 . |extended_gcd|)

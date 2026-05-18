@@ -131,7 +131,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|Vector| 7) (0 . |coordinates|) |FRMOD-;convert;SV;1|
               (5 . |represents|) |FRMOD-;convert;VS;2| (|PositiveInteger|)
-              (10 . |rank|) (14 . |Zero|) (|Integer|) (|Vector| 6)
+              (10 . |rank|) (14 . |0|) (|Integer|) (|Vector| 6)
               (18 . |minIndex|) (|Matrix| 7) (23 . |setRow!|) (|Vector| %)
               |FRMOD-;coordinates;VM;3| (|NonNegativeInteger|) (30 . |size|)
               (34 . |index|) (|List| 7) (39 . |vector|) (44 . |index|)

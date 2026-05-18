@@ -93,7 +93,7 @@
 (MAKEPROP '|CommuteUnivariatePolynomialCategory| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (0 . |Zero|) (4 . |Zero|) (8 . |Zero|) (|Boolean|)
+              (|local| |#3|) (0 . |0|) (4 . |0|) (8 . |0|) (|Boolean|)
               (12 . ~=) (18 . |leadingCoefficient|) (|NonNegativeInteger|)
               (23 . |degree|) (28 . +) (34 . |reductum|) |COMMUPC;swap;2UPUP;1|
               (39 . ~=) (45 . |leadingCoefficient|) (50 . |monomial|)

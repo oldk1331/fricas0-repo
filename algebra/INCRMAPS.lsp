@@ -50,7 +50,7 @@
 
 (MAKEPROP '|IncrementingMaps| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |One|) (4 . +)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |1|) (4 . +)
               (|Mapping| 6 6) |INCRMAPS;increment;M;1|
               |INCRMAPS;incrementBy;RM;2|)
            '#(|incrementBy| 10 |increment| 15) 'NIL

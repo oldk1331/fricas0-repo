@@ -143,9 +143,9 @@
                                             '(|Integer|) #4#))
                         |lower| (QREFELT % 42)))))))))) 
 
-(MAKEPROP '|JBUNDLE;One;%;12| '|SPADreplace| '(XLAM NIL (LIST 0 1))) 
+(MAKEPROP '|JBUNDLE;1;%;12| '|SPADreplace| '(XLAM NIL (LIST 0 1))) 
 
-(SDEFUN |JBUNDLE;One;%;12| ((% (%))) (LIST 0 1)) 
+(SDEFUN |JBUNDLE;1;%;12| ((% (%))) (LIST 0 1)) 
 
 (SDEFUN |JBUNDLE;numIndVar;Pi;13| ((% (|PositiveInteger|)))
         (SPROG ((#1=#:G57 NIL))
@@ -298,22 +298,21 @@
               |JBUNDLE;getNotation;S;2| (15 . |copy|) (|List| 33)
               |JBUNDLE;multiIndex;%L;3| (|PositiveInteger|)
               |JBUNDLE;index;%Pi;4| |JBUNDLE;type;%S;5|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |JBUNDLE;One;%;12|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |JBUNDLE;1;%;12|) %))
               |JBUNDLE;X;Pi%;7| |JBUNDLE;U;Pi%;8| (|NonNegativeInteger|)
               (20 . |#|) (|Boolean|) (25 . ~=) |JBUNDLE;Pm;PiL%;9| (|Integer|)
               (31 . |position|) |JBUNDLE;coerce;S%;10| (|List| 27) (37 . |Pr|)
               |JBUNDLE;D;SL%;11| |JBUNDLE;numIndVar;Pi;13|
               |JBUNDLE;numDepVar;Pi;14| (43 . |repeatedIndex|) (48 . |coerce|)
               (|List| 17) (53 . |subscript|) |JBUNDLE;name;%S;15|
-              (|Expression| 38) (59 . |One|) (|BasicOperator|)
-              (63 . |operator|) (|Mapping| 17 48) (68 . |display|) (|None|)
-              (|NoneFunctions1| $$) (74 . |coerce|) (79 . |setProperty|)
-              (86 . |weight|) (|NoneFunctions1| 33) (91 . |coerce|)
-              (|NoneFunctions1| 21) (96 . |coerce|) (101 . |coerce|)
-              (106 . |coerce|) (|List| 51) (111 . |concat!|) (|List| %)
-              (117 . |kernel|) |JBUNDLE;coerce;%E;17| (|List| 41)
-              (|Union| % '"0") (|Union| % '"failed"))
+              (|Expression| 38) (59 . |1|) (|BasicOperator|) (63 . |operator|)
+              (|Mapping| 17 48) (68 . |display|) (|None|) (|NoneFunctions1| $$)
+              (74 . |coerce|) (79 . |setProperty|) (86 . |weight|)
+              (|NoneFunctions1| 33) (91 . |coerce|) (|NoneFunctions1| 21)
+              (96 . |coerce|) (101 . |coerce|) (106 . |coerce|) (|List| 51)
+              (111 . |concat!|) (|List| %) (117 . |kernel|)
+              |JBUNDLE;coerce;%E;17| (|List| 41) (|Union| % '"0")
+              (|Union| % '"failed"))
            '#(~= 123 |weight| 129 |variables| 134 |type| 145 |smaller?| 150
               |setNotation| 156 |repeatedIndex| 161 |r2m| 166 |order| 171
               |one?| 176 |numIndVar| 181 |numDepVar| 185 |name| 189
@@ -321,7 +320,7 @@
               |integrateIfCan| 221 |integrate| 227 |index| 233 |getNotation|
               238 |dimS| 242 |dimJ| 247 |differentiate| 252 |derivativeOf?| 258
               |coerce| 264 |class| 279 |allRepeated| 289 X 294 U 303 |Pr| 312
-              |Pm| 318 P 324 |One| 346 D 350 >= 356 > 362 = 368 <= 374 < 380)
+              |Pm| 318 P 324 D 346 >= 352 > 358 = 364 <= 370 < 376 |1| 382)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
@@ -353,8 +352,8 @@
                                          1 0 33 25 1 1 0 73 25 1 1 0 0 27 31 0
                                          0 0 1 1 0 0 27 32 0 0 0 1 2 0 0 27 41
                                          42 2 0 0 27 25 37 2 0 0 27 25 1 1 0 0
-                                         25 1 2 0 0 27 33 1 1 0 0 33 1 0 0 0 30
-                                         2 0 0 21 10 43 2 0 35 0 0 1 2 0 35 0 0
-                                         1 2 0 35 0 0 1 2 0 35 0 0 1 2 0 35 0 0
-                                         1)))))
+                                         25 1 2 0 0 27 33 1 1 0 0 33 1 2 0 0 21
+                                         10 43 2 0 35 0 0 1 2 0 35 0 0 1 2 0 35
+                                         0 0 1 2 0 35 0 0 1 2 0 35 0 0 1 0 0 0
+                                         30)))))
            '|lookupComplete|)) 

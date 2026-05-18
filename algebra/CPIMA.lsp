@@ -83,11 +83,11 @@
 (MAKEPROP '|CharacteristicPolynomialInMonogenicalAlgebra| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (0 . |Zero|) (4 . |Zero|) (|NonNegativeInteger|)
-              (8 . |Zero|) (12 . |monomial|) (|SparseUnivariatePolynomial| 7)
+              (|local| |#3|) (0 . |0|) (4 . |0|) (|NonNegativeInteger|)
+              (8 . |0|) (12 . |monomial|) (|SparseUnivariatePolynomial| 7)
               (|Mapping| 7 6)
               (|UnivariatePolynomialCategoryFunctions2| 6 7 7 14) (18 . |map|)
-              (24 . |definingPolynomial|) 'P (28 . |One|) (32 . |One|)
+              (24 . |definingPolynomial|) 'P (28 . |1|) (32 . |1|)
               (36 . |monomial|) 'X (42 . |lift|) (47 . -) (53 . |resultant|)
               (59 . |characteristicPolynomial|))
            '#(|characteristicPolynomial| 64) 'NIL

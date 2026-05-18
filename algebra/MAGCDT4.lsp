@@ -131,15 +131,15 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|ModularAlgebraicGcdTools3|)
               (|Record| (|:| |numer| 9) (|:| |denom| 9)) (|FakePolynomial|)
-              (0 . |ground|) (|Polynomial| 17) (5 . |One|) (|Boolean|) (9 . =)
+              (0 . |ground|) (|Polynomial| 17) (5 . |1|) (|Boolean|) (9 . =)
               (|Record| (|:| |svz| 16) (|:| |sm| 15) (|:| |msizes| (|List| 17))
                         (|:| |sp| 17))
               (|Union| 13 '#1="failed") (|List| 9) (|List| 34) (|Integer|)
               (15 . |pack_modulus|) (|List| 7) |MAGCDT4;pack_modulus;LLIU;2|
-              (22 . |Zero|) (|NonNegativeInteger|)
+              (22 . |0|) (|NonNegativeInteger|)
               (|SparseUnivariatePolynomial| 9) (26 . |monomial|)
               (32 . |coerce|) (37 . +) (|Union| 23 '#1#)
-              (43 . |canonicalIfCan|) (49 . |Zero|) (53 . |coefficient|)
+              (43 . |canonicalIfCan|) (49 . |0|) (53 . |coefficient|)
               (|Union| 9 '"failed") (|Mapping| 31 6) (59 . |map|) (|Symbol|)
               |MAGCDT4;MPtoMPT;FpSLRU;4| (|SortedExponentVector|) (|Void|)
               (|U32Vector|))

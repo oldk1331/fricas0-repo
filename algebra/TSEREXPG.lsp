@@ -211,11 +211,11 @@
 (MAKEPROP '|TaylorSeriesExpansionGeneralized| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|local| |#4|) (0 . |One|) (4 . |One|) (|Integer|)
-              (8 . |One|) (|Fraction| 12) (12 . /) (18 . *) (24 . *) (30 . *)
+              (|local| |#3|) (|local| |#4|) (0 . |1|) (4 . |1|) (|Integer|)
+              (8 . |1|) (|Fraction| 12) (12 . /) (18 . *) (24 . *) (30 . *)
               (36 . +) (|Stream| 8) (42 . |concat|) (|Mapping| %)
               (48 . |delay|) (|Boolean|) (|NonNegativeInteger|) (53 . ~=)
-              (59 . |Zero|) (63 . |removeZeros|) (69 . |Zero|) (73 . |order|)
+              (59 . |0|) (63 . |removeZeros|) (69 . |0|) (73 . |order|)
               (79 . <) (85 . |coefficient|) (91 . ~=) (97 . |degree|) (102 . >)
               (108 . |reductum|) (|List| 8) (|Mapping| 6 6) (|List| 38)
               |TSEREXPG;taylor_via_deriv;UPSLLUPS;2| (113 . |map|) (|Stream| %)

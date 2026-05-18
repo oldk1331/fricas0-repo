@@ -1440,9 +1440,9 @@
               (|Integer|) (47 . |coerce|) (52 . /) (|RewriteRule| 6 6 7)
               (58 . |rule|) '|sinCosRule| '|sinSinRule| '|cosCosRule|
               (|List| 27) (|PositiveInteger|) (|ApplyRules| 6 6 7)
-              (64 . |applyRules|) (71 . |expandTrigProducts|) (76 . |Zero|)
-              (80 . |One|) (|Boolean|) (84 . |is?|) (|List| 70)
-              (90 . |kernels|) (|List| 7) (|Kernel| 7) (95 . |argument|)
+              (64 . |applyRules|) (71 . |expandTrigProducts|) (76 . |0|)
+              (80 . |1|) (|Boolean|) (84 . |is?|) (|List| 70) (90 . |kernels|)
+              (|List| 7) (|Kernel| 7) (95 . |argument|)
               |TRMANIP;simplifyLog;2F;3|
               (|Record| (|:| |coef| 24) (|:| |var| 70))
               (|Union| 47 '#1="failed") (100 . |isMult|) (105 . |is?|)
@@ -1452,12 +1452,12 @@
               (|Record| (|:| |val| %) (|:| |exponent| 24)) (|Union| 60 '#1#)
               (154 . |isPower|) (159 . |operator|) (|List| %) (164 . |elt|)
               (|Union| (|Fraction| (|Polynomial| 6)) '"failed")
-              (170 . |retractIfCan|) (175 . |One|) (179 . |elt|) (|Kernel| %)
+              (170 . |retractIfCan|) (175 . |1|) (179 . |elt|) (|Kernel| %)
               (185 . |retract|) (190 . ^) (196 . |setelt!|) (203 . |append|)
               (|AlgebraicManipulations| 6 7) (209 . |rootProduct|)
               (214 . |simplify|) (219 . |second|)
               (|SparseMultivariatePolynomial| 6 70) (224 . |numer|)
-              (|SparseMultivariatePolynomial| 6 44) (229 . |One|) (233 . =)
+              (|SparseMultivariatePolynomial| 6 44) (229 . |1|) (233 . =)
               (239 . |coerce|) (244 . |denom|) (249 . -) (|List| 44)
               (254 . |variables|) (|NonNegativeInteger|) (259 . |degree|)
               (265 . |exp|) (270 . *) |TRMANIP;simplifyExp;2F;49|
@@ -1486,7 +1486,7 @@
               (449 . |coerce|) (454 . *) (460 . |is?|) (|Union| 70 '"failed")
               (466 . |mainKernel|) (|SparseUnivariatePolynomial| %)
               (471 . |univariate|) (|SparseUnivariatePolynomial| 81)
-              (477 . |degree|) (482 . |Zero|) (486 . |Zero|) (490 . ~=)
+              (477 . |degree|) (482 . |0|) (486 . |0|) (490 . ~=)
               (496 . |leadingCoefficient|) (501 . |reductum|)
               (|SparseUnivariatePolynomial| 7) (|Mapping| 7 81)
               (|SparseUnivariatePolynomialFunctions2| 81 7) (506 . |map|)
@@ -1494,7 +1494,7 @@
               (|Record| (|:| |coef| 89) (|:| |logand| 81)) (|List| 176)
               (|Factored| 81) (|FactoredFunctions| 81) (523 . |log|)
               (528 . |nullary?|) (533 . |reductum|) (538 . /) (544 . ~=)
-              (550 . |leadingMonomial|) (555 . |Zero|) (559 . ~=) (|List| 9)
+              (550 . |leadingMonomial|) (555 . |0|) (559 . ~=) (|List| 9)
               (|List| 112) (565 . |eval|) (|List| 89) (572 . |eval|))
            '#(|tanh2trigh| 580 |tanh2coth| 585 |tan2trig| 590 |tan2cot| 595
               |sinh2csch| 600 |sin2csc| 605 |simplifyLog| 610 |simplifyExp| 615

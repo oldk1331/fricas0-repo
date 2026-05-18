@@ -132,7 +132,7 @@
 
 (MAKEPROP '|TranscendentalFunctionCategory&| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |One|) (4 . |asin|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |1|) (4 . |asin|)
               (|PositiveInteger|) (9 . *) (15 . |pi|) (|Union| % '"failed")
               (19 . |recip|) (24 . |asinh|) (29 . |acsch|) (34 . |acosh|)
               (39 . |asech|) (44 . |atanh|) (49 . |acoth|) (54 . ^) (60 . -)

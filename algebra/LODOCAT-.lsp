@@ -71,9 +71,9 @@
 
 (MAKEPROP '|LinearOrdinaryDifferentialOperatorCategory&| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |One|)
-              (4 . |One|) (|NonNegativeInteger|) (8 . |monomial|)
-              |LODOCAT-;D;S;1| (14 . -) (19 . |Zero|) (23 . |Zero|) (|Boolean|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |1|)
+              (4 . |1|) (|NonNegativeInteger|) (8 . |monomial|)
+              |LODOCAT-;D;S;1| (14 . -) (19 . |0|) (23 . |0|) (|Boolean|)
               (27 . ~=) (33 . |degree|) (38 . |leadingCoefficient|)
               (43 . |coerce|) (48 . *) (54 . +) (60 . |reductum|)
               |LODOCAT-;adjoint;2S;3| (65 . |symmetricPower|)

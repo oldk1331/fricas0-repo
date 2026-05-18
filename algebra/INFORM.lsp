@@ -3,9 +3,9 @@
 
 (SDEFUN |INFORM;convert;2%;1| ((|x| (%)) (% (%))) |x|) 
 
-(SDEFUN |INFORM;Zero;%;2| ((% (%))) (SPADCALL 0 (QREFELT % 9))) 
+(SDEFUN |INFORM;0;%;2| ((% (%))) (SPADCALL 0 (QREFELT % 9))) 
 
-(SDEFUN |INFORM;One;%;3| ((% (%))) (SPADCALL 1 (QREFELT % 9))) 
+(SDEFUN |INFORM;1;%;3| ((% (%))) (SPADCALL 1 (QREFELT % 9))) 
 
 (MAKEPROP '|INFORM;convert;%Se;4| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
@@ -423,9 +423,8 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|SExpression|) '|Rep| |INFORM;convert;2%;1|
               (|Integer|) (0 . |convert|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |INFORM;Zero;%;2|) %))
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |INFORM;One;%;3|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |INFORM;0;%;2|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |INFORM;1;%;3|) %))
               |INFORM;convert;%Se;4| |INFORM;convert;Se%;5| (|InputForm|)
               (|Symbol|) (5 . |convert|) |INFORM;convert;S%;6| (|List| %)
               (10 . |convert|) (|List| 15) |INFORM;lambda;%L%;8| (|None|)
@@ -449,8 +448,8 @@
               171 |parse| 176 |lambda| 181 |interpret_in_new_env| 187
               |interpret| 192 |function| 197 |flatten| 204 |destruct| 209
               |declare| 214 |convert| 219 |compile| 254 |cdr| 260 |car| 265
-              |binary| 270 |atom?| 276 ^ 281 |Zero| 293 |One| 297 = 301 / 307 +
-              313 * 319)
+              |binary| 270 |atom?| 276 ^ 281 = 293 |1| 299 |0| 303 / 307 + 313
+              * 319)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
@@ -478,7 +477,7 @@
                                          29 1 0 5 0 12 1 0 0 0 7 1 0 0 5 13 2 0
                                          15 15 18 56 1 0 0 0 55 1 0 0 0 54 2 0
                                          0 0 18 61 1 0 30 0 31 2 0 0 0 8 68 2 0
-                                         0 0 57 69 0 0 0 10 0 0 0 11 2 0 30 0 0
-                                         65 2 0 0 0 0 70 2 0 0 0 0 66 2 0 0 0 0
+                                         0 0 57 69 2 0 30 0 0 65 0 0 0 11 0 0 0
+                                         10 2 0 0 0 0 70 2 0 0 0 0 66 2 0 0 0 0
                                          67)))))
            '|lookupIncomplete|)) 

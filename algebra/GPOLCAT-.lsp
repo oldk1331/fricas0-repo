@@ -90,12 +90,12 @@
 (MAKEPROP '|MaybeSkewPolynomialCategory&| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|local| |#4|) (0 . |Zero|) (4 . |Zero|)
-              (|Boolean|) (8 . ~=) (14 . |leadingMonomial|) (19 . |reductum|)
-              (|List| %) |GPOLCAT-;monomials;SL;1| (|NonNegativeInteger|)
+              (|local| |#3|) (|local| |#4|) (0 . |0|) (4 . |0|) (|Boolean|)
+              (8 . ~=) (14 . |leadingMonomial|) (19 . |reductum|) (|List| %)
+              |GPOLCAT-;monomials;SL;1| (|NonNegativeInteger|)
               (24 . |monomial|) (|List| 9) (|List| 18) (31 . |monomial|)
-              |GPOLCAT-;monomial;SLLS;2| (38 . |One|) (42 . |One|)
-              (46 . |degree|) (51 . |monomial|) (57 . |primitiveMonomials|))
+              |GPOLCAT-;monomial;SLLS;2| (38 . |1|) (42 . |1|) (46 . |degree|)
+              (51 . |monomial|) (57 . |primitiveMonomials|))
            '#(|primitiveMonomials| 62 |monomials| 67 |monomial| 72) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)

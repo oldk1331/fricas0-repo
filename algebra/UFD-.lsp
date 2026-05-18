@@ -45,7 +45,7 @@
               (0 . |squareFree|) (|Factored| 6) (5 . |unit|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 11) (|:| |factor| 6) (|:| |exponent| 19))
-              (|List| 12) (10 . |factorList|) (15 . *) (21 . |One|)
+              (|List| 12) (10 . |factorList|) (15 . *) (21 . |1|)
               |UFD-;squareFreePart;2S;1| (25 . |factor|) (|NonNegativeInteger|)
               (30 . |numberOfFactors|) (|Boolean|) |UFD-;prime?;SB;2|)
            '#(|squareFreePart| 35 |prime?| 40) 'NIL

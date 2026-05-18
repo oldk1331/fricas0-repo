@@ -301,7 +301,7 @@
                  (EXIT (|FDALG;qsetv!| (QVELT |als| 2) |n| 1 |c| %)))))
           (QSETVELT |als| 3 'T) (QSETVELT |als| 4 'T) (EXIT |als|)))) 
 
-(SDEFUN |FDALG;Zero;%;28| ((% (%)))
+(SDEFUN |FDALG;0;%;28| ((% (%)))
         (SPROG ((|als| (%)))
                (SEQ (LETT |als| (SPADCALL 1 (QREFELT % 32)))
                     (|FDALG;qsetA!| (QVELT |als| 2) 1 1 1 (|spadConstant| % 15)
@@ -310,7 +310,7 @@
                     (QSETVELT |als| 5 NIL) (QSETVELT |als| 6 NIL)
                     (QSETVELT |als| 7 NIL) (EXIT |als|)))) 
 
-(SDEFUN |FDALG;One;%;29| ((% (%)))
+(SDEFUN |FDALG;1;%;29| ((% (%)))
         (SPROG ((|als| (%)))
                (SEQ (LETT |als| (SPADCALL 1 (QREFELT % 32)))
                     (|FDALG;qsetA!| (QVELT |als| 2) 1 1 1 (|spadConstant| % 15)
@@ -5420,20 +5420,19 @@
               (|NonNegativeInteger|) (0 . |characteristic|)
               |FDALG;characteristic;Nni;1| (|LinearMultivariateMatrixPencil| 7)
               (4 . |qelt|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FDALG;One;%;29|) %))
-              (12 . |One|) (|List| 7) (16 . |qelt|) (23 . |qsetelt!|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FDALG;1;%;29|) %))
+              (12 . |1|) (|List| 7) (16 . |qelt|) (23 . |qsetelt!|)
               (|Matrix| 7) (32 . |subMatrix|) (42 . |qscaleBlock!|)
               (53 . |setsubMatrix!|) (|Boolean|) (62 . |qzero?|)
               (69 . |qzero?|) (78 . |qsemizero?|) (|List| 9)
-              |FDALG;interval;2NniL;21| (|FreeMonoid| 6) (88 . |One|)
+              |FDALG;interval;2NniL;21| (|FreeMonoid| 6) (88 . |1|)
               (92 . |qnew|) |FDALG;qnew;Nni%;22| (|List| 29) (99 . |remove|)
               |FDALG;qnew;NniL%;23| (105 . |length|) (110 . |nrows|)
               (115 . |ncols|) (120 . ~=) (126 . |nelem|) |FDALG;new;LmmpL%;24|
               (131 . |new|) (|Integer|) (|List| 6) (137 . |elt|)
               (143 . |coerce|) (148 . |setelt!|) (155 . |zero?|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |FDALG;Zero;%;28|) %))
-              (160 . |Zero|) |FDALG;copy;2%;30| |FDALG;new;F%;26|
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FDALG;0;%;28|) %))
+              (160 . |0|) |FDALG;copy;2%;30| |FDALG;new;F%;26|
               (164 . |varList|) (|Record| (|:| |gen| 6) (|:| |exp| 9))
               (|List| 54) (169 . |factors|) (174 . |position|) (180 . -)
               |FDALG;new;FmF%;27| (185 . |copy|) (190 . |copy|)
@@ -5450,7 +5449,7 @@
               |FDALG;regular?;%B;46| (236 . |quppertriangular?|)
               |FDALG;polynomial?;%B;48| |FDALG;dimension;%Nni;49|
               |FDALG;variables;%L;50| |FDALG;elt;%NniF;51|
-              (|XDistributedPolynomial| 6 7) (244 . |Zero|) (248 . |elt|)
+              (|XDistributedPolynomial| 6 7) (244 . |0|) (248 . |elt|)
               (254 . |coerce|) (259 . *) (265 . +) |FDALG;qelt;%2NniXdp;52|
               |FDALG;elt;%2NniXdp;53| |FDALG;setelt!;%Nni2F;54| (271 . |zero?|)
               (276 . |degree|) (281 . |varList|) (286 . |coefficient|)
@@ -5469,18 +5468,17 @@
               |FDALG;qswapColumns!;%2Nni%;72| |FDALG;swapColumns!;%2Nni%;73|
               |FDALG;swapRowsColumns!;%2Nni%;74| (367 . |addColumns!|)
               |FDALG;addColumns!;%2NniF%;75| |FDALG;qaddColumns!;%2NniF%;76|
-              (375 . |One|) (379 . +) (385 . |removeDuplicates|)
-              (|Mapping| 9 9) (390 . |map|) (396 . |#|)
-              (401 . |removeRowsColumns|) |FDALG;removeRowsColumns;%2L%;77|
-              (408 . |insertRowsColumns|) (415 . |elt|)
-              |FDALG;insertRowsColumns;%2L%;78| |FDALG;qzero?;%4NniB;79|
-              (421 . |qzero?|) |FDALG;qzero?;%5NniB;80|
-              |FDALG;qzero?;%4NniFmB;81| (|Matrix| 9) (431 . |new|)
-              (438 . |sort|) |FDALG;blockStructure;%M;82| (443 . |nrows|)
-              |FDALG;refined?;%B;83| (|List| 19) (448 . |blockElimination|)
-              (459 . |min|) (|Mapping| 9 9 9) (465 . |reduce|) (471 . |max|)
-              (477 . |elt|) (483 . |subMatrix|) (492 . |setelt!|)
-              |FDALG;blockElimination;%2LB2LBL;85|
+              (375 . |1|) (379 . +) (385 . |removeDuplicates|) (|Mapping| 9 9)
+              (390 . |map|) (396 . |#|) (401 . |removeRowsColumns|)
+              |FDALG;removeRowsColumns;%2L%;77| (408 . |insertRowsColumns|)
+              (415 . |elt|) |FDALG;insertRowsColumns;%2L%;78|
+              |FDALG;qzero?;%4NniB;79| (421 . |qzero?|)
+              |FDALG;qzero?;%5NniB;80| |FDALG;qzero?;%4NniFmB;81| (|Matrix| 9)
+              (431 . |new|) (438 . |sort|) |FDALG;blockStructure;%M;82|
+              (443 . |nrows|) |FDALG;refined?;%B;83| (|List| 19)
+              (448 . |blockElimination|) (459 . |min|) (|Mapping| 9 9 9)
+              (465 . |reduce|) (471 . |max|) (477 . |elt|) (483 . |subMatrix|)
+              (492 . |setelt!|) |FDALG;blockElimination;%2LB2LBL;85|
               |FDALG;blockElimination;%4LL;86| (|List| 170) (|List| 167)
               (499 . |new|) (|OutputForm|) (|Symbol|) (505 . |coerce|)
               (510 . |coerce|) (515 . |sub|) (521 . |setelt!|) (|List| 241)
@@ -5498,7 +5496,7 @@
               (619 . |rightIdentity|) (624 . |transformColumns!|) (630 . /)
               |FDALG;normalizeRHS!;2%;99| |FDALG;normalizePLS!;2%;100|
               |FDALG;normalizeDIAG!;2%;101| |FDALG;normalize!;2%;102| (636 . -)
-              (641 . |One|) |FDALG;solutionVector;%M;105|
+              (641 . |1|) |FDALG;solutionVector;%M;105|
               |FDALG;polynomial;%Xdp;104| (645 . *) (651 . -) (657 . |copy|)
               (662 . *) (668 . +) |FDALG;solutionVector;%NniM;106|
               (|Mapping| 106 106) (|Stream| 106) (674 . |stream|)
@@ -5545,7 +5543,7 @@
               |FDALG;refinementTransformations;%2NniLL;162|
               |FDALG;refinementEquations;%3Nni2BL;163|
               |FDALG;refinementGroebner;%3Nni2BL;164|
-              |FDALG;refinementSolve;%3Nni2BL;165| (921 . |One|) (925 . ~=)
+              |FDALG;refinementSolve;%3Nni2BL;165| (921 . |1|) (925 . ~=)
               |FDALG;rank;%Nni;172| |FDALG;zero?;%B;173| |FDALG;=;2%B;174|
               |FDALG;coerce;%Xdp;175| (|Record| (|:| |k| 29) (|:| |c| 7))
               (|List| 341) (931 . |listOfTerms|) |FDALG;coerce;Xdp%;176|
@@ -5589,8 +5587,8 @@
               1710 |associator| 1730 |associates?| 1737 |appendSupport!| 1743
               |antiCommutator| 1749 |annihilate?| 1755 |admissibleLinearSystem|
               1761 |addRowsColumns!| 1766 |addRows!| 1774 |addMIN| 1782
-              |addColumnsRows!| 1788 |addColumns!| 1796 |addALS| 1804 ^ 1810
-              |Zero| 1828 |One| 1832 = 1836 / 1842 - 1860 + 1883 * 1901)
+              |addColumnsRows!| 1788 |addColumns!| 1796 |addALS| 1804 ^ 1810 =
+              1828 |1| 1834 |0| 1838 / 1842 - 1860 + 1883 * 1901)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -5727,12 +5725,13 @@
                                     0 0 1 1 0 170 0 189 4 0 0 0 9 9 7 120 4 0 0
                                     0 9 9 7 123 2 0 0 0 0 306 4 0 0 0 9 9 7 121
                                     4 0 0 0 9 9 7 133 2 0 0 0 0 234 2 0 0 0 321
-                                    322 2 0 0 0 9 1 2 0 0 0 43 330 0 0 0 49 0 0
-                                    0 14 2 0 23 0 0 339 2 0 0 0 7 320 2 0 0 0 0
-                                    329 2 0 0 7 0 328 2 0 0 0 0 318 1 0 0 0 313
-                                    2 0 0 0 7 314 2 0 0 7 0 316 2 0 0 0 0 319 2
-                                    0 0 0 7 315 2 0 0 7 0 317 2 0 0 321 0 1 2 0
-                                    0 0 0 312 2 0 0 43 0 309 2 0 0 9 0 1 2 0 0
-                                    0 7 311 2 0 0 7 0 310 2 0 0 19 0 202 2 0 0
-                                    0 19 200 2 2 0 348 0 1 2 2 0 0 348 1)))))
+                                    322 2 0 0 0 9 1 2 0 0 0 43 330 2 0 23 0 0
+                                    339 0 0 0 14 0 0 0 49 2 0 0 0 7 320 2 0 0 0
+                                    0 329 2 0 0 7 0 328 2 0 0 0 0 318 1 0 0 0
+                                    313 2 0 0 0 7 314 2 0 0 7 0 316 2 0 0 0 0
+                                    319 2 0 0 0 7 315 2 0 0 7 0 317 2 0 0 321 0
+                                    1 2 0 0 0 0 312 2 0 0 43 0 309 2 0 0 9 0 1
+                                    2 0 0 0 7 311 2 0 0 7 0 310 2 0 0 19 0 202
+                                    2 0 0 0 19 200 2 2 0 348 0 1 2 2 0 0 348
+                                    1)))))
            '|lookupComplete|)) 

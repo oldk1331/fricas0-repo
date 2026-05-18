@@ -1048,7 +1048,7 @@
               (13 . |map|) (|Kernel| %) (19 . |coerce|) (24 . |elt|)
               (30 . |univariate|) (|SparseUnivariatePolynomial| %)
               (37 . |minPoly|) (|Record| (|:| |coef| 9) (|:| |poly| 8))
-              (42 . |mkIntegral|) (47 . |inv|) (52 . |One|)
+              (42 . |mkIntegral|) (47 . |inv|) (52 . |1|)
               (|NonNegativeInteger|) (56 . |monomial|) (62 . |elt|)
               (|Record| (|:| |radicand| 9) (|:| |deg| 29))
               (|Union| 32 '"failed") (68 . |radPoly|) (73 . |retract|)

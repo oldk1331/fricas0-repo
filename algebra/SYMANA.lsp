@@ -812,10 +812,10 @@
               (|local| |#3|) (|PositiveInteger|) (0 . |numIndVar|) '|nn|
               (4 . |numDepVar|) '|mm| (8 . X) (13 . U) (|List| 6)
               (18 . |concat!|) '|vars| (|Symbol|) (24 . |name|) '|indVars|
-              '|depVars| (29 . |One|) (|OutputForm|) (|NonNegativeInteger|)
+              '|depVars| (29 . |1|) (|OutputForm|) (|NonNegativeInteger|)
               (33 . |coerce|) (|List| 24) (38 . |superscript|) (|List| 19)
               (44 . |append|) (|JetBundleExpression| 6) (50 . |coerce|)
-              '|JVars| (|JetVectorField| 6 31) (55 . |Zero|) (|Integer|)
+              '|JVars| (|JetVectorField| 6 31) (55 . |0|) (|Integer|)
               (59 . |qelt|) (|List| %) (65 . |function|) (72 . |diffX|)
               (77 . *) (83 . +) (89 . |diffU|) |SYMANA;ansatz;Jvf;1|
               (|List| 67) (94 . |tower|) (|BasicOperator|) (|Kernel| 31)
@@ -841,7 +841,7 @@
               (282 . |reduce|) (289 . |coerce|) |SYMANA;ncDetSys;LLJvfL;8|
               |SYMANA;ncDetSys;LL;6| |SYMANA;ncDetSys;LJvfL;7|
               (294 . |directions|) (299 . |coefficients|) (304 . |type|)
-              (309 . |index|) (314 . |Zero|) (318 . -) (323 . |zero?|)
+              (309 . |index|) (314 . |0|) (318 . -) (323 . |zero?|)
               (328 . |Pr|) (334 . *) (340 . +) (346 . |one?|) (351 . |append|)
               (357 . |append|)
               (|List|

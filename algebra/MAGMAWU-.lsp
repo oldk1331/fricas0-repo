@@ -77,7 +77,7 @@
 
 (MAKEPROP '|MagmaWithUnit&| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |One|) (|Boolean|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |1|) (|Boolean|)
               (4 . =) |MAGMAWU-;one?;SB;1| |MAGMAWU-;sample;S;2|
               (|PositiveInteger|) (|RepeatedSquaring| 6) (10 . |expt|)
               (|NonNegativeInteger|) |MAGMAWU-;^;SNniS;3| (16 . *)

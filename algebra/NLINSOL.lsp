@@ -406,7 +406,7 @@
               (|SparseUnivariatePolynomial| 6) (70 . |univariate|)
               (|SparseUnivariatePolynomial| %) (75 . |zerosOf|) (80 . |coerce|)
               (85 . |retractIfCan|) (|Union| 8 '"failed") (90 . |retractIfCan|)
-              (95 . |One|) (99 . -) (105 . |concat|) (111 . |numer|)
+              (95 . |1|) (99 . -) (105 . |concat|) (111 . |numer|)
               (|Union| 6 '"failed") (116 . |retractIfCan|) (121 . |denom|)
               (126 . /) (|RetractSolvePackage| (|Fraction| (|Integer|)) 6)
               (132 . |solveRetract|) (|RetractSolvePackage| (|Integer|) 6)

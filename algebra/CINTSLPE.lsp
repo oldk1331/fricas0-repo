@@ -141,8 +141,8 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|oldlp|
               (|Integer|) (0 . |coerce|) '|slpePrime| '|oldtable| (|Boolean|)
               (|List| 17) (5 . ~=) (|NonNegativeInteger|)
-              (|SparseUnivariatePolynomial| 7) (11 . |degree|) (16 . |Zero|)
-              (20 . |Zero|) (24 . |complex|) (|Union| 29 '"failed")
+              (|SparseUnivariatePolynomial| 7) (11 . |degree|) (16 . |0|)
+              (20 . |0|) (24 . |complex|) (|Union| 29 '"failed")
               (|GenExEuclid| 7 17) (30 . |tablePow|) (37 . -)
               (|IntegerPrimesPackage| 6) (43 . |prime?|) (|Union| 14 '"failed")
               (|Vector| 14) (48 . |solveid|)

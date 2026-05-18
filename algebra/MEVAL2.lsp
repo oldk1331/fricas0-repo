@@ -297,7 +297,7 @@
               (|PolynomialEvaluationUtilities|) (32 . |eval1|)
               (|Union| % '"failed") (|Mapping| 15 15) (40 . |map|)
               (|Union| 8 '"failed") |MEVAL2;eval1;FpSIRU;3|
-              (46 . |modpreduction|) |MEVAL2;modpreduction;FpIU;4| (52 . |One|)
+              (46 . |modpreduction|) |MEVAL2;modpreduction;FpIU;4| (52 . |1|)
               (56 . |monomial|) (|List| 7) (|List| %) (63 . |eval|)
               (70 . |map|) (76 . |subst_var|) |MEVAL2;subst_vars;R2LFp;5|
               (|SingletonAsOrderedSet|) (83 . |create|) '|sas|
@@ -309,10 +309,10 @@
               (|Mapping| 13 15) (|SparseUnivariatePolynomial| 15)
               (|SparseUnivariatePolynomialFunctions2| 15 13) (127 . |map|)
               (133 . |to_UP|) (138 . |leadingCoefficient|) (143 . |reductum|)
-              (|Fraction| 11) (148 . |univariate|) (154 . |numer|)
-              (159 . |Zero|) (163 . |Zero|) (167 . |Zero|) (|Boolean|)
-              (171 . =) (177 . /) (183 . |monomial|) (189 . *) (195 . -)
-              (201 . =) (|List| 8) |MEVAL2;trial_division;FpPLSLB;7|)
+              (|Fraction| 11) (148 . |univariate|) (154 . |numer|) (159 . |0|)
+              (163 . |0|) (167 . |0|) (|Boolean|) (171 . =) (177 . /)
+              (183 . |monomial|) (189 . *) (195 . -) (201 . =) (|List| 8)
+              |MEVAL2;trial_division;FpPLSLB;7|)
            '#(|trial_division| 207 |subst_vars| 216 |modpreduction| 223
               |ldegree| 229 |eval1| 235 |degree| 243)
            'NIL

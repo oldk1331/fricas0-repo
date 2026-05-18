@@ -1,5 +1,5 @@
 
-(SDEFUN |FDIV;Zero;%;1| ((% (%))) (|spadConstant| % 13)) 
+(SDEFUN |FDIV;0;%;1| ((% (%))) (|spadConstant| % 13)) 
 
 (SDEFUN |FDIV;coerce;%Of;2| ((|d| (%)) (% (|OutputForm|)))
         (SPADCALL |d| (QREFELT % 16))) 
@@ -51,7 +51,7 @@
 (SDEFUN |FDIV;divisor;R2UP%;16| ((|h| (R)) (|d| (UP)) (|g| (UP)) (% (%)))
         (SPADCALL |h| |d| |g| (QREFELT % 50))) 
 
-(SDEFUN |FDIV;Zero;%;17| ((% (%))) (CONS (|spadConstant| % 57) (MAKE-ARRAY 0))) 
+(SDEFUN |FDIV;0;%;17| ((% (%))) (CONS (|spadConstant| % 57) (MAKE-ARRAY 0))) 
 
 (SDEFUN |FDIV;divisor;Fi%;18|
         ((|i| (|FractionalIdeal| UP (|Fraction| UP) UPUP R)) (% (%)))
@@ -402,7 +402,7 @@
        (QSETREFV % 12 (|HyperellipticFiniteDivisor| |#1| |#2| |#3| |#4|))
        (QSETREFV % 14
                  (CONS #'|makeSpadConstant|
-                       (LIST (|dispatchFunction| |FDIV;Zero;%;1|) % 14)))
+                       (LIST (|dispatchFunction| |FDIV;0;%;1|) % 14)))
        (QSETREFV % 17 (CONS (|dispatchFunction| |FDIV;coerce;%Of;2|) %))
        (QSETREFV % 20 (CONS (|dispatchFunction| |FDIV;=;2%B;3|) %))
        (QSETREFV % 23 (CONS (|dispatchFunction| |FDIV;*;I2%;4|) %))
@@ -429,7 +429,7 @@
        (QSETREFV % 54 (SPADCALL (QREFELT % 53)))
        (QSETREFV % 14
                  (CONS #'|makeSpadConstant|
-                       (LIST (|dispatchFunction| |FDIV;Zero;%;17|) % 14)))
+                       (LIST (|dispatchFunction| |FDIV;0;%;17|) % 14)))
        (QSETREFV % 43 (CONS (|dispatchFunction| |FDIV;divisor;Fi%;18|) %))
        (QSETREFV % 45 (CONS (|dispatchFunction| |FDIV;divisor;R%;19|) %))
        (QSETREFV % 17 (CONS (|dispatchFunction| |FDIV;coerce;%Of;20|) %))
@@ -472,32 +472,31 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|Union| 7 '"failed")
-              (0 . |hyperelliptic|) '|Rep| (4 . |Zero|) (8 . |Zero|)
-              (|OutputForm|) (12 . |coerce|) (17 . |coerce|) (|Boolean|)
-              (22 . =) (28 . =) (|Integer|) (34 . *) (40 . *) (46 . +) (52 . +)
-              (58 . -) (63 . -) (|FractionalIdeal| 7 79 8 9) (68 . |ideal|)
-              (73 . |ideal|) (78 . |reduce|) (83 . |reduce|)
-              (|Union| 9 '"failed") (88 . |generator|) (93 . |generator|)
-              (|List| 7) (98 . |generator|) (105 . |generator|)
+              (0 . |hyperelliptic|) '|Rep| (4 . |0|) (8 . |0|) (|OutputForm|)
+              (12 . |coerce|) (17 . |coerce|) (|Boolean|) (22 . =) (28 . =)
+              (|Integer|) (34 . *) (40 . *) (46 . +) (52 . +) (58 . -) (63 . -)
+              (|FractionalIdeal| 7 79 8 9) (68 . |ideal|) (73 . |ideal|)
+              (78 . |reduce|) (83 . |reduce|) (|Union| 9 '"failed")
+              (88 . |generator|) (93 . |generator|) (|List| 7)
+              (98 . |generator|) (105 . |generator|)
               (|Record| (|:| |id| 28) (|:| |principalPart| 9))
               (112 . |decompose|) (117 . |decompose|) (122 . |divisor|)
               (127 . |divisor|) (132 . |divisor|) (137 . |divisor|)
               (142 . |divisor|) (148 . |divisor|) (154 . |divisor|)
               (161 . |divisor|) (168 . |divisor|) (175 . |divisor|)
-              (|Vector| %) (182 . |integralBasis|) '|ww| (186 . |One|)
-              (190 . |One|) (194 . |One|) (|Vector| 9) (198 . |ideal|)
-              (203 . |coerce|) (208 . |One|) (212 . |basis|) (216 . |basis|)
+              (|Vector| %) (182 . |integralBasis|) '|ww| (186 . |1|)
+              (190 . |1|) (194 . |1|) (|Vector| 9) (198 . |ideal|)
+              (203 . |coerce|) (208 . |1|) (212 . |basis|) (216 . |basis|)
               (221 . =) (227 . ^) (233 . *) (239 . |inv|) (244 . |lift|)
               (|Record| (|:| |num| 71) (|:| |den| 7))
               (249 . |integralCoordinates|) (|Vector| 7) (254 . |minIndex|)
               (259 . |rem|) (265 . |integralRepresents|) (|NonNegativeInteger|)
               (271 . |monomial|) (277 . |coerce|) (282 . -) (|Fraction| 7)
               (288 . |discriminant|) (292 . |retract|) (297 . |gcd|)
-              (303 . |ground?|) (308 . |One|) (312 . |monomial|)
-              (318 . |coerce|) (323 . |coerce|) (328 . -) (|PositiveInteger|)
-              (334 . |rank|) (338 . |Zero|) (342 . ^) (348 . ^)
-              (354 . |minimize|) (359 . =) (365 . |numer|) (370 . ~=)
-              (376 . |minIndex|) (381 . |elt|)
+              (303 . |ground?|) (308 . |1|) (312 . |monomial|) (318 . |coerce|)
+              (323 . |coerce|) (328 . -) (|PositiveInteger|) (334 . |rank|)
+              (338 . |0|) (342 . ^) (348 . ^) (354 . |minimize|) (359 . =)
+              (365 . |numer|) (370 . ~=) (376 . |minIndex|) (381 . |elt|)
               (|Record| (|:| |num| 8) (|:| |den| 7))
               (|UnivariatePolynomialCommonDenominator| 7 79 8)
               (387 . |splitDenominator|) (392 . |retract|) (397 . *)
@@ -512,7 +511,7 @@
            '#(~= 498 |zero?| 504 |subtractIfCan| 509 |sample| 515 |reduce| 519
               |principal?| 524 |opposite?| 529 |latex| 535 |lSpaceBasis| 540
               |ideal| 545 |generator| 550 |finiteBasis| 562 |divisor| 567
-              |decompose| 606 |coerce| 611 |Zero| 616 = 620 - 626 + 637 * 643)
+              |decompose| 606 |coerce| 611 = 616 |0| 622 - 626 + 637 * 643)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
@@ -564,7 +563,7 @@
                                          1 0 58 0 117 1 0 0 28 43 2 0 0 6 6 47
                                          1 0 0 9 45 3 0 0 6 6 21 49 3 0 0 9 7 7
                                          51 5 0 0 9 7 7 7 6 1 1 0 39 0 41 1 0
-                                         15 0 17 0 0 0 14 2 0 18 0 0 20 2 0 0 0
+                                         15 0 17 2 0 18 0 0 20 0 0 0 14 2 0 0 0
                                          0 1 1 0 0 0 27 2 0 0 0 0 25 2 0 0 89 0
                                          1 2 0 0 75 0 1 2 0 0 21 0 23)))))
            '|lookupComplete|)) 

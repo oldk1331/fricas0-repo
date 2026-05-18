@@ -760,9 +760,9 @@
               (GO G190) G191 (EXIT NIL))
          (EXIT |exp|))) 
 
-(SDEFUN |JLF;Zero;%;29| ((% (%))) (SPADCALL (QREFELT % 32) (QREFELT % 48))) 
+(SDEFUN |JLF;0;%;29| ((% (%))) (SPADCALL (QREFELT % 32) (QREFELT % 48))) 
 
-(SDEFUN |JLF;One;%;30| ((% (%)))
+(SDEFUN |JLF;1;%;30| ((% (%)))
         (SPADCALL
          (VECTOR (|spadConstant| % 26) 'T 'T NIL NIL
                  (LIST
@@ -1849,15 +1849,14 @@
               '|LazyEval| (|String|) (|OutputForm|) (0 . |message|)
               (|NonNegativeInteger|) (5 . |coerce|) (10 . |assign|) (|Void|)
               (16 . |print|) (21 . |void|) |JLF;statistics;V;1| '|LazyDer|
-              '|LazyTerm| '|RepRec| '|Rep| (25 . |One|) '|emptyDer|
-              (29 . |One|) (33 . |Zero|) (|Reference| 20) (37 . |ref|)
-              (|Reference| 21) (42 . |ref|) '|zeroRec| (|Boolean|)
-              (|Union| 6 82) (47 . ~=) (53 . |one?|) (58 . |deref|)
-              (63 . |deref|) (|List| 6) (68 . |jetVariables|)
-              |JLF;jetVariables;%L;46| (73 . >) (79 . |leadingDer|)
-              (84 . |deref|) (|Mapping| 33 6 6) (89 . |merge|)
-              (96 . |removeDuplicates!|) (101 . |ref|) (|List| 30)
-              (106 . |second|) (111 . |zero?|) |JLF;zero?;%B;31|
+              '|LazyTerm| '|RepRec| '|Rep| (25 . |1|) '|emptyDer| (29 . |1|)
+              (33 . |0|) (|Reference| 20) (37 . |ref|) (|Reference| 21)
+              (42 . |ref|) '|zeroRec| (|Boolean|) (|Union| 6 82) (47 . ~=)
+              (53 . |one?|) (58 . |deref|) (63 . |deref|) (|List| 6)
+              (68 . |jetVariables|) |JLF;jetVariables;%L;46| (73 . >)
+              (79 . |leadingDer|) (84 . |deref|) (|Mapping| 33 6 6)
+              (89 . |merge|) (96 . |removeDuplicates!|) (101 . |ref|)
+              (|List| 30) (106 . |second|) (111 . |zero?|) |JLF;zero?;%B;31|
               |JLF;one?;%B;34| (116 . -) |JLF;-;2%;37| (121 . *) |JLF;*;D2%;40|
               |JLF;*;3%;41| (127 . <) (133 . |coerce|) |JLF;coerce;JB%;15|
               |JLF;coerce;D%;16| |JLF;eval;2%;28| |JLF;coerce;%D;17|
@@ -1865,10 +1864,10 @@
               (148 . |prefix|) (154 . *) (160 . +) (166 . |setref|) (172 . +)
               |JLF;ground?;%B;24| (178 . |setref|) (184 . |append|)
               (|Mapping| 33 30 30) (190 . |merge|) |JLF;collect;2%;23|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |JLF;One;%;30|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |JLF;1;%;30|) %))
               (197 . |differentiate|) (|Symbol|) (203 . |differentiate|)
               (209 . |setref|) |JLF;eval1;2%;27|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |JLF;Zero;%;29|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |JLF;0;%;29|) %))
               |JLF;leadingDer;%JB;50| (215 . |type|) (220 . =)
               |JLF;eqRep?;2%B;32| (226 . -) |JLF;=;2%B;33|
               |JLF;numerator;2%;35| |JLF;denominator;2%;36| (232 . |append|)
@@ -1919,8 +1918,8 @@
               |denominator| 841 |dSubst| 846 |const?| 853 |commutator| 858
               |collect| 864 |coerce| 869 |class| 899 |characteristic| 904
               |autoReduce| 908 |associator| 913 |associates?| 920
-              |antiCommutator| 926 |annihilate?| 932 ^ 938 |Zero| 950 X 954 U
-              963 P 972 |One| 994 = 998 - 1004 + 1015 * 1021 |#2| 1051)
+              |antiCommutator| 926 |annihilate?| 932 ^ 938 X 950 U 959 P 968 =
+              990 |1| 996 |0| 1000 - 1004 + 1015 * 1021 |#2| 1051)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -2006,10 +2005,10 @@
                                     1 0 7 0 64 1 0 0 7 62 1 0 13 0 112 0 0 13 1
                                     1 0 68 68 170 3 0 0 0 0 0 1 2 0 33 0 0 1 2
                                     0 0 0 0 1 2 0 33 0 0 1 2 0 0 0 124 1 2 0 0
-                                    0 13 1 0 0 0 86 1 0 0 124 1 0 0 0 1 1 0 0
-                                    124 1 0 0 0 1 2 0 0 124 145 1 1 0 0 145 1 1
-                                    0 0 13 1 2 0 0 124 13 1 0 0 0 80 2 0 33 0 0
-                                    92 2 0 0 0 0 91 1 0 0 0 55 2 0 0 0 0 99 2 0
+                                    0 13 1 1 0 0 124 1 0 0 0 1 1 0 0 124 1 0 0
+                                    0 1 2 0 0 124 145 1 1 0 0 145 1 1 0 0 13 1
+                                    2 0 0 124 13 1 2 0 33 0 0 92 0 0 0 80 0 0 0
+                                    86 2 0 0 0 0 91 1 0 0 0 55 2 0 0 0 0 99 2 0
                                     0 124 0 1 2 0 0 0 0 58 2 0 0 100 0 103 2 0
                                     0 13 0 1 2 0 0 7 0 57 2 0 0 0 82 1 3 0 0 0
                                     82 13 1 2 0 0 0 171 1 3 0 0 0 171 145

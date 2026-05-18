@@ -429,13 +429,13 @@
 (MAKEPROP '|CoordinateSystems| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Point| 6)
-              |COORDSYS;cartesian;2P;1| (0 . |copy|) (5 . |One|) (|Integer|)
+              |COORDSYS;cartesian;2P;1| (0 . |copy|) (5 . |1|) (|Integer|)
               (9 . |elt|) (15 . |cos|) (20 . *) (26 . |setelt!|) (33 . |sin|)
               |COORDSYS;polar;2P;2| |COORDSYS;cylindrical;2P;3|
               |COORDSYS;spherical;2P;4| (38 . -) (44 . |coerce|) (49 . /)
               |COORDSYS;parabolic;2P;5| |COORDSYS;parabolicCylindrical;2P;6|
-              |COORDSYS;paraboloidal;2P;7| (55 . |One|) (|PositiveInteger|)
-              (59 . |One|) (63 . |cosh|) (68 . |sinh|) (|Mapping| 7 7)
+              |COORDSYS;paraboloidal;2P;7| (55 . |1|) (|PositiveInteger|)
+              (59 . |1|) (63 . |cosh|) (68 . |sinh|) (|Mapping| 7 7)
               |COORDSYS;elliptic;RM;8| |COORDSYS;ellipticCylindrical;RM;9|
               |COORDSYS;prolateSpheroidal;RM;10|
               |COORDSYS;oblateSpheroidal;RM;11| |COORDSYS;bipolar;RM;12|

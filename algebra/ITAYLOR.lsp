@@ -7,10 +7,10 @@
 
 (SDEFUN |ITAYLOR;series;S%;2| ((|st| (|Stream| |Coef|)) (% (%))) |st|) 
 
-(SDEFUN |ITAYLOR;Zero;%;3| ((% (%)))
+(SDEFUN |ITAYLOR;0;%;3| ((% (%)))
         (SPADCALL (|spadConstant| % 11) (QREFELT % 13))) 
 
-(SDEFUN |ITAYLOR;One;%;4| ((% (%)))
+(SDEFUN |ITAYLOR;1;%;4| ((% (%)))
         (SPADCALL (|spadConstant| % 15) (QREFELT % 13))) 
 
 (SDEFUN |ITAYLOR;=;2%B;5| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
@@ -182,12 +182,10 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (|Stream| 6)
               |ITAYLOR;series;S%;2|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |ITAYLOR;Zero;%;3|) %))
-              (0 . |Zero|) (|StreamTaylorSeriesOperations| 6) (4 . |coerce|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |ITAYLOR;One;%;4|) %))
-              (9 . |One|) |ITAYLOR;-;3%;8| (|Boolean|) (13 . |empty?|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |ITAYLOR;0;%;3|) %))
+              (0 . |0|) (|StreamTaylorSeriesOperations| 6) (4 . |coerce|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |ITAYLOR;1;%;4|) %))
+              (9 . |1|) |ITAYLOR;-;3%;8| (|Boolean|) (13 . |empty?|)
               (18 . |frst|) (23 . ~=) (29 . |rst|) |ITAYLOR;=;2%B;5|
               |ITAYLOR;coefficients;%S;6| (34 . +) |ITAYLOR;+;3%;7| (40 . -)
               (46 . *) |ITAYLOR;*;3%;9| (52 . -) |ITAYLOR;-;2%;10| (|Integer|)
@@ -208,8 +206,8 @@
               |order| 180 |opposite?| 191 |one?| 197 |leftRecip| 202
               |leftPower| 207 |latex| 219 |exquo| 224 |commutator| 230 |coerce|
               236 |coefficients| 251 |characteristic| 256 |associator| 260
-              |associates?| 267 |antiCommutator| 273 |annihilate?| 279 ^ 285
-              |Zero| 297 |One| 301 = 305 - 311 + 322 * 328)
+              |associates?| 267 |antiCommutator| 273 |annihilate?| 279 ^ 285 =
+              297 |1| 303 |0| 307 - 311 + 322 * 328)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -250,8 +248,8 @@
                                     0 44 2 0 0 0 0 1 1 0 56 0 1 1 0 0 31 1 1 1
                                     0 0 1 1 0 8 0 23 0 0 48 51 3 0 0 0 0 0 1 2
                                     1 17 0 0 1 2 0 0 0 0 1 2 0 17 0 0 1 2 0 0 0
-                                    45 1 2 0 0 0 48 49 0 0 0 10 0 0 0 14 2 0 17
-                                    0 0 22 1 0 0 0 30 2 0 0 0 0 16 2 0 0 0 0 25
+                                    45 1 2 0 0 0 48 49 2 0 17 0 0 22 0 0 0 14 0
+                                    0 0 10 1 0 0 0 30 2 0 0 0 0 16 2 0 0 0 0 25
                                     2 0 0 45 0 1 2 0 0 0 0 28 2 0 0 31 0 34 2 0
                                     0 48 0 1 2 0 0 0 6 38 2 0 0 6 0 37 2 0 0 0
                                     31 36)))))

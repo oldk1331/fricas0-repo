@@ -1258,7 +1258,7 @@
               (|List| 15) (|OrientedFacet|) (0 . |orientedFacet|) (|List| 10)
               (6 . |concat|) (|List| 6) (|NonNegativeInteger|) (|List| 9)
               |SIMPC;simplicialComplex;LNniL%;1| (12 . |maxIndex|)
-              |SIMPC;simplicialComplex;LL%;2| (17 . |Zero|)
+              |SIMPC;simplicialComplex;LL%;2| (17 . |0|)
               |SIMPC;simplicialComplex;L%;3| (|Union| % '"failed")
               (|DeltaComplex| 6) (|Boolean|)
               |SIMPC;simplicialComplexIfCan;DcBU;5|

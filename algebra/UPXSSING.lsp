@@ -1007,7 +1007,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|PolynomialRing| 17 13) (|local| |#1|)
               (|local| |#2|) (|local| |#3|) (|local| |#4|)
-              (|NonNegativeInteger|) (0 . |numberOfMonomials|) (5 . |One|)
+              (|NonNegativeInteger|) (0 . |numberOfMonomials|) (5 . |1|)
               (|ExponentialOfUnivariatePuiseuxSeries| 7 (NRTEVAL (QREFELT % 8))
                                                       (NRTEVAL (QREFELT % 9)))
               (9 . |degree|) (|Boolean|) (14 . |zero?|)
@@ -1018,17 +1018,17 @@
               (34 . |monomial|) (|Union| % '"failed") |UPXSSING;recip;%U;2|
               (|Record| (|:| |k| 34) (|:| |c| 7)) (|Stream| 26) (40 . |terms|)
               (45 . |complete|) (|List| 26) (50 . |entries|) (55 . |zero?|)
-              (60 . |reductum|) (|Fraction| 82) (65 . |Zero|) (69 . |Zero|)
-              (73 . |Zero|) (77 . |order|) (83 . >) (89 . =)
-              (95 . |coefficient|) (|Union| 82 '"failed")
-              (|ElementaryFunctionSign| 6 7) (101 . |sign|)
+              (60 . |reductum|) (|Fraction| 82) (65 . |0|) (69 . |0|)
+              (73 . |0|) (77 . |order|) (83 . >) (89 . =) (95 . |coefficient|)
+              (|Union| 82 '"failed") (|ElementaryFunctionSign| 6 7)
+              (101 . |sign|)
               (|Record| (|:| |%coef| 17) (|:| |%expon| 13)
                         (|:| |%expTerms| 30))
               (|List| 45) (106 . |list|) (111 . =) (117 . -) (123 . <)
-              (129 . |zero?|) (134 . |Zero|) (138 . |order|)
+              (129 . |zero?|) (134 . |0|) (138 . |order|)
               (|Record| (|:| |%term| 45) (|:| |%type| 72))
               (|Union| 54 '"failed") |UPXSSING;dominantTerm;%U;15|
-              (|OrderedCompletion| 7) (143 . |coerce|) (148 . |One|)
+              (|OrderedCompletion| 7) (143 . |coerce|) (148 . |1|)
               (152 . |order|) (158 . |coefficient|) (|List| 64)
               (164 . |variables|) (|Symbol|) (169 . |member?|)
               (175 . |plusInfinity|) (179 . |minusInfinity|) (183 . |order|)
@@ -1054,8 +1054,8 @@
               468 |commutator| 473 |coerce| 479 |coefficients| 504
               |coefficient| 509 |characteristic| 515 |binomThmExpt| 519
               |associator| 526 |associates?| 533 |antiCommutator| 539
-              |annihilate?| 545 ^ 551 |Zero| 563 |One| 567 = 571 / 577 - 583 +
-              594 * 600)
+              |annihilate?| 545 ^ 551 = 563 |1| 569 |0| 573 / 577 - 583 + 594 *
+              600)
            'NIL
            (CONS
             (|makeByteWordVec2| 8
@@ -1147,7 +1147,7 @@
                                     34 1 1 0 78 0 1 2 0 17 0 13 1 0 0 10 1 3 14
                                     0 0 0 10 1 3 0 0 0 0 0 1 2 0 15 0 0 1 2 0 0
                                     0 0 1 2 0 15 0 0 1 2 0 0 0 73 1 2 0 0 0 10
-                                    1 0 0 0 1 0 0 0 1 2 0 15 0 0 1 2 9 0 0 17 1
+                                    1 2 0 15 0 0 1 0 0 0 1 0 0 0 1 2 9 0 0 17 1
                                     2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 0 0 73
                                     0 1 2 0 0 0 0 1 2 0 0 17 0 1 2 0 0 0 17 1 2
                                     0 0 10 0 1 2 0 0 82 0 1 2 1 0 0 34 1 2 1 0

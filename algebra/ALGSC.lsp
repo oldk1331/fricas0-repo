@@ -3052,7 +3052,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|DirectProduct| (NRTEVAL (QREFELT % 7)) 6)
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
-              '|Rep| (|Integer|) |ALGSC;elt;%IR;21| (0 . |Zero|) (|Boolean|)
+              '|Rep| (|Integer|) |ALGSC;elt;%IR;21| (0 . |0|) (|Boolean|)
               (4 . ~=) (|PositiveInteger|)
               (|OrderedVariableList| (NRTEVAL (QREFELT % 8))) (10 . |index|)
               (|Record| (|:| |k| 17) (|:| |c| 6)) (|List| 19)
@@ -3074,9 +3074,9 @@
               (88 . |solveUniquely|) (|Vector| %) (94 . |coordinates|)
               (100 . |unitVector|) |ALGSC;basis;V;18| |ALGSC;someBasis;V;19|
               |ALGSC;rank;Pi;20| (105 . |elt|) (111 . |zero?|) (|OutputForm|)
-              (116 . |coerce|) (121 . |zero?|) (126 . |One|) (130 . =)
-              (|Symbol|) (|List| 75) (136 . |elt|) (142 . |coerce|) (147 . *)
-              (153 . +) (|Mapping| 70 70 70) (|List| 70) (159 . |reduce|)
+              (116 . |coerce|) (121 . |zero?|) (126 . |1|) (130 . =) (|Symbol|)
+              (|List| 75) (136 . |elt|) (142 . |coerce|) (147 . *) (153 . +)
+              (|Mapping| 70 70 70) (|List| 70) (159 . |reduce|)
               |ALGSC;coerce;%Of;22| (165 . |elt|) (171 . |elt|) |ALGSC;*;3%;23|
               (178 . -) |ALGSC;alternative?;B;24| |ALGSC;associative?;B;25|
               |ALGSC;antiAssociative?;B;26| |ALGSC;commutative?;B;27|
@@ -3118,7 +3118,7 @@
               648 |basis| 654 |associatorDependence| 658 |associator| 662
               |associative?| 669 |apply| 673 |antiCommutator| 679
               |antiCommutative?| 685 |antiAssociative?| 689 |alternative?| 693
-              ^ 697 |Zero| 703 = 707 - 713 + 724 * 730)
+              ^ 697 = 703 |0| 709 - 713 + 724 * 730)
            'NIL
            (CONS
             (|makeByteWordVec2| 7
@@ -3187,7 +3187,7 @@
                                     30 48 1 0 51 0 1 2 0 6 0 17 36 0 0 62 65 0
                                     1 113 1 3 0 0 0 0 0 1 0 0 14 90 2 0 0 43 0
                                     46 2 0 0 0 0 1 0 0 14 93 0 0 14 91 0 0 14
-                                    89 2 0 0 0 16 1 0 0 0 1 2 0 14 0 0 1 1 0 0
+                                    89 2 0 0 0 16 1 2 0 14 0 0 1 0 0 0 1 1 0 0
                                     0 1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 16 0 1 2
                                     0 0 0 0 87 2 0 0 11 0 1 2 0 0 22 0 1 2 0 0
                                     6 0 1 2 0 0 0 6 1 2 0 0 44 0 47)))))

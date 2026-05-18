@@ -1,6 +1,5 @@
 
-(SDEFUN |LO;Zero;%;1| ((% (%)))
-        (CONS (|spadConstant| % 10) (|spadConstant| % 11))) 
+(SDEFUN |LO;0;%;1| ((% (%))) (CONS (|spadConstant| % 10) (|spadConstant| % 11))) 
 
 (SDEFUN |LO;zero?;%B;2| ((|x| (%)) (% (|Boolean|)))
         (SPADCALL (QCAR |x|) (QREFELT % 13))) 
@@ -130,20 +129,20 @@
 (MAKEPROP '|Localize| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|Rep|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |LO;Zero;%;1|) %))
-              (0 . |Zero|) (4 . |One|) (|Boolean|) (8 . |zero?|)
-              |LO;zero?;%B;2| (13 . -) |LO;-;2%;3| (18 . *) (24 . =)
-              |LO;=;2%B;4| |LO;numer;%M;5| |LO;denom;%R;6| (30 . <) (36 . <)
-              (42 . +) (48 . *) |LO;+;3%;8| (|Integer|) (54 . *) |LO;*;I2%;9|
-              (60 . =) |LO;*;R2%;10| (66 . |zero?|) |LO;/;%R%;11| |LO;/;MR%;12|
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |LO;0;%;1|) %))
+              (0 . |0|) (4 . |1|) (|Boolean|) (8 . |zero?|) |LO;zero?;%B;2|
+              (13 . -) |LO;-;2%;3| (18 . *) (24 . =) |LO;=;2%B;4|
+              |LO;numer;%M;5| |LO;denom;%R;6| (30 . <) (36 . <) (42 . +)
+              (48 . *) |LO;+;3%;8| (|Integer|) (54 . *) |LO;*;I2%;9| (60 . =)
+              |LO;*;R2%;10| (66 . |zero?|) |LO;/;%R%;11| |LO;/;MR%;12|
               (|OutputForm|) (71 . |coerce|) (76 . |coerce|) (81 . /)
               |LO;coerce;%Of;13| (|String|) (|PositiveInteger|)
               (|Union| % '"failed") (|NonNegativeInteger|))
            '#(~= 87 |zero?| 93 |subtractIfCan| 98 |smaller?| 104 |sign| 110
               |sample| 115 |positive?| 119 |opposite?| 124 |numer| 130
               |negative?| 135 |min| 140 |max| 146 |latex| 152 |denom| 157
-              |coerce| 162 |abs| 167 |Zero| 172 >= 176 > 182 = 188 <= 194 < 200
-              / 206 - 218 + 229 * 235)
+              |coerce| 162 |abs| 167 >= 172 > 178 = 184 <= 190 < 196 |0| 202 /
+              206 - 218 + 229 * 235)
            'NIL
            (CONS (|makeByteWordVec2| 3 '(0 1 0 1 0 0 3 1 3 1 2 1 1 0 0 1 0 0))
                  (CONS
@@ -170,9 +169,9 @@
                                          0 0 1 2 1 12 0 0 1 1 1 27 0 1 0 4 0 1
                                          1 1 12 0 1 2 4 12 0 0 1 1 0 6 0 20 1 1
                                          12 0 1 2 1 0 0 0 1 2 1 0 0 0 1 1 0 40
-                                         0 1 1 0 7 0 21 1 0 35 0 39 1 1 0 0 1 0
-                                         4 0 9 2 1 12 0 0 1 2 1 12 0 0 1 2 0 12
-                                         0 0 19 2 1 12 0 0 1 2 1 12 0 0 23 2 0
+                                         0 1 1 0 7 0 21 1 0 35 0 39 1 1 0 0 1 2
+                                         1 12 0 0 1 2 1 12 0 0 1 2 0 12 0 0 19
+                                         2 1 12 0 0 1 2 1 12 0 0 23 0 4 0 9 2 0
                                          0 6 7 34 2 0 0 0 7 33 1 3 0 0 16 2 3 0
                                          0 0 1 2 0 0 0 0 26 2 0 0 41 0 1 2 0 0
                                          0 7 1 2 0 0 7 0 31 2 3 0 27 0 29 2 4 0

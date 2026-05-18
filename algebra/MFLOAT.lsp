@@ -265,11 +265,11 @@
 
 (SDEFUN |MFLOAT;minimumExponent;I;27| ((% (|Integer|))) (QREFELT % 9)) 
 
-(MAKEPROP '|MFLOAT;Zero;%;28| '|SPADreplace| '(XLAM NIL (CONS 0 0))) 
+(MAKEPROP '|MFLOAT;0;%;28| '|SPADreplace| '(XLAM NIL (CONS 0 0))) 
 
-(SDEFUN |MFLOAT;Zero;%;28| ((% (%))) (CONS 0 0)) 
+(SDEFUN |MFLOAT;0;%;28| ((% (%))) (CONS 0 0)) 
 
-(SDEFUN |MFLOAT;One;%;29| ((% (%))) (SPADCALL 0 1 10 (QREFELT % 40))) 
+(SDEFUN |MFLOAT;1;%;29| ((% (%))) (SPADCALL 0 1 10 (QREFELT % 40))) 
 
 (SDEFUN |MFLOAT;zero?;%B;30| ((|u| (%)) (% (|Boolean|)))
         (SPADCALL |u| (CONS 0 0) (QREFELT % 79))) 
@@ -468,15 +468,13 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL '|Rep| 'P 'B 'EMIN 'EMAX 'POWER 'MMAX
               (|Integer|) |MFLOAT;mantissa;%I;4|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |MFLOAT;One;%;29|) %))
-              (|Float|) (0 . |One|) (|Fraction| 13) (4 . /)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |MFLOAT;1;%;29|) %))
+              (|Float|) (0 . |1|) (|Fraction| 13) (4 . /)
               |MFLOAT;exponent;%I;5| (10 . ^) (16 . *) (|Union| 18 '"failed")
               |MFLOAT;retractIfCan;%U;1| (22 . |wholePart|)
               |MFLOAT;wholePart;%I;2| (27 . |sign|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |MFLOAT;Zero;%;28|) %))
-              (32 . |Zero|) (36 . /) (|Void|) (42 . |void|) (46 . |coerce|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |MFLOAT;0;%;28|) %))
+              (32 . |0|) (36 . /) (|Void|) (42 . |void|) (46 . |coerce|)
               (51 . |sign|) (56 . |abs|) (|Boolean|) (61 . |zero?|) (66 . *)
               (|PositiveInteger|) |MFLOAT;changeBase;2IPi%;7| (|List| %)
               (|String|) (72 . |concat|) |MFLOAT;coerce;%F;11| (|OutputForm|)
@@ -529,8 +527,8 @@
               |commutator| 591 |coerce| 597 |characteristic| 637 |changeBase|
               641 |ceiling| 648 |bits| 653 |base| 662 |associator| 671
               |associates?| 678 |antiCommutator| 684 |annihilate?| 690 |abs|
-              696 ^ 701 |Zero| 725 |One| 729 >= 733 > 739 = 745 <= 751 < 757 /
-              763 - 775 + 786 * 792)
+              696 ^ 701 >= 725 > 731 = 737 <= 743 < 749 |1| 755 |0| 759 / 763 -
+              775 + 786 * 792)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -619,9 +617,9 @@
                                     40 1 0 0 0 1 0 0 39 1 1 2 39 39 1 0 0 39 74
                                     1 0 39 39 73 3 0 0 0 0 0 1 2 0 36 0 0 1 2 0
                                     0 0 0 1 2 0 36 0 0 1 1 0 0 0 1 2 0 0 0 39 1
-                                    2 0 0 0 98 1 2 0 0 0 13 1 2 0 0 0 18 86 0 0
-                                    0 28 0 0 0 15 2 0 36 0 0 1 2 0 36 0 0 1 2 0
-                                    36 0 0 79 2 0 36 0 0 1 2 0 36 0 0 97 2 0 0
+                                    2 0 0 0 98 1 2 0 0 0 13 1 2 0 0 0 18 86 2 0
+                                    36 0 0 1 2 0 36 0 0 1 2 0 36 0 0 79 2 0 36
+                                    0 0 1 2 0 36 0 0 97 0 0 0 15 0 0 0 28 2 0 0
                                     0 0 60 2 0 0 0 13 1 1 0 0 0 95 2 0 0 0 0 96
                                     2 0 0 0 0 94 2 0 0 39 0 1 2 0 0 0 0 84 2 0
                                     0 13 0 93 2 0 0 98 0 1 2 1 0 0 18 1 2 1 0

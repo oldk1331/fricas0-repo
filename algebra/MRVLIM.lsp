@@ -1646,7 +1646,7 @@
 
 (MAKEPROP '|MrvLimitPackage| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|Expression| 40) (0 . |Zero|) '|zeroFE|
+           '#(NIL NIL NIL NIL NIL NIL (|Expression| 40) (0 . |0|) '|zeroFE|
               (|Symbol|) (4 . |new|) '|series_x| (|BasicOperator|)
               (|CommonOperators|) (8 . |operator|) (13 . |operator|)
               '|op_log_gamma| '|op_eis| '|op_erfs| '|op_erfis| (|List| 22)
@@ -1655,7 +1655,7 @@
               (|ElementaryFunctionStructurePackage| 40 6) (40 . |normalize|)
               (45 . =) (|Kernel| 6) (51 . |operator|) (|List| 6)
               (56 . |argument|) (|List| %) (61 . |eval|) (68 . ~=) (74 . |elt|)
-              (80 . |name|) (85 . |One|) (|Integer|) (89 . |elt|)
+              (80 . |name|) (85 . |1|) (|Integer|) (89 . |elt|)
               (|Union| 51 '#1="failed")
               (|Record| (|:| |tan_syms| 84) (|:| |atan_syms| 84)
                         (|:| |tan_kers| 47) (|:| |atan_kers| 47))
@@ -1673,15 +1673,15 @@
               (|ElementaryFunctionSign| 40 6) (214 . |sign|) (219 . ~=)
               (225 . |eval|) (|List| 9) (232 . |variables|)
               (237 . |setIntersection|) (243 . |setIntersection|)
-              (249 . |concat|) (255 . |empty?|) (260 . |#|) (265 . |One|)
-              (269 . ~=) (275 . |first|) (280 . <) (286 . |Zero|) (290 . |is?|)
+              (249 . |concat|) (255 . |empty?|) (260 . |#|) (265 . |1|)
+              (269 . ~=) (275 . |first|) (280 . <) (286 . |0|) (290 . |is?|)
               (|Record| (|:| |func| 158) (|:| |prob| 158))
               (|Union| (|:| |%series| 67) (|:| |%problem| 97))
               (|Union| '"complex" '"real: two sides" '"real: left side"
                        '"real: right side" '"just do it")
               (|Mapping| 25 6) (296 . |exprToPS|) (308 . |order|)
-              (313 . |removeZeros|) (319 . |leadingCoefficient|) (324 . |Zero|)
-              (328 . |One|) (|OutputForm|) (332 . |coerce|) (|Void|)
+              (313 . |removeZeros|) (319 . |leadingCoefficient|) (324 . |0|)
+              (328 . |1|) (|OutputForm|) (332 . |coerce|) (|Void|)
               (|PrintPackage|) (337 . |print|) (342 . |reductum|)
               (|Record| (|:| |degree| 68) (|:| |coeff| 6))
               (|Union| 113 '#2="failed") |MRVLIM;expr_to_series;EKRU;7|
@@ -1691,8 +1691,8 @@
               (|Record| (|:| |lk| 47) (|:| |lc| 32)) (|Union| 123 '#4="failed")
               |MRVLIM;mrv_set;ESRU;9| (368 . ^) |MRVLIM;mrv_rewrite0;ELL2E;11|
               |MRVLIM;mrv_rewrite;ELLSRU;12| (374 . |plusInfinity|)
-              (378 . |member?|) |MRVLIM;mrv_sign;ESRU;13| (384 . |Zero|)
-              (388 . >) (394 . =) (400 . <) (406 . |minusInfinity|)
+              (378 . |member?|) |MRVLIM;mrv_sign;ESRU;13| (384 . |0|) (388 . >)
+              (394 . =) (400 . <) (406 . |minusInfinity|)
               |MRVLIM;mrv_limit1;ESU;15| (|Equation| 51) (410 . |lhs|)
               (|Union| 6 '"failed") (415 . |retractIfCan|)
               (|Union| 9 '"failed") (420 . |retractIfCan|) (425 . |rhs|)

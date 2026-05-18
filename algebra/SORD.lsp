@@ -1,7 +1,7 @@
 
-(SDEFUN |SORD;Zero;%;1| ((% (%))) (|spadConstant| % 7)) 
+(SDEFUN |SORD;0;%;1| ((% (%))) (|spadConstant| % 7)) 
 
-(SDEFUN |SORD;One;%;2| ((% (%))) (|spadConstant| % 9)) 
+(SDEFUN |SORD;1;%;2| ((% (%))) (|spadConstant| % 9)) 
 
 (SDEFUN |SORD;omega;%;3| ((% (%)))
         (SPADCALL 1 (|spadConstant| % 10) (QREFELT % 12))) 
@@ -284,10 +284,10 @@
 
 (MAKEPROP '|SmallOrdinal| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL '|Rep| (0 . |Zero|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |SORD;Zero;%;1|) %))
-              (4 . |One|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |SORD;One;%;2|) %))
+           '#(NIL NIL NIL NIL NIL NIL '|Rep| (0 . |0|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |SORD;0;%;1|) %))
+              (4 . |1|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |SORD;1;%;2|) %))
               (|NonNegativeInteger|) (8 . |monomial|) |SORD;omega;%;3|
               |SORD;omegapower;2%;4| (|Boolean|) (14 . |zero?|)
               |SORD;zero?;%B;5| (19 . =) |SORD;one?;%B;6| |SORD;=;2%B;7|
@@ -314,8 +314,8 @@
               |ordinalAdd| 236 |opposite?| 242 |one?| 248 |omegapower| 253
               |omega| 258 |min| 262 |max| 268 |limitPart| 274 |leftRecip| 279
               |leftPower| 284 |latex| 296 |integerPart| 301 |hashUpdate!| 306
-              |hash| 312 |coerce| 317 |antiCommutator| 327 ^ 333 |Zero| 351
-              |One| 355 >= 359 > 365 = 371 <= 377 < 383 - 389 + 400 * 406)
+              |hash| 312 |coerce| 317 |antiCommutator| 327 ^ 333 >= 351 > 357 =
+              363 <= 369 < 375 |1| 381 |0| 385 - 389 + 400 * 406)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -356,9 +356,9 @@
                                     1 2 0 0 0 11 1 2 0 0 0 68 1 1 0 57 0 1 1 0
                                     11 0 44 2 0 21 21 0 23 1 0 69 0 1 1 0 55 0
                                     61 1 0 0 11 24 2 0 0 0 0 1 2 0 0 0 11 53 2
-                                    0 0 0 68 1 2 0 0 0 0 54 0 0 0 8 0 0 0 10 2
-                                    0 15 0 0 40 2 0 15 0 0 46 2 0 15 0 0 20 2 0
-                                    15 0 0 1 2 0 15 0 0 31 2 1 0 0 0 1 1 1 0 0
+                                    0 0 0 68 1 2 0 0 0 0 54 2 0 15 0 0 40 2 0
+                                    15 0 0 46 2 0 15 0 0 20 2 0 15 0 0 1 2 0 15
+                                    0 0 31 0 0 0 10 0 0 0 8 2 1 0 0 0 1 1 1 0 0
                                     1 2 0 0 0 0 33 2 0 0 68 0 1 2 0 0 11 0 1 2
                                     0 0 0 0 35 2 1 0 70 0 1)))))
            '|lookupComplete|)) 

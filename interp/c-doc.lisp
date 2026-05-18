@@ -2976,8 +2976,8 @@
 ; --case 4: op arg
 ; --case 5: arg op arg
 ;   namestring :=
-;       opname = ["Zero"] => '"0"
-;       opname = ["One"] => '"1"
+;       opname = ["0"] => '"0"
+;       opname = ["1"] => '"1"
 ;       PNAME(opname)
 ;   margin > 0 =>
 ;     s := leftTrim u
@@ -3044,8 +3044,8 @@
     (RETURN
      (PROGN
       (SETQ |namestring|
-              (COND ((EQUAL |opname| (LIST '|Zero|)) "0")
-                    ((EQUAL |opname| (LIST '|One|)) "1")
+              (COND ((EQUAL |opname| (LIST '|0|)) "0")
+                    ((EQUAL |opname| (LIST '|1|)) "1")
                     (#1='T (PNAME |opname|))))
       (COND
        ((< 0 |margin|)

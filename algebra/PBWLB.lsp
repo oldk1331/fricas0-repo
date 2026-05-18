@@ -1,7 +1,7 @@
 
-(MAKEPROP '|PBWLB;One;%;1| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|PBWLB;1;%;1| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(SDEFUN |PBWLB;One;%;1| ((% (%))) NIL) 
+(SDEFUN |PBWLB;1;%;1| ((% (%))) NIL) 
 
 (SDEFUN |PBWLB;=;2%B;2| ((|x| (%)) (|y| (%)) (% (|Boolean|)))
         (SPADCALL |x| |y| (QREFELT % 10))) 
@@ -177,12 +177,12 @@
 (MAKEPROP '|PoincareBirkhoffWittLyndonBasis| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |PBWLB;One;%;1|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |PBWLB;1;%;1|) %))
               (|Boolean|) (0 . =) |PBWLB;=;2%B;2| (|List| 6) (|LyndonWord| 6)
               (6 . |varList|) (11 . |setUnion|) |PBWLB;varList;%L;3|
               |PBWLB;first;%Lw;4| |PBWLB;rest;2%;5| (17 . |coerce|)
               |PBWLB;coerce;VarSet%;6| |PBWLB;coerce;Lw%;7| (|List| 13)
-              |PBWLB;listOfTerms;%L;8| (|FreeMonoid| 6) (22 . |One|)
+              |PBWLB;listOfTerms;%L;8| (|FreeMonoid| 6) (22 . |1|)
               (26 . |coerce|) |PBWLB;coerce;%Fm;9| (31 . *) (|Integer|)
               (|OutputForm|) (37 . |outputForm|) (42 . *) (48 . |coerce|)
               (|Mapping| 30 30 30) (|List| 30) (53 . |reduce|)
@@ -193,8 +193,8 @@
               (70 . =) (76 . |lexico|) |PBWLB;<;2%B;16| (|String|))
            '#(~= 82 |varList| 88 |smaller?| 93 |retractable?| 99 |retractIfCan|
               104 |retract| 109 |rest| 114 |min| 119 |max| 125 |listOfTerms|
-              131 |length| 136 |latex| 141 |first| 146 |coerce| 151 |One| 171
-              >= 175 > 181 = 187 <= 193 < 199)
+              131 |length| 136 |latex| 141 |first| 146 |coerce| 151 >= 171 >
+              177 = 183 <= 189 < 195 |1| 201)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
@@ -216,7 +216,7 @@
                                          41 1 0 0 0 18 2 0 0 0 0 1 2 0 0 0 0 1
                                          1 0 22 0 23 1 0 39 0 46 1 0 50 0 1 1 0
                                          13 0 17 1 0 30 0 37 1 0 0 13 21 1 0 0
-                                         6 20 1 0 24 0 27 0 0 0 8 2 0 9 0 0 1 2
-                                         0 9 0 0 1 2 0 9 0 0 11 2 0 9 0 0 1 2 0
-                                         9 0 0 49)))))
+                                         6 20 1 0 24 0 27 2 0 9 0 0 1 2 0 9 0 0
+                                         1 2 0 9 0 0 11 2 0 9 0 0 1 2 0 9 0 0
+                                         49 0 0 0 8)))))
            '|lookupComplete|)) 

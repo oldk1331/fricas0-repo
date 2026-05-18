@@ -172,9 +172,9 @@
               (12 . |sqfrFactor|) (|Boolean|) (18 . |ground?|) (23 . |order|)
               (29 . ^) (35 . *) (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 22) (|:| |factor| 7) (|:| |exponent| 15))
-              (|List| 23) (41 . |factorList|) (46 . |One|) (50 . |Zero|)
-              (54 . |Zero|) (58 . ~=) (|Mapping| 17 7) (64 . |select|)
-              (|Factored| %) (70 . |squareFree|) (75 . |unit|) (80 . *))
+              (|List| 23) (41 . |factorList|) (46 . |1|) (50 . |0|) (54 . |0|)
+              (58 . ~=) (|Mapping| 17 7) (64 . |select|) (|Factored| %)
+              (70 . |squareFree|) (75 . |unit|) (80 . *))
            '#(|balancedFactorisation| 86) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)

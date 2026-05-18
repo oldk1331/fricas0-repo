@@ -77,9 +77,9 @@
               ((|IJB;CheckZeroIndex| |lo| %) (SPADCALL |up| (QREFELT % 26)))
               ('T (CONS 3 (CONS |up| |lo|))))) 
 
-(MAKEPROP '|IJB;One;%;10| '|SPADreplace| '(XLAM NIL (LIST 0 1))) 
+(MAKEPROP '|IJB;1;%;10| '|SPADreplace| '(XLAM NIL (LIST 0 1))) 
 
-(SDEFUN |IJB;One;%;10| ((% (%))) (LIST 0 1)) 
+(SDEFUN |IJB;1;%;10| ((% (%))) (LIST 0 1)) 
 
 (SDEFUN |IJB;numIndVar;Pi;11| ((% (|PositiveInteger|))) (QREFELT % 9)) 
 
@@ -358,7 +358,7 @@
               (|List| 27) |IJB;multiIndex;%L;3| (|PositiveInteger|)
               |IJB;index;%Pi;4| |IJB;type;%S;5| |IJB;X;Pi%;7| |IJB;U;Pi%;8|
               (|NonNegativeInteger|) (11 . |#|) (16 . ~=) |IJB;Pm;PiL%;9|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |IJB;One;%;10|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |IJB;1;%;10|) %))
               |IJB;numIndVar;Pi;11| |IJB;numDepVar;Pi;12| (|OutputForm|)
               (22 . |coerce|) (|List| 34) (27 . |superscript|) (33 . |coerce|)
               (|List| %) (38 . |bracket|)
@@ -366,14 +366,13 @@
                         (|:| |presub| 36) (|:| |args| 36))
               (43 . |script|) (49 . |subscript|) (|List| 22)
               (55 . |repeatedIndex|) (60 . |blankSeparate|) |IJB;name;%S;13|
-              (|Expression| 63) (65 . |One|) (|BasicOperator|)
-              (69 . |operator|) (|Mapping| 34 36) (74 . |display|) (|None|)
-              (|NoneFunctions1| $$) (80 . |coerce|) (85 . |setProperty|)
-              (92 . |weight|) (|NoneFunctions1| 27) (97 . |coerce|)
-              (|NoneFunctions1| 14) (102 . |coerce|) (|Integer|)
-              (107 . |coerce|) (112 . |coerce|) (|List| 48) (117 . |concat!|)
-              (123 . |kernel|) |IJB;coerce;%E;15| (|String|) (|List| 44)
-              (|Union| % '"0") (|Union| % '"failed"))
+              (|Expression| 63) (65 . |1|) (|BasicOperator|) (69 . |operator|)
+              (|Mapping| 34 36) (74 . |display|) (|None|) (|NoneFunctions1| $$)
+              (80 . |coerce|) (85 . |setProperty|) (92 . |weight|)
+              (|NoneFunctions1| 27) (97 . |coerce|) (|NoneFunctions1| 14)
+              (102 . |coerce|) (|Integer|) (107 . |coerce|) (112 . |coerce|)
+              (|List| 48) (117 . |concat!|) (123 . |kernel|) |IJB;coerce;%E;15|
+              (|String|) (|List| 44) (|Union| % '"0") (|Union| % '"failed"))
            '#(~= 129 |weight| 135 |variables| 140 |type| 151 |smaller?| 156
               |setNotation| 162 |repeatedIndex| 167 |r2m| 172 |order| 177
               |one?| 182 |numIndVar| 187 |numDepVar| 191 |name| 195
@@ -381,7 +380,7 @@
               |integrateIfCan| 227 |integrate| 233 |index| 239 |getNotation|
               244 |dimS| 248 |dimJ| 253 |differentiate| 258 |derivativeOf?| 264
               |coerce| 270 |class| 280 |allRepeated| 290 X 295 U 304 |Pr| 313
-              |Pm| 319 P 325 |One| 347 >= 351 > 357 = 363 <= 369 < 375)
+              |Pm| 319 P 325 >= 347 > 353 = 359 <= 365 < 371 |1| 377)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
@@ -413,7 +412,7 @@
                                          1 1 0 27 0 1 1 0 71 20 1 1 0 0 22 25 0
                                          0 0 1 1 0 0 22 26 0 0 0 1 2 0 0 22 44
                                          1 2 0 0 22 20 30 2 0 0 22 20 1 2 0 0
-                                         22 27 1 1 0 0 20 1 1 0 0 27 1 0 0 0 31
-                                         2 0 13 0 0 1 2 0 13 0 0 1 2 0 13 0 0 1
-                                         2 0 13 0 0 1 2 0 13 0 0 1)))))
+                                         22 27 1 1 0 0 20 1 1 0 0 27 1 2 0 13 0
+                                         0 1 2 0 13 0 0 1 2 0 13 0 0 1 2 0 13 0
+                                         0 1 2 0 13 0 0 1 0 0 0 31)))))
            '|lookupComplete|)) 

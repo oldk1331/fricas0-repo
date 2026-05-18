@@ -166,9 +166,9 @@
 
 (SDEFUN |FFP;basis;V;25| ((% (|Vector| %))) (SPADCALL (QREFELT % 107))) 
 
-(SDEFUN |FFP;Zero;%;26| ((% (%))) (|spadConstant| % 109)) 
+(SDEFUN |FFP;0;%;26| ((% (%))) (|spadConstant| % 109)) 
 
-(SDEFUN |FFP;One;%;27| ((% (%))) (|spadConstant| % 111)) 
+(SDEFUN |FFP;1;%;27| ((% (%))) (|spadConstant| % 111)) 
 
 (SDEFUN |FFP;factorsOfCyclicGroupSize;L;28|
         ((%
@@ -386,18 +386,17 @@
               (0 . |degree|) '|extdeg| (|Symbol|) (5 . |new|) (|OutputForm|)
               (9 . |coerce|) '|alpha| (14 . |size|) '|sizeCG| '|facOfGroupSize|
               '|normalElt| '|primitiveElt| '|initlog?| '|initelt?|
-              (|Table| 40 119) (18 . |table|) '|discLogTable| (22 . |One|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FFP;One;%;27|) %))
-              (26 . |One|) (30 . |monomial|) (36 . |reduce|)
-              |FFP;generator;%;1| (41 . |lift|) (46 . |resultant|)
-              |FFP;norm;%GF;2| (|Boolean|) (52 . ~=)
-              |FFP;primitiveElement;%;31| (|PositiveInteger|) (58 . |norm|)
-              (64 . ^) (|List| $$) (|Vector| $$) (70 . |vector|) (|Vector| %)
-              |FFP;basis;PiV;3| (|Matrix| 6) (75 . |zero|) (|Vector| 6)
-              |FFP;coordinates;%V;11| (|Integer|) (81 . |setColumn!|)
-              |FFP;*;3%;21| (88 . |rank|) (92 . |rank|) |FFP;degree;%Pi;4|
-              (|List| 50) (97 . |nullSpace|) (102 . |elt|) (108 . +)
-              (114 . |Zero|) |FFP;minimalPolynomial;%Sup;5| (|List| 6)
+              (|Table| 40 119) (18 . |table|) '|discLogTable| (22 . |1|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FFP;1;%;27|) %))
+              (26 . |1|) (30 . |monomial|) (36 . |reduce|) |FFP;generator;%;1|
+              (41 . |lift|) (46 . |resultant|) |FFP;norm;%GF;2| (|Boolean|)
+              (52 . ~=) |FFP;primitiveElement;%;31| (|PositiveInteger|)
+              (58 . |norm|) (64 . ^) (|List| $$) (|Vector| $$) (70 . |vector|)
+              (|Vector| %) |FFP;basis;PiV;3| (|Matrix| 6) (75 . |zero|)
+              (|Vector| 6) |FFP;coordinates;%V;11| (|Integer|)
+              (81 . |setColumn!|) |FFP;*;3%;21| (88 . |rank|) (92 . |rank|)
+              |FFP;degree;%Pi;4| (|List| 50) (97 . |nullSpace|) (102 . |elt|)
+              (108 . +) (114 . |0|) |FFP;minimalPolynomial;%Sup;5| (|List| 6)
               (118 . |entries|) (123 . |Frobenius|) (|List| 64)
               (128 . |concat|) (134 . |rank|) (138 . |matrix|)
               (|SimpleAlgebraicExtension| 6 10 (NRTEVAL (QREFELT % 7)))
@@ -411,9 +410,9 @@
               (198 . |lookup|) |FFP;lookup;%Pi;18| (203 . /) |FFP;/;3%;19|
               |FFP;/;%GF%;20| (209 . *) (215 . +) |FFP;+;3%;22| (221 . -)
               |FFP;-;3%;23| (227 . =) |FFP;=;2%B;24| (233 . |basis|)
-              |FFP;basis;V;25| (237 . |Zero|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FFP;Zero;%;26|) %))
-              (241 . |One|) (|Record| (|:| |factor| 52) (|:| |exponent| 9))
+              |FFP;basis;V;25| (237 . |0|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FFP;0;%;26|) %))
+              (241 . |1|) (|Record| (|:| |factor| 52) (|:| |exponent| 9))
               (|List| 112) |FFP;factorsOfCyclicGroupSize;L;28|
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               |FFP;representationType;U;29| (|Union| 119 '"failed")
@@ -469,8 +468,8 @@
               |conditionP| 870 |commutator| 875 |coerce| 881 |charthRoot| 906
               |characteristicPolynomial| 916 |characteristic| 921 |basis| 925
               |associator| 934 |associates?| 941 |antiCommutator| 947
-              |annihilate?| 953 |algebraic?| 959 ^ 964 |Zero| 982 |One| 986
-              |Frobenius| 990 D 1001 = 1012 / 1018 - 1030 + 1041 * 1047)
+              |annihilate?| 953 |algebraic?| 959 ^ 964 |Frobenius| 982 D 993 =
+              1004 |1| 1010 |0| 1014 / 1018 - 1030 + 1041 * 1047)
            'NIL
            (CONS
             (|makeByteWordVec2| 4
@@ -576,8 +575,8 @@
                                     0 0 9 143 0 0 46 108 1 2 46 40 47 3 0 0 0 0
                                     0 1 2 0 37 0 0 1 2 0 0 0 0 1 2 0 37 0 0 1 1
                                     0 37 0 1 2 0 0 0 40 1 2 0 0 0 9 42 2 0 0 0
-                                    52 129 0 0 0 110 0 0 0 29 2 2 0 0 9 1 1 2 0
-                                    0 66 1 2 0 0 1 2 2 0 0 9 1 2 0 37 0 0 106 2
+                                    52 129 2 2 0 0 9 1 1 2 0 0 66 1 2 0 0 1 2 2
+                                    0 0 9 1 2 0 37 0 0 106 0 0 0 29 0 0 0 110 2
                                     0 0 0 0 98 2 0 0 0 6 99 2 0 0 0 0 104 1 0 0
                                     0 79 2 0 0 0 0 102 2 0 0 40 0 1 2 0 0 0 0
                                     54 2 0 0 52 0 77 2 0 0 9 0 1 2 0 0 6 0 75 2

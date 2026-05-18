@@ -3104,21 +3104,21 @@
            '#(NIL NIL NIL NIL NIL NIL (|Float|) (0 . |abs|) |FELFUN;rabs;2F;1|
               (|Complex| 6) (5 . |abs|) (10 . |real|) |FELFUN;rabs;CF;2|
               (|Integer|) (|PositiveInteger|) (15 . |float|) (|Boolean|)
-              (22 . <) (28 . |sqrt|) (33 . *) (39 . |One|) (43 . +) (49 . /)
+              (22 . <) (28 . |sqrt|) (33 . *) (39 . |1|) (43 . +) (49 . /)
               (55 . -) (61 . ^) (|List| 6) |FELFUN;landen1;F2L;3| (67 . /)
               (|Fraction| 13) (73 . /) (79 . *) |FELFUN;landen2;FLFL;4|
-              (85 . |One|) |FELFUN;landen;2FL;5| (89 . *) (|Mapping| 6 6 6)
-              (95 . |reduce|) |FELFUN;kprod;LF;6| (101 . |sin|) (106 . |One|)
+              (85 . |1|) |FELFUN;landen;2FL;5| (89 . *) (|Mapping| 6 6 6)
+              (95 . |reduce|) |FELFUN;kprod;LF;6| (101 . |sin|) (106 . |1|)
               |FELFUN;sn2;FLF;7| (110 . |sqrt|) (115 . *) (121 . +) (127 . /)
               (133 . -) (139 . ^) (|List| 9) |FELFUN;landen1;C2L;8| (145 . *)
               |FELFUN;landen2;CLFL;9| |FELFUN;landen;CFL;10| (151 . *)
               (|Mapping| 9 9 9) (157 . |reduce|) |FELFUN;kprod;LC;11|
               (163 . |sin|) |FELFUN;sn2;CLC;12| (168 . |pi|) (172 . |round|)
               (177 . |retract|) (182 . *) (188 . |base|) (192 . ~=)
-              (198 . |float|) (204 . |Zero|) (208 . >=) (214 . |bits|)
+              (198 . |float|) (204 . |0|) (208 . >=) (214 . |bits|)
               (218 . |bits|) |FELFUN;ellipticK;2F;15| (223 . =) (229 . |pi|)
               (233 . *) |FELFUN;ellipticK;2C;16| (239 . >) (245 . ^) (251 . -)
-              (256 . |sign|) (261 . |Zero|) (265 . |complex|) (271 . -)
+              (256 . |sign|) (261 . |0|) (265 . |complex|) (271 . -)
               (276 . |elt|) (282 . |cos|) (287 . |cosh|) (292 . |sinh|)
               (297 . |tanh|) (302 . *) (308 . |imag|) (313 . *)
               (319 . |coerce|) (324 . |coerce|) (329 . |positiveRemainder|)

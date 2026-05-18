@@ -67,9 +67,9 @@
         (CONS (SPADCALL (QCAR |v|) (QREFELT % 39))
               (SPADCALL (QCDR |v|) (QREFELT % 42)))) 
 
-(MAKEPROP '|JVF;Zero;%;11| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
+(MAKEPROP '|JVF;0;%;11| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
 
-(SDEFUN |JVF;Zero;%;11| ((% (%))) (CONS NIL NIL)) 
+(SDEFUN |JVF;0;%;11| ((% (%))) (CONS NIL NIL)) 
 
 (SDEFUN |JVF;zero?;%B;12| ((|v| (%)) (% (|Boolean|))) (NULL (QCDR |v|))) 
 
@@ -642,23 +642,22 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|PositiveInteger|) (0 . |numIndVar|) '|nn| (4 . |numDepVar|)
-              '|mm| '|Rep| (8 . |One|) |JVF;diff;JB%;1| (12 . X)
+              '|mm| '|Rep| (8 . |1|) |JVF;diff;JB%;1| (12 . X)
               |JVF;diffX;Pi%;2| (17 . U) |JVF;diffU;Pi%;3| (|List| 72) (22 . P)
               |JVF;diffP;PiL%;4| (|Boolean|) (28 . |one?|) (|String|)
               (|OutputForm|) (33 . |message|) (38 . |coerce|) (43 . |sub|)
-              (49 . |coerce|) (54 . *) (60 . |Zero|) (64 . +)
-              (|Mapping| 26 26 26) (|List| 26) (70 . |reduce|)
-              |JVF;coerce;%Of;6| (|List| 7) (76 . |copy|)
-              |JVF;coefficients;%L;7| (|List| 6) (81 . |copy|)
+              (49 . |coerce|) (54 . *) (60 . |0|) (64 . +) (|Mapping| 26 26 26)
+              (|List| 26) (70 . |reduce|) |JVF;coerce;%Of;6| (|List| 7)
+              (76 . |copy|) |JVF;coefficients;%L;7| (|List| 6) (81 . |copy|)
               |JVF;directions;%L;8| (|Integer|) (86 . |position|) (92 . |qelt|)
               |JVF;coefficient;%JBD;9| |JVF;copy;2%;10|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |JVF;Zero;%;11|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |JVF;0;%;11|) %))
               |JVF;zero?;%B;12| (98 . -) |JVF;-;2%;13| (103 . <) (109 . =)
               (115 . +) (121 . |zero?|) (126 . |concat!|) (132 . |concat!|)
               |JVF;+;3%;14| (138 . *) |JVF;*;D2%;15| (|Symbol|) (144 . |type|)
               (149 . |index|) (|SparseEchelonMatrix| 6 %) (|List| %)
               (154 . |jacobiMatrix|) (|Record| (|:| |DPhi| %) (|:| |JVars| 41))
-              (159 . |formalDiff2|) (166 . |One|) (170 . |multiIndex|)
+              (159 . |formalDiff2|) (166 . |1|) (170 . |multiIndex|)
               (|NonNegativeInteger|) (175 . |class|) (|Union| % '"0")
               (180 . |differentiate|) (186 . |copy|) (191 . |qelt|)
               (197 . |qsetelt!|) (204 . |Pm|) (210 . |coerce|) (215 . -)
@@ -672,7 +671,7 @@
               |prolong| 294 |opposite?| 300 |lie| 306 |latex| 312 |eval| 317
               |directions| 323 |diffX| 328 |diffU| 333 |diffP| 338 |diff| 344
               |copy| 349 |commutator| 354 |coerce| 360 |coefficients| 365
-              |coefficient| 370 |Zero| 376 = 380 - 386 + 397 * 403)
+              |coefficient| 370 = 376 |0| 382 - 386 + 397 * 403)
            'NIL
            (CONS (|makeByteWordVec2| 3 '(0 0 0 0 1 1 3 0 0 0 0))
                  (CONS
@@ -707,8 +706,8 @@
                                          0 97 1 0 25 0 1 2 0 7 0 7 84 1 0 41 0
                                          43 1 0 0 8 17 1 0 0 8 19 2 0 0 8 20 22
                                          1 0 0 6 15 1 0 0 0 48 2 0 0 0 0 86 1 0
-                                         26 0 37 1 0 38 0 40 2 0 7 0 6 47 0 2 0
-                                         49 2 0 23 0 0 1 1 1 0 0 52 2 1 0 0 0
+                                         26 0 37 1 0 38 0 40 2 0 7 0 6 47 2 0
+                                         23 0 0 1 0 2 0 49 1 1 0 0 52 2 1 0 0 0
                                          85 2 0 0 0 0 59 2 0 0 8 0 1 2 0 0 7 0
                                          61 2 0 0 0 7 1 2 1 0 44 0 1 2 2 0 72 0
                                          1)))))

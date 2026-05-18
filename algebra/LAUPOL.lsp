@@ -1,7 +1,7 @@
 
-(SDEFUN |LAUPOL;Zero;%;1| ((% (%))) (CONS (|spadConstant| % 11) 0)) 
+(SDEFUN |LAUPOL;0;%;1| ((% (%))) (CONS (|spadConstant| % 11) 0)) 
 
-(SDEFUN |LAUPOL;One;%;2| ((% (%))) (CONS (|spadConstant| % 14) 0)) 
+(SDEFUN |LAUPOL;1;%;2| ((% (%))) (CONS (|spadConstant| % 14) 0)) 
 
 (SDEFUN |LAUPOL;=;2%B;3| ((|p| (%)) (|q| (%)) (% (|Boolean|)))
         (COND
@@ -473,11 +473,10 @@
 (MAKEPROP '|LaurentPolynomial| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|Rep|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |LAUPOL;Zero;%;1|) %))
-              (0 . |Zero|) (4 . |Zero|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |LAUPOL;One;%;2|) %))
-              (8 . |One|) (12 . |One|) (|Boolean|) (16 . =) |LAUPOL;=;2%B;3|
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |LAUPOL;0;%;1|) %))
+              (0 . |0|) (4 . |0|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |LAUPOL;1;%;2|) %))
+              (8 . |1|) (12 . |1|) (|Boolean|) (16 . =) |LAUPOL;=;2%B;3|
               (|Integer|) |LAUPOL;order;%I;5| (22 . |coerce|)
               |LAUPOL;monomial;RI%;7| |LAUPOL;coerce;UP%;8| (27 . |reductum|)
               |LAUPOL;reductum;2%;9| (32 . *) |LAUPOL;*;I2%;10|
@@ -528,7 +527,7 @@
               |differentiate| 549 |degree| 599 |convert| 604 |commutator| 609
               |coerce| 615 |coefficient| 645 |characteristic| 651 |associator|
               655 |associates?| 662 |antiCommutator| 668 |annihilate?| 674 ^
-              680 |Zero| 692 |One| 696 D 700 = 750 - 756 + 767 * 773)
+              680 D 692 = 742 |1| 748 |0| 752 - 756 + 767 * 773)
            'NIL
            (CONS
             (|makeByteWordVec2| 7
@@ -605,10 +604,10 @@
                                     0 6 31 1 0 0 7 22 1 3 0 111 1 2 0 6 0 18 63
                                     0 0 27 29 3 0 0 0 0 0 1 2 0 15 0 0 1 2 0 0
                                     0 0 1 2 0 15 0 0 1 2 0 0 0 102 1 2 0 0 0 27
-                                    1 0 0 0 9 0 0 0 12 2 0 0 0 65 1 3 0 0 0 65
-                                    27 1 2 2 0 0 27 1 1 2 0 0 1 3 1 0 0 113 114
-                                    1 3 1 0 0 115 27 1 2 1 0 0 115 1 2 1 0 0
-                                    113 1 2 0 15 0 0 17 1 0 0 0 46 2 0 0 0 0 1
-                                    2 0 0 0 0 76 2 0 0 102 0 1 2 0 0 0 0 44 2 0
-                                    0 18 0 26 2 0 0 27 0 1)))))
+                                    1 2 0 0 0 65 1 3 0 0 0 65 27 1 2 2 0 0 27 1
+                                    1 2 0 0 1 3 1 0 0 113 114 1 3 1 0 0 115 27
+                                    1 2 1 0 0 115 1 2 1 0 0 113 1 2 0 15 0 0 17
+                                    0 0 0 12 0 0 0 9 1 0 0 0 46 2 0 0 0 0 1 2 0
+                                    0 0 0 76 2 0 0 102 0 1 2 0 0 0 0 44 2 0 0
+                                    18 0 26 2 0 0 27 0 1)))))
            '|lookupComplete|)) 

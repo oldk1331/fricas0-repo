@@ -547,8 +547,7 @@
             (|UnivariateLaurentSeriesConstructorCategory| FE
                                                           (|UnivariateTaylorSeries|
                                                            FE |x|
-                                                           (|Sel| FE
-                                                            (|Zero|))))
+                                                           (|Sel| FE (|0|))))
             (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |x|)))
              (SIGNATURE |differentiate| (% % (|Variable| |x|)))
              (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
@@ -597,8 +596,7 @@
             (|UnivariateLaurentSeriesConstructorCategory| FE
                                                           (|UnivariateTaylorSeries|
                                                            FE |x|
-                                                           (|Sel| FE
-                                                            (|Zero|))))
+                                                           (|Sel| FE (|0|))))
             (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |x|)))
              (SIGNATURE |differentiate| (% % (|Variable| |x|)))
              (IF (|has| FE (|Algebra| (|Fraction| (|Integer|))))
@@ -892,7 +890,7 @@
                                                           (|UnivariateLaurentSeries|
                                                            FE |x|
                                                            #1=(|Sel| FE
-                                                               (|Zero|))))
+                                                               (|0|))))
             (|RetractableTo| (|UnivariateTaylorSeries| FE |x| #1#))
             (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |x|)))
              (SIGNATURE |differentiate| (% % (|Variable| |x|)))
@@ -945,7 +943,7 @@
                                                           (|UnivariateLaurentSeries|
                                                            FE |x|
                                                            #1=(|Sel| FE
-                                                               (|Zero|))))
+                                                               (|0|))))
             (|RetractableTo| (|UnivariateTaylorSeries| FE |x| #1#))
             (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |x|)))
              (SIGNATURE |differentiate| (% % (|Variable| |x|)))
@@ -1325,7 +1323,7 @@
                                                           (|UnivariateLaurentSeries|
                                                            FE |x|
                                                            #1=(|Sel| FE
-                                                               (|Zero|))))
+                                                               (|0|))))
             (|RetractableTo| (|UnivariateTaylorSeries| FE |x| #1#))
             (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |x|)))
              (SIGNATURE |differentiate| (% % (|Variable| |x|)))
@@ -1378,7 +1376,7 @@
                                                           (|UnivariateLaurentSeries|
                                                            FE |x|
                                                            #1=(|Sel| FE
-                                                               (|Zero|))))
+                                                               (|0|))))
             (|RetractableTo| (|UnivariateTaylorSeries| FE |x| #1#))
             (CATEGORY |domain| (SIGNATURE |coerce| (% (|Variable| |x|)))
              (SIGNATURE |differentiate| (% % (|Variable| |x|)))
@@ -1547,15 +1545,15 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|Boolean|)
               (0 . |zero?|) (|Symbol|) (5 . |coerce|) (10 . +) (|Equation| 7)
-              (16 . =) (|Equation| %) (22 . |eval|) (28 . |Zero|) (32 . |One|)
-              (36 . |One|) (|Any|) |EXPR2UPS;taylor;SA;3| (|List| 10)
+              (16 . =) (|Equation| %) (22 . |eval|) (28 . |0|) (32 . |1|)
+              (36 . |1|) (|Any|) |EXPR2UPS;taylor;SA;3| (|List| 10)
               (40 . |variables|) |EXPR2UPS;taylor;FEEA;6|
-              |EXPR2UPS;taylor;FEA;4| (45 . |Zero|) (|NonNegativeInteger|)
+              |EXPR2UPS;taylor;FEA;4| (45 . |0|) (|NonNegativeInteger|)
               |EXPR2UPS;taylor;FENniA;5| (49 . |lhs|) (|Union| 10 '"failed")
               (54 . |retractIfCan|) (59 . |rhs|) |EXPR2UPS;taylor;FEENniA;7|
               |EXPR2UPS;laurent;SA;9| |EXPR2UPS;laurent;FEEA;12|
               |EXPR2UPS;laurent;FEA;10| (|Integer|) |EXPR2UPS;laurent;FEIA;11|
-              |EXPR2UPS;laurent;FEEIA;13| (|Fraction| 37) (64 . |One|)
+              |EXPR2UPS;laurent;FEEIA;13| (|Fraction| 37) (64 . |1|)
               |EXPR2UPS;puiseux;SA;15| |EXPR2UPS;puiseux;FEEA;18|
               |EXPR2UPS;puiseux;FEA;16| |EXPR2UPS;puiseux;FEFA;17|
               |EXPR2UPS;puiseux;FEEFA;19| |EXPR2UPS;series;SA;21|

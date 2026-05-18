@@ -787,7 +787,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|List| 17) (|Permutation| 26)
               (0 . |cycles|) (|List| 7) (|Mapping| 7 6) (|List| 6)
               (|ListFunctions2| 6 7) (5 . |map|) (|PermutationGroup| 26)
-              (11 . |coerce|) (16 . |One|) (|List| 26) (20 . |list|)
+              (11 . |coerce|) (16 . |1|) (|List| 26) (20 . |list|)
               |PGE;youngGroup;LPg;3| (|Partition|) (25 . |convert|)
               |PGE;youngGroup;PPg;4| |PGE;rubiksGroup;Pg;5|
               (30 . |removeDuplicates|) (|Boolean|) (|Integer|) (35 . ~=)

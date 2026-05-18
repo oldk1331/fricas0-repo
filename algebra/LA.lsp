@@ -1,5 +1,5 @@
 
-(SDEFUN |LA;One;%;1| ((% (%)))
+(SDEFUN |LA;1;%;1| ((% (%)))
         (SPADCALL (|spadConstant| % 8) (|spadConstant| % 9) (QREFELT % 10))) 
 
 (SDEFUN |LA;*;3%;2| ((|x| (%)) (|y| (%)) (% (%)))
@@ -57,8 +57,8 @@
 (MAKEPROP '|LocalAlgebra| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|Localize| 6 7) (|local| |#1|)
-              (|local| |#2|) (0 . |One|) (4 . |One|) (8 . /)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |LA;One;%;1|) %))
+              (|local| |#2|) (0 . |1|) (4 . |1|) (8 . /)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |LA;1;%;1|) %))
               (14 . |numer|) (19 . *) (25 . |denom|) (30 . *) |LA;*;3%;2|
               (|NonNegativeInteger|) (36 . |characteristic|)
               |LA;characteristic;Nni;3| (|Boolean|) (|String|) (|OutputForm|)
@@ -69,8 +69,8 @@
               |numer| 116 |negative?| 121 |min| 126 |max| 132 |leftRecip| 138
               |leftPower| 143 |latex| 155 |denom| 160 |commutator| 165 |coerce|
               171 |characteristic| 186 |associator| 190 |antiCommutator| 197
-              |annihilate?| 203 |abs| 209 ^ 214 |Zero| 226 |One| 230 >= 234 >
-              240 = 246 <= 252 < 258 / 264 - 276 + 287 * 293)
+              |annihilate?| 203 |abs| 209 ^ 214 >= 226 > 232 = 238 <= 244 < 250
+              |1| 256 |0| 260 / 264 - 276 + 287 * 293)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -111,8 +111,8 @@
                                     7 0 14 2 0 0 0 0 1 1 0 22 0 1 1 0 0 24 1 1
                                     0 0 7 1 0 0 17 19 3 0 0 0 0 0 1 2 0 0 0 0 1
                                     2 0 20 0 0 1 1 1 0 0 1 2 0 0 0 23 1 2 0 0 0
-                                    17 1 0 0 0 1 0 0 0 11 2 1 20 0 0 1 2 1 20 0
-                                    0 1 2 0 20 0 0 1 2 1 20 0 0 1 2 1 20 0 0 1
+                                    17 1 2 1 20 0 0 1 2 1 20 0 0 1 2 0 20 0 0 1
+                                    2 1 20 0 0 1 2 1 20 0 0 1 0 0 0 11 0 0 0 1
                                     2 0 0 0 7 1 2 0 0 6 7 10 2 0 0 0 0 1 1 0 0
                                     0 1 2 0 0 0 0 1 2 0 0 23 0 1 2 0 0 0 0 16 2
                                     0 0 24 0 1 2 0 0 17 0 1 2 0 0 7 0 1 2 0 0 0

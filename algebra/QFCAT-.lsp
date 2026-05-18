@@ -320,14 +320,13 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (0 . |numer|) (5 . |coerce|) |QFCAT-;numerator;2A;1|
-              (10 . |denom|) |QFCAT-;denominator;2A;2| (15 . |init|)
-              (19 . |One|) (23 . /) (29 . |init|) (|Union| % '#1="failed")
-              (33 . |nextItem|) (38 . |One|) (42 . |nextItem|) (|Mapping| 7 7)
-              |QFCAT-;map;M2A;5| (47 . |Zero|) (51 . |Zero|) (|Vector| 6)
-              (|Integer|) (|Matrix| 6) (55 . |row|)
-              (|CommonDenominator| 7 6 25) (61 . |commonDenominator|)
-              (66 . |exquo|) (72 . *) (|Matrix| 7) (|Matrix| %)
-              |QFCAT-;reducedSystem;MM;6| (|NonNegativeInteger|)
+              (10 . |denom|) |QFCAT-;denominator;2A;2| (15 . |init|) (19 . |1|)
+              (23 . /) (29 . |init|) (|Union| % '#1="failed") (33 . |nextItem|)
+              (38 . |1|) (42 . |nextItem|) (|Mapping| 7 7) |QFCAT-;map;M2A;5|
+              (47 . |0|) (51 . |0|) (|Vector| 6) (|Integer|) (|Matrix| 6)
+              (55 . |row|) (|CommonDenominator| 7 6 25)
+              (61 . |commonDenominator|) (66 . |exquo|) (72 . *) (|Matrix| 7)
+              (|Matrix| %) |QFCAT-;reducedSystem;MM;6| (|NonNegativeInteger|)
               (78 . |characteristic|) |QFCAT-;characteristic;Nni;7| (82 . -)
               (|PositiveInteger|) (88 . ^) |QFCAT-;differentiate;AMA;8|
               (|InputForm|) (94 . |convert|) (99 . /) (105 . |convert|)

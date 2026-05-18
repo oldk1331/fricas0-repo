@@ -175,7 +175,7 @@
               (|GcdBasis| 17) (17 . |gcdDecomposition|) (|Integer|)
               (|Vector| 17) (22 . |elt|) (|Boolean|) (28 . |unit?|)
               (|Matrix| 17) (33 . |elt|) (|Fraction| 17) (40 . |coerce|)
-              (|List| 11) (45 . |matrix|) (50 . |One|)
+              (|List| 11) (45 . |matrix|) (50 . |1|)
               |MULDEP;logDependenceQ;LFU;2|)
            '#(|logDependenceQ| 54) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

@@ -526,10 +526,10 @@
 (MAKEPROP '|PrimGCD| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL
-              (|SparseMultivariatePolynomial| (|Integer|) 11) (0 . |One|)
+              (|SparseMultivariatePolynomial| (|Integer|) 11) (0 . |1|)
               (|Record| (|:| |lcx0lc| 6) (|:| |lcx0m| 6)) (|List| 11)
               |PRIGCD3;lcx0;SmpLR;1| (|Symbol|) (|NonNegativeInteger|)
-              (4 . |monomial|) (11 . *) (17 . |Zero|)
+              (4 . |monomial|) (11 . *) (17 . |0|)
               (|Record| (|:| |lczlc| 6) (|:| |k| (|Integer|)))
               |PRIGCD3;lcz;SmpSR;2| (|List| 6) |PRIGCD3;coeffs0;SmpL2L;3|
               |PRIGCD3;coeffs1;SmpLL;4| (|List| %) (21 . |gcd|)

@@ -42,7 +42,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |inv|) (5 . *)
               |GROUP-;/;3S;1| (|Union| % '#1="failed") |GROUP-;recip;SU;2|
-              (11 . |One|) (|PositiveInteger|) (|RepeatedSquaring| 6)
+              (11 . |1|) (|PositiveInteger|) (|RepeatedSquaring| 6)
               (15 . |expt|) (|Integer|) |GROUP-;^;SIS;3|
               |GROUP-;conjugate;3S;4| |GROUP-;commutator;3S;5|
               (|NonNegativeInteger|))

@@ -443,10 +443,10 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|SparseMultivariatePolynomial| 6 7)
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
-              (0 . |One|) (4 . |One|) (|NonNegativeInteger|) (8 . |monomial|)
+              (0 . |1|) (4 . |1|) (|NonNegativeInteger|) (8 . |monomial|)
               |SKSMP;D;Var%;1| (|Union| % '"failed") (|Symbol|)
               (15 . |variable|) (20 . |Delta|) '|Sup| '|Supp| (|Mapping| $$ $$)
-              (|Automorphism| $$) (25 . |morphism|) '|id| (30 . |Zero|) '|Upol|
+              (|Automorphism| $$) (25 . |morphism|) '|id| (30 . |0|) '|Upol|
               (|Mapping| 6 6) (34 . |map|) (|Automorphism| 6) (40 . |elt|)
               (46 . |inv|) (51 . |morphism|) (|Boolean|) (57 . |ground?|)
               (62 . |retract|) (67 . *) (|Union| 7 '"failed")
@@ -454,7 +454,7 @@
               (78 . |univariate|) (|UnivariateSkewPolynomialCategoryOps| $$ 26)
               (84 . |times|) (92 . |multivariate|) |SKSMP;*;3%;5|
               (98 . |coerce|) |SKSMP;*;%R%;6| (103 . |exquo|)
-              (109 . |totalDegree|) (114 . |leadingMonomial|) (119 . |Zero|)
+              (109 . |totalDegree|) (114 . |leadingMonomial|) (119 . |0|)
               (123 . ~=) (129 . |exquo|) (135 . +) (141 . -) (147 . |exquo|)
               (|PositiveInteger|) |SKSMP;^;%Pi%;8| |SKSMP;^;%Nni%;9|
               (|OutputForm|) (153 . |coerce|) (158 . |coerce|) (163 . |coerce|)
@@ -485,8 +485,7 @@
               535 |coerce| 541 |coefficients| 566 |coefficient| 571
               |characteristic| 591 |binomThmExpt| 595 |associator| 602
               |associates?| 609 |antiCommutator| 615 |annihilate?| 621 ^ 627
-              |Zero| 639 |One| 643 |Delta| 647 D 652 = 657 / 663 - 669 + 680 *
-              686)
+              |Delta| 639 D 644 = 649 |1| 655 |0| 659 / 663 - 669 + 680 * 686)
            'NIL
            (CONS
             (|makeByteWordVec2| 27
@@ -568,11 +567,11 @@
                                     1 1 0 72 0 1 2 0 6 0 69 1 3 0 0 0 7 12 1 3
                                     0 0 0 76 75 1 0 35 12 1 3 31 0 0 0 12 1 3
                                     35 0 0 0 0 1 2 32 33 0 0 1 2 0 0 0 0 1 2 35
-                                    33 0 0 1 2 0 0 0 56 57 2 34 0 0 12 58 0 38
-                                    0 25 0 34 0 10 1 28 0 16 18 1 0 0 7 14 2 0
-                                    33 0 0 1 2 15 0 0 6 1 2 36 0 0 0 54 1 36 0
-                                    0 1 2 0 0 0 0 53 2 0 0 56 0 1 2 0 0 0 0 44
-                                    2 0 0 0 6 46 2 0 0 6 0 36 2 26 0 0 77 1 2
-                                    36 0 77 0 1 2 38 0 12 0 1 2 1 0 83 0 1 2 1
-                                    0 0 83 1)))))
+                                    33 0 0 1 2 0 0 0 56 57 2 34 0 0 12 58 1 28
+                                    0 16 18 1 0 0 7 14 2 0 33 0 0 1 0 34 0 10 0
+                                    38 0 25 2 15 0 0 6 1 2 36 0 0 0 54 1 36 0 0
+                                    1 2 0 0 0 0 53 2 0 0 56 0 1 2 0 0 0 0 44 2
+                                    0 0 0 6 46 2 0 0 6 0 36 2 26 0 0 77 1 2 36
+                                    0 77 0 1 2 38 0 12 0 1 2 1 0 83 0 1 2 1 0 0
+                                    83 1)))))
            '|lookupComplete|)) 

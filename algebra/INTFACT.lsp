@@ -571,10 +571,10 @@
 
 (MAKEPROP '|IntegerFactorizationPackage| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |Zero|)
-              (|Factored| 6) (4 . |Zero|) (|Boolean|) (8 . <) (14 . -)
-              (19 . |One|) (23 . |One|) (27 . >) (|Union| 6 '"failed")
-              (|IntegerRoots| 6) (33 . |perfectSqrt|) |INTFACT;squareFree;IF;1|
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |0|) (|Factored| 6)
+              (4 . |0|) (|Boolean|) (8 . <) (14 . -) (19 . |1|) (23 . |1|)
+              (27 . >) (|Union| 6 '"failed") (|IntegerRoots| 6)
+              (33 . |perfectSqrt|) |INTFACT;squareFree;IF;1|
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 20) (|:| |factor| 6) (|:| |exponent| 27))
               (|List| 21) (38 . |factorList|) (43 . |unit|) (48 . *)

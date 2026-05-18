@@ -158,10 +158,10 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|Rep|
               (|List| 6) |GENMOEBF;members;%L;3| (|Boolean|) (0 . <=)
               (|Mapping| 11 6 6) (|ListPackage| 6) (6 . |topologicalSort|)
-              (12 . |removeDuplicates|) (17 . |Zero|) (|List| (|List| 7))
+              (12 . |removeDuplicates|) (17 . |0|) (|List| (|List| 7))
               (|Matrix| 7) (21 . |matrix|) (|Union| % '"failed")
               (26 . |inverse|) (|Mapping| 7 6 6)
-              |GENMOEBF;generalizedMoebiusFunction;LM%;4| (31 . |One|)
+              |GENMOEBF;generalizedMoebiusFunction;LM%;4| (31 . |1|)
               (|Integer|) (35 . |position|) (41 . |elt|)
               |GENMOEBF;apply;%2PR;6| |GENMOEBF;moebiusMatrix;%M;7| (|String|)
               (|OutputForm|) (48 . |message|))

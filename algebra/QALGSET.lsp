@@ -478,24 +478,24 @@
               (|List| 17) (10 . |factorList|) (|List| 9)
               (|GroebnerPackage| 6 8 9) (15 . |groebner|)
               (|GroebnerInternalPackage| 6 8 9) (20 . |redPol|)
-              |QALGSET;quasiAlgebraicSet;LDpoly%;12| (26 . |Zero|)
-              (30 . |Zero|) (34 . |Zero|) (38 . =) |QALGSET;empty;%;7|
-              (44 . |setDifference|) (50 . *) (56 . |One|) (60 . |member?|)
-              (66 . |primitivePart|) (71 . |simplify|) (76 . |zero?|)
-              (|PolynomialRing| 6 43) (81 . |Zero|) (85 . |leadingCoefficient|)
-              (90 . |degree|) (|NonNegativeInteger|) (|Product| 42 8)
-              (95 . |construct|) (101 . |monomial|) (107 . |reductum|)
-              (112 . +) (118 . =) (124 . |degree|) (129 . |first|) (134 . ~=)
-              (140 . |reductum|) (145 . |leadingCoefficient|) (150 . |second|)
-              (155 . |monomial|) (161 . +) (|Union| 11 '"failed") (167 . =)
-              (|String|) (|OutputForm|) (173 . |message|) (178 . |coerce|)
+              |QALGSET;quasiAlgebraicSet;LDpoly%;12| (26 . |0|) (30 . |0|)
+              (34 . |0|) (38 . =) |QALGSET;empty;%;7| (44 . |setDifference|)
+              (50 . *) (56 . |1|) (60 . |member?|) (66 . |primitivePart|)
+              (71 . |simplify|) (76 . |zero?|) (|PolynomialRing| 6 43)
+              (81 . |0|) (85 . |leadingCoefficient|) (90 . |degree|)
+              (|NonNegativeInteger|) (|Product| 42 8) (95 . |construct|)
+              (101 . |monomial|) (107 . |reductum|) (112 . +) (118 . =)
+              (124 . |degree|) (129 . |first|) (134 . ~=) (140 . |reductum|)
+              (145 . |leadingCoefficient|) (150 . |second|) (155 . |monomial|)
+              (161 . +) (|Union| 11 '"failed") (167 . =) (|String|)
+              (|OutputForm|) (173 . |message|) (178 . |coerce|)
               (183 . |hconcat|) (|List| 60) (189 . |coerce|) (|List| %)
               (194 . |bracket|) |QALGSET;coerce;%Of;5|
               |QALGSET;idealSimplify;2%;13| |QALGSET;empty?;%B;6|
               |QALGSET;status;%U;8| |QALGSET;setStatus;%U%;9|
               |QALGSET;definingEquations;%L;10|
-              |QALGSET;definingInequation;%Dpoly;11| (199 . |One|) (203 . *)
-              (209 . |One|) (213 . -) (|List| 38) (|GroebnerPackage| 6 43 38)
+              |QALGSET;definingInequation;%Dpoly;11| (199 . |1|) (203 . *)
+              (209 . |1|) (213 . -) (|List| 38) (|GroebnerPackage| 6 43 38)
               (219 . |groebner|) (224 . |member?|) (|Set| 9) (230 . |set|)
               (235 . <))
            '#(~= 241 |status| 247 |simplify| 252 |setStatus| 257

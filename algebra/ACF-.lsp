@@ -313,9 +313,9 @@
               (28 . |variables|) (|SparseUnivariatePolynomial| 6)
               (33 . |univariate|) (|Polynomial| %) |ACF-;zeroOf;PS;8|
               |ACF-;rootOf;PS;9| |ACF-;zerosOf;PL;10| |ACF-;rootsOf;PL;11|
-              (|NonNegativeInteger|) (38 . |degree|) (43 . |Zero|)
-              (47 . |Zero|) (51 . |coefficient|) (|Boolean|) (57 . |zero?|)
-              (62 . |leadingCoefficient|) (67 . |One|) (71 . |One|)
+              (|NonNegativeInteger|) (38 . |degree|) (43 . |0|) (47 . |0|)
+              (51 . |coefficient|) (|Boolean|) (57 . |zero?|)
+              (62 . |leadingCoefficient|) (67 . |1|) (71 . |1|)
               (|PositiveInteger|) (75 . ^) (81 . *) (87 . *) (93 . -)
               (99 . |sqrt|) (104 . /) (110 . |reductum|) (|Union| 6 '"failed")
               (115 . |retractIfCan|) (120 . -) (|Integer|) (125 . |nthRoot|)

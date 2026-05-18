@@ -21,7 +21,7 @@
 
 (SDEFUN |MOEBIUS;d| ((|t| (%)) (% (F))) (QVELT |t| 3)) 
 
-(SDEFUN |MOEBIUS;One;%;6| ((% (%)))
+(SDEFUN |MOEBIUS;1;%;6| ((% (%)))
         (SPADCALL (|spadConstant| % 10) (|spadConstant| % 11)
                   (|spadConstant| % 11) (|spadConstant| % 10) (QREFELT % 8))) 
 
@@ -228,11 +228,10 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep|
               |MOEBIUS;moebius;4F%;1|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |MOEBIUS;One;%;6|) %))
-              (0 . |One|) (4 . |Zero|) (8 . *) (14 . +) |MOEBIUS;*;3%;7|
-              (20 . -) |MOEBIUS;inv;2%;8| |MOEBIUS;shift;F%;9|
-              |MOEBIUS;scale;F%;10| |MOEBIUS;recip;%;11| |MOEBIUS;shift;%F%;12|
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |MOEBIUS;1;%;6|) %))
+              (0 . |1|) (4 . |0|) (8 . *) (14 . +) |MOEBIUS;*;3%;7| (20 . -)
+              |MOEBIUS;inv;2%;8| |MOEBIUS;shift;F%;9| |MOEBIUS;scale;F%;10|
+              |MOEBIUS;recip;%;11| |MOEBIUS;shift;%F%;12|
               |MOEBIUS;scale;%F%;13| |MOEBIUS;recip;2%;14| (25 . /)
               |MOEBIUS;eval;%2F;15| (|Union| 6 '"failed")
               (|OnePointCompletion| 6) (31 . |retractIfCan|) (36 . |coerce|)
@@ -246,7 +245,7 @@
            '#(~= 96 |shift| 102 |scale| 113 |sample| 124 |rightRecip| 128
               |rightPower| 133 |recip| 145 |one?| 159 |moebius| 164 |leftRecip|
               172 |leftPower| 177 |latex| 189 |inv| 194 |eval| 199 |conjugate|
-              211 |commutator| 217 |coerce| 223 ^ 228 |One| 246 = 250 / 256 *
+              211 |commutator| 217 |coerce| 223 ^ 228 = 246 |1| 252 / 256 *
               262)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0))
@@ -272,6 +271,6 @@
                                          1 1 0 33 0 1 1 0 0 0 16 2 0 6 0 6 24 2
                                          0 26 0 26 32 2 0 0 0 0 1 2 0 0 0 0 1 1
                                          0 34 0 41 2 0 0 0 47 1 2 0 0 0 49 1 2
-                                         0 0 0 50 1 0 0 0 9 2 0 29 0 0 46 2 0 0
+                                         0 0 0 50 1 2 0 29 0 0 46 0 0 0 9 2 0 0
                                          0 0 1 2 0 0 0 0 14)))))
            '|lookupComplete|)) 

@@ -355,12 +355,12 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (0 . D) (|List| 7) (|Vector| 7)
               (6 . |vector|) (|List| 6) (11 . |parts|)
-              |MCALCFN;gradient;FFLASV;2| (16 . |Zero|) (|Integer|)
-              (20 . |elt|) (26 . |elt|) (32 . +) (38 . |maxIndex|) (43 . |elt|)
+              |MCALCFN;gradient;FFLASV;2| (16 . |0|) (|Integer|) (20 . |elt|)
+              (26 . |elt|) (32 . +) (38 . |maxIndex|) (43 . |elt|)
               |MCALCFN;divergence;FLAFFLASF;4| |MCALCFN;laplacian;FFLASF;5|
               (49 . D) (|List| 11) (|Matrix| 7) (55 . |matrix|)
               |MCALCFN;hessian;FFLASM;6| |MCALCFN;jacobian;FLAFFLASM;9|
-              (60 . |One|) (|NonNegativeInteger|) (64 . D) (71 . |setelt!|)
+              (60 . |1|) (|NonNegativeInteger|) (64 . D) (71 . |setelt!|)
               |MCALCFN;bandedHessian;FFLASNniM;8|
               |MCALCFN;bandedJacobian;FLAFFLAS2NniM;10|)
            '#(|laplacian| 79 |jacobian| 85 |hessian| 91 |gradient| 97

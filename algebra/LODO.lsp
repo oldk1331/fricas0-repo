@@ -263,10 +263,10 @@
               (|SparseUnivariateSkewPolynomial| 6
                                                 (NRTEVAL (|spadConstant| % 11))
                                                 (NRTEVAL (QREFELT % 7)))
-              (|local| |#1|) (|local| |#2|) (0 . |One|) (4 . |One|)
-              (|Automorphism| 6) (8 . |One|) '|Rep| (|OutputForm|) (|Symbol|)
+              (|local| |#1|) (|local| |#2|) (0 . |1|) (4 . |1|)
+              (|Automorphism| 6) (8 . |1|) '|Rep| (|OutputForm|) (|Symbol|)
               (12 . |coerce|) '|outputD| (17 . |outputForm|)
-              |LODO;coerce;%Of;1| (23 . |Zero|) (27 . |Zero|) (31 . |apply|)
+              |LODO;coerce;%Of;1| (23 . |0|) (27 . |0|) (31 . |apply|)
               |LODO;elt;%2A;2| (|Mapping| 6 6)
               (|LinearOrdinaryDifferentialOperatorsOps| 6 $$)
               (38 . |symmetricProduct|) (45 . |symmetricProduct|)
@@ -310,8 +310,8 @@
               |constructOrdered| 553 |construct| 558 |commutator| 563 |coerce|
               569 |coefficients| 594 |coefficient| 599 |characteristic| 619
               |binomThmExpt| 623 |associator| 630 |associates?| 637 |apply| 643
-              |antiCommutator| 650 |annihilate?| 656 |adjoint| 662 ^ 667 |Zero|
-              679 |One| 683 D 687 = 691 / 697 - 703 + 714 * 720)
+              |antiCommutator| 650 |annihilate?| 656 |adjoint| 662 ^ 667 D 679
+              = 683 |1| 689 |0| 693 / 697 - 703 + 714 * 720)
            'NIL
            (CONS
             (|makeByteWordVec2| 26
@@ -397,8 +397,8 @@
                                     0 0 0 42 39 1 3 0 0 0 43 27 1 0 34 27 1 3
                                     29 0 0 0 27 1 3 34 0 0 0 0 1 2 30 32 0 0 1
                                     3 0 6 0 6 6 21 2 0 0 0 0 1 2 34 32 0 0 1 1
-                                    0 0 0 1 2 0 0 0 34 1 2 33 0 0 27 1 0 35 0
-                                    19 0 33 0 8 0 0 0 1 2 0 32 0 0 1 2 27 0 0 6
+                                    0 0 0 1 2 0 0 0 34 1 2 33 0 0 27 1 0 0 0 1
+                                    2 0 32 0 0 1 0 33 0 8 0 35 0 19 2 27 0 0 6
                                     1 1 37 0 0 1 2 37 0 0 0 1 2 0 0 0 0 1 2 0 0
                                     34 0 1 2 0 0 0 0 1 2 0 0 0 6 1 2 0 0 6 0 1
                                     2 19 0 0 47 1 2 37 0 47 0 1 2 35 0 27 0 1 2

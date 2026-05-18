@@ -272,9 +272,9 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (0 . |gcd|) (|Union| % '"failed") (6 . |exquo|)
-              (12 . |Zero|) (16 . |Zero|) (20 . |Zero|) (24 . |One|)
-              (28 . |One|) (32 . -) (|Integer|) (|Vector| 8) (37 . |setelt!|)
-              (|Boolean|) (44 . |zero?|) (49 . |degree|) (54 . |subtractIfCan|)
+              (12 . |0|) (16 . |0|) (20 . |0|) (24 . |1|) (28 . |1|) (32 . -)
+              (|Integer|) (|Vector| 8) (37 . |setelt!|) (|Boolean|)
+              (44 . |zero?|) (49 . |degree|) (54 . |subtractIfCan|)
               (60 . |leadingCoefficient|)
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
               (65 . |lcmCoef|) (71 . |monomial|) (77 . |reductum|) (82 . *)

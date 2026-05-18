@@ -1514,7 +1514,7 @@
               |STR;stransform;M%;3| (|Complex| 12) (|SArgand|) (12 . |coerce|)
               (17 . |coerce|) (|Mapping| 18 18) |STR;stransform;M%;4|
               (|PrimitiveArray| 12) (22 . |construct|) |STR;stransform;L%;5|
-              (27 . |Zero|) (31 . |One|) (|Matrix| 12) (35 . |matrix|)
+              (27 . |0|) (31 . |1|) (|Matrix| 12) (35 . |matrix|)
               (|SquareMatrix| '4 12) (40 . |squareMatrix|) (45 . |complex|)
               (51 . +) |STR;stranslate;6Df%;6| (|String|) (|OutputForm|)
               (57 . |message|) (|Void|) (62 . |print|) (|SCartesian| '2)

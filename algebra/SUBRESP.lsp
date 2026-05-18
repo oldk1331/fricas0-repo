@@ -198,15 +198,15 @@
 (MAKEPROP '|SubResultantPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (0 . |leadingCoefficient|) (5 . |One|)
+              (0 . |leadingCoefficient|) (5 . |1|)
               (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 10 '"failed")
               (9 . |extendedEuclidean|) (16 . *) (22 . |rem|) (|Mapping| 6 6)
               (28 . |map|) (34 . |primitivePart|) (39 . |unitCanonical|)
               (44 . |primitivePart|) (|NonNegativeInteger|) (50 . |degree|)
-              (55 . |Zero|) (|List| 7) (|PseudoRemainderSequence| 6 7)
-              (59 . |chainSubResultants|) (65 . |Zero|) (69 . ^)
-              (75 . |coerce|) (80 . |One|) (|Boolean|) (84 . ~=)
-              (|PrimitiveArray| 7) |SUBRESP;subresultantVector;2UPPa;2|)
+              (55 . |0|) (|List| 7) (|PseudoRemainderSequence| 6 7)
+              (59 . |chainSubResultants|) (65 . |0|) (69 . ^) (75 . |coerce|)
+              (80 . |1|) (|Boolean|) (84 . ~=) (|PrimitiveArray| 7)
+              |SUBRESP;subresultantVector;2UPPa;2|)
            '#(|subresultantVector| 90 |primitivePart| 96) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)

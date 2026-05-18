@@ -145,7 +145,7 @@
 
 (MAKEPROP '|FactoredFunctions| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |One|) (|Factored| 6)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |1|) (|Factored| 6)
               (4 . |unit|) (|Boolean|) (9 . =)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 12) (|:| |factor| 6) (|:| |exponent| 19))
@@ -153,7 +153,7 @@
               (20 . |gcd|) (|NonNegativeInteger|) (25 . ^) (31 . *) (|List| 6)
               (37 . |concat!|)
               (|Record| (|:| |exponent| 19) (|:| |coef| 6) (|:| |radicand| 22))
-              |FACTFUNC;nthRoot;FNniR;1| (43 . |One|)
+              |FACTFUNC;nthRoot;FNniR;1| (43 . |1|)
               (|Record| (|:| |coef| 19) (|:| |logand| 6)) (|List| 27)
               |FACTFUNC;log;FL;2|)
            '#(|nthRoot| 47 |log| 53) 'NIL

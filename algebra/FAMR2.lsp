@@ -62,7 +62,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|local| |#5|) (|Boolean|)
-              (0 . |zero?|) (5 . |Zero|) (9 . |leadingCoefficient|)
+              (0 . |zero?|) (5 . |0|) (9 . |leadingCoefficient|)
               (14 . |degree|) (19 . |monomial|) (25 . |reductum|)
               (|Mapping| 9 7) |FAMR2;map;MA1A2;1| (30 . +))
            '#(|map| 36) 'NIL

@@ -127,7 +127,7 @@
                    (QREFELT % 57))
          (|spadConstant| % 17) (QREFELT % 21))) 
 
-(SDEFUN |EQ;Zero;%;23| ((% (%)))
+(SDEFUN |EQ;0;%;23| ((% (%)))
         (SPADCALL (|spadConstant| % 17) (|spadConstant| % 17) (QREFELT % 18))) 
 
 (SDEFUN |EQ;-;3%;24| ((|eq1| (%)) (|eq2| (%)) (% (%)))
@@ -152,7 +152,7 @@
         (SPADCALL (SPADCALL (QCAR |eqn|) |l| (QREFELT % 59))
                   (SPADCALL (QCDR |eqn|) |l| (QREFELT % 59)) (QREFELT % 21))) 
 
-(SDEFUN |EQ;One;%;29| ((% (%)))
+(SDEFUN |EQ;1;%;29| ((% (%)))
         (SPADCALL (|spadConstant| % 63) (|spadConstant| % 63) (QREFELT % 18))) 
 
 (SDEFUN |EQ;recip;%U;30| ((|eq| (%)) (% (|Union| % #1="failed")))
@@ -478,7 +478,7 @@
        (QSETREFV % 8 (CONS (|dispatchFunction| |EQ;rightZero;2%;22|) %))
        (QSETREFV % 56
                  (CONS #'|makeSpadConstant|
-                       (LIST (|dispatchFunction| |EQ;Zero;%;23|) % 56)))
+                       (LIST (|dispatchFunction| |EQ;0;%;23|) % 56)))
        (QSETREFV % 53 (CONS (|dispatchFunction| |EQ;-;3%;24|) %)))))
     (COND
      ((|testBitVector| |pv$| 17)
@@ -492,7 +492,7 @@
       (PROGN
        (QSETREFV % 64
                  (CONS #'|makeSpadConstant|
-                       (LIST (|dispatchFunction| |EQ;One;%;29|) % 64)))
+                       (LIST (|dispatchFunction| |EQ;1;%;29|) % 64)))
        (QSETREFV % 67 (CONS (|dispatchFunction| |EQ;recip;%U;30|) %))
        (QSETREFV % 68 (CONS (|dispatchFunction| |EQ;leftOne;%U;31|) %))
        (QSETREFV % 69 (CONS (|dispatchFunction| |EQ;rightOne;%U;32|) %)))))
@@ -547,7 +547,7 @@
               |EQ;lhs;%S;4| (|Factored| %) (5 . |factor|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 12) (|:| |factor| 6) (|:| |exponent| 72))
-              (|List| 13) (|Factored| 6) (10 . |factorList|) (15 . |Zero|)
+              (|List| 13) (|Factored| 6) (10 . |factorList|) (15 . |0|)
               |EQ;equation;2S%;3| (|List| %) (19 . |factorAndSplit|)
               |EQ;=;2S%;2| |EQ;rhs;%S;5| |EQ;swap;2%;6| (|Mapping| 6 6)
               |EQ;map;M2%;7| (|Symbol|) (24 . |eval|) (31 . |eval|) (|List| 26)
@@ -556,9 +556,9 @@
               (70 . |eval|) (|Boolean|) (76 . =) (82 . =) (|OutputForm|)
               (88 . |coerce|) (93 . =) (99 . |coerce|) (104 . |coerce|)
               (109 . +) (115 . +) (121 . +) (127 . +) (133 . -) (138 . -)
-              (143 . -) (149 . -) (155 . -) (161 . |Zero|) (165 . -)
+              (143 . -) (149 . -) (155 . -) (161 . |0|) (165 . -)
               (171 . |leftZero|) (176 . *) (182 . *) (188 . *) (194 . *)
-              (200 . |One|) (204 . |One|) (|Union| % '"failed") (208 . |recip|)
+              (200 . |1|) (204 . |1|) (|Union| % '"failed") (208 . |recip|)
               (213 . |recip|) (218 . |leftOne|) (223 . |rightOne|)
               (228 . |inv|) (233 . |inv|) (|NonNegativeInteger|)
               (238 . |characteristic|) (242 . |characteristic|) (|Integer|)
@@ -579,7 +579,7 @@
               |eval| 456 |equation| 482 |differentiate| 488 |convert| 514
               |conjugate| 519 |commutator| 525 |coerce| 531 |characteristic|
               546 |associator| 550 |antiCommutator| 557 |annihilate?| 563 ^ 569
-              |Zero| 587 |One| 591 D 595 = 621 / 633 - 639 + 662 * 680)
+              D 587 = 613 |1| 625 |0| 629 / 633 - 639 + 662 * 680)
            'NIL
            (CONS
             (|makeByteWordVec2| 22
@@ -636,12 +636,11 @@
                                     0 0 1 1 5 0 75 1 1 3 42 0 45 1 3 39 0 46 0
                                     5 72 74 3 5 0 0 0 0 1 2 5 0 0 0 1 2 5 39 0
                                     0 1 2 10 0 0 75 1 2 7 0 0 72 1 2 17 0 0 97
-                                    1 0 15 0 56 0 7 0 64 2 2 0 0 29 1 2 2 0 0
-                                    26 1 3 2 0 0 29 98 1 3 2 0 0 26 72 1 2 0 0
-                                    6 6 21 2 3 39 0 0 41 2 16 0 0 0 88 1 4 0 0
-                                    52 2 4 0 0 0 53 2 4 0 0 6 55 2 4 0 6 0 54 2
-                                    20 0 0 0 48 2 20 0 0 6 50 2 20 0 6 0 49 2
-                                    15 0 72 0 1 2 4 0 75 0 77 2 20 0 97 0 1 2
-                                    17 0 0 0 60 2 17 0 0 6 62 2 17 0 6 0
-                                    61)))))
+                                    1 2 2 0 0 29 1 2 2 0 0 26 1 3 2 0 0 29 98 1
+                                    3 2 0 0 26 72 1 2 0 0 6 6 21 2 3 39 0 0 41
+                                    0 7 0 64 0 15 0 56 2 16 0 0 0 88 1 4 0 0 52
+                                    2 4 0 0 0 53 2 4 0 0 6 55 2 4 0 6 0 54 2 20
+                                    0 0 0 48 2 20 0 0 6 50 2 20 0 6 0 49 2 15 0
+                                    72 0 1 2 4 0 75 0 77 2 20 0 97 0 1 2 17 0 0
+                                    0 60 2 17 0 0 6 62 2 17 0 6 0 61)))))
            '|lookupComplete|)) 

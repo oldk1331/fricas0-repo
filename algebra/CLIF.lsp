@@ -89,10 +89,9 @@
                          (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                     (EXIT |z|)))) 
 
-(SDEFUN |CLIF;Zero;%;9| ((% (%)))
-        (MAKEARR1 (QREFELT % 19) (|spadConstant| % 28))) 
+(SDEFUN |CLIF;0;%;9| ((% (%))) (MAKEARR1 (QREFELT % 19) (|spadConstant| % 28))) 
 
-(SDEFUN |CLIF;One;%;10| ((% (%)))
+(SDEFUN |CLIF;1;%;10| ((% (%)))
         (SPROG ((|z| (%)))
                (SEQ (LETT |z| (MAKEARR1 (QREFELT % 19) (|spadConstant| % 28)))
                     (QSETAREF1 |z| 0 (|spadConstant| % 41)) (EXIT |z|)))) 
@@ -1623,12 +1622,12 @@
               (10 . |diagonal?|) '|orthogonal| '|debug| '|dim| '|Rep|
               (|NonNegativeInteger|) (15 . |characteristic|)
               |CLIF;characteristic;Nni;1| (|CardinalNumber|) (19 . |coerce|)
-              (24 . ~=) |CLIF;=;2%B;3| (30 . |Zero|) (34 . +) |CLIF;+;3%;4|
+              (24 . ~=) |CLIF;=;2%B;3| (30 . |0|) (34 . +) |CLIF;+;3%;4|
               (40 . -) |CLIF;-;3%;5| (46 . -) |CLIF;-;2%;6| (|Integer|)
               (51 . *) |CLIF;*;I2%;7| (57 . *) |CLIF;*;K2%;8|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |CLIF;Zero;%;9|) %))
-              (63 . |One|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |CLIF;One;%;10|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |CLIF;0;%;9|) %))
+              (63 . |1|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |CLIF;1;%;10|) %))
               (67 . |coerce|) |CLIF;coerce;I%;11| |CLIF;coerce;K%;12| (72 . =)
               (78 . |bit?|) (|Character|) (|String|) (84 . |elt|) (90 . ~=)
               (|SingleInteger|) (96 . |coerce|) (|List| %) (101 . |concat|)
@@ -1662,8 +1661,8 @@
               |grade| 391 |ee| 396 |ePseudoscalar| 401 |eFromBinaryMap| 405 |e|
               410 |conj| 415 |commutator| 420 |coerce| 426 |coefficient| 441
               |characteristic| 447 |associator| 451 |antiCommutator| 458
-              |annihilate?| 464 ^ 470 |\\/| 482 |Zero| 488 |One| 492 = 496
-              |/\\| 502 - 508 + 519 * 525)
+              |annihilate?| 464 ^ 470 |\\/| 482 = 488 |1| 494 |0| 498 |/\\| 502
+              - 508 + 519 * 525)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -1715,9 +1714,9 @@
                                     0 0 80 2 0 0 0 0 1 1 0 100 0 110 1 0 0 35
                                     44 1 0 0 7 45 2 0 7 0 62 99 0 0 21 23 3 0 0
                                     0 0 0 1 2 0 0 0 0 1 2 0 15 0 0 1 2 0 0 0 56
-                                    1 2 0 0 0 21 1 2 0 0 0 0 85 0 0 0 40 0 0 0
-                                    42 2 0 15 0 0 27 2 0 0 0 0 58 2 0 0 0 0 32
-                                    1 0 0 0 34 2 0 0 0 0 30 2 0 0 56 0 1 2 0 0
-                                    0 0 84 2 0 0 35 0 37 2 0 0 21 0 1 2 0 0 0 7
-                                    1 2 0 0 7 0 39)))))
+                                    1 2 0 0 0 21 1 2 0 0 0 0 85 2 0 15 0 0 27 0
+                                    0 0 42 0 0 0 40 2 0 0 0 0 58 2 0 0 0 0 32 1
+                                    0 0 0 34 2 0 0 0 0 30 2 0 0 56 0 1 2 0 0 0
+                                    0 84 2 0 0 35 0 37 2 0 0 21 0 1 2 0 0 0 7 1
+                                    2 0 0 7 0 39)))))
            '|lookupComplete|)) 

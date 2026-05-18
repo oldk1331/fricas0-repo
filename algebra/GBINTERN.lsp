@@ -1011,8 +1011,8 @@
               (|Record| (|:| |lcmfij| 7) (|:| |totdeg| 9) (|:| |poli| 8)
                         (|:| |polj| 8))
               |GBINTERN;critpOrder;2RB;3| (16 . |degree|) (21 . |sup|)
-              (|Union| % '"failed") (27 . |subtractIfCan|) (33 . |One|)
-              (37 . |One|) (41 . |monomial|)
+              (|Union| % '"failed") (27 . |subtractIfCan|) (33 . |1|)
+              (37 . |1|) (41 . |monomial|)
               (|Record| (|:| |totdeg| 9) (|:| |pol| 8))
               |GBINTERN;makeCrit;RDpolNniR;4| (|List| 8) (|Integer|)
               |GBINTERN;gbasisExtend;2L2IL;6| |GBINTERN;gbasis;L2IL;5|
@@ -1022,8 +1022,8 @@
               |GBINTERN;critMTonD1;2L;8| |GBINTERN;critBonD;Dpol2L;9|
               |GBINTERN;updatD;3L;11| |GBINTERN;sPol;RDpol;13|
               |GBINTERN;redPol;DpolLDpol;15| (|Void|)
-              |GBINTERN;prinshINFO;DpolV;24| (65 . |Zero|) (69 . |Zero|)
-              (73 . |Zero|) (77 . =) |GBINTERN;prindINFO;R2Dpol4I;25| (83 . =)
+              |GBINTERN;prinshINFO;DpolV;24| (65 . |0|) (69 . |0|) (73 . |0|)
+              (77 . =) |GBINTERN;prindINFO;R2Dpol4I;25| (83 . =)
               (89 . |concat|) |GBINTERN;prinpolINFO;LV;26| (|String|)
               (|OutputForm|) (95 . |messagePrint|) (100 . ~=)
               |GBINTERN;critM;2ExponB;17| |GBINTERN;critMonD1;Expon2L;7|

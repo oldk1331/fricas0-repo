@@ -1,5 +1,5 @@
 
-(SDEFUN |XPR;One;%;1| ((% (%)))
+(SDEFUN |XPR;1;%;1| ((% (%)))
         (LIST (CONS (|spadConstant| % 9) (|spadConstant| % 10)))) 
 
 (SDEFUN |XPR;characteristic;Nni;2| ((% (|NonNegativeInteger|)))
@@ -391,13 +391,13 @@
 (MAKEPROP '|XPolynomialRing| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|FreeModule| 6 7) (|local| |#1|)
-              (|local| |#2|) '|Rep| (0 . |One|) (4 . |One|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |XPR;One;%;1|) %))
+              (|local| |#2|) '|Rep| (0 . |1|) (4 . |1|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |XPR;1;%;1|) %))
               (|NonNegativeInteger|) (8 . |characteristic|)
               |XPR;characteristic;Nni;2| |XPR;#;%Nni;3| |XPR;maxdeg;%E;4|
               (|Record| (|:| |k| 7) (|:| |c| 6)) (12 . |last|)
-              |XPR;mindeg;%E;5| (|Boolean|) (17 . =) (23 . <) (29 . |Zero|)
-              |XPR;coef;%ER;6| (33 . |Zero|) (37 . =) |XPR;constant?;%B;7|
+              |XPR;mindeg;%E;5| (|Boolean|) (17 . =) (23 . <) (29 . |0|)
+              |XPR;coef;%ER;6| (33 . |0|) (37 . =) |XPR;constant?;%B;7|
               |XPR;constant;%R;8| (43 . ~=) |XPR;quasiRegular?;%B;9|
               |XPR;quasiRegular;2%;10| (49 . >) (|Union| % '"failed")
               (55 . |recip|) |XPR;coerce;R%;14| |XPR;recip;%U;11|
@@ -421,7 +421,7 @@
               |constant?| 336 |constant| 341 |commutator| 346 |coerce| 352
               |coefficients| 372 |coefficient| 377 |coef| 383 |characteristic|
               389 |associator| 393 |antiCommutator| 400 |annihilate?| 406 ^ 412
-              |Zero| 424 |One| 428 = 432 / 438 - 444 + 455 * 461 |#| 497)
+              = 424 |1| 430 |0| 434 / 438 - 444 + 455 * 461 |#| 497)
            'NIL
            (CONS
             (|makeByteWordVec2| 5
@@ -472,9 +472,9 @@
                                     0 1 1 0 51 0 59 1 0 0 42 44 1 0 0 6 35 1 0
                                     0 7 1 1 0 67 0 1 2 0 6 0 7 1 2 0 6 0 7 24 0
                                     0 12 14 3 0 0 0 0 0 1 2 0 0 0 0 1 2 0 20 0
-                                    0 1 2 0 0 0 63 1 2 0 0 0 12 50 0 0 0 25 0 0
-                                    0 11 2 0 20 0 0 26 2 6 0 0 6 61 2 0 0 0 0 1
-                                    1 0 0 0 1 2 0 0 0 0 48 2 0 0 63 0 1 2 0 0 0
-                                    0 49 2 0 0 42 0 1 2 0 0 12 0 1 2 0 0 6 0 45
-                                    2 0 0 0 6 1 1 0 12 0 15)))))
+                                    0 1 2 0 0 0 63 1 2 0 0 0 12 50 2 0 20 0 0
+                                    26 0 0 0 11 0 0 0 25 2 6 0 0 6 61 2 0 0 0 0
+                                    1 1 0 0 0 1 2 0 0 0 0 48 2 0 0 63 0 1 2 0 0
+                                    0 0 49 2 0 0 42 0 1 2 0 0 12 0 1 2 0 0 6 0
+                                    45 2 0 0 0 6 1 1 0 12 0 15)))))
            '|lookupComplete|)) 

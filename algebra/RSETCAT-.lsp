@@ -400,7 +400,7 @@
               (|NonNegativeInteger|) (54 . |size|) (58 . |#|)
               (63 . |infRittWu?|) (|List| 10) (69 . |members|)
               (|Mapping| 11 10 10) (74 . |sort|) (|PositiveInteger|)
-              (80 . |lookup|) (85 . |One|) (89 . |One|) (|Union| % '"failed")
+              (80 . |lookup|) (85 . |1|) (89 . |1|) (|Union| % '"failed")
               (93 . |subtractIfCan|) (|PolynomialSetUtilitiesPackage| 7 8 9 10)
               (99 . |univariate?|) (104 . |collectUnder|)
               (110 . |purelyAlgebraic?|) (115 . |mvar|) (|Union| 10 '"failed")

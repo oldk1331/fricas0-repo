@@ -1793,10 +1793,10 @@
               (|Matrix| 7) (8 . |leftRegularRepresentation|)
               (|NonNegativeInteger|) (|Matrix| 19) (14 . |zero|) (|Integer|)
               (20 . |elt|) (|SparseUnivariatePolynomial| 7) (27 . |monomial|)
-              (33 . |One|) (37 . -) (43 . |setelt!|) (51 . |determinant|)
+              (33 . |1|) (37 . -) (43 . |setelt!|) (51 . |determinant|)
               (56 . |leftCharacteristicPolynomial|)
               (61 . |rightRegularRepresentation|)
-              (67 . |rightCharacteristicPolynomial|) (72 . |Zero|) (76 . +)
+              (67 . |rightCharacteristicPolynomial|) (72 . |0|) (76 . +)
               |FINAALG-;leftTrace;SR;3| |FINAALG-;rightTrace;SR;4|
               (82 . |determinant|) |FINAALG-;leftNorm;SR;5|
               |FINAALG-;rightNorm;SR;6| (|Vector| 6) (87 . |elt|) (93 . *)
@@ -1807,23 +1807,23 @@
               |FINAALG-;lieAdmissible?;B;9| (|Vector| 12)
               (133 . |structuralConstants|) (|String|) (|Symbol|)
               (138 . |coerce|) (|Vector| 52) (143 . |elt|) (|Polynomial| 7)
-              (149 . |One|) (153 . -) (|List| 52) (|List| 14)
-              (158 . |monomial|) (165 . |elt|) (171 . |coerce|) (176 . +)
-              (|List| 56) |FINAALG-;conditionsForIdempotents;VL;10|
-              (|Vector| 7) (182 . |coordinates|) (188 . |elt|)
-              (194 . |setelt!|) |FINAALG-;structuralConstants;VV;11|
-              (202 . |leftUnit|) (206 . |coerce|) (211 . |rank|)
-              (216 . |horizConcat|) (|List| 67) (222 . |nullSpace|) (227 . -)
-              (232 . *) (238 . *) (|Mapping| 6 6 6) (244 . |reduce|)
-              (250 . |leftRecip|) (255 . |rightUnit|) (259 . |rightRecip|)
-              (264 . |leftRecip|) (269 . |rightRecip|) (274 . ~=)
-              (280 . |recip|) (285 . |Zero|) (289 . +)
-              (295 . |leftMinimalPolynomial|) (300 . |rightMinimalPolynomial|)
-              (305 . |associator|) (312 . |associatorDependence|)
-              |FINAALG-;jacobiIdentity?;B;18| (316 . |antiCommutative?|)
-              (320 . |jacobiIdentity?|) |FINAALG-;lieAlgebra?;B;19|
-              (324 . |commutative?|) |FINAALG-;jordanAlgebra?;B;20|
-              (328 . |flexible?|) (332 . |jordanAdmissible?|)
+              (149 . |1|) (153 . -) (|List| 52) (|List| 14) (158 . |monomial|)
+              (165 . |elt|) (171 . |coerce|) (176 . +) (|List| 56)
+              |FINAALG-;conditionsForIdempotents;VL;10| (|Vector| 7)
+              (182 . |coordinates|) (188 . |elt|) (194 . |setelt!|)
+              |FINAALG-;structuralConstants;VV;11| (202 . |leftUnit|)
+              (206 . |coerce|) (211 . |rank|) (216 . |horizConcat|) (|List| 67)
+              (222 . |nullSpace|) (227 . -) (232 . *) (238 . *)
+              (|Mapping| 6 6 6) (244 . |reduce|) (250 . |leftRecip|)
+              (255 . |rightUnit|) (259 . |rightRecip|) (264 . |leftRecip|)
+              (269 . |rightRecip|) (274 . ~=) (280 . |recip|) (285 . |0|)
+              (289 . +) (295 . |leftMinimalPolynomial|)
+              (300 . |rightMinimalPolynomial|) (305 . |associator|)
+              (312 . |associatorDependence|) |FINAALG-;jacobiIdentity?;B;18|
+              (316 . |antiCommutative?|) (320 . |jacobiIdentity?|)
+              |FINAALG-;lieAlgebra?;B;19| (324 . |commutative?|)
+              |FINAALG-;jordanAlgebra?;B;20| (328 . |flexible?|)
+              (332 . |jordanAdmissible?|)
               |FINAALG-;noncommutativeJordanAlgebra?;B;21|
               |FINAALG-;antiCommutative?;B;22| |FINAALG-;commutative?;B;23|
               |FINAALG-;associative?;B;24| |FINAALG-;leftAlternative?;B;25|

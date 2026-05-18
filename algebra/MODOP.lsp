@@ -1,5 +1,5 @@
 
-(SDEFUN |MODOP;One;%;1| ((% (%)))
+(SDEFUN |MODOP;1;%;1| ((% (%)))
         (SPADCALL (|spadConstant| % 13) (|spadConstant| % 15) (QREFELT % 16))) 
 
 (SDEFUN |MODOP;coerce;I%;2| ((|n| (|Integer|)) (% (%)))
@@ -674,19 +674,19 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|FreeModule| 17 40) (|local| |#1|)
               (|local| |#2|) '|Rep| 'OPADJ 'OPEVAL 'INVEVAL
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |MODOP;One;%;1|) %))
-              (0 . |One|) (|FreeGroup| 24) (4 . |One|) (8 . |makeop|)
-              (|Integer|) (14 . |coerce|) |MODOP;coerce;R%;3|
-              |MODOP;coerce;I%;2| (|Boolean|) (19 . |zero?|) (24 . |Zero|)
-              (|BasicOperator|) (28 . |copy|) |MODOP;coerce;Bo%;4|
-              (33 . |coerce|) (|Record| (|:| |coef| 6) (|:| |monom| 14))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |MODOP;1;%;1|) %))
+              (0 . |1|) (|FreeGroup| 24) (4 . |1|) (8 . |makeop|) (|Integer|)
+              (14 . |coerce|) |MODOP;coerce;R%;3| |MODOP;coerce;I%;2|
+              (|Boolean|) (19 . |zero?|) (24 . |0|) (|BasicOperator|)
+              (28 . |copy|) |MODOP;coerce;Bo%;4| (33 . |coerce|)
+              (|Record| (|:| |coef| 6) (|:| |monom| 14))
               (|Record| (|:| |k| 40) (|:| |c| 17)) (|List| 29)
-              (38 . |listOfTerms|) (43 . *) (49 . +) (55 . |Zero|)
+              (38 . |listOfTerms|) (43 . *) (49 . +) (55 . |0|)
               |MODOP;elt;%2M;6| (59 . *) (|NonNegativeInteger|)
               (65 . |characteristic|) |MODOP;characteristic;Nni;9| (|List| 28)
               (69 . |monomial|) (75 . |retract|) (|Symbol|) (|None|)
               (80 . |setProperty|) (|Mapping| 7 7) |MODOP;evaluate;%M%;11|
-              (87 . |Zero|) (91 . >=) (97 . -) (102 . -) (107 . |inv|)
+              (87 . |0|) (91 . >=) (97 . -) (102 . -) (107 . |inv|)
               |MODOP;*;3%;21| (|Union| % '"failed") (112 . |recip|)
               (|PositiveInteger|) (|RepeatedSquaring| $$) (117 . |expt|)
               (123 . |retract|) |MODOP;^;%I%;15| |MODOP;evaluateInverse;%M%;16|
@@ -711,8 +711,8 @@
               |makeop| 381 |leftRecip| 387 |leftPower| 392 |latex| 404
               |evaluateInverse| 409 |evaluate| 415 |elt| 421 |conjug| 427
               |commutator| 432 |coerce| 438 |characteristic| 458 |associator|
-              462 |antiCommutator| 469 |annihilate?| 475 |adjoint| 481 ^ 492
-              |Zero| 510 |One| 514 = 518 - 524 + 535 * 541)
+              462 |antiCommutator| 469 |annihilate?| 475 |adjoint| 481 ^ 492 =
+              510 |1| 516 |0| 520 - 524 + 535 * 541)
            'NIL
            (CONS
             (|makeByteWordVec2| 3
@@ -766,8 +766,8 @@
                                     69 1 0 0 17 20 1 0 0 6 19 1 0 0 24 26 0 0
                                     37 39 3 0 0 0 0 0 1 2 0 0 0 0 1 2 0 21 0 0
                                     1 1 1 0 0 100 2 1 0 0 0 104 2 0 0 0 56 1 2
-                                    0 0 0 37 1 2 0 0 0 17 60 0 0 0 23 0 0 0 12
-                                    2 0 21 0 0 1 2 0 0 0 0 1 1 0 0 0 51 2 0 0 0
+                                    0 0 0 37 1 2 0 0 0 17 60 2 0 21 0 0 1 0 0 0
+                                    12 0 0 0 23 2 0 0 0 0 1 1 0 0 0 51 2 0 0 0
                                     0 76 2 0 0 56 0 1 2 0 0 0 0 53 2 0 0 17 0
                                     99 2 0 0 37 0 1 2 1 0 6 0 97 2 1 0 0 6
                                     98)))))

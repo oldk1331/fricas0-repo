@@ -2289,8 +2289,8 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) 'PRIM
               'ALGOP (|Boolean|) (|Symbol|) (|Kernel| 7) (0 . |is?|)
-              (|BasicOperator|) (6 . |operator|) (11 . |has?|) (17 . |Zero|)
-              (21 . |Zero|) (|Union| (|Vector| (|Fraction| 91)) '"failed")
+              (|BasicOperator|) (6 . |operator|) (11 . |has?|) (17 . |0|)
+              (21 . |0|) (|Union| (|Vector| (|Fraction| 91)) '"failed")
               (|Record| (|:| |particular| 19)
                         (|:| |basis| (|List| (|Vector| (|Fraction| 91)))))
               (|Matrix| 7) (|Vector| 7) (|IntegerLinearDependence| 7)
@@ -2314,9 +2314,9 @@
                                                      (|SparseMultivariatePolynomial|
                                                       6 12)
                                                      7)
-              (81 . |multivariate|) (87 . |concat|) (93 . |One|) (97 . |One|)
+              (81 . |multivariate|) (87 . |concat|) (93 . |1|) (97 . |1|)
               (|NonNegativeInteger|) (101 . |monomial|) (107 . |coerce|)
-              (112 . |argument|) (117 . |One|) (|List| 36) (121 . |kernels|)
+              (112 . |argument|) (117 . |1|) (|List| 36) (121 . |kernels|)
               (126 . |member?|) (|Mapping| 10 7) (132 . |every?|) (|List| 27)
               (138 . |matrix|) (|IntegrationTools| 6 7) (143 . |kmax|)
               (148 . ~=) (|Union| 11 '"failed") (154 . |symbolIfCan|)
@@ -2363,7 +2363,7 @@
               (479 . |append|) (|Record| (|:| |transform| 21) (|:| |basis| 84))
               (485 . |constant_subspace|) (491 . |vector|) (496 . *)
               (502 . |entries|) (507 . |kernel|) (512 . |map|) (518 . |numer|)
-              (523 . |denom|) (528 . |One|) (532 . ~=) (538 . |degree|)
+              (523 . |denom|) (528 . |1|) (532 . ~=) (538 . |degree|)
               (543 . ~=) (|Mapping| 86 30) (549 . |diffextint|)
               (556 . |unkextint|))
            '#(|polylog_int| 563 |logextint| 573 |extendedint| 580) 'NIL

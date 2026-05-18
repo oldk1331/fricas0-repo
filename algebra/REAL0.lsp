@@ -854,7 +854,7 @@
 (MAKEPROP '|RealZeroPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Fraction| 11) (0 . -)
-              (5 . |One|) (9 . |One|) (|Integer|) (13 . /) (19 . +) (25 . *)
+              (5 . |1|) (9 . |1|) (|Integer|) (13 . /) (19 . +) (25 . *)
               (|Record| (|:| |left| 7) (|:| |right| 7)) |REAL0;midpoint;RF;2|
               (|List| 7) (|List| 15) |REAL0;midpoints;LL;3| (|Factored| %)
               (31 . |squareFree|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
@@ -863,15 +863,15 @@
               |REAL0;realZeros;PolL;5| |REAL0;refine;PolRFR;20|
               |REAL0;realZeros;PolFL;6| (|Union| 15 '#1="failed")
               |REAL0;refine;Pol2RU;19| |REAL0;realZeros;PolRL;7|
-              |REAL0;realZeros;PolRFL;8| (47 . |Zero|) (|Boolean|) (51 . =)
+              |REAL0;realZeros;PolRFL;8| (47 . |0|) (|Boolean|) (51 . =)
               (|NonNegativeInteger|) (57 . |degree|) (62 . |minimumDegree|)
-              (67 . |Zero|) (71 . |monomial|) (|Union| % '"failed")
-              (77 . |exquo|) (83 . |append|) (89 . *) (95 . +)
-              (101 . |leadingCoefficient|) (106 . -) (111 . |reductum|)
-              (116 . ~=) (|Vector| 11) (122 . |vectorise|) (128 . |min|)
-              (134 . |max|) (140 . -) (146 . <) (152 . =) (158 . |denom|)
-              (163 . |numer|) (168 . |elt|) (174 . -) (|OutputForm|) (|String|)
-              (180 . |coerce|) (185 . |coerce|) (190 . <=) (196 . >=))
+              (67 . |0|) (71 . |monomial|) (|Union| % '"failed") (77 . |exquo|)
+              (83 . |append|) (89 . *) (95 . +) (101 . |leadingCoefficient|)
+              (106 . -) (111 . |reductum|) (116 . ~=) (|Vector| 11)
+              (122 . |vectorise|) (128 . |min|) (134 . |max|) (140 . -)
+              (146 . <) (152 . =) (158 . |denom|) (163 . |numer|) (168 . |elt|)
+              (174 . -) (|OutputForm|) (|String|) (180 . |coerce|)
+              (185 . |coerce|) (190 . <=) (196 . >=))
            '#(|refine| 202 |realZeros| 216 |midpoints| 240 |midpoint| 245) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)

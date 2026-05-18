@@ -259,9 +259,9 @@
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT |s|)))) 
 
-(MAKEPROP '|IDPO;Zero;%;23| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|IDPO;0;%;23| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(SDEFUN |IDPO;Zero;%;23| ((% (%))) NIL) 
+(SDEFUN |IDPO;0;%;23| ((% (%))) NIL) 
 
 (MAKEPROP '|IDPO;zero?;%B;24| '|SPADreplace| 'NULL) 
 
@@ -705,9 +705,9 @@
 (SDEFUN |IDPO;construct;L%;37|
         ((|lx| (|List| (|Record| (|:| |k| S) (|:| |c| A)))) (% (%))) |lx|) 
 
-(MAKEPROP '|IDPO;Zero;%;38| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|IDPO;0;%;38| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(SDEFUN |IDPO;Zero;%;38| ((% (%))) NIL) 
+(SDEFUN |IDPO;0;%;38| ((% (%))) NIL) 
 
 (SDEFUN |IDPO;do_copy| ((|xr| (|Rep|)) (% (|Rep|)))
         (SPROG ((|t| NIL) (#1=#:G306 NIL) (|res| (%)))
@@ -1188,7 +1188,7 @@
          (PROGN
           (QSETREFV % 23
                     (CONS #'|makeSpadConstant|
-                          (LIST (|dispatchFunction| |IDPO;Zero;%;23|) % 23)))
+                          (LIST (|dispatchFunction| |IDPO;0;%;23|) % 23)))
           (QSETREFV % 49 (CONS (|dispatchFunction| |IDPO;zero?;%B;24|) %))
           (COND
            ((|domainEqual| |#2| (|NonNegativeInteger|))
@@ -1225,7 +1225,7 @@
          (PROGN
           (QSETREFV % 23
                     (CONS #'|makeSpadConstant|
-                          (LIST (|dispatchFunction| |IDPO;Zero;%;38|) % 23)))
+                          (LIST (|dispatchFunction| |IDPO;0;%;38|) % 23)))
           (QSETREFV % 54 (CONS (|dispatchFunction| |IDPO;+;3%;40|) %))
           (QSETREFV % 31 (CONS (|dispatchFunction| |IDPO;=;2%B;41|) %))
           (COND
@@ -1266,30 +1266,29 @@
               (|List| %) (16 . |bracket|) |IDPO;coerce;%Of;1|
               (|Record| (|:| |k| 7) (|:| |c| 6)) (|List| 16)
               |IDPO;listOfTerms;%L;2| (|Boolean|) |IDPO;monomial?;%B;3|
-              (|NonNegativeInteger|) |IDPO;numberOfMonomials;%Nni;4|
-              (21 . |Zero|) (25 . |Zero|) (29 . =) (35 . |monomial|)
-              (|Mapping| 6 6) (41 . |map|) (47 . ~=) (53 . ~=) (59 . =)
-              (65 . |reductum|) (70 . |leadingCoefficient|) (75 . |smaller?|)
-              (81 . =) (87 . |smaller?|) (93 . |smaller?|)
-              (99 . |leadingSupport|) (104 . |leadingMonomial|)
-              (|Mapping| 19 16 16) (109 . |sort|) (115 . |construct|)
-              (120 . |constructOrdered|) (125 . |leadingTerm|) (|HashState|)
-              (130 . |hashUpdate!|) (136 . |hashUpdate!|) (142 . |hashUpdate!|)
-              (148 . |zero?|) (153 . +) (159 . |zero?|) (|SingleInteger|)
-              (164 . |smaller?|) (170 . +) (176 . *) (182 . *) (188 . -)
-              (193 . -) (|Integer|) (198 . *) (204 . *) (210 . -) (216 . -)
-              (|Union| % '"failed") (222 . |subtractIfCan|)
-              (228 . |subtractIfCan|) (234 . <) (240 . <) (246 . |sup|)
-              (252 . >) (258 . |sup|) (264 . |inf|) (270 . |inf|) (276 . ~=)
-              (|String|) (|PositiveInteger|))
+              (|NonNegativeInteger|) |IDPO;numberOfMonomials;%Nni;4| (21 . |0|)
+              (25 . |0|) (29 . =) (35 . |monomial|) (|Mapping| 6 6)
+              (41 . |map|) (47 . ~=) (53 . ~=) (59 . =) (65 . |reductum|)
+              (70 . |leadingCoefficient|) (75 . |smaller?|) (81 . =)
+              (87 . |smaller?|) (93 . |smaller?|) (99 . |leadingSupport|)
+              (104 . |leadingMonomial|) (|Mapping| 19 16 16) (109 . |sort|)
+              (115 . |construct|) (120 . |constructOrdered|)
+              (125 . |leadingTerm|) (|HashState|) (130 . |hashUpdate!|)
+              (136 . |hashUpdate!|) (142 . |hashUpdate!|) (148 . |zero?|)
+              (153 . +) (159 . |zero?|) (|SingleInteger|) (164 . |smaller?|)
+              (170 . +) (176 . *) (182 . *) (188 . -) (193 . -) (|Integer|)
+              (198 . *) (204 . *) (210 . -) (216 . -) (|Union| % '"failed")
+              (222 . |subtractIfCan|) (228 . |subtractIfCan|) (234 . <)
+              (240 . <) (246 . |sup|) (252 . >) (258 . |sup|) (264 . |inf|)
+              (270 . |inf|) (276 . ~=) (|String|) (|PositiveInteger|))
            '#(~= 282 |zero?| 288 |sup| 293 |subtractIfCan| 299 |smaller?| 305
               |sample| 311 |reductum| 315 |opposite?| 320 |numberOfMonomials|
               326 |monomial?| 331 |monomial| 336 |min| 342 |max| 348 |map| 354
               |listOfTerms| 360 |leadingTerm| 365 |leadingSupport| 370
               |leadingMonomial| 375 |leadingCoefficient| 380 |latex| 385 |inf|
               390 |hashUpdate!| 396 |hash| 402 |constructOrdered| 407
-              |construct| 412 |coerce| 417 |Zero| 422 >= 426 > 432 = 438 <= 444
-              < 450 - 456 + 467 * 473)
+              |construct| 412 |coerce| 417 >= 422 > 428 = 434 <= 440 < 446 |0|
+              452 - 456 + 467 * 473)
            'NIL
            (CONS
             (|makeByteWordVec2| 11 '(0 3 0 3 0 4 1 5 4 6 4 6 8 11 2 10 4 9))
@@ -1329,9 +1328,9 @@
                                     0 27 0 28 1 0 17 0 18 1 7 16 0 44 1 7 7 0
                                     38 1 7 0 0 39 1 7 6 0 33 1 13 75 0 1 2 3 0
                                     0 0 73 2 2 45 45 0 48 1 2 52 0 1 1 7 0 17
-                                    43 1 0 0 17 42 1 13 9 0 15 0 15 0 23 2 4 19
-                                    0 0 1 2 4 19 0 0 1 2 12 19 0 0 31 2 4 19 0
-                                    0 1 2 4 19 0 0 67 2 1 0 0 0 63 1 1 0 0 58 2
+                                    43 1 0 0 17 42 1 13 9 0 15 2 4 19 0 0 1 2 4
+                                    19 0 0 1 2 12 19 0 0 31 2 4 19 0 0 1 2 4 19
+                                    0 0 67 0 15 0 23 2 1 0 0 0 63 1 1 0 0 58 2
                                     15 0 0 0 54 2 15 0 76 0 1 2 15 0 21 0 56 2
                                     1 0 59 0 61)))))
            '|lookupComplete|)) 

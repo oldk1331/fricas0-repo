@@ -250,8 +250,8 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (0 . +) (|Mapping| 8 8) (6 . |mapExponents|)
               (12 . *) (18 . +) |FAMR-;pomopo!;SRE2S;1| (24 . -) (30 . |fmecg|)
-              (38 . |Zero|) (42 . |Zero|) (46 . |One|) (50 . *) (|Integer|)
-              (56 . *) (|NonNegativeInteger|) (62 . |binomThmExpt|)
+              (38 . |0|) (42 . |0|) (46 . |1|) (50 . *) (|Integer|) (56 . *)
+              (|NonNegativeInteger|) (62 . |binomThmExpt|)
               (|Union| 7 '"failed") (69 . |retractIfCan|) (|Boolean|)
               |FAMR-;ground?;SB;4| (74 . |retract|) |FAMR-;ground;SR;5|
               (79 . |zero?|) (84 . |leadingCoefficient|) (89 . |degree|)
@@ -259,7 +259,7 @@
               (|List| 7) (105 . |coefficients|) |FAMR-;coefficients;SL;7|
               (110 . /) (|Mapping| 7 7) (116 . |map|) (122 . /) (128 . |zero?|)
               (|Union| % '#1="failed") (133 . |exquo|) (139 . |exquo|)
-              (145 . |One|) (149 . =) (155 . |gcd|) (161 . |content|)
+              (145 . |1|) (149 . =) (155 . |gcd|) (161 . |content|)
               (166 . |content|) (171 . |exquo|) (177 . |unitCanonical|)
               (182 . |primitivePart|))
            '#(|primitivePart| 187 |pomopo!| 192 |mapExponents| 200 |ground?|

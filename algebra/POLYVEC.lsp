@@ -1117,10 +1117,10 @@
            '#(NIL NIL NIL NIL NIL NIL (|Void|) (|U32Vector|) (|Integer|)
               |POLYVEC;copy_first;2UvIV;1| |POLYVEC;copy_slice;2Uv2IV;2|
               |POLYVEC;eval_at;Uv4I;3| (|Boolean|)
-              (|SparseUnivariatePolynomial| 8) (0 . |zero?|) (5 . |One|)
+              (|SparseUnivariatePolynomial| 8) (0 . |zero?|) (5 . |1|)
               (|NonNegativeInteger|) (9 . |degree|) (14 . |leadingCoefficient|)
               (19 . |positiveRemainder|) (25 . |reductum|)
-              |POLYVEC;to_mod_pa;SupIUv;4| (30 . |Zero|) (34 . |monomial|)
+              |POLYVEC;to_mod_pa;SupIUv;4| (30 . |0|) (34 . |monomial|)
               (40 . +) |POLYVEC;pa_to_sup;UvSup;5|
               |POLYVEC;vector_add_mul;2Uv4IV;6|
               |POLYVEC;mul_by_binomial;Uv3IV;7|

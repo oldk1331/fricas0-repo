@@ -1,7 +1,7 @@
 
-(SDEFUN |RESRING;Zero;%;1| ((% (%))) (|spadConstant| % 20)) 
+(SDEFUN |RESRING;0;%;1| ((% (%))) (|spadConstant| % 20)) 
 
-(SDEFUN |RESRING;One;%;2| ((% (%))) (|spadConstant| % 22)) 
+(SDEFUN |RESRING;1;%;2| ((% (%))) (|spadConstant| % 22)) 
 
 (SDEFUN |RESRING;reduce;FPol%;3| ((|f| (|FPol|)) (% (%)))
         (SPADCALL |f| (QREFELT % 15) (QREFELT % 24))) 
@@ -91,13 +91,11 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|local| |#5|) '|Rep| (|List| 9)
-              (|GroebnerPackage| 6 7 9) (0 . |groebner|) '|relations|
-              (5 . |One|) (|Boolean|) (9 . =) '#:G0 (15 . |Zero|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |RESRING;Zero;%;1|) %))
-              (19 . |One|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |RESRING;One;%;2|) %))
+              (|GroebnerPackage| 6 7 9) (0 . |groebner|) '|relations| (5 . |1|)
+              (|Boolean|) (9 . =) '#:G0 (15 . |0|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |RESRING;0;%;1|) %))
+              (19 . |1|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |RESRING;1;%;2|) %))
               (23 . |normalForm|) |RESRING;reduce;FPol%;3|
               |RESRING;coerce;FPol%;4| |RESRING;lift;%FPol;5| (29 . +)
               |RESRING;+;3%;6| (35 . -) |RESRING;-;2%;7| (40 . *)
@@ -112,7 +110,7 @@
               |opposite?| 127 |one?| 133 |lift| 138 |leftRecip| 143 |leftPower|
               148 |latex| 160 |commutator| 165 |coerce| 171 |characteristic|
               196 |associator| 200 |antiCommutator| 207 |annihilate?| 213 ^ 219
-              |Zero| 231 |One| 235 = 239 - 245 + 256 * 262)
+              = 231 |1| 237 |0| 241 - 245 + 256 * 262)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -152,7 +150,7 @@
                                     0 1 1 0 44 0 46 1 0 0 34 1 1 0 0 0 1 1 0 0
                                     6 1 1 0 0 9 26 0 0 41 43 3 0 0 0 0 0 1 2 0
                                     0 0 0 1 2 0 17 0 0 1 2 0 0 0 48 1 2 0 0 0
-                                    41 1 0 0 0 21 0 0 0 23 2 0 17 0 0 40 2 0 0
+                                    41 1 2 0 17 0 0 40 0 0 0 23 0 0 0 21 2 0 0
                                     0 0 1 1 0 0 0 31 2 0 0 0 0 29 2 0 0 48 0 1
                                     2 0 0 0 0 33 2 0 0 34 0 36 2 0 0 41 0 1 2 0
                                     0 6 0 38 2 0 0 0 6 1)))))

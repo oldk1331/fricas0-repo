@@ -2339,7 +2339,7 @@
               '|opsech| '|opcsch| '|opasinh| '|opacosh| '|opatanh| '|opacoth|
               '|opasech| '|opacsch| (5 . |pi|) (9 . |coerce|) (14 . |pi|)
               '|cachedPi| (|List| %) (18 . |kernel|) (24 . |imaginary|)
-              '|isqrt1| (28 . |One|) (32 . -) (37 . |sqrt|) (|Integer|)
+              '|isqrt1| (28 . |1|) (32 . -) (37 . |sqrt|) (|Integer|)
               (42 . |coerce|) (47 . |sqrt|) (52 . |iisqrt2|) (56 . |iisqrt3|)
               '|isqrt2| '|isqrt3| (60 . |coerce|) (65 . |elt|) |EF;log;2F;12|
               |EF;exp;2F;13| |EF;sin;2F;14| |EF;cos;2F;15| |EF;tan;2F;16|
@@ -2349,13 +2349,13 @@
               |EF;coth;2F;29| |EF;sech;2F;30| |EF;csch;2F;31| |EF;asinh;2F;32|
               |EF;acosh;2F;33| |EF;atanh;2F;34| |EF;acoth;2F;35|
               |EF;asech;2F;36| |EF;acsch;2F;37| (|Kernel| %) (71 . |retract|)
-              (76 . |Zero|) (80 . |Zero|) (|Boolean|) (84 . |has?|)
+              (76 . |0|) (80 . |0|) (|Boolean|) (84 . |has?|)
               |EF;belong?;BoB;41| (90 . |is?|) |EF;operator;2Bo;42|
               (|Union| 86 '#1="failed") (96 . |retractIfCan|) (|List| 7)
               (|Kernel| 7) (101 . |argument|) (106 . /) (|Union| 104 '#1#)
               (112 . |retractIfCan|) (|Union| 51 '"failed") (|Fraction| 51)
               (117 . |retractIfCan|) (|Record| (|:| |func| 7) (|:| |pole| 90))
-              (|List| 106) (122 . |elt|) (128 . |One|) (|PositiveInteger|)
+              (|List| 106) (122 . |elt|) (128 . |1|) (|PositiveInteger|)
               (132 . *) (|Union| 7 '#2="failed") (138 . |specialTrigs|)
               (144 . |zero?|) (149 . |is?|) (155 . ^) (161 . -) (167 . +)
               (173 . |inv|) (178 . *) (184 . |kernel|) (190 . *) (196 . =)
@@ -2365,7 +2365,7 @@
               (|Record| (|:| |var| 86) (|:| |exponent| 51))
               (|Union| 133 '"failed") (240 . |isExpt|) (246 . *)
               (|SparseMultivariatePolynomial| 6 86) (252 . |numer|)
-              (|SparseMultivariatePolynomial| 6 98) (257 . |One|) (261 . =)
+              (|SparseMultivariatePolynomial| 6 98) (257 . |1|) (261 . =)
               (267 . |denom|) (272 . ~=) (278 . -) (283 . |coerce|)
               (288 . |log|) (293 . |iilog|) (298 . |exp|) (303 . |iiexp|)
               (308 . |sin|) (313 . |iisin|) (318 . |cos|) (323 . |iicos|)

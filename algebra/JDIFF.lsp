@@ -69,9 +69,9 @@
         (CONS (SPADCALL (QCAR |om|) (QREFELT % 35))
               (SPADCALL (QCDR |om|) (QREFELT % 38)))) 
 
-(MAKEPROP '|JDIFF;Zero;%;11| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
+(MAKEPROP '|JDIFF;0;%;11| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
 
-(SDEFUN |JDIFF;Zero;%;11| ((% (%))) (CONS NIL NIL)) 
+(SDEFUN |JDIFF;0;%;11| ((% (%))) (CONS NIL NIL)) 
 
 (SDEFUN |JDIFF;zero?;%B;12| ((|om| (%)) (% (|Boolean|))) (NULL (QCDR |om|))) 
 
@@ -313,18 +313,16 @@
 (MAKEPROP '|JetDifferential| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|Rep|
-              (0 . |One|) |JDIFF;d;JB%;1| (|PositiveInteger|) (4 . X)
+              (0 . |1|) |JDIFF;d;JB%;1| (|PositiveInteger|) (4 . X)
               |JDIFF;dX;Pi%;2| (9 . U) |JDIFF;dU;Pi%;3| (|List| 68) (14 . P)
               |JDIFF;dP;PiL%;4| (|Boolean|) (20 . |one?|) (|String|)
               (|OutputForm|) (25 . |message|) (30 . |coerce|) (35 . |hconcat|)
-              (41 . |coerce|) (46 . *) (52 . |Zero|) (56 . +)
-              (|Mapping| 22 22 22) (|List| 22) (62 . |reduce|)
-              |JDIFF;coerce;%Of;6| (|List| 7) (68 . |copy|)
-              |JDIFF;coefficients;%L;7| (|List| 6) (73 . |copy|)
+              (41 . |coerce|) (46 . *) (52 . |0|) (56 . +) (|Mapping| 22 22 22)
+              (|List| 22) (62 . |reduce|) |JDIFF;coerce;%Of;6| (|List| 7)
+              (68 . |copy|) |JDIFF;coefficients;%L;7| (|List| 6) (73 . |copy|)
               |JDIFF;differentials;%L;8| (|Integer|) (78 . |position|)
               (84 . |qelt|) |JDIFF;coefficient;%JBD;9| |JDIFF;copy;2%;10|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |JDIFF;Zero;%;11|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |JDIFF;0;%;11|) %))
               |JDIFF;zero?;%B;12| (90 . -) |JDIFF;-;2%;13| (95 . <) (101 . =)
               (107 . +) (113 . |zero?|) (118 . |concat!|) (124 . |concat!|)
               |JDIFF;+;3%;14| (130 . *) |JDIFF;*;D2%;15| (136 . |jetVariables|)
@@ -335,8 +333,8 @@
            '#(~= 162 |zero?| 168 |subtractIfCan| 173 |sample| 179 |opposite?|
               183 |lie| 189 |latex| 195 |eval| 200 |differentials| 206 |dX| 211
               |dU| 216 |dP| 221 |d| 227 |copy| 237 |contract| 242 |coerce| 248
-              |coefficients| 253 |coefficient| 258 |Zero| 264 = 268 - 274 + 285
-              * 291)
+              |coefficients| 253 |coefficient| 258 = 264 |0| 270 - 274 + 285 *
+              291)
            'NIL
            (CONS (|makeByteWordVec2| 3 '(0 0 0 0 1 1 3 0 0 0 0))
                  (CONS
@@ -365,7 +363,7 @@
                                          0 0 11 13 1 0 0 11 15 2 0 0 11 16 18 1
                                          0 0 6 10 1 0 0 7 60 1 0 0 0 44 2 0 7
                                          61 0 66 1 0 22 0 33 1 0 34 0 36 2 0 7
-                                         0 6 43 0 2 0 45 2 0 19 0 0 1 1 1 0 0
+                                         0 6 43 2 0 19 0 0 1 0 2 0 45 1 1 0 0
                                          48 2 1 0 0 0 1 2 0 0 0 0 55 2 0 0 11 0
                                          1 2 0 0 7 0 57 2 0 0 0 7 1 2 1 0 40 0
                                          1 2 2 0 68 0 1)))))

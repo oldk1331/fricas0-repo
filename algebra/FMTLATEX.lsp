@@ -1278,7 +1278,7 @@
               |FMTLATEX;function;SI2M;15| (|OutputFormTools|) (83 . |atom?|)
               (88 . |operator|) (|Symbol|) (93 . |is_symbol?|) (|List| 6)
               (99 . |arguments|) (|NonNegativeInteger|) (104 . ~=)
-              (110 . |elt|) (116 . |coerce|) (121 . |elt|) (127 . |One|)
+              (110 . |elt|) (116 . |coerce|) (121 . |elt|) (127 . |1|)
               (131 . |minPrecedence|) (135 . |formatExpression|)
               (141 . |empty?|) |FMTLATEX;integral;IM;17| (146 . |#|) (151 . =)
               |FMTLATEX;sum;IM;19| |FMTLATEX;product;IM;20| (157 . |string?|)
@@ -1286,7 +1286,7 @@
               (178 . |position|) |FMTLATEX;theMap;ILOb;21|
               |FMTLATEX;overbar;I2M;22| |FMTLATEX;box;2M;23| (185 . |bracket|)
               (192 . >) |FMTLATEX;nthRoot;I3M;24| (198 . |first|)
-              (203 . |rest|) (|SingleInteger|) (208 . |One|) (212 . |One|)
+              (203 . |rest|) (|SingleInteger|) (208 . |1|) (212 . |1|)
               (216 . |empty?|) (221 . |string|) (226 . =)
               |FMTLATEX;scripts;IM;25| (232 . +) |FMTLATEX;subscript;IM;26|
               (238 . |empty|) (242 . |odd?|) (247 . |cons|) (253 . |reverse!|)

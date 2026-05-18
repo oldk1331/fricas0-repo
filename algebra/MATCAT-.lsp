@@ -2825,11 +2825,11 @@
               (20 . |maxRowIndex|) (25 . |minColIndex|) (30 . |maxColIndex|)
               (35 . ~=) (41 . |qelt|) (48 . |zero?|) |MATCAT-;diagonal?;SB;2|
               (53 . ~=) |MATCAT-;symmetric?;SB;3| (59 . -)
-              (64 . |antisymmetric?|) (69 . |Zero|) (73 . |new|)
+              (64 . |antisymmetric?|) (69 . |0|) (73 . |new|)
               |MATCAT-;zero;2NniS;5| (80 . |qnew|) (86 . ~=) (92 . |qsetelt!|)
               (|List| 44) |MATCAT-;matrix;LS;6| (|Mapping| 7 16 16)
-              |MATCAT-;matrix;2NniMS;7| (100 . |One|) '|maybe_1|
-              (104 . |zero?|) (109 . |zero|) (115 . |scalarMatrix|) (|List| 7)
+              |MATCAT-;matrix;2NniMS;7| (100 . |1|) '|maybe_1| (104 . |zero?|)
+              (109 . |zero|) (115 . |scalarMatrix|) (|List| 7)
               (121 . |diagonalMatrix|) (|List| 10) (126 . |elt|) (132 . *)
               (138 . *) (|Mapping| 10 10 10) (144 . |reduce|) (|Void|)
               (|List| 46) (|List| %) (|Union| 7 '#1="one")
@@ -2851,7 +2851,7 @@
               (420 . |columnSpace|) (425 . |matrix|)
               (|SparseUnivariatePolynomial| 7) (430 . |monomial|)
               (436 . |coerce|) (441 . +) (447 . |subMatrix|) (456 . |degree|)
-              (461 . |Zero|) (465 . |coefficient|) (471 . |first|)
+              (461 . |0|) (465 . |coefficient|) (471 . |first|)
               (477 . |antisymmetric?|) (482 . |elt|) (488 . |Pfaffian|)
               (|Union| % '"failed") (493 . |exquo|) (499 . |exquo|) (505 . /)
               (511 . /) (517 . |inverse|) (522 . ^) (|OutputForm|))

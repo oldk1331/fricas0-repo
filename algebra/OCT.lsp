@@ -1,8 +1,8 @@
 
-(SDEFUN |OCT;Zero;%;1| ((% (%)))
+(SDEFUN |OCT;0;%;1| ((% (%)))
         (CONS (|spadConstant| % 11) (|spadConstant| % 11))) 
 
-(SDEFUN |OCT;One;%;2| ((% (%)))
+(SDEFUN |OCT;1;%;2| ((% (%)))
         (CONS (|spadConstant| % 13) (|spadConstant| % 11))) 
 
 (SDEFUN |OCT;real;%R;3| ((|x| (%)) (% (R)))
@@ -212,10 +212,9 @@
 (MAKEPROP '|Octonion| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |OCT;Zero;%;1|) %))
-              (0 . |Zero|) (|Quaternion| 6) (4 . |Zero|) (8 . |One|)
-              (12 . |One|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |OCT;One;%;2|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |OCT;0;%;1|) %))
+              (0 . |0|) (|Quaternion| 6) (4 . |0|) (8 . |1|) (12 . |1|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |OCT;1;%;2|) %))
               (16 . |real|) |OCT;real;%R;3| (21 . |imagI|) |OCT;imagi;%R;4|
               (26 . |imagJ|) |OCT;imagj;%R;5| (31 . |imagK|) |OCT;imagk;%R;6|
               |OCT;imagE;%R;7| |OCT;imagI;%R;8| |OCT;imagJ;%R;9|
@@ -263,8 +262,8 @@
               |associatorDependence| 674 |associator| 678 |associative?| 685
               |apply| 689 |antiCommutator| 695 |antiCommutative?| 701
               |antiAssociative?| 705 |annihilate?| 709 |alternative?| 715 |abs|
-              719 ^ 724 |Zero| 736 |One| 740 >= 744 > 750 = 756 <= 762 < 768 -
-              774 + 785 * 791)
+              719 ^ 724 >= 736 > 742 = 748 <= 754 < 760 |1| 766 |0| 770 - 774 +
+              785 * 791)
            'NIL
            (CONS
             (|makeByteWordVec2| 15
@@ -345,8 +344,8 @@
                                     14 68 1 3 0 0 0 0 0 1 0 0 31 1 2 0 0 49 0 1
                                     2 0 0 0 0 1 0 0 31 1 0 0 31 1 2 5 31 0 0 1
                                     0 0 31 1 1 16 6 0 1 2 0 0 0 43 1 2 5 0 0 46
-                                    1 0 0 0 8 0 5 0 14 2 7 31 0 0 1 2 7 31 0 0
-                                    1 2 0 31 0 0 1 2 7 31 0 0 1 2 7 31 0 0 1 2
+                                    1 2 7 31 0 0 1 2 7 31 0 0 1 2 0 31 0 0 1 2
+                                    7 31 0 0 1 2 7 31 0 0 1 0 5 0 14 0 0 0 8 2
                                     0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 0 0 43 0
                                     1 2 0 0 0 0 40 2 0 0 44 0 1 2 0 0 46 0 1 2
                                     0 0 6 0 1 2 0 0 0 6 1)))))

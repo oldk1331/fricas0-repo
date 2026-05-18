@@ -523,8 +523,8 @@
               |LF;Ci;2F;2| |LF;Shi;2F;3| |LF;Chi;2F;4| |LF;Ei;2F;5|
               |LF;erf;2F;6| |LF;erfi;2F;7| |LF;li;2F;8| |LF;dilog;2F;9|
               |LF;fresnelS;2F;10| |LF;fresnelC;2F;11| (|Boolean|) (20 . |has?|)
-              |LF;belong?;BoB;12| (26 . |zero?|) (31 . |Zero|) (35 . |kernel|)
-              (41 . |One|) (45 . |One|) (49 . =) (|List| 7) (55 . |second|)
+              |LF;belong?;BoB;12| (26 . |zero?|) (31 . |0|) (35 . |kernel|)
+              (41 . |1|) (45 . |1|) (49 . =) (|List| 7) (55 . |second|)
               (|Kernel| %) (60 . |retract|) (65 . |third|) (70 . |eval|)
               (|Kernel| 7) (77 . |kernel|) (82 . |coerce|) (|List| %)
               (87 . |elt|) |LF;integral;FSF;23| (93 . |kernel|) (|OutputForm|)
@@ -534,7 +534,7 @@
               (163 . |differentiate|) (169 . *) (175 . +)
               (|NonNegativeInteger|) (181 . |rest|) (|Mapping| 42 7)
               (187 . |every?|) (193 . |first|) (199 . |retract|) (|List| 9)
-              (204 . |position|) (210 . |Zero|) (|SegmentBinding| 7)
+              (204 . |position|) (210 . |0|) (|SegmentBinding| 7)
               (214 . |variable|) (|Segment| 7) (219 . |segment|) (224 . |low|)
               (229 . |high|) |LF;integral;FSbF;31| (234 . |is?|) (240 . |is?|)
               |LF;operator;2Bo;34| (|Mapping| 7 7)

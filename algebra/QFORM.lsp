@@ -86,7 +86,7 @@
               (|NonNegativeInteger|) (|Union| % '"failed") (|Integer|))
            '#(~= 42 |zero?| 48 |subtractIfCan| 53 |sample| 59 |quadraticForm|
               63 |opposite?| 68 |matrix| 74 |latex| 79 |elt| 84 |convert| 90
-              |coerce| 95 |Zero| 100 = 104 - 110 + 121 * 127)
+              |coerce| 95 = 100 |0| 106 - 110 + 121 * 127)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 1 0 0))
                  (CONS
@@ -102,8 +102,8 @@
                                          22 1 17 0 23 24 1 0 17 0 25 2 0 9 0 0
                                          1 1 0 9 0 1 2 0 30 0 0 1 0 0 0 1 1 0 0
                                          5 11 2 0 9 0 0 1 1 0 5 0 12 1 0 27 0 1
-                                         2 0 7 0 13 16 1 1 17 0 25 1 0 26 0 1 0
-                                         0 0 1 2 0 9 0 0 1 1 0 0 0 1 2 0 0 0 0
+                                         2 0 7 0 13 16 1 1 17 0 25 1 0 26 0 1 2
+                                         0 9 0 0 1 0 0 0 1 1 0 0 0 1 2 0 0 0 0
                                          1 2 0 0 0 0 1 2 0 0 28 0 1 2 0 0 29 0
                                          1 2 0 0 31 0 1)))))
            '|lookupComplete|)) 

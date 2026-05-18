@@ -236,9 +236,9 @@
               (|Boolean|) |LSMP;hasSolution?;MColB;1| (5 . |coerce|) (10 . -)
               (15 . |horizConcat|) |LSMP;rank;MColNni;3| (21 . |rowEchelon|)
               (|Union| 8 '#1="failed") |LSMP;particularSolution;MColU;4|
-              (26 . |ncols|) (31 . |One|) (|Integer|) (35 . |maxRowIndex|)
+              (26 . |ncols|) (31 . |1|) (|Integer|) (35 . |maxRowIndex|)
               (40 . |minRowIndex|) (45 . |zero?|) (50 . |row|) (|Mapping| 12 6)
-              (56 . |every?|) (62 . |Zero|) (66 . |new|) (72 . |minColIndex|)
+              (56 . |every?|) (62 . |0|) (66 . |new|) (72 . |minColIndex|)
               (77 . |maxColIndex|) (82 . |qelt|) (89 . |minIndex|) (94 . -)
               (99 . |qsetelt!|) (106 . |every?|) (|List| 8) (112 . |nullSpace|)
               (117 . |subMatrix|)

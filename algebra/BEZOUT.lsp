@@ -402,7 +402,7 @@
                    (COND (#4# #3#) (#5# (|spadConstant| % 12))))))))))) 
 
 (SDEFUN |BEZOUT;subresultants;2UPIv;6|
-        ((|p| (UP)) (|q| (UP)) (% (|IndexedVector| UP (|Zero|))))
+        ((|p| (UP)) (|q| (UP)) (% (|IndexedVector| UP (|0|))))
         (SPROG
          ((|mindeg| (|NonNegativeInteger|)) (|m| (M)) (#1=#:G141 NIL)
           (|j| (|NonNegativeInteger|)) (#2=#:G147 NIL) (|i| NIL)
@@ -558,11 +558,11 @@
 (MAKEPROP '|BezoutMatrix| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|local| |#4|) (|local| |#5|) (0 . |Zero|)
-              (4 . |Zero|) (|Boolean|) (8 . =) (|NonNegativeInteger|)
-              (14 . |degree|) (19 . |new|) (|Integer|) (26 . |minRowIndex|)
+              (|local| |#3|) (|local| |#4|) (|local| |#5|) (0 . |0|) (4 . |0|)
+              (|Boolean|) (8 . =) (|NonNegativeInteger|) (14 . |degree|)
+              (19 . |new|) (|Integer|) (26 . |minRowIndex|)
               (31 . |minColIndex|) (36 . |zero?|) (41 . |leadingCoefficient|)
-              (46 . |reductum|) (51 . |One|) (55 . |One|) (59 . |qsetelt!|)
+              (46 . |reductum|) (51 . |1|) (55 . |1|) (59 . |qsetelt!|)
               |BEZOUT;sylvesterMatrix;2UPM;1| (67 . |diagonal?|)
               (72 . |maxRowIndex|) (77 . |maxColIndex|) (82 . |ncols|)
               (87 . |column|) (93 . |minIndex|) (98 . ~=) (104 . |delete|)
@@ -596,8 +596,7 @@
                                      T)
                                    '((|bezoutMatrix| (|#3| |#2| |#2|)) T)
                                    '((|subresultants|
-                                      ((|IndexedVector| |#2| (|Zero|)) |#2|
-                                       |#2|))
+                                      ((|IndexedVector| |#2| (|0|)) |#2| |#2|))
                                      (|has| 6 (|CommutativeRing|)))
                                    '((|bezoutResultant| (|#1| |#2| |#2|))
                                      (|has| 6 (|CommutativeRing|)))

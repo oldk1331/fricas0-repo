@@ -373,7 +373,7 @@
               |EUCDOM-;exquo;2SU;4| (16 . |unitCanonical|) (21 . |rem|)
               |EUCDOM-;gcd;3S;5|
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
-              (27 . |unitNormal|) (32 . |One|) (36 . =) (42 . *) (48 . |Zero|)
+              (27 . |unitNormal|) (32 . |1|) (36 . =) (42 . *) (48 . |0|)
               (52 . -) (58 . |sizeLess?|) (64 . +)
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
               |EUCDOM-;extendedEuclidean;2SR;7| (70 . |extendedEuclidean|)

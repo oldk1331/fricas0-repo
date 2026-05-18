@@ -441,11 +441,11 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|XPolynomialRing| 7 22) (|local| |#1|)
               (|local| |#2|) '|Rep| (|Record| (|:| |k| 22) (|:| |c| 7))
-              (0 . |last|) |XDPOLY;mindegTerm;%R;1| (5 . |Zero|) (9 . |Zero|)
-              (13 . |One|) (17 . |One|) (|NonNegativeInteger|) (21 . |sh|)
+              (0 . |last|) |XDPOLY;mindegTerm;%R;1| (5 . |0|) (9 . |0|)
+              (13 . |1|) (17 . |1|) (|NonNegativeInteger|) (21 . |sh|)
               (27 . |sh|) (33 . *) (39 . *) (45 . +) (|FreeMonoid| 6)
               (51 . |monomial|) |XDPOLY;coerce;Fm%;4| (57 . |coerce|)
-              |XDPOLY;coerce;vl%;5| (62 . *) |XDPOLY;*;vl2%;6| (68 . |One|)
+              |XDPOLY;coerce;vl%;5| (62 . *) |XDPOLY;*;vl2%;6| (68 . |1|)
               (|Boolean|) (72 . =) (|Union| 7 '"failed")
               |XDPOLY;retractIfCan;%U;7| (78 . =) (|Union| 22 '"failed")
               |XDPOLY;retractIfCan;%U;8| (84 . |leadingCoefficient|)
@@ -476,8 +476,8 @@
               |constructOrdered| 475 |construct| 480 |constant?| 485 |constant|
               490 |commutator| 495 |coerce| 501 |coefficients| 526
               |coefficient| 531 |coef| 537 |characteristic| 549 |associator|
-              553 |antiCommutator| 560 |annihilate?| 566 ^ 572 |Zero| 584 |One|
-              588 = 592 - 598 + 609 * 615)
+              553 |antiCommutator| 560 |annihilate?| 566 ^ 572 = 584 |1| 590
+              |0| 594 - 598 + 609 * 615)
            'NIL
            (CONS
             (|makeByteWordVec2| 4
@@ -541,8 +541,8 @@
                                     0 22 24 1 0 0 6 26 1 0 78 0 1 2 0 7 0 22 1
                                     2 0 7 0 0 69 2 0 7 0 22 1 0 0 16 1 3 0 0 0
                                     0 0 1 2 0 0 0 0 1 2 0 30 0 0 1 2 0 0 0 74 1
-                                    2 0 0 0 16 1 0 0 0 12 0 0 0 14 2 0 30 0 0
-                                    45 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 21 2 0 0
+                                    2 0 0 0 16 1 2 0 30 0 0 45 0 0 0 14 0 0 0
+                                    12 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 21 2 0 0
                                     74 0 1 2 0 0 0 0 1 2 0 0 75 0 1 2 0 0 16 0
                                     1 2 0 0 0 7 66 2 0 0 7 0 20 2 0 0 6 0
                                     28)))))

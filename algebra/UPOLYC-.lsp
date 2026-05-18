@@ -1128,12 +1128,12 @@
               |UPOLYC-;mainVariable;SU;10| (65 . |minimumDegree|)
               |UPOLYC-;minimumDegree;SSaosNni;11|
               |UPOLYC-;minimumDegree;SLL;12| (70 . +) (|Mapping| 10 10)
-              (76 . |mapExponents|) |UPOLYC-;monomial;SSaosNniS;13|
-              (82 . |One|) (86 . |One|) (90 . |monomial|) (96 . |coerce|)
-              (|SparseUnivariatePolynomial| 7) (101 . |Zero|)
+              (76 . |mapExponents|) |UPOLYC-;monomial;SSaosNniS;13| (82 . |1|)
+              (86 . |1|) (90 . |monomial|) (96 . |coerce|)
+              (|SparseUnivariatePolynomial| 7) (101 . |0|)
               (105 . |leadingCoefficient|) (110 . |monomial|)
               (116 . |reductum|) (121 . |makeSUP|) (126 . +)
-              |UPOLYC-;makeSUP;SSup;15| (132 . |zero?|) (137 . |Zero|)
+              |UPOLYC-;makeSUP;SSup;15| (132 . |zero?|) (137 . |0|)
               (141 . |leadingCoefficient|) (146 . |degree|) (151 . |reductum|)
               (156 . |unmakeSUP|) (161 . +) |UPOLYC-;unmakeSUP;SupS;16|
               (|Union| 68 '"failed") (|List| 69)
@@ -1154,7 +1154,7 @@
               (|List| 90) (|Factored| 6) (214 . |makeFR|)
               (220 . |factorPolynomial|) (|Mapping| 6 51) (|Factored| 51)
               (|FactoredFunctions2| 51 6) (225 . |map_preserving|)
-              (231 . |factor|) (236 . |Zero|) (|Integer|) (|Vector| 7)
+              (231 . |factor|) (236 . |0|) (|Integer|) (|Vector| 7)
               (240 . |minIndex|) (245 . |coefficient|)
               |UPOLYC-;vectorise;SNniV;21| (251 . |elt|)
               |UPOLYC-;unvectorise;VS;22| |UPOLYC-;retract;SR;23|
@@ -1175,7 +1175,7 @@
               (430 . |pseudoDivide|) (436 . |composite|) (442 . /)
               (|Union| 139 '#4="failed") (448 . |composite|) (454 . |ground?|)
               (459 . |pseudoDivide|) (465 . |exquo|) (471 . |composite|)
-              (477 . |Zero|) (481 . |coerce|) (486 . ^) (492 . *) (498 . +)
+              (477 . |0|) (481 . |coerce|) (486 . ^) (492 . *) (498 . +)
               (504 . ^) (510 . |elt|) (516 . |order|)
               (|UnivariatePolynomialSquareFree| 7 6) (522 . |squareFree|)
               (527 . |squareFree|) (532 . |squareFreePart|)

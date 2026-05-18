@@ -233,9 +233,9 @@
               (|GraphImage|) (|Expression| (|Float|))
               (|SegmentBinding| (|Float|)) (|TopLevelDrawFunctions| 18)
               (28 . |makeObject|) (|List| (|List| 29)) (35 . |pointLists|)
-              (40 . |One|) (|InputForm|) (44 . |One|) (|DoubleFloat|)
-              (|Integer|) (|Point| 27) (48 . |elt|) (54 . |convert|)
-              (59 . |unparse|) (64 . |writeLine!|) (69 . |close!|) (|Void|)
+              (40 . |1|) (|InputForm|) (44 . |1|) (|DoubleFloat|) (|Integer|)
+              (|Point| 27) (48 . |elt|) (54 . |convert|) (59 . |unparse|)
+              (64 . |writeLine!|) (69 . |close!|) (|Void|)
               |GDRAW;gnuDraw;ESbSLV;1| (|List| 27) (74 . |point|)
               (79 . |makeGraphImage|) (84 . |convert|) |GDRAW;gnuDraw;2LSLV;2|
               (|DrawOption|) (89 . |title|) |GDRAW;gnuDraw;ESbSV;3|

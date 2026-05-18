@@ -178,14 +178,14 @@
 
 (MAKEPROP '|FortranCodePackage1| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|Expression| (|Integer|)) (0 . |Zero|)
-              (|Polynomial| (|Integer|)) (4 . |One|) (|Segment| 8)
+           '#(NIL NIL NIL NIL NIL NIL (|Expression| (|Integer|)) (0 . |0|)
+              (|Polynomial| (|Integer|)) (4 . |1|) (|Segment| 8)
               (8 . |segment|) (|Symbol|) (|SegmentBinding| 8) (14 . |equation|)
               (20 . |coerce|) (|List| 8) (|FortranCode|) (25 . |assign|)
               (32 . |forLoop|) |FCPAK1;zeroVector;SPFc;1|
               |FCPAK1;zeroMatrix;S2PFc;2| (38 . |variable|)
               |FCPAK1;zeroMatrix;S2SbFc;3| |FCPAK1;zeroSquareMatrix;SPFc;4|
-              (43 . |One|) (|List| %) (47 . |block|)
+              (43 . |1|) (|List| %) (47 . |block|)
               |FCPAK1;identitySquareMatrix;SPFc;5|)
            '#(|zeroVector| 52 |zeroSquareMatrix| 58 |zeroMatrix| 64
               |identitySquareMatrix| 78)

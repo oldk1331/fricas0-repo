@@ -297,13 +297,13 @@
               (89 . |remainder|) (|Fraction| 6) (95 . /) (101 . *)
               (107 . |removeZero|) (113 . |numer|) (118 . *) (124 . |denom|)
               (|Record| (|:| |num| 9) (|:| |den| 9)) |NORMPK;recip;PTSR;4|
-              (129 . |empty?|) (134 . |zero?|) (139 . |ground?|) (144 . |One|)
-              (148 . |init|) (153 . |initiallyReduce|) (159 . |Zero|)
+              (129 . |empty?|) (134 . |zero?|) (139 . |ground?|) (144 . |1|)
+              (148 . |init|) (153 . |initiallyReduce|) (159 . |0|)
               (163 . |algebraic?|) (169 . =) (175 . |lastSubResultant|)
               (181 . |primitivePart|) (186 . *) (192 . |tail|) (197 . +)
               (203 . |mainMonomial|) |NORMPK;normalizedAssociate;PTSP;5|
-              (208 . |One|) (|Record| (|:| |val| 9) (|:| |tower| 10))
-              (|List| 69) |NORMPK;normalize;PTSL;6| (212 . |concat|))
+              (208 . |1|) (|Record| (|:| |val| 9) (|:| |tower| 10)) (|List| 69)
+              |NORMPK;normalize;PTSL;6| (212 . |concat|))
            '#(|recip| 218 |outputArgs| 224 |normalizedAssociate| 232
               |normalize| 238 |normInvertible?| 244)
            'NIL

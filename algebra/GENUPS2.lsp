@@ -298,15 +298,15 @@
               |GENUPS2;taylor;MEUsA;2| (|UniversalSegment| 29) (30 . |laurent|)
               |GENUPS2;laurent;MEUsA;3| (|Mapping| 6 26)
               (|UniversalSegment| 26) (|Fraction| 29) (38 . |puiseux|)
-              |GENUPS2;puiseux;MEUsFA;4| (|Integer|) (47 . |numer|)
-              (52 . |Zero|) (56 . |Zero|) (60 . |Zero|) (64 . |segment|)
-              (69 . |One|) |GENUPS2;series;MEA;5| (73 . |coerce|)
-              (|Mapping| 26 29) (|UniversalSegmentFunctions2| 29 26)
-              (78 . |map|) |GENUPS2;series;MEUsA;6| |GENUPS2;series;MEUsFA;7|
+              |GENUPS2;puiseux;MEUsFA;4| (|Integer|) (47 . |numer|) (52 . |0|)
+              (56 . |0|) (60 . |0|) (64 . |segment|) (69 . |1|)
+              |GENUPS2;series;MEA;5| (73 . |coerce|) (|Mapping| 26 29)
+              (|UniversalSegmentFunctions2| 29 26) (78 . |map|)
+              |GENUPS2;series;MEUsA;6| |GENUPS2;series;MEUsFA;7|
               (84 . |coerce|) (89 . |coerce|) (|Boolean|) (94 . =) (100 . =)
               (106 . |eval|) (112 . |taylor|) (119 . |taylor|)
               (127 . |laurent|) (135 . |coerce|) (140 . |puiseux|)
-              (149 . |series|) (156 . |One|) (160 . |One|) (164 . |series|)
+              (149 . |series|) (156 . |1|) (160 . |1|) (164 . |series|)
               (172 . |series|))
            '#(|taylor| 181 |series| 209 |puiseux| 254 |laurent| 271) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

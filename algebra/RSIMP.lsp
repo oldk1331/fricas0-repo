@@ -3078,15 +3078,15 @@
               (|PositiveInteger|) (25 . ^) (31 . *) (37 . *) (43 . -) (49 . +)
               '|p2c| (|Fraction| 108) (|Kernel| %) (55 . |univariate|)
               (|SparseUnivariatePolynomial| 11) (|Fraction| 33) (61 . |numer|)
-              '|p2cu| (66 . -) (71 . /) '|p2s| (77 . |One|) (|Integer|)
-              (81 . *) '|p3c| '|p3cu| '|p3s| '|p5c| '|p5cu| '|p5s| '|p7c|
-              '|p7cu| '|p7s| '|p11c| '|p11cu| '|p11s| (|Boolean|) (87 . =)
-              (|Equation| 11) (93 . =) (|List| (|Equation| %)) (99 . |subst|)
-              (|Mapping| 11 11) (105 . |map|) (|Factored| %) (111 . |factor|)
+              '|p2cu| (66 . -) (71 . /) '|p2s| (77 . |1|) (|Integer|) (81 . *)
+              '|p3c| '|p3cu| '|p3s| '|p5c| '|p5cu| '|p5s| '|p7c| '|p7cu| '|p7s|
+              '|p11c| '|p11cu| '|p11s| (|Boolean|) (87 . =) (|Equation| 11)
+              (93 . =) (|List| (|Equation| %)) (99 . |subst|) (|Mapping| 11 11)
+              (105 . |map|) (|Factored| %) (111 . |factor|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 65) (|:| |factor| 33) (|:| |exponent| 70))
               (|List| 66) (|Factored| 33) (116 . |factorList|)
-              (|NonNegativeInteger|) (121 . |degree|) (126 . |Zero|)
+              (|NonNegativeInteger|) (121 . |degree|) (126 . |0|)
               (130 . |coefficient|) (136 . |leadingCoefficient|) (|List| 11)
               (141 . |elt|) (147 . ^) (153 . |elt|) '|init_str| '|e| '|ke|
               '|rp2| '|rp2u| '|rp2d| '|rp2s| '|rp3e| '|rp3u| '|rp3d| '|rp3s|
@@ -3096,7 +3096,7 @@
               (192 . |entries|) (197 . |degree|) (202 . |leadingCoefficient|)
               (207 . |reductum|) (212 . |sqrt|) (217 . |retract|)
               (|SparseUnivariatePolynomial| %) (222 . |minPoly|)
-              (227 . |univariate|) (234 . |One|) (|Fraction| 41) (238 . /)
+              (227 . |univariate|) (234 . |1|) (|Fraction| 41) (238 . /)
               (244 . ^) (250 . |monomial|) (256 . |coerce|) (261 . -)
               (|Union| 11 '"failed") |RSIMP;rsimp1;EIU;15| (|BasicOperator|)
               (|List| %) (267 . |kernel|) (|List| 31) (273 . |kernels|)

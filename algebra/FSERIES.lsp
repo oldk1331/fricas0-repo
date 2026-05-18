@@ -1,5 +1,5 @@
 
-(SDEFUN |FSERIES;One;%;1| ((% (%)))
+(SDEFUN |FSERIES;1;%;1| ((% (%)))
         (LIST
          (CONS (SPADCALL (|spadConstant| % 12) (QREFELT % 14))
                (|spadConstant| % 15)))) 
@@ -188,10 +188,9 @@
 (MAKEPROP '|FourierSeries| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|FreeModule| 6 13) (|local| |#1|)
-              (|local| |#2|) '|Term| '|Rep| (0 . |Zero|) (4 . |Zero|)
-              (8 . |Zero|) (|FourierComponent| 7) (12 . |cos|) (17 . |One|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |FSERIES;One;%;1|) %))
+              (|local| |#2|) '|Term| '|Rep| (0 . |0|) (4 . |0|) (8 . |0|)
+              (|FourierComponent| 7) (12 . |cos|) (17 . |1|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FSERIES;1;%;1|) %))
               (|Boolean|) (21 . |sin?|) (26 . |argument|) (31 . |zero?|)
               (36 . <) (42 . -) (47 . |sin|) (52 . -) (57 . -)
               |FSERIES;coerce;Fc%;2| (62 . *) (|Integer|) (|Fraction| 28)
@@ -204,8 +203,7 @@
               153 |one?| 159 |makeSin| 164 |makeCos| 170 |leftRecip| 176
               |leftPower| 181 |latex| 193 |commutator| 198 |coerce| 204
               |characteristic| 224 |associator| 228 |antiCommutator| 235
-              |annihilate?| 241 ^ 247 |Zero| 259 |One| 263 = 267 - 273 + 284 *
-              290)
+              |annihilate?| 241 ^ 247 = 259 |1| 265 |0| 269 - 273 + 284 * 290)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -243,7 +241,7 @@
                                     0 40 0 1 2 0 0 0 0 1 1 0 39 0 1 1 0 0 28 1
                                     1 0 0 6 1 1 0 0 13 26 0 0 43 1 3 0 0 0 0 0
                                     1 2 0 0 0 0 1 2 0 17 0 0 1 2 0 0 0 41 1 2 0
-                                    0 0 43 1 0 0 0 10 0 0 0 16 2 0 17 0 0 1 2 0
+                                    0 0 43 1 2 0 17 0 0 1 0 0 0 16 0 0 0 10 2 0
                                     0 0 0 37 1 0 0 0 25 2 0 0 0 0 35 2 0 0 41 0
                                     1 2 0 0 0 0 38 2 0 0 28 0 1 2 0 0 43 0 1 2
                                     0 0 6 0 1 2 0 0 0 6 1)))))

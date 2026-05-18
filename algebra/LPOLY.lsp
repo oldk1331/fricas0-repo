@@ -600,16 +600,16 @@
               (|Boolean|) (5 . |member?|) |LPOLY;LiePoly;Lw%;25|
               (|Union| 6 '"failed") (11 . |retractIfCan|) (16 . =)
               (22 . |left|) (27 . |right|) |LPOLY;construct;3%;19| (|Integer|)
-              (32 . |position|) (38 . |Zero|) (42 . |Zero|) (46 . |One|)
+              (32 . |position|) (38 . |0|) (42 . |0|) (46 . |1|)
               (50 . |monomial|) (|List| $$) (56 . |elt|) (62 . *) (68 . +)
               |LPOLY;eval;%VarSet2%;3| (|List| %) |LPOLY;eval;%LL%;4|
-              (|XRecursivePolynomial| 6 7) (74 . |constant?|) (79 . |Zero|)
+              (|XRecursivePolynomial| 6 7) (74 . |constant?|) (79 . |0|)
               (83 . |retractable?|) (88 . |retract|) (93 . |lquo|) (99 . -)
               (105 . |rquo|) |LPOLY;coerce;%Xrp;24| (111 . |coef|)
               |LPOLY;coef;Xrp%R;7| (117 . =) (123 . *) (129 . +)
               |LPOLY;lquo;Xrp%Xrp;8| |LPOLY;rquo;Xrp%Xrp;9|
               (|XDistributedPolynomial| 6 7) (135 . |quasiRegular?|)
-              (140 . |Zero|) (144 . ~=) (|Record| (|:| |k| 57) (|:| |c| 7))
+              (140 . |0|) (144 . ~=) (|Record| (|:| |k| 57) (|:| |c| 7))
               (150 . |mindegTerm|) (|Union| % '"failed") (|FreeMonoid| 6)
               (155 . |lyndonIfCan|) |LPOLY;coerce;%Xdp;23| (160 . -)
               |LPOLY;LiePolyIfCan;XdpU;10| (|FreeMagma| 6) (166 . |coerce|)
@@ -634,8 +634,8 @@
               402 |leadingSupport| 407 |leadingMonomial| 412
               |leadingCoefficient| 417 |latex| 422 |eval| 427 |degree| 441
               |constructOrdered| 446 |construct| 451 |coerce| 480
-              |coefficients| 500 |coefficient| 505 |coef| 511 |Zero| 517
-              |LiePolyIfCan| 521 |LiePoly| 526 = 531 / 537 - 543 + 554 * 560)
+              |coefficients| 500 |coefficient| 505 |coef| 511 |LiePolyIfCan|
+              517 |LiePoly| 522 = 527 |0| 533 / 537 - 543 + 554 * 560)
            'NIL
            (CONS (|makeByteWordVec2| 8 '(0 0 0 0 0 0 0 0 0 0 1 2 5 8 0 0 0 0))
                  (CONS
@@ -686,8 +686,8 @@
                                          0 0 105 1 2 0 0 10 0 74 2 0 0 10 10 76
                                          2 0 0 0 10 75 1 0 91 0 99 1 0 50 0 59
                                          1 0 0 6 73 1 0 34 0 42 1 0 103 0 1 2 0
-                                         7 0 10 1 2 0 7 34 0 44 0 4 0 23 1 0 56
-                                         50 61 1 0 0 10 14 2 0 12 0 0 45 2 3 0
+                                         7 0 10 1 2 0 7 34 0 44 1 0 56 50 61 1
+                                         0 0 10 14 2 0 12 0 0 45 0 4 0 23 2 3 0
                                          0 7 1 2 1 0 0 0 1 1 1 0 0 67 2 0 0 0 0
                                          30 2 0 0 82 0 1 2 0 0 7 0 29 2 0 0 0 7
                                          1 2 1 0 21 0 1 2 4 0 86 0 1)))))

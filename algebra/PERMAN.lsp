@@ -393,8 +393,8 @@
 
 (MAKEPROP '|Permanent| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |One|)
-              (4 . |Zero|) (|Vector| 18) (|PositiveInteger|) (|GrayCode|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |1|)
+              (4 . |0|) (|Vector| 18) (|PositiveInteger|) (|GrayCode|)
               (8 . |firstSubsetGray|) (|Boolean|) (|Integer|) (13 . ~=)
               (19 . -) (|Vector| 15) (24 . |elt|) (30 . |elt|) (|Vector| 7)
               (36 . |elt|) (|SquareMatrix| (NRTEVAL (QREFELT % 6)) 7)

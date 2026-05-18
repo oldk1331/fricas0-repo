@@ -1,7 +1,7 @@
 
-(SDEFUN |SQMATRIX;Zero;%;1| ((% (%))) (QREFELT % 10)) 
+(SDEFUN |SQMATRIX;0;%;1| ((% (%))) (QREFELT % 10)) 
 
-(SDEFUN |SQMATRIX;One;%;2| ((% (%))) (QREFELT % 13)) 
+(SDEFUN |SQMATRIX;1;%;2| ((% (%))) (QREFELT % 13)) 
 
 (SDEFUN |SQMATRIX;characteristic;Nni;3| ((% (|NonNegativeInteger|)))
         (SPADCALL (QREFELT % 16))) 
@@ -396,7 +396,7 @@
        (QSETREFV % 13 (SPADCALL (|spadConstant| % 12) (QREFELT % 9)))
        (QSETREFV % 14
                  (CONS #'|makeSpadConstant|
-                       (LIST (|dispatchFunction| |SQMATRIX;One;%;2|) % 14))))))
+                       (LIST (|dispatchFunction| |SQMATRIX;1;%;2|) % 14))))))
     (COND
      ((|testBitVector| |pv$| 4)
       (QSETREFV % 17
@@ -455,10 +455,9 @@
 (MAKEPROP '|SquareMatrix| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|Matrix| 7) (|local| |#1|) (|local| |#2|)
-              (0 . |Zero|) |SQMATRIX;scalarMatrix;R%;8| 'ZERO
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |SQMATRIX;Zero;%;1|) %))
-              (4 . |One|) 'ONE (8 . |One|) (|NonNegativeInteger|)
+              (0 . |0|) |SQMATRIX;scalarMatrix;R%;8| 'ZERO
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |SQMATRIX;0;%;1|) %))
+              (4 . |1|) 'ONE (8 . |1|) (|NonNegativeInteger|)
               (12 . |characteristic|) (16 . |characteristic|) (|Boolean|)
               (20 . ~=) (|Integer|) (26 . |maxRowIndex|) (31 . |maxColIndex|)
               (|List| 36) |SQMATRIX;matrix;L%;4| (|Vector| 7) (36 . |row|)
@@ -505,8 +504,8 @@
               |copy| 733 |convert| 738 |commutator| 743 |columnSpace| 749
               |column| 754 |coerce| 760 |characteristic| 785 |associator| 789
               |any?| 796 |antisymmetric?| 802 |antiCommutator| 807
-              |annihilate?| 813 ^ 819 |Zero| 837 |Pfaffian| 841 |One| 846 D 850
-              = 900 / 906 - 912 + 923 * 929 |#| 983)
+              |annihilate?| 813 ^ 819 |Pfaffian| 837 D 842 = 892 |1| 898 |0|
+              902 / 906 - 912 + 923 * 929 |#| 983)
            'NIL
            (CONS
             (|makeByteWordVec2| 28
@@ -598,10 +597,10 @@
                                     0 40 1 22 0 20 1 1 9 0 96 1 0 4 15 17 3 4 0
                                     0 0 0 1 2 30 18 92 0 1 1 2 18 0 1 2 0 0 0 0
                                     1 2 4 18 0 0 1 2 0 0 0 80 1 2 19 0 0 20 71
-                                    2 3 0 0 15 1 0 0 0 11 1 1 7 0 52 0 3 0 14 1
-                                    20 0 0 1 2 20 0 0 15 1 2 21 0 0 90 1 2 21 0
-                                    0 72 1 3 21 0 0 90 91 1 3 21 0 0 72 15 1 2
-                                    4 0 0 82 1 3 4 0 0 82 15 1 2 0 18 0 0 1 2
+                                    2 3 0 0 15 1 1 1 7 0 52 1 20 0 0 1 2 20 0 0
+                                    15 1 2 21 0 0 90 1 2 21 0 0 72 1 3 21 0 0
+                                    90 91 1 3 21 0 0 72 15 1 2 4 0 0 82 1 3 4 0
+                                    0 82 15 1 2 0 18 0 0 1 0 3 0 14 0 0 0 11 2
                                     19 0 0 7 1 2 33 0 0 0 1 1 33 0 0 1 2 0 0 0
                                     0 1 2 0 0 80 0 1 2 0 0 0 0 1 2 0 0 15 0 1 2
                                     0 0 7 0 1 2 0 0 0 7 1 2 0 27 0 27 44 2 0 27

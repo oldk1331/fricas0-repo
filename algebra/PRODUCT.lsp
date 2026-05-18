@@ -23,7 +23,7 @@
 
 (SDEFUN |PRODUCT;second;%B;5| ((|x| (%)) (% (B))) (QCDR |x|)) 
 
-(SDEFUN |PRODUCT;One;%;6| ((% (%)))
+(SDEFUN |PRODUCT;1;%;6| ((% (%)))
         (SPADCALL (|spadConstant| % 22) (|spadConstant| % 23) (QREFELT % 19))) 
 
 (SDEFUN |PRODUCT;*;3%;7| ((|x| (%)) (|y| (%)) (% (%)))
@@ -83,7 +83,7 @@
         (SPADCALL (SPADCALL (QCAR |x|) (QREFELT % 49))
                   (SPADCALL (QCDR |x|) (QREFELT % 50)) (QREFELT % 19))) 
 
-(SDEFUN |PRODUCT;Zero;%;15| ((% (%)))
+(SDEFUN |PRODUCT;0;%;15| ((% (%)))
         (SPADCALL (|spadConstant| % 52) (|spadConstant| % 53) (QREFELT % 19))) 
 
 (SDEFUN |PRODUCT;+;3%;16| ((|x| (%)) (|y| (%)) (% (%)))
@@ -268,7 +268,7 @@
         (PROGN
          (QSETREFV % 24
                    (CONS #'|makeSpadConstant|
-                         (LIST (|dispatchFunction| |PRODUCT;One;%;6|) % 24)))
+                         (LIST (|dispatchFunction| |PRODUCT;1;%;6|) % 24)))
          (QSETREFV % 27 (CONS (|dispatchFunction| |PRODUCT;*;3%;7|) %))
          (QSETREFV % 31 (CONS (|dispatchFunction| |PRODUCT;^;%Nni%;8|) %)))))))
     (COND
@@ -300,7 +300,7 @@
         (PROGN
          (QSETREFV % 54
                    (CONS #'|makeSpadConstant|
-                         (LIST (|dispatchFunction| |PRODUCT;Zero;%;15|) % 54)))
+                         (LIST (|dispatchFunction| |PRODUCT;0;%;15|) % 54)))
          (QSETREFV % 57 (CONS (|dispatchFunction| |PRODUCT;+;3%;16|) %))
          (QSETREFV % 60
                    (CONS (|dispatchFunction| |PRODUCT;*;Nni2%;17|) %)))))))
@@ -359,16 +359,15 @@
               (|OutputForm|) (0 . |coerce|) (5 . |coerce|) (|List| %)
               (10 . |bracket|) |PRODUCT;coerce;%Of;1| (|Boolean|) (15 . =)
               (21 . =) |PRODUCT;=;2%B;2| |PRODUCT;construct;AB%;3|
-              |PRODUCT;first;%A;4| |PRODUCT;second;%B;5| (27 . |One|)
-              (31 . |One|) (35 . |One|) (39 . *) (45 . *) (51 . *)
-              (|NonNegativeInteger|) (57 . ^) (63 . ^) (69 . ^) (75 . |size|)
-              (79 . |size|) (83 . |size|) (|PositiveInteger|) (87 . |index|)
-              (92 . |index|) (97 . |index|) (102 . |random|) (106 . |random|)
-              (110 . |random|) (114 . |lookup|) (119 . |lookup|)
-              (124 . |lookup|) (|HashState|) (129 . |hashUpdate!|)
-              (135 . |hashUpdate!|) (141 . |hashUpdate!|) (147 . |inv|)
-              (152 . |inv|) (157 . |inv|) (162 . |Zero|) (166 . |Zero|)
-              (170 . |Zero|) (174 . +) (180 . +) (186 . +) (192 . *) (198 . *)
+              |PRODUCT;first;%A;4| |PRODUCT;second;%B;5| (27 . |1|) (31 . |1|)
+              (35 . |1|) (39 . *) (45 . *) (51 . *) (|NonNegativeInteger|)
+              (57 . ^) (63 . ^) (69 . ^) (75 . |size|) (79 . |size|)
+              (83 . |size|) (|PositiveInteger|) (87 . |index|) (92 . |index|)
+              (97 . |index|) (102 . |random|) (106 . |random|) (110 . |random|)
+              (114 . |lookup|) (119 . |lookup|) (124 . |lookup|) (|HashState|)
+              (129 . |hashUpdate!|) (135 . |hashUpdate!|) (141 . |hashUpdate!|)
+              (147 . |inv|) (152 . |inv|) (157 . |inv|) (162 . |0|) (166 . |0|)
+              (170 . |0|) (174 . +) (180 . +) (186 . +) (192 . *) (198 . *)
               (204 . *) (|Union| % '"failed") (210 . |subtractIfCan|)
               (216 . |subtractIfCan|) (222 . |subtractIfCan|) (228 . -)
               (233 . -) (238 . -) (243 . -) (249 . -) (255 . -) (|Integer|)
@@ -382,9 +381,8 @@
               407 |min| 412 |max| 418 |lookup| 424 |leftRecip| 429 |leftPower|
               434 |latex| 446 |inv| 451 |inf| 456 |index| 462 |hashUpdate!| 467
               |hash| 473 |first| 478 |enumerate| 483 |convert| 487 |construct|
-              492 |conjugate| 498 |commutator| 504 |coerce| 510 ^ 515 |Zero|
-              533 |One| 537 >= 541 > 547 = 553 <= 559 < 565 / 571 - 577 + 588 *
-              594)
+              492 |conjugate| 498 |commutator| 504 |coerce| 510 ^ 515 >= 533 >
+              539 = 545 <= 551 < 557 |1| 563 |0| 567 / 571 - 577 + 588 * 594)
            'NIL
            (CONS
             (|makeByteWordVec2| 10
@@ -433,9 +431,9 @@
                                     0 0 1 1 8 0 35 38 2 9 45 45 0 48 1 9 86 0 1
                                     1 0 6 0 20 0 8 12 1 1 8 85 0 1 2 0 0 6 7 19
                                     2 6 0 0 0 1 2 6 0 0 0 1 1 0 9 0 14 2 6 0 0
-                                    71 1 2 7 0 0 35 1 2 7 0 0 28 31 0 5 0 54 0
-                                    7 0 24 2 2 15 0 0 1 2 2 15 0 0 1 2 0 15 0 0
-                                    18 2 2 15 0 0 1 2 2 15 0 0 80 2 6 0 0 0 1 1
+                                    71 1 2 7 0 0 35 1 2 7 0 0 28 31 2 2 15 0 0
+                                    1 2 2 15 0 0 1 2 0 15 0 0 18 2 2 15 0 0 1 2
+                                    2 15 0 0 80 0 7 0 24 0 5 0 54 2 6 0 0 0 1 1
                                     3 0 0 67 2 3 0 0 0 70 2 5 0 0 0 57 2 3 0 71
                                     0 74 2 5 0 35 0 1 2 5 0 28 0 60 2 7 0 0 0
                                     27)))))

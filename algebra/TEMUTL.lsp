@@ -50,8 +50,8 @@
 
 (MAKEPROP '|TemplateUtilities| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|InputForm|) (0 . |One|) (|Integer|)
-              (|String|) (4 . |position|) (11 . |Zero|) (|UniversalSegment| 8)
+           '#(NIL NIL NIL NIL NIL NIL (|InputForm|) (0 . |1|) (|Integer|)
+              (|String|) (4 . |position|) (11 . |0|) (|UniversalSegment| 8)
               (15 . SEGMENT) (20 . |delete|) (|Character|) (26 . |trim|)
               |TEMUTL;stripCommentsAndBlanks;2S;2| (32 . |parse|) (|Any|)
               (37 . |interpret|) |TEMUTL;interpretString;SA;3|)

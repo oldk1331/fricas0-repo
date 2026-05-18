@@ -366,7 +366,7 @@
                             (COND (#16# #15#) (#17# (|spadConstant| % 21)))))
                      (EXIT (SPADCALL |r1| |r2| (QREFELT % 20))))))))))))) 
 
-(SDEFUN |XPBWPOLY;One;%;11| ((% (%)))
+(SDEFUN |XPBWPOLY;1;%;11| ((% (%)))
         (SPADCALL (|spadConstant| % 9) (|spadConstant| % 15) (QREFELT % 25))) 
 
 (SDEFUN |XPBWPOLY;coerce;R%;12| ((|r| (R)) (% (%)))
@@ -786,26 +786,26 @@
 (MAKEPROP '|XPBWPolynomial| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|FreeModule| 7 13) (|local| |#1|)
-              (|local| |#2|) '|Rep| (0 . |One|) (|Boolean|) (4 . =)
+              (|local| |#2|) '|Rep| (0 . |1|) (|Boolean|) (4 . =)
               (|OutputForm|) (|PoincareBirkhoffWittLyndonBasis| 6)
-              (10 . |coerce|) (15 . |One|) (19 . =) (25 . |coerce|) (30 . *)
-              (36 . *) (42 . +) (48 . |Zero|) (|NonNegativeInteger|)
+              (10 . |coerce|) (15 . |1|) (19 . =) (25 . |coerce|) (30 . *)
+              (36 . *) (42 . +) (48 . |0|) (|NonNegativeInteger|)
               (52 . |length|)
               (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |XPBWPOLY;One;%;11|) %))
+                    (FUNCALL (|dispatchFunction| |XPBWPOLY;1;%;11|) %))
               (57 . |monomial|) (|List| 28) (63 . |listOfTerms|)
               (|LyndonWord| 6) (68 . |first|) (|XDistributedPolynomial| 6 7)
-              (73 . |One|) (|LiePolynomial| 6 7) (77 . |LiePoly|)
-              (82 . |coerce|) (87 . *) (|XRecursivePolynomial| 6 7)
-              (93 . |One|) (97 . |coerce|) (102 . *) (108 . |mirror|)
-              (113 . |rest|) |XPBWPOLY;coerce;Lp%;15| |XPBWPOLY;*;3%;22|
-              (118 . |lexico|) (124 . |append|) (130 . |construct|)
+              (73 . |1|) (|LiePolynomial| 6 7) (77 . |LiePoly|) (82 . |coerce|)
+              (87 . *) (|XRecursivePolynomial| 6 7) (93 . |1|) (97 . |coerce|)
+              (102 . *) (108 . |mirror|) (113 . |rest|)
+              |XPBWPOLY;coerce;Lp%;15| |XPBWPOLY;*;3%;22| (118 . |lexico|)
+              (124 . |append|) (130 . |construct|)
               (|Record| (|:| |k| 28) (|:| |c| 7)) (|List| 47)
               (136 . |listOfTerms|) (141 . |list|) |XPBWPOLY;coerce;R%;12|
-              (146 . |Zero|) (150 . +) (|Mapping| 12 12 12) (|List| 12)
+              (146 . |0|) (150 . +) (|Mapping| 12 12 12) (|List| 12)
               (156 . |reduce|) |XPBWPOLY;coerce;%Of;13| (162 . |coerce|)
               |XPBWPOLY;coerce;VarSet%;14| (167 . |coerce|) (172 . *) (178 . +)
-              (184 . |Zero|) |XPBWPOLY;coerce;%Xdp;16| (188 . =) (194 . |Zero|)
+              (184 . |0|) |XPBWPOLY;coerce;%Xdp;16| (188 . =) (194 . |0|)
               (198 . *) (204 . +) |XPBWPOLY;coerce;%Xrp;17|
               (210 . |leadingSupport|) |XPBWPOLY;constant?;%B;18|
               (|Record| (|:| |k| 13) (|:| |c| 7)) '"last" (215 . |elt|)
@@ -816,7 +816,7 @@
               |XPBWPOLY;degree;%Nni;24| (249 . |reductum|)
               |XPBWPOLY;trunc;%Nni%;25| |XPBWPOLY;product;2%Nni%;26|
               (|Fraction| 78) (254 . /) (260 . *) (266 . |exp|) (272 . -)
-              (278 . -) (283 . |log|) (289 . |Zero|) (293 . |retractable?|)
+              (278 . -) (283 . |log|) (289 . |0|) (293 . |retractable?|)
               (298 . |retract|) (|Union| 32 '"failed")
               |XPBWPOLY;LiePolyIfCan;%U;29| |XPBWPOLY;mirror;2%;30| (|String|)
               (|PositiveInteger|) (|Union| % '"failed") (|FreeMonoid| 6)
@@ -837,8 +837,8 @@
               |constructOrdered| 598 |construct| 603 |constant?| 608 |constant|
               613 |commutator| 618 |coerce| 624 |coefficients| 664
               |coefficient| 669 |coef| 675 |characteristic| 687 |associator|
-              691 |antiCommutator| 698 |annihilate?| 704 ^ 710 |Zero| 722 |One|
-              726 |LiePolyIfCan| 730 = 735 - 741 + 752 * 758)
+              691 |antiCommutator| 698 |annihilate?| 704 ^ 710 |LiePolyIfCan|
+              722 = 727 |1| 733 |0| 737 - 741 + 752 * 758)
            'NIL
            (CONS
             (|makeByteWordVec2| 4
@@ -915,9 +915,10 @@
                                     6 59 1 0 0 32 42 1 0 30 0 64 1 0 36 0 69 1
                                     0 113 0 1 2 0 7 0 13 1 2 0 7 0 106 1 2 0 7
                                     0 0 1 0 0 22 1 3 0 0 0 0 0 1 2 0 0 0 0 1 2
-                                    0 10 0 0 1 2 0 0 0 104 1 2 0 0 0 22 1 0 0 0
-                                    21 0 0 0 24 1 0 100 0 101 2 0 10 0 0 65 1 0
-                                    0 0 95 2 0 0 0 0 94 2 0 0 0 0 20 2 0 0 104
-                                    0 1 2 0 0 0 0 43 2 0 0 78 0 1 2 0 0 22 0 1
-                                    2 0 0 0 7 1 2 0 0 7 0 19 2 0 0 6 0 1)))))
+                                    0 10 0 0 1 2 0 0 0 104 1 2 0 0 0 22 1 1 0
+                                    100 0 101 2 0 10 0 0 65 0 0 0 24 0 0 0 21 1
+                                    0 0 0 95 2 0 0 0 0 94 2 0 0 0 0 20 2 0 0
+                                    104 0 1 2 0 0 0 0 43 2 0 0 78 0 1 2 0 0 22
+                                    0 1 2 0 0 0 7 1 2 0 0 7 0 19 2 0 0 6 0
+                                    1)))))
            '|lookupComplete|)) 

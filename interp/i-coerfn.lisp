@@ -975,7 +975,7 @@
 ;
 ;   S1 := [dmp,vl',S]
 ;   plusfunc:= getFunctionFromDomain('_+,T,[T,T])
-;   zero := getConstantFromDomain('(Zero),T)
+;   zero := getConstantFromDomain(["0"], T)
 ;   x := NIL
 ;   pos:= POSN1(var,vl)
 ;   for [e,:c] in u until not y repeat
@@ -1078,7 +1078,7 @@
                 (PROGN
                  (SETQ S1 (LIST |dmp| |vl'| S))
                  (SETQ |plusfunc| (|getFunctionFromDomain| '+ T$ (LIST T$ T$)))
-                 (SETQ |zero| (|getConstantFromDomain| '(|Zero|) T$))
+                 (SETQ |zero| (|getConstantFromDomain| (LIST '|0|) T$))
                  (SETQ |x| NIL)
                  (SETQ |pos| (POSN1 |var| |vl|))
                  ((LAMBDA (|bfVar#50| |bfVar#49| |bfVar#51|)
@@ -4130,7 +4130,7 @@
 ; SUP2Up_aux(u,source is [.,S],target is [.,x,T]) ==
 ;     -- must be careful in case any of the coeffs come back 0
 ;     u' := NIL
-;     zero := getConstantFromDomain('(Zero),T)
+;     zero := getConstantFromDomain(["0"], T)
 ;     for [e,:c] in u repeat
 ;         c' := objValUnwrap (coerceInt(objNewWrap(c,S),T) or
 ;             coercionFailure())
@@ -4146,7 +4146,7 @@
       (SETQ T$ (CADDR . #1#))
       (SETQ S (CADR |source|))
       (SETQ |u'| NIL)
-      (SETQ |zero| (|getConstantFromDomain| '(|Zero|) T$))
+      (SETQ |zero| (|getConstantFromDomain| (LIST '|0|) T$))
       ((LAMBDA (|bfVar#135| |bfVar#134|)
          (LOOP
           (COND
@@ -5017,7 +5017,7 @@
 ;   -- try to go underneath first
 ;   null (u' := coerceInt(objNewWrap(u,source),T)) =>
 ;     u' := NIL
-;     zero := getConstantFromDomain('(Zero),T)
+;     zero := getConstantFromDomain(["0"], T)
 ;     for [e,:c] in u repeat
 ;       c' := objValUnwrap (coerceInt(objNewWrap(c,S),T) or
 ;         coercionFailure())
@@ -5040,7 +5040,7 @@
        ((NULL (SETQ |u'| (|coerceInt| (|objNewWrap| |u| |source|) T$)))
         (PROGN
          (SETQ |u'| NIL)
-         (SETQ |zero| (|getConstantFromDomain| '(|Zero|) T$))
+         (SETQ |zero| (|getConstantFromDomain| (LIST '|0|) T$))
          ((LAMBDA (|bfVar#165| |bfVar#164|)
             (LOOP
              (COND
@@ -5182,7 +5182,7 @@
 ;   len := #vl
 ;   -1 ~= (n:= position(sym,vl)) =>
 ;     LIST [LIST2VEC [(n=i => 1; 0) for i in 0..len-1],
-;       :getConstantFromDomain('(One),S)]
+;             :getConstantFromDomain(["1"], S)]
 ;   (u := coerceInt(objNewWrap(u,source),S)) or coercionFailure()
 ;   [[Zeros len,:objValUnwrap u]]
 
@@ -5214,7 +5214,7 @@
                                        |bfVar#169|))))
                   (SETQ |i| (+ |i| 1))))
                NIL (- |len| 1) 0))
-             (|getConstantFromDomain| '(|One|) S))))
+             (|getConstantFromDomain| (LIST '|1|) S))))
           (#2#
            (PROGN
             (OR (SETQ |u| (|coerceInt| (|objNewWrap| |u| |source|) S))
@@ -5228,7 +5228,7 @@
 ;   len := #vl
 ;   -1 ~= (n:= position(sym,vl)) =>
 ;     LIST [LIST2VEC [(n=i => 1; 0) for i in 0..len-1],
-;       :getConstantFromDomain('(One),S)]
+;             :getConstantFromDomain(["1"], S)]
 ;   (u := coerceInt(objNewWrap(u,source),S)) or coercionFailure()
 ;   [[Zeros len,:objValUnwrap u]]
 
@@ -5260,7 +5260,7 @@
                                        |bfVar#171|))))
                   (SETQ |i| (+ |i| 1))))
                NIL (- |len| 1) 0))
-             (|getConstantFromDomain| '(|One|) S))))
+             (|getConstantFromDomain| (LIST '|1|) S))))
           (#2#
            (PROGN
             (OR (SETQ |u| (|coerceInt| (|objNewWrap| |u| |source|) S))
@@ -5271,7 +5271,7 @@
 ;   sym := CADR source
 ;   u = '_$fromCoerceable_$ => member(sym,vl) or canCoerce(source,S)
 ;   (n:= position1(u,vl)) ~= 0 =>
-;     [1,n,[1,0,:getConstantFromDomain('(One),S)]]
+;         [1, n, [1, 0, :getConstantFromDomain(["1"], S)]]
 ;   (u := coerceInt(objNewWrap(u,source),S)) or coercionFailure()
 ;   [0,:objValUnwrap u]
 
@@ -5287,7 +5287,7 @@
        ((EQ |u| '|$fromCoerceable$|)
         (OR (|member| |sym| |vl|) (|canCoerce| |source| S)))
        ((NOT (EQL (SETQ |n| (|position1| |u| |vl|)) 0))
-        (LIST 1 |n| (CONS 1 (CONS 0 (|getConstantFromDomain| '(|One|) S)))))
+        (LIST 1 |n| (CONS 1 (CONS 0 (|getConstantFromDomain| (LIST '|1|) S)))))
        ('T
         (PROGN
          (OR (SETQ |u| (|coerceInt| (|objNewWrap| |u| |source|) S))
@@ -5301,7 +5301,7 @@
 ;   len:= #vl
 ;   -1~=(n:= position(u,vl)) =>
 ;     LIST [LIST2VEC [(n=i => 1; 0) for i in 0..len-1],
-;       :getConstantFromDomain('(One),S)]
+;             :getConstantFromDomain(["1"], S)]
 ;   (u := coerceInt(objNewWrap(u,source),S)) or coercionFailure()
 ;   [[Zeros len,:objValUnwrap(u)]]
 
@@ -5333,7 +5333,7 @@
                                        |bfVar#173|))))
                   (SETQ |i| (+ |i| 1))))
                NIL (- |len| 1) 0))
-             (|getConstantFromDomain| '(|One|) S))))
+             (|getConstantFromDomain| (LIST '|1|) S))))
           (#2#
            (PROGN
             (OR (SETQ |u| (|coerceInt| (|objNewWrap| |u| |source|) S))
@@ -5349,7 +5349,7 @@
 ;     u' := coerceInt(objNewWrap(u,source),S)
 ;     if u' then return [0,:objValUnwrap(u')]
 ;   -- if that failed, return it as a polynomial variable
-;   [1,sym,[1,0,:getConstantFromDomain('(One),S)]]
+;   [1, sym, [1, 0, :getConstantFromDomain(["1"], S)]]
 
 (DEFUN |Var2P| (|u| |source| |target|)
   (PROG (|poly| S |sym| |u'|)
@@ -5367,7 +5367,9 @@
                 (COND (|u'| (RETURN (CONS 0 (|objValUnwrap| |u'|)))))))
               (LIST 1 |sym|
                     (CONS 1
-                          (CONS 0 (|getConstantFromDomain| '(|One|) S)))))))))))
+                          (CONS 0
+                                (|getConstantFromDomain| (LIST '|1|)
+                                 S)))))))))))
 
 ; Var2QF(u,source,target is [qf,S]) ==
 ;   u = '_$fromCoerceable_$ => canCoerce(source,S)
@@ -5375,7 +5377,7 @@
 ;   S = $Integer => coercionFailure()
 ;   sym := CADR source
 ;   (u' := coerceInt(objNewWrap(u,source),S)) or coercionFailure()
-;   [objValUnwrap u',:getConstantFromDomain('(One),S)]
+;   [objValUnwrap u', :getConstantFromDomain(["1"], S)]
 
 (DEFUN |Var2QF| (|u| |source| |target|)
   (PROG (|qf| S |sym| |u'|)
@@ -5391,13 +5393,13 @@
               (OR (SETQ |u'| (|coerceInt| (|objNewWrap| |u| |source|) S))
                   (|coercionFailure|))
               (CONS (|objValUnwrap| |u'|)
-                    (|getConstantFromDomain| '(|One|) S)))))))))
+                    (|getConstantFromDomain| (LIST '|1|) S)))))))))
 
 ; Var2Up(u,source,target is [up,x,S]) ==
 ;   sym := CADR source
 ;   u = '_$fromCoerceable_$ => (sym = x) or canCoerce(source,S)
 ;
-;   x=sym => [[1,:getConstantFromDomain('(One),S)]]
+;   x = sym => [[1, :getConstantFromDomain(["1"], S)]]
 ;   (u := coerceInt(objNewWrap(u,source),S)) or coercionFailure()
 ;   [[0,:objValUnwrap u]]
 
@@ -5412,7 +5414,8 @@
       (COND
        ((EQ |u| '|$fromCoerceable$|)
         (OR (EQUAL |sym| |x|) (|canCoerce| |source| S)))
-       ((EQUAL |x| |sym|) (LIST (CONS 1 (|getConstantFromDomain| '(|One|) S))))
+       ((EQUAL |x| |sym|)
+        (LIST (CONS 1 (|getConstantFromDomain| (LIST '|1|) S))))
        ('T
         (PROGN
          (OR (SETQ |u| (|coerceInt| (|objNewWrap| |u| |source|) S))
@@ -5423,7 +5426,7 @@
 ;   sym := CADR source
 ;   u = '_$fromCoerceable_$ => (sym = "?") or canCoerce(source,S)
 ;
-;   sym = "?" => [[1,:getConstantFromDomain('(One),S)]]
+;   sym = "?" => [[1, :getConstantFromDomain(["1"], S)]]
 ;   (u := coerceInt(objNewWrap(u,source),S)) or coercionFailure()
 ;   [[0,:objValUnwrap u]]
 
@@ -5437,7 +5440,7 @@
       (COND
        ((EQ |u| '|$fromCoerceable$|)
         (OR (EQ |sym| '?) (|canCoerce| |source| S)))
-       ((EQ |sym| '?) (LIST (CONS 1 (|getConstantFromDomain| '(|One|) S))))
+       ((EQ |sym| '?) (LIST (CONS 1 (|getConstantFromDomain| (LIST '|1|) S))))
        ('T
         (PROGN
          (OR (SETQ |u| (|coerceInt| (|objNewWrap| |u| |source|) S))

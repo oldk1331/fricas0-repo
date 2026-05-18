@@ -761,7 +761,7 @@
 
 (MAKEPROP '|NaiveBeckermannLabahnModular| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|NonNegativeInteger|) (0 . |Zero|)
+           '#(NIL NIL NIL NIL NIL NIL (|NonNegativeInteger|) (0 . |0|)
               (|List| 42) (|Vector| 30) (|Vector| 11) (|Integer|)
               (|Mapping| 11 11) (|Mapping| 21 19 11 11)
               |NBLM;naiveBeckermannLabahn1;VVNniIM2ML;5|

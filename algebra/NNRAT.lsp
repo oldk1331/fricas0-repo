@@ -52,7 +52,7 @@
 
 (MAKEPROP '|NonNegativeRational| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|Fraction| 23) (0 . |Zero|) (4 . |Zero|)
+           '#(NIL NIL NIL NIL NIL (|Fraction| 23) (0 . |0|) (4 . |0|)
               (|Boolean|) (8 . >=) (14 . |max|) |NNRAT;sup;3%;1| (20 . |min|)
               |NNRAT;inf;3%;2| (26 . -) (32 . <) (|Union| % '"failed")
               |NNRAT;subtractIfCan;2%U;3| (|OutputForm|) (|String|)
@@ -62,8 +62,8 @@
               |sample| 67 |rightRecip| 71 |rightPower| 76 |recip| 88
               |opposite?| 93 |one?| 99 |min| 104 |max| 110 |leftRecip| 116
               |leftPower| 121 |latex| 133 |inf| 138 |convert| 144 |coerce| 149
-              |antiCommutator| 154 ^ 160 |Zero| 172 |One| 176 >= 180 > 186 =
-              192 <= 198 < 204 - 210 + 221 * 227)
+              |antiCommutator| 154 ^ 160 >= 172 > 178 = 184 <= 190 < 196 |1|
+              202 |0| 206 - 210 + 221 * 227)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -95,9 +95,9 @@
                                     1 2 0 0 0 0 12 2 0 0 0 0 10 1 0 16 0 1 2 0
                                     0 0 21 1 2 0 0 0 20 1 1 0 19 0 1 2 0 0 0 0
                                     13 1 0 22 0 1 1 0 18 0 1 2 0 0 0 0 1 2 0 0
-                                    0 21 1 2 0 0 0 20 1 0 0 0 6 0 0 0 1 2 0 8 0
-                                    0 1 2 0 8 0 0 1 2 0 8 0 0 1 2 0 8 0 0 1 2 0
-                                    8 0 0 1 1 1 0 0 1 2 1 0 0 0 1 2 0 0 0 0 1 2
+                                    0 21 1 2 0 0 0 20 1 2 0 8 0 0 1 2 0 8 0 0 1
+                                    2 0 8 0 0 1 2 0 8 0 0 1 2 0 8 0 0 1 0 0 0 1
+                                    0 0 0 6 1 1 0 0 1 2 1 0 0 0 1 2 0 0 0 0 1 2
                                     0 0 20 0 1 2 0 0 21 0 1 2 0 0 0 0 1 2 1 0
                                     23 0 1)))))
            '|lookupComplete|)) 

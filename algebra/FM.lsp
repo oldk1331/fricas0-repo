@@ -446,10 +446,10 @@
 (MAKEPROP '|FreeModule| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|IndexedDirectProductObject| 6 7)
-              (|local| |#1|) (|local| |#2|) '|Rep| (0 . |One|) (4 . |Zero|)
-              '|r_one| (|Boolean|) (8 . |zero?|) (13 . |Zero|) (17 . =)
-              (23 . *) (29 . *) (35 . ~=) (41 . *) |FM;*;RS%;7| |FM;*;SR%;8|
-              (|OutputForm|) (47 . |coerce|) (52 . |coerce|) (57 . *) (63 . +)
+              (|local| |#1|) (|local| |#2|) '|Rep| (0 . |1|) (4 . |0|) '|r_one|
+              (|Boolean|) (8 . |zero?|) (13 . |0|) (17 . =) (23 . *) (29 . *)
+              (35 . ~=) (41 . *) |FM;*;RS%;7| |FM;*;SR%;8| (|OutputForm|)
+              (47 . |coerce|) (52 . |coerce|) (57 . *) (63 . +)
               (|Mapping| 22 22 22) (|List| 22) (69 . |reduce|) (75 . |coerce|)
               (|List| 7) |FM;support;%L;11| (|List| 6) |FM;coefficients;%L;12|
               (|List| %) |FM;monomials;%L;14| (|NonNegativeInteger|)
@@ -469,8 +469,8 @@
               255 |leadingSupport| 260 |leadingMonomial| 265
               |leadingCoefficient| 270 |latex| 275 |inf| 280 |hashUpdate!| 286
               |hash| 292 |constructOrdered| 297 |construct| 302 |coerce| 307
-              |coefficients| 317 |coefficient| 322 |Zero| 328 >= 332 > 338 =
-              344 <= 350 < 356 - 362 + 373 * 379)
+              |coefficients| 317 |coefficient| 322 >= 328 > 334 = 340 <= 346 <
+              352 |0| 358 - 362 + 373 * 379)
            'NIL
            (CONS
             (|makeByteWordVec2| 10
@@ -512,9 +512,9 @@
                                     0 0 1 1 9 6 0 1 1 0 55 0 1 2 5 0 0 0 1 2 7
                                     59 59 0 1 1 7 58 0 1 1 9 0 50 1 1 0 0 50 1
                                     1 0 22 0 30 1 8 0 7 44 1 0 33 0 34 2 0 6 0
-                                    7 46 0 11 0 14 2 6 12 0 0 1 2 6 12 0 0 1 2
-                                    0 12 0 0 1 2 6 12 0 0 1 2 6 12 0 0 1 1 1 0
-                                    0 1 2 1 0 0 0 1 2 0 0 0 0 1 2 0 0 56 0 1 2
-                                    0 0 6 0 17 2 0 0 0 6 19 2 0 0 6 7 20 2 0 0
-                                    7 6 21 2 11 0 37 0 1 2 1 0 39 0 1)))))
+                                    7 46 2 6 12 0 0 1 2 6 12 0 0 1 2 0 12 0 0 1
+                                    2 6 12 0 0 1 2 6 12 0 0 1 0 11 0 14 1 1 0 0
+                                    1 2 1 0 0 0 1 2 0 0 0 0 1 2 0 0 56 0 1 2 0
+                                    0 6 0 17 2 0 0 0 6 19 2 0 0 6 7 20 2 0 0 7
+                                    6 21 2 11 0 37 0 1 2 1 0 39 0 1)))))
            '|lookupComplete|)) 

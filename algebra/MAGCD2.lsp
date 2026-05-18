@@ -1314,7 +1314,7 @@
               (164 . |empty|) (169 . |chinese_update|) (|Union| 59 '"failed")
               (176 . |reconstruct|) (182 . |trial_division|) (191 . |first|)
               (197 . |subst_vars|) (204 . |ldegree|) (210 . *)
-              (|Mapping| 22 22 22) (216 . |reduce|) (223 . |One|)
+              (|Mapping| 22 22 22) (216 . |reduce|) (223 . |1|)
               (227 . |monomial|) (|List| %) (234 . |eval|) (|List| 6)
               |MAGCD2;algebraicGcd;2PTLLSLP;7|)
            '#(|algebraicGcd| 241) 'NIL

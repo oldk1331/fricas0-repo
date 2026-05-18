@@ -38,8 +38,8 @@
 
 (MAKEPROP '|DivisionRing&| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |One|) (|Boolean|)
-              (4 . |zero?|) (9 . |Zero|) (13 . |inv|) (|PositiveInteger|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |1|) (|Boolean|)
+              (4 . |zero?|) (9 . |0|) (13 . |inv|) (|PositiveInteger|)
               (|RepeatedSquaring| 6) (18 . |expt|) (|Integer|)
               |DIVRING-;^;SIS;1| (|Fraction| 15) (24 . |numer|) (29 . |denom|)
               (34 . |coerce|) (39 . *) (45 . *) |DIVRING-;*;F2S;2|

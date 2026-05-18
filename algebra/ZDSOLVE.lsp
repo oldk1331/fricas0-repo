@@ -1364,7 +1364,7 @@
               (|OrderedVariableList| (NRTEVAL (QREFELT % 8))) (5 . |variable|)
               '|newv| (|NewSparseMultivariatePolynomial| 6 14) (10 . |coerce|)
               '|newq| (|Boolean|) (|NewSparseMultivariatePolynomial| 6 26)
-              (15 . |ground?|) (20 . |ground|) (25 . |coerce|) (30 . |Zero|)
+              (15 . |ground?|) (20 . |ground|) (25 . |coerce|) (30 . |0|)
               (|OrderedVariableList| (NRTEVAL (QREFELT % 7))) (34 . |mvar|)
               (|NonNegativeInteger|) (39 . |mdeg|) (44 . |convert|)
               (49 . |init|) |ZDSOLVE;convert;NsmpNsmp;1| (54 . ^) (60 . *)
@@ -1386,16 +1386,16 @@
               (|List| 58) |ZDSOLVE;triangSolve;L2BL;3|
               |ZDSOLVE;triangSolve;LBL;4| |ZDSOLVE;triangSolve;LL;5|
               (|SparseUnivariatePolynomial| 6) (151 . |zero?|)
-              (|SparseUnivariatePolynomial| 77) (156 . |Zero|)
-              (160 . |ground?|) (165 . |ground|) (|Fraction| 6)
-              (170 . |coerce|) (|RealClosure| 75) (175 . |coerce|)
-              (180 . |coerce|) (185 . |leadingCoefficient|) (190 . |degree|)
-              (195 . |monomial|) (201 . +) (207 . |reductum|)
-              |ZDSOLVE;convert;SupSup;6| (|Polynomial| 77) (|Mapping| 77 6)
-              (|PolynomialFunctions2| 6 77) (212 . |map|)
-              |ZDSOLVE;convert;PP;8| (218 . |coerce|) |ZDSOLVE;convert;NsmpP;9|
-              (223 . |parts|) |ZDSOLVE;convert;SfrtsL;10| (228 . |eval|)
-              (|Union| 9 '"failed") (235 . |mainVariable|) (240 . |univariate|)
+              (|SparseUnivariatePolynomial| 77) (156 . |0|) (160 . |ground?|)
+              (165 . |ground|) (|Fraction| 6) (170 . |coerce|)
+              (|RealClosure| 75) (175 . |coerce|) (180 . |coerce|)
+              (185 . |leadingCoefficient|) (190 . |degree|) (195 . |monomial|)
+              (201 . +) (207 . |reductum|) |ZDSOLVE;convert;SupSup;6|
+              (|Polynomial| 77) (|Mapping| 77 6) (|PolynomialFunctions2| 6 77)
+              (212 . |map|) |ZDSOLVE;convert;PP;8| (218 . |coerce|)
+              |ZDSOLVE;convert;NsmpP;9| (223 . |parts|)
+              |ZDSOLVE;convert;SfrtsL;10| (228 . |eval|) (|Union| 9 '"failed")
+              (235 . |mainVariable|) (240 . |univariate|)
               (|SparseUnivariatePolynomial| %) (245 . |allRootsOf|)
               (|List| (|List| 77)) |ZDSOLVE;realSolve;RcL;11| (250 . |concat|)
               (|SquareFreeQuasiComponentPackage| 6 (|IndexedExponents| 14) 14

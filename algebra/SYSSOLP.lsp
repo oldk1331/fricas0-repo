@@ -468,8 +468,7 @@
                                                                  |gb|))
                                                       (SPADCALL
                                                        (|compiledLookupCheck|
-                                                        '|Zero| (LIST '%)
-                                                        |dmp|))
+                                                        '|0| (LIST '%) |dmp|))
                                                       (|compiledLookupCheck|
                                                        '~=
                                                        (LIST (LIST '|Boolean|)
@@ -1042,15 +1041,15 @@
               (26 . |pushdown|) (32 . |numer|) (37 . |variables|)
               (42 . |member?|) (|SparseUnivariatePolynomial| %)
               (48 . |univariate|) (|NonNegativeInteger|)
-              (|SparseUnivariatePolynomial| 7) (54 . |degree|) (59 . |One|)
-              (63 . |coerce|) (68 . |Zero|) (72 . |Zero|) (76 . |coefficient|)
+              (|SparseUnivariatePolynomial| 7) (54 . |degree|) (59 . |1|)
+              (63 . |coerce|) (68 . |0|) (72 . |0|) (76 . |coefficient|)
               (82 . |leadingCoefficient|) (87 . /) (93 . -) (|Equation| 9)
               (98 . |equation|) (104 . |new|) (108 . |degree|) (|Factored| 7)
               (|GeneralizedMultivariateFactorize| 17 (|IndexedExponents| 17) 6
                                                   6 7)
               (114 . |factor|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 43) (|:| |factor| 7) (|:| |exponent| 25))
-              (|List| 44) (119 . |factorList|) (124 . |denom|) (129 . |One|)
+              (|List| 44) (119 . |factorList|) (124 . |denom|) (129 . |1|)
               (133 . ~=) (|List| 70) (|List| 9)
               |SYSSOLP;triangularSystems;LLL;7| (139 . |zero?|)
               (144 . |concat|) (150 . |removeDuplicates|) (|List| 36)

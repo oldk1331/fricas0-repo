@@ -1630,7 +1630,7 @@
               (|Mapping| 13 9) |PSETPK;selectPolynomials;MLR;2| (|List| 18)
               |PSETPK;selectOrPolynomials;LLR;3|
               |PSETPK;selectAndPolynomials;LLR;4| (22 . |ground?|)
-              (|NonNegativeInteger|) (27 . |mdeg|) (32 . |One|)
+              (|NonNegativeInteger|) (27 . |mdeg|) (32 . |1|)
               |PSETPK;linear?;PB;5| |PSETPK;linearPolynomials;LR;6|
               (36 . |init|) (41 . |tail|) (46 . |mvar|) (51 . =)
               |PSETPK;univariate?;PB;7| |PSETPK;univariatePolynomials;LR;8|
@@ -1638,7 +1638,7 @@
               |PSETPK;bivariatePolynomials;LR;10| (75 . |quasiMonic?|)
               |PSETPK;quasiMonicPolynomials;LR;11| (80 . |zero?|)
               (85 . |remove|) (|Union| % '"failed") (91 . |exquo|)
-              (97 . |unitCanonical|) (102 . |One|)
+              (97 . |unitCanonical|) (102 . |1|)
               |PSETPK;removeRoughlyRedundantFactorsInPols;2LBL;12|
               |PSETPK;removeRoughlyRedundantFactorsInPol;PLP;13|
               |PSETPK;removeRoughlyRedundantFactorsInPols;3L;14|

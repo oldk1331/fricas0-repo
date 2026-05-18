@@ -1,11 +1,11 @@
 
-(MAKEPROP '|CARD;Zero;%;1| '|SPADreplace| '(XLAM NIL (CONS -1 0))) 
+(MAKEPROP '|CARD;0;%;1| '|SPADreplace| '(XLAM NIL (CONS -1 0))) 
 
-(SDEFUN |CARD;Zero;%;1| ((% (%))) (CONS -1 0)) 
+(SDEFUN |CARD;0;%;1| ((% (%))) (CONS -1 0)) 
 
-(MAKEPROP '|CARD;One;%;2| '|SPADreplace| '(XLAM NIL (CONS -1 1))) 
+(MAKEPROP '|CARD;1;%;2| '|SPADreplace| '(XLAM NIL (CONS -1 1))) 
 
-(SDEFUN |CARD;One;%;2| ((% (%))) (CONS -1 1)) 
+(SDEFUN |CARD;1;%;2| ((% (%))) (CONS -1 1)) 
 
 (MAKEPROP '|CARD;coerce;Nni%;3| '|SPADreplace| '(XLAM (|n|) (CONS -1 |n|))) 
 
@@ -163,8 +163,8 @@
 (MAKEPROP '|CardinalNumber| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL '|Rep| '|GCHypothesis|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |CARD;One;%;2|) %))
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |CARD;Zero;%;1|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |CARD;1;%;2|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |CARD;0;%;1|) %))
               (|NonNegativeInteger|) |CARD;coerce;Nni%;3| |CARD;Aleph;Nni%;4|
               (|OutputForm|) (|Symbol|) (0 . |coerce|) '|ALEPHexpr| (|Integer|)
               (5 . |coerce|) (|List| %) (10 . |prefix|) |CARD;coerce;%Of;5|
@@ -183,8 +183,8 @@
               |leftPower| 115 |latex| 127
               |generalizedContinuumHypothesisAssumed?| 132
               |generalizedContinuumHypothesisAssumed| 136 |finite?| 141
-              |countable?| 146 |coerce| 151 ^ 161 |Zero| 179 |One| 183 |Aleph|
-              187 >= 192 > 198 = 204 <= 210 < 216 - 222 + 228 * 234)
+              |countable?| 146 |coerce| 151 ^ 161 |Aleph| 179 >= 184 > 190 =
+              196 <= 202 < 208 |1| 214 |0| 218 - 222 + 228 * 234)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -210,9 +210,9 @@
                                          10 1 2 0 0 0 42 1 1 0 41 0 1 0 0 22 39
                                          1 0 22 22 40 1 0 22 0 24 1 0 22 0 35 1
                                          0 13 0 21 1 0 0 10 11 2 0 0 0 10 1 2 0
-                                         0 0 42 1 2 0 0 0 0 34 0 0 0 9 0 0 0 8
-                                         1 0 0 10 12 2 0 22 0 0 1 2 0 22 0 0 29
-                                         2 0 22 0 0 25 2 0 22 0 0 1 2 0 22 0 0
-                                         26 2 0 30 0 0 31 2 0 0 0 0 28 2 0 0 10
+                                         0 0 42 1 2 0 0 0 0 34 1 0 0 10 12 2 0
+                                         22 0 0 1 2 0 22 0 0 29 2 0 22 0 0 25 2
+                                         0 22 0 0 1 2 0 22 0 0 26 0 0 0 8 0 0 0
+                                         9 2 0 30 0 0 31 2 0 0 0 0 28 2 0 0 10
                                          0 33 2 0 0 42 0 1 2 0 0 0 0 32)))))
            '|lookupComplete|)) 

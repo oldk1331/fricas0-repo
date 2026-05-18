@@ -113,11 +113,11 @@
                         "order: series has more than 1000 leading zero coefs"))))
                 #2# (EXIT #1#)))) 
 
-(SDEFUN |IPADIC;Zero;%;17| ((% (%)))
+(SDEFUN |IPADIC;0;%;17| ((% (%)))
         (|IPADIC;padic| (SPADCALL 0 (SPADCALL (QREFELT % 40)) (QREFELT % 41))
          %)) 
 
-(SDEFUN |IPADIC;One;%;18| ((% (%)))
+(SDEFUN |IPADIC;1;%;18| ((% (%)))
         (|IPADIC;padic| (SPADCALL 1 (SPADCALL (QREFELT % 40)) (QREFELT % 41))
          %)) 
 
@@ -810,17 +810,15 @@
               (|NonNegativeInteger|) |IPADIC;characteristic;Nni;1|
               |IPADIC;order;%Nni;16| |IPADIC;euclideanSize;%Nni;2| (|Stream| 9)
               |IPADIC;digits;%S;5|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |IPADIC;One;%;18|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |IPADIC;1;%;18|) %))
               (5 . |extend|) |IPADIC;extend;%I%;6| (11 . |complete|)
               |IPADIC;complete;2%;7| (16 . |positiveRemainder|)
               (22 . |symmetricRemainder|) (|Boolean|) (28 . ~=) (34 . |invmod|)
               |IPADIC;modulus;I;11| (40 . |empty?|) (45 . |frst|)
               |IPADIC;moduloP;%I;12| (50 . |rst|) |IPADIC;quotientByP;2%;13|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |IPADIC;Zero;%;17|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |IPADIC;0;%;17|) %))
               |IPADIC;approximate;%2I;14| |IPADIC;-;3%;25| (55 . |rst|)
-              |IPADIC;=;2%B;15| (60 . |empty|) (64 . |concat|) (70 . |Zero|)
+              |IPADIC;=;2%B;15| (60 . |empty|) (64 . |concat|) (70 . |0|)
               (74 . =) (80 . |empty|) (|Mapping| %) (84 . |delay|) (89 . +)
               (95 . |concat|) (101 . -) |IPADIC;+;3%;24| |IPADIC;-;2%;26|
               |IPADIC;coerce;I%;27| (107 . *) |IPADIC;*;I2%;29|
@@ -855,7 +853,7 @@
               |divide| 445 |digits| 451 |complete| 456 |commutator| 461
               |coerce| 467 |characteristic| 482 |associator| 486 |associates?|
               493 |approximate| 499 |antiCommutator| 505 |annihilate?| 511 ^
-              517 |Zero| 529 |One| 533 = 537 - 543 + 554 * 560)
+              517 = 529 |1| 535 |0| 539 - 543 + 554 * 560)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -911,8 +909,8 @@
                                     0 0 23 2 0 0 0 0 1 1 0 8 0 88 1 0 0 9 52 1
                                     0 0 0 1 0 0 13 14 3 0 0 0 0 0 1 2 0 26 0 0
                                     1 2 0 9 0 9 36 2 0 0 0 0 1 2 0 26 0 0 1 2 0
-                                    0 0 63 1 2 0 0 0 13 1 0 0 0 35 0 0 0 19 2 0
-                                    26 0 0 39 2 0 0 0 0 37 1 0 0 0 51 2 0 0 0 0
-                                    50 2 0 0 63 0 1 2 0 0 0 0 55 2 0 0 9 0 54 2
-                                    0 0 13 0 1)))))
+                                    0 0 63 1 2 0 0 0 13 1 2 0 26 0 0 39 0 0 0
+                                    19 0 0 0 35 2 0 0 0 0 37 1 0 0 0 51 2 0 0 0
+                                    0 50 2 0 0 63 0 1 2 0 0 0 0 55 2 0 0 9 0 54
+                                    2 0 0 13 0 1)))))
            '|lookupComplete|)) 

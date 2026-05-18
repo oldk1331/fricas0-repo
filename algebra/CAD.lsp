@@ -447,7 +447,7 @@
               (94 . |coefficients|) |CAD;coefficientSet;SupL;4|
               (99 . |differentiate|) (|PrimitiveArray| 44)
               (|SubResultantPackage| 8 44) (104 . |subresultantVector|)
-              (110 . |Zero|) (114 . |degree|) (119 . |leadingCoefficient|)
+              (110 . |0|) (114 . |degree|) (119 . |leadingCoefficient|)
               (124 . |zero?|) |CAD;discriminantSet;LL;5|
               (129 . |pseudoRemainder|) (135 . |coefficient|)
               |CAD;principalSubResultantSet;2SupL;6| |CAD;resultantSet;LL;7|

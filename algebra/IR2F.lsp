@@ -936,9 +936,9 @@
               (60 . |retract|) (|List| 24) (65 . |variables|)
               |IR2F;split;2Ir;6| (70 . |logpart|) |IR2F;expand;IrSL;5|
               (|List| %) (75 . |concat|) (|Fraction| 30) (80 . |coerce|)
-              (85 . +) (91 . |Zero|) |IR2F;complexExpand;IrF;7| (95 . |One|)
-              (99 . |One|) (|NonNegativeInteger|) (103 . |coefficient|)
-              (|PositiveInteger|) (109 . ^) (115 . *) (121 . |Zero|) (125 . -)
+              (85 . +) (91 . |0|) |IR2F;complexExpand;IrF;7| (95 . |1|)
+              (99 . |1|) (|NonNegativeInteger|) (103 . |coefficient|)
+              (|PositiveInteger|) (109 . ^) (115 . *) (121 . |0|) (125 . -)
               (131 . |zero?|) (136 . |monomial|) (142 . /) (148 . |coerce|)
               (153 . +) (159 . |inv|) (164 . -) (169 . |sqrt|)
               (|AlgebraicManipulations| 6 7) (174 . |rootSimp|)

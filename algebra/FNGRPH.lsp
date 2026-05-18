@@ -923,7 +923,7 @@
                         (|:| |toOb| 13) (|:| |xOffset| 14) (|:| |yOffset| 14)
                         (|:| |map| 15))
               (|List| 22) |FNGRPH;functionGraph;LL%;3| (|Permutation| 6)
-              (25 . |One|) (|Boolean|) (29 . ~=)
+              (25 . |1|) (|Boolean|) (29 . ~=)
               (|Record| (|:| |preimage| 8) (|:| |image| 8))
               (35 . |listRepresentation|) (40 . |elt|) (46 . =)
               (52 . |createX|) (58 . |createY|) (|List| 25)

@@ -863,10 +863,14 @@
                                                                      |dmp|)))
                                                              |gb|))
                                                   (SPADCALL
-                                                   (|compiledLookupCheck|
-                                                    '|Zero| (LIST '%)
-                                                    (|DistributedMultivariatePolynomial|
-                                                     |lv| (ELT % 6))))
+                                                   (|compiledLookupCheck| '|0|
+                                                                          (LIST
+                                                                           '%)
+                                                                          (|DistributedMultivariatePolynomial|
+                                                                           |lv|
+                                                                           (ELT
+                                                                            %
+                                                                            6))))
                                                   (|compiledLookupCheck| '~=
                                                                          (LIST
                                                                           (LIST
@@ -1256,8 +1260,8 @@
               (51 . |equation|) (|List| 27) (|List| 7) (|List| 23)
               |INFSP;makeEq;LLL;2| (|Mapping| 7 6) (|Polynomial| 6)
               (|PolynomialFunctions2| 6 7) (57 . |map|) (63 . |eval|)
-              (|SparseUnivariatePolynomial| %) (70 . |univariate|)
-              (76 . |Zero|) (80 . |Zero|) (|NonNegativeInteger|)
+              (|SparseUnivariatePolynomial| %) (70 . |univariate|) (76 . |0|)
+              (80 . |0|) (|NonNegativeInteger|)
               (|SparseUnivariatePolynomial| 24) (84 . |coefficient|) (90 . -)
               (95 . |retract|) (100 . |leadingCoefficient|) (105 . /)
               (111 . |retract|) (|SparseUnivariatePolynomial| 6)
@@ -1266,32 +1270,31 @@
               (|ComplexRootPackage| 50 8) (121 . |complexZeros|)
               (|Record| (|:| |left| 12) (|:| |right| 12)) (|List| 57)
               (|SparseUnivariatePolynomial| 9) (|RealZeroPackage| 59)
-              (127 . |realZeros|) (133 . |One|) (137 . /) (143 . +) (149 . *)
+              (127 . |realZeros|) (133 . |1|) (137 . /) (143 . +) (149 . *)
               (155 . |convert|) (160 . +) (166 . *) (|Interval| 10)
-              (172 . |interval|) (177 . |Zero|) (|Complex| 69)
-              (181 . |complex|) (187 . |interval|) (192 . |real|)
-              (197 . |imag|) (202 . |real|) (207 . |imag|) (212 . -)
-              (217 . |interval|) (223 . +) (229 . |sup|) (234 . |inf|)
-              (239 . +) (245 . /) (251 . |mantissa|) (256 . |exponent|)
-              (|PositiveInteger|) (261 . |base|) (265 . ^) (271 . *)
-              (277 . |real|) (282 . |imag|) (287 . |complex|) (|Polynomial| 72)
-              (|Mapping| 72 6) (|PolynomialFunctions2| 6 72) (293 . |map|)
-              (299 . |eval|) (306 . |univariate|)
-              (|SparseUnivariatePolynomial| 95) (312 . |leadingCoefficient|)
-              (317 . |retract|) (|Union| % '"failed") (322 . |recip|)
-              (327 . |coefficient|) (333 . -) (338 . *) (344 . |coerce|)
-              (349 . |One|) (353 . |One|) (357 . *) (363 . |One|) (367 . *)
-              (373 . |bits|) (377 . |bits|) (382 . |width|) (|Boolean|)
-              (387 . >) (393 . *) '"first" (399 . |setelt!|) (|List| 34)
-              (406 . |elt|) (412 . |univariate|) (|PrimitiveArray| 127)
-              (|SparseUnivariatePolynomial| 34) (|SubResultantPackage| 34 127)
-              (418 . |subresultantVector|) (424 . |multivariate|)
-              (430 . |primitivePart|) (435 . |primitivePart|) (441 . |zero?|)
-              (446 . |Zero|) (|List| 30) |INFSP;innerSolve;2LLParL;18|
-              (450 . |leadingCoefficient|) (455 . |gcd|) (461 . |One|)
-              (465 . ~=) (471 . ~=) (477 . |append|) (483 . +) (489 . +)
-              (|Mapping| 9 9 9) (|List| 9) (495 . |reduce|) (501 . |One|)
-              (505 . |One|))
+              (172 . |interval|) (177 . |0|) (|Complex| 69) (181 . |complex|)
+              (187 . |interval|) (192 . |real|) (197 . |imag|) (202 . |real|)
+              (207 . |imag|) (212 . -) (217 . |interval|) (223 . +)
+              (229 . |sup|) (234 . |inf|) (239 . +) (245 . /)
+              (251 . |mantissa|) (256 . |exponent|) (|PositiveInteger|)
+              (261 . |base|) (265 . ^) (271 . *) (277 . |real|) (282 . |imag|)
+              (287 . |complex|) (|Polynomial| 72) (|Mapping| 72 6)
+              (|PolynomialFunctions2| 6 72) (293 . |map|) (299 . |eval|)
+              (306 . |univariate|) (|SparseUnivariatePolynomial| 95)
+              (312 . |leadingCoefficient|) (317 . |retract|)
+              (|Union| % '"failed") (322 . |recip|) (327 . |coefficient|)
+              (333 . -) (338 . *) (344 . |coerce|) (349 . |1|) (353 . |1|)
+              (357 . *) (363 . |1|) (367 . *) (373 . |bits|) (377 . |bits|)
+              (382 . |width|) (|Boolean|) (387 . >) (393 . *) '"first"
+              (399 . |setelt!|) (|List| 34) (406 . |elt|) (412 . |univariate|)
+              (|PrimitiveArray| 127) (|SparseUnivariatePolynomial| 34)
+              (|SubResultantPackage| 34 127) (418 . |subresultantVector|)
+              (424 . |multivariate|) (430 . |primitivePart|)
+              (435 . |primitivePart|) (441 . |zero?|) (446 . |0|) (|List| 30)
+              |INFSP;innerSolve;2LLParL;18| (450 . |leadingCoefficient|)
+              (455 . |gcd|) (461 . |1|) (465 . ~=) (471 . ~=) (477 . |append|)
+              (483 . +) (489 . +) (|Mapping| 9 9 9) (|List| 9) (495 . |reduce|)
+              (501 . |1|) (505 . |1|))
            '#(|makeEq| 509 |innerSolve1| 515 |innerSolve| 527) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)

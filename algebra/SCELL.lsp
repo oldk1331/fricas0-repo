@@ -323,9 +323,9 @@
               (|OutputForm|) (0 . |coerce|) (5 . |coerce|) (10 . =)
               (16 . |coerce|) (|List| %) (21 . |brace|) |SCELL;coerce;%Of;4|
               (26 . +) (|Integer|) (32 . |coerce|) (37 . /) (|List| 6) (43 . =)
-              (49 . -) (55 . |sign|) (60 . |Zero|) (64 . |Zero|)
-              (68 . |append|) (74 . >=) (80 . <=) (|List| 7)
-              |SCELL;allSimpleCells;LSL;8| |SCELL;allSimpleCells;ThePolsSL;7|
+              (49 . -) (55 . |sign|) (60 . |0|) (64 . |0|) (68 . |append|)
+              (74 . >=) (80 . <=) (|List| 7) |SCELL;allSimpleCells;LSL;8|
+              |SCELL;allSimpleCells;ThePolsSL;7|
               (|CylindricalAlgebraicDecompositionUtilities| 6 7)
               (86 . |gcdBasis|) (|RealPolynomialUtilitiesPackage| 6 7)
               (91 . |boundOfCauchy|) (96 . |max|) (102 . |unitCanonical|)

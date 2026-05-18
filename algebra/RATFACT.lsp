@@ -157,10 +157,10 @@
 
 (MAKEPROP '|RationalFactorize| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |Zero|)
-              (|Factored| 6) (4 . |Zero|) (|Boolean|) (8 . =) (|List| 15)
-              (14 . |coefficients|) (|Integer|) (|Fraction| 14) (19 . |denom|)
-              (|List| %) (24 . |lcm|) (29 . *) (35 . |numer|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |0|) (|Factored| 6)
+              (4 . |0|) (|Boolean|) (8 . =) (|List| 15) (14 . |coefficients|)
+              (|Integer|) (|Fraction| 14) (19 . |denom|) (|List| %)
+              (24 . |lcm|) (29 . *) (35 . |numer|)
               (|SparseUnivariatePolynomial| 14) (|Mapping| 14 15)
               (|UnivariatePolynomialCategoryFunctions2| 15 6 14 21)
               (40 . |map|)

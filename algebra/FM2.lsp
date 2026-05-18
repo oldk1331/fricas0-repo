@@ -71,8 +71,8 @@
 (MAKEPROP '|FreeModuleFunctions2| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|local| |#4|) (|Boolean|) (0 . |zero?|)
-              (5 . |Zero|) (|Record| (|:| |k| 7) (|:| |c| 6)) (|List| 13)
+              (|local| |#3|) (|local| |#4|) (|Boolean|) (0 . |zero?|) (5 . |0|)
+              (|Record| (|:| |k| 7) (|:| |c| 6)) (|List| 13)
               (9 . |listOfTerms|) (14 . *) (20 . +) (|Mapping| 9 7)
               |FM2;linearExtend;MM1M2;1|)
            '#(|linearExtend| 26) 'NIL

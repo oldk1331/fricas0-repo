@@ -55,7 +55,7 @@
 (MAKEPROP '|PartialDifferentialOperatorHelper| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|Automorphism| 6) (0 . |One|) |PDOHLP;id_map;VarA;1|
+              (|Automorphism| 6) (0 . |1|) |PDOHLP;id_map;VarA;1|
               (4 . |differentiate|) (|Mapping| 6 6) |PDOHLP;diff_map;VarM;2|)
            '#(|id_map| 10 |diff_map| 15) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

@@ -238,10 +238,10 @@
 (MAKEPROP '|RandomFloatDistributions| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|Integer|) (|RandomNumberSource|)
-              (0 . |size|) (|Float|) (4 . |One|) (8 . |coerce|) '|rnmax|
+              (0 . |size|) (|Float|) (4 . |1|) (8 . |coerce|) '|rnmax|
               (13 . |randnum|) (17 . /) |RFDIST;uniform01;F;1| (23 . -)
-              (29 . *) (35 . +) (|Mapping| 9) |RFDIST;uniform;2FM;2|
-              (41 . |Zero|) (|Boolean|) (45 . =) (51 . |log|) (56 . -)
+              (29 . *) (35 . +) (|Mapping| 9) |RFDIST;uniform;2FM;2| (41 . |0|)
+              (|Boolean|) (45 . =) (51 . |log|) (56 . -)
               |RFDIST;exponential1;F;3| |RFDIST;exponential;FM;4| (61 . >=)
               (|PositiveInteger|) (67 . *) (73 . ^) (79 . |sqrt|)
               |RFDIST;normal01;F;5| |RFDIST;normal;2FM;6| (84 . ^)

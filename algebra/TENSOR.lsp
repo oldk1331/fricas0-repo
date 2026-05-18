@@ -105,7 +105,7 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT (SPADCALL |res| (QREFELT % 37)))))) 
 
-(SDEFUN |TENSOR;One;%;4| ((% (%)))
+(SDEFUN |TENSOR;1;%;4| ((% (%)))
         (SPADCALL (|spadConstant| % 39) (|spadConstant| % 40) (QREFELT % 28))) 
 
 (SDEFUN |TENSOR;coerce;%Of;5| ((|x| (%)) (% (|OutputForm|)))
@@ -377,7 +377,7 @@
        ((|HasCategory| |#5| (LIST '|Algebra| (|devaluate| |#1|)))
         (QSETREFV % 41
                   (CONS #'|makeSpadConstant|
-                        (LIST (|dispatchFunction| |TENSOR;One;%;4|) % 41)))))))
+                        (LIST (|dispatchFunction| |TENSOR;1;%;4|) % 41)))))))
     %))) 
 
 (DEFUN |TensorProduct| (&REST #1=#:G52)
@@ -402,22 +402,22 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|FreeModule| 6 12) (|local| |#1|)
               (|local| |#2|) (|local| |#3|) (|local| |#4|) (|local| |#5|)
-              (|Boolean|) (|Product| 7 8) (0 . <) (6 . |zero?|) (11 . |Zero|)
+              (|Boolean|) (|Product| 7 8) (0 . <) (6 . |zero?|) (11 . |0|)
               (15 . |zero?|) (|Record| (|:| |k| 7) (|:| |c| 6)) (|List| 17)
               (20 . |listOfTerms|) (|Record| (|:| |k| 8) (|:| |c| 6))
               (|List| 20) (25 . |listOfTerms|) (30 . |construct|) (36 . *)
               (|Record| (|:| |k| 12) (|:| |c| 6)) (|List| 25)
               (42 . |constructOrdered|) |TENSOR;tensor;M1M2%;2|
-              (47 . |listOfTerms|) (52 . |first|) (57 . |monomial|)
-              (63 . |One|) (67 . |second|) (72 . |monomial|) (78 . *) (84 . *)
-              (90 . |construct|) (95 . *) (101 . |One|) (105 . |One|)
-              (109 . |One|) (113 . |zero?|) (118 . |Zero|) (|OutputForm|)
-              (122 . |coerce|) (127 . |coerce|) (132 . |coerce|)
-              (137 . |tensor|) (143 . =) (149 . *) (155 . +)
-              (|Mapping| 44 44 44) (|List| 44) (161 . |reduce|)
-              |TENSOR;coerce;%Of;5| (|String|) (|PositiveInteger|) (|List| %)
-              (|List| 6) (|List| 12) (|Mapping| 6 6) (|NonNegativeInteger|)
-              (|Union| % '"failed") (|Integer|) (|Mapping| 6 12))
+              (47 . |listOfTerms|) (52 . |first|) (57 . |monomial|) (63 . |1|)
+              (67 . |second|) (72 . |monomial|) (78 . *) (84 . *)
+              (90 . |construct|) (95 . *) (101 . |1|) (105 . |1|) (109 . |1|)
+              (113 . |zero?|) (118 . |0|) (|OutputForm|) (122 . |coerce|)
+              (127 . |coerce|) (132 . |coerce|) (137 . |tensor|) (143 . =)
+              (149 . *) (155 . +) (|Mapping| 44 44 44) (|List| 44)
+              (161 . |reduce|) |TENSOR;coerce;%Of;5| (|String|)
+              (|PositiveInteger|) (|List| %) (|List| 6) (|List| 12)
+              (|Mapping| 6 6) (|NonNegativeInteger|) (|Union| % '"failed")
+              (|Integer|) (|Mapping| 6 12))
            '#(~= 167 |zero?| 173 |tensor| 178 |support| 184 |subtractIfCan| 189
               |smaller?| 195 |sample| 201 |rightRecip| 205 |rightPower| 210
               |reductum| 222 |recip| 227 |plenaryPower| 232 |opposite?| 238
@@ -428,8 +428,7 @@
               319 |latex| 324 |constructOrdered| 329 |construct| 334
               |commutator| 339 |coerce| 345 |coefficients| 365 |coefficient|
               370 |characteristic| 376 |associator| 380 |antiCommutator| 387
-              |annihilate?| 393 ^ 399 |Zero| 411 |One| 415 = 419 - 425 + 436 *
-              442)
+              |annihilate?| 393 ^ 399 = 411 |1| 417 |0| 421 - 425 + 436 * 442)
            'NIL
            (CONS
             (|makeByteWordVec2| 11
@@ -483,8 +482,8 @@
                                     37 2 5 0 0 0 1 1 0 44 0 55 1 1 0 6 1 1 6 0
                                     0 1 1 7 0 64 1 1 0 59 0 1 2 0 6 0 12 1 0 7
                                     62 1 3 5 0 0 0 0 1 2 5 0 0 0 1 2 7 11 0 0 1
-                                    2 7 0 0 62 1 2 5 0 0 57 1 0 12 0 15 0 7 0
-                                    41 2 0 11 0 0 1 1 2 0 0 1 2 2 0 0 0 1 2 0 0
+                                    2 7 0 0 62 1 2 5 0 0 57 1 2 0 11 0 0 1 0 7
+                                    0 41 0 12 0 15 1 2 0 0 1 2 2 0 0 0 1 2 0 0
                                     0 0 1 2 0 0 57 0 1 2 0 0 0 6 1 2 0 0 6 0 1
                                     2 5 0 0 0 38 2 2 0 64 0 1 2 12 0 62 0
                                     1)))))

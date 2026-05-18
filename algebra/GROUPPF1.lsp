@@ -101,7 +101,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|)
               (|Record| (|:| |gen| 6) (|:| |exp| 11)) (|List| 7)
               (|FreeGroup| 6) (0 . |factors|) (|Integer|) (|List| 6)
-              (5 . |position|) (11 . |One|) (|String|) (15 . |elt|)
+              (5 . |position|) (11 . |1|) (|String|) (15 . |elt|)
               (|List| (|NonNegativeInteger|)) (|List| (|List| 11))
               (|GroupPresentation|) (21 . |groupPresentation|) (|List| 9)
               |GROUPPF1;convert;LLGp;1|)

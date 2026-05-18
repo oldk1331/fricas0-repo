@@ -259,11 +259,11 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|Symbol|)
               (0 . |new|) '|var1| '|var2| (|Integer|) (|Vector| 6) (4 . |elt|)
-              (10 . |One|) (14 . |One|) (|NonNegativeInteger|)
-              (18 . |monomial|) (24 . +) (30 . |Zero|)
-              (|OrderlyDifferentialVariable| 8) (34 . |coerce|) (39 . |degree|)
-              (44 . |differentiate|) (50 . |leadingCoefficient|) (55 . -)
-              (60 . |inv|) (65 . |reductum|) (70 . *)
+              (10 . |1|) (14 . |1|) (|NonNegativeInteger|) (18 . |monomial|)
+              (24 . +) (30 . |0|) (|OrderlyDifferentialVariable| 8)
+              (34 . |coerce|) (39 . |degree|) (44 . |differentiate|)
+              (50 . |leadingCoefficient|) (55 . -) (60 . |inv|)
+              (65 . |reductum|) (70 . *)
               (|DifferentialSparseMultivariatePolynomial| 6 8 21)
               (76 . |coerce|) (81 . ^) (87 . |binomial|) (|Mapping| 6 6)
               |LODOOPS;symmetricPower;LNniML;2| (|List| 48) (|Matrix| 30)
@@ -271,9 +271,8 @@
               (|List| 13) (103 . |nullSpace|) (108 . |differentiate|)
               (|List| 21) (|List| %) (114 . |eval|) (|List| 30)
               (121 . |concat!|) (127 . *) |LODOOPS;symmetricProduct;2LML;4|
-              (133 . +) |LODOOPS;directSum;2LML;5| (139 . |Zero|)
-              (143 . |Zero|) (|Boolean|) (147 . ~=) (153 . |coerce|)
-              (158 . |monomial|))
+              (133 . +) |LODOOPS;directSum;2LML;5| (139 . |0|) (143 . |0|)
+              (|Boolean|) (147 . ~=) (153 . |coerce|) (158 . |monomial|))
            '#(|symmetricProduct| 165 |symmetricPower| 172 |directSum| 179) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)

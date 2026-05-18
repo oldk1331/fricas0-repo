@@ -152,8 +152,8 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|Void|) (|String|)
               (|MoreSystemCommands|) (0 . |systemCommand|) (|OutputBox|)
-              (5 . |box|) (|NonNegativeInteger|) (10 . |One|) (|Integer|)
-              (14 . |One|) (18 . -) (|List| %) (23 . |vconcat|)
+              (5 . |box|) (|NonNegativeInteger|) (10 . |1|) (|Integer|)
+              (14 . |1|) (18 . -) (|List| %) (23 . |vconcat|)
               (|List| (|OutputFormatterCategory|)) (|FormattedOutput|)
               (30 . |setFormats!|) (|List| 24) |JFRICAS;setFormats!;LV;2|
               (|Type|) |JFRICAS;setFormat!;TV;3|)

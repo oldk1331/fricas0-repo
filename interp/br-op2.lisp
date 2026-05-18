@@ -798,12 +798,12 @@
       (|listSort| #'GLESSEQP |res|)))))
 
 ; zeroOneConvert x ==
-;   x = 'Zero => 0
-;   x = 'One  => 1
-;   x
+;     x = "0" => 0
+;     x = "1" => 1
+;     x
 
 (DEFUN |zeroOneConvert| (|x|)
-  (PROG () (RETURN (COND ((EQ |x| '|Zero|) 0) ((EQ |x| '|One|) 1) ('T |x|)))))
+  (PROG () (RETURN (COND ((EQ |x| '|0|) 0) ((EQ |x| '|1|) 1) ('T |x|)))))
 
 ; kFormatSlotDomain1(x, infovec) ==
 ;               fn formatSlotDomain1(x, infovec) where fn x ==

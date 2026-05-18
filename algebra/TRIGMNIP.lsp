@@ -364,8 +364,8 @@
 (MAKEPROP '|TrigonometricManipulations| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) 'RTRIG
-              (0 . |One|) (4 . -) (9 . |sqrt|) '|s1| (14 . |pi|) (18 . *)
-              '|ipi| (|List| 7) (|Kernel| 7) (24 . |argument|)
+              (0 . |1|) (4 . -) (9 . |sqrt|) '|s1| (14 . |pi|) (18 . *) '|ipi|
+              (|List| 7) (|Kernel| 7) (24 . |argument|)
               (|Expression| (|Complex| 6))
               (|InnerTrigonometricManipulations| 6 7 19) (29 . F2FG)
               (34 . |tan|) (|Kernel| %) (39 . |retract|) (|Boolean|)
@@ -375,8 +375,8 @@
               (59 . |operator|) (|Symbol|) (64 . |is?|) (70 . |second|)
               (|Integer|) (75 . |retract|) (|Union| 40 '"failed")
               (|ElementaryFunctionSign| 6 7) (80 . |sign|) (85 . |coerce|)
-              (90 . /) (96 . |elt|) (103 . |elt|) (109 . +) (115 . |Zero|)
-              (119 . |Zero|) (123 . |complex|) (|List| %) (129 . |eval|)
+              (90 . /) (96 . |elt|) (103 . |elt|) (109 . +) (115 . |0|)
+              (119 . |0|) (123 . |complex|) (|List| %) (129 . |eval|)
               (136 . |explogs2trigs|) (141 . |has?|)
               (|ElementaryFunctionStructurePackage| 6 7)
               (147 . |realElementary|) (|List| 35) (152 . |operators|)

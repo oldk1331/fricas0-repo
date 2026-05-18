@@ -240,15 +240,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (0 . |differentiate|) (|List| 7)
               |POLUTIL;sylvesterSequence;2ThePolsL;2|
-              |POLUTIL;sturmSequence;ThePolsL;1| (5 . |Zero|) (9 . |Zero|)
+              |POLUTIL;sturmSequence;ThePolsL;1| (5 . |0|) (9 . |0|)
               (|Boolean|) (13 . ~=) (19 . |rem|) (25 . -)
               (|NonNegativeInteger|) (30 . |degree|) (35 . |unitCanonical|)
               (40 . |quo|) (46 . |leadingCoefficient|) (51 . |inv|) (|List| 6)
-              (56 . |coefficients|) (61 . *) (67 . |One|) (71 . |One|)
-              (75 . |abs|) (80 . |max|) (86 . +) (92 . |boundOfCauchy|)
-              (97 . |zero?|) (|Integer|) (102 . |sign|)
-              (107 . |lazyVariations|) (114 . |sturmVariationsOf|)
-              (119 . |elt|))
+              (56 . |coefficients|) (61 . *) (67 . |1|) (71 . |1|) (75 . |abs|)
+              (80 . |max|) (86 . +) (92 . |boundOfCauchy|) (97 . |zero?|)
+              (|Integer|) (102 . |sign|) (107 . |lazyVariations|)
+              (114 . |sturmVariationsOf|) (119 . |elt|))
            '#(|sylvesterSequence| 125 |sturmVariationsOf| 131 |sturmSequence|
               136 |lazyVariations| 141 |boundOfCauchy| 148)
            'NIL

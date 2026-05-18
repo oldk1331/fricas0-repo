@@ -3219,10 +3219,10 @@
 
 (MAKEPROP '|LinearMultivariateMatrixPencil| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (0 . |Zero|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (0 . |0|)
               (|NonNegativeInteger|) (|Matrix| 6) (|List| 10) (4 . |new|)
               (|Integer|) (10 . |setelt!|) |LINPEN;qnew;3Nni%;1| (17 . |copy|)
-              (22 . |elt|) (28 . |copy|) |LINPEN;copy;2%;2| (33 . |One|)
+              (22 . |elt|) (28 . |copy|) |LINPEN;copy;2%;2| (33 . |1|)
               |LINPEN;append;%Nni%;3| (37 . |append|) |LINPEN;append!;%Nni%;4|
               (|OutputForm|) (43 . |coerce|) |LINPEN;coerce;%Of;5|
               |LINPEN;nrows;%Nni;6| |LINPEN;ncols;%Nni;7| |LINPEN;nelem;%Nni;8|
@@ -3271,9 +3271,9 @@
               (226 . |vector|) (|Union| 121 '"failed")
               (|Record| (|:| |particular| 123) (|:| |basis| (|List| 121)))
               (|LinearSystemMatrixPackage1| 6) (231 . |solve|) (237 . |parts|)
-              (242 . |blockElimination|) (|Polynomial| 6) (253 . |Zero|)
-              (257 . |One|) (261 . |coerce|) (|List| 24) (|Symbol|)
-              (266 . |elt|) (272 . |coerce|) (|List| 148)
+              (242 . |blockElimination|) (|Polynomial| 6) (253 . |0|)
+              (257 . |1|) (261 . |coerce|) (|List| 24) (|Symbol|) (266 . |elt|)
+              (272 . |coerce|) (|List| 148)
               (277 . |eliminationTransformations|)
               (288 . |eliminationTransformations|) (|List| (|Equation| %))
               (297 . |eval|) (303 . |totalDegree|) (308 . |retract|)
@@ -3295,10 +3295,9 @@
               (|Equation| 129) (504 . |equation|) (510 . |list|)
               (515 . |first|) (520 . |position|) (526 . |setUnion|)
               (532 . |lhs|) (537 . |concat|) (543 . |setDifference|)
-              (549 . |remove|) (555 . |copy|) (560 . |One|) (564 . |elt|)
-              (570 . |eliminationSolve|) (577 . |eliminationSolve|)
-              (584 . |Zero|) (588 . |elt|) (594 . |copy|)
-              (599 . |eliminationSolve|))
+              (549 . |remove|) (555 . |copy|) (560 . |1|) (564 . |elt|)
+              (570 . |eliminationSolve|) (577 . |eliminationSolve|) (584 . |0|)
+              (588 . |elt|) (594 . |copy|) (599 . |eliminationSolve|))
            '#(|zero?| 604 |uppertriangular?| 611 |transformRows!| 617
               |transformColumns!| 623 |swapRows!| 629 |swapColumns!| 636
               |subPencil| 643 |subMatrix| 659 |setsubPencil!| 669

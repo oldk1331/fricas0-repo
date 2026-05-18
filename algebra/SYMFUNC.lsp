@@ -75,9 +75,9 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Vector| 6)
               (|NonNegativeInteger|) (|SparseUnivariatePolynomial| 6)
-              (0 . |vectorise|) (6 . |reverse!|) (11 . |One|) (15 . |monomial|)
+              (0 . |vectorise|) (6 . |reverse!|) (11 . |1|) (15 . |monomial|)
               (21 . |coerce|) (26 . +) (32 . ^) (|PositiveInteger|)
-              |SYMFUNC;symFunc;RPiV;2| (38 . |One|) (42 . *) (|List| 6)
+              |SYMFUNC;symFunc;RPiV;2| (38 . |1|) (42 . *) (|List| 6)
               |SYMFUNC;symFunc;LV;3|)
            '#(|symFunc| 48) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

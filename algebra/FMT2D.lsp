@@ -1863,7 +1863,7 @@
               (41 . |width|) (46 . |concat|) (|Boolean|) (|OutputFormTools|)
               (51 . |atom?|) (56 . |operator|) (|Symbol|) (61 . |is_symbol?|)
               (|List| 6) (67 . |arguments|) (72 . ~=) (|Integer|) (78 . |elt|)
-              (84 . |coerce|) (89 . |elt|) (95 . |One|) (99 . |One|)
+              (84 . |coerce|) (89 . |elt|) (95 . |1|) (99 . |1|)
               (103 . |minPrecedence|) (107 . |formatExpression|) (113 . +)
               (119 . <) (125 . |parenthesizeIf|) (|Mapping| 8 39 36)
               |FMT2D;integral;IM;11| (131 . |#|) (136 . =) |FMT2D;sum;IM;13|
@@ -1872,23 +1872,22 @@
               (|UniversalSegment| 39) (170 . SEGMENT) (176 . |elt|)
               |FMT2D;theMap;ILOb;15| (182 . |first|) (187 . |new|)
               |FMT2D;overbar;I2M;16| |FMT2D;box;2M;17| (|SingleInteger|)
-              (193 . |One|) (197 . >) (203 . |Zero|) (207 . |Zero|)
-              (|PositiveInteger|) (211 . |One|) (215 . -) (221 . |qcoerce|)
-              (|Mapping| % %) (226 . |pad|) (|List| 8) (234 . |concat|)
-              |FMT2D;nthRoot;I3M;18| (240 . |rest|) (245 . |elt|) (251 . |max|)
-              |FMT2D;scripts;IM;20| (257 . |maxPrecedence|)
-              (261 . |formatExpression|) (266 . |nary|) |FMT2D;subscript;IM;21|
-              (273 . |#|) (278 . |odd?|) (283 . |concat|) (289 . |empty?|)
-              (294 . |first|) (299 . |rest|) (304 . |qcoerce|)
-              |FMT2D;altsupersub;IM;22| (309 . +) |FMT2D;power;I3M;24|
-              (315 . |string|) (320 . |#|) (325 . |elt|) (331 . ~=)
-              |FMT2D;prime;IM;23| (337 . |Zero|) |FMT2D;fraction;I3M;25|
-              (341 . |infix|) |FMT2D;slash;I3M;26| |FMT2D;binomial;ILOb;27|
-              |FMT2D;zag;ILOb;28| (349 . |empty?|) (|List| 21) (354 . |max|)
-              (359 . |zero?|) (364 . |hcenter|) (369 . |one?|)
-              |FMT2D;vconcat;2M;31| |FMT2D;pile;2M;32| (|List| 81)
-              (374 . |first|) (|Vector| 21) (379 . |new|) (385 . |elt|)
-              (391 . |setelt!|) (398 . |empty|) (402 . |cons|)
+              (193 . |1|) (197 . >) (203 . |0|) (207 . |0|) (|PositiveInteger|)
+              (211 . |1|) (215 . -) (221 . |qcoerce|) (|Mapping| % %)
+              (226 . |pad|) (|List| 8) (234 . |concat|) |FMT2D;nthRoot;I3M;18|
+              (240 . |rest|) (245 . |elt|) (251 . |max|) |FMT2D;scripts;IM;20|
+              (257 . |maxPrecedence|) (261 . |formatExpression|) (266 . |nary|)
+              |FMT2D;subscript;IM;21| (273 . |#|) (278 . |odd?|)
+              (283 . |concat|) (289 . |empty?|) (294 . |first|) (299 . |rest|)
+              (304 . |qcoerce|) |FMT2D;altsupersub;IM;22| (309 . +)
+              |FMT2D;power;I3M;24| (315 . |string|) (320 . |#|) (325 . |elt|)
+              (331 . ~=) |FMT2D;prime;IM;23| (337 . |0|)
+              |FMT2D;fraction;I3M;25| (341 . |infix|) |FMT2D;slash;I3M;26|
+              |FMT2D;binomial;ILOb;27| |FMT2D;zag;ILOb;28| (349 . |empty?|)
+              (|List| 21) (354 . |max|) (359 . |zero?|) (364 . |hcenter|)
+              (369 . |one?|) |FMT2D;vconcat;2M;31| |FMT2D;pile;2M;32|
+              (|List| 81) (374 . |first|) (|Vector| 21) (379 . |new|)
+              (385 . |elt|) (391 . |setelt!|) (398 . |empty|) (402 . |cons|)
               (408 . |reverse!|) (413 . +) (|Mapping| 21 21 21)
               (419 . |reduce|) (425 . -) (430 . |shift|) |FMT2D;matrix;2SM;33|
               (436 . |nothing|) (|OperatorHandlers| 50) (440 . |setHandler!|)

@@ -668,8 +668,8 @@
 ;   (domenv, self, op, sig, box, skipdefaults, env) ==
 ;      domainVec := rest domenv
 ;      if hashCode? op then
-;          EQL(op, $hashOp1) => op := 'One
-;          EQL(op, $hashOp0) => op := 'Zero
+;          EQL(op, $hashOp1) => op := "1"
+;          EQL(op, $hashOp0) => op := "0"
 ;          EQL(op, $hashOpApply) => op := 'elt
 ;          EQL(op, $hashOpSet) => op := "setelt!"
 ;          EQL(op, $hashSeg) => op := 'SEGMENT
@@ -694,8 +694,8 @@
       (SETQ |domainVec| (CDR |domenv|))
       (COND
        ((|hashCode?| |op|)
-        (COND ((EQL |op| |$hashOp1|) (SETQ |op| '|One|))
-              ((EQL |op| |$hashOp0|) (SETQ |op| '|Zero|))
+        (COND ((EQL |op| |$hashOp1|) (SETQ |op| '|1|))
+              ((EQL |op| |$hashOp0|) (SETQ |op| '|0|))
               ((EQL |op| |$hashOpApply|) (SETQ |op| '|elt|))
               ((EQL |op| |$hashOpSet|) (SETQ |op| '|setelt!|))
               ((EQL |op| |$hashSeg|) (SETQ |op| 'SEGMENT)))))
@@ -807,10 +807,10 @@
 ; basicLookup(op,sig,domain,dollar) ==
 ;   -- FIXME: We should use consistent representation, not hacks
 ;   -- like this one
-;   if op = 0 then op := 'Zero
-;   if op = ['Zero] then op := 'Zero
-;   if op = 1 then op := 'One
-;   if op = ['One] then op := 'One
+;   if op = 0 then op := "0"
+;   if op = ["0"] then op := "0"
+;   if op = 1 then op := "1"
+;   if op = ["1"] then op := "1"
 ;   -- Spad case
 ;   VECP domain =>
 ;      isNewWorldDomain domain => -- getting ops from yourself (or for defaults)
@@ -830,8 +830,8 @@
 ;            hashType(['Mapping,:sig], hashPercent)
 ;
 ;        if SYMBOLP op then
-;           op = 'Zero => op := $hashOp0
-;           op = 'One => op := $hashOp1
+;           op = "0" => op := $hashOp0
+;           op = "1" => op := $hashOp1
 ;           op = 'elt => op := $hashOpApply
 ;           op = "setelt!" => op := $hashOpSet
 ;           op := hashString SYMBOL_-NAME op
@@ -847,8 +847,8 @@
 ;   opIsHasCat op =>
 ;       HasCategory(domain, sig)
 ;   if hashCode? op then
-;      EQL(op, $hashOp1) => op := 'One
-;      EQL(op, $hashOp0) => op := 'Zero
+;      EQL(op, $hashOp1) => op := "1"
+;      EQL(op, $hashOp0) => op := "0"
 ;      EQL(op, $hashOpApply) => op := 'elt
 ;      EQL(op, $hashOpSet) => op := "setelt!"
 ;      EQL(op, $hashSeg) => op := 'SEGMENT
@@ -861,10 +861,10 @@
   (PROG (|hashPercent| |box| |dispatch| |lookupFun| |hashSig| |val| |boxval|)
     (RETURN
      (PROGN
-      (COND ((EQL |op| 0) (SETQ |op| '|Zero|)))
-      (COND ((EQUAL |op| (LIST '|Zero|)) (SETQ |op| '|Zero|)))
-      (COND ((EQL |op| 1) (SETQ |op| '|One|)))
-      (COND ((EQUAL |op| (LIST '|One|)) (SETQ |op| '|One|)))
+      (COND ((EQL |op| 0) (SETQ |op| '|0|)))
+      (COND ((EQUAL |op| (LIST '|0|)) (SETQ |op| '|0|)))
+      (COND ((EQL |op| 1) (SETQ |op| '|1|)))
+      (COND ((EQUAL |op| (LIST '|1|)) (SETQ |op| '|1|)))
       (COND
        ((VECP |domain|)
         (COND
@@ -895,8 +895,8 @@
                                |hashPercent|))))
                (COND
                 ((SYMBOLP |op|)
-                 (COND ((EQ |op| '|Zero|) (SETQ |op| |$hashOp0|))
-                       ((EQ |op| '|One|) (SETQ |op| |$hashOp1|))
+                 (COND ((EQ |op| '|0|) (SETQ |op| |$hashOp0|))
+                       ((EQ |op| '|1|) (SETQ |op| |$hashOp1|))
                        ((EQ |op| '|elt|) (SETQ |op| |$hashOpApply|))
                        ((EQ |op| '|setelt!|) (SETQ |op| |$hashOpSet|))
                        (#1# (SETQ |op| (|hashString| (SYMBOL-NAME |op|)))))))
@@ -919,8 +919,8 @@
               (PROGN
                (COND
                 ((|hashCode?| |op|)
-                 (COND ((EQL |op| |$hashOp1|) (SETQ |op| '|One|))
-                       ((EQL |op| |$hashOp0|) (SETQ |op| '|Zero|))
+                 (COND ((EQL |op| |$hashOp1|) (SETQ |op| '|1|))
+                       ((EQL |op| |$hashOp0|) (SETQ |op| '|0|))
                        ((EQL |op| |$hashOpApply|) (SETQ |op| '|elt|))
                        ((EQL |op| |$hashOpSet|) (SETQ |op| '|setelt!|))
                        ((EQL |op| |$hashSeg|) (SETQ |op| 'SEGMENT)))))
@@ -1194,8 +1194,8 @@
 ; hashNewLookupInTable(op,sig,dollar,[domain,opvec],flag) ==
 ;   opIsHasCat op =>
 ;       HasCategory(domain, sig)
-;   if hashCode? op and EQL(op, $hashOp1) then op := 'One
-;   if hashCode? op and EQL(op, $hashOp0) then op := 'Zero
+;   if hashCode?(op) and EQL(op, $hashOp1) then op := "1"
+;   if hashCode?(op) and EQL(op, $hashOp0) then op := "0"
 ;   hashPercent :=
 ;     VECP dollar => hashType(dollar.0,0)
 ;     hashType(dollar,0)
@@ -1286,10 +1286,10 @@
              (PROGN
               (COND
                ((AND (|hashCode?| |op|) (EQL |op| |$hashOp1|))
-                (SETQ |op| '|One|)))
+                (SETQ |op| '|1|)))
               (COND
                ((AND (|hashCode?| |op|) (EQL |op| |$hashOp0|))
-                (SETQ |op| '|Zero|)))
+                (SETQ |op| '|0|)))
               (SETQ |hashPercent|
                       (COND ((VECP |dollar|) (|hashType| (ELT |dollar| 0) 0))
                             (#1# (|hashType| |dollar| 0))))

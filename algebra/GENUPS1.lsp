@@ -452,17 +452,17 @@
 
 (MAKEPROP '|GenerateUnivariatePowerSeries1| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |One|) (|Integer|)
-              (4 . |One|) (8 . +) (|Stream| 6) (14 . |concat|) (|Mapping| %)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |1|) (|Integer|)
+              (4 . |1|) (8 . +) (|Stream| 6) (14 . |concat|) (|Mapping| %)
               (20 . |delay|) (25 . |empty|) (|Boolean|) (29 . =) (|Any|)
               (|Mapping| 6 8) (|Symbol|) |GENUPS1;taylor;MSRA;4|
               (|UniversalSegment| 24) (35 . |hasHi|) (|NonNegativeInteger|)
               (40 . |low|) (45 . |high|) |GENUPS1;taylor;MSRUsA;5|
               (|UniversalSegment| 8) (50 . |hasHi|) (55 . |low|) (60 . |high|)
-              |GENUPS1;laurent;MSRUsA;6| (|Fraction| 8) (65 . /) (71 . |Zero|)
+              |GENUPS1;laurent;MSRUsA;6| (|Fraction| 8) (65 . /) (71 . |0|)
               (75 . |positive?|) (|UniversalSegment| 33) (80 . |hasHi|)
               (85 . |low|) (90 . |high|) (95 . <) (101 . |numer|)
-              (106 . |denom|) (111 . |lcm|) (117 . |segment|) (123 . |One|)
+              (106 . |denom|) (111 . |lcm|) (117 . |segment|) (123 . |1|)
               (127 . |segment|) (|Mapping| 6 33) |GENUPS1;puiseux;MSRUsFA;8|)
            '#(|taylor| 132 |puiseux| 147 |laurent| 156) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

@@ -36,7 +36,7 @@
 (SDEFUN |JBSA;D;SL%;10| ((|u| (|Symbol|)) (|der| (|List| (|Symbol|))) (% (%)))
         (SPADCALL |u| |der| (QREFELT % 54))) 
 
-(SDEFUN |JBSA;One;%;11| ((% (%))) (|spadConstant| % 56)) 
+(SDEFUN |JBSA;1;%;11| ((% (%))) (|spadConstant| % 56)) 
 
 (SDEFUN |JBSA;numIndVar;Pi;12| ((% (|PositiveInteger|)))
         (+ (QREFELT % 11) (QREFELT % 13))) 
@@ -206,16 +206,16 @@
               (4 . |numDepVar|) '|mm| (8 . X) (13 . U) (|List| 6)
               (18 . |concat!|) '|vars| (|Symbol|) (24 . |name|) '|indVars|
               '|depVars|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |JBSA;One;%;11|) %))
-              (29 . |One|) (|OutputForm|) (|NonNegativeInteger|)
-              (33 . |coerce|) (|List| 25) (38 . |superscript|) (|List| 19)
-              (44 . |append|) '|Rep| (|String|) (50 . |message|) (|Void|)
-              (55 . |print|) |JBSA;setNotation;2S;1| |JBSA;getNotation;S;2|
-              (|List| 26) (60 . |multiIndex|) |JBSA;multiIndex;%L;3|
-              (65 . |index|) |JBSA;index;%Pi;4| (70 . |type|) |JBSA;type;%S;5|
-              (75 . X) |JBSA;X;Pi%;6| (80 . U) |JBSA;U;Pi%;7| (85 . |Pm|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |JBSA;1;%;11|) %))
+              (29 . |1|) (|OutputForm|) (|NonNegativeInteger|) (33 . |coerce|)
+              (|List| 25) (38 . |superscript|) (|List| 19) (44 . |append|)
+              '|Rep| (|String|) (50 . |message|) (|Void|) (55 . |print|)
+              |JBSA;setNotation;2S;1| |JBSA;getNotation;S;2| (|List| 26)
+              (60 . |multiIndex|) |JBSA;multiIndex;%L;3| (65 . |index|)
+              |JBSA;index;%Pi;4| (70 . |type|) |JBSA;type;%S;5| (75 . X)
+              |JBSA;X;Pi%;6| (80 . U) |JBSA;U;Pi%;7| (85 . |Pm|)
               |JBSA;Pm;PiL%;8| (91 . |coerce|) |JBSA;coerce;S%;9| (96 . D)
-              |JBSA;D;SL%;10| (102 . |One|) |JBSA;numIndVar;Pi;12|
+              |JBSA;D;SL%;10| (102 . |1|) |JBSA;numIndVar;Pi;12|
               |JBSA;numDepVar;Pi;13| (106 . |name|) |JBSA;name;%S;14|
               (|Expression| (|Integer|)) (111 . |coerce|) |JBSA;coerce;%E;15|
               (|Boolean|) (|List| 9) (|List| 65) (|Union| % '"0")
@@ -227,7 +227,7 @@
               |integrateIfCan| 214 |integrate| 220 |index| 226 |getNotation|
               231 |dimS| 235 |dimJ| 240 |differentiate| 245 |derivativeOf?| 251
               |coerce| 257 |class| 272 |allRepeated| 282 X 287 U 296 |Pr| 305
-              |Pm| 311 P 317 |One| 339 D 343 >= 349 > 355 = 361 <= 367 < 373)
+              |Pm| 311 P 317 D 339 >= 345 > 351 = 357 <= 363 < 369 |1| 375)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
@@ -258,8 +258,8 @@
                                          0 1 1 0 26 39 1 1 0 66 39 1 1 0 0 9 47
                                          0 0 0 1 1 0 0 9 49 0 0 0 1 2 0 0 9 65
                                          1 2 0 0 9 39 51 2 0 0 9 39 1 1 0 0 39
-                                         1 2 0 0 9 26 1 1 0 0 26 1 0 0 0 23 2 0
-                                         0 19 30 55 2 0 64 0 0 1 2 0 64 0 0 1 2
-                                         0 64 0 0 1 2 0 64 0 0 1 2 0 64 0 0
-                                         1)))))
+                                         1 2 0 0 9 26 1 1 0 0 26 1 2 0 0 19 30
+                                         55 2 0 64 0 0 1 2 0 64 0 0 1 2 0 64 0
+                                         0 1 2 0 64 0 0 1 2 0 64 0 0 1 0 0 0
+                                         23)))))
            '|lookupComplete|)) 

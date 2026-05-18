@@ -105,13 +105,12 @@
 (MAKEPROP '|RandomIntegerDistributions| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|Integer|) (|Segment| 6) (0 . |low|)
-              (5 . |high|) (10 . |min|) (16 . -) (22 . |abs|) (27 . |One|)
+              (5 . |high|) (10 . |min|) (16 . -) (22 . |abs|) (27 . |1|)
               (31 . +) (|RandomNumberSource|) (37 . |size|) (41 . |length|)
-              (46 . |quo|) (|NonNegativeInteger|) (52 . ^) (58 . |Zero|)
-              (|Boolean|) (62 . >) (|PositiveInteger|) (68 . |One|)
-              (72 . |One|) (76 . +) |RIDIST;ridHack1;5I;2| (82 . ^)
-              (|Mapping| 6) |RIDIST;uniform;SM;1| (88 . |randnum|)
-              (|Fraction| 6))
+              (46 . |quo|) (|NonNegativeInteger|) (52 . ^) (58 . |0|)
+              (|Boolean|) (62 . >) (|PositiveInteger|) (68 . |1|) (72 . |1|)
+              (76 . +) |RIDIST;ridHack1;5I;2| (82 . ^) (|Mapping| 6)
+              |RIDIST;uniform;SM;1| (88 . |randnum|) (|Fraction| 6))
            '#(|uniform| 93 |ridHack1| 98 |poisson| 106 |geometric| 111
               |binomial| 116)
            'NIL

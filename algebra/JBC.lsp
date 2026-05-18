@@ -96,7 +96,7 @@
                                                 (% (|PositiveInteger|)
                                                  (|List| (|PositiveInteger|))))
                                                T)
-                                              ((|One| (%) |constant|) T)
+                                              ((|1| (%) |constant|) T)
                                               ((|one?| ((|Boolean|) %)) T)
                                               ((X (%)) T) ((U (%)) T)
                                               ((P

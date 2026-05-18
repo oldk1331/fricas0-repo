@@ -1384,7 +1384,7 @@
               |FMTMJAX;formatFunctionSymbol;SOb;13| (|Boolean|)
               (|OutputFormTools|) (62 . |atom?|) (67 . |operator|) (|Symbol|)
               (72 . |is_symbol?|) (|List| 6) (78 . |arguments|) (83 . ~=)
-              (89 . |elt|) (95 . |coerce|) (100 . |elt|) (106 . |One|)
+              (89 . |elt|) (95 . |coerce|) (100 . |elt|) (106 . |1|)
               (110 . |minPrecedence|) (114 . |formatExpression|)
               (120 . |empty?|) (125 . <) (131 . |parenthesizeIf|)
               (|Mapping| 9 18 40) |FMTMJAX;integral;IM;15| (137 . |empty|)
@@ -1393,15 +1393,15 @@
               (167 . |position|) (173 . |position|) |FMTMJAX;theMap;ILOb;19|
               |FMTMJAX;overbar;I2M;20| |FMTMJAX;box;2M;21| (180 . |bracket|)
               (187 . >) |FMTMJAX;nthRoot;I3M;22| (193 . |string|)
-              (198 . |first|) (|SingleInteger|) (203 . |One|) (207 . |One|)
+              (198 . |first|) (|SingleInteger|) (203 . |1|) (207 . |1|)
               (211 . |rest|) (216 . <) |FMTMJAX;scripts;IM;24| (222 . +)
               |FMTMJAX;subscript;IM;25| (228 . |empty?|) (|List| 9)
               (233 . |empty|) (237 . |odd?|) (242 . |cons|) (248 . |empty|)
               (252 . |reverse!|) (257 . |first|) (262 . |rest|)
-              |FMTMJAX;altsupersub;IM;26| (267 . |numberOfPrimes|)
-              (272 . |Zero|) (276 . |Zero|) (280 . |new|) (|PositiveInteger|)
-              (|NumberFormats|) (286 . |FormatRoman|) (291 . |lowerCase|)
-              (296 . |concat|) |FMTMJAX;prime;IM;27| |FMTMJAX;power;I3M;28|
+              |FMTMJAX;altsupersub;IM;26| (267 . |numberOfPrimes|) (272 . |0|)
+              (276 . |0|) (280 . |new|) (|PositiveInteger|) (|NumberFormats|)
+              (286 . |FormatRoman|) (291 . |lowerCase|) (296 . |concat|)
+              |FMTMJAX;prime;IM;27| |FMTMJAX;power;I3M;28|
               |FMTMJAX;fraction;I3M;29| |FMTMJAX;slash;I3M;30|
               |FMTMJAX;binomial;ILOb;31| |FMTMJAX;zag;ILOb;32| (301 . |nary|)
               |FMTMJAX;environment;3S2M;33| |FMTMJAX;vconcat;2M;34|

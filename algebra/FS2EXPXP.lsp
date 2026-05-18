@@ -1795,7 +1795,7 @@
 (MAKEPROP '|FunctionSpaceToExponentialExpansion| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|local| |#4|) (0 . |One|) (|Integer|)
+              (|local| |#3|) (|local| |#4|) (0 . |1|) (|Integer|)
               (|Fraction| 11) (4 . /) 'ZEROCOUNT (|Union| 12 '#1="failed")
               (10 . |retractIfCan|) (|SparseMultivariatePolynomial| 6 30)
               (15 . |numer|) (20 . |denom|) (25 . /) (31 . |coerce|)
@@ -1840,11 +1840,11 @@
               (|ExponentialExpansion| 6 7 (NRTEVAL (QREFELT % 8))
                                       (NRTEVAL (QREFELT % 9)))
               (141 . |coerce|) (|Union| 49 '#2="failed") (146 . |isPlus|)
-              (151 . |Zero|) (155 . +) (161 . |isTimes|) (166 . |One|)
-              (170 . *) (|Union| 30 '#1#) (176 . |retractIfCan|)
+              (151 . |0|) (155 . +) (161 . |isTimes|) (166 . |1|) (170 . *)
+              (|Union| 30 '#1#) (176 . |retractIfCan|)
               (|Record| (|:| |val| %) (|:| |exponent| 11)) (|Union| 72 '#2#)
               (181 . |isPower|) (186 . |degree|) (191 . |coefficient|)
-              (197 . |Zero|) (201 . =) (207 . +) (213 . |order|) (219 . |is?|)
+              (197 . |0|) (201 . =) (207 . +) (213 . |order|) (219 . |is?|)
               (225 . ^)
               (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7
                                                                    (NRTEVAL
@@ -1888,9 +1888,9 @@
                                                       (NRTEVAL (QREFELT % 9)))
               (299 . |degree|) (304 . *) (310 . |monomial|) (316 . /)
               (322 . |second|) (327 . |retractIfCan|) (|Union| 37 '"failed")
-              (332 . |symbolIfCan|) (337 . |One|) (341 . |monomial|)
-              (347 . |Zero|) (351 . |retract|) (356 . |name|) (|String|)
-              (361 . |string|) (366 . <) (372 . >) (378 . |exp|)
+              (332 . |symbolIfCan|) (337 . |1|) (341 . |monomial|) (347 . |0|)
+              (351 . |retract|) (356 . |name|) (|String|) (361 . |string|)
+              (366 . <) (372 . >) (378 . |exp|)
               (|ElementaryFunctionStructurePackage| 6 7) (383 . |normalize|)
               (389 . |exprToGenUPS|) (396 . -) (402 . *) (408 . |truncate|)
               (414 . |coerce|) (419 . |exponential|) (424 . |coerce|) (429 . ^)
@@ -1901,7 +1901,7 @@
               (495 . |sinIfCan|) (500 . |cosIfCan|) (505 . |asinIfCan|)
               (510 . |acosIfCan|) (515 . |asecIfCan|) (520 . |acscIfCan|)
               (525 . |asinhIfCan|) (530 . |abs|) (535 . |localAbs|) (540 . =)
-              (546 . -) (551 . |differentiate|) (556 . |One|) (560 . -)
+              (546 . -) (551 . |differentiate|) (556 . |1|) (560 . -)
               (565 . |integrate|) (570 . |pi|) (574 . |atan|))
            '#(|localAbs| 579 |exprToXXP| 584) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

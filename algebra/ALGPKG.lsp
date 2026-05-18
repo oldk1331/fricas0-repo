@@ -1481,7 +1481,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|PositiveInteger|) (0 . |rank|) '|n| '|n2| '|n3| (|Vector| 21)
-              (4 . |structuralConstants|) '|gamma| (8 . |Zero|) (12 . |One|)
+              (4 . |structuralConstants|) '|gamma| (8 . |0|) (12 . |1|)
               (|Integer|) (|Vector| 6) (16 . |elt|) (|Matrix| 6)
               (22 . |setelt!|) (30 . |leftTraceMatrix|) (34 . |represents|)
               (|List| 19) (39 . |nullSpace|) (|List| 7) (|Mapping| 7 19)
@@ -1503,7 +1503,7 @@
               |ALGPKG;biRank;ANni;16| |ALGPKG;leftRank;ANni;17|
               |ALGPKG;rightRank;ANni;18| (|Boolean|) (147 . |zero?|)
               (|Mapping| 68 7) (|Vector| 7) (152 . |remove|)
-              (158 . |removeDuplicates|) (163 . |empty?|) (168 . |Zero|)
+              (158 . |removeDuplicates|) (163 . |empty?|) (168 . |0|)
               (172 . |elt|) (178 . |horizConcat|) (184 . |rowEchelon|)
               (189 . |maxRowIndex|) (194 . |maxColIndex|) (199 . |zero?|)
               (204 . |basis|))

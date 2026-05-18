@@ -24,13 +24,13 @@
 (SDEFUN |ZMOD;coerce;I%;7| ((|n| (|Integer|)) (% (%)))
         (|ZMOD;bloodyCompiler| |n| %)) 
 
-(MAKEPROP '|ZMOD;Zero;%;8| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|ZMOD;0;%;8| '|SPADreplace| '(XLAM NIL 0)) 
 
-(SDEFUN |ZMOD;Zero;%;8| ((% (%))) 0) 
+(SDEFUN |ZMOD;0;%;8| ((% (%))) 0) 
 
-(MAKEPROP '|ZMOD;One;%;9| '|SPADreplace| '(XLAM NIL 1)) 
+(MAKEPROP '|ZMOD;1;%;9| '|SPADreplace| '(XLAM NIL 1)) 
 
-(SDEFUN |ZMOD;One;%;9| ((% (%))) 1) 
+(SDEFUN |ZMOD;1;%;9| ((% (%))) 1) 
 
 (MAKEPROP '|ZMOD;init;%;10| '|SPADreplace| '(XLAM NIL 0)) 
 
@@ -121,13 +121,13 @@
 (SDEFUN |ZMOD;coerce;%Of;26| ((|x| (%)) (% (|OutputForm|)))
         (SPADCALL |x| (QREFELT % 23))) 
 
-(MAKEPROP '|ZMOD;Zero;%;27| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|ZMOD;0;%;27| '|SPADreplace| '(XLAM NIL 0)) 
 
-(SDEFUN |ZMOD;Zero;%;27| ((% (%))) 0) 
+(SDEFUN |ZMOD;0;%;27| ((% (%))) 0) 
 
-(MAKEPROP '|ZMOD;One;%;28| '|SPADreplace| '(XLAM NIL 1)) 
+(MAKEPROP '|ZMOD;1;%;28| '|SPADreplace| '(XLAM NIL 1)) 
 
-(SDEFUN |ZMOD;One;%;28| ((% (%))) 1) 
+(SDEFUN |ZMOD;1;%;28| ((% (%))) 1) 
 
 (MAKEPROP '|ZMOD;init;%;29| '|SPADreplace| '(XLAM NIL 0)) 
 
@@ -224,10 +224,10 @@
              (QSETREFV % 25 (CONS (|dispatchFunction| |ZMOD;coerce;I%;7|) %))
              (QSETREFV % 26
                        (CONS #'|makeSpadConstant|
-                             (LIST (|dispatchFunction| |ZMOD;Zero;%;8|) % 26)))
+                             (LIST (|dispatchFunction| |ZMOD;0;%;8|) % 26)))
              (QSETREFV % 27
                        (CONS #'|makeSpadConstant|
-                             (LIST (|dispatchFunction| |ZMOD;One;%;9|) % 27)))
+                             (LIST (|dispatchFunction| |ZMOD;1;%;9|) % 27)))
              (QSETREFV % 28
                        (CONS #'|makeSpadConstant|
                              (LIST (|dispatchFunction| |ZMOD;init;%;10|) %
@@ -257,11 +257,10 @@
              (QSETREFV % 24 (CONS (|dispatchFunction| |ZMOD;coerce;%Of;26|) %))
              (QSETREFV % 26
                        (CONS #'|makeSpadConstant|
-                             (LIST (|dispatchFunction| |ZMOD;Zero;%;27|) %
-                                   26)))
+                             (LIST (|dispatchFunction| |ZMOD;0;%;27|) % 26)))
              (QSETREFV % 27
                        (CONS #'|makeSpadConstant|
-                             (LIST (|dispatchFunction| |ZMOD;One;%;28|) % 27)))
+                             (LIST (|dispatchFunction| |ZMOD;1;%;28|) % 27)))
              (QSETREFV % 28
                        (CONS #'|makeSpadConstant|
                              (LIST (|dispatchFunction| |ZMOD;init;%;29|) %
@@ -308,12 +307,11 @@
               (0 . |zero?|) (|Integer|) (5 . |convert|) (|PositiveInteger|)
               |ZMOD;lookup;%Pi;3| '#:G3 '|Rep| (|SingleInteger|)
               (10 . |coerce|) '|q| (15 . |positiveRemainder|) (|OutputForm|)
-              (21 . |coerce|) (26 . |coerce|) (31 . |coerce|) (36 . |Zero|)
-              (40 . |One|) (44 . |init|) (48 . +) (54 . =)
-              (|Union| % '"failed") (60 . |nextItem|) (65 . *) (71 . *)
-              (77 . -) (83 . |random|) (87 . |positiveRemainder|)
-              (93 . |index|) (98 . -) (103 . |powmod|) (110 . |powmod|)
-              (117 . ^)
+              (21 . |coerce|) (26 . |coerce|) (31 . |coerce|) (36 . |0|)
+              (40 . |1|) (44 . |init|) (48 . +) (54 . =) (|Union| % '"failed")
+              (60 . |nextItem|) (65 . *) (71 . *) (77 . -) (83 . |random|)
+              (87 . |positiveRemainder|) (93 . |index|) (98 . -)
+              (103 . |powmod|) (110 . |powmod|) (117 . ^)
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %))
               (123 . |extendedEuclidean|) (129 . |recip|) (|HashState|)
               (134 . |hashUpdate!|) (140 . |smaller?|) (146 . |mulmod|)
@@ -326,8 +324,7 @@
               |latex| 268 |init| 273 |index| 277 |hashUpdate!| 282 |hash| 288
               |enumerate| 293 |convert| 297 |commutator| 307 |coerce| 313
               |characteristic| 328 |associator| 332 |antiCommutator| 339
-              |annihilate?| 345 ^ 351 |Zero| 363 |One| 367 = 371 - 377 + 388 *
-              394)
+              |annihilate?| 345 ^ 351 = 363 |1| 369 |0| 373 - 377 + 388 * 394)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -371,8 +368,8 @@
                                     0 47 1 0 18 0 1 0 0 53 1 1 0 54 0 1 1 0 12
                                     0 13 2 0 0 0 0 1 1 0 22 0 24 1 0 0 12 25 1
                                     0 0 0 1 0 0 7 9 3 0 0 0 0 0 1 2 0 0 0 0 1 2
-                                    0 10 0 0 1 2 0 0 0 14 1 2 0 0 0 7 42 0 0 0
-                                    26 0 0 0 27 2 0 10 0 0 30 1 0 0 0 39 2 0 0
-                                    0 0 35 2 0 0 0 0 29 2 0 0 14 0 1 2 0 0 0 0
-                                    33 2 0 0 12 0 34 2 0 0 7 0 1)))))
+                                    0 10 0 0 1 2 0 0 0 14 1 2 0 0 0 7 42 2 0 10
+                                    0 0 30 0 0 0 27 0 0 0 26 1 0 0 0 39 2 0 0 0
+                                    0 35 2 0 0 0 0 29 2 0 0 14 0 1 2 0 0 0 0 33
+                                    2 0 0 12 0 34 2 0 0 7 0 1)))))
            '|lookupComplete|)) 

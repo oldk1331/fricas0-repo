@@ -94,9 +94,9 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|local| |#5|) (|local| |#6|)
-              (|local| |#7|) (0 . |Zero|) (4 . |Zero|)
-              (|SparseUnivariatePolynomial| 11) (8 . |Zero|) (|Boolean|)
-              (12 . =) (18 . |Zero|) (22 . |coerce|) (|NonNegativeInteger|)
+              (|local| |#7|) (0 . |0|) (4 . |0|)
+              (|SparseUnivariatePolynomial| 11) (8 . |0|) (|Boolean|) (12 . =)
+              (18 . |0|) (22 . |coerce|) (|NonNegativeInteger|)
               (|SparseUnivariatePolynomial| 12) (27 . |monomial|)
               (33 . |leadingCoefficient|) (|Mapping| 10 9) |MPC2;map;MPRPS;2|
               (38 . |degree|) (43 . |reductum|) (48 . +) (|Union| 6 '"failed")

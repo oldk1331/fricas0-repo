@@ -1346,7 +1346,7 @@
                                           |modulus|))
           (LETT |neq|
                 (SPADCALL
-                 (|compiledLookupCheck| '|Zero| (LIST '%)
+                 (|compiledLookupCheck| '|0| (LIST '%)
                                         (|LinearOrdinaryDifferentialOperator1|
                                          |curve|))))
           (SEQ (LETT |i| 0) (LETT |f| NIL) (LETT #1# |eq|) G190
@@ -1561,7 +1561,7 @@
                                           |modulus|))
           (LETT |neq|
                 (SPADCALL
-                 (|compiledLookupCheck| '|Zero| (LIST '%)
+                 (|compiledLookupCheck| '|0| (LIST '%)
                                         (|LinearOrdinaryDifferentialOperator1|
                                          |curve|))))
           (SEQ (LETT |i| 0) (LETT |f| NIL) (LETT #1# |eq|) G190
@@ -1712,8 +1712,7 @@
               (LETT |rec|
                     (SPADCALL |neq|
                               (SPADCALL
-                               (|compiledLookupCheck| '|Zero| (LIST '%)
-                                                      |curve|))
+                               (|compiledLookupCheck| '|0| (LIST '%) |curve|))
                               (|compiledLookupCheck| '|algDsolve|
                                                      (LIST
                                                       (LIST '|Record|
@@ -2064,28 +2063,27 @@
               (|SparseUnivariatePolynomial| 7) (34 . |coerce|) (39 . |coerce|)
               (44 . |denom|) (|Mapping| 17 7)
               (|SparseUnivariatePolynomialFunctions2| 7 17) (49 . |map|)
-              (55 . |One|) (59 . |One|)
-              (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 35 '"failed")
-              (63 . |extendedEuclidean|) (70 . |numer|) (75 . *) (81 . |rem|)
-              (|Factored| %) (87 . |squareFree|)
+              (55 . |1|) (59 . |1|) (|Record| (|:| |coef1| %) (|:| |coef2| %))
+              (|Union| 35 '"failed") (63 . |extendedEuclidean|) (70 . |numer|)
+              (75 . *) (81 . |rem|) (|Factored| %) (87 . |squareFree|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 43) (|:| |factor| 26) (|:| |exponent| 51))
-              (|List| 44) (|Factored| 26) (92 . |factorList|) (97 . |One|)
-              (101 . |One|) (105 . *) (|NonNegativeInteger|) (111 . ^)
+              (|List| 44) (|Factored| 26) (92 . |factorList|) (97 . |1|)
+              (101 . |1|) (105 . *) (|NonNegativeInteger|) (111 . ^)
               (|SparseUnivariatePolynomial| %) (117 . |minPoly|) (122 . |lift|)
               (|UnivariatePolynomialCommonDenominator| 26 17 16)
               (128 . |clearDenominator|) (133 . |leadingCoefficient|)
-              (138 . |degree|) (143 . |One|) (147 . |degree|) (152 . *)
-              (158 . |Zero|) (162 . |coefficient|) (|Union| % '"failed")
+              (138 . |degree|) (143 . |1|) (147 . |degree|) (152 . *)
+              (158 . |0|) (162 . |coefficient|) (|Union| % '"failed")
               (168 . |exquo|) (174 . |monomial|) (180 . +) (186 . /)
-              (192 . |Zero|) (196 . |reductum|) (201 . *) (207 . |Zero|)
-              (|Boolean|) (211 . ~=) (217 . |coefficient|) (223 . |monomial|)
-              (229 . +) (235 . -) (241 . =) (247 . /) (|Fraction| %)
-              (253 . |elt|) (259 . |differentiate|) (|Mapping| 26 26)
-              (264 . |differentiate|) (270 . |univariate|)
-              (|Union| 17 '"failed") (278 . |retractIfCan|)
-              (|IntegrationResult| 17) (|RationalIntegration| 7 26)
-              (283 . |integrate|) (|IntegrationResult| 7) (|Mapping| 7 17)
+              (192 . |0|) (196 . |reductum|) (201 . *) (207 . |0|) (|Boolean|)
+              (211 . ~=) (217 . |coefficient|) (223 . |monomial|) (229 . +)
+              (235 . -) (241 . =) (247 . /) (|Fraction| %) (253 . |elt|)
+              (259 . |differentiate|) (|Mapping| 26 26) (264 . |differentiate|)
+              (270 . |univariate|) (|Union| 17 '"failed")
+              (278 . |retractIfCan|) (|IntegrationResult| 17)
+              (|RationalIntegration| 7 26) (283 . |integrate|)
+              (|IntegrationResult| 7) (|Mapping| 7 17)
               (|IntegrationResultFunctions2| 17 7) (288 . |map|)
               (294 . |leadingMonomial|) (299 . +) (305 . |differentiate|)
               (|PolynomialCategoryQuotientFunctions| (|IndexedExponents| 12) 12
@@ -2117,7 +2115,7 @@
                         (|:| |logand| 26))
               (|List| 149) (504 . |logpart|)
               (|Record| (|:| |integrand| 7) (|:| |intvar| 7)) (|List| 152)
-              (509 . |notelem|) (514 . |mkAnswer|) (521 . |Zero|) (525 . ^)
+              (509 . |notelem|) (514 . |mkAnswer|) (521 . |0|) (525 . ^)
               (531 . *) (|Union| 9 '"failed") (537 . |symbolIfCan|)
               (542 . |eval|) (549 . =) (|SingletonAsOrderedSet|)
               (555 . |create|) '|sdummy| (559 . |eval|)

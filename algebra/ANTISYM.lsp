@@ -1,5 +1,5 @@
 
-(SDEFUN |ANTISYM;One;%;1| ((% (%)))
+(SDEFUN |ANTISYM;1;%;1| ((% (%)))
         (LIST
          (CONS (SPADCALL (QREFELT % 9) (QREFELT % 12)) (|spadConstant| % 13)))) 
 
@@ -459,15 +459,14 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|FreeModule| 6 11) (|local| |#1|)
               (|local| |#2|) '|Rep| '|dim| (|NonNegativeInteger|)
-              (|ExtAlgBasis|) (0 . |Nul|) (5 . |One|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |ANTISYM;One;%;1|) %))
-              (|Boolean|) (9 . =) (15 . <) (21 . |Zero|)
+              (|ExtAlgBasis|) (0 . |Nul|) (5 . |1|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |ANTISYM;1;%;1|) %))
+              (|Boolean|) (9 . =) (15 . <) (21 . |0|)
               |ANTISYM;coefficient;2%R;2| |ANTISYM;retractable?;%B;3|
               (25 . |leadingCoefficient|) (|Union| 6 '"failed")
               |ANTISYM;retractIfCan;%U;4| |ANTISYM;retract;%R;5| (|List| 28)
               (30 . |exponents|) (35 . |reductum|) (|Integer|) (40 . ~=)
-              |ANTISYM;homogeneous?;%B;6| |ANTISYM;degree;%Nni;7| (46 . |Zero|)
+              |ANTISYM;homogeneous?;%B;6| |ANTISYM;degree;%Nni;7| (46 . |0|)
               (50 . |elt|) (56 . |setelt!|) (63 . *) (69 . *) (75 . *)
               (81 . ~=) (87 . |coerce|) (92 . +) |ANTISYM;*;3%;11| (98 . =)
               |ANTISYM;coerce;R%;12| (104 . |coerce|) |ANTISYM;coerce;I%;13|
@@ -487,7 +486,7 @@
               |homogeneous?| 269 |generator| 274 |exp| 279 |degree| 284
               |commutator| 289 |coerce| 295 |coefficient| 310 |characteristic|
               316 |associator| 320 |antiCommutator| 327 |annihilate?| 333 ^ 339
-              |Zero| 351 |One| 355 = 359 - 365 + 376 * 382)
+              = 351 |1| 357 |0| 361 - 365 + 376 * 382)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -528,8 +527,8 @@
                                     10 48 1 0 0 25 49 1 0 10 0 31 2 0 0 0 0 1 1
                                     0 51 0 64 1 0 0 28 45 1 0 0 6 43 2 0 6 0 0
                                     19 0 0 10 47 3 0 0 0 0 0 1 2 0 0 0 0 1 2 0
-                                    15 0 0 1 2 0 0 0 66 1 2 0 0 0 10 1 0 0 0 32
-                                    0 0 0 14 2 0 15 0 0 1 1 0 0 0 1 2 0 0 0 0 1
+                                    15 0 0 1 2 0 0 0 66 1 2 0 0 0 10 1 2 0 15 0
+                                    0 1 0 0 0 14 0 0 0 32 1 0 0 0 1 2 0 0 0 0 1
                                     2 0 0 0 0 40 2 0 0 66 0 1 2 0 0 0 0 41 2 0
                                     0 28 0 1 2 0 0 10 0 1 2 0 0 6 0 35)))))
            '|lookupComplete|)) 

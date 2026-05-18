@@ -323,22 +323,21 @@
 
 (MAKEPROP '|LinearCombinationUtilities| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |One|)
-              (4 . |One|) (|Record| (|:| |ratpart| 6) (|:| |coeffs| 14))
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |1|)
+              (4 . |1|) (|Record| (|:| |ratpart| 6) (|:| |coeffs| 14))
               (|Integer|) (|List| 10) (8 . |elt|) (|Vector| 6) (14 . |elt|)
-              (20 . |Zero|) (24 . |Zero|) (|Boolean|) (28 . =) (34 . /)
-              (40 . *) (46 . *) (|UniversalSegment| 11) (52 . SEGMENT)
-              (58 . |elt|) (64 . ~=) (70 . -) (76 . -)
-              (|Union| 10 '#1="failed")
+              (20 . |0|) (24 . |0|) (|Boolean|) (28 . =) (34 . /) (40 . *)
+              (46 . *) (|UniversalSegment| 11) (52 . SEGMENT) (58 . |elt|)
+              (64 . ~=) (70 . -) (76 . -) (|Union| 10 '#1="failed")
               (|Record| (|:| |particular| 29) (|:| |basis| 12))
               |LINCOMB;dehomogenize;LR;1| (82 . +) (|List| 6)
               |LINCOMB;lin_comb;VLF;2| (|Fraction| 11) (|Vector| 35)
               (88 . |elt|) (94 . |coerce|) |LINCOMB;lin_comb;VLF;3|
               (99 . |setelt!|) (|List| 14) |LINCOMB;lin_comb!;2VLV;4|
-              |LINCOMB;lin_comb;VLV;5| (|Fraction| 7) (106 . |Zero|)
+              |LINCOMB;lin_comb;VLV;5| (|Fraction| 7) (106 . |0|)
               (110 . |coerce|) (115 . *) (121 . +) (|List| 44)
               |LINCOMB;lin_comb;VLF;6| (127 . |coerce|) (132 . *)
-              |LINCOMB;lin_comb;VLF;7| (|LaurentPolynomial| 6 7) (138 . |Zero|)
+              |LINCOMB;lin_comb;VLF;7| (|LaurentPolynomial| 6 7) (138 . |0|)
               (142 . |coerce|) (147 . *) (153 . +) (|List| 54)
               |LINCOMB;lin_comb;VLLp;8| (159 . *) (165 . +) (|List| 7)
               |LINCOMB;lin_comb;VLUP;9|)

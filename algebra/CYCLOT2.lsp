@@ -1229,19 +1229,18 @@
 (MAKEPROP '|CyclotomicUtilities| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|Boolean|) (|Integer|) (0 . |prime?|)
-              (|Factored| 7) (5 . |One|) (9 . |Zero|) (|List| 7)
-              (13 . |append|) (|IntegerRoots| 7) (19 . |approxSqrt|)
-              (|NonNegativeInteger|) (|SparseUnivariatePolynomial| 7)
-              (24 . |degree|) (29 . |leadingCoefficient|) (34 . |reductum|)
-              (|Union| 7 '#1="failed") |CYCLOT2;cyclotomic?;SupU;7|
-              (39 . |Zero|) (43 . |monomial|) (49 . +)
-              (|IntegerFactorizationPackage| 7) (55 . |factor|)
-              (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              (|Factored| 7) (5 . |1|) (9 . |0|) (|List| 7) (13 . |append|)
+              (|IntegerRoots| 7) (19 . |approxSqrt|) (|NonNegativeInteger|)
+              (|SparseUnivariatePolynomial| 7) (24 . |degree|)
+              (29 . |leadingCoefficient|) (34 . |reductum|)
+              (|Union| 7 '#1="failed") |CYCLOT2;cyclotomic?;SupU;7| (39 . |0|)
+              (43 . |monomial|) (49 . +) (|IntegerFactorizationPackage| 7)
+              (55 . |factor|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 28) (|:| |factor| 7) (|:| |exponent| 16))
               (|List| 29) (60 . |factorList|) (65 . |sort|)
-              (|PrimitiveArray| 7) |CYCLOT2;cyclotomic_array;IPa;12|
-              (70 . |One|) (74 . -) (80 . |multiplyExponents|)
-              |CYCLOT2;cyclotomic;ISup;13| |CYCLOT2;inverse_cyclotomic;ISup;15|
+              (|PrimitiveArray| 7) |CYCLOT2;cyclotomic_array;IPa;12| (70 . |1|)
+              (74 . -) (80 . |multiplyExponents|) |CYCLOT2;cyclotomic;ISup;13|
+              |CYCLOT2;inverse_cyclotomic;ISup;15|
               (|Record| (|:| |factor| 7) (|:| |exponent| 16)) (|List| 40)
               (86 . |last|) (91 . |coerce|) (96 . |factors|) (|List| 17)
               |CYCLOT2;cyclotomic_decomposition;IL;23|

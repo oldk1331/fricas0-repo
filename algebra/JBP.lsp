@@ -577,9 +577,9 @@
            '#(NIL NIL NIL NIL NIL (|SparseMultivariatePolynomial| 6 7)
               (|local| |#1|) (|local| |#2|) '|Rep| (|List| 7) (0 . |variables|)
               |JBP;jetVariables;%L;1| (5 . |eval|) |JBP;subst;%JB2%;2|
-              |JBP;numerator;2%;3| (12 . |One|) |JBP;denominator;2%;4|
+              |JBP;numerator;2%;3| (12 . |1|) |JBP;denominator;2%;4|
               (16 . |differentiate|) (|Boolean|) (22 . |ground?|)
-              (27 . |retract|) (32 . |One|) (36 . /) (42 . *) (48 . |coerce|)
+              (27 . |retract|) (32 . |1|) (36 . /) (42 . *) (48 . |coerce|)
               (53 . -) (|Union| % '"failed") (59 . |solveFor|) (65 . |recip|)
               (70 . *) (|String|) (|OutputForm|) (76 . |message|) (|Void|)
               (81 . |print|) (86 . |setUnion|) (|Mapping| 9 9 9) (|List| 9)
@@ -611,8 +611,8 @@
               (|Record| (|:| |var| 7) (|:| |exponent| 45)) (|Union| 93 '#2#))
            '#(|variables| 115 |subst| 120 |solveFor| 127 |retract| 133
               |numerator| 138 |jetVariables| 143 |ground?| 148 |groebner| 153
-              |eval| 158 |differentiate| 165 |denominator| 171 |coerce| 176
-              |One| 181 / 185 - 191 * 197)
+              |eval| 158 |differentiate| 165 |denominator| 171 |coerce| 176 |1|
+              181 / 185 - 191 * 197)
            'NIL
            (CONS
             (|makeByteWordVec2| 29

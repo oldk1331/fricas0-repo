@@ -126,10 +126,9 @@
 (MAKEPROP '|UnivariatePolynomialDivisionPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|Boolean|)
-              (0 . |zero?|) (5 . |leadingCoefficient|) (10 . |One|)
-              (14 . |One|) (18 . =)
-              (|Record| (|:| |quotient| %) (|:| |remainder| %))
-              (24 . |monicDivide|) (30 . |Zero|) (|NonNegativeInteger|)
+              (0 . |zero?|) (5 . |leadingCoefficient|) (10 . |1|) (14 . |1|)
+              (18 . =) (|Record| (|:| |quotient| %) (|:| |remainder| %))
+              (24 . |monicDivide|) (30 . |0|) (|NonNegativeInteger|)
               (34 . |degree|) (|Union| % '"failed") (39 . |subtractIfCan|)
               (45 . |exquo|) (51 . |monomial|) (57 . +) (63 . +)
               (|Mapping| 17 17) (69 . |mapExponents|) (75 . *) (81 . -)

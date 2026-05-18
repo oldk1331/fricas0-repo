@@ -508,7 +508,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) 'DUMMYVAR
               (|Boolean|) (|Kernel| 7) (0 . =) (|Kernel| %) (6 . |coerce|)
-              (11 . |Zero|) (15 . ~=) (|Expression| 7) (21 . |coerce|)
+              (11 . |0|) (15 . ~=) (|Expression| 7) (21 . |coerce|)
               (|BasicOperator|) (26 . |operator|) (31 . |operator|) (|List| 7)
               (36 . |argument|) (|Union| (|None|) '"failed") (|Symbol|)
               (41 . |property|) (47 . |second|) (52 . |retract|) (|List| 10)
@@ -539,11 +539,11 @@
               |CLINDEP;reducedSystem;MLM;12|
               (|Record| (|:| |mat| 54) (|:| |vec| 50)) (|Vector| %)
               (174 . |reducedSystem|) |CLINDEP;reducedSystem;MVLR;13|
-              (|List| 50) |CLINDEP;nullSpaceOverConstants;MLL;14|
-              (180 . |Zero|) (184 . |One|) (188 . |entries|) (|List| 21)
-              (193 . |matrix|) (198 . |One|) (|NonNegativeInteger|)
-              (202 . |scalarMatrix|) (208 . |horizConcat|) (214 . |rowEchelon|)
-              (219 . |elt|) (226 . =) (232 . |row|) (238 . |transpose|)
+              (|List| 50) |CLINDEP;nullSpaceOverConstants;MLL;14| (180 . |0|)
+              (184 . |1|) (188 . |entries|) (|List| 21) (193 . |matrix|)
+              (198 . |1|) (|NonNegativeInteger|) (202 . |scalarMatrix|)
+              (208 . |horizConcat|) (214 . |rowEchelon|) (219 . |elt|)
+              (226 . =) (232 . |row|) (238 . |transpose|)
               (|LinearCombinationUtilities| 7 (|SparseUnivariatePolynomial| 7))
               (243 . |lin_comb|) (249 . |elt|) (|UniversalSegment| 34)
               (255 . SEGMENT) (261 . |elt|)

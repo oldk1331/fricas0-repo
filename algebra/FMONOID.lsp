@@ -1,5 +1,5 @@
 
-(SDEFUN |FMONOID;One;%;1| ((% (%))) (SPADCALL (QREFELT % 9))) 
+(SDEFUN |FMONOID;1;%;1| ((% (%))) (SPADCALL (QREFELT % 9))) 
 
 (SDEFUN |FMONOID;one?;%B;2| ((|f| (%)) (% (|Boolean|)))
         (NULL (SPADCALL |f| (QREFELT % 12)))) 
@@ -720,8 +720,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|ListMonoidOps| 6 38 (NRTEVAL 1))
               (|local| |#1|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |FMONOID;One;%;1|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FMONOID;1;%;1|) %))
               '|Rep| (0 . |makeUnit|) (|Record| (|:| |gen| 6) (|:| |exp| 38))
               (|List| 10) (4 . |listOfMonoms|) (|Boolean|) |FMONOID;one?;%B;2|
               (|OutputForm|) (9 . *) (15 . ^) (|Mapping| 15 15 15) (|Integer|)
@@ -752,8 +751,8 @@
               |nthFactor| 287 |nthExpon| 293 |mirror| 299 |min| 304 |max| 310
               |mapGen| 316 |mapExpon| 322 |lquo| 328 |lexico| 340 |length| 346
               |leftRecip| 351 |leftPower| 356 |latex| 368 |hcrf| 373 |hclf| 379
-              |first| 385 |factors| 390 |divide| 395 |coerce| 401 ^ 411 |One|
-              429 >= 433 > 439 = 445 <= 451 < 457 * 463)
+              |first| 385 |factors| 390 |divide| 395 |coerce| 401 ^ 411 >= 429
+              > 435 = 441 <= 447 < 453 |1| 459 * 463)
            'NIL
            (CONS (|makeByteWordVec2| 3 '(1 1 0 1 0 0 3 0 0 0 1 0 0 0))
                  (CONS
@@ -792,8 +791,8 @@
                                          2 0 0 0 38 1 1 0 81 0 1 2 0 0 0 0 25 2
                                          0 0 0 0 23 1 0 6 0 72 1 0 11 0 31 2 0
                                          54 0 0 55 1 0 15 0 21 1 0 0 6 1 2 0 0
-                                         0 82 1 2 0 0 0 38 1 2 0 0 6 38 40 0 0
-                                         0 7 2 1 13 0 0 1 2 1 13 0 0 1 2 0 13 0
-                                         0 41 2 1 13 0 0 1 2 1 13 0 0 78 2 0 0
+                                         0 82 1 2 0 0 0 38 1 2 0 0 6 38 40 2 1
+                                         13 0 0 1 2 1 13 0 0 1 2 0 13 0 0 41 2
+                                         1 13 0 0 1 2 1 13 0 0 78 0 0 0 7 2 0 0
                                          0 0 47 2 0 0 0 6 27 2 0 0 6 0 29)))))
            '|lookupComplete|)) 

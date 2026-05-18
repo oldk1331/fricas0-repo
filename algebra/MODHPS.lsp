@@ -3545,11 +3545,11 @@
                          (|List|
                           (|SparseUnivariatePolynomial|
                            (|Polynomial| (|AlgebraicNumber|)))))
-              (128 . |HP_solve_PA|) (139 . |characteristic|) '|p|
-              (143 . |Zero|) (147 . |Zero|) (|List| 10) (151 . |HP_solve_M|)
-              (162 . ~=) (168 . |random|) (|IntegerPrimesPackage| 23)
-              (172 . |nextPrime|) (177 . ~=) (|U32Vector|) (|List| 66)
-              (183 . |check_sol1a|) (193 . |One|) (197 . |One|))
+              (128 . |HP_solve_PA|) (139 . |characteristic|) '|p| (143 . |0|)
+              (147 . |0|) (|List| 10) (151 . |HP_solve_M|) (162 . ~=)
+              (168 . |random|) (|IntegerPrimesPackage| 23) (172 . |nextPrime|)
+              (177 . ~=) (|U32Vector|) (|List| 66) (183 . |check_sol1a|)
+              (193 . |1|) (197 . |1|))
            '#(|gen_Monte_Carlo_check| 201 |VSUPS_to_VPA| 211 |LLF_to_LPA| 219
               |HP_solve| 228)
            'NIL

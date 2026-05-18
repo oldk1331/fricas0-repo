@@ -1,7 +1,7 @@
 
-(MAKEPROP '|VSBASIS;Zero;%;1| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|VSBASIS;0;%;1| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(SDEFUN |VSBASIS;Zero;%;1| ((% (%))) NIL) 
+(SDEFUN |VSBASIS;0;%;1| ((% (%))) NIL) 
 
 (MAKEPROP '|VSBASIS;coerce;%L;2| '|SPADreplace| '(XLAM (B) B)) 
 
@@ -451,13 +451,12 @@
 (MAKEPROP '|VectorSpaceBasis| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|List| 17) (|local| |#1|) '|Rep|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |VSBASIS;Zero;%;1|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |VSBASIS;0;%;1|) %))
               |VSBASIS;coerce;%L;2| (|String|) (|OutputForm|) (0 . |message|)
-              (5 . |coerce|) (10 . |hconcat|) |VSBASIS;coerce;%Of;3|
-              (16 . |One|) (|Vector| 6) (|Integer|) (20 . |elt|) (26 . |Zero|)
-              (|Boolean|) (|NonNegativeInteger|) (30 . ~=) (|Matrix| 6)
-              (36 . |setColumn!|) (43 . |columnSpace|) |VSBASIS;basis;L%;5|
+              (5 . |coerce|) (10 . |hconcat|) |VSBASIS;coerce;%Of;3| (16 . |1|)
+              (|Vector| 6) (|Integer|) (20 . |elt|) (26 . |0|) (|Boolean|)
+              (|NonNegativeInteger|) (30 . ~=) (|Matrix| 6) (36 . |setColumn!|)
+              (43 . |columnSpace|) |VSBASIS;basis;L%;5|
               |VSBASIS;columnSpace;M%;6| (48 . |nullSpace|)
               |VSBASIS;nullSpace;M%;7| (53 . |concat|) |VSBASIS;sumBasis;2L%;8|
               |VSBASIS;sumBasis;3%;9| (|List| %) (59 . |concat|) (|List| 5)
@@ -481,8 +480,8 @@
            '#(~= 146 |sumBasis| 152 |subspace?| 174 |rank| 180 |nullSpace| 190
               |member?| 195 |isBasis?| 201 |intBasis| 206 |coordinatesIfCan|
               228 |coordinates| 234 |complementSpace| 240 |columnSpace| 262
-              |coerce| 267 |canonicalBasis| 277 |basis| 282 |Zero| 287 = 291 +
-              297 * 303)
+              |coerce| 267 |canonicalBasis| 277 |basis| 282 = 287 |0| 293 + 297
+              * 303)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0))
                  (CONS '#(NIL |BasicType&|)
@@ -512,6 +511,6 @@
                                                    0 0 66 2 0 0 5 22 65 1 0 0 5
                                                    64 1 0 0 24 28 1 0 11 0 15 1
                                                    0 5 0 9 1 0 0 22 60 1 0 0 5
-                                                   27 0 0 0 8 2 0 21 0 0 59 2 0
+                                                   27 2 0 21 0 0 59 0 0 0 8 2 0
                                                    0 0 0 40 2 0 0 0 0 54)))))
            '|lookupComplete|)) 

@@ -137,8 +137,8 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Stream| 6)
               (|StreamExponentialSeriesOperations| 6) (0 . *) (|Mapping| 7)
-              (6 . |lazyIntegrate|) (|Boolean|) (12 . |empty?|) (17 . |One|)
-              (21 . |empty|) (25 . |cons|) (31 . |frst|) (36 . |Zero|) (40 . =)
+              (6 . |lazyIntegrate|) (|Boolean|) (12 . |empty?|) (17 . |1|)
+              (21 . |empty|) (25 . |cons|) (31 . |frst|) (36 . |0|) (40 . =)
               (46 . |deriv|) (|Mapping| 7 7)
               (|ParadoxicalCombinatorsForStreams| 6) (51 . Y) (56 . |exp|)
               |STEXPST;exp;2S;2| (61 . |log|)

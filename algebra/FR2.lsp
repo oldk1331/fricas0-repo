@@ -107,7 +107,7 @@
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 10) (|:| |factor| 6)
                         (|:| |exponent| (|NonNegativeInteger|)))
-              (|List| 11) (5 . |factorList|) (10 . |One|) (14 . |One|)
+              (|List| 11) (5 . |factorList|) (10 . |1|) (14 . |1|)
               (|Record| (|:| |flag| 10) (|:| |factor| 7)
                         (|:| |exponent| (|NonNegativeInteger|)))
               (|List| 16) (|Factored| 7) (18 . |makeFR|) (|Mapping| 7 6)

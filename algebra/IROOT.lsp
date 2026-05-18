@@ -291,7 +291,7 @@
 
 (MAKEPROP '|IntegerRoots| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |Zero|) (4 . |One|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |0|) (4 . |1|)
               (|Integer|) (8 . |coerce|) '|resMod144| '|two|
               (|Union| 6 '#1="failed") |IROOT;perfectSqrt;IU;6| (|Boolean|)
               |IROOT;perfectSquare?;IB;1| (|NonNegativeInteger|)

@@ -1,7 +1,7 @@
 
 (SDEFUN |IR;-;2%;1| ((|u| (%)) (% (%))) (SPADCALL -1 |u| (QREFELT % 14))) 
 
-(SDEFUN |IR;Zero;%;2| ((% (%)))
+(SDEFUN |IR;0;%;2| ((% (%)))
         (SPADCALL (|spadConstant| % 17) NIL NIL (QREFELT % 22))) 
 
 (SDEFUN |IR;coerce;F%;3| ((|x| (F)) (% (%)))
@@ -626,8 +626,8 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (|Symbol|)
               (0 . |new|) (|OutputForm|) (4 . |coerce|) '|alpha| (|Integer|)
               |IR;*;I2%;12| |IR;-;2%;1|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |IR;Zero;%;2|) %))
-              (9 . |Zero|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |IR;0;%;2|) %))
+              (9 . |0|)
               (|Record| (|:| |scalar| 29) (|:| |coeff| 45) (|:| |logand| 45))
               (|List| 18) (|Record| (|:| |integrand| 6) (|:| |intvar| 6))
               (|List| 20) |IR;mkAnswer;FLL%;8| |IR;coerce;F%;3|
@@ -636,17 +636,17 @@
               |IR;integral;2F%;10| (24 . *) (30 . |coerce|) |IR;*;F2%;21|
               (35 . |numer|) (40 . |coerce|) (45 . |denom|) (50 . /) (56 . =)
               (62 . +) (68 . |coerce|) (73 . |integral|) (|NonNegativeInteger|)
-              (|SparseUnivariatePolynomial| 6) (79 . |degree|) (84 . |One|)
+              (|SparseUnivariatePolynomial| 6) (79 . |degree|) (84 . |1|)
               (88 . |coefficient|) (94 . -) (99 . |elt|) (105 . |coerce|)
-              (|List| %) (110 . |prefix|) (116 . |One|) (120 . -) (125 . *)
+              (|List| %) (110 . |prefix|) (116 . |1|) (120 . -) (125 . *)
               (131 . |outputForm|) (137 . |coerce|) (142 . =) (148 . ~=)
               (154 . |sum|) (|List| 6) (160 . |removeDuplicates!|)
               (165 . |retract|) (170 . |integral|) (|Union| 6 '"failed")
-              (176 . |retractIfCan|) (181 . |Zero|) (185 . =) (|Mapping| 18 18)
+              (176 . |retractIfCan|) (181 . |0|) (185 . =) (|Mapping| 18 18)
               (191 . |map|) (|Mapping| 20 20) (197 . |map|) (203 . |concat|)
               (209 . |concat|) |IR;+;3%;22| (215 . |differentiate|)
               (|Mapping| 6 6) |IR;differentiate;%MF;24| (221 . |differentiate|)
-              (227 . |map|) (233 . |Zero|) (237 . ~=) (243 . |reductum|)
+              (227 . |map|) (233 . |0|) (237 . ~=) (243 . |reductum|)
               (248 . |leadingCoefficient|)
               (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 86 '"failed")
               (253 . |extendedEuclidean|) (260 . |monomial|) (266 . *)
@@ -657,8 +657,8 @@
            '#(~= 306 |zero?| 312 |subtractIfCan| 317 |sample| 323
               |retractIfCan| 327 |retract| 332 |ratpart| 337 |opposite?| 342
               |notelem| 348 |mkAnswer| 353 |logpart| 360 |latex| 365 |integral|
-              370 |elem?| 382 |differentiate| 387 |coerce| 399 |Zero| 409 = 413
-              - 419 + 430 * 436)
+              370 |elem?| 382 |differentiate| 387 |coerce| 399 = 409 |0| 415 -
+              419 + 430 * 436)
            'NIL
            (CONS (|makeByteWordVec2| 3 '(0 0 0 0 1 1 3 0 0 0 0 0 0))
                  (CONS
@@ -697,7 +697,7 @@
                                          6 19 21 22 1 0 19 0 25 1 0 100 0 1 2 0
                                          0 6 6 32 2 5 0 6 8 43 1 0 27 0 28 2 0
                                          6 0 78 79 2 4 6 0 8 80 1 0 10 0 94 1 0
-                                         0 6 23 0 2 0 16 2 0 27 0 0 1 1 1 0 0
+                                         0 6 23 2 0 27 0 0 1 0 2 0 16 1 1 0 0
                                          15 2 1 0 0 0 1 2 0 0 0 0 76 2 0 0 101
                                          0 1 2 0 0 29 0 35 2 0 0 0 29 1 2 1 0
                                          13 0 14 2 2 0 44 0 1)))))

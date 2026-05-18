@@ -117,12 +117,11 @@
 (MAKEPROP '|XExponentialPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (0 . |One|) (4 . |One|) (8 . -) (|Boolean|)
-              (14 . |quasiRegular?|) (19 . |Zero|) (|Integer|) (|Fraction| 15)
+              (|local| |#3|) (0 . |1|) (4 . |1|) (8 . -) (|Boolean|)
+              (14 . |quasiRegular?|) (19 . |0|) (|Integer|) (|Fraction| 15)
               (23 . /) (29 . *) (|NonNegativeInteger|) (35 . |trunc|)
-              (41 . |coerce|) (46 . *) |XEXPPKG;log;XPOLYNniXPOLY;1|
-              (52 . |Zero|) (56 . =) (62 . *) (68 . +)
-              |XEXPPKG;exp;XPOLYNniXPOLY;2|
+              (41 . |coerce|) (46 . *) |XEXPPKG;log;XPOLYNniXPOLY;1| (52 . |0|)
+              (56 . =) (62 . *) (68 . +) |XEXPPKG;exp;XPOLYNniXPOLY;2|
               |XEXPPKG;Hausdorff;2XPOLYNniXPOLY;3|)
            '#(|log| 74 |exp| 80 |Hausdorff| 86) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

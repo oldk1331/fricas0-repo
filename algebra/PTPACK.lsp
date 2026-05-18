@@ -63,7 +63,7 @@
 
 (MAKEPROP '|PointPackage| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |One|) (|Integer|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |1|) (|Integer|)
               (|Point| 6) (4 . |elt|) |PTPACK;xCoord;PR;1| |PTPACK;yCoord;PR;2|
               |PTPACK;zCoord;PR;3| |PTPACK;rCoord;PR;4|
               |PTPACK;thetaCoord;PR;5| |PTPACK;phiCoord;PR;6|

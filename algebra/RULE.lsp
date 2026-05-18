@@ -285,8 +285,8 @@
               (|FunctionSpaceAssertions| 7 8) (125 . |optional|) (130 . ~=)
               (136 . |variables|) (|List| 10) (141 . |member?|)
               (147 . |generic?|) (|Union| 47 '"failed") (152 . |isPlus|)
-              (157 . |new|) (161 . |One|) (165 . |isTimes|) (170 . |Zero|)
-              (174 . |Zero|) (|OutputForm|) (178 . |coerce|) (183 . |coerce|)
+              (157 . |new|) (161 . |1|) (165 . |isTimes|) (170 . |0|)
+              (174 . |0|) (|OutputForm|) (178 . |coerce|) (183 . |coerce|)
               (188 . |infix|) |RULE;coerce;%Of;19| (|String|))
            '#(~= 195 |suchThat| 201 |rule| 208 |rhs| 221 |retractIfCan| 226
               |retract| 231 |quotedOperators| 236 |pattern| 241 |lhs| 246

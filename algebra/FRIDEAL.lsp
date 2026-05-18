@@ -1,5 +1,5 @@
 
-(SDEFUN |FRIDEAL;One;%;1| ((% (%)))
+(SDEFUN |FRIDEAL;1;%;1| ((% (%)))
         (CONS (VECTOR (|spadConstant| % 13)) (|spadConstant| % 12))) 
 
 (MAKEPROP '|FRIDEAL;numer;%V;2| '|SPADreplace| 'QCAR) 
@@ -701,9 +701,8 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) '|Rep|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |FRIDEAL;One;%;1|) %))
-              (0 . |One|) (4 . |One|) (|Vector| 9) |FRIDEAL;numer;%V;2|
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FRIDEAL;1;%;1|) %))
+              (0 . |1|) (4 . |1|) (|Vector| 9) |FRIDEAL;numer;%V;2|
               |FRIDEAL;denom;%R;3| (|Matrix| 7) (8 . |transpose|) (|Vector| 7)
               (13 . |coordinates|) (18 . *) (24 . |represents|)
               (|NonNegativeInteger|) (29 . |monomial|)
@@ -712,12 +711,12 @@
                                           (|Vector| 8) 26)
               (40 . |map|) (|Union| 7 '"failed") (46 . |retractIfCan|)
               (|Boolean|) (|Mapping| 32 9) (51 . |any?|) (57 . =) (63 . =)
-              |FRIDEAL;=;2%B;8| (69 . |Zero|) (73 . |gcd|) (|Mapping| 6 6 6)
+              |FRIDEAL;=;2%B;8| (69 . |0|) (73 . |gcd|) (|Mapping| 6 6 6)
               (|List| 6) (79 . |reduce|) (86 . |determinant|) (|List| 7)
               (91 . |coefficients|) (96 . |retract|) (|List| %) (101 . |gcd|)
               (|PositiveInteger|) (106 . |rank|) (110 . ^) (116 . /)
-              (122 . |characteristic|) (126 . |Zero|)
-              (|SparseUnivariatePolynomial| 9) (130 . |Zero|) (|Integer|)
+              (122 . |characteristic|) (126 . |0|)
+              (|SparseUnivariatePolynomial| 9) (130 . |0|) (|Integer|)
               (134 . |minIndex|) (139 . |monomial|) (145 . +)
               (|SingletonAsOrderedSet|) (151 . |create|) (155 . |coerce|)
               (160 . |eval|) (167 . |retract|) (172 . |norm|)
@@ -746,12 +745,12 @@
               (377 . ^) (|OutputForm|) (383 . |coerce|) (388 . |paren|)
               |FRIDEAL;basis;%V;22| (393 . |coerce|) (398 . |coerce|) (403 . /)
               (409 . *) |FRIDEAL;coerce;%Of;23| (415 . |random|) (419 . +)
-              (425 . |Zero|) (429 . *) |FRIDEAL;minimize;2%;26| (|String|))
+              (425 . |0|) (429 . *) |FRIDEAL;minimize;2%;26| (|String|))
            '#(~= 435 |sample| 441 |rightRecip| 445 |rightPower| 450 |recip| 462
               |randomLC| 467 |one?| 473 |numer| 478 |norm| 483 |minimize| 488
               |leftRecip| 493 |leftPower| 498 |latex| 510 |inv| 515 |ideal| 520
               |denom| 525 |conjugate| 530 |commutator| 536 |coerce| 542 |basis|
-              547 ^ 552 |One| 570 = 574 / 580 * 586)
+              547 ^ 552 = 570 |1| 576 / 580 * 586)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -798,7 +797,7 @@
                                          1 1 0 141 0 1 1 0 0 0 107 1 0 0 14 106
                                          1 0 6 0 16 2 0 0 0 0 1 2 0 0 0 0 1 1 0
                                          127 0 135 1 0 14 0 130 2 0 0 0 49 1 2
-                                         0 0 0 23 1 2 0 0 0 57 124 0 0 0 11 2 0
-                                         32 0 0 37 2 0 0 0 0 1 2 0 0 0 0
+                                         0 0 0 23 1 2 0 0 0 57 124 2 0 32 0 0
+                                         37 0 0 0 11 2 0 0 0 0 1 2 0 0 0 0
                                          123)))))
            '|lookupComplete|)) 

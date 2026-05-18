@@ -558,9 +558,9 @@
            (VECTOR (SPADCALL |preimOfqp| |preimOfq| (QREFELT % 81))
                    (SPADCALL |imOfqp| |imOfq| (QREFELT % 81))))))) 
 
-(MAKEPROP '|PERM;One;%;29| '|SPADreplace| '(XLAM NIL (MAKEARR1 2 NIL))) 
+(MAKEPROP '|PERM;1;%;29| '|SPADreplace| '(XLAM NIL (MAKEARR1 2 NIL))) 
 
-(SDEFUN |PERM;One;%;29| ((% (%))) (MAKEARR1 2 NIL)) 
+(SDEFUN |PERM;1;%;29| ((% (%))) (MAKEARR1 2 NIL)) 
 
 (SDEFUN |PERM;inv;2%;30| ((|p| (%)) (% (%)))
         (VECTOR (SPADCALL |p| 2 (QREFELT % 25))
@@ -722,7 +722,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (|Boolean|) (0 . <)
               (|PositiveInteger|) (6 . |lookup|) (|Integer|) (|List| 6)
               (11 . |elt|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |PERM;One;%;29|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |PERM;1;%;29|) %))
               (|NonNegativeInteger|) (17 . |last|) (23 . |first|)
               (29 . |concat|) |PERM;cycle;L%;26| |PERM;*;3%;28| (35 . ~=)
               (41 . ~=) (47 . ~=) (53 . |elt|) (59 . |list|) (64 . |position|)
@@ -758,8 +758,8 @@
               380 |eval| 385 |elt| 391 |degree| 397 |cycles| 402
               |cyclePartition| 407 |cycle| 412 |conjugate| 417 |commutator| 423
               |coercePreimagesImages| 429 |coerceListOfPairs| 434
-              |coerceImages| 439 |coerce| 444 ^ 459 |One| 477 >= 481 > 487 =
-              493 <= 499 < 505 / 511 * 517)
+              |coerceImages| 439 |coerce| 444 ^ 459 >= 477 > 483 = 489 <= 495 <
+              501 |1| 507 / 511 * 517)
            'NIL
            (CONS (|makeByteWordVec2| 2 '(0 0 0 2 0 0 2 0 0 2 0 0 0 0))
                  (CONS
@@ -802,7 +802,7 @@
                                          0 0 0 1 1 0 0 30 37 1 0 0 30 84 1 3 0
                                          13 91 1 0 73 0 79 1 0 0 30 62 1 0 0 13
                                          63 2 0 0 0 10 1 2 0 0 0 16 1 2 0 0 0
-                                         12 1 0 0 0 15 2 2 8 0 0 1 2 2 8 0 0 1
-                                         2 0 8 0 0 43 2 2 8 0 0 1 2 0 8 0 0 61
-                                         2 0 0 0 0 1 2 0 0 0 0 21)))))
+                                         12 1 2 2 8 0 0 1 2 2 8 0 0 1 2 0 8 0 0
+                                         43 2 2 8 0 0 1 2 0 8 0 0 61 0 0 0 15 2
+                                         0 0 0 0 1 2 0 0 0 0 21)))))
            '|lookupComplete|)) 

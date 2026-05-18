@@ -199,17 +199,17 @@
 
 (MAKEPROP '|TangentExpansions| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |One|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |1|)
               (|SparseUnivariatePolynomial| 6) (|Fraction| 8) (4 . |denom|)
               (9 . *) (15 . |numer|) (20 . -) (|PositiveInteger|)
-              |TANEXP;tanAn;RPiSup;2| (26 . |Zero|) (|Integer|)
+              |TANEXP;tanAn;RPiSup;2| (26 . |0|) (|Integer|)
               |TANEXP;tanNa;RIR;3| (30 . -) (35 . |elt|) (41 . /) (|Vector| 6)
               (|List| 6) (|SymmetricFunctions| 6) (47 . |symFunc|)
               (52 . |minIndex|) (57 . |elt|) (63 . *) (69 . +)
-              |TANEXP;tanSum;LR;4| (75 . |One|) (|NonNegativeInteger|)
+              |TANEXP;tanSum;LR;4| (75 . |1|) (|NonNegativeInteger|)
               (79 . |monomial|) (|Vector| 8) (|SymmetricFunctions| 8)
               (85 . |symFunc|) (91 . |minIndex|) (96 . |elt|) (102 . *)
-              (108 . +) (114 . |Zero|) (118 . |One|) (122 . /))
+              (108 . +) (114 . |0|) (118 . |1|) (122 . /))
            '#(|tanSum| 128 |tanNa| 133 |tanAn| 139) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)

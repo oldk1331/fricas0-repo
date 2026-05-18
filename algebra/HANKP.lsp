@@ -102,7 +102,7 @@
 
 (MAKEPROP '|HankelPackage| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |One|) (4 . |Zero|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |1|) (4 . |0|)
               (|Matrix| 6) (8 . |vertConcat|) (|List| 16) (14 . |matrix|)
               (|Mapping| 9 9 9) (|List| 9) (19 . |reduce|) (|List| 6)
               |HANKP;HankelMatrix;LM;1|)

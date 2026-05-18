@@ -266,10 +266,10 @@
 (MAKEPROP '|IntegralBasisTools| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (0 . |One|) (|Integer|) (|Matrix| 6)
+              (|local| |#3|) (0 . |1|) (|Integer|) (|Matrix| 6)
               (4 . |maxRowIndex|) (9 . |maxColIndex|) (14 . *)
               |IBATOOL;diagonalProduct;MR;1| (|Boolean|) (20 . |zero?|)
-              (25 . |gcd|) (31 . |One|) (35 . =) (|NonNegativeInteger|)
+              (25 . |gcd|) (31 . |1|) (35 . =) (|NonNegativeInteger|)
               |IBATOOL;matrixGcd;MRNniR;2| (|Union| % '"failed") (41 . |exquo|)
               |IBATOOL;divideIfCan!;2MRIR;3| |IBATOOL;leastPower;3Nni;4|
               (|PositiveInteger|) (47 . |rank|) (51 . |zero|) (|Vector| %)

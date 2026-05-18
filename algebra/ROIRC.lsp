@@ -1253,7 +1253,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|Rep|
               (0 . -) |ROIRC;size;%TheField;1| (|NonNegativeInteger|)
-              (6 . |degree|) (11 . |One|) (15 . |Zero|) (19 . |Zero|)
+              (6 . |degree|) (11 . |1|) (15 . |0|) (19 . |0|)
               (23 . |coefficient|) (29 . |leadingCoefficient|) (34 . /)
               (40 . -) (45 . |elt|) (51 . |rem|) (|Boolean|)
               |ROIRC;zero?;ThePolDom%B;28|
@@ -1262,7 +1262,7 @@
               |ROIRC;right;%TheField;32| (|PositiveInteger|) (62 . *) (68 . +)
               (74 . |abs|) (79 . >) (|Integer|) (85 . |coerce|) (90 . |gcd|)
               |ROIRC;relativeApprox;ThePolDom%2TheField;2|
-              |ROIRC;approximate;ThePolDom%2TheField;3| (96 . |One|)
+              |ROIRC;approximate;ThePolDom%2TheField;3| (96 . |1|)
               (100 . |monomial|) (106 . +) (112 . |elt|) (118 . |coerce|)
               (|List| 6) (123 . |coefficients|) (128 . -) (|Mapping| 11 11)
               (134 . |mapExponents|) (|RealPolynomialUtilitiesPackage| 6 7)

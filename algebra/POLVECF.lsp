@@ -99,13 +99,13 @@
 
 (MAKEPROP '|VectorPolynomialOperationsF| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |One|) (4 . |Zero|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |1|) (4 . |0|)
               (|Boolean|) (8 . =) (|Integer|) (|PrimitiveArray| 6)
               |POLVECF;degree;PaI;1| (|SparseUnivariatePolynomial| 6)
-              (14 . |zero?|) (19 . |One|) (|NonNegativeInteger|)
-              (23 . |degree|) (28 . |leadingCoefficient|) (33 . |reductum|)
-              |POLVECF;to_mod_pa;SupPa;2| (38 . |Zero|) (42 . |monomial|)
-              (48 . +) |POLVECF;pa_to_sup;PaSup;3|)
+              (14 . |zero?|) (19 . |1|) (|NonNegativeInteger|) (23 . |degree|)
+              (28 . |leadingCoefficient|) (33 . |reductum|)
+              |POLVECF;to_mod_pa;SupPa;2| (38 . |0|) (42 . |monomial|) (48 . +)
+              |POLVECF;pa_to_sup;PaSup;3|)
            '#(|to_mod_pa| 54 |pa_to_sup| 59 |degree| 64) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)

@@ -241,12 +241,12 @@
 
 (MAKEPROP '|CharacteristicPolynomial4| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |Zero|) (|Integer|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |0|) (|Integer|)
               (|Matrix| 6) (4 . |elt|) (|Vector| 6) (11 . |elt|) (17 . *)
-              (23 . +) (|Boolean|) (|NonNegativeInteger|) (29 . ~=)
-              (35 . |One|) (|SparseUnivariatePolynomial| 6) (39 . |One|)
-              (43 . |monomial|) (49 . |Zero|) (53 . |coerce|) (58 . -) (64 . *)
-              (70 . |zero|) (75 . -) (80 . |setelt!|) (87 . |unvectorise|)
+              (23 . +) (|Boolean|) (|NonNegativeInteger|) (29 . ~=) (35 . |1|)
+              (|SparseUnivariatePolynomial| 6) (39 . |1|) (43 . |monomial|)
+              (49 . |0|) (53 . |coerce|) (58 . -) (64 . *) (70 . |zero|)
+              (75 . -) (80 . |setelt!|) (87 . |unvectorise|)
               |CHARPOL4;char_pol_via_berkovitz;MSup;2|)
            '#(|char_pol_via_berkovitz| 92) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

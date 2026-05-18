@@ -525,10 +525,10 @@
 (MAKEPROP '|FullPartialFractionExpansion| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|Rep|
-              (|Symbol|) (0 . |new|) '|u| (4 . |Zero|) (8 . |Zero|)
+              (|Symbol|) (0 . |new|) '|u| (4 . |0|) (8 . |0|)
               (|NonNegativeInteger|) (|OrderlyDifferentialVariable| 9)
               (12 . |makeVariable|) '|u0| (|OutputForm|) (18 . |coerce|)
-              '|alpha| (23 . |One|) (27 . |One|) (31 . |monomial|) '|x|
+              '|alpha| (23 . |1|) (27 . |1|) (31 . |monomial|) '|x|
               (37 . |coerce|) '|xx| (42 . |coerce|) '|zr|
               (|Record| (|:| |exponent| 14) (|:| |center| 7) (|:| |num| 7))
               (|List| 29) |FPARFRAC;construct;L%;1|
@@ -542,7 +542,7 @@
               (|UnivariatePolynomialCategoryFunctions2| 6 7 43 48) (85 . |map|)
               (91 . |degree|) (96 . |reductum|) (101 . |leadingCoefficient|)
               (106 . /) (112 . -) (117 . |elt|) (123 . -) (129 . ^) (135 . /)
-              (141 . |One|) (145 . |monomial|) (151 . |coerce|) (156 . -)
+              (141 . |1|) (145 . |monomial|) (151 . |coerce|) (156 . -)
               (162 . ^) (168 . |rem|)
               (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 67 '"failed")
               (174 . |extendedEuclidean|) (181 . |coefficient|) (187 . *)
@@ -554,18 +554,17 @@
               (|List| 79) (|Factored| 7) (214 . |factorList|) (|List| %)
               (219 . |concat|) |FPARFRAC;fullPartialFraction;F%;13|
               (224 . |quo|) (230 . |extendedEuclidean|)
-              (|OrderlyDifferentialPolynomial| 7) (237 . |One|)
-              (241 . |coerce|) (246 . ^) (252 . |coerce|) (257 . *)
-              (|Fraction| 88) (263 . /) (269 . |rem|) (275 . *) (281 . *)
-              (287 . |retract|) (|List| 15) (|List| 7) (292 . |eval|)
-              (299 . |retract|) (|Integer|) (|Fraction| 104) (304 . |coerce|)
-              (309 . |inv|) (314 . |differentiate|) (319 . *) (325 . |coerce|)
-              (330 . |inv|) (335 . *) (341 . |gcd|) (347 . *) (|Boolean|)
-              (353 . |zero?|) (358 . +) |FPARFRAC;coerce;%Of;15|
-              (364 . |empty|) (368 . |coerce|) (373 . /)
-              (|SparseUnivariatePolynomial| 6) (379 . |makeSUP|)
-              (384 . |outputForm|) (390 . -) (396 . =) (402 . |sum|) (408 . ^)
-              (|String|))
+              (|OrderlyDifferentialPolynomial| 7) (237 . |1|) (241 . |coerce|)
+              (246 . ^) (252 . |coerce|) (257 . *) (|Fraction| 88) (263 . /)
+              (269 . |rem|) (275 . *) (281 . *) (287 . |retract|) (|List| 15)
+              (|List| 7) (292 . |eval|) (299 . |retract|) (|Integer|)
+              (|Fraction| 104) (304 . |coerce|) (309 . |inv|)
+              (314 . |differentiate|) (319 . *) (325 . |coerce|) (330 . |inv|)
+              (335 . *) (341 . |gcd|) (347 . *) (|Boolean|) (353 . |zero?|)
+              (358 . +) |FPARFRAC;coerce;%Of;15| (364 . |empty|)
+              (368 . |coerce|) (373 . /) (|SparseUnivariatePolynomial| 6)
+              (379 . |makeSUP|) (384 . |outputForm|) (390 . -) (396 . =)
+              (402 . |sum|) (408 . ^) (|String|))
            '#(~= 414 |polyPart| 420 |latex| 425 |fullPartialFraction| 430
               |fracPart| 435 |differentiate| 440 |convert| 451 |construct| 456
               |coerce| 461 D 466 = 477 + 483)

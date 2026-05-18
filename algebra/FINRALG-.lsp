@@ -145,13 +145,13 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|Matrix| 7) (|Vector| %) (0 . |traceMatrix|)
-              (5 . |determinant|) |FINRALG-;discriminant;VR;1| (10 . |Zero|)
+              (5 . |determinant|) |FINRALG-;discriminant;VR;1| (10 . |0|)
               (|Integer|) (|Vector| 6) (14 . |minIndex|) (|Vector| 7)
               (19 . |coordinates|) (25 . |setRow!|)
               |FINRALG-;coordinates;2VM;2| (32 . |minIndex|)
               (|PositiveInteger|) (37 . |rank|) (41 . |elt|) (47 . |elt|)
-              (53 . *) (59 . +) (65 . |Zero|) |FINRALG-;represents;VVS;3|
-              (69 . *) (75 . |trace|) (|List| 36) (80 . |matrix|)
+              (53 . *) (59 . +) (65 . |0|) |FINRALG-;represents;VVS;3| (69 . *)
+              (75 . |trace|) (|List| 36) (80 . |matrix|)
               |FINRALG-;traceMatrix;VM;4| (|List| 7) (85 . |parts|)
               (90 . |transpose|) |FINRALG-;regularRepresentation;SVM;5|)
            '#(|traceMatrix| 95 |represents| 100 |regularRepresentation| 106

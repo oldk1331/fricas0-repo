@@ -94,7 +94,7 @@
               (|ElementaryFunctionSign| 16 8) (5 . |sign|) (10 . |nonQsign|)
               (|Union| 17 '"failed") (15 . |retractIfCan|) (|Integer|)
               (|Fraction| 16) (20 . |sign|) (25 . |sign|) (30 . |retractIfCan|)
-              (35 . |sign|) (|Boolean|) (40 . |zero?|) (45 . |One|) (49 . =)
+              (35 . |sign|) (|Boolean|) (40 . |zero?|) (45 . |1|) (49 . =)
               (55 . -) (|String|) |TOOLSIGN;direction;SI;6|)
            '#(|sign| 60 |nonQsign| 65 |direction| 70) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

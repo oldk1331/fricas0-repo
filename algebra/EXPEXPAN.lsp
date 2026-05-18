@@ -608,7 +608,7 @@
 (MAKEPROP '|ExponentialExpansion| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|Fraction| 16) (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|local| |#4|) '|Rep| (0 . |One|) (|Integer|)
+              (|local| |#3|) (|local| |#4|) '|Rep| (0 . |1|) (|Integer|)
               (|Fraction| 12) (4 . /) 'ZEROCOUNT
               (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7
                                                                    (NRTEVAL
@@ -617,15 +617,15 @@
                                                                    (NRTEVAL
                                                                     (QREFELT %
                                                                              9)))
-              (10 . |denom|) (15 . |One|) (|Boolean|) (19 . =) (25 . |numer|)
+              (10 . |denom|) (15 . |1|) (|Boolean|) (19 . =) (25 . |numer|)
               (|Union| 34 '"failed") (30 . |retractIfCan|)
               |EXPEXPAN;retractIfCan;%U;4| (|Union| % '"failed") (35 . |recip|)
               (40 . /) (46 . |coerce|) (51 . *) |EXPEXPAN;/;2Upswes%;5|
               (57 . /) (63 . *) |EXPEXPAN;/;3%;6|
               (|UnivariatePuiseuxSeries| 7 (NRTEVAL (QREFELT % 8))
                                          (NRTEVAL (QREFELT % 9)))
-              (69 . |coerce|) |EXPEXPAN;coerce;Ups%;7| (74 . /) (80 . |One|)
-              (84 . |order|) (90 . |Zero|) (94 . |Zero|) (98 . >)
+              (69 . |coerce|) |EXPEXPAN;coerce;Ups%;7| (74 . /) (80 . |1|)
+              (84 . |order|) (90 . |0|) (94 . |0|) (98 . >)
               (|OrderedCompletion| 7) (104 . |coerce|) (109 . |coefficient|)
               (|List| 48) (115 . |variables|) (|Symbol|) (120 . |member?|)
               (126 . =) (|Union| 12 '"failed") (|ElementaryFunctionSign| 6 7)
@@ -638,7 +638,7 @@
               (|Union| 62 '"failed") (161 . |dominantTerm|)
               (|ExponentialOfUnivariatePuiseuxSeries| 7 (NRTEVAL (QREFELT % 8))
                                                       (NRTEVAL (QREFELT % 9)))
-              (166 . -) (172 . |Zero|) (176 . =) (182 . |order|)
+              (166 . -) (172 . |0|) (176 . =) (182 . |order|)
               (187 . |coefficient|) |EXPEXPAN;limitPlus;%U;10| (|OutputForm|)
               (|String|) (|PositiveInteger|) (|NonNegativeInteger|)
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
@@ -678,9 +678,9 @@
               |differentiate| 645 |denominator| 695 |denom| 700 |convert| 705
               |conditionP| 730 |commutator| 735 |coerce| 741 |charthRoot| 776
               |characteristic| 781 |ceiling| 785 |associator| 790 |associates?|
-              797 |antiCommutator| 803 |annihilate?| 809 |abs| 815 ^ 820 |Zero|
-              838 |One| 842 D 846 >= 896 > 902 = 908 <= 914 < 920 / 926 - 938 +
-              949 * 955)
+              797 |antiCommutator| 803 |annihilate?| 809 |abs| 815 ^ 820 D 838
+              >= 888 > 894 = 900 <= 906 < 912 |1| 918 |0| 922 / 926 - 938 + 949
+              * 955)
            'NIL
            (CONS
             (|makeByteWordVec2| 25
@@ -849,14 +849,13 @@
                                     1 27 25 0 1 0 0 75 1 1 23 16 0 1 3 0 0 0 0
                                     0 1 2 0 19 0 0 1 2 0 0 0 0 1 2 0 19 0 0 1 1
                                     7 0 0 1 2 0 0 0 74 1 2 0 0 0 75 1 2 0 0 0
-                                    12 1 0 0 0 1 0 0 0 1 2 0 0 0 88 1 3 0 0 0
-                                    88 75 1 1 16 0 0 1 2 16 0 0 75 1 2 15 0 0
-                                    46 1 2 15 0 0 48 1 3 15 0 0 46 102 1 3 15 0
-                                    0 48 75 1 2 8 19 0 0 1 2 8 19 0 0 1 2 0 19
-                                    0 0 1 2 8 19 0 0 1 2 8 19 0 0 1 2 0 0 0 0
-                                    33 2 0 0 16 16 30 2 0 0 0 0 1 1 0 0 0 1 2 0
-                                    0 0 0 1 2 0 0 74 0 1 2 0 0 0 0 1 2 0 0 12 0
-                                    1 2 0 0 75 0 1 2 0 0 0 16 1 2 0 0 16 0 29 2
-                                    26 0 0 13 1 2 26 0 13 0 1 2 17 0 0 12
-                                    1)))))
+                                    12 1 2 0 0 0 88 1 3 0 0 0 88 75 1 1 16 0 0
+                                    1 2 16 0 0 75 1 2 15 0 0 46 1 2 15 0 0 48 1
+                                    3 15 0 0 46 102 1 3 15 0 0 48 75 1 2 8 19 0
+                                    0 1 2 8 19 0 0 1 2 0 19 0 0 1 2 8 19 0 0 1
+                                    2 8 19 0 0 1 0 0 0 1 0 0 0 1 2 0 0 0 0 33 2
+                                    0 0 16 16 30 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0
+                                    0 1 2 0 0 74 0 1 2 0 0 0 0 1 2 0 0 12 0 1 2
+                                    0 0 75 0 1 2 0 0 0 16 1 2 0 0 16 0 29 2 26
+                                    0 0 13 1 2 26 0 13 0 1 2 17 0 0 12 1)))))
            '|lookupComplete|)) 

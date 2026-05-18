@@ -196,15 +196,15 @@
 
 (MAKEPROP '|GcdDomain&| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |Zero|) (|Boolean|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |0|) (|Boolean|)
               (4 . =) (10 . |gcd|) (|Union| % '"failed") (16 . |exquo|)
-              (22 . *) |GCDDOM-;lcm;3S;1| (28 . |lcm|) (34 . |One|)
+              (22 . *) |GCDDOM-;lcm;3S;1| (28 . |lcm|) (34 . |1|)
               (|Mapping| 6 6 6) (|List| 6) (38 . |reduce|) (|List| %)
               |GCDDOM-;lcm;LS;2| |GCDDOM-;gcd;LS;3|
               (|SparseUnivariatePolynomial| 6) (46 . |zero?|)
               (51 . |unitCanonical|) (56 . |content|) (61 . |exquo|)
-              (|NonNegativeInteger|) (67 . |minimumDegree|) (72 . |Zero|)
-              (76 . |One|) (80 . |monomial|) (86 . |exquo|) (92 . |degree|)
+              (|NonNegativeInteger|) (67 . |minimumDegree|) (72 . |0|)
+              (76 . |1|) (80 . |monomial|) (86 . |exquo|) (92 . |degree|)
               (97 . |subResultantGcd|) (103 . |leadingCoefficient|) (108 . *)
               (114 . |primitivePart|) (119 . *)
               (|SparseUnivariatePolynomial| %) |GCDDOM-;gcdPolynomial;3Sup;4|

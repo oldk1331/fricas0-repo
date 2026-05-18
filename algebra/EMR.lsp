@@ -273,14 +273,14 @@
                              (NRTEVAL (QREFELT % 10)) (NRTEVAL (QREFELT % 11)))
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
               (|local| |#5|) (|local| |#6|) '|Rep| (0 . |leadingCoefficient|)
-              (5 . |One|) (|Boolean|) (9 . =) (15 . |One|) (19 . |coerce|)
+              (5 . |1|) (|Boolean|) (9 . =) (15 . |1|) (19 . |coerce|)
               (24 . |reduce|) (30 . |inv|) (35 . *)
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (41 . |monicDivide|) |EMR;divide;2%R;1| (|NonNegativeInteger|)
-              (47 . |degree|) (52 . |leadingMonomial|) (57 . |Zero|)
-              (61 . |Zero|) (65 . |Zero|) (69 . =) (75 . |reductum|) (80 . +)
-              (86 . |fmecg|) (94 . |rem|) |EMR;euclideanSize;%Nni;4|
-              (100 . |zero?|) (105 . |One|) (109 . *) |EMR;unitCanonical;2%;5|
+              (47 . |degree|) (52 . |leadingMonomial|) (57 . |0|) (61 . |0|)
+              (65 . |0|) (69 . =) (75 . |reductum|) (80 . +) (86 . |fmecg|)
+              (94 . |rem|) |EMR;euclideanSize;%Nni;4| (100 . |zero?|)
+              (105 . |1|) (109 . *) |EMR;unitCanonical;2%;5|
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               |EMR;unitNormal;%R;6| (115 . |elt|) |EMR;elt;%2R;7| (|String|)
               (|OutputForm|) (|PositiveInteger|) (|Integer|)
@@ -292,7 +292,7 @@
               (|Record| (|:| |coef1| %) (|:| |coef2| %) (|:| |generator| %)))
            '#(|zero?| 121 |unitNormal| 126 |unitCanonical| 131 |rem| 136
               |reduce| 142 |inv| 148 |euclideanSize| 153 |elt| 158 |divide| 164
-              |Zero| 170 |One| 174 * 178)
+              |1| 170 |0| 174 * 178)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -328,6 +328,6 @@
                                     0 0 35 1 0 15 0 37 0 0 0 38 2 0 0 0 0 39 2
                                     7 0 0 0 43 1 0 15 0 37 1 0 41 0 42 1 0 0 0
                                     40 2 0 0 0 0 35 2 0 0 7 8 19 1 0 0 0 20 1 0
-                                    25 0 36 2 0 7 0 7 44 2 0 22 0 0 24 0 0 0 28
-                                    0 0 0 38 2 0 0 0 0 39)))))
+                                    25 0 36 2 0 7 0 7 44 2 0 22 0 0 24 0 0 0 38
+                                    0 0 0 28 2 0 0 0 0 39)))))
            '|lookupIncomplete|)) 

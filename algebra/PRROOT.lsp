@@ -144,7 +144,7 @@
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 30) (|:| |factor| 23) (|:| |exponent| 8))
               (|List| 31) (|Factored| 23) (47 . |factorList|) (52 . |degree|)
-              (|Boolean|) (57 . ~=) (63 . |Zero|) (67 . |coefficient|)
+              (|Boolean|) (57 . ~=) (63 . |0|) (67 . |coefficient|)
               (73 . |leadingCoefficient|) (|Fraction| 21) (78 . /) (84 . -)
               (|List| 41) |PRROOT;get_rational_roots;UPL;1|
               (|Union| 21 '"failed") (89 . |retractIfCan|)

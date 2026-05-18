@@ -154,7 +154,7 @@
 (MAKEPROP '|AssociatedJordanAlgebra| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|local| |#2|) (|local| |#1|) (|local| |#2|)
-              '|Rep| (0 . |One|) (4 . +) '|two| (|Union| % '"failed")
+              '|Rep| (0 . |1|) (4 . +) '|two| (|Union| % '"failed")
               (10 . |recip|) '|oneHalf| (|Boolean|) (15 . |zero?|) (20 . *)
               (26 . +) (32 . *) |JORDAN;*;3%;1| |JORDAN;coerce;%A;2|
               |JORDAN;coerce;A%;3| (|PositiveInteger|) |JORDAN;^;%Pi%;4|
@@ -187,8 +187,8 @@
               |commutative?| 394 |coerce| 398 |basis| 413
               |associatorDependence| 417 |associator| 421 |associative?| 428
               |apply| 432 |antiCommutator| 438 |antiCommutative?| 444
-              |antiAssociative?| 448 |alternative?| 452 ^ 456 |Zero| 462 = 466
-              - 472 + 483 * 489)
+              |antiAssociative?| 448 |alternative?| 452 ^ 456 = 462 |0| 468 -
+              472 + 483 * 489)
            'NIL
            (CONS
             (|makeByteWordVec2| 7
@@ -236,7 +236,7 @@
                                     0 0 0 1 0 3 15 1 1 0 26 0 1 1 0 5 0 21 1 0
                                     0 5 22 0 1 38 1 0 4 35 1 3 0 0 0 0 0 1 0 3
                                     15 1 2 1 0 40 0 1 2 0 0 0 0 1 0 3 15 1 0 3
-                                    15 1 0 3 15 1 2 0 0 0 23 24 0 0 0 1 2 0 15
+                                    15 1 0 3 15 1 2 0 0 0 23 24 2 0 15 0 0 1 0
                                     0 0 1 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 0
                                     0 23 0 1 2 0 0 0 0 20 2 0 0 27 0 1 2 0 0 28
                                     0 1 2 0 0 6 0 1 2 0 0 0 6 19)))))

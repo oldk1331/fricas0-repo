@@ -596,7 +596,7 @@
               (10 . |rewriteIdealWithQuasiMonicGenerators|) (|Boolean|)
               (17 . |ground?|) (|Mapping| 17 9) (22 . |any?|)
               (|Record| (|:| |bas| %) (|:| |top| 11)) (|Union| 21 '#1="failed")
-              (28 . |basicSet|) (34 . |rewriteIdealWithRemainder|) (40 . |One|)
+              (28 . |basicSet|) (34 . |rewriteIdealWithRemainder|) (40 . |1|)
               (44 . =) (50 . |rewriteSetWithReduction|) (58 . |members|)
               (63 . |concat|) (|Union| % '"failed") |WUTSET;medialSet;LMMU;5|
               (69 . |initiallyReduced?|) (75 . |initiallyReduce|)

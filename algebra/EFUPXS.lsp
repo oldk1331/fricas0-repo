@@ -637,7 +637,7 @@
 (MAKEPROP '|ElementaryFunctionsUnivariatePuiseuxSeries| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|local| |#4|) 'TRANSFCN (0 . |One|) (4 . |One|)
+              (|local| |#3|) (|local| |#4|) 'TRANSFCN (0 . |1|) (4 . |1|)
               (|Fraction| 16) (8 . |rationalPower|) (13 . |laurentRep|)
               (|Integer|) (18 . |degree|) (23 . |coefficient|) (|Boolean|)
               (29 . |zero?|) (34 . |order|) (40 . |monomial|) (46 . *)
@@ -667,9 +667,9 @@
               |EFUPXS;atanhIfCan;UPXSU;22| (221 . |acothIfCan|)
               |EFUPXS;acothIfCan;UPXSU;23| (226 . |asechIfCan|)
               |EFUPXS;asechIfCan;UPXSU;32| (231 . |acschIfCan|)
-              |EFUPXS;acschIfCan;UPXSU;33| (236 . |Zero|) (240 . |Zero|)
-              (244 . |Zero|) (248 . |order|) (254 . <) (260 . |coefficient|)
-              (266 . =) (272 . |One|) (276 . -) (282 . /) (288 . -) (293 . ^)
+              |EFUPXS;acschIfCan;UPXSU;33| (236 . |0|) (240 . |0|) (244 . |0|)
+              (248 . |order|) (254 . <) (260 . |coefficient|) (266 . =)
+              (272 . |1|) (276 . -) (282 . /) (288 . -) (293 . ^)
               (299 . |differentiate|) (304 . |integrate|) (309 . |asin|)
               (314 . |coerce|) (319 . +) |EFUPXS;asinIfCan;UPXSU;26|
               (325 . |acos|) (330 . -) |EFUPXS;acosIfCan;UPXSU;27|

@@ -329,7 +329,7 @@
               |MKFLCFN;make_imaginary_part_function;SSM;12| (98 . |atom?|)
               (103 . |integer?|) (|Integer|) (108 . |integer|) (|DoubleFloat|)
               (113 . |convert|) (118 . |destruct|) (|List| 8) (123 . |elt|)
-              (129 . |One|) (133 . |upperCase|) (138 . |second|)
+              (129 . |1|) (133 . |upperCase|) (138 . |second|)
               (143 . |convert|) (148 . /))
            '#(|make_real_part_function| 154 |make_imaginary_part_function| 160
               |makeFloatFunction| 166)

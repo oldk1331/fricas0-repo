@@ -136,7 +136,7 @@
               (|Union| % '"failed") |CELL;projection;%U;3| |CELL;makeCell;L%;4|
               |CELL;makeCell;Sc2%;5| (|Symbol|) (10 . |variableOf|)
               |CELL;mainVariableOf;%S;6| (|List| 20) |CELL;variablesOf;%L;7|
-              (|Boolean|) (15 . |hasDimension?|) (20 . |One|)
+              (|Boolean|) (15 . |hasDimension?|) (20 . |1|)
               (|NonNegativeInteger|) |CELL;dimension;%Nni;8| (24 . <) (30 . >)
               |CELL;hasDimension?;%SB;9| (36 . |samplePoint|) (|List| 6)
               |CELL;samplePoint;%L;10|)

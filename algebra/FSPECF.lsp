@@ -4653,20 +4653,19 @@
               |FSPECF;airyBiPrime;2F;22| |FSPECF;lambertW;2F;23|
               |FSPECF;polylog;3F;24| |FSPECF;weierstrassP;4F;25|
               |FSPECF;weierstrassPPrime;4F;26| |FSPECF;weierstrassSigma;4F;27|
-              |FSPECF;weierstrassZeta;4F;28| (26 . |Zero|) (30 . |Zero|)
-              (|Boolean|) (34 . =) (40 . |One|) (44 . |One|) (|Integer|)
-              (48 . |coerce|) (|List| 7) (53 . |concat|) (|List| %)
-              (59 . |elt|) (65 . |hypergeometricF|) (72 . |meijerG|)
-              (81 . |operator|) '|opdiff| (|Union| % '"failed") (86 . |recip|)
-              '|ahalf| '|athird| '|afourth| '|asixth| (|PositiveInteger|)
-              (91 . *) '|twothirds| '|threehalfs| (97 . |elt|) (103 . |new|)
-              (107 . |coerce|) (112 . |differentiate|) (118 . |kernel|)
-              (124 . *) (130 . +) '|opWeierstrassPInverse|
-              |FSPECF;weierstrassPInverse;4F;34| (|Mapping| 7 99)
-              (|BasicOperatorFunctions1| 7) (136 . |evaluate|) (142 . ^)
-              (148 . -) (154 . /) (160 . -)
-              (|SparseMultivariatePolynomial| 6 205) (165 . |One|)
-              (169 . |sqrt|) (|List| 126) (174 . |derivative|) '|opWhittakerM|
+              |FSPECF;weierstrassZeta;4F;28| (26 . |0|) (30 . |0|) (|Boolean|)
+              (34 . =) (40 . |1|) (44 . |1|) (|Integer|) (48 . |coerce|)
+              (|List| 7) (53 . |concat|) (|List| %) (59 . |elt|)
+              (65 . |hypergeometricF|) (72 . |meijerG|) (81 . |operator|)
+              '|opdiff| (|Union| % '"failed") (86 . |recip|) '|ahalf| '|athird|
+              '|afourth| '|asixth| (|PositiveInteger|) (91 . *) '|twothirds|
+              '|threehalfs| (97 . |elt|) (103 . |new|) (107 . |coerce|)
+              (112 . |differentiate|) (118 . |kernel|) (124 . *) (130 . +)
+              '|opWeierstrassPInverse| |FSPECF;weierstrassPInverse;4F;34|
+              (|Mapping| 7 99) (|BasicOperatorFunctions1| 7) (136 . |evaluate|)
+              (142 . ^) (148 . -) (154 . /) (160 . -)
+              (|SparseMultivariatePolynomial| 6 205) (165 . |1|) (169 . |sqrt|)
+              (|List| 126) (174 . |derivative|) '|opWhittakerM|
               |FSPECF;whittakerM;4F;40| (|None|) (180 . |setProperty|)
               '|opWhittakerW| |FSPECF;whittakerW;4F;45| '|opAngerJ|
               |FSPECF;angerJ;3F;50| (187 . |pi|) (191 . |sin|) '|opWeberE|
@@ -4682,17 +4681,16 @@
               '|opKelvinBer| '|opKelvinKei| |FSPECF;kelvinKei;3F;122|
               |FSPECF;kelvinKer;3F;127| '|opKelvinKer| '|opEllipticK|
               |FSPECF;ellipticK;2F;132| |FSPECF;ellipticE;2F;136|
-              (|Fraction| 97) (213 . |One|) (|Mapping| 7 7)
-              (217 . |derivative|) '|opEllipticE| '|opEllipticE2|
-              |FSPECF;ellipticE;3F;140| |FSPECF;ellipticF;3F;146| (|InputForm|)
-              (223 . |convert|) (228 . |convert|) (|Mapping| 192 354)
-              (233 . |input|) '|opEllipticF| '|opEllipticPi|
-              |FSPECF;ellipticPi;4F;151| '|opJacobiSn| |FSPECF;jacobiSn;3F;157|
-              (239 . |is?|) (|Kernel| %) (245 . |retract|) (|Kernel| 7)
-              (250 . |argument|) |FSPECF;jacobiCn;3F;163|
-              |FSPECF;jacobiDn;3F;168| '|opJacobiCn| '|opJacobiDn|
-              '|opJacobiZeta| |FSPECF;jacobiZeta;3F;173| '|opJacobiTheta|
-              |FSPECF;jacobiTheta;3F;178| '|opLerchPhi|
+              (|Fraction| 97) (213 . |1|) (|Mapping| 7 7) (217 . |derivative|)
+              '|opEllipticE| '|opEllipticE2| |FSPECF;ellipticE;3F;140|
+              |FSPECF;ellipticF;3F;146| (|InputForm|) (223 . |convert|)
+              (228 . |convert|) (|Mapping| 192 354) (233 . |input|)
+              '|opEllipticF| '|opEllipticPi| |FSPECF;ellipticPi;4F;151|
+              '|opJacobiSn| |FSPECF;jacobiSn;3F;157| (239 . |is?|) (|Kernel| %)
+              (245 . |retract|) (|Kernel| 7) (250 . |argument|)
+              |FSPECF;jacobiCn;3F;163| |FSPECF;jacobiDn;3F;168| '|opJacobiCn|
+              '|opJacobiDn| '|opJacobiZeta| |FSPECF;jacobiZeta;3F;173|
+              '|opJacobiTheta| |FSPECF;jacobiTheta;3F;178| '|opLerchPhi|
               |FSPECF;lerchPhi;4F;183| '|opRiemannZeta|
               |FSPECF;riemannZeta;2F;187| |FSPECF;charlierC;4F;190|
               |FSPECF;hermiteH;3F;193| (255 . |elt|) |FSPECF;jacobiP;5F;198|
@@ -4715,8 +4713,8 @@
               (|Union| 6 '"failed") (431 . |retractIfCan|) (436 . |denom|)
               (441 . |abs|) (446 . |coerce|) (451 . |iiabs|) (|Union| 10 '#1#)
               (456 . |retractIfCan|) (|List| 203) (461 . |kernels|)
-              (|NonNegativeInteger|) (466 . |height|) (471 . |Zero|) (475 . =)
-              (481 . |coerce|) (486 . |One|) |FSPECF;iiconjugate;2F;277|
+              (|NonNegativeInteger|) (466 . |height|) (471 . |0|) (475 . =)
+              (481 . |coerce|) (486 . |1|) |FSPECF;iiconjugate;2F;277|
               (|Mapping| % %) (490 . |map|) (|Mapping| 7 205) (|List| 205)
               (|ListFunctions2| 205 7) (496 . |map|) (502 . |eval|)
               (509 . |conjugate|) (|SparseMultivariatePolynomial| 6 203)

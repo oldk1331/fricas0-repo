@@ -2795,8 +2795,8 @@
 ;                  for [op,:u] in opAlist] where
 ;     memq(op,ops) ==   --dirty trick to get 0 and 1 instead of Zero and One
 ;       MEMQ(op,ops) => op
-;       EQ(op,'One)  => MEMQ(1,ops) and 1
-;       EQ(op,'Zero) => MEMQ(0,ops) and 0
+;       EQ(op, "1") => MEMQ(1, ops) and 1
+;       EQ(op, "0") => MEMQ(0, ops) and 0
 ;       false
 ;     fn ==
 ;       sig1 := sublisFormal(rest domname,sig)
@@ -2967,8 +2967,8 @@
 (DEFUN |getDomainOpTable2,memq| (|op| |ops|)
   (PROG ()
     (RETURN
-     (COND ((MEMQ |op| |ops|) |op|) ((EQ |op| '|One|) (AND (MEMQ 1 |ops|) 1))
-           ((EQ |op| '|Zero|) (AND (MEMQ 0 |ops|) 0)) ('T NIL)))))
+     (COND ((MEMQ |op| |ops|) |op|) ((EQ |op| '|1|) (AND (MEMQ 1 |ops|) 1))
+           ((EQ |op| '|0|) (AND (MEMQ 0 |ops|) 0)) ('T NIL)))))
 
 ; evalDomainOpPred(dom, pred, preds) == process(dom, pred, preds) where
 ;   process(dom, pred, preds) ==

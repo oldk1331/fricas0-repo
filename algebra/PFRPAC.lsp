@@ -145,7 +145,7 @@
                            (COND (#9# #8#)
                                  ('T
                                   (SPADCALL
-                                   (|compiledLookupCheck| '|One| (LIST '%)
+                                   (|compiledLookupCheck| '|1| (LIST '%)
                                                           |fup|)))))
                           (|compiledLookupCheck| '*
                                                  (LIST '% (|devaluate| |up|)

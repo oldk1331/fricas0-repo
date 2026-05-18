@@ -29,7 +29,7 @@
 
 (SDEFUN |INFCG;exponent;%I;8| ((|x| (%)) (% (|Integer|))) (|INFCG;rep| |x| %)) 
 
-(SDEFUN |INFCG;One;%;9| ((% (%))) (|INFCG;per| 0 %)) 
+(SDEFUN |INFCG;1;%;9| ((% (%))) (|INFCG;per| 0 %)) 
 
 (SDEFUN |INFCG;one?;%B;10| ((|x| (%)) (% (|Boolean|)))
         (ZEROP (|INFCG;rep| |x| %))) 
@@ -90,7 +90,7 @@
               |INFCG;hashUpdate!;Hs%Hs;4| (|SExpression|) (27 . |convert|)
               |INFCG;convert;%Se;5| |INFCG;generator;%;6| (|List| %)
               |INFCG;generators;L;7| |INFCG;exponent;%I;8|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |INFCG;One;%;9|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |INFCG;1;%;9|) %))
               |INFCG;*;3%;11| |INFCG;inv;2%;12| |INFCG;=;2%B;13|
               |INFCG;<;2%B;14| (|String|) (|PositiveInteger|)
               (|Union| % '"failed") (|NonNegativeInteger|) (|SingleInteger|))
@@ -98,8 +98,8 @@
               |recip| 65 |one?| 70 |min| 75 |max| 81 |leftRecip| 87 |leftPower|
               92 |latex| 104 |inv| 109 |hashUpdate!| 114 |hash| 120
               |generators| 125 |generator| 129 |exponent| 133 |convert| 138
-              |conjugate| 143 |commutator| 149 |coerce| 155 ^ 160 |One| 178 >=
-              182 > 188 = 194 <= 200 < 206 / 212 * 218)
+              |conjugate| 143 |commutator| 149 |coerce| 155 ^ 160 >= 178 > 184
+              = 190 <= 196 < 202 |1| 208 / 212 * 218)
            'NIL
            (CONS
             (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
@@ -124,7 +124,7 @@
                                     18 0 20 1 0 37 0 1 0 0 25 26 0 0 0 24 1 0
                                     11 0 27 1 0 21 0 23 2 0 0 0 0 1 2 0 0 0 0 1
                                     1 0 10 0 17 2 0 0 0 34 1 2 0 0 0 36 1 2 0 0
-                                    0 11 1 0 0 0 28 2 0 8 0 0 1 2 0 8 0 0 1 2 0
-                                    8 0 0 31 2 0 8 0 0 1 2 0 8 0 0 32 2 0 0 0 0
+                                    0 11 1 2 0 8 0 0 1 2 0 8 0 0 1 2 0 8 0 0 31
+                                    2 0 8 0 0 1 2 0 8 0 0 32 0 0 0 28 2 0 0 0 0
                                     1 2 0 0 0 0 29)))))
            '|lookupComplete|)) 

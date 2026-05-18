@@ -456,11 +456,10 @@
 (MAKEPROP '|PolynomialNumberTheoryFunctions| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|SparseUnivariatePolynomial| 8)
-              (0 . |One|) (|Integer|) (|NonNegativeInteger|) (4 . |monomial|)
-              '|x| (|Fraction| 8) (10 . |One|)
-              (|SparseUnivariatePolynomial| 12) (14 . |monomial|) '|y|
-              (20 . |Zero|) (24 . |One|) 'E 'B 'H 'L 'P 'CT 'U
-              (28 . |leadingCoefficient|) (|Boolean|) (33 . ~=) (39 . =)
+              (0 . |1|) (|Integer|) (|NonNegativeInteger|) (4 . |monomial|)
+              '|x| (|Fraction| 8) (10 . |1|) (|SparseUnivariatePolynomial| 12)
+              (14 . |monomial|) '|y| (20 . |0|) (24 . |1|) 'E 'B 'H 'L 'P 'CT
+              'U (28 . |leadingCoefficient|) (|Boolean|) (33 . ~=) (39 . =)
               (45 . |degree|) (50 . *) (56 . -) (62 . +)
               (|CyclotomicUtilities|) (68 . |cyclotomic|)
               |PNTHEORY;cyclotomic;ISup;2| (73 . |coerce|) (78 . |integrate|)

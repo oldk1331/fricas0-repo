@@ -58,8 +58,8 @@
                                                               (|PositiveInteger|)
                                                               %))
                                                             T)
-                                                           ((|Zero| (%)
-                                                                    |constant|)
+                                                           ((|0| (%)
+                                                                 |constant|)
                                                             (|has| |t#1|
                                                                    (|OrderedAbelianMonoid|)))
                                                            ((|zero?|

@@ -556,8 +556,8 @@
 (MAKEPROP '|PatternMatchTools| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (0 . |One|) (4 . -) (|Pattern| 6) (9 . |convert|)
-              '|mn1| (|Union| 7 '"failed") (14 . |retractIfCan|) (19 . |Zero|)
+              (|local| |#3|) (0 . |1|) (4 . -) (|Pattern| 6) (9 . |convert|)
+              '|mn1| (|Union| 7 '"failed") (14 . |retractIfCan|) (19 . |0|)
               (|Boolean|) (23 . |smaller?|) (|PatternMatchResult| 6 8)
               (29 . |failed?|) (|List| 11) (34 . |member?|) (40 . |failed|)
               (44 . ~=) (|List| 8) (50 . |remove|) (56 . |remove|) (62 . *)
@@ -569,7 +569,7 @@
               (90 . |addMatchRestricted|) (|Union| 8 '"failed")
               (98 . |getMatch|) (104 . |member?|) (110 . |hasPredicate?|)
               (115 . |optional?|) (|Mapping| 17 11) (120 . |select|)
-              (126 . |One|) (130 . |addMatch|) (137 . |multiple?|)
+              (126 . |1|) (130 . |addMatch|) (137 . |multiple?|)
               (142 . |constant?|) (|NonNegativeInteger|) (147 . |depth|)
               (152 . >) (|Mapping| 17 11 11) (158 . |sort!|))
            '#(|patternMatchTimes| 164 |patternMatch| 172) 'NIL

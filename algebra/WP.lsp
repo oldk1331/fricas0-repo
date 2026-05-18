@@ -163,9 +163,9 @@
                                    (EXIT (NREVERSE #1#)))))
                             (QREFELT % 62))))))) 
 
-(SDEFUN |WP;Zero;%;7| ((% (%))) (|spadConstant| % 64)) 
+(SDEFUN |WP;0;%;7| ((% (%))) (|spadConstant| % 64)) 
 
-(SDEFUN |WP;One;%;8| ((% (%))) (|spadConstant| % 65)) 
+(SDEFUN |WP;1;%;8| ((% (%))) (|spadConstant| % 65)) 
 
 (SDEFUN |WP;=;2%B;9| ((|x1| (%)) (|x2| (%)) (% (|Boolean|)))
         (SEQ
@@ -293,20 +293,20 @@
               (5 . ~=) '#:G0 '|lookupList|
               (|Record| (|:| |var| 7) (|:| |weight| 15)) (|List| 23) (11 . ~=)
               (17 . =)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |WP;Zero;%;7|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |WP;0;%;7|) %))
               (23 . |zero?|) (|Union| 7 '"failed") (28 . |mainVariable|)
               (33 . |monomial|) (|SparseUnivariatePolynomial| %)
               (39 . |univariate|) (|SparseUnivariatePolynomial| 9)
               (45 . |zero?|) (50 . |degree|) (55 . |leadingCoefficient|)
-              (60 . |leadingMonomial|) (65 . -) (71 . |One|) (75 . |monomial|)
+              (60 . |leadingMonomial|) (65 . -) (71 . |1|) (75 . |monomial|)
               (82 . |zero?|) (87 . |leadingCoefficient|) (92 . *)
               (98 . |degree|) |WP;+;3%;10| (103 . |reductum|) |WP;coerce;P%;4|
-              (|List| 9) (108 . |coefficients|) (113 . +) (119 . |Zero|)
+              (|List| 9) (108 . |coefficients|) (113 . +) (119 . |0|)
               |WP;coerce;%P;5| (|OutputForm|) (|Integer|) (123 . |coerce|)
               (128 . |coerce|) (133 . |paren|) (138 . +) (|Mapping| 54 54 54)
-              (|List| 54) (144 . |reduce|) |WP;coerce;%Of;6| (150 . |Zero|)
-              (154 . |One|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |WP;One;%;8|) %))
+              (|List| 54) (144 . |reduce|) |WP;coerce;%Of;6| (150 . |0|)
+              (154 . |1|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |WP;1;%;8|) %))
               (158 . =) |WP;=;2%B;9| (164 . +) |WP;-;2%;11| (170 . *)
               |WP;*;I2%;12| (176 . *) |WP;*;3%;13| (182 . |characteristic|)
               |WP;characteristic;Nni;14| (|String|) (|PositiveInteger|)
@@ -316,8 +316,8 @@
               235 |one?| 241 |leftRecip| 246 |leftPower| 251 |latex| 263
               |commutator| 268 |coerce| 274 |characteristic| 299
               |changeWeightLevel| 303 |associator| 308 |antiCommutator| 315
-              |annihilate?| 321 ^ 327 |Zero| 339 |One| 343 = 347 / 353 - 359 +
-              370 * 376)
+              |annihilate?| 321 ^ 327 = 339 |1| 345 |0| 349 / 353 - 359 + 370 *
+              376)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -360,7 +360,7 @@
                                     54 0 63 1 0 0 55 1 1 0 9 0 53 1 0 0 9 48 1
                                     1 0 6 1 0 0 15 76 1 0 14 15 16 3 0 0 0 0 0
                                     1 2 0 0 0 0 1 2 0 19 0 0 1 2 0 0 0 78 1 2 0
-                                    0 0 15 1 0 0 0 27 0 0 0 66 2 0 19 0 0 68 2
+                                    0 0 15 1 2 0 19 0 0 68 0 0 0 66 0 0 0 27 2
                                     2 79 0 0 1 2 0 0 0 0 1 1 0 0 0 70 2 0 0 0 0
                                     46 2 0 0 78 0 1 2 0 0 0 0 74 2 0 0 55 0 72
                                     2 0 0 15 0 1 2 1 0 0 6 1 2 1 0 6 0 1)))))

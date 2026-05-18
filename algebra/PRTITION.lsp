@@ -1,7 +1,7 @@
 
-(MAKEPROP '|PRTITION;Zero;%;1| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|PRTITION;0;%;1| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(SDEFUN |PRTITION;Zero;%;1| ((% (%))) NIL) 
+(SDEFUN |PRTITION;0;%;1| ((% (%))) NIL) 
 
 (MAKEPROP '|PRTITION;coerce;%L;2| '|SPADreplace| '(XLAM (|s|) |s|)) 
 
@@ -209,8 +209,7 @@
 (MAKEPROP '|Partition| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL '|Rep|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |PRTITION;Zero;%;1|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |PRTITION;0;%;1|) %))
               (|List| 13) |PRTITION;coerce;%L;2| (0 . |copy|)
               |PRTITION;convert;%L;3| (|Boolean|) (|Integer|) (5 . <)
               (|Mapping| 12 13 13) (11 . |sort|) |PRTITION;partition;L%;4|
@@ -228,7 +227,7 @@
            '#(~= 82 |zero?| 88 |subtractIfCan| 93 |smaller?| 99 |sample| 105
               |powers| 109 |pdct| 114 |partition| 119 |opposite?| 124 |min| 130
               |max| 136 |latex| 142 |convert| 147 |conjugate| 152 |coerce| 157
-              |Zero| 167 >= 171 > 177 = 183 <= 189 < 195 + 201 * 207)
+              >= 167 > 173 = 179 <= 185 < 191 |0| 197 + 201 * 207)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -253,8 +252,8 @@
                                          8 28 1 0 13 0 46 1 0 0 8 17 2 0 12 0 0
                                          1 2 0 0 0 0 1 2 0 0 0 0 1 1 0 34 0 1 1
                                          0 8 0 11 1 0 0 0 31 1 0 32 0 44 1 0 8
-                                         0 9 0 0 0 7 2 0 12 0 0 1 2 0 12 0 0 1
-                                         2 0 12 0 0 19 2 0 12 0 0 1 2 0 12 0 0
-                                         18 2 0 0 0 0 20 2 0 0 47 0 1 2 0 0 22
-                                         0 24)))))
+                                         0 9 2 0 12 0 0 1 2 0 12 0 0 1 2 0 12 0
+                                         0 19 2 0 12 0 0 1 2 0 12 0 0 18 0 0 0
+                                         7 2 0 0 0 0 20 2 0 0 47 0 1 2 0 0 22 0
+                                         24)))))
            '|lookupComplete|)) 

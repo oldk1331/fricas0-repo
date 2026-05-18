@@ -478,9 +478,9 @@
                        (CONS (SPADCALL |bw| (QCAR |b|) (QREFELT % 27))
                              (SPADCALL (QCDR |b|) |bf| (QREFELT % 28)))))))))) 
 
-(SDEFUN |PFR;Zero;%;12| ((% (%))) (CONS (|spadConstant| % 26) NIL)) 
+(SDEFUN |PFR;0;%;12| ((% (%))) (CONS (|spadConstant| % 26) NIL)) 
 
-(SDEFUN |PFR;One;%;13| ((% (%))) (CONS (|spadConstant| % 32) NIL)) 
+(SDEFUN |PFR;1;%;13| ((% (%))) (CONS (|spadConstant| % 32) NIL)) 
 
 (SDEFUN |PFR;characteristic;Nni;14| ((% (|NonNegativeInteger|)))
         (SPADCALL (QREFELT % 54))) 
@@ -843,17 +843,17 @@
               (34 . |concat|) (40 . *) (|NonNegativeInteger|) (46 . ^)
               (|Record| (|:| |coef1| %) (|:| |coef2| %))
               (|Union| 22 '#1="failed") (52 . |extendedEuclidean|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |PFR;Zero;%;12|) %))
-              (59 . |Zero|) (63 . +) (69 . |append|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |PFR;0;%;12|) %))
+              (59 . |0|) (63 . +) (69 . |append|)
               (|Record| (|:| |quotient| %) (|:| |remainder| %)) (75 . |divide|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |PFR;One;%;13|) %))
-              (81 . |One|) |PFR;coerce;R%;15| '|ordered_R?| (|Factored| 6)
-              (85 . |One|) (89 . =) (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |PFR;1;%;13|) %))
+              (81 . |1|) |PFR;coerce;R%;15| '|ordered_R?| (|Factored| 6)
+              (85 . |1|) (89 . =) (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 38) (|:| |factor| 6) (|:| |exponent| 20))
               (|List| 39) (95 . |factorList|) (|Union| 43 '#1#) (|List| %)
               (100 . |multiEuclidean|) |PFR;compactFraction;2%;11|
               (|SparseUnivariatePolynomial| 6) |PFR;padicallyExpand;2RSup;25|
-              (106 . |degree|) (111 . |Zero|) (115 . ~=)
+              (106 . |degree|) (111 . |0|) (115 . ~=)
               (121 . |leadingCoefficient|) (126 . |reductum|)
               |PFR;padicFraction;2%;10| (131 . |characteristic|)
               |PFR;characteristic;Nni;14| (|Integer|) (135 . |coerce|)
@@ -892,7 +892,7 @@
               |euclideanSize| 538 |divide| 543 |compactFraction| 549
               |commutator| 554 |coerce| 560 |characteristic| 595 |associator|
               599 |associates?| 606 |antiCommutator| 612 |annihilate?| 618 ^
-              624 |Zero| 642 |One| 646 = 650 / 656 - 662 + 673 * 679)
+              624 = 642 |1| 648 |0| 652 / 656 - 662 + 673 * 679)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -961,8 +961,8 @@
                                     0 6 33 1 0 59 0 63 1 0 0 64 72 1 2 0 115 1
                                     0 0 20 55 3 0 0 0 0 0 1 2 0 11 0 0 1 2 0 0
                                     0 0 1 2 0 11 0 0 1 2 0 0 0 109 1 2 0 0 0 20
-                                    1 2 0 0 0 56 1 0 0 0 25 0 0 0 31 2 0 11 0 0
-                                    73 2 0 0 0 0 1 2 0 0 0 0 1 1 0 0 0 91 2 0 0
+                                    1 2 0 0 0 56 1 2 0 11 0 0 73 0 0 0 31 0 0 0
+                                    25 2 0 0 0 0 1 2 0 0 0 0 1 1 0 0 0 91 2 0 0
                                     0 0 94 2 0 0 109 0 1 2 0 0 0 0 79 2 0 0 56
                                     0 93 2 0 0 20 0 1 2 0 0 0 6 1 2 0 0 6 0 92
                                     2 2 0 0 115 1 2 2 0 115 0 1)))))

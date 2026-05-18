@@ -1337,20 +1337,20 @@
               'NPOWERS 'FPOWERS 'MAYFPOW 'LOGS 'NPOWLOG 'FPOWLOG 'NOTINV
               (|Stream| 6) (|StreamTaylorSeriesOperations| 6) (0 . *)
               (|Mapping| 16) (6 . |lazyIntegrate|) (|Boolean|) (12 . |empty?|)
-              (17 . |One|) (21 . |coerce|) (26 . |frst|) (31 . |Zero|) (35 . =)
+              (17 . |1|) (21 . |coerce|) (26 . |frst|) (31 . |0|) (35 . =)
               (41 . |deriv|) (|Mapping| 16 16)
               (|ParadoxicalCombinatorsForStreams| 6) (46 . Y) (51 . |exp|)
               |STTF;exp;2S;2| (56 . /) (62 . |log|) |STTF;log;2S;3|
               |STTF;^;3S;4| (|List| 16) (67 . |second|) (72 . |first|) (77 . *)
               (83 . -) (|Mapping| 38 38) (|Integer|) (88 . Y) (94 . |sin|)
-              (99 . |cos|) (104 . |One|)
-              (|Record| (|:| |sin| 16) (|:| |cos| 16)) |STTF;sincos;SR;6|
-              |STTF;sin;2S;7| |STTF;cos;2S;8| (|PositiveInteger|) (108 . |One|)
-              (112 . +) (118 . |tan|) |STTF;tan;2S;10| (123 . -) (128 . |cot|)
-              |STTF;cot;2S;12| (|Union| 16 '"failed") (133 . |recip|)
-              (138 . |first|) |STTF;sec;2S;13| |STTF;csc;2S;14| (143 . |zero?|)
-              (148 . |rst|) (|Fraction| 44) (153 . |One|) (157 . /) (163 . -)
-              (168 . -) (174 . |powern|) (180 . |integrate|) (186 . |asin|)
+              (99 . |cos|) (104 . |1|) (|Record| (|:| |sin| 16) (|:| |cos| 16))
+              |STTF;sincos;SR;6| |STTF;sin;2S;7| |STTF;cos;2S;8|
+              (|PositiveInteger|) (108 . |1|) (112 . +) (118 . |tan|)
+              |STTF;tan;2S;10| (123 . -) (128 . |cot|) |STTF;cot;2S;12|
+              (|Union| 16 '"failed") (133 . |recip|) (138 . |first|)
+              |STTF;sec;2S;13| |STTF;csc;2S;14| (143 . |zero?|) (148 . |rst|)
+              (|Fraction| 44) (153 . |1|) (157 . /) (163 . -) (168 . -)
+              (174 . |powern|) (180 . |integrate|) (186 . |asin|)
               (191 . |exquo|) |STTF;asin;2S;16| (197 . |acos|)
               |STTF;acos;2S;17| (202 . |atan|) |STTF;atan;2S;18| (207 . |acot|)
               |STTF;acot;2S;19| (212 . |asec|) |STTF;asec;2S;20| (217 . |acsc|)

@@ -72,7 +72,7 @@
 (MAKEPROP '|TensorPowerFunctions2| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|local| |#4|) (|local| |#5|) (0 . |Zero|)
+              (|local| |#3|) (|local| |#4|) (|local| |#5|) (0 . |0|)
               (|Record| (|:| |k| 17) (|:| |c| 7)) (|List| 12)
               (|TensorPower| (NRTEVAL (QREFELT % 6)) 7 8 9) (4 . |listOfTerms|)
               (|List| 8) (|Vector| 8) (9 . |parts|) (14 . *) (20 . +)

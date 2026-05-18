@@ -1,5 +1,5 @@
 
-(SDEFUN |HELLFDIV;Zero;%;1| ((% (%)))
+(SDEFUN |HELLFDIV;0;%;1| ((% (%)))
         (SPADCALL (|spadConstant| % 27) (QREFELT % 28))) 
 
 (SDEFUN |HELLFDIV;divisor;R%;2| ((|g| (R)) (% (%)))
@@ -551,24 +551,23 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|Union| 7 '"failed")
               (0 . |hyperelliptic|) '|#G1| '|uhyper| '|Rep| '|hyper|
-              (|NonNegativeInteger|) (4 . |degree|) (9 . |One|) '|gen|
+              (|NonNegativeInteger|) (4 . |degree|) (9 . |1|) '|gen|
               (|OutputForm|) (|Symbol|) (13 . |coerce|) '|dvd| (|Integer|)
-              (18 . |coerce|) '|zer| (23 . |One|) |HELLFDIV;divisor;R%;2|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |HELLFDIV;Zero;%;1|) %))
-              (27 . |One|) (31 . |Zero|) (|Boolean|) (35 . =) (41 . |zero?|)
+              (18 . |coerce|) '|zer| (23 . |1|) |HELLFDIV;divisor;R%;2|
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |HELLFDIV;0;%;1|) %))
+              (27 . |1|) (31 . |0|) (|Boolean|) (35 . =) (41 . |zero?|)
               (|Vector| 9) (|FractionalIdeal| 7 42 8 9) (46 . |ideal|) (51 . *)
               |HELLFDIV;ideal;%Fi;5|
               (|Record| (|:| |id| 36) (|:| |principalPart| 9))
               |HELLFDIV;decompose;%R;6| (|Fraction| 7) (57 . |coerce|)
-              (62 . |coerce|) (67 . |One|) (71 . |monomial|) (77 . |coerce|)
+              (62 . |coerce|) (67 . |1|) (71 . |monomial|) (77 . |coerce|)
               (82 . -) (88 . |reduce|) (93 . +)
               (|Record| (|:| |coef| 52) (|:| |generator| %)) (|List| %)
               (99 . |principalIdeal|) (104 . |generator|) (108 . *)
               (|PositiveInteger|) (114 . ^) (|Union| % '"failed")
               (120 . |exquo|) (|List| 7) (126 . |second|) (131 . |third|)
               (136 . |rem|) (142 . *) (148 . *) |HELLFDIV;reduce;2%;14|
-              |HELLFDIV;+;3%;8| (154 . |Zero|) |HELLFDIV;-;2%;17|
+              |HELLFDIV;+;3%;8| (154 . |0|) |HELLFDIV;-;2%;17|
               |HELLFDIV;*;I2%;9| (158 . ^) (164 . ^) |HELLFDIV;divisor;Fi%;10|
               (170 . |minimize|) (175 . |basis|) (180 . |minIndex|)
               (185 . |elt|) (191 . ~=) (|Union| 42 '"failed")
@@ -590,8 +589,8 @@
               (367 . ^) |HELLFDIV;divisor;R2UP%;21| (|String|))
            '#(~= 373 |zero?| 379 |subtractIfCan| 384 |sample| 390 |reduce| 394
               |principal?| 399 |opposite?| 404 |latex| 410 |ideal| 415
-              |generator| 420 |divisor| 432 |decompose| 471 |coerce| 476 |Zero|
-              481 = 485 - 491 + 502 * 508)
+              |generator| 420 |divisor| 432 |decompose| 471 |coerce| 476 = 481
+              |0| 487 - 491 + 502 * 508)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
@@ -634,7 +633,7 @@
                                          24 60 106 1 0 0 9 28 1 0 0 36 73 3 0 0
                                          6 6 24 1 2 0 0 6 6 113 3 0 0 9 7 7 122
                                          5 0 0 9 7 7 7 6 1 1 0 40 0 41 1 0 20 0
-                                         99 0 0 0 29 2 0 32 0 0 108 1 0 0 0 69
+                                         99 2 0 32 0 0 108 0 0 0 29 1 0 0 0 69
                                          2 0 0 0 0 1 2 0 0 0 0 67 2 0 0 56 0 1
                                          2 0 0 16 0 1 2 0 0 24 0 70)))))
            '|lookupComplete|)) 

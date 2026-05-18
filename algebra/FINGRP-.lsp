@@ -30,7 +30,7 @@
 (MAKEPROP '|FiniteGroup&| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Boolean|) (0 . |one?|)
-              (5 . |One|) (9 . *) (|Integer|) |FINGRP-;order;SI;1|)
+              (5 . |1|) (9 . *) (|Integer|) |FINGRP-;order;SI;1|)
            '#(|order| 15) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)

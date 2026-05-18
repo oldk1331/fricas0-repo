@@ -90,7 +90,7 @@
 (MAKEPROP '|TaylorSeries| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|SparseMultivariateTaylorSeries| 6 23 8)
-              (|local| |#1|) '|Rep| (|Polynomial| 6) (0 . |Zero|) (|Boolean|)
+              (|local| |#1|) '|Rep| (|Polynomial| 6) (0 . |0|) (|Boolean|)
               (4 . |empty?|) (9 . |frst|) (14 . +) (20 . |rst|)
               (|NonNegativeInteger|) |TS;polynomial;%NniP;1| (|String|)
               (|OutputForm|) (|PositiveInteger|) (|Integer|)
@@ -116,8 +116,8 @@
               479 |atanh| 483 |atan| 488 |associator| 493 |associates?| 500
               |asinh| 506 |asin| 511 |asech| 516 |asec| 521 |antiCommutator|
               526 |annihilate?| 532 |acsch| 538 |acsc| 543 |acoth| 548 |acot|
-              553 |acosh| 558 |acos| 563 ^ 568 |Zero| 592 |One| 596 D 600 = 626
-              / 632 - 638 + 649 * 655)
+              553 |acosh| 558 |acos| 563 ^ 568 D 592 = 618 |1| 624 |0| 628 /
+              632 - 638 + 649 * 655)
            'NIL
            (CONS
             (|makeByteWordVec2| 6
@@ -199,9 +199,9 @@
                                     1 1 0 0 1 2 0 0 0 0 1 2 0 10 0 0 1 1 1 0 0
                                     1 1 1 0 0 1 1 1 0 0 1 1 1 0 0 1 1 1 0 0 1 1
                                     1 0 0 1 2 0 0 0 19 1 2 0 0 0 15 1 2 1 0 0 0
-                                    1 2 1 0 0 33 1 0 0 0 1 0 0 0 1 2 0 0 0 22 1
-                                    2 0 0 0 23 1 3 0 0 0 22 24 1 3 0 0 0 23 15
-                                    1 2 0 10 0 0 1 2 7 0 0 6 1 1 0 0 0 1 2 0 0
+                                    1 2 1 0 0 33 1 2 0 0 0 22 1 2 0 0 0 23 1 3
+                                    0 0 0 22 24 1 3 0 0 0 23 15 1 2 0 10 0 0 1
+                                    0 0 0 1 0 0 0 1 2 7 0 0 6 1 1 0 0 0 1 2 0 0
                                     0 0 1 2 0 0 0 0 1 2 0 0 19 0 1 2 0 0 0 0 1
                                     2 0 0 20 0 1 2 0 0 15 0 1 2 0 0 0 6 1 2 0 0
                                     6 0 1 2 1 0 33 0 1 2 1 0 0 33 1)))))

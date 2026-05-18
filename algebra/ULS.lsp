@@ -651,8 +651,8 @@
            '#(NIL NIL NIL NIL NIL (|UnivariateLaurentSeriesConstructor| 6 36)
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|Symbol|)
               |ULS;variable;%S;1| |ULS;center;%Coef;2| (|Boolean|)
-              (0 . |zero?|) (5 . |One|) (9 . |One|) (|Integer|)
-              (13 . |monomial|) (19 . |Zero|) (23 . |Zero|) (27 . +)
+              (0 . |zero?|) (5 . |1|) (9 . |1|) (|Integer|) (13 . |monomial|)
+              (19 . |0|) (23 . |0|) (27 . +)
               (|Variable| (NRTEVAL (QREFELT % 7))) |ULS;coerce;V%;3|
               (33 . |differentiate|) |ULS;differentiate;%V%;4|
               (38 . |integrate|) (43 . |integrate|) (|String|) (|OutputForm|)
@@ -681,7 +681,7 @@
               (|Matrix| 36) (|Record| (|:| |mat| 75) (|:| |vec| (|Vector| 36)))
               (|Mapping| 36 36) (|Fraction| (|Polynomial| 6)))
            '#(|variable| 49 |monomial| 54 |integrate| 60 |differentiate| 71
-              |coerce| 82 |center| 87 |Zero| 92 |One| 96 + 100)
+              |coerce| 82 |center| 87 |1| 92 |0| 96 + 100)
            'NIL
            (CONS
             (|makeByteWordVec2| 52
@@ -797,6 +797,6 @@
                                     0 6 0 18 0 0 0 19 2 0 0 0 0 20 1 0 0 0 23 1
                                     0 0 0 25 2 0 0 0 21 26 1 0 9 0 10 2 0 0 6
                                     16 17 1 2 0 0 25 2 2 0 0 21 26 2 0 0 0 21
-                                    24 1 43 0 0 23 1 0 0 21 22 1 0 6 0 11 0 62
-                                    0 19 0 60 0 15 2 0 0 0 0 20)))))
+                                    24 1 43 0 0 23 1 0 0 21 22 1 0 6 0 11 0 60
+                                    0 15 0 62 0 19 2 0 0 0 0 20)))))
            '|lookupIncomplete|)) 

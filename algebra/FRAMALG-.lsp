@@ -126,18 +126,18 @@
               |FRAMALG-;regularRepresentation;SM;6| (|Vector| 7)
               (20 . |coordinates|) |FRAMALG-;coordinates;SV;4|
               (26 . |represents|) |FRAMALG-;represents;VS;5|
-              (|PositiveInteger|) (32 . |rank|) (36 . |Zero|) (|Integer|)
+              (|PositiveInteger|) (32 . |rank|) (36 . |0|) (|Integer|)
               (|Vector| 6) (40 . |minIndex|) (45 . *) (51 . |coordinates|)
               (56 . |setRow!|) (63 . |transpose|)
               (68 . |regularRepresentation|) (73 . |coerce|) (|Matrix| 8)
               (|Mapping| 8 7)
               (|MatrixCategoryFunctions2| 7 18 18 11 8 (|Vector| 8)
                                           (|Vector| 8) 35)
-              (78 . |map|) (84 . |One|) (88 . |One|) (|NonNegativeInteger|)
+              (78 . |map|) (84 . |1|) (88 . |1|) (|NonNegativeInteger|)
               (92 . |monomial|) (98 . |scalarMatrix|) (104 . -)
               (110 . |determinant|) (115 . |characteristicPolynomial|)
               (120 . |zero|) (126 . |setColumn!|) (|List| 18)
-              (133 . |nullSpace|) (138 . |elt|) (144 . +) (150 . |Zero|)
+              (133 . |nullSpace|) (138 . |elt|) (144 . +) (150 . |0|)
               (154 . |minimalPolynomial|))
            '#(|traceMatrix| 159 |represents| 163 |regularRepresentation| 168
               |minimalPolynomial| 173 |discriminant| 178 |coordinates| 182

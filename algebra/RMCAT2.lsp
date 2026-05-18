@@ -126,7 +126,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|local| |#5|) (|local| |#6|)
               (|local| |#7|) (|local| |#8|) (|local| |#9|) (|local| |#10|)
-              (0 . |Zero|) (|Integer|) (4 . |minRowIndex|) (9 . |maxRowIndex|)
+              (0 . |0|) (|Integer|) (4 . |minRowIndex|) (9 . |maxRowIndex|)
               (14 . |minRowIndex|) (19 . |maxRowIndex|) (24 . |minColIndex|)
               (29 . |maxColIndex|) (34 . |minColIndex|) (39 . |maxColIndex|)
               (44 . |qelt|) (|Mapping| 12 8) |RMCAT2;map;MM1M2;1|

@@ -194,16 +194,15 @@
 
 (MAKEPROP '|DegreeReductionPackage| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (0 . |Zero|) (4 . |Zero|) (|SparseUnivariatePolynomial| 6)
-              (8 . |Zero|) (|Boolean|) (12 . ~=) (|NonNegativeInteger|)
-              (18 . |degree|) (23 . |reductum|) (|Union| % '"failed")
-              (28 . |divideExponents|) (|Record| (|:| |pol| 10) (|:| |deg| 44))
-              |DEGRED;reduce;SupR;2| (|Expression| 7) (34 . |One|) (38 . |pi|)
-              (|Integer|) (42 . *) (48 . |coerce|) (53 . /) (59 . |cos|)
-              (64 . |One|) (68 . |One|) (72 . -) (77 . -) (|Fraction| 24)
-              (82 . /) (88 . -)
-              (|SparseMultivariatePolynomial| 7 (|Kernel| 21)) (93 . |One|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |0|)
+              (4 . |0|) (|SparseUnivariatePolynomial| 6) (8 . |0|) (|Boolean|)
+              (12 . ~=) (|NonNegativeInteger|) (18 . |degree|)
+              (23 . |reductum|) (|Union| % '"failed") (28 . |divideExponents|)
+              (|Record| (|:| |pol| 10) (|:| |deg| 44)) |DEGRED;reduce;SupR;2|
+              (|Expression| 7) (34 . |1|) (38 . |pi|) (|Integer|) (42 . *)
+              (48 . |coerce|) (53 . /) (59 . |cos|) (64 . |1|) (68 . |1|)
+              (72 . -) (77 . -) (|Fraction| 24) (82 . /) (88 . -)
+              (|SparseMultivariatePolynomial| 7 (|Kernel| 21)) (93 . |1|)
               (97 . ^) (103 . |sin|) (108 . *) (114 . +) (120 . =) (|List| 21)
               (|PositiveInteger|) |DEGRED;expand;EPiL;5|
               |DEGRED;cyclotomic_roots;PiL;6|)

@@ -109,7 +109,7 @@
                         (|:| |eval1expbuf| (|SortedExponentVector|)))
               (|PolynomialEvaluationUtilities|) (6 . |eval1|)
               (|Union| 8 '"failed") |MEVAL1;eval1;PSIRU;3|
-              (14 . |modpreduction|) |MEVAL1;modpreduction;PIU;4| (20 . |One|)
+              (14 . |modpreduction|) |MEVAL1;modpreduction;PIU;4| (20 . |1|)
               (24 . |monomial|) (|List| 7) (|List| %) (31 . |eval|)
               |MEVAL1;subst_vars;P2LP;5| (|Boolean|)
               (|SparseMultivariatePolynomial| 12 7) (|List| 27) (|PrimGCD|)

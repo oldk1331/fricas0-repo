@@ -188,10 +188,10 @@
               (|Fraction| 7) (0 . |denom|)
               (|Record| (|:| |normal| 7) (|:| |special| 7)) (|Mapping| 7 7)
               |MONOTOOL;split;UPMR;2| |MONOTOOL;normalDenom;FMUP;1|
-              (5 . |differentiate|) (|Boolean|) (10 . =) (16 . |One|)
-              (20 . |One|) (24 . |gcd|) (|NonNegativeInteger|) (30 . |degree|)
+              (5 . |differentiate|) (|Boolean|) (10 . =) (16 . |1|) (20 . |1|)
+              (24 . |gcd|) (|NonNegativeInteger|) (30 . |degree|)
               (|Union| % '"failed") (35 . |exquo|) (41 . *) (|Factored| 7)
-              (47 . |One|) (|Factored| %) (51 . |squareFree|)
+              (47 . |1|) (|Factored| %) (51 . |squareFree|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 29) (|:| |factor| 7) (|:| |exponent| 20))
               (|List| 30) (56 . |factorList|) (61 . |ground?|)

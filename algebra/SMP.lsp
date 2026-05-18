@@ -1,7 +1,7 @@
 
-(SDEFUN |SMP;Zero;%;1| ((% (%))) (CONS 0 (|spadConstant| % 11))) 
+(SDEFUN |SMP;0;%;1| ((% (%))) (CONS 0 (|spadConstant| % 11))) 
 
-(SDEFUN |SMP;One;%;2| ((% (%))) (CONS 0 (|spadConstant| % 13))) 
+(SDEFUN |SMP;1;%;2| ((% (%))) (CONS 0 (|spadConstant| % 13))) 
 
 (SDEFUN |SMP;zero?;%B;3| ((|p| (%)) (% (|Boolean|)))
         (COND ((QEQCAR |p| 0) (SPADCALL (QCDR |p|) (QREFELT % 17))) ('T NIL))) 
@@ -2397,7 +2397,7 @@
      ((|testBitVector| |pv$| 12)
       (QSETREFV % 14
                 (CONS #'|makeSpadConstant|
-                      (LIST (|dispatchFunction| |SMP;One;%;2|) % 14)))))
+                      (LIST (|dispatchFunction| |SMP;1;%;2|) % 14)))))
     (QSETREFV % 15
               (COND
                ((|HasCategory| |#1| '(|SemiRing|))
@@ -2530,10 +2530,10 @@
 (MAKEPROP '|SparseMultivariatePolynomial| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) 'D '|VPoly|
-              '|Rep| (0 . |Zero|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |SMP;Zero;%;1|) %))
-              (4 . |One|) (8 . |One|) '|m_one| (|Boolean|) (12 . |zero?|)
-              |SMP;zero?;%B;3| (17 . |One|) (21 . =) (27 . |one?|)
+              '|Rep| (0 . |0|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |SMP;0;%;1|) %))
+              (4 . |1|) (8 . |1|) '|m_one| (|Boolean|) (12 . |zero?|)
+              |SMP;zero?;%B;3| (17 . |1|) (21 . =) (27 . |one?|)
               (32 . |reductum|) (37 . |ground?|) (42 . |leadingCoefficient|)
               (|List| $$) (47 . |coefficients|) (|NonNegativeInteger|)
               |SMP;numberOfMonomials;%Nni;6| (52 . |monomial|) (58 . |coerce|)
@@ -2594,7 +2594,7 @@
               '"first" (616 . |elt|) (|Mapping| 16 7 7) (622 . |sorted?|)
               (628 . |sort|) (634 . =) (640 . |position|) (646 . |elt|)
               |SMP;eval;%LL%;78| |SMP;eval;%LL%;79| |SMP;degree;%VarSetNni;80|
-              (|List| 27) |SMP;degree;%LL;81| (652 . |Zero|) (656 . |monomial|)
+              (|List| 27) |SMP;degree;%LL;81| (652 . |0|) (656 . |monomial|)
               (662 . +) (668 . |minimumDegree|) |SMP;minimumDegree;%Ie;83|
               |SMP;minimumDegree;%VarSetNni;84| |SMP;minimumDegree;%LL;85|
               (673 . |differentiate|) (678 . |differentiate|)
@@ -2639,8 +2639,8 @@
               |commutator| 1347 |coerce| 1353 |coefficients| 1383 |coefficient|
               1388 |charthRoot| 1408 |characteristic| 1413 |binomThmExpt| 1417
               |associator| 1424 |associates?| 1431 |antiCommutator| 1437
-              |annihilate?| 1443 ^ 1449 |Zero| 1461 |One| 1465 D 1469 = 1495 /
-              1501 - 1507 + 1518 * 1524)
+              |annihilate?| 1443 ^ 1449 D 1461 = 1487 |1| 1493 |0| 1497 / 1501
+              - 1507 + 1518 * 1524)
            'NIL
            (CONS
             (|makeByteWordVec2| 44
@@ -2790,9 +2790,9 @@
                                     0 7 27 1 1 46 99 0 1 0 52 27 97 3 45 0 0 0
                                     27 1 3 52 0 0 0 0 1 2 47 16 0 0 141 2 0 0 0
                                     0 1 2 52 16 0 0 1 2 0 0 0 123 124 2 51 0 0
-                                    27 122 0 53 0 12 0 51 0 14 3 4 0 0 181 203
-                                    1 3 4 0 0 7 27 1 2 4 0 0 7 1 2 4 0 0 181 1
-                                    2 0 16 0 0 32 2 21 0 0 6 148 1 55 0 0 104 2
+                                    27 122 3 4 0 0 181 203 1 3 4 0 0 7 27 1 2 4
+                                    0 0 7 1 2 4 0 0 181 1 2 0 16 0 0 32 0 51 0
+                                    14 0 53 0 12 2 21 0 0 6 148 1 55 0 0 104 2
                                     55 0 0 0 115 2 0 0 0 0 52 2 0 0 123 0 1 2 0
                                     0 0 0 79 2 0 0 0 6 1 2 0 0 6 0 110 2 37 0 0
                                     93 1 2 55 0 93 0 107 2 53 0 27 0 1 2 1 0 0

@@ -595,8 +595,8 @@
               (|GroebnerInternalPackage| 6 7 9) (0 . |redPol|) (6 . |hMonic|)
               (|Record| (|:| |lcmfij| 7) (|:| |totdeg| 27) (|:| |poli| 9)
                         (|:| |polj| 9))
-              (11 . |sPol|) (16 . |One|) (|Boolean|) (20 . =) (26 . |Zero|)
-              (30 . |Zero|) (34 . |Zero|) (38 . ~=) (|Union| % '"failed")
+              (11 . |sPol|) (16 . |1|) (|Boolean|) (20 . =) (26 . |0|)
+              (30 . |0|) (34 . |0|) (38 . ~=) (|Union| % '"failed")
               (44 . |exquo|) (50 . |degree|) (55 . |zero?|)
               (|NonNegativeInteger|) (60 . |virtualDegree|) (65 . |concat|)
               (71 . >) (|Mapping| 17 9 9) (77 . |sort|) (|Void|) (|String|)
@@ -612,7 +612,7 @@
               (137 . |critpOrder|) (|Mapping| 17 14 14) (|List| 14)
               (143 . |sort|) (149 . |critMTonD1|) (154 . |critBonD|)
               (160 . |updatD|) (|List| 52) (166 . |updatF|)
-              |GBF;factorGroebnerBasis;LL;6| (173 . |One|)
+              |GBF;factorGroebnerBasis;LL;6| (173 . |1|)
               |GBF;groebnerFactorize;2LBL;9| |GBF;groebnerFactorize;2LL;8|
               (177 . =) (183 . |zero?|) (|Mapping| 17 9) (188 . |remove|)
               (194 . |member?|) |GBF;groebnerFactorize;LL;10|

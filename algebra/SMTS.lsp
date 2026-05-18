@@ -856,20 +856,20 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|InnerTaylorSeries| 8) (|local| |#1|)
               (|local| |#2|) (|local| |#3|) '|Rep| (|Stream| 8)
-              |SMTS;coefficients;%S;1| |SMTS;series;S%;2| (0 . |One|)
-              (4 . |One|) (|Integer|) (8 . |extend|) (|NonNegativeInteger|)
+              |SMTS;coefficients;%S;1| |SMTS;series;S%;2| (0 . |1|) (4 . |1|)
+              (|Integer|) (8 . |extend|) (|NonNegativeInteger|)
               |SMTS;extend;%Nni%;3| (14 . |complete|) |SMTS;complete;2%;4|
-              (19 . |Zero|) (23 . |Zero|) (27 . |Zero|) (31 . +) (|List| 7)
-              (|List| %) (37 . |eval|) (|Mapping| 8 8) (44 . |map|)
-              (|Mapping| 8 8 8) (|StreamFunctions2| 8 8) (50 . |scan|)
-              (|Stream| 15) (|StreamTaylorSeriesOperations| 8)
-              (57 . |integers|) (62 . |coerce|) (67 . |monomial|)
-              (|Mapping| 8 17 6) (|Stream| 17) (|Stream| 6)
-              (|StreamFunctions3| 17 6 8) (74 . |map|) (|Boolean|)
-              (81 . |empty?|) (86 . |rst|) (91 . ~=) (97 . |frst|)
-              |SMTS;coefficient;%NniSMP;7| (|List| 17) (102 . |coefficient|)
-              (109 . +) (|Mapping| 17 17 17) (115 . |reduce|) (121 . |rest|)
-              (127 . |map|) |SMTS;coefficient;%LL%;8| (|IndexedExponents| 7)
+              (19 . |0|) (23 . |0|) (27 . |0|) (31 . +) (|List| 7) (|List| %)
+              (37 . |eval|) (|Mapping| 8 8) (44 . |map|) (|Mapping| 8 8 8)
+              (|StreamFunctions2| 8 8) (50 . |scan|) (|Stream| 15)
+              (|StreamTaylorSeriesOperations| 8) (57 . |integers|)
+              (62 . |coerce|) (67 . |monomial|) (|Mapping| 8 17 6)
+              (|Stream| 17) (|Stream| 6) (|StreamFunctions3| 17 6 8)
+              (74 . |map|) (|Boolean|) (81 . |empty?|) (86 . |rst|) (91 . ~=)
+              (97 . |frst|) |SMTS;coefficient;%NniSMP;7| (|List| 17)
+              (102 . |coefficient|) (109 . +) (|Mapping| 17 17 17)
+              (115 . |reduce|) (121 . |rest|) (127 . |map|)
+              |SMTS;coefficient;%LL%;8| (|IndexedExponents| 7)
               (133 . |leadingCoefficient|) (138 . |reductum|) (143 . |zero?|)
               (148 . |coefficient|) |SMTS;coefficient;%IeCoef;9|
               (154 . |monom|) |SMTS;coerce;Coef%;10| (160 . *)
@@ -879,7 +879,7 @@
               (|SparseUnivariatePolynomial| 8) (177 . |zero?|) (182 . |degree|)
               |SMTS;monomial;%VarNni%;17| (187 . |leadingCoefficient|)
               (192 . *) (198 . +) (204 . |reductum|) |SMTS;coerce;SMP%;15|
-              (209 . |coerce|) |SMTS;coerce;Var%;16| (214 . |One|)
+              (209 . |coerce|) |SMTS;coerce;Var%;16| (214 . |1|)
               (218 . |reduce|) (225 . |monomial|) |SMTS;monomial;%LL%;18|
               (232 . |monomial|) (238 . |totalDegree|)
               |SMTS;monomial;CoefIe%;19| (243 . =) (|List| $$) (249 . |first|)
@@ -937,8 +937,7 @@
               1246 |associates?| 1253 |asinh| 1259 |asin| 1264 |asech| 1269
               |asec| 1274 |antiCommutator| 1279 |annihilate?| 1285 |acsch| 1291
               |acsc| 1296 |acoth| 1301 |acot| 1306 |acosh| 1311 |acos| 1316 ^
-              1321 |Zero| 1345 |One| 1349 D 1353 = 1379 / 1385 - 1391 + 1402 *
-              1408)
+              1321 D 1345 = 1371 |1| 1377 |0| 1381 / 1385 - 1391 + 1402 * 1408)
            'NIL
            (CONS
             (|makeByteWordVec2| 6
@@ -1070,9 +1069,9 @@
                                     0 0 0 0 1 2 0 43 0 0 1 1 1 0 0 180 1 1 0 0
                                     156 1 1 0 0 176 1 1 0 0 152 1 1 0 0 172 1 1
                                     0 0 148 2 0 0 0 208 1 2 0 0 0 17 94 2 1 0 0
-                                    0 1 2 1 0 0 120 122 0 0 0 21 0 0 0 13 2 0 0
-                                    0 7 1 3 0 0 0 7 17 1 2 0 0 0 25 1 3 0 0 0
-                                    25 49 1 2 0 43 0 0 1 2 7 0 0 6 206 1 0 0 0
+                                    0 1 2 1 0 0 120 122 2 0 0 0 7 1 3 0 0 0 7
+                                    17 1 2 0 0 0 25 1 3 0 0 0 25 49 1 2 0 43 0
+                                    0 1 0 0 0 13 0 0 0 21 2 7 0 0 6 206 1 0 0 0
                                     1 2 0 0 0 0 1 2 0 0 0 0 79 2 0 0 208 0 1 2
                                     0 0 0 0 78 2 0 0 15 0 1 2 0 0 17 0 1 2 0 0
                                     0 6 68 2 0 0 6 0 67 2 0 0 8 0 66 2 1 0 120

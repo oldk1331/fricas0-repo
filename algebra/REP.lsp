@@ -331,8 +331,7 @@
                                                     ('T
                                                      (SPADCALL
                                                       (|compiledLookupCheck|
-                                                       '|Zero| (LIST '%)
-                                                       RMR)))))
+                                                       '|0| (LIST '%) RMR)))))
                                              (|compiledLookupCheck| '-
                                                                     (LIST '% '%
                                                                           '%)
@@ -479,12 +478,12 @@
 (MAKEPROP '|RadicalEigenPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL 'RSP (|Symbol|) (|Kernel| 10)
-              (0 . |kernel|) (|Expression| 16) (5 . |One|)
-              (|NonNegativeInteger|) (|Matrix| 10) (9 . |zero|) (|Fraction| 34)
-              (|Integer|) (|Matrix| 15) (15 . |elt|) (22 . |coerce|)
-              (|Kernel| %) (27 . |eval|) (34 . |setelt!|) (42 . |transpose|)
-              (47 . *) (53 . |elt|) (60 . |sqrt|) (65 . |Zero|) (|Boolean|)
-              (69 . =) (75 . /) (81 . *) |REP;normalise;2M;3| (87 . |new|)
+              (0 . |kernel|) (|Expression| 16) (5 . |1|) (|NonNegativeInteger|)
+              (|Matrix| 10) (9 . |zero|) (|Fraction| 34) (|Integer|)
+              (|Matrix| 15) (15 . |elt|) (22 . |coerce|) (|Kernel| %)
+              (27 . |eval|) (34 . |setelt!|) (42 . |transpose|) (47 . *)
+              (53 . |elt|) (60 . |sqrt|) (65 . |0|) (|Boolean|) (69 . =)
+              (75 . /) (81 . *) |REP;normalise;2M;3| (87 . |new|)
               (|Polynomial| 16) (|EigenPackage| 16)
               (91 . |characteristicPolynomial|) (97 . |coerce|) (|List| 10)
               (102 . |radicalRoots|) |REP;radicalEigenvalues;ML;4| (108 . -)

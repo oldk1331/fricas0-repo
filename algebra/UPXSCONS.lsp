@@ -24,10 +24,10 @@
                   (SPADCALL (|UPXSCONS;getULS| |x| %) (QREFELT % 14))
                   (QREFELT % 15))) 
 
-(SDEFUN |UPXSCONS;Zero;%;7| ((% (%)))
+(SDEFUN |UPXSCONS;0;%;7| ((% (%)))
         (SPADCALL (|spadConstant| % 19) (|spadConstant| % 20) (QREFELT % 10))) 
 
-(SDEFUN |UPXSCONS;One;%;8| ((% (%)))
+(SDEFUN |UPXSCONS;1;%;8| ((% (%)))
         (SPADCALL (|spadConstant| % 19) (|spadConstant| % 22) (QREFELT % 10))) 
 
 (SDEFUN |UPXSCONS;monomial;CoefF%;9|
@@ -1237,12 +1237,10 @@
               (|Fraction| 13) |UPXSCONS;puiseux;FULS%;3|
               |UPXSCONS;laurentRep;%ULS;4| |UPXSCONS;rationalPower;%F;5|
               (|Integer|) (0 . |degree|) (5 . *) |UPXSCONS;degree;%F;6|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |UPXSCONS;One;%;8|) %))
-              (11 . |One|) (15 . |One|) (19 . |Zero|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |UPXSCONS;Zero;%;7|) %))
-              (23 . |One|) (27 . |Zero|) (31 . |Zero|) (|Boolean|) (35 . =)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |UPXSCONS;1;%;8|) %))
+              (11 . |1|) (15 . |1|) (19 . |0|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |UPXSCONS;0;%;7|) %))
+              (23 . |1|) (27 . |0|) (31 . |0|) (|Boolean|) (35 . =)
               |UPXSCONS;coerce;Coef%;11| (41 . <) (47 . -) (52 . |monomial|)
               |UPXSCONS;monomial;CoefF%;9| |UPXSCONS;coerce;ULS%;10|
               (58 . |coerce|) (63 . |coerce|) |UPXSCONS;coerce;I%;12|
@@ -1333,8 +1331,8 @@
               |associator| 1304 |associates?| 1311 |asinh| 1317 |asin| 1322
               |asech| 1327 |asec| 1332 |approximate| 1337 |antiCommutator| 1343
               |annihilate?| 1349 |acsch| 1355 |acsc| 1360 |acoth| 1365 |acot|
-              1370 |acosh| 1375 |acos| 1380 ^ 1385 |Zero| 1415 |One| 1419 D
-              1423 = 1460 / 1466 - 1478 + 1489 * 1495)
+              1370 |acosh| 1375 |acos| 1380 ^ 1385 D 1415 = 1452 |1| 1458 |0|
+              1462 / 1466 - 1478 + 1489 * 1495)
            'NIL
            (CONS
             (|makeByteWordVec2| 28
@@ -1473,11 +1471,12 @@
                                     1 1 6 0 0 202 1 6 0 0 177 1 6 0 0 198 1 6 0
                                     0 173 1 6 0 0 194 1 6 0 0 169 2 0 0 0 38 1
                                     2 34 0 0 60 76 2 6 0 0 0 1 2 6 0 0 9 146 2
-                                    7 0 0 13 145 0 36 0 21 0 34 0 17 3 4 0 0 94
-                                    60 1 3 4 0 0 136 206 1 2 4 0 0 94 1 2 4 0 0
-                                    136 1 2 3 0 0 60 1 1 3 0 0 1 2 0 25 0 0 66
-                                    2 7 0 0 6 1 2 7 0 0 0 92 2 38 0 0 0 72 1 38
-                                    0 0 131 2 0 0 0 0 70 2 0 0 38 0 1 2 0 0 0 0
-                                    74 2 0 0 0 6 1 2 0 0 6 0 126 2 30 0 9 0 1 2
-                                    30 0 0 9 1 2 38 0 13 0 1 2 36 0 60 0 1)))))
+                                    7 0 0 13 145 3 4 0 0 94 60 1 3 4 0 0 136
+                                    206 1 2 4 0 0 94 1 2 4 0 0 136 1 2 3 0 0 60
+                                    1 1 3 0 0 1 2 0 25 0 0 66 0 34 0 17 0 36 0
+                                    21 2 7 0 0 6 1 2 7 0 0 0 92 2 38 0 0 0 72 1
+                                    38 0 0 131 2 0 0 0 0 70 2 0 0 38 0 1 2 0 0
+                                    0 0 74 2 0 0 0 6 1 2 0 0 6 0 126 2 30 0 9 0
+                                    1 2 30 0 0 9 1 2 38 0 13 0 1 2 36 0 60 0
+                                    1)))))
            '|lookupComplete|)) 

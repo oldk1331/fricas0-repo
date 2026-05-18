@@ -418,8 +418,8 @@
 
 (MAKEPROP '|UnivariateSkewPolynomialCategory&| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (0 . |Zero|) (4 . |Zero|) (|NonNegativeInteger|) (8 . |monomial|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |0|)
+              (4 . |0|) (|NonNegativeInteger|) (8 . |monomial|)
               |OREPCAT-;coerce;RS;1| (|Boolean|) (14 . ~=)
               (20 . |leadingCoefficient|) (25 . |reductum|) (|List| 7)
               |OREPCAT-;coefficients;SL;2| (30 . *) (36 . |degree|) (41 . +)
@@ -438,7 +438,7 @@
               (149 . |leftLcm|) (155 . |leftExactQuotient|)
               (161 . |rightExactQuotient|) (167 . |rightRemainder|)
               (173 . |rightGcd|) (179 . |leftRemainder|) (185 . |leftGcd|)
-              (191 . |One|) (195 . *) (201 . -) (207 . |One|)
+              (191 . |1|) (195 . *) (201 . -) (207 . |1|)
               (|Record| (|:| |generator| %) (|:| |coef1| %) (|:| |coef2| %)
                         (|:| |coefu| %) (|:| |coefv| %))
               (211 . |right_ext_ext_GCD|) (217 . |right_ext_ext_GCD|)

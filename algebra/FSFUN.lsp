@@ -2173,19 +2173,19 @@
 
 (MAKEPROP '|FloatSpecialFunctions| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|Complex| 14) (0 . |One|) (4 . /)
-              (10 . *) (|Integer|) (16 . |coerce|) (|Fraction| 10) (21 . |One|)
-              (|Float|) (25 . |One|) (29 . |coerce|) (34 . /)
+           '#(NIL NIL NIL NIL NIL NIL (|Complex| 14) (0 . |1|) (4 . /) (10 . *)
+              (|Integer|) (16 . |coerce|) (|Fraction| 10) (21 . |1|) (|Float|)
+              (25 . |1|) (29 . |coerce|) (34 . /)
               (|IntegerNumberTheoryFunctions|) (40 . |bernoulli|)
               (45 . |coerce|) (50 . *) (56 . |coerce|) (61 . +) (67 . -)
               (73 . |log|) (78 . |pi|) (82 . *) (88 . |log|) (93 . |exp|)
               (98 . -) (103 . |exp|) (|PositiveInteger|) (108 . |base|)
               (112 . |bits|) (116 . |real|) (121 . /) (|Boolean|) (127 . <)
-              (133 . |bits|) (138 . |round|) (143 . |retract|) (148 . |Zero|)
+              (133 . |bits|) (138 . |round|) (143 . |retract|) (148 . |0|)
               (152 . =) |FSFUN;Gamma;2C;5| (158 . |sin|) (163 . |abs|)
               (168 . *) (174 . >) (180 . |order|) (185 . -) (191 . |log2|)
               (195 . +) (201 . |wholePart|) (206 . |imag|) (211 . |pi|)
-              (215 . |imaginary|) (219 . |Zero|) (223 . |complex|)
+              (215 . |imaginary|) (219 . |0|) (223 . |complex|)
               |FSFUN;logGamma;2C;7| |FSFUN;Gamma;2F;8| (229 . <=)
               |FSFUN;logGamma;2F;9| |FSFUN;Beta;3C;10| |FSFUN;Beta;3F;11|
               (235 . |abs|) |FSFUN;rabs;2F;12| |FSFUN;rabs;CF;13|
@@ -2205,12 +2205,12 @@
               |FSFUN;lambert_via_newton1;4Df;36|
               |FSFUN;lambert_via_newton2;4Df;37| (329 . |coerce|)
               |FSFUN;lambert_inverse_series;3Df;38| (334 . |exp|) (339 . /)
-              (345 . -) (351 . |One|) (355 . +)
+              (345 . -) (351 . |1|) (355 . +)
               |FSFUN;lambert_via_newton1;2CDfC;39| (361 . |log|)
               |FSFUN;lambert_via_newton2;2CDfC;40| (366 . |coerce|) (371 . *)
               |FSFUN;lambert_inverse_series;3C;41| (377 . |float|)
               (383 . |order|) (388 . >) (394 . -) (399 . *) (405 . |sqrt|)
-              |FSFUN;lambertW;2Df;42| (410 . |Zero|) (414 . =) (420 . |imag|)
+              |FSFUN;lambertW;2Df;42| (410 . |0|) (414 . =) (420 . |imag|)
               (425 . |complex|) (431 . *) (437 . |sqrt|) |FSFUN;lambertW;2C;43|
               (442 . =) (448 . |float|) (454 . |float|) |FSFUN;lambertW;2F;44|
               (461 . |coerce|) (466 . |convert|) (471 . |sqrt|)

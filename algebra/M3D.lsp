@@ -498,12 +498,12 @@
               (17 . |concat|) (23 . |copy|) (|PrimitiveArray| 6)
               (28 . |concat|) (|Symbol|) |M3D;matrixConcat3D;S3%;1|
               (34 . |new|) (40 . |setelt!|) |M3D;elt;%3NniR;5| (47 . |copy|)
-              |M3D;setelt!;%3Nni2R;6| (52 . |Zero|) (56 . |zeroMatrix|)
-              (63 . |One|) (67 . |identityMatrix|) (72 . +) (78 . |plus|)
-              (|List| 37) (|List| 34) (84 . |elt|) (|List| 6) (90 . |elt|)
-              (96 . |elt|) |M3D;construct;L%;10| (|Boolean|) (|Mapping| 6 6)
-              (|List| 44) (|Equation| 6) (|Mapping| 41 6) (|Mapping| 41 6 6)
-              (|OutputForm|) (|String|))
+              |M3D;setelt!;%3Nni2R;6| (52 . |0|) (56 . |zeroMatrix|) (63 . |1|)
+              (67 . |identityMatrix|) (72 . +) (78 . |plus|) (|List| 37)
+              (|List| 34) (84 . |elt|) (|List| 6) (90 . |elt|) (96 . |elt|)
+              |M3D;construct;L%;10| (|Boolean|) (|Mapping| 6 6) (|List| 44)
+              (|Equation| 6) (|Mapping| 41 6) (|Mapping| 41 6 6) (|OutputForm|)
+              (|String|))
            '#(~= 102 |zeroMatrix| 108 |size?| 115 |setelt!| 121 |sample| 130
               |plus| 134 |parts| 140 |more?| 145 |min| 151 |members| 156
               |member?| 161 |max| 167 |matrixDimensions| 178 |matrixConcat3D|

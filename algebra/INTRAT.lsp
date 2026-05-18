@@ -111,14 +111,13 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|List| (|List| 6)) (|Matrix| 6) (0 . |matrix|) (|List| 27)
-              (5 . |nullSpace|) (10 . |Zero|) (14 . |Zero|)
-              (18 . |differentiate|)
+              (5 . |nullSpace|) (10 . |0|) (14 . |0|) (18 . |differentiate|)
               (|Record| (|:| |ratpart| 30) (|:| |coeffs| 27)) (|List| 16)
               (|Mapping| 7 7) (|Record| (|:| |ratpart| 6) (|:| |coeffs| 27))
               (|Mapping| (|List| 19) (|List| 6)) (|Mapping| 11 9) (|List| 30)
               (|ParametricTranscendentalIntegration| 6 7) (23 . |primextint|)
-              (31 . |One|) (|Integer|) (|Vector| 6) (35 . |elt|)
-              (41 . |coerce|) (|Fraction| 7) (46 . |coerce|) (51 . /) (57 . -)
+              (31 . |1|) (|Integer|) (|Vector| 6) (35 . |elt|) (41 . |coerce|)
+              (|Fraction| 7) (46 . |coerce|) (51 . /) (57 . -)
               (|Union| 30 '#1="failed") |INTRAT;infieldint;FU;1|
               (|Record| (|:| |ir| 40) (|:| |specpart| 30) (|:| |polypart| 7))
               (|TranscendentalIntegration| 6 7) (62 . |monomialIntegrate|)

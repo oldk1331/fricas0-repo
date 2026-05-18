@@ -928,8 +928,8 @@
 ;         ATOM(X) => BREAK()
 ;         U := rest(X)
 ;         -- A hack to increase the likelihood of small integers
-;         if X is ["STEP", ., i1, i2, :.] and member(i1, '(2 1 0 (One) (Zero)))
-;            and member(i2, '(1 (One))) then X := ["ISTEP", :U]
+;         if X is ["STEP", ., i1, i2, :.] and member(i1, [2, 1, 0, ["1"], ["0"]])
+;            and member(i2, [1, ["1"]]) then X := ["ISTEP", :U]
 ;         op := first(X)
 ;         op = "GSTEP" =>
 ;             [var, empty_form, step_form, init_form] := U
@@ -976,7 +976,7 @@
 ;                             ["greater_SI", var, final]]),
 ;                               :tests]
 ;             vl := [[var, start,
-;                  (member(inc, '(1 (One))) => MK_inc_SI(first(U));
+;                  (member(inc, [1, ["1"]]) => MK_inc_SI(first(U));
 ;                    ["add_SI", var, inc])], :vl]
 ;         op = "ON" =>
 ;             tests := [["ATOM", first(U)], :tests]
@@ -1043,8 +1043,8 @@
                                              (PROGN
                                               (SETQ |i2| (CAR |ISTMP#3|))
                                               #1#)))))))
-                           (|member| |i1| '(2 1 0 (|One|) (|Zero|)))
-                           (|member| |i2| '(1 (|One|))))
+                           (|member| |i1| (LIST 2 1 0 (LIST '|1|) (LIST '|0|)))
+                           (|member| |i2| (LIST 1 (LIST '|1|))))
                       (SETQ X (CONS 'ISTEP U))))
                     (SETQ |op| (CAR X))
                     (COND
@@ -1134,7 +1134,7 @@
                                (CONS
                                 (LIST |var| |start|
                                       (COND
-                                       ((|member| |inc| '(1 (|One|)))
+                                       ((|member| |inc| (LIST 1 (LIST '|1|)))
                                         (|MK_inc_SI| (CAR U)))
                                        (#1# (LIST '|add_SI| |var| |inc|))))
                                 |vl|))))

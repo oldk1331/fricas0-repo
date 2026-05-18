@@ -176,8 +176,8 @@
 (MAKEPROP '|PushVariables| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|local| |#4|) (0 . |One|) (4 . |One|)
-              (|Polynomial| 6) (8 . |One|) (|Symbol|) (12 . |convert|)
+              (|local| |#3|) (|local| |#4|) (0 . |1|) (4 . |1|)
+              (|Polynomial| 6) (8 . |1|) (|Symbol|) (12 . |convert|)
               (|NonNegativeInteger|) (17 . |monomial|) (|List| 8) (|List| 12)
               (24 . |eval|) |PUSHVAR;pushdown;PPRLPPR;1| (|Boolean|)
               (31 . |ground?|) (36 . |retract|) (|Union| 8 '"failed")
@@ -187,7 +187,7 @@
               (58 . |multivariate|) (64 . |ground?|) (69 . |coerce|)
               (|Union| 14 '"failed") (74 . |mainVariable|)
               (|Union| % '"failed") (79 . |variable|) (84 . |univariate|)
-              (90 . |Zero|) (|SparseUnivariatePolynomial| 12) (94 . |zero?|)
+              (90 . |0|) (|SparseUnivariatePolynomial| 12) (94 . |zero?|)
               (99 . |degree|) (104 . |monomial|) (111 . |leadingCoefficient|)
               (116 . *) (122 . +) (128 . |reductum|) (133 . *)
               |PUSHVAR;pushup;PPRLPPR;4|)

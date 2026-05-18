@@ -421,11 +421,11 @@
 
 (MAKEPROP '|StorageEfficientMatrixOperations| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |One|) (|Matrix| 6)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |1|) (|Matrix| 6)
               |MATSTOR;copy!;3M;2| (4 . +) |MATSTOR;plus!;4M;3| (10 . -)
               |MATSTOR;minus!;3M;4| (15 . -) |MATSTOR;minus!;4M;5| (21 . *)
               |MATSTOR;leftScalarTimes!;MR2M;6|
-              |MATSTOR;rightScalarTimes!;2MRM;7| (27 . |Zero|)
+              |MATSTOR;rightScalarTimes!;2MRM;7| (27 . |0|)
               |MATSTOR;times!;4M;9| (|NonNegativeInteger|)
               |MATSTOR;power!;4MNniM;10| (|Boolean|) (31 . |square?|)
               (36 . |copy|) |MATSTOR;^;MNniM;11|)

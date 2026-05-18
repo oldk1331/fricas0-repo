@@ -104,8 +104,8 @@
               |extendedEuclidean| 225 |exquo| 238 |expressIdealMember| 244
               |euclideanSize| 250 |divide| 255 |differentiate| 261 |commutator|
               272 |coerce| 278 |characteristic| 308 |associator| 312
-              |associates?| 319 |antiCommutator| 325 |annihilate?| 331 ^ 337
-              |Zero| 355 |One| 359 D 363 = 374 / 380 - 386 + 397 * 403)
+              |associates?| 319 |antiCommutator| 325 |annihilate?| 331 ^ 337 D
+              355 = 366 |1| 372 |0| 376 / 380 - 386 + 397 * 403)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -153,8 +153,8 @@
                                     1 1 0 22 0 1 1 0 0 16 1 1 0 5 0 11 1 0 0 5
                                     10 1 2 0 27 1 1 1 0 0 1 0 0 25 1 3 0 0 0 0
                                     0 1 2 1 21 0 0 1 2 0 0 0 0 1 2 0 21 0 0 1 2
-                                    0 0 0 25 1 2 0 0 0 24 1 2 1 0 0 16 18 0 0 0
-                                    1 0 0 0 1 2 0 0 0 25 1 1 0 0 0 1 2 0 21 0 0
+                                    0 0 0 25 1 2 0 0 0 24 1 2 1 0 0 16 18 2 0 0
+                                    0 25 1 1 0 0 0 1 2 0 21 0 0 1 0 0 0 1 0 0 0
                                     1 2 1 0 0 0 15 2 0 0 0 0 1 1 0 0 0 1 2 0 0
                                     0 0 1 2 0 0 0 0 1 2 0 0 24 0 1 2 0 0 25 0 1
                                     2 0 0 16 0 1 2 2 0 27 0 1 2 2 0 0 27 1)))))

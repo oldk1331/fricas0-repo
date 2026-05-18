@@ -275,18 +275,17 @@
               (|Vector| %) (16 . |reducedSystem|) (|Vector| 12) (|Vector| 11)
               (|VectorFunctions2| 11 12) (22 . |map|)
               (|Record| (|:| |mat| 14) (|:| |vec| 22)) |AN;reducedSystem;MVR;2|
-              (|AlgebraicManipulations| 11 5) (28 . |ratDenom|) (33 . |Zero|)
-              (37 . |Zero|) (|SparseUnivariatePolynomial| $$) (41 . |Zero|)
+              (|AlgebraicManipulations| 11 5) (28 . |ratDenom|) (33 . |0|)
+              (37 . |0|) (|SparseUnivariatePolynomial| $$) (41 . |0|)
               (|Boolean|) (45 . =) (51 . |leadingCoefficient|)
               (|SparseMultivariatePolynomial| 11 82) (56 . |denom|)
-              (61 . |coerce|) (66 . |One|) (70 . |One|) (74 . =)
-              (80 . |reductum|) (85 . *) (91 . *)
-              (|SparseUnivariatePolynomial| %) (|Kernel| $$)
+              (61 . |coerce|) (66 . |1|) (70 . |1|) (74 . =) (80 . |reductum|)
+              (85 . *) (91 . *) (|SparseUnivariatePolynomial| %) (|Kernel| $$)
               (|SparseMultivariatePolynomial| 11 47) (97 . |univariate|)
               (|Mapping| $$ 48) (|SparseUnivariatePolynomial| 48)
               (|SparseUnivariatePolynomialFunctions2| 48 $$) (103 . |map|)
               |AN;differentiate;2%;6| (109 . |numer|) (114 . |zero?|)
-              |AN;zero?;%B;7| (119 . |One|) (123 . =) |AN;one?;%B;8| (129 . /)
+              |AN;zero?;%B;7| (119 . |1|) (123 . =) |AN;one?;%B;8| (129 . /)
               |AN;/;3%;9| (135 . ^) |AN;^;%I%;10| (|List| 82) (141 . |tower|)
               (146 . |retract|) (151 . =) (|NonNegativeInteger|)
               (157 . |monomial|) (163 . -) |AN;norm;SupLSup;15|
@@ -347,8 +346,8 @@
               |convert| 1065 |conditionP| 1085 |commutator| 1090 |coerce| 1096
               |charthRoot| 1126 |characteristic| 1131 |box| 1135 |belong?| 1140
               |associator| 1145 |associates?| 1152 |antiCommutator| 1158
-              |annihilate?| 1164 ^ 1170 |Zero| 1194 |One| 1198 D 1202 = 1213 /
-              1219 - 1225 + 1236 * 1242)
+              |annihilate?| 1164 ^ 1170 D 1194 = 1205 |1| 1211 |0| 1215 / 1219
+              - 1225 + 1236 * 1242)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -466,10 +465,10 @@
                                     1 4 154 0 1 0 0 69 1 1 0 0 0 1 1 0 34 97
                                     102 3 0 0 0 0 0 1 2 0 34 0 0 1 2 0 0 0 0 1
                                     2 0 34 0 0 1 2 0 0 0 12 1 2 0 0 0 11 64 2 0
-                                    0 0 69 1 2 0 0 0 155 1 0 0 0 30 0 0 0 40 2
-                                    0 0 0 69 1 1 0 0 0 1 2 0 34 0 0 42 2 0 0 0
-                                    0 62 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 0
-                                    0 69 0 1 2 0 0 11 0 1 2 0 0 0 0 45 2 0 0
-                                    155 0 1 2 0 0 0 11 1 2 0 0 0 12 1 2 3 0 12
-                                    0 1)))))
+                                    0 0 69 1 2 0 0 0 155 1 2 0 0 0 69 1 1 0 0 0
+                                    1 2 0 34 0 0 42 0 0 0 40 0 0 0 30 2 0 0 0 0
+                                    62 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 0 0
+                                    69 0 1 2 0 0 11 0 1 2 0 0 0 0 45 2 0 0 155
+                                    0 1 2 0 0 0 11 1 2 0 0 0 12 1 2 3 0 12 0
+                                    1)))))
            '|lookupComplete|)) 

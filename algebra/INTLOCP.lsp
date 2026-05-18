@@ -136,9 +136,9 @@
                                (SPADCALL |po| (SPADCALL |q| (QREFELT % 30))
                                          (QREFELT % 36))))))))))) 
 
-(SDEFUN |INTLOCP;Zero;%;11| ((% (%))) (SPADCALL 0 (QREFELT % 17))) 
+(SDEFUN |INTLOCP;0;%;11| ((% (%))) (SPADCALL 0 (QREFELT % 17))) 
 
-(SDEFUN |INTLOCP;One;%;12| ((% (%))) (SPADCALL 1 (QREFELT % 17))) 
+(SDEFUN |INTLOCP;1;%;12| ((% (%))) (SPADCALL 1 (QREFELT % 17))) 
 
 (SDEFUN |INTLOCP;zero?;%B;13| ((|x| (%)) (% (|Boolean|)))
         (SPADCALL (SPADCALL |x| (QREFELT % 15)) (QREFELT % 40))) 
@@ -429,10 +429,8 @@
               (32 . |coerce|) (|PositiveInteger|) (37 . |coerce|)
               (42 . |coerce|) (47 . ^) (53 . |one?|) (58 . *)
               |INTLOCP;coerce;%Of;10|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |INTLOCP;Zero;%;11|) %))
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |INTLOCP;One;%;12|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |INTLOCP;0;%;11|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |INTLOCP;1;%;12|) %))
               (64 . |zero?|) |INTLOCP;zero?;%B;13| (69 . +) |INTLOCP;+;3%;14|
               (75 . -) |INTLOCP;-;2%;15| (80 . *) |INTLOCP;*;3%;16|
               |INTLOCP;*;I2%;17| (86 . ^) |INTLOCP;^;%Nni%;18| (92 . =)
@@ -440,7 +438,7 @@
               |INTLOCP;euclideanSize;%Nni;21| (98 . /)
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
               |INTLOCP;divide;2%R;22| |INTLOCP;exquo;2%U;23|
-              (104 . |opposite?|) |INTLOCP;opposite?;2%B;24| (110 . |One|)
+              (104 . |opposite?|) |INTLOCP;opposite?;2%B;24| (110 . |1|)
               (114 . |inv|)
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               |INTLOCP;unitNormal;%R;25| |INTLOCP;unitCanonical;2%;26|
@@ -469,8 +467,8 @@
               376 |exquo| 389 |expressIdealMember| 395 |exponent| 401
               |euclideanSize| 406 |divide| 411 |commutator| 417 |coerce| 423
               |characteristic| 443 |associator| 447 |associates?| 454
-              |antiCommutator| 460 |annihilate?| 466 |abs| 472 ^ 477 |Zero| 489
-              |One| 493 >= 497 > 503 = 509 <= 515 < 521 - 527 + 538 * 544)
+              |antiCommutator| 460 |annihilate?| 466 |abs| 472 ^ 477 >= 489 >
+              495 = 501 <= 507 < 513 |1| 519 |0| 523 - 527 + 538 * 544)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -534,9 +532,9 @@
                                     57 2 0 0 0 0 1 1 0 29 0 37 1 0 0 8 17 1 0 0
                                     0 1 1 0 14 0 24 0 0 12 53 3 0 0 0 0 0 1 2 0
                                     7 0 0 66 2 0 0 0 0 1 2 0 7 0 0 1 1 0 0 0 1
-                                    2 0 0 0 31 1 2 0 0 0 12 50 0 0 0 38 0 0 0
-                                    39 2 0 7 0 0 1 2 0 7 0 0 1 2 0 7 0 0 52 2 0
-                                    7 0 0 1 2 0 7 0 0 74 2 0 0 0 0 1 1 0 0 0 45
+                                    2 0 0 0 31 1 2 0 0 0 12 50 2 0 7 0 0 1 2 0
+                                    7 0 0 1 2 0 7 0 0 52 2 0 7 0 0 1 2 0 7 0 0
+                                    74 0 0 0 39 0 0 0 38 2 0 0 0 0 1 1 0 0 0 45
                                     2 0 0 0 0 43 2 0 0 31 0 1 2 0 0 0 0 47 2 0
                                     0 8 0 48 2 0 0 12 0 1)))))
            '|lookupComplete|)) 

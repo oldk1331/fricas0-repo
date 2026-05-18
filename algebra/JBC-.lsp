@@ -887,7 +887,7 @@
 (MAKEPROP '|JetBundleCategory&| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|PositiveInteger|)
-              (0 . |numIndVar|) '|nn| (4 . |numDepVar|) '|mm| (8 . |One|)
+              (0 . |numIndVar|) '|nn| (4 . |numDepVar|) '|mm| (8 . |1|)
               (|List| 7) (|List| 16) |JBC-;m2r;LL;1| (|NonNegativeInteger|)
               (12 . |new|) (|Integer|) (18 . |elt|) (24 . |setelt!|)
               |JBC-;r2m;LL;2| (31 . |copy|) (|List| 13) (36 . |allRepeated|)

@@ -195,19 +195,19 @@
 (MAKEPROP '|IntegralBasisPolynomialTools| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|local| |#4|) (0 . |Zero|) (|Boolean|)
+              (|local| |#3|) (|local| |#4|) (0 . |0|) (|Boolean|)
               (|SparseUnivariatePolynomial| 9) (4 . |zero?|)
               (9 . |leadingCoefficient|) (|NonNegativeInteger|) (14 . |degree|)
               (19 . |monomial|) (25 . +) (31 . |reductum|) (|Mapping| 6 9)
-              |IBPTOOLS;mapUnivariate;MSupR;1| (36 . |Zero|) (40 . |zero?|)
+              |IBPTOOLS;mapUnivariate;MSupR;1| (36 . |0|) (40 . |zero?|)
               (45 . |leadingCoefficient|) (50 . |degree|) (55 . |monomial|)
               (61 . +) (67 . |reductum|) (|Mapping| 9 6)
               |IBPTOOLS;mapUnivariate;MRSup;2| (|Union| 7 '#1="failed")
               (|Union| 6 '#2="failed") (|Mapping| 32 9)
-              |IBPTOOLS;mapUnivariateIfCan;MSupU;3| (72 . |Zero|)
+              |IBPTOOLS;mapUnivariateIfCan;MSupU;3| (72 . |0|)
               (|Union| (|Matrix| 7) '#3="failed") (|Matrix| 12)
               |IBPTOOLS;mapMatrixIfCan;MMU;4| (|SparseUnivariatePolynomial| 12)
-              (76 . |Zero|) (80 . |zero?|) (85 . |leadingCoefficient|)
+              (76 . |0|) (80 . |zero?|) (85 . |leadingCoefficient|)
               (90 . |degree|) (95 . |monomial|) (101 . +) (107 . |reductum|)
               |IBPTOOLS;mapBivariate;MUPSup;5|)
            '#(|mapUnivariateIfCan| 112 |mapUnivariate| 118 |mapMatrixIfCan| 130

@@ -576,7 +576,7 @@
               (|Vector| 60) (|Vector| (|Matrix| 6))
               (|CoerceVectorMatrixPackage| 6) (0 . |coerce|) '|listOfNumbers|
               (|String|) (|Symbol|) (5 . |coerce|) '|symbolsForCoef|
-              (|Polynomial| 6) (10 . |One|) (|Integer|) (|Vector| 16)
+              (|Polynomial| 6) (10 . |1|) (|Integer|) (|Vector| 16)
               (14 . |elt|) (|List| 16) (|List| 83) (20 . |monomial|)
               (|Fraction| 19) (27 . |coerce|) (|Vector| 27) (|Mapping| 27 19)
               (|Vector| 19) (|VectorFunctions2| 19 27) (32 . |map|)
@@ -591,7 +591,7 @@
               (124 . |determinant|) (129 . |genericLeftDiscriminant|)
               (133 . |genericRightTrace|) (138 . |genericRightTraceForm|)
               (144 . |genericRightDiscriminant|)
-              (|SparseUnivariatePolynomial| 27) (148 . |Zero|) '|leftRankPoly|
+              (|SparseUnivariatePolynomial| 27) (148 . |0|) '|leftRankPoly|
               '|initLeft?| (152 . |leftMinimalPolynomial|) (|Void|)
               (157 . |void|) '|rightRankPoly| '|initRight?|
               (161 . |rightMinimalPolynomial|) (166 . |leftRankPolynomial|)
@@ -641,8 +641,8 @@
               |commutator| 687 |commutative?| 693 |coerce| 697 |basis| 707
               |associatorDependence| 711 |associator| 715 |associative?| 722
               |apply| 726 |antiCommutator| 732 |antiCommutative?| 738
-              |antiAssociative?| 742 |alternative?| 746 ^ 750 |Zero| 756 = 760
-              - 766 + 777 * 783)
+              |antiAssociative?| 742 |alternative?| 746 ^ 750 = 756 |0| 762 -
+              766 + 777 * 783)
            'NIL
            (CONS
             (|makeByteWordVec2| 3
@@ -717,7 +717,7 @@
                                     0 101 1 1 0 102 0 1 1 0 0 29 1 0 0 54 55 0
                                     1 114 1 3 0 0 0 0 0 1 0 0 101 1 2 0 0 60 0
                                     1 2 0 0 0 0 1 0 0 101 1 0 0 101 1 0 0 101 1
-                                    2 0 0 0 103 1 0 0 0 1 2 0 101 0 0 1 1 0 0 0
+                                    2 0 0 0 103 1 2 0 101 0 0 1 0 0 0 1 1 0 0 0
                                     1 2 0 0 0 0 90 2 0 0 0 0 1 2 0 0 103 0 1 2
                                     0 0 0 0 51 2 0 0 21 0 1 2 0 0 83 0 1 2 0 0
                                     0 27 1 2 0 0 27 0 1 2 0 0 106 0 1)))))

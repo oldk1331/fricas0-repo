@@ -1031,8 +1031,8 @@
            '#(NIL NIL NIL NIL NIL (|InnerSparseUnivariatePowerSeries| 6)
               (|local| |#1|) (|local| |#2|) (|local| |#3|) '|Rep| (|Symbol|)
               |SULS;variable;%S;1| |SULS;center;%Coef;2| (|Boolean|)
-              (0 . |zero?|) (5 . |One|) (9 . |One|) (|Integer|)
-              (13 . |monomial|) (19 . |Zero|) (23 . |Zero|) (27 . +)
+              (0 . |zero?|) (5 . |1|) (9 . |1|) (|Integer|) (13 . |monomial|)
+              (19 . |0|) (23 . |0|) (27 . +)
               (|Variable| (NRTEVAL (QREFELT % 7))) |SULS;coerce;V%;3|
               (33 . |order|) |SULS;pole?;%B;4|
               (|SparseUnivariateTaylorSeries| 6 (NRTEVAL (QREFELT % 7))
@@ -1047,7 +1047,7 @@
               (51 . /) (57 . /) (|Union| % '"failed") (63 . |iExquo|)
               |SULS;recip;%U;19| (70 . |exquo|) (76 . |differentiate|)
               |SULS;differentiate;%V%;22| (81 . |iCompose|) (87 . ^)
-              |SULS;elt;3%;23| (|Fraction| 57) (93 . |Zero|) (|Polynomial| 6)
+              |SULS;elt;3%;23| (|Fraction| 57) (93 . |0|) (|Polynomial| 6)
               (97 . |polynomial|) (103 . |coerce|) (108 . |coerce|)
               (113 . |coerce|) (118 . -) (124 . ^) (130 . /)
               (136 . |rationalFunction|) (142 . |truncate|)
@@ -1074,7 +1074,7 @@
               (477 . |getStream|) (482 . |explicitlyEmpty?|)
               (487 . |explicitEntries?|) (|Reference| 140) (492 . |getRef|)
               (|OrderedCompletion| 17) (497 . |elt|) (|Union| 17 '"failed")
-              (502 . |retractIfCan|) (507 . |extend|) (513 . |One|)
+              (502 . |retractIfCan|) (507 . |extend|) (513 . |1|)
               (|OutputForm|) (517 . |seriesToOutputForm|) |SULS;coerce;%Of;57|
               (|String|) (|PositiveInteger|) (|List| 133) (|Mapping| 6 6)
               (|Mapping| 6 17) (|Stream| 6) (|Union| 165 '#1="failed")
@@ -1130,9 +1130,9 @@
               |associator| 1435 |associates?| 1442 |asinh| 1448 |asin| 1453
               |asech| 1458 |asec| 1463 |approximate| 1468 |antiCommutator| 1474
               |annihilate?| 1480 |acsch| 1486 |acsc| 1491 |acoth| 1496 |acot|
-              1501 |acosh| 1506 |acos| 1511 |abs| 1516 ^ 1521 |Zero| 1551 |One|
-              1555 D 1559 >= 1609 > 1615 = 1621 <= 1627 < 1633 / 1639 - 1657 +
-              1668 * 1674)
+              1501 |acosh| 1506 |acos| 1511 |abs| 1516 ^ 1521 D 1551 >= 1601 >
+              1607 = 1613 <= 1619 < 1625 |1| 1631 |0| 1635 / 1639 - 1657 + 1668
+              * 1674)
            'NIL
            (CONS
             (|makeByteWordVec2| 52
@@ -1337,15 +1337,15 @@
                                     1 2 0 0 125 1 2 0 0 101 1 2 0 0 121 1 2 0 0
                                     97 1 2 0 0 117 1 2 0 0 93 1 8 0 0 1 2 0 0 0
                                     150 1 2 60 0 0 39 53 2 2 0 0 0 74 2 2 0 0
-                                    126 128 2 3 0 0 17 1 0 62 0 20 0 60 0 16 2
-                                    43 0 0 39 1 1 43 0 0 1 3 42 0 0 163 178 1 2
-                                    42 0 0 163 1 3 42 0 0 10 39 1 2 42 0 0 10 1
-                                    3 3 0 0 190 39 1 2 3 0 0 190 1 2 32 13 0 0
-                                    1 2 32 13 0 0 1 2 0 13 0 0 1 2 32 13 0 0 1
-                                    2 32 13 0 0 1 2 3 0 0 6 1 2 3 0 0 0 44 2 3
-                                    0 26 26 45 2 64 0 0 0 1 1 64 0 0 1 2 0 0 0
-                                    0 21 2 0 0 150 0 1 2 0 0 0 0 32 2 0 0 6 0 1
-                                    2 0 0 0 6 1 2 15 0 0 17 1 2 56 0 126 0 1 2
-                                    56 0 0 126 1 2 64 0 17 0 1 2 62 0 39 0 1 2
-                                    3 0 26 0 42 2 3 0 0 26 43)))))
+                                    126 128 2 3 0 0 17 1 2 43 0 0 39 1 1 43 0 0
+                                    1 3 42 0 0 163 178 1 2 42 0 0 163 1 3 42 0
+                                    0 10 39 1 2 42 0 0 10 1 3 3 0 0 190 39 1 2
+                                    3 0 0 190 1 2 32 13 0 0 1 2 32 13 0 0 1 2 0
+                                    13 0 0 1 2 32 13 0 0 1 2 32 13 0 0 1 0 60 0
+                                    16 0 62 0 20 2 3 0 0 6 1 2 3 0 0 0 44 2 3 0
+                                    26 26 45 2 64 0 0 0 1 1 64 0 0 1 2 0 0 0 0
+                                    21 2 0 0 150 0 1 2 0 0 0 0 32 2 0 0 6 0 1 2
+                                    0 0 0 6 1 2 15 0 0 17 1 2 56 0 126 0 1 2 56
+                                    0 0 126 1 2 64 0 17 0 1 2 62 0 39 0 1 2 3 0
+                                    26 0 42 2 3 0 0 26 43)))))
            '|lookupComplete|)) 

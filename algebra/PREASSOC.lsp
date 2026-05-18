@@ -484,11 +484,11 @@
               '|diff| (|NonNegativeInteger|) (4 . |degree|)
               (|Union| 31 '#1="failed") (|PositiveInteger|)
               |PREASSOC;firstUncouplingMatrix;LPiU;1|
-              (9 . |leadingCoefficient|) (14 . |Zero|) (18 . |One|)
-              (22 . |One|) (26 . |coefficient|) (|Union| % '"failed")
-              (32 . |exquo|) (38 . -) (43 . |elt|) (49 . *) (55 . +)
-              (61 . |Zero|) (65 . -) (71 . ^) (77 . *) (|List| (|List| 6))
-              (|Matrix| 6) (83 . |matrix|) (|Integer|) (88 . |coerce|))
+              (9 . |leadingCoefficient|) (14 . |0|) (18 . |1|) (22 . |1|)
+              (26 . |coefficient|) (|Union| % '"failed") (32 . |exquo|)
+              (38 . -) (43 . |elt|) (49 . *) (55 . +) (61 . |0|) (65 . -)
+              (71 . ^) (77 . *) (|List| (|List| 6)) (|Matrix| 6)
+              (83 . |matrix|) (|Integer|) (88 . |coerce|))
            '#(|firstUncouplingMatrix| 93) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)

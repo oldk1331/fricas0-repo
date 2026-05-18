@@ -412,7 +412,7 @@
               (|SparseUnivariatePolynomial| (|Complex| (|Integer|)))
               (5 . |univariate|) (|List| 33) (|ComplexRootPackage| 10 6)
               (10 . |complexZeros|) |FLOATCP;complexRoots;FParL;1|
-              (16 . |denom|) (21 . |One|) (|Boolean|) (25 . ~=) (|List| 12)
+              (16 . |denom|) (21 . |1|) (|Boolean|) (25 . ~=) (|List| 12)
               (|List| 7) (|List| 30)
               (|InnerNumericFloatSolvePackage| (|Complex| (|Integer|)) 33 6)
               (31 . |innerSolve|) (|List| 8) |FLOATCP;complexRoots;LLParL;2|

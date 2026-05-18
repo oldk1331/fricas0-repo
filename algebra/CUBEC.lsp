@@ -493,7 +493,7 @@
               |CUBEC;cubicalComplex;LL%;3| |CUBEC;cubicalComplex;L%;4|
               (18 . |getIntervals|) (|NonNegativeInteger|)
               |CUBEC;maxIndex;%Nni;5| (|Boolean|) (23 . =) (29 . |getMult|)
-              (34 . |Zero|) (38 . ~=) (44 . |setMult|) |CUBEC;addCube;%Cf%;6|
+              (34 . |0|) (38 . ~=) (44 . |setMult|) |CUBEC;addCube;%Cf%;6|
               (|List| %) (50 . |boundary|) |CUBEC;boundary;2%;7| (55 . |order|)
               (|List| 9) (60 . |concat|) (66 . |elt|) (72 . |setelt!|)
               |CUBEC;grade;%L;8| (79 . |sameFace?|) (85 . |allSubsets|)

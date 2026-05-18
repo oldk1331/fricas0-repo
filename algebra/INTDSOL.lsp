@@ -88,7 +88,7 @@
 (MAKEPROP '|IntegrateSolutions| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (0 . |adjoint|) (5 . |One|) (9 . |One|) (|NonNegativeInteger|)
+              (0 . |adjoint|) (5 . |1|) (9 . |1|) (|NonNegativeInteger|)
               (13 . |monomial|) (19 . *) (25 . *) (31 . -)
               (37 . |leftQuotient|) (|Union| 7 '#1="failed")
               (|Record| (|:| |ltilde| 7) (|:| |r| 17)) (|Union| 6 '#2="failed")

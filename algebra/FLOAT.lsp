@@ -787,13 +787,13 @@
          (SPADCALL (SPADCALL |a| |b| (QREFELT % 44)) |b| (QREFELT % 39))
          (QREFELT % 46))) 
 
-(MAKEPROP '|FLOAT;Zero;%;42| '|SPADreplace| '(XLAM NIL (CONS 0 0))) 
+(MAKEPROP '|FLOAT;0;%;42| '|SPADreplace| '(XLAM NIL (CONS 0 0))) 
 
-(SDEFUN |FLOAT;Zero;%;42| ((% (%))) (CONS 0 0)) 
+(SDEFUN |FLOAT;0;%;42| ((% (%))) (CONS 0 0)) 
 
-(MAKEPROP '|FLOAT;One;%;43| '|SPADreplace| '(XLAM NIL (CONS 1 0))) 
+(MAKEPROP '|FLOAT;1;%;43| '|SPADreplace| '(XLAM NIL (CONS 1 0))) 
 
-(SDEFUN |FLOAT;One;%;43| ((% (%))) (CONS 1 0)) 
+(SDEFUN |FLOAT;1;%;43| ((% (%))) (CONS 1 0)) 
 
 (MAKEPROP '|FLOAT;base;Pi;44| '|SPADreplace| '(XLAM NIL 2)) 
 
@@ -1542,10 +1542,9 @@
               |FLOAT;exponent;%I;46| (18 . |OMputEndApp|) (23 . |OMputObject|)
               (28 . |OMputEndObject|) (|Boolean|) |FLOAT;OMwrite;Omd%BV;2|
               (33 . |sign|) |FLOAT;zero?;%B;48|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |FLOAT;Zero;%;42|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FLOAT;0;%;42|) %))
               |FLOAT;negative?;%B;49| |FLOAT;-;2%;67| |FLOAT;asin;2%;4|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FLOAT;One;%;43|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FLOAT;1;%;43|) %))
               |FLOAT;=;2%B;56| |FLOAT;pi;%;15| |FLOAT;/;%I%;76| (38 . >)
               (44 . |toString|) (|List| %) (49 . |concat|) (|PositiveInteger|)
               |FLOAT;increasePrecision;IPi;35| |FLOAT;sqrt;2%;30|
@@ -1573,7 +1572,7 @@
               |FLOAT;truncate;2%;64| |FLOAT;ceiling;2%;59| |FLOAT;round;2%;62|
               (|Union| % '"failed") |FLOAT;recip;%U;65|
               |FLOAT;differentiate;2%;66| |FLOAT;inv;2%;77| |FLOAT;^;3%;83|
-              (|Fraction| 13) (116 . |Zero|) (120 . =) (126 . <) (132 . |One|)
+              (|Fraction| 13) (116 . |0|) (120 . =) (126 . <) (132 . |1|)
               (136 . |numer|) (141 . |denom|) |FLOAT;^;%F%;84| 'SPACING
               'OUTMODE 'OUTPREC (|NonNegativeInteger|)
               |FLOAT;outputSpacing;2Nni;86| |FLOAT;outputFixed;V;87|
@@ -1637,8 +1636,8 @@
               |associator| 917 |associates?| 924 |asinh| 930 |asin| 935 |asech|
               940 |asec| 945 |antiCommutator| 950 |annihilate?| 956 |acsch| 962
               |acsc| 967 |acoth| 972 |acot| 977 |acosh| 982 |acos| 987 |abs|
-              992 ^ 997 |Zero| 1027 |One| 1031 |OMwrite| 1035 D 1059 >= 1070 >
-              1076 = 1082 <= 1088 < 1094 / 1100 - 1112 + 1123 * 1129)
+              992 ^ 997 |OMwrite| 1027 D 1051 >= 1062 > 1068 = 1074 <= 1080 <
+              1086 |1| 1092 |0| 1096 / 1100 - 1112 + 1123 * 1129)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -1758,13 +1757,13 @@
                                     0 0 0 0 1 2 0 20 0 0 1 1 0 0 0 1 1 0 0 0 1
                                     1 0 0 0 1 1 0 0 0 1 1 0 0 0 74 1 0 0 0 43 1
                                     0 0 0 46 2 0 0 0 36 61 2 0 0 0 119 1 2 0 0
-                                    0 13 97 2 0 0 0 108 115 2 0 0 0 0 107 0 0 0
-                                    24 0 0 0 28 2 0 11 0 20 1 1 0 11 0 1 3 0 8
-                                    9 0 20 21 2 0 8 9 0 1 2 0 0 0 119 1 1 0 0 0
-                                    1 2 0 20 0 0 139 2 0 20 0 0 32 2 0 20 0 0
-                                    29 2 0 20 0 0 1 2 0 20 0 0 45 2 0 0 0 0 39
-                                    2 0 0 0 13 31 1 0 0 0 26 2 0 0 0 0 44 2 0 0
-                                    0 0 55 2 0 0 36 0 59 2 0 0 0 0 54 2 0 0 13
-                                    0 62 2 0 0 119 0 1 2 1 0 108 0 1 2 1 0 0
+                                    0 13 97 2 0 0 0 108 115 2 0 0 0 0 107 2 0
+                                    11 0 20 1 1 0 11 0 1 3 0 8 9 0 20 21 2 0 8
+                                    9 0 1 2 0 0 0 119 1 1 0 0 0 1 2 0 20 0 0
+                                    139 2 0 20 0 0 32 2 0 20 0 0 29 2 0 20 0 0
+                                    1 2 0 20 0 0 45 0 0 0 28 0 0 0 24 2 0 0 0 0
+                                    39 2 0 0 0 13 31 1 0 0 0 26 2 0 0 0 0 44 2
+                                    0 0 0 0 55 2 0 0 36 0 59 2 0 0 0 0 54 2 0 0
+                                    13 0 62 2 0 0 119 0 1 2 1 0 108 0 1 2 1 0 0
                                     108 1)))))
            '|lookupComplete|)) 

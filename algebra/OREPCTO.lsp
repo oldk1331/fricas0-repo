@@ -305,10 +305,10 @@
 (MAKEPROP '|UnivariateSkewPolynomialCategoryOps| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|Boolean|)
-              (0 . |zero?|) (5 . |Zero|) (|NonNegativeInteger|) (9 . |degree|)
+              (0 . |zero?|) (5 . |0|) (|NonNegativeInteger|) (9 . |degree|)
               (|Automorphism| 6) (|Mapping| 6 6) |OREPCTO;times;2CAMC;1|
-              (14 . |One|) (18 . |One|) (|Union| % '"failed")
-              (22 . |subtractIfCan|) (28 . |Zero|) (32 . |leadingCoefficient|)
+              (14 . |1|) (18 . |1|) (|Union| % '"failed")
+              (22 . |subtractIfCan|) (28 . |0|) (32 . |leadingCoefficient|)
               (37 . *) (43 . |reductum|) (48 . ~=) (54 . |elt|)
               (60 . |monomial|) (66 . +) (72 . |coefficient|) (78 . *) (84 . +)
               |OREPCTO;apply;C2RAMR;3| (|Integer|) (90 . ^) (96 . *) (102 . -)

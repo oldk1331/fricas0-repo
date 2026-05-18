@@ -104,7 +104,7 @@
               (|Record| (|:| |num| 12) (|:| |den| 6))
               |MCDEN;splitDenominator;MR;2| (22 . |denom|) (|List| 7)
               (27 . |parts|) (|List| 6) (|ListFunctions2| 7 6) (32 . |map|)
-              (|List| %) (38 . |lcm|) (43 . *) (49 . |One|) (|Mapping| 6 6 6)
+              (|List| %) (38 . |lcm|) (43 . *) (49 . |1|) (|Mapping| 6 6 6)
               (53 . |reduce|))
            '#(|splitDenominator| 60 |commonDenominator| 65 |clearDenominator|
               70)

@@ -523,10 +523,10 @@
               (QREFELT % 93))
              (SPADCALL |fr| (QREFELT % 33)) %))))) 
 
-(SDEFUN |CONTFRAC;Zero;%;32| ((% (%)))
+(SDEFUN |CONTFRAC;0;%;32| ((% (%)))
         (SPADCALL (|spadConstant| % 26) (QREFELT % 51))) 
 
-(SDEFUN |CONTFRAC;One;%;33| ((% (%)))
+(SDEFUN |CONTFRAC;1;%;33| ((% (%)))
         (SPADCALL (|spadConstant| % 29) (QREFELT % 51))) 
 
 (SDEFUN |CONTFRAC;+;3%;34| ((|c| (%)) (|d| (%)) (% (%)))
@@ -751,11 +751,11 @@
               |CONTFRAC;approximants;%S;21| |CONTFRAC;reducedForm;2%;1|
               (15 . |numer|) (20 . |denom|) (25 . |quo|) (31 . *) (37 . -)
               (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |CONTFRAC;Zero;%;32|) %))
-              (43 . |Zero|) (47 . <)
+                    (FUNCALL (|dispatchFunction| |CONTFRAC;0;%;32|) %))
+              (43 . |0|) (47 . <)
               (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |CONTFRAC;One;%;33|) %))
-              (53 . |One|) (57 . ~=) (63 . |empty?|) (68 . |frst|) (73 . |rst|)
+                    (FUNCALL (|dispatchFunction| |CONTFRAC;1;%;33|) %))
+              (53 . |1|) (57 . ~=) (63 . |empty?|) (68 . |frst|) (73 . |rst|)
               |CONTFRAC;=;2%B;4| |CONTFRAC;coerce;F%;13| (|Stream| 6)
               (78 . |continuedFraction|) (85 . |empty?|) (90 . |empty|)
               (94 . |frst|) (99 . |rst|) (|Mapping| %) (104 . |delay|)
@@ -767,10 +767,10 @@
               (146 . |divide|) (|List| 9) (152 . |construct|)
               (|NonNegativeInteger|) (157 . |characteristic|)
               |CONTFRAC;characteristic;Nni;14| (161 . |first|) (166 . |rst|)
-              (171 . |One|) (175 . |Zero|) (|MoebiusTransform| 15)
-              (179 . |moebius|) (187 . =) (193 . |eval|) (199 . |recip|)
-              (204 . -) (209 . |shift|) |CONTFRAC;wholePart;%R;17|
-              (|Mapping| 6 9) (|StreamFunctions2| 9 6) (215 . |map|)
+              (171 . |1|) (175 . |0|) (|MoebiusTransform| 15) (179 . |moebius|)
+              (187 . =) (193 . |eval|) (199 . |recip|) (204 . -)
+              (209 . |shift|) |CONTFRAC;wholePart;%R;17| (|Mapping| 6 9)
+              (|StreamFunctions2| 9 6) (215 . |map|)
               |CONTFRAC;partialNumerators;%S;18|
               |CONTFRAC;partialDenominators;%S;19| (221 . |concat|)
               |CONTFRAC;partialQuotients;%S;20| (|List| 15) (227 . |repeating|)
@@ -812,8 +812,8 @@
               622 |denominators| 628 |convergents| 633 |continuedFraction| 638
               |complete| 650 |commutator| 655 |coerce| 661 |characteristic| 691
               |associator| 695 |associates?| 702 |approximants| 708
-              |antiCommutator| 713 |annihilate?| 719 ^ 725 |Zero| 743 |One| 747
-              = 751 / 757 - 763 + 774 * 780)
+              |antiCommutator| 713 |annihilate?| 719 ^ 725 = 743 |1| 749 |0|
+              753 / 757 - 763 + 774 * 780)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -893,8 +893,8 @@
                                     1 0 0 15 35 1 0 0 6 51 1 0 0 0 1 1 1 0 141
                                     1 0 0 60 62 3 0 0 0 0 0 1 2 0 8 0 0 1 1 0
                                     12 0 18 2 0 0 0 0 1 2 0 8 0 0 1 2 0 0 0 130
-                                    1 2 0 0 0 60 1 2 0 0 0 48 1 0 0 0 25 0 0 0
-                                    28 2 0 8 0 0 34 2 0 0 0 0 114 2 0 0 0 0 102
+                                    1 2 0 0 0 60 1 2 0 0 0 48 1 2 0 8 0 0 34 0
+                                    0 0 28 0 0 0 25 2 0 0 0 0 114 2 0 0 0 0 102
                                     1 0 0 0 105 2 0 0 0 0 100 2 0 0 130 0 1 2 0
                                     0 0 0 107 2 0 0 48 0 112 2 0 0 60 0 1 2 0 0
                                     6 0 109 2 0 0 0 6 1 2 0 0 15 0 110 2 0 0 0

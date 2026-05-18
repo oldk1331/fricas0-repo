@@ -619,11 +619,10 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|NonNegativeInteger|) (|Integer|)
               (|IndexedFlexibleArray| 7 (NRTEVAL 0)) (0 . |new|) 'E
-              (|Fraction| 7) (6 . |One|)
-              (|IndexedFlexibleArray| 11 (NRTEVAL 0)) (10 . |new|) 'B 'H
-              (16 . |Zero|) (20 . /) (26 . +) |INTHEORY;harmonic;IF;1|
-              |INTHEORY;fibonacci;2I;2| (|Boolean|) (32 . |bit?|)
-              (|Factored| %) (38 . |factor|)
+              (|Fraction| 7) (6 . |1|) (|IndexedFlexibleArray| 11 (NRTEVAL 0))
+              (10 . |new|) 'B 'H (16 . |0|) (20 . /) (26 . +)
+              |INTHEORY;harmonic;IF;1| |INTHEORY;fibonacci;2I;2| (|Boolean|)
+              (32 . |bit?|) (|Factored| %) (38 . |factor|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 26) (|:| |factor| 7) (|:| |exponent| 6))
               (|List| 27) (|Factored| 7) (43 . |factorList|) (|List| %)

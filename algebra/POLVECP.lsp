@@ -107,12 +107,12 @@
 (MAKEPROP '|VectorPolynomialOperationsP| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|)
-              (|PrimeField| (NRTEVAL (QREFELT % 6))) (0 . |Zero|) (|Boolean|)
+              (|PrimeField| (NRTEVAL (QREFELT % 6))) (0 . |0|) (|Boolean|)
               (4 . =) (|Integer|) (|PrimitiveArray| 7) |POLVECP;degree;PaI;1|
               (|SparseUnivariatePolynomial| 11) (10 . |zero?|)
               (|NonNegativeInteger|) (15 . |degree|)
               (20 . |leadingCoefficient|) (25 . |coerce|) (30 . |reductum|)
-              |POLVECP;to_mod_pa;SupPa;2| (35 . |Zero|) (39 . |convert|)
+              |POLVECP;to_mod_pa;SupPa;2| (35 . |0|) (39 . |convert|)
               (44 . |monomial|) (50 . +) |POLVECP;pa_to_sup;PaSup;3|)
            '#(|to_mod_pa| 56 |pa_to_sup| 61 |degree| 66) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

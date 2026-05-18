@@ -399,21 +399,21 @@
 (MAKEPROP '|AlgebraicHermiteIntegration| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|local| |#4|) (0 . |Zero|) (4 . |Zero|)
-              (8 . |Zero|) (|Record| (|:| |answer| 9) (|:| |logpart| 9))
-              (|Mapping| 7 7) |INTHERAL;HermiteIntegrate;RMRR;2|
+              (|local| |#3|) (|local| |#4|) (0 . |0|) (4 . |0|) (8 . |0|)
+              (|Record| (|:| |answer| 9) (|:| |logpart| 9)) (|Mapping| 7 7)
+              |INTHERAL;HermiteIntegrate;RMRR;2|
               |INTHERAL;HermiteIntegrate;RMR;1| (|PositiveInteger|)
               (12 . |rank|) (|Record| (|:| |num| 21) (|:| |den| 7))
               (16 . |integralDerivationMatrix|) (|Matrix| 7) (21 . |transpose|)
               (|Record| (|:| |num| 32) (|:| |den| 7))
-              (26 . |integralCoordinates|) (31 . |One|) (|Boolean|) (35 . ~=)
+              (26 . |integralCoordinates|) (31 . |1|) (|Boolean|) (35 . ~=)
               (|Union| % '"failed") (41 . |exquo|) (47 . |gcd|) (53 . *)
               (|Vector| 7) (59 . *) (|Factored| %) (65 . |squareFree|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 36) (|:| |factor| 7) (|:| |exponent| 41))
               (|List| 37) (|Factored| 7) (70 . |factorList|)
               (|NonNegativeInteger|) (75 . ^) (81 . *) (|Integer|)
-              (87 . |minIndex|) (92 . |One|) (96 . *) (102 . -)
+              (87 . |minIndex|) (92 . |1|) (96 . *) (102 . -)
               (107 . |scalarMatrix|) (113 . +) (119 . |integralRepresents|)
               (125 . *) (131 . +) (137 . -) (143 . |row|) (149 . |dot|)
               (155 . +) (161 . |diagonal?|) (166 . |maxRowIndex|)

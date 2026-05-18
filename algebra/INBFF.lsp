@@ -644,7 +644,7 @@
 (MAKEPROP '|InnerNormalBasisFieldFunctions| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|NonNegativeInteger|)
-              (0 . |size|) '|sizeGF| (4 . |One|) '|multTable| '|trGen| '|logq|
+              (0 . |size|) '|sizeGF| (4 . |1|) '|multTable| '|trGen| '|logq|
               '|expTable| (|Integer|) (|SingleInteger|) (8 . |coerce|)
               (|Vector| 6) |INBFF;expPot;V2SiV;8| |INBFF;qPot;VIV;9|
               |INBFF;*;3V;5| (13 . |elt|) (19 . *) (25 . |inv|) (30 . *)
@@ -652,24 +652,24 @@
               |INBFF;repSq;VNniV;3| |INBFF;dAndcExp;VNniSiV;4| (|List| 16)
               (47 . |elt|) (|List| 31) (53 . |elt|) (|Boolean|) (59 . >=)
               |INBFF;^;VIV;2| (|List| 18) (65 . |elt|) (71 . |last|)
-              (76 . |concat|) (82 . |Zero|) (|List| 7) (86 . |concat|)
-              (92 . ~=) (98 . |zero|)
-              (|Record| (|:| |value| 6) (|:| |index| 16)) (|List| 47)
-              (|Vector| 48) (103 . |elt|) (109 . +) (115 . |setelt!|)
-              (|PositiveInteger|) (122 . |lookup|) |INBFF;lookup;VPi;6|
+              (76 . |concat|) (82 . |0|) (|List| 7) (86 . |concat|) (92 . ~=)
+              (98 . |zero|) (|Record| (|:| |value| 6) (|:| |index| 16))
+              (|List| 47) (|Vector| 48) (103 . |elt|) (109 . +)
+              (115 . |setelt!|) (|PositiveInteger|) (122 . |lookup|)
+              |INBFF;lookup;VPi;6|
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (127 . |divide|) |INBFF;norm;VPiV;7| (133 . |bit?|)
               (139 . |bit?|) (145 . |positiveRemainder|)
               (|UniversalSegment| 15) (151 . SEGMENT) (157 . |elt|)
               |INBFF;trace;VPiV;10| (163 . |random|) |INBFF;random;PiV;11|
-              (|SparseUnivariatePolynomial| 6) (167 . |monomial|) (173 . |One|)
+              (|SparseUnivariatePolynomial| 6) (167 . |monomial|) (173 . |1|)
               (177 . -) |INBFF;xn;NniSup;12| |INBFF;pol;VSup;20| (183 . |gcd|)
               (189 . =) |INBFF;normal?;VB;13| |INBFF;/;3V;14| (|Void|)
               (195 . |void|) |INBFF;setFieldInfo;VGFV;15| (|Matrix| 6)
               (199 . |zero|) (205 . |nullSpace|)
               |INBFF;minimalPolynomial;VSup;16| (|Vector| 18)
               |INBFF;basis;PiV;17| |INBFF;normalElement;PiV;18| (210 . |index|)
-              |INBFF;index;2PiV;19| (215 . +) (221 . |Zero|))
+              |INBFF;index;2PiV;19| (215 . +) (221 . |0|))
            '#(|xn| 225 |trace| 230 |setFieldInfo| 236 |repSq| 242 |random| 248
               |qPot| 253 |pol| 259 |normalElement| 264 |normal?| 269 |norm| 274
               |minimalPolynomial| 280 |lookup| 285 |inv| 290 |index| 295

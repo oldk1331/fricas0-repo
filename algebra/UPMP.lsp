@@ -192,13 +192,13 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|Boolean|)
               (0 . |zero?|) (|NonNegativeInteger|) (5 . |degree|)
               (10 . |leadingCoefficient|) (15 . *) (21 . *) (|List| %)
-              (27 . |monomials|) (32 . |Zero|) (36 . |pomopo!|)
+              (27 . |monomials|) (32 . |0|) (36 . |pomopo!|)
               |UPMP;noKaratsuba;3U;1| (44 . |minimumDegree|)
               (49 . |shiftRight|)
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (55 . |karatsubaDivide|) (61 . -) (67 . *) (73 . +)
               (79 . |shiftLeft|) |UPMP;karatsubaOnce;3U;2|
-              (85 . |numberOfMonomials|) (90 . |One|) (94 . |One|)
+              (85 . |numberOfMonomials|) (90 . |1|) (94 . |1|)
               (|Union| % '"failed") (98 . |subtractIfCan|)
               |UPMP;karatsuba;2U2NniU;3|)
            '#(|noKaratsuba| 104 |karatsubaOnce| 110 |karatsuba| 116) 'NIL

@@ -1033,8 +1033,8 @@
               (|Record| (|:| |i_mod| 7) (|:| |deg| 7)) |MODFT3;get_char;RI;1|
               |MODFT3;get_extension_degree;RI;2|
               (|Record| (|:| |mod_data| 8) (|:| |p_mod| 17))
-              |MODFT3;get_mod;RR;3| (0 . |One|) (4 . |Zero|) (|Boolean|)
-              (8 . =) (|PrimitiveArray| 6) |MODFT3;degree;PaI;4|
+              |MODFT3;get_mod;RR;3| (0 . |1|) (4 . |0|) (|Boolean|) (8 . =)
+              (|PrimitiveArray| 6) |MODFT3;degree;PaI;4|
               |MODFT3;empty_poly;Pa;5| (|PrimitiveTwoDimensionalArray| 6)
               (14 . |empty?|) |MODFT3;empty_mat?;PtdaB;8|
               |MODFT3;empty_mat;Ptda;7| |MODFT3;copy_poly;PaIRPa;14| (19 . -)

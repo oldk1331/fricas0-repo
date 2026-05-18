@@ -1784,14 +1784,14 @@
 (MAKEPROP '|SparseEchelonMatrix| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|minInd|
-              (0 . |One|) '|offset| '|emptyRec| '|noChecks?| '|seed| '|GCDmode|
+              (0 . |1|) '|offset| '|emptyRec| '|noChecks?| '|seed| '|GCDmode|
               (|Boolean|) (4 . <) '|Rep| (|NonNegativeInteger|)
               |SEM;ncols;%Nni;2| |SEM;nrows;%Nni;3| (|List| 6) (10 . |copy|)
               |SEM;allIndices;%L;4|
               (|Record| (|:| |Indices| 21) (|:| |Entries| 30)) (|Integer|)
               |SEM;row;%IR;5| (|Void|) (15 . |void|) |SEM;setRow!;%IRV;6|
               (|List| 7) |SEM;setRow!;%ILLV;7| |SEM;new;LI%;8|
-              (19 . |position|) (25 . |Zero|) (29 . |qelt|) |SEM;elt;%ICD;9|
+              (19 . |position|) (25 . |0|) (29 . |qelt|) |SEM;elt;%ICD;9|
               (35 . |qsetelt!|) (42 . |insert!|) (49 . |insert!|)
               |SEM;setelt!;%ICDV;10| (|List| 24) (|Vector| 24) (56 . |entries|)
               (61 . =) (|Matrix| 7) |SEM;coerce;%M;11| (|OutputForm|)
@@ -1814,13 +1814,13 @@
                         (|:| |Rank| 18))
               |SEM;rowEchelon;%R;27| (|Symbol|) (205 . |setGcdMode|)
               (210 . |second|) (215 . |gcd|) (221 . *) (|Union| % '"failed")
-              (227 . |exquo|) (|Fraction| 7) (233 . |One|) (|Vector| 100)
+              (227 . |exquo|) (|Fraction| 7) (233 . |1|) (|Vector| 100)
               (|Matrix| 100) (237 . |diagonalMatrix|) (242 . |swapRows!|)
               (249 . /) (255 . |zero?|) (260 . *) (266 . *) (272 . -)
               (|Record| (|:| |Ech| %) (|:| |Lt| 103) (|:| |Pivots| 30)
                         (|:| |Rank| 18))
               (278 . |primitiveRowEchelon|) |SEM;*;M2%;33| (283 . |numer|)
-              (288 . |denom|) (293 . |Zero|) (297 . *) (303 . +)
+              (288 . |denom|) (293 . |0|) (297 . *) (303 . +)
               (|Union| 7 '"failed") (309 . |retractIfCan|) (314 . *))
            '#(|sortedPurge!| 320 |setelt!| 326 |setRow!| 334 |setGcdMode| 349
               |rowEchelon| 354 |row| 359 |purge!| 365 |primitiveRowEchelon| 371

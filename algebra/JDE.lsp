@@ -2003,15 +2003,15 @@
               (64 . |copy|) |JDE;copy;2%;3| |JDE;order;%Nni;4| (69 . |append|)
               (|Mapping| 31 31 31) (|List| 31) (75 . |reduce|)
               |JDE;retract;%L;5| (|List| 33) |JDE;jacobiMatrix;%L;6|
-              (|OutputForm|) (82 . |empty|) (86 . |Zero|) (|Equation| 7)
-              (90 . =) (96 . |coerce|) (|String|) (101 . |message|) (|List| %)
+              (|OutputForm|) (82 . |empty|) (86 . |0|) (|Equation| 7) (90 . =)
+              (96 . |coerce|) (|String|) (101 . |message|) (|List| %)
               (106 . |vconcat|) |JDE;printSys;LOf;7| |JDE;coerce;%Of;8|
               (111 . |coerce|) (116 . |hconcat|) (|Void|) (122 . |print|)
               (127 . |coerce|) (|List| 6) (132 . |allIndices|) (137 . |coerce|)
               (142 . |coerce|) (147 . |void|) |JDE;display;%V;9|
               (151 . |nrows|) (|Record| (|:| |Indices| 63) (|:| |Entries| 31))
               (156 . |row|) (162 . |order|) (167 . |removeDuplicates|)
-              (172 . |sort|) (177 . |One|) (181 . |One|) (185 . |new|)
+              (172 . |sort|) (177 . |1|) (181 . |1|) (185 . |new|)
               (|Vector| 33) (191 . |construct|) (196 . |position|)
               (202 . |setRow!|) (209 . |consRow!|) (|Vector| 31)
               (215 . |minIndex|) (220 . |new|) (226 . |numerator|)

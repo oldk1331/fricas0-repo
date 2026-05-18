@@ -415,10 +415,7 @@
 ;   pred := SUBST('T,"T$",pred)
 ;   sigpart:= form2LispString ['Mapping,:nsig]
 ;   predString := (pred = 'T => '""; form2LispString pred)
-;   sop :=
-;     (s := STRINGIMAGE op) = '"One" => '"1"
-;     s = '"Zero" => '"0"
-;     s
+;   sop := STRINGIMAGE(op)
 ;   header := STRCONC('"o",sop)
 ;   conform:= STRCONC($kind,form2LispString $conform)
 ;   comments:= libdbTrim concatWithBlanks LASSOC(sig,LASSOC(op,$doc))
@@ -427,7 +424,7 @@
 ;     buildLibdbString [header,# rest sig,$exposed?,sigpart,conform,predString,comments]
 
 (DEFUN |buildLibOp| (|op| |sig| |pred|)
-  (PROG (|nsig| |sigpart| |predString| |s| |sop| |header| |conform| |comments|)
+  (PROG (|nsig| |sigpart| |predString| |sop| |header| |conform| |comments|)
     (RETURN
      (PROGN
       (SETQ |nsig| (SUBLISLIS (CDR |$conform|) |$FormalMapVariableList| |sig|))
@@ -437,10 +434,8 @@
       (SETQ |pred| (SUBST 'T 'T$ |pred|))
       (SETQ |sigpart| (|form2LispString| (CONS '|Mapping| |nsig|)))
       (SETQ |predString|
-              (COND ((EQ |pred| 'T) "") (#1='T (|form2LispString| |pred|))))
-      (SETQ |sop|
-              (COND ((EQUAL (SETQ |s| (STRINGIMAGE |op|)) "One") "1")
-                    ((EQUAL |s| "Zero") "0") (#1# |s|)))
+              (COND ((EQ |pred| 'T) "") ('T (|form2LispString| |pred|))))
+      (SETQ |sop| (STRINGIMAGE |op|))
       (SETQ |header| (STRCONC "o" |sop|))
       (SETQ |conform| (STRCONC |$kind| (|form2LispString| |$conform|)))
       (SETQ |comments|

@@ -295,7 +295,7 @@
            '#(NIL NIL NIL NIL NIL
               (|UnivariateTaylorSeries| 6 (NRTEVAL '|x|)
                                         (NRTEVAL (|spadConstant| % 7)))
-              (|local| |#1|) (0 . |Zero|) (|Boolean|) (|OutputForm|) (|String|)
+              (|local| |#1|) (0 . |0|) (|Boolean|) (|OutputForm|) (|String|)
               (|PositiveInteger|) (|Record| (|:| |k| 14) (|:| |c| 6))
               (|List| 12) (|NonNegativeInteger|) (|Mapping| 6 6) (|Stream| 12)
               (|Symbol|) (|Stream| 6) (|Polynomial| 6) (|Mapping| 6 23)

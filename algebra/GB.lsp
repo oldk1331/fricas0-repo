@@ -278,11 +278,11 @@
 (MAKEPROP '|GroebnerPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (0 . |leadingCoefficient|) (5 . |One|) (9 . |One|)
+              (|local| |#3|) (0 . |leadingCoefficient|) (5 . |1|) (9 . |1|)
               (|Boolean|) (13 . =) (19 . |inv|) (24 . *) (|Mapping| 8 8)
               (|List| 8) (30 . |map|) (|GroebnerInternalPackage| 6 7 8)
-              (36 . |redPol|) (42 . |normalForm|) (48 . =) (54 . |Zero|)
-              (58 . |Zero|) (62 . |Zero|) (66 . ~=) (72 . |degree|) (77 . >)
+              (36 . |redPol|) (42 . |normalForm|) (48 . =) (54 . |0|)
+              (58 . |0|) (62 . |0|) (66 . ~=) (72 . |degree|) (77 . >)
               (|Integer|) (83 . |gbasis|) (|Mapping| 12 8 8) (90 . |sort|)
               (96 . |minGbasis|) |GB;groebner;2L;3| (|Void|) (|String|)
               (|OutputForm|) (101 . |messagePrint|) |GB;groebner;LSL;4|

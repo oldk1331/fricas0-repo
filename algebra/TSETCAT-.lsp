@@ -747,14 +747,14 @@
               (159 . |stronglyReduced?|) |TSETCAT-;headReduced?;PSB;11|
               (165 . >) (171 . =) (177 . |reduced?|)
               |TSETCAT-;initiallyReduced?;PSB;12| (|Mapping| 10 10 10)
-              |TSETCAT-;reduce;PSMMP;13| (183 . |trivialIdeal?|) (188 . |One|)
+              |TSETCAT-;reduce;PSMMP;13| (183 . |trivialIdeal?|) (188 . |1|)
               (192 . |reduce|) |TSETCAT-;rewriteSetWithReduction;LSMML;14|
               (200 . |lazyPrem|) |TSETCAT-;stronglyReduce;PSP;15|
               (206 . |headReduce|) (212 . |headReduced?|)
               |TSETCAT-;headReduce;PSP;16| (218 . |initiallyReduce|)
               (224 . |initiallyReduced?|) |TSETCAT-;initiallyReduce;PSP;17|
               (230 . |collectUnder|) (236 . |algebraic?|) (242 . |select|)
-              (248 . |removeZero|) (254 . |Zero|) (258 . |degree|)
+              (248 . |removeZero|) (254 . |0|) (258 . |degree|)
               (264 . |mainMonomial|) (269 . *) (275 . +) (281 . |tail|)
               |TSETCAT-;removeZero;PSP;18| (286 . |collectQuasiMonic|)
               (|Record| (|:| |rnum| 7) (|:| |polnum| 10) (|:| |den| 7))

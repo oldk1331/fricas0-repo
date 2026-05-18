@@ -840,8 +840,8 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) '|nv| (|NonNegativeInteger|)
-              (|SparseUnivariatePolynomial| 15) (0 . |degree|) (5 . |One|)
-              (9 . |One|)
+              (|SparseUnivariatePolynomial| 15) (0 . |degree|) (5 . |1|)
+              (9 . |1|)
               (|DistributedMultivariatePolynomial| (NRTEVAL (QREFELT % 6)) 7)
               (13 . |coefficient|) (|Integer|) (19 . |coerce|)
               (|Union| % '"failed") (24 . |exquo|) (30 . |leadingCoefficient|)
@@ -853,12 +853,12 @@
                                          (|DirectProduct|
                                           (NRTEVAL (LENGTH (QREFELT % 6))) 10)
                                          15)
-              (77 . |redPol|) (83 . |Zero|) (|Boolean|) (87 . ~=)
+              (77 . |redPol|) (83 . |0|) (|Boolean|) (87 . ~=)
               (93 . |univariate|) (|Union| 29 '"failed") (99 . |mainVariable|)
               (|HomogeneousDistributedMultivariatePolynomial|
                (NRTEVAL (QREFELT % 6)) 7)
               (|PolToPol| (NRTEVAL (QREFELT % 6)) 7) (104 . |dmpToHdmp|)
-              (109 . |coerce|) (114 . *) (120 . +) (126 . |Zero|)
+              (109 . |coerce|) (114 . *) (120 . +) (126 . |0|)
               (130 . |univariate|) (|SparseUnivariatePolynomial| 40)
               (136 . |elt|) (|List| 40)
               (|GroebnerPackage| 7
@@ -879,10 +879,10 @@
                                                   8 7 40)
               (174 . |factor|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 66) (|:| |factor| 40) (|:| |exponent| 10))
-              (|List| 67) (179 . |factorList|) (184 . -) (190 . |One|)
-              (194 . ~=) (200 . |reductum|) (205 . |mainVariable|)
+              (|List| 67) (179 . |factorList|) (184 . -) (190 . |1|) (194 . ~=)
+              (200 . |reductum|) (205 . |mainVariable|)
               (210 . |leadingCoefficient|) (215 . |ground?|) (220 . |remove|)
-              (226 . |One|) (230 . =) (236 . |computeBasis|) (241 . |minPol|)
+              (226 . |1|) (230 . =) (236 . |computeBasis|) (241 . |minPol|)
               (248 . |degree|) (254 . |concat|) (260 . =) (|List| 31)
               (266 . |concat|) |GROEBSOL;groebSolve;LLL;8|
               (|Union| 50 '"failed") |GROEBSOL;testDim;LLU;9|)

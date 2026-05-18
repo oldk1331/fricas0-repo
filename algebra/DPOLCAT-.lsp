@@ -787,7 +787,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|local| |#5|)
               (|NonNegativeInteger|) (0 . |makeVariable|) (6 . |coerce|)
-              (|Mapping| % 11) |DPOLCAT-;makeVariable;SM;1| (11 . |Zero|)
+              (|Mapping| % 11) |DPOLCAT-;makeVariable;SM;1| (11 . |0|)
               (|List| 9) (15 . |variables|) (|Union| 7 '#1="failed")
               (20 . |retractIfCan|) (25 . |leadingMonomial|)
               (30 . |leadingCoefficient|) (35 . |coerce|) (|Union| % '"failed")

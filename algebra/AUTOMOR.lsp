@@ -1,5 +1,5 @@
 
-(SDEFUN |AUTOMOR;One;%;1| ((% (%))) (CONS (|function| |AUTOMOR;ident|) %)) 
+(SDEFUN |AUTOMOR;1;%;1| ((% (%))) (CONS (|function| |AUTOMOR;ident|) %)) 
 
 (MAKEPROP '|AUTOMOR;err| '|SPADreplace|
           '(XLAM (|r|) (|error| "Morphism is not invertible"))) 
@@ -172,19 +172,18 @@
 (MAKEPROP '|Automorphism| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |AUTOMOR;One;%;1|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |AUTOMOR;1;%;1|) %))
               (|Boolean|) |AUTOMOR;=;2%B;4| |AUTOMOR;elt;%2R;5| (|Integer|)
               (0 . -) |AUTOMOR;inv;2%;6| (5 . *) |AUTOMOR;^;%I%;7| (|String|)
               (|OutputForm|) (11 . |message|) |AUTOMOR;coerce;%Of;8|
               (|Mapping| 6 6 12) |AUTOMOR;morphism;M%;9| (|Mapping| 6 6)
-              |AUTOMOR;morphism;2M%;11| |AUTOMOR;morphism;M%;10| (16 . |Zero|)
+              |AUTOMOR;morphism;2M%;11| |AUTOMOR;morphism;M%;10| (16 . |0|)
               (|PositiveInteger|) (20 . ^) |AUTOMOR;*;3%;15|
               (|Union| % '"failed") (|NonNegativeInteger|))
            '#(~= 26 |sample| 32 |rightRecip| 36 |rightPower| 41 |recip| 53
               |one?| 58 |morphism| 63 |leftRecip| 79 |leftPower| 84 |latex| 96
               |inv| 101 |elt| 106 |conjugate| 112 |commutator| 118 |coerce| 124
-              ^ 129 |One| 147 = 151 / 157 * 163)
+              ^ 129 = 147 |1| 153 / 157 * 163)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -204,6 +203,6 @@
                                          1 2 0 0 0 27 1 2 0 0 0 31 1 1 0 17 0 1
                                          1 0 0 0 14 2 0 6 0 6 11 2 0 0 0 0 1 2
                                          0 0 0 0 1 1 0 18 0 20 2 0 0 0 27 28 2
-                                         0 0 0 31 1 2 0 0 0 12 16 0 0 0 8 2 0 9
-                                         0 0 10 2 0 0 0 0 1 2 0 0 0 0 29)))))
+                                         0 0 0 31 1 2 0 0 0 12 16 2 0 9 0 0 10
+                                         0 0 0 8 2 0 0 0 0 1 2 0 0 0 0 29)))))
            '|lookupComplete|)) 

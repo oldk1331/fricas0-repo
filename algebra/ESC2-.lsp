@@ -683,7 +683,7 @@
               (79 . |height|) (|Mapping| 43 43 43) (|List| 43) (84 . |reduce|)
               |ESC2-;height;SNni;10| (91 . |name|) (|List| 10) (96 . |member?|)
               |ESC2-;freeOf?;SSB;11| (102 . |is?|) |ESC2-;distribute;2S;12|
-              (108 . |One|) (|Mapping| 6 6) (|BasicOperatorFunctions1| 6)
+              (108 . |1|) (|Mapping| 6 6) (|BasicOperatorFunctions1| 6)
               (112 . |derivative|) (118 . |retract|) (123 . |member?|)
               |ESC2-;freeOf?;2SB;13| (129 . |kernel|) |ESC2-;kernel;Bo2S;14|
               |ESC2-;elt;Bo2S;15| |ESC2-;elt;Bo3S;16| |ESC2-;elt;Bo4S;17|

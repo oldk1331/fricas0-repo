@@ -41,7 +41,7 @@
 
 (MAKEPROP '|NonAssociativeAlgebra&| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |One|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |1|)
               (|PositiveInteger|) (4 . |plenaryPower|) (10 . *)
               |NAALG-;plenaryPower;SPiS;1|)
            '#(|plenaryPower| 16) 'NIL

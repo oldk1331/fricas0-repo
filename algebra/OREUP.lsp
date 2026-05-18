@@ -244,7 +244,7 @@
               (|SparseUnivariateSkewPolynomial| 7 (NRTEVAL (QREFELT % 8))
                                                 (NRTEVAL (QREFELT % 9)))
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
-              '|Rep| (|Automorphism| 7) (0 . |One|) (4 . |One|) (8 . |One|)
+              '|Rep| (|Automorphism| 7) (0 . |1|) (4 . |1|) (8 . |1|)
               (|NonNegativeInteger|) (12 . |monomial|)
               (|Variable| (NRTEVAL (QREFELT % 6))) |OREUP;coerce;V%;1|
               (|Symbol|) (|OutputForm|) (18 . |outputForm|) (23 . |outputForm|)
@@ -285,8 +285,8 @@
               481 |commutator| 486 |coerce| 492 |coefficients| 522
               |coefficient| 527 |characteristic| 547 |binomThmExpt| 551
               |associator| 558 |associates?| 565 |apply| 571 |antiCommutator|
-              578 |annihilate?| 584 ^ 590 |Zero| 602 |One| 606 = 610 / 616 -
-              622 + 633 * 639)
+              578 |annihilate?| 584 ^ 590 = 602 |1| 608 |0| 612 / 616 - 622 +
+              633 * 639)
            'NIL
            (CONS
             (|makeByteWordVec2| 27
@@ -366,10 +366,10 @@
                                     1 3 0 0 0 36 30 1 3 0 0 0 35 15 1 0 34 15 1
                                     3 29 0 0 0 15 1 3 34 0 0 0 0 1 2 30 24 0 0
                                     1 3 0 7 0 7 7 1 2 0 0 0 0 1 2 34 24 0 0 1 2
-                                    0 0 0 26 1 2 33 0 0 15 1 0 35 0 1 0 33 0 13
-                                    2 0 24 0 0 1 2 18 0 0 7 1 1 37 0 0 1 2 37 0
-                                    0 0 1 2 0 0 0 0 1 2 0 0 26 0 1 2 0 0 0 0 1
-                                    2 0 0 0 7 1 2 0 0 7 0 1 2 20 0 0 38 1 2 37
-                                    0 38 0 1 2 35 0 15 0 1 2 1 0 0 45 1 2 1 0
-                                    45 0 1)))))
+                                    0 0 0 26 1 2 33 0 0 15 1 2 0 24 0 0 1 0 33
+                                    0 13 0 35 0 1 2 18 0 0 7 1 1 37 0 0 1 2 37
+                                    0 0 0 1 2 0 0 0 0 1 2 0 0 26 0 1 2 0 0 0 0
+                                    1 2 0 0 0 7 1 2 0 0 7 0 1 2 20 0 0 38 1 2
+                                    37 0 38 0 1 2 35 0 15 0 1 2 1 0 0 45 1 2 1
+                                    0 45 0 1)))))
            '|lookupComplete|)) 

@@ -469,8 +469,7 @@
           (#25=#:G118 #24#) (#26=#:G119 NIL))
          (SEQ (LETT |SUEx| (|SparseUnivariatePolynomial| |extField|))
               (LETT TP (|SparseUnivariatePolynomial| |SUEx|))
-              (LETT |mm|
-                    (SPADCALL (|compiledLookupCheck| '|Zero| (LIST '%) TP)))
+              (LETT |mm| (SPADCALL (|compiledLookupCheck| '|0| (LIST '%) TP)))
               (LETT |m1| |m|)
               (SEQ G190
                    (COND
@@ -623,7 +622,7 @@
                                          (LIST (|devaluate| |extField|) '%)
                                          |SUEx|)))
                                  (SPADCALL
-                                  (|compiledLookupCheck| '|One| (LIST '%)
+                                  (|compiledLookupCheck| '|1| (LIST '%)
                                                          |extField|))
                                  (|compiledLookupCheck| '~=
                                                         (LIST (LIST '|Boolean|)
@@ -748,7 +747,7 @@
                                      (COND (#20# #19#)
                                            ('T
                                             (SPADCALL
-                                             (|compiledLookupCheck| '|One|
+                                             (|compiledLookupCheck| '|1|
                                                                     (LIST '%)
                                                                     TP))))))
                               (EXIT
@@ -1087,10 +1086,10 @@
               (6 . |map|) (|Union| % '"failed") (12 . |divideExponents|)
               (|Factored| 15) (|SparseUnivariatePolynomial| 10)
               |TWOFACT;tryTwoFactor;SupF;2| |TWOFACT;generalTwoFactor;SupF;3|
-              (18 . |Zero|) (22 . |Zero|) (26 . |Zero|) (|Boolean|) (30 . =)
-              (36 . |Zero|) (40 . |degree|) (45 . |leadingCoefficient|)
-              (|Factored| 10) (|UnivariateFiniteFieldFactorize| 6 10)
-              (50 . |factor|) (55 . |unit|) (60 . |coerce|)
+              (18 . |0|) (22 . |0|) (26 . |0|) (|Boolean|) (30 . =) (36 . |0|)
+              (40 . |degree|) (45 . |leadingCoefficient|) (|Factored| 10)
+              (|UnivariateFiniteFieldFactorize| 6 10) (50 . |factor|)
+              (55 . |unit|) (60 . |coerce|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 31) (|:| |factor| 10) (|:| |exponent| 7))
               (|List| 32) (65 . |factorList|)
@@ -1103,11 +1102,11 @@
               (131 . |divideExponents|) (137 . |unit|) (142 . ^) (148 . *)
               (154 . |append|) (|CommuteUnivariatePolynomialCategory| 6 10 15)
               (160 . |swap|) (|List| 10) (165 . |coefficients|) (|Integer|)
-              |TWOFACT;doFactor;SupIBF;7| (170 . |One|) (174 . |One|)
-              (178 . |elt|) (184 . ~=) (190 . |reductum|) (195 . =)
-              (201 . |primeFactor|) (207 . |nilFactor|) (213 . *) (219 . |One|)
-              (223 . |random|) (|PositiveInteger|) (227 . |index|)
-              (232 . |elt|) (238 . |zero?|) (|Mapping| 6 10)
+              |TWOFACT;doFactor;SupIBF;7| (170 . |1|) (174 . |1|) (178 . |elt|)
+              (184 . ~=) (190 . |reductum|) (195 . =) (201 . |primeFactor|)
+              (207 . |nilFactor|) (213 . *) (219 . |1|) (223 . |random|)
+              (|PositiveInteger|) (227 . |index|) (232 . |elt|) (238 . |zero?|)
+              (|Mapping| 6 10)
               (|UnivariatePolynomialCategoryFunctions2| 10 15 6 10)
               (243 . |map|) (249 . |gcd|) (255 . ~=) (261 . |monomial|)
               (267 . -) (273 . |coerce|) (|Mapping| 10 6)

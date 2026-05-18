@@ -210,9 +210,9 @@
 (MAKEPROP '|RationalInterpolation| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|Boolean|)
-              (|NonNegativeInteger|) (0 . ~=) (6 . |One|) (|Integer|)
-              (|List| 7) (10 . |elt|) (16 . *) (|Fraction| 35) (22 . |One|)
-              (|List| 13) (26 . |elt|) (32 . -) (37 . |append|) (|Matrix| 7)
+              (|NonNegativeInteger|) (0 . ~=) (6 . |1|) (|Integer|) (|List| 7)
+              (10 . |elt|) (16 . *) (|Fraction| 35) (22 . |1|) (|List| 13)
+              (26 . |elt|) (32 . -) (37 . |append|) (|Matrix| 7)
               (43 . |matrix|) (48 . |transpose|) (|List| 31) (53 . |nullSpace|)
               (|Void|) (|String|) (|OutputPackage|) (58 . |output|)
               (|Vector| 7) (63 . |elt|) (69 . |elt|) (|Symbol|)

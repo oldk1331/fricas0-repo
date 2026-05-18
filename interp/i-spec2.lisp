@@ -119,7 +119,7 @@
 ;     if f = '(construct) then f := "nil"
 ;   ATOM(form) and (f ~= $immediateDataSymbol) and
 ;     (u := findUniqueOpInDomain(op,f,t)) => u
-;   f in '(One Zero true false nil) and constantInDomain?([f],t) =>
+;   f in ["1", "0", 'true, 'false, 'nil] and constantInDomain?([f], t) =>
 ;     isPartialMode t => throw_msg("S2IS0020", CONCAT(
 ;           '"A fully specified type must follow $ when it qualifies a domain",
 ;           '" constant."), [])
@@ -143,7 +143,7 @@
 ;       if x then putTarget(y,x)
 ;   putAtree(first form,'dollar,t)
 ;   ms := bottomUp form
-;   f in '(One Zero) and PAIRP(ms) and first(ms) = $OutputForm =>
+;   f in ["1", "0"] and PAIRP(ms) and first(ms) = $OutputForm =>
 ;         throw_msg("S2IS0021",
 ;            '"There is no operation named %1b in the domain or package %2bp .",
 ;            [f, t])
@@ -212,7 +212,7 @@
                ((AND (ATOM |form|) (NOT (EQUAL |f| |$immediateDataSymbol|))
                      (SETQ |u| (|findUniqueOpInDomain| |op| |f| |t|)))
                 |u|)
-               ((AND (|member| |f| '(|One| |Zero| |true| |false| |nil|))
+               ((AND (|member| |f| (LIST '|1| '|0| '|true| '|false| '|nil|))
                      (|constantInDomain?| (LIST |f|) |t|))
                 (COND
                  ((|isPartialMode| |t|)
@@ -272,7 +272,7 @@
                     (|putAtree| (CAR |form|) '|dollar| |t|)
                     (SETQ |ms| (|bottomUp| |form|))
                     (COND
-                     ((AND (|member| |f| '(|One| |Zero|)) (CONSP |ms|)
+                     ((AND (|member| |f| (LIST '|1| '|0|)) (CONSP |ms|)
                            (EQUAL (CAR |ms|) |$OutputForm|))
                       (|throw_msg| 'S2IS0021
                        "There is no operation named %1b in the domain or package %2bp ."

@@ -1123,18 +1123,17 @@
 (MAKEPROP '|Fraction| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|LocalAlgebra| 6 6) (|local| |#1|) '|Rep|
-              (0 . |One|) (4 . |One|) |FRAC;coerce;S%;1| (|Boolean|)
-              (8 . |zero?|) |FRAC;zero?;%B;2| (|Factored| %) (13 . |factor|)
-              (|Factored| 6) (|Fraction| 16) (18 . /) (24 . |factorFraction|)
-              (29 . =) (35 . =) (|HashState|) (41 . |hashUpdate!|)
-              (47 . |hashUpdate!|) (53 . |one?|) (58 . |retract|)
-              (|Union| 6 '"failed") (63 . |retractIfCan|) (|Union| % '"failed")
-              (68 . |exquo|) (74 . |quo|) (80 . |wholePart|) (85 . |Zero|)
-              (89 . |Zero|) (93 . <) (99 . -) (104 . |ceiling|) (109 . -)
-              (114 . |floor|) (119 . +) (|Void|) (|OpenMathDevice|)
-              (125 . |OMputApp|) (|String|) (130 . |OMputSymbol|)
-              (137 . |OMwrite|) (144 . |OMputEndApp|) (149 . |OMputObject|)
-              (154 . |OMputEndObject|) (159 . |OMwrite|)
+              (0 . |1|) (4 . |1|) |FRAC;coerce;S%;1| (|Boolean|) (8 . |zero?|)
+              |FRAC;zero?;%B;2| (|Factored| %) (13 . |factor|) (|Factored| 6)
+              (|Fraction| 16) (18 . /) (24 . |factorFraction|) (29 . =)
+              (35 . =) (|HashState|) (41 . |hashUpdate!|) (47 . |hashUpdate!|)
+              (53 . |one?|) (58 . |retract|) (|Union| 6 '"failed")
+              (63 . |retractIfCan|) (|Union| % '"failed") (68 . |exquo|)
+              (74 . |quo|) (80 . |wholePart|) (85 . |0|) (89 . |0|) (93 . <)
+              (99 . -) (104 . |ceiling|) (109 . -) (114 . |floor|) (119 . +)
+              (|Void|) (|OpenMathDevice|) (125 . |OMputApp|) (|String|)
+              (130 . |OMputSymbol|) (137 . |OMwrite|) (144 . |OMputEndApp|)
+              (149 . |OMputObject|) (154 . |OMputEndObject|) (159 . |OMwrite|)
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (166 . |unitNormal|) (171 . *) (177 . |recip|) (182 . |gcd|)
               (188 . |one?|) (193 . /) (199 . +) (205 . -) (211 . -) (217 . *)
@@ -1145,7 +1144,7 @@
               (271 . |retract|) (276 . |denom|) (281 . /) (|Union| 62 '#1#)
               (287 . |retractIfCan|) (|SparseUnivariatePolynomial| $$)
               (292 . |zero?|) (|NonNegativeInteger|) (297 . |degree|)
-              (302 . |One|) (|List| $$) (306 . |coefficients|) (311 . |lcm|)
+              (302 . |1|) (|List| $$) (306 . |coefficients|) (311 . |lcm|)
               (317 . *) (|SparseUnivariatePolynomial| 6) (|Mapping| 6 $$)
               (|UnivariatePolynomialCategoryFunctions2| $$ 80 6 89)
               (323 . |map|) (|SparseUnivariatePolynomial| %)
@@ -1157,8 +1156,8 @@
               (|List| 85) (|Matrix| $$) (377 . |listOfLists|) (|List| 152)
               (|Matrix| 6) (382 . |matrix|) (|Union| 148 '#2="failed")
               (|Matrix| %) (387 . |conditionP|) (|Vector| 6) (392 . |elt|)
-              (398 . |conditionP|) (|Factored| 80) (403 . |Zero|)
-              (|Factored| 93) (407 . |factorPolynomial|)
+              (398 . |conditionP|) (|Factored| 80) (403 . |0|) (|Factored| 93)
+              (407 . |factorPolynomial|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 121) (|:| |factor| 89) (|:| |exponent| 82))
               (|List| 122) (|Factored| 89) (412 . |factorList|) (417 . ^)
@@ -1204,9 +1203,9 @@
               974 |convert| 979 |conditionP| 1004 |commutator| 1009 |coerce|
               1015 |charthRoot| 1045 |characteristic| 1050 |ceiling| 1054
               |associator| 1059 |associates?| 1066 |antiCommutator| 1072
-              |annihilate?| 1078 |abs| 1084 ^ 1089 |Zero| 1107 |One| 1111
-              |OMwrite| 1115 D 1139 >= 1189 > 1195 = 1201 <= 1207 < 1213 / 1219
-              - 1231 + 1242 * 1248)
+              |annihilate?| 1078 |abs| 1084 ^ 1089 |OMwrite| 1107 D 1131 >=
+              1181 > 1187 = 1193 <= 1199 < 1205 |1| 1211 |0| 1215 / 1219 - 1231
+              + 1242 * 1248)
            'NIL
            (CONS
             (|makeByteWordVec2| 32
@@ -1338,15 +1337,16 @@
                                     156 1 1 35 29 0 102 0 0 82 103 1 23 6 0 37
                                     3 0 0 0 0 0 1 2 0 11 0 0 1 2 0 0 0 0 1 2 0
                                     11 0 0 1 1 6 0 0 1 2 0 0 0 138 1 2 0 0 0 82
-                                    126 2 0 0 0 62 1 0 0 0 33 0 0 0 8 3 24 41
-                                    42 0 11 50 2 24 44 0 11 1 2 24 41 42 0 1 1
-                                    24 44 0 1 2 0 0 0 66 1 3 0 0 0 66 82 1 1 14
-                                    0 0 1 2 14 0 0 82 1 2 13 0 0 156 1 2 13 0 0
-                                    157 1 3 13 0 0 157 160 1 3 13 0 0 156 82 1
-                                    2 7 11 0 0 1 2 7 11 0 0 1 2 0 11 0 0 21 2 7
-                                    11 0 0 1 2 7 11 0 0 35 2 0 0 0 0 127 2 0 0
-                                    6 6 57 2 0 0 0 0 60 1 0 0 0 36 2 0 0 0 0 58
-                                    2 0 0 138 0 1 2 0 0 0 0 61 2 0 0 62 0 64 2
-                                    0 0 82 0 1 2 0 0 6 0 65 2 0 0 0 6 88 2 34 0
-                                    0 68 1 2 34 0 68 0 1 2 15 0 0 62 1)))))
+                                    126 2 0 0 0 62 1 3 24 41 42 0 11 50 2 24 44
+                                    0 11 1 2 24 41 42 0 1 1 24 44 0 1 2 0 0 0
+                                    66 1 3 0 0 0 66 82 1 1 14 0 0 1 2 14 0 0 82
+                                    1 2 13 0 0 156 1 2 13 0 0 157 1 3 13 0 0
+                                    157 160 1 3 13 0 0 156 82 1 2 7 11 0 0 1 2
+                                    7 11 0 0 1 2 0 11 0 0 21 2 7 11 0 0 1 2 7
+                                    11 0 0 35 0 0 0 8 0 0 0 33 2 0 0 0 0 127 2
+                                    0 0 6 6 57 2 0 0 0 0 60 1 0 0 0 36 2 0 0 0
+                                    0 58 2 0 0 138 0 1 2 0 0 0 0 61 2 0 0 62 0
+                                    64 2 0 0 82 0 1 2 0 0 6 0 65 2 0 0 0 6 88 2
+                                    34 0 0 68 1 2 34 0 68 0 1 2 15 0 0 62
+                                    1)))))
            '|lookupComplete|)) 

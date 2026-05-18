@@ -1227,12 +1227,12 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|Boolean|)
-              (|SparseUnivariatePolynomial| 9) (0 . |zero?|) (5 . |Zero|)
-              (9 . |Zero|) (13 . |Zero|) (17 . |Zero|) (|NonNegativeInteger|)
+              (|SparseUnivariatePolynomial| 9) (0 . |zero?|) (5 . |0|)
+              (9 . |0|) (13 . |0|) (17 . |0|) (|NonNegativeInteger|)
               (21 . |degree|) (|Union| % '"failed") (26 . |exquo|)
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (32 . |unitNormal|) (37 . *) (|List| 7) (43 . |setDifference|)
-              (49 . |One|) (53 . |One|) (57 . |One|) (61 . =) (67 . -)
+              (49 . |1|) (53 . |1|) (57 . |1|) (61 . =) (67 . -)
               |GENPGCD;gcdPolynomial;3Sup;1| (73 . |init|) '|randomCount|
               (77 . |nextItem|) (82 . |randomR|) (|Integer|) (86 . |coerce|)
               (91 . |coerce|) (96 . |ground|) (|SparseUnivariatePolynomial| 8)

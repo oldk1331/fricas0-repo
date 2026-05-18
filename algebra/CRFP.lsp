@@ -970,24 +970,23 @@
 (MAKEPROP '|ComplexRootFindingPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|Rep|
-              '|globalDigits| (|Integer|) (0 . |coerce|) (5 . |One|)
-              (9 . |One|) (13 . /) '|globalEps| (|String|) (|OutputForm|)
-              (19 . |message|) '|emptyLine| (24 . |center|) '|dashes| '|dots|
-              '|one| (|PositiveInteger|) (29 . *) '|two| '|ten| '|eleven|
-              '|weakEps| (|NonNegativeInteger|) (35 . |degree|) (40 . ^)
-              (|Factored| 7) |CRFP;factor;UPRF;15|
-              (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              '|globalDigits| (|Integer|) (0 . |coerce|) (5 . |1|) (9 . |1|)
+              (13 . /) '|globalEps| (|String|) (|OutputForm|) (19 . |message|)
+              '|emptyLine| (24 . |center|) '|dashes| '|dots| '|one|
+              (|PositiveInteger|) (29 . *) '|two| '|ten| '|eleven| '|weakEps|
+              (|NonNegativeInteger|) (35 . |degree|) (40 . ^) (|Factored| 7)
+              |CRFP;factor;UPRF;15| (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 35) (|:| |factor| 7) (|:| |exponent| 30))
               (|List| 36) (46 . |factorList|) (|Complex| 6)
               (51 . |coefficient|) (57 . -) (|List| 39)
-              |CRFP;complexZeros;UPRL;1| |CRFP;complexZeros;UPL;2|
-              (62 . |Zero|) (66 . |Zero|) (|Boolean|) (70 . <=)
-              (76 . |ceiling|) (81 . |coerce|) (|List| %) (86 . |hconcat|)
-              (|Void|) (91 . |print|) (96 . |messagePrint|)
-              |CRFP;setErrorBound;2R;3| (101 . |minimumDegree|) (106 . |One|)
-              (110 . |monomial|) (116 . |irreducibleFactor|) (122 . |quo|)
+              |CRFP;complexZeros;UPRL;1| |CRFP;complexZeros;UPL;2| (62 . |0|)
+              (66 . |0|) (|Boolean|) (70 . <=) (76 . |ceiling|) (81 . |coerce|)
+              (|List| %) (86 . |hconcat|) (|Void|) (91 . |print|)
+              (96 . |messagePrint|) |CRFP;setErrorBound;2R;3|
+              (101 . |minimumDegree|) (106 . |1|) (110 . |monomial|)
+              (116 . |irreducibleFactor|) (122 . |quo|)
               (|Record| (|:| |start| 7) (|:| |factors| 33))
-              |CRFP;startPolynomial;UPR;5| (128 . |One|) (132 . =)
+              |CRFP;startPolynomial;UPR;5| (128 . |1|) (132 . =)
               (138 . |expand|)
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (143 . |divide|) (149 . |setPoly|) (154 . |reduce|) (159 . ^)
@@ -999,7 +998,7 @@
               (194 . >) |CRFP;schwerpunkt;UPC;11| (200 . -) (206 . |coerce|)
               (211 . /) (217 . |complex|) (223 . -) (|List| 7) (228 . |elt|)
               (234 . |elt|) (240 . -) (246 . |coefficients|) (251 . +)
-              |CRFP;norm;UPR;6| |CRFP;pleskenSplit;UPRF;7| (257 . |Zero|)
+              |CRFP;norm;UPR;6| |CRFP;pleskenSplit;UPRF;7| (257 . |0|)
               (261 . *) (267 . *) (273 . +) (279 . *) (285 . +)
               |CRFP;graeffe;2UP;8| (291 . *) (297 . >=) (303 . *)
               |CRFP;rootRadius;UPR;10| (309 . |zero?|) (314 . |coerce|)

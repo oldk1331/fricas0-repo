@@ -30,7 +30,7 @@
         (SPROG
          ((|q| (|NonNegativeInteger|)) (|p| (|PositiveInteger|)) (#2=#:G75 NIL)
           (|a| (|Integer|)) (|k| (|NonNegativeInteger|))
-          (|t1| (|PrimeField| (+ (* |k| |n|) (|One|)))) (#3=#:G74 NIL)
+          (|t1| (|PrimeField| (+ (* |k| |n|) (|1|)))) (#3=#:G74 NIL)
           (|multmat| (|Matrix| (|PrimeField| |p|)))
           (|p1| (|NonNegativeInteger|)) (|pkn| (|PrimeField| |p1|))
           (|t| (|PrimeField| |p1|)) (|jt| (|Integer|)) (|vt| (|Integer|))
@@ -68,11 +68,11 @@
                                                                     '|Integer|))
                                                              (|PrimeField|
                                                               (+ (* |i| |n|)
-                                                                 (|One|)))))
+                                                                 (|1|)))))
                             (|compiledLookupCheck| '|primitive?|
                                                    (LIST (LIST '|Boolean|) '%)
                                                    (|PrimeField|
-                                                    (+ (* |i| |n|) (|One|)))))
+                                                    (+ (* |i| |n|) (|1|)))))
                            (SEQ (LETT |a| 1) (LETT |k| |i|)
                                 (EXIT
                                  (LETT |t1|
@@ -82,7 +82,7 @@
                                                    '|coerce|
                                                    (LIST '% (LIST '|Integer|))
                                                    (|PrimeField|
-                                                    (+ (* |k| |n|) (|One|)))))
+                                                    (+ (* |k| |n|) (|1|)))))
                                         |n|
                                         (|compiledLookupCheck| '^
                                                                (LIST '% '%
@@ -90,7 +90,7 @@
                                                                       '|Integer|))
                                                                (|PrimeField|
                                                                 (+ (* |k| |n|)
-                                                                   (|One|)))))))))
+                                                                   (|1|)))))))))
                           ('T
                            (SEQ
                             (EXIT
@@ -106,13 +106,13 @@
                                                              (LIST '|Integer|))
                                                        (|PrimeField|
                                                         (+ (* |n| |i|)
-                                                           (|One|)))))
+                                                           (|1|)))))
                                             (|compiledLookupCheck|
                                              '|discreteLog|
                                              (LIST (LIST '|NonNegativeInteger|)
                                                    '%)
                                              (|PrimeField|
-                                              (+ (* |n| |i|) (|One|)))))))
+                                              (+ (* |n| |i|) (|1|)))))))
                                 1)
                                (PROGN
                                 (LETT #3#
@@ -125,8 +125,7 @@
                                                      '|primitiveElement|
                                                      (LIST '%)
                                                      (|PrimeField|
-                                                      (+ (* |k| |n|)
-                                                         (|One|)))))
+                                                      (+ (* |k| |n|) (|1|)))))
                                                    |n|
                                                    (|compiledLookupCheck| '^
                                                                           (LIST
@@ -139,7 +138,7 @@
                                                                             (*
                                                                              |k|
                                                                              |n|)
-                                                                            (|One|)))))))))
+                                                                            (|1|)))))))))
                                 (GO #14=#:G30)))))
                             #14# (EXIT #3#))))))))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
@@ -218,7 +217,7 @@
                                                                           (*
                                                                            |k|
                                                                            |n|)
-                                                                          (|One|)))))
+                                                                          (|1|)))))
                                                 1)
                                                (SPADCALL |l| |p1|
                                                          (QREFELT % 24))
@@ -267,16 +266,16 @@
                                                                         (+
                                                                          (* |k|
                                                                             |n|)
-                                                                         (|One|)))))
+                                                                         (|1|)))))
                                                (SPADCALL
-                                                (|compiledLookupCheck| '|One|
+                                                (|compiledLookupCheck| '|1|
                                                                        (LIST
                                                                         '%)
                                                                        (|PrimeField|
                                                                         (+
                                                                          (* |k|
                                                                             |n|)
-                                                                         (|One|)))))
+                                                                         (|1|)))))
                                                (|compiledLookupCheck| '+
                                                                       (LIST '%
                                                                             '%
@@ -285,7 +284,7 @@
                                                                        (+
                                                                         (* |k|
                                                                            |n|)
-                                                                        (|One|))))))
+                                                                        (|1|))))))
                                         (EXIT
                                          (SPADCALL |lvj| |v| |j|
                                                    (SPADCALL |vec| (+ |help| 1)
@@ -326,9 +325,11 @@
                                                               (|PrimeField|
                                                                |p|))))
                                                   (SPADCALL
-                                                   (|compiledLookupCheck|
-                                                    '|One| (LIST '%)
-                                                    (|PrimeField| |p|)))
+                                                   (|compiledLookupCheck| '|1|
+                                                                          (LIST
+                                                                           '%)
+                                                                          (|PrimeField|
+                                                                           |p|)))
                                                   (|compiledLookupCheck| '+
                                                                          (LIST
                                                                           '% '%
@@ -403,7 +404,7 @@
                                                         (|Matrix|
                                                          (|PrimeField| |p|))))
                                              (SPADCALL
-                                              (|compiledLookupCheck| '|One|
+                                              (|compiledLookupCheck| '|1|
                                                                      (LIST '%)
                                                                      (|PrimeField|
                                                                       |p|)))
@@ -466,7 +467,7 @@
                                                       (|Vector|
                                                        (|PrimeField| |p|))))
                                            (SPADCALL
-                                            (|compiledLookupCheck| '|Zero|
+                                            (|compiledLookupCheck| '|0|
                                                                    (LIST '%)
                                                                    (|PrimeField|
                                                                     |p|)))
@@ -748,7 +749,7 @@
                                (SPADCALL
                                 (SPADCALL |a|
                                           (SPADCALL
-                                           (|compiledLookupCheck| '|One|
+                                           (|compiledLookupCheck| '|1|
                                                                   (LIST '%)
                                                                   (|SimpleAlgebraicExtension|
                                                                    (ELT % 6)
@@ -823,7 +824,7 @@
                  (SEQ
                   (LETT |a|
                         (SPADCALL
-                         (|compiledLookupCheck| '|One| (LIST '%)
+                         (|compiledLookupCheck| '|1| (LIST '%)
                                                 (|SimpleAlgebraicExtension|
                                                  (ELT % 6)
                                                  (|SparseUnivariatePolynomial|
@@ -932,21 +933,20 @@
               (|FiniteFieldPolynomialPackage| 6) (0 . |createNormalPoly|)
               (|Union| 11 37) |FFF;createLowComplexityNormalBasis;PiU;1|
               (|NonNegativeInteger|) (5 . |size|) (9 . |characteristic|)
-              (13 . |One|) (17 . |Zero|) (|Boolean|) (|Integer|)
-              (21 . |prime?|) (26 . |positiveRemainder|) (|Vector| 22)
-              (32 . |zero|) (37 . |setelt!|) (|Matrix| 22) (44 . |zero|)
-              (50 . ~=) (56 . |elt|) (62 . |setelt!|) (70 . |elt|)
-              (77 . |coerce|) (|List| 7) (82 . |copy|) (|Vector| 35)
-              (87 . |elt|) |FFF;sizeMultiplication;VNni;3| (93 . |degree|)
-              (98 . |One|) (102 . |Zero|) (106 . |coefficient|) (112 . -)
-              (|ModMonic| 6 11) (117 . |setPoly|) (122 . |monomial|)
-              (128 . |reduce|) (133 . ^) (139 . |One|) (143 . |Zero|) (147 . *)
-              (|Matrix| 6) (153 . |zero|) (|Vector| 6) (159 . |Vectorise|)
-              (164 . |setColumn!|) (171 . |lift|) (176 . ~=)
-              (182 . |leadingCoefficient|) (187 . *) (193 . +)
-              (199 . |reductum|) (|Union| % '#2="failed") (204 . |inverse|)
-              (|Union| 53 '#2#) (209 . =) (215 . *) (|SingleInteger|)
-              (221 . |coerce|) (226 . |elt|) (232 . ~=)
+              (13 . |1|) (17 . |0|) (|Boolean|) (|Integer|) (21 . |prime?|)
+              (26 . |positiveRemainder|) (|Vector| 22) (32 . |zero|)
+              (37 . |setelt!|) (|Matrix| 22) (44 . |zero|) (50 . ~=)
+              (56 . |elt|) (62 . |setelt!|) (70 . |elt|) (77 . |coerce|)
+              (|List| 7) (82 . |copy|) (|Vector| 35) (87 . |elt|)
+              |FFF;sizeMultiplication;VNni;3| (93 . |degree|) (98 . |1|)
+              (102 . |0|) (106 . |coefficient|) (112 . -) (|ModMonic| 6 11)
+              (117 . |setPoly|) (122 . |monomial|) (128 . |reduce|) (133 . ^)
+              (139 . |1|) (143 . |0|) (147 . *) (|Matrix| 6) (153 . |zero|)
+              (|Vector| 6) (159 . |Vectorise|) (164 . |setColumn!|)
+              (171 . |lift|) (176 . ~=) (182 . |leadingCoefficient|) (187 . *)
+              (193 . +) (199 . |reductum|) (|Union| % '#2="failed")
+              (204 . |inverse|) (|Union| 53 '#2#) (209 . =) (215 . *)
+              (|SingleInteger|) (221 . |coerce|) (226 . |elt|) (232 . ~=)
               |FFF;createMultiplicationTable;SupV;4| (|PrimitiveArray| 69)
               |FFF;createZechTable;SupPa;5|
               |FFF;createMultiplicationMatrix;VM;6|)

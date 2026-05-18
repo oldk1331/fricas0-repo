@@ -7,7 +7,7 @@
 
 (SDEFUN |DISTRO;per| ((|r| (|Rep|)) (% (%))) |r|) 
 
-(SDEFUN |DISTRO;Zero;%;3| ((% (%)))
+(SDEFUN |DISTRO;0;%;3| ((% (%)))
         (SPADCALL
          (SPADCALL (SPADCALL (LIST (|spadConstant| % 8)) (QREFELT % 11))
                    (QREFELT % 13))
@@ -601,11 +601,10 @@
 
 (MAKEPROP '|Distribution| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (0 . |Zero|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (0 . |0|)
               (|List| 6) (|Stream| 6) (4 . |repeating|) (|Sequence| 6)
               (9 . |sequence|) |DISTRO;distributionByMoments;S%;4|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |DISTRO;Zero;%;3|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |DISTRO;0;%;3|) %))
               (|MomentPackage| 6) (14 . |moment2cumulant|)
               (19 . |moment2freeCumulant|) (24 . |moment2booleanCumulant|)
               |DISTRO;distributionByMoments;S%;5| (29 . |first|) (34 . |rest|)
@@ -619,7 +618,7 @@
               |DISTRO;distributionByFreeCumulants;S%;12|
               (65 . |booleanCumulant2moment|)
               |DISTRO;distributionByBooleanCumulants;S%;13|
-              |DISTRO;distributionByBooleanCumulants;S%;14| (70 . |One|)
+              |DISTRO;distributionByBooleanCumulants;S%;14| (70 . |1|)
               (|Integer|) (74 . |elt|) (80 . |rest|)
               |DISTRO;booleanCumulantFromJacobi;I2SR;15| (85 . *) (|Stream| 9)
               (|PathArrayPackage| 6) (91 . |jacobiPathArray|) (97 . |bottom|)
@@ -630,13 +629,13 @@
               (112 . |monotoneCumulant2moment|)
               (117 . |distributionByMonotoneCumulants|)
               (122 . |distributionByMonotoneCumulants|) (|Fraction| 39)
-              (127 . |One|) (|Boolean|) (131 . =) (137 . -)
+              (127 . |1|) (|Boolean|) (131 . =) (137 . -)
               (|StreamTaylorSeriesOperations| 6) (142 . *) (148 . |revert|)
               (153 . /) (159 . -) (164 . |coerce|) (169 . |powern|)
               (175 . |distributionBySTransform|)
               (|Record| (|:| |puiseux| 57) (|:| |laurent| 57) (|:| |coef| 12))
               (182 . |distributionBySTransform|) (187 . |moment2Stransform|)
-              (192 . |Zero|) (196 . |invmultisect|)
+              (192 . |0|) (196 . |invmultisect|)
               (203 . |freeMultiplicativeConvolution|) (|OutputForm|)
               (209 . |coerce|) |DISTRO;coerce;%Of;25| (|NonNegativeInteger|)
               |DISTRO;moment;%NniR;26| (|PositiveInteger|)
@@ -644,7 +643,7 @@
               |DISTRO;booleanCumulant;%PiR;29|
               |DISTRO;classicalCumulants;%S;31| |DISTRO;freeCumulants;%S;32|
               |DISTRO;booleanCumulants;%S;33| (214 . |hankelDeterminant|)
-              (220 . |One|) (224 . +) |DISTRO;hankelDeterminants;%S;35|
+              (220 . |1|) (224 . +) |DISTRO;hankelDeterminants;%S;35|
               (|Record| (|:| |an| 10) (|:| |bn| 10)) (230 . |moment2jacobi|)
               (235 . |jacobiParameters|)
               (|Stream| (|SparseUnivariatePolynomial| 6)) (240 . |jacobi2poly|)
@@ -674,7 +673,7 @@
               |classicalCumulants| 490 |classicalCumulant| 495
               |classicalConvolution| 501 |booleanCumulants| 507
               |booleanCumulantFromJacobi| 512 |booleanCumulant| 519
-              |booleanConvolution| 525 ^ 531 |Zero| 537 = 541)
+              |booleanConvolution| 525 ^ 531 = 537 |0| 543)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(NIL |SetCategory&| NIL |BasicType&|)
@@ -723,6 +722,6 @@
                                               0 12 0 85 2 0 6 0 81 82 2 0 0 0 0
                                               114 1 0 12 0 87 3 0 6 39 12 12 42
                                               2 0 6 0 81 84 2 0 0 0 0 116 2 0 0
-                                              0 81 119 0 0 0 15 2 0 59 0 0
-                                              1)))))
+                                              0 81 119 2 0 59 0 0 1 0 0 0
+                                              15)))))
            '|lookupComplete|)) 

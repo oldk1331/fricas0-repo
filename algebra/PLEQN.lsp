@@ -1827,13 +1827,13 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|Boolean|) (0 . |ground?|)
               (|List| 9) |PLEQN;inconsistent?;LB;1| (|Polynomial| 6)
-              (5 . |ground?|) (|List| 14) |PLEQN;inconsistent?;LB;2|
-              (10 . |One|) (14 . |One|) (|Integer|) (|Segment| 20)
-              (18 . SEGMENT) (|List| 20) (24 . |expand|) (29 . |setDifference|)
-              (35 . |Zero|) (39 . |Zero|) (|Fraction| 14) (43 . |Zero|)
-              (|NonNegativeInteger|) (47 . ~=) (|Matrix| 28) (53 . |zero|)
-              (59 . |elt|) (66 . |setelt!|) (74 . -) (|List| 28) (79 . |elt|)
-              (85 . |rowEchelon|) (|Vector| 28) (90 . |setelt!|) (97 . |One|)
+              (5 . |ground?|) (|List| 14) |PLEQN;inconsistent?;LB;2| (10 . |1|)
+              (14 . |1|) (|Integer|) (|Segment| 20) (18 . SEGMENT) (|List| 20)
+              (24 . |expand|) (29 . |setDifference|) (35 . |0|) (39 . |0|)
+              (|Fraction| 14) (43 . |0|) (|NonNegativeInteger|) (47 . ~=)
+              (|Matrix| 28) (53 . |zero|) (59 . |elt|) (66 . |setelt!|)
+              (74 . -) (|List| 28) (79 . |elt|) (85 . |rowEchelon|)
+              (|Vector| 28) (90 . |setelt!|) (97 . |1|)
               (|Record| (|:| |partsol| 40) (|:| |basis| 105))
               (|Record| (|:| |mat| 32) (|:| |vec| 37) (|:| |rank| 30)
                         (|:| |rows| 23) (|:| |cols| 23))
@@ -1843,7 +1843,7 @@
               (113 . |euclideanGroebner|) (|Matrix| 9) |PLEQN;redmat;MLM;36|
               |PLEQN;dmp2rfi;MM;9| (118 . |entry?|) |PLEQN;redpps;RLR;8|
               (124 . |elt|) (130 . *) (136 . +) (142 . -) (148 . |numer|)
-              (153 . |Zero|) (157 . =) (163 . |One|) |PLEQN;pr2dmp;PGR;26|
+              (153 . |0|) (157 . =) (163 . |1|) |PLEQN;pr2dmp;PGR;26|
               (167 . |append|) (173 . |removeDuplicates|)
               (|Record| (|:| |sysok| 10) (|:| |z0| 12) (|:| |n0| 12))
               |PLEQN;hasoln;2LR;24|
@@ -1863,7 +1863,7 @@
               (|Record| (|:| |flag| 92) (|:| |factor| 9) (|:| |exponent| 30))
               (|List| 93) (212 . |factorList|) (|List| 70)
               |PLEQN;ParCond;MNniL;34| (217 . |elt|)
-              (223 . |euclideanNormalForm|) (229 . |Zero|) (233 . =)
+              (223 . |euclideanNormalForm|) (229 . |0|) (233 . =)
               (239 . |zero|) (245 . |setelt!|) (253 . |denom|) (|List| 40)
               (258 . |elt|) (264 . |elt|) |PLEQN;dmp2rfi;GRF;28| (271 . /)
               (277 . |setelt!|) |PLEQN;dmp2rfi;LL;10| (|List| 69)

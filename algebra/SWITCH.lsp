@@ -186,7 +186,7 @@
                        (|:| CF (|Expression| (|Complex| (|Float|))))
                        (|:| |switch| $$))
               (10 . |coerce|) (|Boolean|) (15 . =) (|Expression| (|Integer|))
-              (21 . |One|) (|List| %) (25 . |prefix|) (31 . |infix|)
+              (21 . |1|) (|List| %) (25 . |prefix|) (31 . |infix|)
               |SWITCH;coerce;%Of;1| (37 . |coerce|) |SWITCH;coerce;S%;2|
               (|Union| (|:| I 17) (|:| F (|Expression| (|Float|)))
                        (|:| CF (|Expression| (|Complex| (|Float|))))

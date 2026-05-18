@@ -931,11 +931,11 @@
 
 (MAKEPROP '|ModularHermitianRowReduction| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |Zero|) (|Boolean|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |0|) (|Boolean|)
               (4 . ~=) (|Mapping| 8 6) (|Vector| 6) (10 . |any?|) (|Integer|)
               (16 . |minIndex|) (|Matrix| 6) (21 . |maxRowIndex|) (|List| 13)
               (26 . |member?|) (32 . |row|) (|List| 6) (38 . |parts|)
-              (43 . |One|) (|NonNegativeInteger|) (47 . |zero|) (|List| 20)
+              (43 . |1|) (|NonNegativeInteger|) (47 . |zero|) (|List| 20)
               (53 . |matrix|) (58 . |removeDuplicates|) (63 . =) (|Set| 13)
               (69 . |set|) (74 . |maxColIndex|) (79 . =) (85 . |binomial|)
               (91 . |elt|) (98 . |determinant|) (103 . |gcd|) (109 . |elt|)

@@ -31,13 +31,13 @@
 (SDEFUN |SINT;*;I2%;6| ((|i| (|Integer|)) (|y| (%)) (% (%)))
         (|mul_SI| (SPADCALL |i| (QREFELT % 23)) |y|)) 
 
-(MAKEPROP '|SINT;Zero;%;7| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|SINT;0;%;7| '|SPADreplace| '(XLAM NIL 0)) 
 
-(SDEFUN |SINT;Zero;%;7| ((% (%))) 0) 
+(SDEFUN |SINT;0;%;7| ((% (%))) 0) 
 
-(MAKEPROP '|SINT;One;%;8| '|SPADreplace| '(XLAM NIL 1)) 
+(MAKEPROP '|SINT;1;%;8| '|SPADreplace| '(XLAM NIL 1)) 
 
-(SDEFUN |SINT;One;%;8| ((% (%))) 1) 
+(SDEFUN |SINT;1;%;8| ((% (%))) 1) 
 
 (MAKEPROP '|SINT;base;%;9| '|SPADreplace| '(XLAM NIL 2)) 
 
@@ -286,8 +286,8 @@
               (|OutputForm|) (33 . |coerce|) |SINT;coerce;%Of;3|
               |SINT;convert;%I;4| |SINT;convert;%S;5| |SINT;coerce;I%;52|
               |SINT;*;I2%;6|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |SINT;Zero;%;7|) %))
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |SINT;One;%;8|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |SINT;0;%;7|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |SINT;1;%;8|) %))
               |SINT;base;%;9| |SINT;max;%;10| |SINT;min;%;11| |SINT;=;2%B;12|
               |SINT;~;2%;13| |SINT;not;2%;14| |SINT;/\\;3%;15| |SINT;\\/;3%;16|
               |SINT;Not;2%;17| |SINT;And;3%;18| |SINT;Or;3%;19|
@@ -342,9 +342,9 @@
               |commutator| 540 |coerce| 546 |characteristic| 561 |bit?| 565
               |binomial| 571 |base| 577 |associator| 581 |associates?| 588
               |antiCommutator| 594 |annihilate?| 600 |addmod| 606 |abs| 613
-              |_\|_| 618 ^ 622 |\\/| 634 |Zero| 640 T$ 644 |Or| 648 |One| 654
-              |OMwrite| 658 |Not| 682 D 687 |And| 698 >= 704 > 710 = 716 <= 722
-              < 728 |/\\| 734 - 740 + 751 * 757)
+              |_\|_| 618 ^ 622 |\\/| 634 T$ 640 |Or| 644 |OMwrite| 650 |Not|
+              674 D 679 |And| 690 >= 696 > 702 = 708 <= 714 < 720 |1| 726 |0|
+              730 |/\\| 734 - 740 + 751 * 757)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -429,11 +429,11 @@
                                     0 0 27 3 0 0 0 0 0 1 2 0 16 0 0 1 2 0 0 0 0
                                     1 2 0 16 0 0 1 3 0 0 0 0 0 64 1 0 0 0 53 0
                                     0 0 1 2 0 0 0 89 1 2 0 0 0 46 47 2 0 0 0 0
-                                    34 0 0 0 25 0 0 0 1 2 0 0 0 0 37 0 0 0 26 2
-                                    0 9 0 16 1 1 0 9 0 1 3 0 6 7 0 16 17 2 0 6
-                                    7 0 1 1 0 0 0 35 2 0 0 0 46 1 1 0 0 0 1 2 0
-                                    0 0 0 36 2 0 16 0 0 1 2 0 16 0 0 1 2 0 16 0
-                                    0 30 2 0 16 0 0 1 2 0 16 0 0 39 2 0 0 0 0
+                                    34 0 0 0 1 2 0 0 0 0 37 2 0 9 0 16 1 1 0 9
+                                    0 1 3 0 6 7 0 16 17 2 0 6 7 0 1 1 0 0 0 35
+                                    2 0 0 0 46 1 1 0 0 0 1 2 0 0 0 0 36 2 0 16
+                                    0 0 1 2 0 16 0 0 1 2 0 16 0 0 30 2 0 16 0 0
+                                    1 2 0 16 0 0 39 0 0 0 26 0 0 0 25 2 0 0 0 0
                                     33 2 0 0 0 0 44 1 0 0 0 42 2 0 0 0 0 43 2 0
                                     0 89 0 1 2 0 0 0 0 45 2 0 0 11 0 24 2 0 0
                                     46 0 1)))))

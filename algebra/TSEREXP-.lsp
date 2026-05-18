@@ -36,7 +36,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|local| |#5|) (|local| |#6|)
-              (0 . |Zero|) (4 . |monomial|) (|List| 10) (|Mapping| 7 7)
+              (0 . |0|) (4 . |monomial|) (|List| 10) (|Mapping| 7 7)
               (|List| 15) (10 . |taylor_via_deriv|)
               |TSEREXP-;taylor_via_deriv;CoefLLPS;1|)
            '#(|taylor_via_deriv| 17) 'NIL

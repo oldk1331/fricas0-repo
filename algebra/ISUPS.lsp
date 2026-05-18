@@ -124,10 +124,10 @@
 (SDEFUN |ISUPS;characteristic;Nni;13| ((% (|NonNegativeInteger|)))
         (SPADCALL (QREFELT % 40))) 
 
-(SDEFUN |ISUPS;Zero;%;14| ((% (%)))
+(SDEFUN |ISUPS;0;%;14| ((% (%)))
         (SPADCALL (|spadConstant| % 30) 0 (QREFELT % 22))) 
 
-(SDEFUN |ISUPS;One;%;15| ((% (%)))
+(SDEFUN |ISUPS;1;%;15| ((% (%)))
         (SPADCALL (|spadConstant| % 37) 0 (QREFELT % 22))) 
 
 (SDEFUN |ISUPS;iExtend|
@@ -3762,17 +3762,16 @@
               (19 . |ref|) (|Integer|) |ISUPS;monomial;CoefI%;7|
               (24 . |empty?|) (29 . |rst|) |ISUPS;monomial?;%B;8|
               (34 . |coerce|) |ISUPS;coerce;Coef%;10| |ISUPS;coerce;I%;9|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |ISUPS;Zero;%;14|) %))
-              (39 . |Zero|) (43 . |setelt!|) (49 . |frst|) (54 . |coerce|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |ISUPS;0;%;14|) %))
+              (39 . |0|) (43 . |setelt!|) (49 . |frst|) (54 . |coerce|)
               (|Mapping| %) (59 . |delay|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |ISUPS;One;%;15|) %))
-              (64 . |One|) |ISUPS;series;S%;12| (|NonNegativeInteger|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |ISUPS;1;%;15|) %))
+              (64 . |1|) |ISUPS;series;S%;12| (|NonNegativeInteger|)
               (68 . |characteristic|) |ISUPS;characteristic;Nni;13|
               (72 . |elt|) (77 . <) (83 . |explicitlyEmpty?|)
               (88 . |explicitEntries?|) (93 . |lazyEvaluate|)
               |ISUPS;extend;%I%;17| |ISUPS;complete;2%;18| (98 . >) (104 . >=)
-              (110 . |One|) (114 . +) (120 . |retract|) (125 . |minusInfinity|)
+              (110 . |1|) (114 . +) (120 . |retract|) (125 . |minusInfinity|)
               |ISUPS;truncate;%I%;21| |ISUPS;truncate;%2I%;22|
               |ISUPS;coefficient;%ICoef;24| |ISUPS;elt;%ICoef;25|
               (129 . |finite?|) |ISUPS;order;%I;27| |ISUPS;order;%2I;28|
@@ -3785,10 +3784,10 @@
               (175 . |min|) (181 . +) |ISUPS;+;3%;40| (187 . -) (193 . -)
               |ISUPS;-;2%;42| |ISUPS;*;I2%;43| (198 . *) |ISUPS;*;Nni2%;44|
               (204 . *) |ISUPS;*;Pi2%;45| (|Void|) (210 . |void|) (214 . +)
-              (220 . |lazy?|) (225 . |One|) |ISUPS;*;3%;49|
-              (|Union| % '"failed") (229 . |recip|) |ISUPS;iExquo;2%BU;52|
-              |ISUPS;taylorQuoByVar;2%;53| (234 . |Zero|) (238 . ~=) (244 . *)
-              (250 . |zero?|) (255 . ^) (261 . |Zero|) |ISUPS;iCompose;3%;55|
+              (220 . |lazy?|) (225 . |1|) |ISUPS;*;3%;49| (|Union| % '"failed")
+              (229 . |recip|) |ISUPS;iExquo;2%BU;52|
+              |ISUPS;taylorQuoByVar;2%;53| (234 . |0|) (238 . ~=) (244 . *)
+              (250 . |zero?|) (255 . ^) (261 . |0|) |ISUPS;iCompose;3%;55|
               (|Fraction| 21) (265 . /) (271 . *) (277 . |integrate|)
               (282 . |coerce|) (287 . |inv|) (292 . *) (|Mapping| 10 10)
               (|ParadoxicalCombinatorsForStreams| 9) (298 . Y) (303 . |cPower|)
@@ -3807,8 +3806,8 @@
               (519 . |cTanh|) (524 . |cCoth|) (529 . |cSech|) (534 . |cCsch|)
               (539 . |asinh|) (544 . |cAsinh|) (549 . |acosh|) (554 . |cAcosh|)
               (559 . |cAtanh|) (564 . |acoth|) (569 . |cAcoth|) (574 . |asech|)
-              (579 . |cAsech|) (584 . |acsch|) (589 . |cAcsch|) (594 . |Zero|)
-              (598 . =) (|OutputForm|) (604 . |coerce|) (609 . |One|)
+              (579 . |cAsech|) (584 . |acsch|) (589 . |cAcsch|) (594 . |0|)
+              (598 . =) (|OutputForm|) (604 . |coerce|) (609 . |1|)
               (613 . |coerce|) (618 . ^) (624 . -) (629 . *) (|Symbol|)
               (635 . |coerce|) (640 . -) (646 . |paren|) (651 . *)
               (|Union| 21 '"failed") (657 . |retractIfCan|) (|List| %)
@@ -3839,8 +3838,8 @@
               |cAsech| 1158 |cAsec| 1163 |cAcsch| 1168 |cAcsc| 1173 |cAcoth|
               1178 |cAcot| 1183 |cAcosh| 1188 |cAcos| 1193 |associator| 1198
               |associates?| 1205 |approximate| 1211 |antiCommutator| 1217
-              |annihilate?| 1223 ^ 1229 |Zero| 1241 |One| 1245 D 1249 = 1286 /
-              1292 - 1298 + 1309 * 1315)
+              |annihilate?| 1223 ^ 1229 D 1241 = 1278 |1| 1284 |0| 1288 / 1292
+              - 1298 + 1309 * 1315)
            'NIL
            (CONS
             (|makeByteWordVec2| 24
@@ -3952,10 +3951,10 @@
                                     0 0 166 1 1 0 0 182 1 1 0 0 162 1 1 0 0 179
                                     1 1 0 0 158 3 30 0 0 0 0 1 2 25 15 0 0 1 2
                                     13 6 0 21 1 2 0 0 0 0 1 2 30 15 0 0 1 2 0 0
-                                    0 76 1 2 29 0 0 39 106 0 31 0 29 0 29 0 36
-                                    3 8 0 0 196 39 1 3 8 0 0 213 214 1 2 8 0 0
-                                    196 1 2 8 0 0 213 1 2 7 0 0 39 1 1 7 0 0 1
-                                    2 0 15 0 0 67 2 11 0 0 6 1 2 33 0 0 0 66 1
+                                    0 76 1 2 29 0 0 39 106 3 8 0 0 196 39 1 3 8
+                                    0 0 213 214 1 2 8 0 0 196 1 2 8 0 0 213 1 2
+                                    7 0 0 39 1 1 7 0 0 1 2 0 15 0 0 67 0 29 0
+                                    36 0 31 0 29 2 11 0 0 6 1 2 33 0 0 0 66 1
                                     33 0 0 86 2 0 0 0 0 83 2 0 0 76 0 91 2 0 0
                                     0 0 97 2 0 0 0 6 1 2 0 0 6 0 115 2 33 0 21
                                     0 87 2 31 0 39 0 89 2 1 0 0 109 1 2 1 0 109

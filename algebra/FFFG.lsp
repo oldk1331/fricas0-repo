@@ -766,19 +766,19 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|NonNegativeInteger|) (0 . |coefficient|) (|Integer|) (6 . *)
-              |FFFG;ShiftAction;2NniVD;1| (12 . |One|) (16 . |One|)
-              (20 . |coerce|) (|List| 6) |FFFG;ShiftC;NniL;2| (25 . ^) (31 . *)
-              |FFFG;qShiftAction;D2NniVD;3| |FFFG;qShiftC;DNniL;4|
-              (37 . |Zero|) |FFFG;DiffAction;2NniVD;5| |FFFG;DiffC;NniL;6|
-              (|Vector| 7) (41 . |elt|) (|SparseUnivariatePolynomial| 6)
-              (|Vector| 27) (47 . |elt|) (53 . |minimumDegree|) (58 . |degree|)
+              |FFFG;ShiftAction;2NniVD;1| (12 . |1|) (16 . |1|) (20 . |coerce|)
+              (|List| 6) |FFFG;ShiftC;NniL;2| (25 . ^) (31 . *)
+              |FFFG;qShiftAction;D2NniVD;3| |FFFG;qShiftC;DNniL;4| (37 . |0|)
+              |FFFG;DiffAction;2NniVD;5| |FFFG;DiffC;NniL;6| (|Vector| 7)
+              (41 . |elt|) (|SparseUnivariatePolynomial| 6) (|Vector| 27)
+              (47 . |elt|) (53 . |minimumDegree|) (58 . |degree|)
               (63 . |coefficient|) (|Boolean|) (69 . |zero?|) (74 . +)
               (|Mapping| 6 8 8 7) |FFFG;generalCoefficient;MVNniVD;7|
-              (80 . |One|) (84 . -) (|Matrix| 27) (|Mapping| 6 8 28) (|List| 8)
+              (80 . |1|) (84 . -) (|Matrix| 27) (|Mapping| 6 8 28) (|List| 8)
               |FFFG;fffg;LMLM;20| |FFFG;generalInterpolation;LMVLM;8|
               (|Vector| 10) |FFFG;fffg;LMVNniM;19|
               |FFFG;generalInterpolation;LMVVNniM;9| (90 . |#|) (95 . <)
-              (|Mapping| 33 8) (101 . |position|) (107 . |elt|) (113 . |Zero|)
+              (|Mapping| 33 8) (101 . |position|) (107 . |elt|) (113 . |0|)
               (117 . |setelt!|) (124 . |copy|) (|Stream| 42) (129 . |empty|)
               (133 . |cons|) (|Mapping| %) (139 . |delay|)
               |FFFG;genVectorStream;3NniS;14| |FFFG;genVectorStream2;3NniS;15|
@@ -788,10 +788,10 @@
               |FFFG;interpolate;2LNniF;17| (149 . |numer|) (154 . |monomial|)
               (160 . |elt|) (166 . |denom|) (171 . *) (177 . /)
               |FFFG;interpolate;2LNniF;16| (183 . ~=) (189 . |elt|)
-              (195 . |elt|) (|PositiveInteger|) (201 . |One|) (205 . -)
+              (195 . |elt|) (|PositiveInteger|) (201 . |1|) (205 . -)
               (211 . |elt|) (218 . |zero?|) (223 . |coerce|) (228 . -)
               (234 . *) (240 . |elt|) (246 . *) (|Union| % '"failed")
-              (252 . |exquo|) (258 . |One|) (262 . |scalarMatrix|) (|Vector| 8)
+              (252 . |exquo|) (258 . |1|) (262 . |scalarMatrix|) (|Vector| 8)
               (268 . |zero|) (|Vector| 6) (273 . |zero|) (278 . |column|)
               (284 . |setelt!|) (291 . |elt|) (297 . =) (303 . |elt|)
               (309 . |setelt!|) (316 . |setelt!|) (|List| 10) (323 . |vector|)

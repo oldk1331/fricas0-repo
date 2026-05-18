@@ -498,9 +498,9 @@
                                      (QREFELT % 108)))
                           (#1# |x|))))))))) 
 
-(SDEFUN |RECLOS;Zero;%;33| ((% (%))) (CONS 0 (|spadConstant| % 29))) 
+(SDEFUN |RECLOS;0;%;33| ((% (%))) (CONS 0 (|spadConstant| % 29))) 
 
-(SDEFUN |RECLOS;One;%;34| ((% (%))) (CONS 0 (|spadConstant| % 35))) 
+(SDEFUN |RECLOS;1;%;34| ((% (%))) (CONS 0 (|spadConstant| % 35))) 
 
 (MAKEPROP '|RECLOS;coerce;TheField%;35| '|SPADreplace|
           '(XLAM (|rn|) (CONS 0 |rn|))) 
@@ -582,17 +582,15 @@
               (|Fraction| 64) (4 . |retract|) (|SparseUnivariatePolynomial| $$)
               (|RightOpenIntervalRootCharacterization| $$ 15)
               (9 . |relativeApprox|) |RECLOS;relativeApprox;2%F;1|
-              |RECLOS;abs;2%;12| (|Boolean|) |RECLOS;<;2%B;14| (16 . |Zero|)
+              |RECLOS;abs;2%;12| (|Boolean|) |RECLOS;<;2%B;14| (16 . |0|)
               (20 . |approximate|) |RECLOS;approximate;2%F;2|
               (27 . |definingPolynomial|) (|NonNegativeInteger|)
               (32 . |degree|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |RECLOS;Zero;%;33|) %))
-              (37 . |Zero|) (41 . |coefficient|) (47 . |leadingCoefficient|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |RECLOS;0;%;33|) %))
+              (37 . |0|) (41 . |coefficient|) (47 . |leadingCoefficient|)
               (52 . /) |RECLOS;-;2%;29|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |RECLOS;One;%;34|) %))
-              (58 . |One|) (62 . |monomial|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |RECLOS;1;%;34|) %))
+              (58 . |1|) (62 . |monomial|)
               (|RightOpenIntervalRootCharacterization| % 48) (|OutputForm|)
               |RECLOS;algebraicOf;RoircOf%;4| |RECLOS;rename!;%Of%;5|
               |RECLOS;rename;%Of%;6| (|Union| % '"failed") (|PositiveInteger|)
@@ -644,9 +642,8 @@
               |euclideanSize| 617 |divide| 622 |commutator| 628 |coerce| 634
               |characteristic| 664 |associator| 668 |associates?| 675
               |approximate| 681 |antiCommutator| 687 |annihilate?| 693
-              |allRootsOf| 699 |algebraicOf| 729 |abs| 735 ^ 740 |Zero| 764
-              |One| 768 >= 772 > 778 = 784 <= 790 < 796 / 802 - 808 + 819 *
-              825)
+              |allRootsOf| 699 |algebraicOf| 729 |abs| 735 ^ 740 >= 764 > 770 =
+              776 <= 782 < 788 |1| 794 |0| 798 / 802 - 808 + 819 * 825)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -742,11 +739,11 @@
                                     55 1 0 50 121 1 1 0 50 122 1 1 0 50 123 1 1
                                     0 50 124 1 1 0 50 125 1 2 0 0 37 38 39 1 0
                                     0 0 19 2 0 0 0 26 1 2 0 0 0 43 1 2 0 0 0 64
-                                    1 2 0 0 0 13 1 0 0 0 28 0 0 0 34 2 0 20 0 0
-                                    1 2 0 20 0 0 1 2 0 20 0 0 71 2 0 20 0 0 1 2
-                                    0 20 0 0 21 2 0 0 0 0 32 2 0 0 0 0 69 1 0 0
-                                    0 33 2 0 0 0 0 102 2 0 0 43 0 1 2 0 0 26 0
-                                    1 2 0 0 64 0 66 2 0 0 0 0 95 2 0 0 0 64 1 2
-                                    0 0 13 0 1 2 0 0 0 13 1 2 0 0 6 0 94 2 0 0
-                                    0 6 1 2 3 0 13 0 1 2 3 0 0 13 1)))))
+                                    1 2 0 0 0 13 1 2 0 20 0 0 1 2 0 20 0 0 1 2
+                                    0 20 0 0 71 2 0 20 0 0 1 2 0 20 0 0 21 0 0
+                                    0 34 0 0 0 28 2 0 0 0 0 32 2 0 0 0 0 69 1 0
+                                    0 0 33 2 0 0 0 0 102 2 0 0 43 0 1 2 0 0 26
+                                    0 1 2 0 0 64 0 66 2 0 0 0 0 95 2 0 0 0 64 1
+                                    2 0 0 13 0 1 2 0 0 0 13 1 2 0 0 6 0 94 2 0
+                                    0 0 6 1 2 3 0 13 0 1 2 3 0 0 13 1)))))
            '|lookupComplete|)) 

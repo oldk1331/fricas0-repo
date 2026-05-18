@@ -131,7 +131,7 @@
               |ODETOOLS;wronskianMatrix;LM;1| (|Vector| 6) (4 . |vector|)
               (9 . |zero|) (|Integer|) (15 . |maxRowIndex|) (20 . |setRow!|)
               (27 . |elt|) (|Mapping| 6 6) (33 . |map!|) (39 . |degree|)
-              (44 . |Zero|) (48 . |leadingCoefficient|) (53 . /)
+              (44 . |0|) (48 . |leadingCoefficient|) (53 . /)
               (|Union| 15 '"failed") (|LinearSystemMatrixPackage| 6 15 15 10)
               (59 . |particularSolution|)
               |ODETOOLS;variationOfParameters;LODOFLU;3| (|Boolean|)

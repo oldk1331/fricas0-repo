@@ -31,7 +31,7 @@
 (SDEFUN |CYCGRP;convert;%Se;5| ((|x| (%)) (% (|SExpression|)))
         (SPADCALL (|CYCGRP;rep| |x| %) (QREFELT % 22))) 
 
-(SDEFUN |CYCGRP;One;%;6| ((% (%))) (|CYCGRP;per| 0 %)) 
+(SDEFUN |CYCGRP;1;%;6| ((% (%))) (|CYCGRP;per| 0 %)) 
 
 (SDEFUN |CYCGRP;one?;%B;7| ((|x| (%)) (% (|Boolean|)))
         (ZEROP (|CYCGRP;rep| |x| %))) 
@@ -145,7 +145,7 @@
               |CYCGRP;coerce;%Of;3| (|HashState|) (16 . |hashUpdate!|)
               |CYCGRP;hashUpdate!;Hs%Hs;4| (|SExpression|) (22 . |convert|)
               |CYCGRP;convert;%Se;5|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |CYCGRP;One;%;6|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |CYCGRP;1;%;6|) %))
               |CYCGRP;exponent;%I;19| |CYCGRP;order;%I;8| (27 . |addmod|)
               |CYCGRP;*;3%;9| |CYCGRP;inv;2%;10| |CYCGRP;=;2%B;11|
               |CYCGRP;smaller?;2%B;12| (|NonNegativeInteger|)
@@ -159,8 +159,8 @@
               |lookup| 97 |leftRecip| 102 |leftPower| 107 |latex| 119 |inv| 124
               |index| 129 |hashUpdate!| 134 |hash| 140 |generators| 145
               |generator| 149 |exponent| 153 |enumerate| 158 |convert| 162
-              |conjugate| 172 |commutator| 178 |coerce| 184 ^ 189 |One| 207 =
-              211 / 217 * 223)
+              |conjugate| 172 |commutator| 178 |coerce| 184 ^ 189 = 207 |1| 213
+              / 217 * 223)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -187,6 +187,6 @@
                                          0 41 1 0 12 0 25 0 0 39 40 1 0 46 0 1
                                          1 0 21 0 23 2 0 0 0 0 1 2 0 0 0 0 1 1
                                          0 11 0 17 2 0 0 0 35 1 2 0 0 0 32 1 2
-                                         0 0 0 12 1 0 0 0 24 2 0 9 0 0 30 2 0 0
+                                         0 0 0 12 1 2 0 9 0 0 30 0 0 0 24 2 0 0
                                          0 0 1 2 0 0 0 0 28)))))
            '|lookupComplete|)) 

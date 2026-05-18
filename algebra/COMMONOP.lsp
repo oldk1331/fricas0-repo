@@ -594,9 +594,9 @@
               (134 . |third|) (139 . |sum|) (146 . |prod|) (153 . |hconcat|)
               (159 . *) (165 . |empty|) (169 . |int|) (176 . |convert|)
               (181 . |concat|) (187 . |concat|) (|Mapping| 183 186)
-              (193 . |input|) (199 . |first|) (204 . |One|) (208 . |One|)
-              (212 . |One|) (216 . |second|) (221 . /) (227 . |assert|)
-              (|Void|) (233 . |void|))
+              (193 . |input|) (199 . |first|) (204 . |1|) (208 . |1|)
+              (212 . |1|) (216 . |second|) (221 . /) (227 . |assert|) (|Void|)
+              (233 . |void|))
            '#(|operator| 237) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)

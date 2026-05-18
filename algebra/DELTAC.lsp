@@ -1115,7 +1115,7 @@
               (66 . |coerce|) (|List| 12) (|OrientedFacet|)
               (71 . |getIndexesSigned|) (76 . |coerce|) (81 . |coerce|)
               (86 . |coerce|) (|List| %) (91 . |boundary|) (96 . |position|)
-              (102 . |Zero|) (106 . |coerce|) (|List| 52)
+              (102 . |0|) (106 . |coerce|) (|List| 52)
               (|FiniteCubicalComplex| 6) (111 . |addImpliedFaces|) (|List| 55)
               (116 . |sort|) (121 . |concat|) (|CubicalFacet|)
               (127 . |boundary|) (132 . |position|) (138 . |coerce|)

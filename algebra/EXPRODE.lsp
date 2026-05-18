@@ -731,17 +731,17 @@
               (|SparseMultivariatePolynomial| 6 18)
               (|PolynomialCategoryLifting| (|IndexedExponents| 18) 18 6 29 7)
               (43 . |map|) (|SparseMultivariatePolynomial| 6 16) (50 . |denom|)
-              (55 . |One|) (59 . |One|) (63 . |One|) (67 . =) (73 . |numer|)
+              (55 . |1|) (59 . |1|) (63 . |1|) (67 . =) (73 . |numer|)
               (78 . |elt|) (|Fraction| (|SparseUnivariatePolynomial| %))
               (85 . |univariate|) (|SparseUnivariatePolynomial| 7)
               (|Fraction| 42) (91 . |numer|) (|NonNegativeInteger|)
-              (96 . |degree|) (101 . |denom|) (106 . |ground?|) (111 . |Zero|)
+              (96 . |degree|) (101 . |denom|) (106 . |ground?|) (111 . |0|)
               (115 . |coefficient|) (121 . /) (127 . -) (|Equation| 7)
               (132 . |lhs|) (137 . |rhs|) (142 . =) (148 . |coerce|)
               (153 . |differentiate|) (|List| 16) (159 . |kernels|) (|List| 18)
               (164 . |member?|) (170 . |subst|) (|Integer|) (177 . |coerce|)
-              (182 . +) (188 . |is?|) (194 . |Zero|) (198 . -) (|Any|)
-              (|List| 9) (|List| 53) |EXPRODE;seriesSolve;LLELA;15|
+              (182 . +) (188 . |is?|) (194 . |0|) (198 . -) (|Any|) (|List| 9)
+              (|List| 53) |EXPRODE;seriesSolve;LLELA;15|
               |EXPRODE;seriesSolve;LLELA;13| |EXPRODE;seriesSolve;LLELA;22|
               |EXPRODE;seriesSolve;LLELA;14| |EXPRODE;seriesSolve;FBo2EA;19|
               |EXPRODE;seriesSolve;EBo2EA;16| |EXPRODE;seriesSolve;FBoEFA;20|

@@ -1,5 +1,5 @@
 
-(SDEFUN |FRIMOD;One;%;1| ((% (%))) (QREFELT % 10)) 
+(SDEFUN |FRIMOD;1;%;1| ((% (%))) (QREFELT % 10)) 
 
 (MAKEPROP '|FRIMOD;module;V%;2| '|SPADreplace| '(XLAM (|v|) |v|)) 
 
@@ -247,16 +247,16 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|local| |#5|) '|Rep| '|iflag?|
-              '|wflag?| (0 . |Zero|) '|imat| '|wmat|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FRIMOD;One;%;1|) %))
+              '|wflag?| (0 . |0|) '|imat| '|wmat|
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FRIMOD;1;%;1|) %))
               (|Vector| 9) |FRIMOD;module;V%;2| |FRIMOD;basis;%V;3| (|Integer|)
               (|Vector| 6) (4 . |minIndex|) (9 . |elt|) (15 . /) (|OutputForm|)
               (21 . |coerce|) |FRIMOD;coerce;%Of;5| (|Vector| 7) (|Matrix| 7)
               (26 . *) (32 . |represents|) (|Vector| %) (37 . |coordinates|)
               (42 . *) (|Union| % '"failed") (48 . |inverse|)
               (53 . |maxRowIndex|) (58 . |maxColIndex|) (63 . |setelt!|)
-              (71 . |Zero|) (75 . |minIndex|) (80 . |minIndex|) (85 . *)
-              (91 . |One|) (|Boolean|) (|NonNegativeInteger|) (95 . ~=)
+              (71 . |0|) (75 . |minIndex|) (80 . |minIndex|) (85 . *)
+              (91 . |1|) (|Boolean|) (|NonNegativeInteger|) (95 . ~=)
               (101 . |determinant|) |FRIMOD;norm;%F;13|
               (|Record| (|:| |num| 54) (|:| |den| 6))
               (|MatrixCommonDenominator| 6 7) (106 . |splitDenominator|)
@@ -266,7 +266,7 @@
               (|String|) (|PositiveInteger|))
            '#(~= 143 |sample| 149 |rightRecip| 153 |rightPower| 158 |recip| 170
               |one?| 175 |norm| 180 |module| 185 |leftRecip| 195 |leftPower|
-              200 |latex| 212 |coerce| 217 |basis| 222 ^ 227 |One| 239 = 243 *
+              200 |latex| 212 |coerce| 217 |basis| 222 ^ 227 = 239 |1| 245 *
               249)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
@@ -291,6 +291,6 @@
                                          36 0 1 1 0 46 0 1 1 0 7 0 50 1 0 0 18
                                          19 1 1 0 61 63 1 0 36 0 1 2 0 0 0 65 1
                                          2 0 0 0 47 1 1 0 64 0 1 1 0 26 0 28 1
-                                         0 18 0 20 2 0 0 0 65 1 2 0 0 0 47 1 0
-                                         0 0 17 2 0 46 0 0 1 2 0 0 0 0 60)))))
+                                         0 18 0 20 2 0 0 0 65 1 2 0 0 0 47 1 2
+                                         0 46 0 0 1 0 0 0 17 2 0 0 0 0 60)))))
            '|lookupComplete|)) 

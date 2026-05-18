@@ -138,7 +138,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|local| |#2|) (|local| |#1|) (|local| |#2|)
               '|Rep| (0 . *) (6 . -) |LIE;*;3%;1| |LIE;coerce;%A;2|
-              |LIE;coerce;A%;3| (12 . |One|) (16 . |Zero|) (|PositiveInteger|)
+              |LIE;coerce;A%;3| (12 . |1|) (16 . |0|) (|PositiveInteger|)
               |LIE;^;%Pi%;4| (|Boolean|) (|String|) (|OutputForm|) (|Integer|)
               (|Union| % '"failed") (|NonNegativeInteger|)
               (|SparseUnivariatePolynomial| (|Polynomial| 6)) (|InputForm|)
@@ -169,8 +169,8 @@
               |commutative?| 376 |coerce| 380 |basis| 395
               |associatorDependence| 399 |associator| 403 |associative?| 410
               |apply| 414 |antiCommutator| 420 |antiCommutative?| 426
-              |antiAssociative?| 430 |alternative?| 434 ^ 438 |Zero| 444 = 448
-              - 454 + 465 * 471)
+              |antiAssociative?| 430 |alternative?| 434 ^ 438 = 444 |0| 450 -
+              454 + 465 * 471)
            'NIL
            (CONS
             (|makeByteWordVec2| 7
@@ -217,8 +217,8 @@
                                     0 0 0 1 0 3 18 1 1 0 20 0 1 1 0 5 0 12 1 0
                                     0 5 13 0 1 33 1 0 4 30 1 3 0 0 0 0 0 1 0 3
                                     18 1 2 1 0 35 0 1 2 0 0 0 0 1 0 3 18 1 0 3
-                                    18 1 0 3 18 1 2 0 0 0 16 17 0 0 0 15 2 0 18
-                                    0 0 1 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 0
-                                    0 16 0 1 2 0 0 0 0 11 2 0 0 21 0 1 2 0 0 23
-                                    0 1 2 0 0 6 0 1 2 0 0 0 6 1)))))
+                                    18 1 0 3 18 1 2 0 0 0 16 17 2 0 18 0 0 1 0
+                                    0 0 15 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2
+                                    0 0 16 0 1 2 0 0 0 0 11 2 0 0 21 0 1 2 0 0
+                                    23 0 1 2 0 0 6 0 1 2 0 0 0 6 1)))))
            '|lookupComplete|)) 

@@ -137,13 +137,13 @@
           (SPADCALL (SPADCALL |a| (QREFELT % 26)) (SPADCALL |b| (QREFELT % 26))
                     (QREFELT % 34))))) 
 
-(SDEFUN |INTRVL;One;%;15| ((% (%)))
+(SDEFUN |INTRVL;1;%;15| ((% (%)))
         (SPROG ((|one| (R)))
                (SEQ
                 (LETT |one| (|INTRVL;normaliseFloat| (|spadConstant| % 16) %))
                 (EXIT (CONS |one| |one|))))) 
 
-(SDEFUN |INTRVL;Zero;%;16| ((% (%)))
+(SDEFUN |INTRVL;0;%;16| ((% (%)))
         (CONS (|spadConstant| % 36) (|spadConstant| % 36))) 
 
 (SDEFUN |INTRVL;recip;%U;17| ((|u| (%)) (% (|Union| % "failed")))
@@ -960,16 +960,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (|Boolean|)
               (0 . |zero?|) (|PositiveInteger|) (5 . |bits|) (|Integer|)
               (9 . |mantissa|) (14 . |exponent|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |INTRVL;One;%;15|) %))
-              (19 . |One|) (23 . |float|) (29 . |base|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |INTRVL;Zero;%;16|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |INTRVL;1;%;15|) %))
+              (19 . |1|) (23 . |float|) (29 . |base|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |INTRVL;0;%;16|) %))
               (33 . |one?|) (|Union| 12 '"failed") (38 . |retractIfCan|)
               |INTRVL;interval;R%;4| |INTRVL;qinterval;2R%;5| |INTRVL;inf;%R;9|
               |INTRVL;sup;%R;10| (43 . <) (49 . >) |INTRVL;<;2%B;11| (55 . -)
               |INTRVL;-;2%;12| (60 . =) |INTRVL;=;2%B;13| (66 . ~=)
-              |INTRVL;~=;2%B;14| (72 . |Zero|) (76 . |contains?|) (82 . /)
+              |INTRVL;~=;2%B;14| (72 . |0|) (76 . |contains?|) (82 . /)
               (|List| 6) (88 . |sort|) (93 . |last|) (|Union| % '"failed")
               |INTRVL;recip;%U;17| (98 . |one?|) (103 . |zero?|)
               |INTRVL;exquo;2%U;18| |INTRVL;gcd;3%;19| (108 . |coerce|)
@@ -1020,8 +1018,8 @@
               |atan| 730 |associator| 735 |associates?| 742 |asinh| 748 |asin|
               753 |asech| 758 |asec| 763 |antiCommutator| 768 |annihilate?| 774
               |acsch| 780 |acsc| 785 |acoth| 790 |acot| 795 |acosh| 800 |acos|
-              805 |abs| 810 ^ 815 |Zero| 839 |One| 843 >= 847 > 853 = 859 <=
-              865 < 871 / 877 - 883 + 894 * 906)
+              805 |abs| 810 ^ 815 >= 839 > 845 = 851 <= 857 < 863 |1| 869 |0|
+              873 / 877 - 883 + 894 * 906)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -1107,9 +1105,9 @@
                                     0 0 129 1 0 0 0 108 1 0 0 0 127 1 0 0 0 104
                                     1 0 0 0 125 1 0 0 0 100 1 2 0 0 1 2 0 0 0
                                     69 1 2 0 0 0 10 1 2 0 0 0 0 79 2 0 0 0 50
-                                    139 0 0 0 19 0 0 0 15 2 0 8 0 0 1 2 0 8 0 0
-                                    1 2 0 8 0 0 33 2 0 8 0 0 1 2 0 8 0 0 29 2 4
-                                    0 0 0 1 1 0 0 0 31 2 0 0 0 0 1 2 0 0 0 0 1
-                                    2 0 0 0 6 1 2 0 0 10 0 1 2 0 0 69 0 1 2 0 0
-                                    12 0 1 2 0 0 0 0 1 2 3 0 6 0 1)))))
+                                    139 2 0 8 0 0 1 2 0 8 0 0 1 2 0 8 0 0 33 2
+                                    0 8 0 0 1 2 0 8 0 0 29 0 0 0 15 0 0 0 19 2
+                                    4 0 0 0 1 1 0 0 0 31 2 0 0 0 0 1 2 0 0 0 0
+                                    1 2 0 0 0 6 1 2 0 0 10 0 1 2 0 0 69 0 1 2 0
+                                    0 12 0 1 2 0 0 0 0 1 2 3 0 6 0 1)))))
            '|lookupComplete|)) 

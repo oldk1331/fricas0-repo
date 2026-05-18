@@ -242,7 +242,7 @@
               (48 . |print|) (53 . *) (59 . |zero?|) (64 . |coerce|)
               |COCHNC;validate;%B;3| (|List| 17) (|Vector| 17) (69 . |vector|)
               (74 . |elt|) (80 . *) (86 . |entries|) (|List| 6) (91 . |elt|)
-              (97 . |Zero|) (101 . |concat|) (107 . -) (112 . +)
+              (97 . |0|) (101 . |concat|) (107 . -) (112 . +)
               (|NonNegativeInteger|) |COCHNC;coboundary;%Nni2L;4| (|Homology|)
               (118 . |homologyGroup|) (|List| 48) (124 . |concat|)
               |COCHNC;coHomology;%L;5| (|List| %) (130 . |commaSeparate|)

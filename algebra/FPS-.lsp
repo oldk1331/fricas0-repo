@@ -48,9 +48,9 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|PositiveInteger|)
               (0 . |base|) (|Integer|) (4 . |float|) |FPS-;float;2IS;1|
-              (11 . |One|) (15 . |bits|) (19 . |max|) |FPS-;digits;Pi;2|
+              (11 . |1|) (15 . |bits|) (19 . |max|) |FPS-;digits;Pi;2|
               (|String|) (23 . |convert|) |FPS-;toString;SS;3|
-              (28 . |mantissa|) (33 . |exponent|) (38 . |Zero|) (|Character|)
+              (28 . |mantissa|) (33 . |exponent|) (38 . |0|) (|Character|)
               (42 . |underscore|)
               (|Record| (|:| |mantissa| 9) (|:| |exponent| 9))
               (|Record| (|:| |default?| (|Boolean|))

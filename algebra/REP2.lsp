@@ -1496,8 +1496,8 @@
 (MAKEPROP '|RepresentationPackage2| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Integer|) (|Matrix| 6)
-              (0 . |elt|) (7 . *) (13 . +) (19 . |Zero|) (|List| 33)
-              (23 . |matrix|) (28 . |One|) (32 . +) (38 . *) (44 . -)
+              (0 . |elt|) (7 . *) (13 . +) (19 . |0|) (|List| 33)
+              (23 . |matrix|) (28 . |1|) (32 . +) (38 . *) (44 . -)
               (|Vector| 6) (|Vector| 19) (50 . |elt|) (|NonNegativeInteger|)
               (56 . |zero|) (62 . |setRow!|) (69 . |elt|) (|Boolean|) (75 . =)
               (81 . |setelt!|) |REP2;completeEchelonBasis;VM;3| (|List| 8)
@@ -1515,8 +1515,8 @@
               (239 . |isAbsolutelyIrreducible?|)
               (245 . |isAbsolutelyIrreducible?|) (250 . |split|) (256 . |list|)
               (261 . |split|) '|Smp| (267 . |zero|) (272 . =) (278 . |random|)
-              (282 . |vector|) (287 . |parts|) (292 . ~=) (298 . |One|)
-              (302 . |Zero|) (306 . |monomial|) (312 . *) (318 . -) (324 . *)
+              (282 . |vector|) (287 . |parts|) (292 . ~=) (298 . |1|)
+              (302 . |0|) (306 . |monomial|) (312 . *) (318 . -) (324 . *)
               (330 . +) (336 . |diagonalMatrix|) (341 . |degree|) (346 . ~=)
               (352 . |leadingCoefficient|) (357 . *) (363 . |reductum|)
               (|Factored| 70) (|UnivariateFiniteFieldFactorize| 6 70)

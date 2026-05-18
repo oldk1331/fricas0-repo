@@ -22,10 +22,10 @@
 (SDEFUN |MODRING;characteristic;Nni;7| ((% (|NonNegativeInteger|)))
         (SPADCALL (QREFELT % 27))) 
 
-(SDEFUN |MODRING;Zero;%;8| ((% (%)))
+(SDEFUN |MODRING;0;%;8| ((% (%)))
         (CONS (|spadConstant| % 17) (|spadConstant| % 18))) 
 
-(SDEFUN |MODRING;One;%;9| ((% (%)))
+(SDEFUN |MODRING;1;%;9| ((% (%)))
         (CONS (|spadConstant| % 29) (|spadConstant| % 18))) 
 
 (SDEFUN |MODRING;zero?;%B;10| ((|x| (%)) (% (|Boolean|)))
@@ -144,15 +144,13 @@
               (|local| |#3|) (|local| |#4|) (|local| |#5|) '|Rep|
               |MODRING;modulus;%Mod;1| |MODRING;coerce;%R;2| (|Integer|)
               (0 . |coerce|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |MODRING;Zero;%;8|) %))
-              (5 . |Zero|) (9 . |Zero|) |MODRING;coerce;I%;3| |MODRING;*;3%;17|
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |MODRING;0;%;8|) %))
+              (5 . |0|) (9 . |0|) |MODRING;coerce;I%;3| |MODRING;*;3%;17|
               |MODRING;*;I2%;4| (|OutputForm|) (13 . |coerce|)
               |MODRING;coerce;%Of;5| |MODRING;reduce;RMod%;6|
               (|NonNegativeInteger|) (18 . |characteristic|)
-              |MODRING;characteristic;Nni;7| (22 . |One|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |MODRING;One;%;9|) %))
+              |MODRING;characteristic;Nni;7| (22 . |1|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |MODRING;1;%;9|) %))
               (|Boolean|) (26 . |zero?|) |MODRING;zero?;%B;10| (31 . =)
               |MODRING;one?;%B;11| (37 . =) |MODRING;-;3%;15|
               |MODRING;=;2%B;13| (43 . +) |MODRING;+;3%;14| (49 . -) (55 . -)
@@ -164,8 +162,7 @@
               127 |modulus| 132 |leftRecip| 137 |leftPower| 142 |latex| 154
               |inv| 159 |exQuo| 164 |commutator| 170 |coerce| 176
               |characteristic| 191 |associator| 195 |antiCommutator| 202
-              |annihilate?| 208 ^ 214 |Zero| 226 |One| 230 = 234 - 240 + 251 *
-              257)
+              |annihilate?| 208 ^ 214 = 226 |1| 232 |0| 236 - 240 + 251 * 257)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -198,8 +195,8 @@
                                     0 50 0 1 1 0 0 0 49 2 0 46 0 0 47 2 0 0 0 0
                                     1 1 0 22 0 24 1 0 0 14 19 1 0 6 0 13 0 0 26
                                     28 3 0 0 0 0 0 1 2 0 0 0 0 1 2 0 31 0 0 1 2
-                                    0 0 0 51 1 2 0 0 0 26 1 0 0 0 16 0 0 0 30 2
-                                    0 31 0 0 38 2 0 0 0 0 37 1 0 0 0 43 2 0 0 0
+                                    0 0 0 51 1 2 0 0 0 26 1 2 0 31 0 0 38 0 0 0
+                                    30 0 0 0 16 2 0 0 0 0 37 1 0 0 0 43 2 0 0 0
                                     0 40 2 0 0 51 0 1 2 0 0 0 0 20 2 0 0 14 0
                                     21 2 0 0 26 0 1)))))
            '|lookupComplete|)) 

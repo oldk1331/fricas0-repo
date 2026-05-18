@@ -88,8 +88,8 @@
               |monomial?| 82 |monomial| 87 |min| 93 |max| 99 |map| 105
               |listOfTerms| 111 |leadingTerm| 116 |leadingSupport| 121
               |leadingMonomial| 126 |leadingCoefficient| 131 |latex| 136 |inf|
-              141 |constructOrdered| 147 |construct| 152 |coerce| 157 |Zero|
-              162 >= 166 > 172 = 178 <= 184 < 190 - 196 + 207 * 213)
+              141 |constructOrdered| 147 |construct| 152 |coerce| 157 >= 162 >
+              168 = 174 <= 180 < 186 |0| 192 - 196 + 207 * 213)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -116,9 +116,9 @@
                                          0 0 27 0 1 1 0 26 0 1 1 2 25 0 1 1 2 6
                                          0 1 1 2 0 0 1 1 2 11 0 1 1 0 22 0 1 2
                                          0 0 0 0 1 1 2 0 26 1 1 0 0 26 1 1 0 9
-                                         0 20 0 0 0 1 2 0 21 0 0 1 2 0 21 0 0 1
-                                         2 0 21 0 0 1 2 0 21 0 0 1 2 0 21 0 0 1
-                                         1 1 0 0 1 2 1 0 0 0 1 2 0 0 0 0 1 2 0
-                                         0 23 0 1 2 0 0 11 0 1 2 1 0 14 0
+                                         0 20 2 0 21 0 0 1 2 0 21 0 0 1 2 0 21
+                                         0 0 1 2 0 21 0 0 1 2 0 21 0 0 1 0 0 0
+                                         1 1 1 0 0 1 2 1 0 0 0 1 2 0 0 0 0 1 2
+                                         0 0 23 0 1 2 0 0 11 0 1 2 1 0 14 0
                                          1)))))
            '|lookupComplete|)) 

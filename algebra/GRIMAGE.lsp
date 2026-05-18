@@ -787,7 +787,7 @@
               (231 . |numberOfHues|) (|SingleInteger|) (235 . *)
               |GRIMAGE;sendGraphImage;%V;10| |GRIMAGE;pointLists;%L;12|
               (241 . |elt|) (247 . |convert|) (252 . |segment|)
-              |GRIMAGE;ranges;%2L;14| (258 . |elt|) (264 . |One|)
+              |GRIMAGE;ranges;%2L;14| (258 . |elt|) (264 . |1|)
               |GRIMAGE;units;%2L;16| |GRIMAGE;graphImage;%;17|
               |GRIMAGE;makeGraphImage;L2LL%;19| |GRIMAGE;makeGraphImage;L%;18|
               |GRIMAGE;makeGraphImage;L2LLL%;20| (268 . |append|)

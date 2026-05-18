@@ -674,7 +674,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|Boolean|) (|DoubleFloat|) (0 . ~=)
               (|Mapping| 6 7) (|Point| 7) (6 . |any?|) (|Fraction| 27)
-              (12 . |Zero|) (16 . <) (22 . |One|) (26 . >) (|Segment| 7)
+              (12 . |0|) (16 . <) (22 . |1|) (26 . >) (|Segment| 7)
               (32 . |segment|) (38 . <) (|List| %) (|List| 10) (44 . |concat|)
               (|Mapping| 6 10) (49 . |select|) (|Mapping| 6 10 10)
               (55 . |sort|) (|Integer|) (61 . |numer|) (66 . |denom|)

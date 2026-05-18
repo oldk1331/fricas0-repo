@@ -11,10 +11,10 @@
 
 (SDEFUN |AINTRVL;qinterval;2R%;3| ((|i| (R)) (|s| (R)) (% (%))) (CONS |i| |s|)) 
 
-(SDEFUN |AINTRVL;Zero;%;4| ((% (%)))
+(SDEFUN |AINTRVL;0;%;4| ((% (%)))
         (CONS (|spadConstant| % 10) (|spadConstant| % 10))) 
 
-(SDEFUN |AINTRVL;One;%;5| ((% (%)))
+(SDEFUN |AINTRVL;1;%;5| ((% (%)))
         (CONS (|spadConstant| % 12) (|spadConstant| % 12))) 
 
 (DECLAIM (NOTINLINE |AInterval;|)) 
@@ -99,12 +99,12 @@
      ((|HasCategory| |#1| '(|AbelianMonoid|))
       (QSETREFV % 11
                 (CONS #'|makeSpadConstant|
-                      (LIST (|dispatchFunction| |AINTRVL;Zero;%;4|) % 11)))))
+                      (LIST (|dispatchFunction| |AINTRVL;0;%;4|) % 11)))))
     (COND
      ((|HasCategory| |#1| '(|Monoid|))
       (QSETREFV % 13
                 (CONS #'|makeSpadConstant|
-                      (LIST (|dispatchFunction| |AINTRVL;One;%;5|) % 13)))))
+                      (LIST (|dispatchFunction| |AINTRVL;1;%;5|) % 13)))))
     %))) 
 
 (DEFUN |AInterval| (#1=#:G16)
@@ -126,17 +126,17 @@
 (MAKEPROP '|AInterval| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) |AINTRVL;inf;%R;1|
-              |AINTRVL;sup;%R;2| |AINTRVL;qinterval;2R%;3| (0 . |Zero|)
-              (4 . |Zero|) (8 . |One|) (12 . |One|) (|Boolean|) (|OutputForm|)
-              (|String|) (|PositiveInteger|) (|List| 6) (|NonNegativeInteger|)
+              |AINTRVL;sup;%R;2| |AINTRVL;qinterval;2R%;3| (0 . |0|) (4 . |0|)
+              (8 . |1|) (12 . |1|) (|Boolean|) (|OutputForm|) (|String|)
+              (|PositiveInteger|) (|List| 6) (|NonNegativeInteger|)
               (|Union| % '"failed") (|Integer|))
            '#(~= 16 |zero?| 22 |width| 27 |unit?| 32 |sup| 37 |subtractIfCan|
               42 |sample| 48 |rightRecip| 52 |rightPower| 57 |recip| 69
               |qinterval| 74 |positive?| 80 |opposite?| 85 |one?| 91
               |negative?| 96 |leftRecip| 101 |leftPower| 106 |latex| 118 |inv|
               123 |interval| 128 |inf| 134 |error?| 139 |contains?| 144
-              |coerce| 156 |antiCommutator| 166 |abs| 172 ^ 177 |Zero| 189
-              |One| 193 = 197 / 203 - 209 + 220 * 232)
+              |coerce| 156 |antiCommutator| 166 |abs| 172 ^ 177 = 189 |1| 195
+              |0| 199 / 203 - 209 + 220 * 232)
            'NIL
            (CONS
             (|makeByteWordVec2| 11 '(0 6 11 11 11 11 6 6 11 11 6 7 11 0 0 0 0))
@@ -161,8 +161,8 @@
                                     1 1 0 16 0 1 1 3 0 0 1 2 0 0 6 6 1 1 0 6 0
                                     7 1 0 14 0 1 2 0 14 0 0 1 2 0 14 0 6 1 1 0
                                     15 0 1 1 0 18 0 1 2 11 0 0 0 1 1 2 0 0 1 2
-                                    6 0 0 19 1 2 11 0 0 17 1 0 14 0 11 0 6 0 13
-                                    2 0 14 0 0 1 2 3 0 0 0 1 2 13 0 0 0 1 1 13
+                                    6 0 0 19 1 2 11 0 0 17 1 2 0 14 0 0 1 0 6 0
+                                    13 0 14 0 11 2 3 0 0 0 1 2 13 0 0 0 1 1 13
                                     0 0 1 2 0 0 0 0 1 2 0 0 0 6 1 2 0 0 17 0 1
                                     2 10 0 6 0 1 2 13 0 21 0 1 2 14 0 19 0 1 2
                                     11 0 0 0 1)))))

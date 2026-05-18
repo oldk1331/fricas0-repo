@@ -454,10 +454,9 @@
            '#(NIL NIL NIL NIL NIL (|UnivariatePuiseuxSeriesConstructor| 6 27)
               (|local| |#1|) (|local| |#2|) (|local| |#3|) '|Rep| (|Symbol|)
               |SUPXS;variable;%S;2| |SUPXS;center;%Coef;3| (|Boolean|)
-              (0 . |zero?|) (5 . |One|) (9 . |One|) (|Fraction| 53)
-              (13 . |One|) (17 . |monomial|) (23 . |Zero|) (27 . |Zero|)
-              (31 . |Zero|) (35 . +) (|Variable| (NRTEVAL (QREFELT % 7)))
-              |SUPXS;coerce;V%;4|
+              (0 . |zero?|) (5 . |1|) (9 . |1|) (|Fraction| 53) (13 . |1|)
+              (17 . |monomial|) (23 . |0|) (27 . |0|) (31 . |0|) (35 . +)
+              (|Variable| (NRTEVAL (QREFELT % 7))) |SUPXS;coerce;V%;4|
               (|SparseUnivariateTaylorSeries| 6 (NRTEVAL (QREFELT % 7))
                                               (NRTEVAL (QREFELT % 8)))
               (|SparseUnivariateLaurentSeries| 6 (NRTEVAL (QREFELT % 7))
@@ -489,7 +488,7 @@
               (|Stream| 6))
            '#(|variable| 138 |retractIfCan| 143 |rationalPower| 153 |monomial|
               158 |laurentRep| 164 |integrate| 169 |differentiate| 180 |coerce|
-              191 |center| 211 |Zero| 216 |One| 220 + 224)
+              191 |center| 211 |1| 216 |0| 220 + 224)
            'NIL
            (CONS
             (|makeByteWordVec2| 28
@@ -572,5 +571,5 @@
                                     17 19 1 0 27 0 40 1 6 0 0 38 2 6 0 0 24 39
                                     2 0 0 0 24 37 1 3 0 0 36 1 0 56 0 58 1 0 0
                                     27 29 1 0 0 24 25 1 0 0 26 30 1 0 6 0 12 0
-                                    36 0 21 0 34 0 16 2 0 0 0 0 23)))))
+                                    34 0 16 0 36 0 21 2 0 0 0 0 23)))))
            '|lookupIncomplete|)) 

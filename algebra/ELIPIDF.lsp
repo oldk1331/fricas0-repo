@@ -1355,15 +1355,15 @@
               '|inv_err_RF| '|c1_RD| '|c2_RD| '|c3_RD| '|c4_RD| '|c5_RD|
               '|inv_err_RJ| '|c1_RJ| '|c3_RJ| '|c4_RJ| '|c5_RJ| '|c6_RJ|
               (|Complex| 35) (0 . |abs|) (|DoubleFloat|) (5 . |real|)
-              (|Fraction| 56) (10 . |One|) |ELIPIDF;ellipticRC;3Df;2|
+              (|Fraction| 56) (10 . |1|) |ELIPIDF;ellipticRC;3Df;2|
               |ELIPIDF;ellipticRF;4Df;3| |ELIPIDF;ellipticRD;4Df;4|
               |ELIPIDF;ellipticRJ;5Df;5| |ELIPIDF;ellipticF;3Df;6|
               |ELIPIDF;ellipticK;2Df;7| |ELIPIDF;ellipticE;3Df;8|
               |ELIPIDF;ellipticE;2Df;9| |ELIPIDF;ellipticPi;4Df;10| (14 . +)
-              (20 . *) (26 . -) (32 . |One|) (36 . /) (42 . *) (48 . |coerce|)
+              (20 . *) (26 . -) (32 . |1|) (36 . /) (42 . *) (48 . |coerce|)
               (53 . |sqrt|) (|Integer|) (58 . |coerce|)
-              |ELIPIDF;ellipticRC;3C;11| |ELIPIDF;ellipticRF;4C;12|
-              (63 . |Zero|) (67 . -) (72 . *) |ELIPIDF;ellipticRD;4C;13|
+              |ELIPIDF;ellipticRC;3C;11| |ELIPIDF;ellipticRF;4C;12| (63 . |0|)
+              (67 . -) (72 . *) |ELIPIDF;ellipticRD;4C;13|
               |ELIPIDF;ellipticRJ;5C;14| |ELIPIDF;ellipticF;3C;15|
               |ELIPIDF;ellipticK;2C;16| |ELIPIDF;ellipticE;3C;17|
               |ELIPIDF;ellipticE;2C;18| |ELIPIDF;ellipticPi;4C;19|)

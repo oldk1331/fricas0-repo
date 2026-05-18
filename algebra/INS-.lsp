@@ -215,13 +215,13 @@
 (MAKEPROP '|IntegerNumberSystem&| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|NonNegativeInteger|)
-              |INS-;characteristic;Nni;1| (0 . |Zero|)
-              |INS-;differentiate;2S;2| (|Boolean|) (4 . |odd?|)
-              |INS-;even?;SB;3| (9 . >) |INS-;positive?;SB;4| |INS-;copy;2S;5|
-              (15 . -) (20 . |shift|) |INS-;bit?;2SB;6| (26 . |One|)
-              (30 . |dec|) |INS-;mask;2S;7| |INS-;rational?;SB;8| (35 . =)
-              (41 . <) (|Integer|) (47 . |convert|) |INS-;euclideanSize;SNni;9|
-              (|Float|) (52 . |coerce|) |INS-;convert;SF;10| (|DoubleFloat|)
+              |INS-;characteristic;Nni;1| (0 . |0|) |INS-;differentiate;2S;2|
+              (|Boolean|) (4 . |odd?|) |INS-;even?;SB;3| (9 . >)
+              |INS-;positive?;SB;4| |INS-;copy;2S;5| (15 . -) (20 . |shift|)
+              |INS-;bit?;2SB;6| (26 . |1|) (30 . |dec|) |INS-;mask;2S;7|
+              |INS-;rational?;SB;8| (35 . =) (41 . <) (|Integer|)
+              (47 . |convert|) |INS-;euclideanSize;SNni;9| (|Float|)
+              (52 . |coerce|) |INS-;convert;SF;10| (|DoubleFloat|)
               |INS-;convert;SDf;11| (|InputForm|) (57 . |convert|)
               |INS-;convert;SIf;12| |INS-;retract;SI;13| (|Pattern| 26)
               (62 . |coerce|) |INS-;convert;SP;14| (|Factored| 6)

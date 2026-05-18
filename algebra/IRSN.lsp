@@ -536,9 +536,8 @@
               (|IntegerCombinatoricFunctions| 14) (67 . |factorial|)
               (|NonNegativeInteger|)
               |IRSN;dimensionOfIrreducibleRepresentation;LNni;7| (72 . *)
-              |IRSN;irreducibleRepresentation;LPM;8| (78 . |One|)
-              (82 . |cycle|) (|List| 26)
-              |IRSN;irreducibleRepresentation;LLL;10|
+              |IRSN;irreducibleRepresentation;LPM;8| (78 . |1|) (82 . |cycle|)
+              (|List| 26) |IRSN;irreducibleRepresentation;LLL;10|
               |IRSN;irreducibleRepresentation;LL;9|)
            '#(|irreducibleRepresentation| 87
               |dimensionOfIrreducibleRepresentation| 104)

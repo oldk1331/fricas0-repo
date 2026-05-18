@@ -502,14 +502,14 @@
 (MAKEPROP '|IntegerPrimesPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Integer|) (0 . |coerce|)
-              '|smallPrimes| (5 . *) (11 . |One|) '|productSmallPrimes|
+              '|smallPrimes| (5 . *) (11 . |1|) '|productSmallPrimes|
               '|nextSmallPrime| (|PositiveInteger|) (15 . ^)
               '|nextSmallPrimeSquared| '|two| '|tenPowerTwenty|
               '|PomeranceList| '|PomeranceLimit| '|PinchList| '|PinchLimit|
               '|PinchList2| '|PinchLimit2| '|JaeschkeLimit| (|Set| 6)
               (21 . |empty|) '|rootsMinus1| (|NonNegativeInteger|)
-              (|Vector| 29) (25 . |new|) '|count2Order| (31 . |Zero|)
-              (|Boolean|) (35 . <) (41 . |even?|) (46 . +) (52 . |convert|)
+              (|Vector| 29) (25 . |new|) '|count2Order| (31 . |0|) (|Boolean|)
+              (35 . <) (41 . |even?|) (46 . +) (52 . |convert|)
               |PRIMES;prime?;IB;4| (57 . <=) (|List| 6) |PRIMES;primes;2IL;1|
               (63 . |powmod|) (70 . =) (76 . |mulmod|) (83 . |elt|)
               (89 . |setelt!|) (96 . |union|) (102 . |#|) (107 . -)

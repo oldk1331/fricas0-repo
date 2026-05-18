@@ -194,7 +194,7 @@
               (|OrderedCompletionFunctions2| 16 24) (66 . |map|) (72 . |high|)
               |DEFINTRF;integrate;FSbU;3| (|String|) (77 . |ignore?|)
               |DEFINTRF;integrate;FSbSU;4| |DEFINTRF;integrate;FSbSU;5|
-              (82 . =) (88 . |Zero|) (92 . |coerce|) (|Polynomial| 6)
+              (82 . =) (88 . |0|) (92 . |coerce|) (|Polynomial| 6)
               (97 . |denom|) (|Union| 25 '"failed") (102 . |checkForZero|))
            '#(|integrate| 111) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

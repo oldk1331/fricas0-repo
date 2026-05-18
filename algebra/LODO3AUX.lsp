@@ -53,9 +53,8 @@
 (MAKEPROP '|LinearOrdinaryDifferentialOperator3Aux| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (0 . |One|) (|NonNegativeInteger|)
-              (4 . |monomial|) (10 . |differentiate|) (15 . *)
-              |LODO3AUX;delta_deriv;2R;1|)
+              (|local| |#3|) (0 . |1|) (|NonNegativeInteger|) (4 . |monomial|)
+              (10 . |differentiate|) (15 . *) |LODO3AUX;delta_deriv;2R;1|)
            '#(|delta_deriv| 21) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)

@@ -73,11 +73,11 @@
 (MAKEPROP '|PolynomialFactorizationExplicit&| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Boolean|) (0 . |zero?|)
-              (5 . |Zero|) (9 . |One|) (13 . -) (|List| (|List| 6))
-              (|Matrix| 6) (18 . |matrix|) (|Union| (|Vector| %) '"failed")
-              (|Matrix| %) (23 . |conditionP|) (|Integer|) (|Vector| 6)
-              (28 . |elt|) (|Union| % '"failed") (34 . |exquo|)
-              (40 . |charthRoot|) (|Union| 25 '"failed") (|List| %)
+              (5 . |0|) (9 . |1|) (13 . -) (|List| (|List| 6)) (|Matrix| 6)
+              (18 . |matrix|) (|Union| (|Vector| %) '"failed") (|Matrix| %)
+              (23 . |conditionP|) (|Integer|) (|Vector| 6) (28 . |elt|)
+              (|Union| % '"failed") (34 . |exquo|) (40 . |charthRoot|)
+              (|Union| 25 '"failed") (|List| %)
               (|SparseUnivariatePolynomial| 6) (45 . |multiEuclidean|)
               (|Union| 29 '#1="failed") (|List| 30)
               (|SparseUnivariatePolynomial| %)

@@ -200,9 +200,9 @@
 (MAKEPROP '|InnerAlgFactor| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|local| |#4|) (0 . |One|) (4 . |One|)
+              (|local| |#3|) (|local| |#4|) (0 . |1|) (4 . |1|)
               (|NonNegativeInteger|) (8 . |monomial|) (|Integer|)
-              (14 . |coerce|) (19 . |One|) (23 . |monomial|) (29 . |reduce|)
+              (14 . |coerce|) (19 . |1|) (23 . |monomial|) (29 . |reduce|)
               (34 . -) (40 . |elt|) (46 . +) (52 . |degree|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 23) (|:| |factor| 7) (|:| |exponent| 12))

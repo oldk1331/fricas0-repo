@@ -713,7 +713,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|Boolean|)
               (0 . |zero?|) (|Integer|) (5 . |symmetricRemainder|) (11 . |rem|)
               (|Mapping| 6 6) (17 . |map|) |GHENSEL;reduction;TPRPTP;2|
-              (23 . =) (29 . |Zero|) (33 . |Zero|) (37 . |One|) (41 . |One|)
+              (23 . =) (29 . |0|) (33 . |0|) (37 . |1|) (41 . |1|)
               (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 21 '"failed")
               (45 . |extendedEuclidean|) (52 . |leadingCoefficient|) (57 . *)
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
@@ -721,7 +721,7 @@
               (87 . |rem|) (|List| 38) (93 . =) (|NonNegativeInteger|)
               (99 . |degree|) (104 . ~=) (|List| 7) (110 . |member?|) (116 . *)
               (122 . -) (128 . |reduce|) (134 . |zero?|) (139 . |coerce|)
-              (144 . |coerce|) (149 . +) (155 . |One|) (|Union| 49 '"failed")
+              (144 . |coerce|) (149 . +) (155 . |1|) (|Union| 49 '"failed")
               (|List| %) (159 . |multiEuclidean|) (165 . |inv|)
               (170 . |retract|) (175 . |euclideanSize|) (180 . =)
               (186 . |zero?|) (191 . *)

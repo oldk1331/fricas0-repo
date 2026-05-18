@@ -883,7 +883,7 @@
               (67 . |ground?|) (72 . |primitivePart|) (77 . <) (83 . |init|)
               |REGSET;invertible?;P%B;28| (88 . |algebraic?|) (94 . |select|)
               (100 . |lazyPrem|) (106 . |zero?|) |REGSET;removeZero;P%P;22|
-              (111 . |Zero|) (|NonNegativeInteger|) (115 . |degree|)
+              (111 . |0|) (|NonNegativeInteger|) (115 . |degree|)
               (121 . |mainMonomial|) (126 . *) (132 . +) (138 . |tail|)
               |REGSET;internalAugment;P%5BL;25| (|List| $$) (143 . |first|)
               |REGSET;internalAugment;P2%;23| |REGSET;internalAugment;L2%;24|
@@ -916,7 +916,7 @@
               (|Record| (|:| |val| 10) (|:| |towers| 29))
               |REGSET;pre_process;L2BR;44| (|Mapping| 14 9) (254 . |remove|)
               (260 . |any?|) (266 . |empty?|) (271 . |numberOfVariables|)
-              (277 . |mdeg|) (282 . |One|) (286 . |probablyZeroDim?|)
+              (277 . |mdeg|) (282 . |1|) (286 . |probablyZeroDim?|)
               (291 . |crushedSet|) (|List| 8)
               (|Record| (|:| |under| %) (|:| |floor| %) (|:| |upper| %))
               (|Record| (|:| |bas| %) (|:| |top| 10)) (|Union| 130 '#1#)

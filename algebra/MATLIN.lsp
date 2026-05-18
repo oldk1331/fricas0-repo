@@ -1090,9 +1090,9 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|Integer|) (0 . |minColIndex|)
-              (5 . |maxColIndex|) (10 . |qelt|) (17 . |Zero|) (|Boolean|)
+              (5 . |maxColIndex|) (10 . |qelt|) (17 . |0|) (|Boolean|)
               (21 . ~=) (27 . |minRowIndex|) (32 . |maxRowIndex|) (|List| 10)
-              (37 . |concat!|) (43 . |One|) (47 . *) (53 . +) (59 . -)
+              (37 . |concat!|) (43 . |1|) (47 . *) (53 . +) (59 . -)
               (|NonNegativeInteger|) (65 . |nrows|) (70 . |ncols|) (75 . ~=)
               (|SingleInteger|) (81 . ^) |MATLIN;minordet;MR;4| (87 . |row|)
               (93 . |setRow!|) |MATLIN;elRow1!;M2IM;5| (|Mapping| 6 6)

@@ -720,7 +720,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|SparseUnivariatePolynomial| 9)
               (|Polynomial| 9) (0 . |univariate|) (|Integer|)
-              (5 . |leadingCoefficient|) (10 . |Zero|) (14 . |invmod|)
+              (5 . |leadingCoefficient|) (10 . |0|) (14 . |invmod|)
               (20 . |positiveRemainder|) (26 . *) (|Mapping| 9 9) (32 . |map|)
               (|Symbol|) (38 . |multivariate|) (|SparseUnivariatePolynomial| %)
               (44 . |univariate|) (|SparseUnivariatePolynomial| 7)
@@ -730,11 +730,11 @@
               (|NonNegativeInteger|) (79 . |degree|)
               (|Record| (|:| |svz| 25) (|:| |sm| 24) (|:| |msizes| 41)
                         (|:| |sp| 9))
-              (|Union| 35 '"failed") |MAGCDT3;pack_modulus;LLIU;2| (85 . |One|)
+              (|Union| 35 '"failed") |MAGCDT3;pack_modulus;LLIU;2| (85 . |1|)
               (|Void|) (|SortedExponentVector|) (|List| 9)
               |MAGCDT3;pack_exps0;SevL2IV;3| |MAGCDT3;pack_exps;2IRSev;4|
-              (89 . |Zero|) (93 . =) |MAGCDT3;degree;SupI;9| (99 . |ground|)
-              (104 . |reductum|) (109 . |void|) (113 . |One|) (|U32Vector|)
+              (89 . |0|) (93 . =) |MAGCDT3;degree;SupI;9| (99 . |ground|)
+              (104 . |reductum|) (109 . |void|) (113 . |1|) (|U32Vector|)
               |MAGCDT3;repack1;SupUvIRV;6| (|Union| 21 '"failed")
               |MAGCDT3;MPtoMPT;PSLRU;7| |MAGCDT3;zero?;SupB;8| (117 . |degree|)
               (122 . |coerce|) (127 . |monomial|) (133 . *) (139 . -)

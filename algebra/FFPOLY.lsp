@@ -2053,16 +2053,14 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|NonNegativeInteger|)
               (0 . |size|) '|sizeGF| (4 . |characteristic|) '|char_GF|
-              '|deg_GF| (8 . |Zero|) (12 . |One|) (|PositiveInteger|)
-              (16 . |index|) '|elem1|
-              (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
+              '|deg_GF| (8 . |0|) (12 . |1|) (|PositiveInteger|) (16 . |index|)
+              '|elem1| (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (21 . |representationType|) '|poly_or_prime_rep| 'MM
               (|SparseUnivariatePolynomial| 6) (25 . |degree|) (30 . |setPoly|)
-              (35 . |monomial|) (41 . |reduce|) (46 . ^) (52 . |One|)
-              (56 . |Zero|) (60 . |One|) (64 . *) (70 . |lift|)
-              (75 . |coefficient|) (81 . -) (86 . |coerce|) (|Boolean|)
-              (91 . ~=) (97 . |leadingCoefficient|) (102 . *) (108 . +)
-              (114 . |reductum|) (|PrimitiveArray| 22)
+              (35 . |monomial|) (41 . |reduce|) (46 . ^) (52 . |1|) (56 . |0|)
+              (60 . |1|) (64 . *) (70 . |lift|) (75 . |coefficient|) (81 . -)
+              (86 . |coerce|) (|Boolean|) (91 . ~=) (97 . |leadingCoefficient|)
+              (102 . *) (108 . +) (114 . |reductum|) (|PrimitiveArray| 22)
               |FFPOLY;reducedQPowers;SupPa;3| (119 . ~=) (125 . |inv|)
               (|Vector| 6) (130 . |vectorise|) (|List| 6) (136 . |entries|)
               (|List| 48) (|Matrix| 6) (141 . |matrix|) (146 . |transpose|)

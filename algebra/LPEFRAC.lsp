@@ -134,13 +134,13 @@
 
 (MAKEPROP '|LinearPolynomialEquationByFractions| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |Zero|)
-              (|SparseUnivariatePolynomial| 6) (4 . |Zero|)
-              (|SparseUnivariatePolynomial| 14) (8 . |Zero|) (|Boolean|)
-              (12 . =) (|Fraction| 6) (18 . |leadingCoefficient|)
-              (|Union| 6 '"failed") (23 . |retractIfCan|) (28 . |reductum|)
-              (|NonNegativeInteger|) (33 . |degree|) (38 . |monomial|) (44 . +)
-              (50 . |coerce|) (|Mapping| 14 6)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |0|)
+              (|SparseUnivariatePolynomial| 6) (4 . |0|)
+              (|SparseUnivariatePolynomial| 14) (8 . |0|) (|Boolean|) (12 . =)
+              (|Fraction| 6) (18 . |leadingCoefficient|) (|Union| 6 '"failed")
+              (23 . |retractIfCan|) (28 . |reductum|) (|NonNegativeInteger|)
+              (33 . |degree|) (38 . |monomial|) (44 . +) (50 . |coerce|)
+              (|Mapping| 14 6)
               (|UnivariatePolynomialCategoryFunctions2| 6 8 14 10) (55 . |map|)
               (|Union| 28 '"failed") (|List| 29)
               (|SparseUnivariatePolynomial| %)

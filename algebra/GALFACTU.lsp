@@ -366,22 +366,21 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) |GALFACTU;infinityNorm;UPF;5|
-              |GALFACTU;height;UPF;1| (0 . |One|) (4 . |One|)
-              (|PositiveInteger|) |GALFACTU;norm;UPPiF;3|
-              |GALFACTU;length;UPF;2| (8 . |Zero|) (|List| 6)
-              (12 . |coefficients|) (17 . |coerce|) (22 . |abs|) (27 . ^)
-              (33 . +) (|Integer|) (39 . |nthRoot|)
+              |GALFACTU;height;UPF;1| (0 . |1|) (4 . |1|) (|PositiveInteger|)
+              |GALFACTU;norm;UPPiF;3| |GALFACTU;length;UPF;2| (8 . |0|)
+              (|List| 6) (12 . |coefficients|) (17 . |coerce|) (22 . |abs|)
+              (27 . ^) (33 . +) (|Integer|) (39 . |nthRoot|)
               |GALFACTU;quadraticNorm;UPF;4| (45 . |max|)
               (|NonNegativeInteger|) (51 . |degree|) (56 . |coerce|)
-              |GALFACTU;bombieriNorm;UPF;11| (61 . |One|) (65 . |Gamma|)
-              (70 . *) (76 . /) (|Fraction| 23) (82 . /) (88 . +) (94 . ^)
-              (100 . *) (106 . |exp|) (111 . |pi|) (|GaloisGroupUtilities| 8)
+              |GALFACTU;bombieriNorm;UPF;11| (61 . |1|) (65 . |Gamma|) (70 . *)
+              (76 . /) (|Fraction| 23) (82 . /) (88 . +) (94 . ^) (100 . *)
+              (106 . |exp|) (111 . |pi|) (|GaloisGroupUtilities| 8)
               (115 . |safeFloor|) |GALFACTU;singleFactorBound;UPNniI;6|
               |GALFACTU;singleFactorBound;UPI;7| (120 . |leadingCoefficient|)
               (125 . |coefficient|) (131 . |pascalTriangle|) (137 . *)
               (143 . |safeCeiling|) (148 . -) |GALFACTU;rootBound;UPI;8|
-              (154 . |sqrt|) |GALFACTU;beauzamyBound;UPI;9| (159 . |Zero|)
-              (163 . |Zero|) |GALFACTU;bombieriNorm;UPPiF;10|)
+              (154 . |sqrt|) |GALFACTU;beauzamyBound;UPI;9| (159 . |0|)
+              (163 . |0|) |GALFACTU;bombieriNorm;UPPiF;10|)
            '#(|singleFactorBound| 167 |rootBound| 178 |quadraticNorm| 183
               |norm| 188 |length| 194 |infinityNorm| 199 |height| 204
               |bombieriNorm| 209 |beauzamyBound| 220)

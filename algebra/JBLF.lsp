@@ -176,11 +176,11 @@
 (SDEFUN |JBLF;=;2%B;15| ((|l1| (%)) (|l2| (%)) (% (|Boolean|)))
         (SPADCALL (SPADCALL |l1| |l2| (QREFELT % 71)) (QREFELT % 19))) 
 
-(MAKEPROP '|JBLF;Zero;%;16| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
+(MAKEPROP '|JBLF;0;%;16| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
 
-(SDEFUN |JBLF;Zero;%;16| ((% (%))) (CONS NIL NIL)) 
+(SDEFUN |JBLF;0;%;16| ((% (%))) (CONS NIL NIL)) 
 
-(SDEFUN |JBLF;One;%;17| ((% (%)))
+(SDEFUN |JBLF;1;%;17| ((% (%)))
         (CONS (LIST (|spadConstant| % 29)) (LIST (|spadConstant| % 28)))) 
 
 (SDEFUN |JBLF;-;2%;18| ((|l| (%)) (% (%)))
@@ -1144,10 +1144,10 @@
               (19 . |coerce|) (24 . *) |JBLF;zero?;%B;14|
               (|NonNegativeInteger|) (30 . |coerce|) (35 . +)
               |JBLF;coerce;%Of;2| (|Symbol|) (41 . |type|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |JBLF;One;%;17|) %))
-              (46 . |coerce|) (51 . |One|) (55 . |One|) |JBLF;coerce;JB%;3|
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |JBLF;1;%;17|) %))
+              (46 . |coerce|) (51 . |1|) (55 . |1|) |JBLF;coerce;JB%;3|
               (59 . |zero?|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |JBLF;Zero;%;16|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |JBLF;0;%;16|) %))
               |JBLF;coerce;D%;4| (|SparseEchelonMatrix| 6 7) (64 . |nrows|)
               (|Record| (|:| |Indices| 46) (|:| |Entries| 52)) (|Integer|)
               (69 . |row|) (|List| $$) (75 . |cons|) (81 . |reverse!|)
@@ -1155,7 +1155,7 @@
               (|List| 6) (92 . |merge|) (99 . |removeDuplicates!|) (104 . |#|)
               (109 . |new|) (|Void|) (|List| 7) (115 . |setRow!|)
               |JBLF;coerce;LSem;6| |JBLF;ground?;%B;7| (123 . |member?|)
-              (129 . |last|) |JBLF;ground;2%;8| (134 . |Zero|)
+              (129 . |last|) |JBLF;ground;2%;8| (134 . |0|)
               (|Union| 7 '"failed") |JBLF;retractIfCan;%U;9|
               |JBLF;numerator;2%;10| |JBLF;denominator;2%;11|
               (|Union| % '"failed") (|JetBundleExpression| 6)
@@ -1208,8 +1208,8 @@
               739 |denominator| 771 |dSubst| 776 |const?| 783 |commutator| 788
               |coerce| 794 |class| 829 |characteristic| 834 |autoReduce| 838
               |associator| 843 |associates?| 850 |antiCommutator| 856
-              |annihilate?| 862 ^ 868 |Zero| 880 X 884 U 893 P 902 |One| 924 =
-              928 - 934 + 945 * 951 |#2| 987)
+              |annihilate?| 862 ^ 868 X 880 U 889 P 898 = 920 |1| 926 |0| 930 -
+              934 + 945 * 951 |#2| 987)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -1291,9 +1291,9 @@
                                     0 42 34 43 1 0 34 42 54 1 0 20 0 1 0 0 20 1
                                     1 0 42 42 1 3 0 0 0 0 0 1 2 0 12 0 0 1 2 0
                                     0 0 0 1 2 0 12 0 0 1 2 0 0 0 9 1 2 0 0 0 20
-                                    1 0 0 0 32 1 0 0 9 1 0 0 0 1 1 0 0 9 1 0 0
-                                    0 1 2 0 0 9 145 1 2 0 0 9 20 1 1 0 0 145 1
-                                    1 0 0 20 1 0 0 0 26 2 0 12 0 0 72 2 0 0 0 0
+                                    1 1 0 0 9 1 0 0 0 1 1 0 0 9 1 0 0 0 1 2 0 0
+                                    9 145 1 2 0 0 9 20 1 1 0 0 145 1 1 0 0 20 1
+                                    2 0 12 0 0 72 0 0 0 26 0 0 0 32 2 0 0 0 0
                                     71 1 0 0 0 74 2 0 0 0 0 81 2 0 0 9 0 1 2 0
                                     0 0 0 87 2 0 0 37 0 83 2 0 0 20 0 1 2 0 0 7
                                     0 85 2 0 0 0 7 1 2 0 0 0 144 1 2 0 0 0 24 1

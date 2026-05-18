@@ -463,9 +463,9 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|NonNegativeInteger|) (0 . |characteristic|) '|ch_prime| '|pV|
-              '|deg_GF| (4 . |Zero|) (8 . |Zero|) (12 . |size|) (16 . |One|)
-              (20 . |One|) '|mD| (|PrimitiveArray| 6)
-              (|SparseUnivariatePolynomial| 6) (24 . |to_mod_pa|) (|List| 19)
+              '|deg_GF| (4 . |0|) (8 . |0|) (12 . |size|) (16 . |1|) (20 . |1|)
+              '|mD| (|PrimitiveArray| 6) (|SparseUnivariatePolynomial| 6)
+              (24 . |to_mod_pa|) (|List| 19)
               (|Record| (|:| |i_mod| 40) (|:| |deg| 40))
               (|ModularFactorizationK| 6) (29 . |mfactor|) (35 . |pa_to_sup|)
               (|Boolean|) (40 . |irreducible?|) (46 . |leadingCoefficient|)
@@ -483,7 +483,7 @@
               (|Record| (|:| |factor| 20) (|:| |exponent| 8))
               (|Record| (|:| |cont| 6) (|:| |factors| (|List| 59)))
               (128 . |sufactor|) (|List| 20) (133 . |sufactor_square_free|)
-              (138 . |su_irreducible?|) (143 . =) (|Factored| 7) (149 . |Zero|)
+              (138 . |su_irreducible?|) (143 . =) (|Factored| 7) (149 . |0|)
               (153 . |makeSUP|) (158 . |unmakeSUP|) (163 . |coerce|)
               (|Record| (|:| |flag| 35) (|:| |factor| 7) (|:| |exponent| 8))
               (|List| 71) (168 . |makeFR|) |UFFACT;factor;UPF;17|

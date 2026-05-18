@@ -372,9 +372,9 @@
 (MAKEPROP '|StreamTranscendentalFunctionsNonCommutative| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) 'ZERO 'ONE 'NPOWERS
-              (|Boolean|) (|Stream| 6) (0 . |empty?|) (5 . |One|)
+              (|Boolean|) (|Stream| 6) (0 . |empty?|) (5 . |1|)
               (|StreamTaylorSeriesOperations| 6) (9 . |coerce|) (14 . |frst|)
-              (19 . |Zero|) (23 . =) (|Integer|) (29 . |monom|)
+              (19 . |0|) (23 . =) (|Integer|) (29 . |monom|)
               (|StreamTranscendentalFunctions| 6) (35 . |exp|) (40 . |compose|)
               |STTFNC;exp;2S;1| (46 . +) (52 . |log|) (57 . -)
               |STTFNC;log;2S;2| (63 . *) |STTFNC;^;3S;3| (69 . |sin|)

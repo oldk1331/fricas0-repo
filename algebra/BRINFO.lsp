@@ -1151,11 +1151,10 @@
                     (LETT |ns|
                           (SPADCALL (SPADCALL |name| (QREFELT % 49))
                                     (QREFELT % 50)))
-                    (EXIT
-                     (COND
-                      ((EQUAL |ns| '|Zero|) (SPADCALL '|0| (QREFELT % 31)))
-                      ((EQUAL |ns| '|One|) (SPADCALL '|1| (QREFELT % 31)))
-                      (#1# (|error| "convert_doc1: unexpected name form"))))))
+                    (COND
+                     ((OR (EQUAL |ns| '|0|) (EQUAL |ns| '|1|))
+                      (EXIT (SPADCALL |ns| (QREFELT % 31)))))
+                    (EXIT (|error| "convert_doc1: unexpected name form"))))
              (LETT |dl| (CDR (SPADCALL |d1| (QREFELT % 30))))
              (EXIT (SPADCALL (CONS |new_name| |dl|) (QREFELT % 48))))))))) 
 

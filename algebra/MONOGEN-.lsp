@@ -152,7 +152,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (0 . |lift|) |MONOGEN-;convert;SUP;1|
-              (5 . |reduce|) |MONOGEN-;convert;UPS;2| (10 . |One|) (14 . |One|)
+              (5 . |reduce|) |MONOGEN-;convert;UPS;2| (10 . |1|) (14 . |1|)
               (|NonNegativeInteger|) (18 . |monomial|) |MONOGEN-;generator;S;3|
               (24 . |definingPolynomial|) (28 . |resultant|)
               |MONOGEN-;norm;SR;4| (34 . |retract|) |MONOGEN-;retract;SR;5|
@@ -167,7 +167,7 @@
               (80 . |differentiate|) (85 . /) (91 . -) (96 . *) (102 . +)
               (108 . |differentiate|) (114 . |differentiate|) (|Mapping| 6 6)
               (|Vector| 6) (120 . |map|) (|Matrix| 7) (126 . |coordinates|)
-              (132 . |derivationCoordinates|) (138 . |One|)
+              (132 . |derivationCoordinates|) (138 . |1|)
               (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 55 '"failed")
               (142 . |extendedEuclidean|) (149 . |recip|) (|Vector| 7)
               (|Integer|) (|Union| 60 '#1#) (|Fraction| 60) (|Union| 62 '#1#)

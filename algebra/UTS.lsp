@@ -888,23 +888,23 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|InnerTaylorSeries| 6) (|local| |#1|)
               (|local| |#2|) (|local| |#3|) '|Rep| (|Boolean|) (0 . |zero?|)
-              (5 . |One|) (9 . |One|) (|NonNegativeInteger|)
-              |UTS;monomial;CoefNni%;5| (13 . |Zero|) (17 . |Zero|) (21 . +)
+              (5 . |1|) (9 . |1|) (|NonNegativeInteger|)
+              |UTS;monomial;CoefNni%;5| (13 . |0|) (17 . |0|) (21 . +)
               (|Variable| (NRTEVAL (QREFELT % 7))) |UTS;coerce;V%;2|
               (|Integer|) (27 . |coerce|) |UTS;coerce;Coef%;4|
               |UTS;coerce;I%;3| (|Stream| 6) (|StreamTaylorSeriesOperations| 6)
               (32 . |coerce|) (37 . |monom|) (43 . |empty?|) (48 . |empty|)
-              (52 . |frst|) (57 . |rst|) (62 . |One|) (66 . +) (72 . |rst|)
+              (52 . |frst|) (57 . |rst|) (62 . |1|) (66 . +) (72 . |rst|)
               (|Record| (|:| |k| 14) (|:| |c| 6)) (|Stream| 36) (77 . |empty|)
               (81 . |concat|) (|Mapping| %) (87 . |delay|) |UTS;terms;%S;10|
               (92 . |empty?|) (97 . |frst|) (102 . =) (108 . |rst|)
               (113 . |concat|) (119 . |empty|) (123 . |concat|) (129 . |delay|)
-              |UTS;series;S%;12| (|Polynomial| 6) (134 . |Zero|) (138 . ^)
+              |UTS;series;S%;12| (|Polynomial| 6) (134 . |0|) (138 . ^)
               (144 . *) (150 . +) (|Symbol|) (156 . |coerce|) (161 . |coerce|)
               (166 . -) |UTS;polynomial;%NniP;14| (172 . |rest|)
               |UTS;polynomial;%2NniP;15|
-              (|UnivariatePolynomial| (NRTEVAL (QREFELT % 7)) 6) (178 . |Zero|)
-              (182 . =) (188 . |monomial|) (194 . +) (200 . -) (206 . |One|)
+              (|UnivariatePolynomial| (NRTEVAL (QREFELT % 7)) 6) (178 . |0|)
+              (182 . =) (188 . |monomial|) (194 . +) (200 . -) (206 . |1|)
               (210 . *) (216 . *) |UTS;univariatePolynomial;%NniUp;16|
               (222 . |zero?|) (227 . |elt|) (233 . |degree|)
               (238 . |leadingCoefficient|) (243 . |reductum|)
@@ -960,8 +960,8 @@
               |associator| 1036 |associates?| 1043 |asinh| 1049 |asin| 1054
               |asech| 1059 |asec| 1064 |approximate| 1069 |antiCommutator| 1075
               |annihilate?| 1081 |acsch| 1087 |acsc| 1092 |acoth| 1097 |acot|
-              1102 |acosh| 1107 |acos| 1112 ^ 1117 |Zero| 1147 |One| 1151 D
-              1155 = 1192 / 1198 - 1204 + 1215 * 1221)
+              1102 |acosh| 1107 |acos| 1112 ^ 1117 D 1147 = 1184 |1| 1190 |0|
+              1194 / 1198 - 1204 + 1215 * 1221)
            'NIL
            (CONS
             (|makeByteWordVec2| 24
@@ -1082,12 +1082,12 @@
                                     2 13 6 0 14 85 2 0 0 0 0 1 2 32 10 0 0 1 1
                                     1 0 0 1 1 1 0 0 1 1 1 0 0 1 1 1 0 0 1 1 1 0
                                     0 1 1 1 0 0 1 2 0 0 0 132 1 2 26 0 0 6 139
-                                    2 31 0 0 14 1 2 1 0 0 0 1 2 1 0 0 137 1 0
-                                    33 0 17 0 31 0 13 3 8 0 0 57 14 1 3 8 0 0
-                                    146 160 1 2 8 0 0 57 1 2 8 0 0 146 1 2 7 0
-                                    0 14 1 1 7 0 0 1 2 0 10 0 0 1 2 11 0 0 6 1
-                                    2 35 0 0 0 101 1 35 0 0 1 2 0 0 0 0 18 2 0
-                                    0 132 0 1 2 0 0 0 0 1 2 0 0 0 6 1 2 0 0 6 0
-                                    100 2 35 0 21 0 1 2 33 0 14 0 1 2 1 0 137 0
-                                    1 2 1 0 0 137 1)))))
+                                    2 31 0 0 14 1 2 1 0 0 0 1 2 1 0 0 137 1 3 8
+                                    0 0 57 14 1 3 8 0 0 146 160 1 2 8 0 0 57 1
+                                    2 8 0 0 146 1 2 7 0 0 14 1 1 7 0 0 1 2 0 10
+                                    0 0 1 0 31 0 13 0 33 0 17 2 11 0 0 6 1 2 35
+                                    0 0 0 101 1 35 0 0 1 2 0 0 0 0 18 2 0 0 132
+                                    0 1 2 0 0 0 0 1 2 0 0 0 6 1 2 0 0 6 0 100 2
+                                    35 0 21 0 1 2 33 0 14 0 1 2 1 0 137 0 1 2 1
+                                    0 0 137 1)))))
            '|lookupComplete|)) 

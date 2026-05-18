@@ -472,9 +472,9 @@
 
 (MAKEPROP '|PolynomialEvaluationUtilities| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|Polynomial| 10) (0 . |Zero|) (|Void|)
+           '#(NIL NIL NIL NIL NIL NIL (|Polynomial| 10) (0 . |0|) (|Void|)
               (|U32Vector|) (|Integer|) (|U32VectorPolynomialOperations|)
-              (4 . |copy_first|) (11 . |One|)
+              (4 . |copy_first|) (11 . |1|)
               (|Record| (|:| |prime| 10) (|:| |eval1coeffbuf| 9)
                         (|:| |eval1expbuf| (|SortedExponentVector|)))
               |PEVALUT;eval1a;PIRI;1| (15 . |coerce|) (|Symbol|)
@@ -483,7 +483,7 @@
               (|List| 21) (26 . =) (|Record| (|:| |numer| 6) (|:| |denom| 6))
               (|Union| 24 '"failed") |PEVALUT;eval1;RSIRU;3|
               (32 . |positiveRemainder|) |PEVALUT;modpreduction;PIP;4|
-              (|Fraction| 6) (38 . |denom|) (43 . |Zero|) (47 . |numer|)
+              (|Fraction| 6) (38 . |denom|) (43 . |0|) (47 . |numer|)
               |PEVALUT;modpreduction;FIU;5| (52 . ~=) (|List| 17) (|List| 10)
               |PEVALUT;modpeval;PLL2I;6|)
            '#(|modpreduction| 58 |modpeval| 70 |eval1a| 78 |eval1| 85) 'NIL

@@ -450,16 +450,15 @@
               |OUTBOX;depth;%Nni;5| |OUTBOX;width;%Nni;6| (|List| 9)
               |OUTBOX;lines;%L;7| (|Boolean|) |OUTBOX;empty?;%B;8| (0 . +)
               (|Character|) (6 . |char|) (11 . |new|) (17 . |empty|)
-              (|SingleInteger|) (21 . |One|) (25 . |One|) (29 . |copy|)
+              (|SingleInteger|) (21 . |1|) (25 . |1|) (29 . |copy|)
               (34 . |cons|) (|Integer|) (40 . |elt|) (46 . |setelt!|)
               (53 . |reverse!|) (|Mapping| % %) |OUTBOX;pad;4NniM;9| (58 . -)
-              (64 . |Zero|) (68 . |Zero|) (72 . <) (78 . |One|) (82 . -)
-              (87 . |shift|) (93 . |qcoerce|) (98 . |odd?|)
-              |OUTBOX;hcenter;NniM;10| (|List| $$) (103 . |empty?|) (|List| 11)
-              (108 . |max|) (|List| %) (113 . |concat|)
-              |OUTBOX;vconcat;LNniI%;11| |OUTBOX;vconcat;LNni%;12|
-              (|Mapping| 11 11 11) (118 . |reduce|) (124 . |elt|)
-              |OUTBOX;hconcat;L%;13|)
+              (64 . |0|) (68 . |0|) (72 . <) (78 . |1|) (82 . -) (87 . |shift|)
+              (93 . |qcoerce|) (98 . |odd?|) |OUTBOX;hcenter;NniM;10|
+              (|List| $$) (103 . |empty?|) (|List| 11) (108 . |max|) (|List| %)
+              (113 . |concat|) |OUTBOX;vconcat;LNniI%;11|
+              |OUTBOX;vconcat;LNni%;12| (|Mapping| 11 11 11) (118 . |reduce|)
+              (124 . |elt|) |OUTBOX;hconcat;L%;13|)
            '#(|width| 130 |vconcat| 135 |pad| 148 |lines| 156 |height| 161
               |hconcat| 166 |hcenter| 171 |empty?| 176 |empty| 181 |depth| 185
               |coerce| 190 |box| 195)

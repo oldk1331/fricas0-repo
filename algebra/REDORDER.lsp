@@ -159,10 +159,10 @@
 (MAKEPROP '|ReductionOfOrder| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . D)
-              '|diff| (4 . |One|) (8 . |One|) (|Integer|) (12 . |binomial|)
-              (18 . |Zero|) |REDORDER;ReduceOrder;LFL;5| (22 . /) (28 . |elt|)
+              '|diff| (4 . |1|) (8 . |1|) (|Integer|) (12 . |binomial|)
+              (18 . |0|) |REDORDER;ReduceOrder;LFL;5| (22 . /) (28 . |elt|)
               (|Record| (|:| |eq| 7) (|:| |op| 19)) (|List| 6)
-              |REDORDER;ReduceOrder;LLR;3| (34 . |concat!|) (40 . |Zero|)
+              |REDORDER;ReduceOrder;LLR;3| (34 . |concat!|) (40 . |0|)
               (|Boolean|) (44 . ~=) (|NonNegativeInteger|) (50 . |degree|)
               (55 . *) (61 . |leadingCoefficient|) (66 . *) (72 . +)
               (78 . |reductum|) (83 . |monomial|) (89 . +))

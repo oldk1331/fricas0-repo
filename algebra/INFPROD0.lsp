@@ -54,8 +54,8 @@
 
 (MAKEPROP '|InfiniteLambertProduct| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |One|)
-              (4 . |One|) (|Integer|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |1|)
+              (4 . |1|) (|Integer|)
               |INFPROD0;generalInfiniteProduct;UTS2IUTS;4|
               |INFPROD0;infiniteProduct;2UTS;1|
               |INFPROD0;evenInfiniteProduct;2UTS;2|

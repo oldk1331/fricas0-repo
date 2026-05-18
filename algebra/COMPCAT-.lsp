@@ -1459,12 +1459,11 @@
 
 (MAKEPROP '|ComplexCategory&| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |One|)
-              (4 . |One|) (|NonNegativeInteger|)
-              (|SparseUnivariatePolynomial| 7) (8 . |monomial|)
-              (|PositiveInteger|) (14 . ^) (20 . |trace|) (25 . ^) (31 . *)
-              (37 . -) (43 . |norm|) (48 . |Zero|) (52 . |Zero|) (56 . +)
-              |COMPCAT-;characteristicPolynomial;SSup;1| (62 . |real|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |1|)
+              (4 . |1|) (|NonNegativeInteger|) (|SparseUnivariatePolynomial| 7)
+              (8 . |monomial|) (|PositiveInteger|) (14 . ^) (20 . |trace|)
+              (25 . ^) (31 . *) (37 . -) (43 . |norm|) (48 . |0|) (52 . |0|)
+              (56 . +) |COMPCAT-;characteristicPolynomial;SSup;1| (62 . |real|)
               (|Integer|) (67 . |coerce|) (72 . -) (|Boolean|) (78 . |prime?|)
               (83 . |complex|) (|Union| 32 '"failed") (|List| 33)
               (|SparseUnivariatePolynomial| 6)
@@ -1482,7 +1481,7 @@
               (150 . |differentiate|) (155 . |gcd|) (161 . |degree|) (166 . +)
               (172 . |monomial|) (178 . -) (184 . |elt|)
               (190 . |factorSquareFreePolynomial|) (|Factored| 11)
-              (195 . |numberOfFactors|) (200 . |One|)
+              (195 . |numberOfFactors|) (200 . |1|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 68) (|:| |factor| 33) (|:| |exponent| 10))
               (|List| 69) (204 . |makeFR|)

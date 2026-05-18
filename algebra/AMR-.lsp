@@ -82,7 +82,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|Boolean|) (0 . |zero?|) (5 . |reductum|)
-              |AMR-;monomial?;SB;1| (10 . |Zero|) (14 . |leadingCoefficient|)
+              |AMR-;monomial?;SB;1| (10 . |0|) (14 . |leadingCoefficient|)
               (19 . |zero?|) (|Mapping| 7 7) (24 . |map|) (30 . |degree|)
               (35 . |monomial|) (41 . +) |AMR-;map;M2S;2| (|Fraction| 27)
               (47 . *) (53 . *) (|PositiveInteger|) (|NonNegativeInteger|)

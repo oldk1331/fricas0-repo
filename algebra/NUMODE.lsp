@@ -611,8 +611,8 @@
 
 (MAKEPROP '|NumericalOrdinaryDifferentialEquations| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|Float|) (0 . |Zero|) (|Integer|)
-              (|PositiveInteger|) (4 . |float|) (11 . |One|) (15 . |digits|)
+           '#(NIL NIL NIL NIL NIL NIL (|Float|) (0 . |0|) (|Integer|)
+              (|PositiveInteger|) (4 . |float|) (11 . |1|) (15 . |digits|)
               (19 . ^) (|OutputForm|) (25 . |coerce|) (30 . /) (|Vector| 6)
               (36 . |elt|) (42 . |setelt!|) (49 . +) (55 . -) (|Boolean|)
               (61 . >) (67 . |abs|) (72 . *) (78 . >=) (|Void|) (|String|)

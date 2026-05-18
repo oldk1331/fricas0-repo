@@ -287,12 +287,11 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|SparseUnivariatePolynomial| 6)
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|PositiveInteger|)
-              (|RepeatedSquaring| $$) (0 . |expt|) |ORESUP;^;%Pi%;1|
-              (6 . |One|) (|NonNegativeInteger|) |ORESUP;^;%Nni%;2|
-              (|Automorphism| 6) (|Mapping| 6 6)
-              (|UnivariateSkewPolynomialCategoryOps| 6 $$) (10 . |times|)
-              |ORESUP;*;3%;3| (18 . |One|) (22 . *) |ORESUP;*;%R%;4|
-              (28 . |apply|) |ORESUP;apply;%3R;5|
+              (|RepeatedSquaring| $$) (0 . |expt|) |ORESUP;^;%Pi%;1| (6 . |1|)
+              (|NonNegativeInteger|) |ORESUP;^;%Nni%;2| (|Automorphism| 6)
+              (|Mapping| 6 6) (|UnivariateSkewPolynomialCategoryOps| 6 $$)
+              (10 . |times|) |ORESUP;*;3%;3| (18 . |1|) (22 . *)
+              |ORESUP;*;%R%;4| (28 . |apply|) |ORESUP;apply;%3R;5|
               (|Record| (|:| |quotient| $$) (|:| |remainder| $$))
               (37 . |monicLeftDivide|)
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
@@ -334,8 +333,8 @@
               |constructOrdered| 542 |construct| 547 |commutator| 552 |coerce|
               558 |coefficients| 583 |coefficient| 588 |characteristic| 608
               |binomThmExpt| 612 |associator| 619 |associates?| 626 |apply| 632
-              |antiCommutator| 639 |annihilate?| 645 ^ 651 |Zero| 663 |One| 667
-              = 671 / 677 - 683 + 694 * 700)
+              |antiCommutator| 639 |annihilate?| 645 ^ 651 = 663 |1| 669 |0|
+              673 / 677 - 683 + 694 * 700)
            'NIL
            (CONS
             (|makeByteWordVec2| 27
@@ -418,8 +417,8 @@
                                     0 1 2 0 6 0 14 1 3 0 0 0 47 41 1 3 0 0 0 46
                                     14 1 0 34 14 1 3 29 0 0 0 14 1 3 34 0 0 0 0
                                     1 2 30 36 0 0 1 3 0 6 0 6 6 25 2 0 0 0 0 1
-                                    2 34 36 0 0 1 2 0 0 0 9 12 2 33 0 0 14 15 0
-                                    35 0 1 0 33 0 13 2 0 36 0 0 1 2 18 0 0 6 1
+                                    2 34 36 0 0 1 2 0 0 0 9 12 2 33 0 0 14 15 2
+                                    0 36 0 0 1 0 33 0 13 0 35 0 1 2 18 0 0 6 1
                                     1 37 0 0 1 2 37 0 0 0 1 2 0 0 0 0 1 2 0 0 9
                                     0 1 2 0 0 0 0 20 2 0 0 0 6 23 2 0 0 6 0 22
                                     2 20 0 0 49 1 2 37 0 49 0 1 2 35 0 14 0 1 2

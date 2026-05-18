@@ -129,7 +129,7 @@
 
 (MAKEPROP '|DiscreteLogarithmPackage| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |One|) (|Boolean|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |1|) (|Boolean|)
               (4 . =) (10 . *) (|Void|) (|String|) (|OutputForm|)
               (16 . |messagePrint|) (|Table| 17 25) (21 . |table|)
               (|PositiveInteger|) (25 . |lookup|)

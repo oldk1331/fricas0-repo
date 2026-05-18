@@ -112,7 +112,7 @@
 (MAKEPROP '|PowerSeriesCategory&| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|local| |#4|) (0 . |Zero|) (|Integer|) (4 . *)
+              (|local| |#3|) (|local| |#4|) (0 . |0|) (|Integer|) (4 . *)
               (|Mapping| 7 7) (10 . |map|) |PSCAT-;*;I2S;1| (|Boolean|)
               (16 . |zero?|) (21 . *) |PSCAT-;*;Coef2S;2| |PSCAT-;*;SCoefS;3|
               (27 . -) |PSCAT-;-;2S;4| (|Fraction| 11) (32 . |zero?|) (37 . *)

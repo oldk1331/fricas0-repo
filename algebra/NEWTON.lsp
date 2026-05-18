@@ -94,8 +94,8 @@
 
 (MAKEPROP '|NewtonInterpolation| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . -) (6 . |One|)
-              (|SparseUnivariatePolynomial| 6) (10 . |One|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . -) (6 . |1|)
+              (|SparseUnivariatePolynomial| 6) (10 . |1|)
               (|NonNegativeInteger|) (14 . |monomial|) '|z| (|Integer|)
               (|List| 6) (20 . |elt|) (|Union| % '"failed") (26 . |exquo|)
               (32 . |coerce|) (37 . -) (43 . +) (49 . *) (55 . *) (61 . +)

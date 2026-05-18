@@ -1252,7 +1252,7 @@
               (|OutputFormTools|) (67 . |atom?|) (|List| 6) (72 . |arguments|)
               (77 . |operator|) (82 . |elt|) (88 . |empty|) (|Symbol|)
               (92 . |is_symbol?|) (|NonNegativeInteger|) (98 . ~=)
-              (104 . |elt|) (110 . |One|) (114 . |minPrecedence|)
+              (104 . |elt|) (110 . |1|) (114 . |minPrecedence|)
               (118 . |formatExpression|) (124 . |empty?|) (|List| 8)
               (129 . |concat|) (135 . |formatFunction|) (141 . ~=)
               (147 . |first|) (|Mapping| 8 15 37) |FMT1D;integral;IM;12|
@@ -1263,7 +1263,7 @@
               |FMT1D;nthRoot;I3M;19| (196 . |string|) (201 . |rest|)
               (206 . |empty?|) |FMT1D;scripts;IM;21| |FMT1D;subscript;IM;22|
               |FMT1D;altsupersub;IM;23| (211 . +) (217 . |numberOfPrimes|)
-              (222 . |Zero|) (226 . |Zero|) (230 . <) (236 . |convert|)
+              (222 . |0|) (226 . |0|) (230 . <) (236 . |convert|)
               |FMT1D;prime;IM;24| (241 . |parenthesizeIf|) |FMT1D;power;I3M;25|
               |FMT1D;fraction;I3M;26| |FMT1D;slash;I3M;27|
               |FMT1D;binomial;ILOb;28| |FMT1D;zag;ILOb;29|

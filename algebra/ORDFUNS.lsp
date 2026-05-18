@@ -149,7 +149,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|n|
               (|Boolean|) (0 . <) (|Vector| 7) |ORDFUNS;pureLex;2VB;1|
-              (6 . |Zero|) (10 . +) |ORDFUNS;totalLex;2VB;2|
+              (6 . |0|) (10 . +) |ORDFUNS;totalLex;2VB;2|
               |ORDFUNS;reverseLex;2VB;3|)
            '#(|totalLex| 16 |reverseLex| 22 |pureLex| 28) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

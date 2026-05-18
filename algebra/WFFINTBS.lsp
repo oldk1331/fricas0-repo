@@ -173,7 +173,7 @@
                                             (MAKE_MATRIX1 |n| |n|
                                                           (SPADCALL
                                                            (|compiledLookupCheck|
-                                                            '|Zero| (LIST '%)
+                                                            '|0| (LIST '%)
                                                             |sae|))))
                                       (SEQ (LETT |r| 2)
                                            (LETT #4#
@@ -577,15 +577,15 @@
               (|UnivariateFiniteFieldFactorize| 6 7) (0 . |factor|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 13) (|:| |factor| 7) (|:| |exponent| 23))
-              (|List| 14) (5 . |factorList|) (10 . |One|) (|PositiveInteger|)
+              (|List| 14) (5 . |factorList|) (10 . |1|) (|PositiveInteger|)
               (14 . |rank|) (|Vector| %) (18 . |basis|) (22 . *)
               (|NonNegativeInteger|) (28 . |characteristic|)
-              (|IntegralBasisTools| 7 8 9) (32 . |leastPower|) (38 . |One|)
-              (|Matrix| 7) (42 . |scalarMatrix|) (48 . |Zero|) (52 . *)
-              (58 . +) (64 . ^) (70 . |coordinates|) (76 . |transpose|)
-              (81 . ^) (|Union| % '"failed") (87 . |exquo|) (93 . |Zero|)
-              (97 . |Zero|) (|ModularHermitianRowReduction| 7)
-              (101 . |rowEchelon|) (107 . |squareTop|)
+              (|IntegralBasisTools| 7 8 9) (32 . |leastPower|) (38 . |1|)
+              (|Matrix| 7) (42 . |scalarMatrix|) (48 . |0|) (52 . *) (58 . +)
+              (64 . ^) (70 . |coordinates|) (76 . |transpose|) (81 . ^)
+              (|Union| % '"failed") (87 . |exquo|) (93 . |0|) (97 . |0|)
+              (|ModularHermitianRowReduction| 7) (101 . |rowEchelon|)
+              (107 . |squareTop|)
               (|TriangularMatrixOperations| 7 (|Vector| 7) (|Vector| 7) 28)
               (112 . |UpTriBddDenomInv|) (118 . *) (124 . |idealiser|)
               (131 . |diagonalProduct|) (136 . |LowTriBddDenomInv|)

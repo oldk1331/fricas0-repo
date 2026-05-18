@@ -663,14 +663,14 @@
               (4 . |real|) (9 . |imagi|) (14 . |imagj|) (19 . |imagk|)
               (24 . |imagE|) (29 . |imagI|) (34 . |imagJ|) (39 . |imagK|)
               (|List| 7) (|Vector| 7) (44 . |vector|) |OC-;coordinates;SV;3|
-              (49 . |One|) (|Integer|) (53 . |elt|) (59 . |octon|)
+              (49 . |1|) (|Integer|) (53 . |elt|) (59 . |octon|)
               |OC-;represents;VS;4| (|Vector| 6) (71 . |zero|) (76 . |zero|)
-              (81 . |setelt!|) (88 . |represents|) (93 . |setelt!|)
-              (100 . |Zero|) (104 . |Zero|) (|Vector| %) |OC-;basis;V;5|
-              (108 . -) |OC-;conjugate;2S;6| (|Mapping| 7 7) |OC-;map;M2S;7|
-              (113 . *) (119 . +) |OC-;norm;SR;8| (|Boolean|) (125 . =)
-              |OC-;=;2SB;9| |OC-;+;3S;10| |OC-;-;2S;11| |OC-;*;R2S;12|
-              (131 . *) |OC-;*;I2S;13| |OC-;coerce;RS;14| (137 . |coerce|)
+              (81 . |setelt!|) (88 . |represents|) (93 . |setelt!|) (100 . |0|)
+              (104 . |0|) (|Vector| %) |OC-;basis;V;5| (108 . -)
+              |OC-;conjugate;2S;6| (|Mapping| 7 7) |OC-;map;M2S;7| (113 . *)
+              (119 . +) |OC-;norm;SR;8| (|Boolean|) (125 . =) |OC-;=;2SB;9|
+              |OC-;+;3S;10| |OC-;-;2S;11| |OC-;*;R2S;12| (131 . *)
+              |OC-;*;I2S;13| |OC-;coerce;RS;14| (137 . |coerce|)
               |OC-;coerce;IS;15| (142 . |zero?|) |OC-;zero?;SB;16|
               |OC-;retract;SR;17| (|Union| 7 '"failed")
               |OC-;retractIfCan;SU;18| (147 . |zero?|) (|OutputForm|)

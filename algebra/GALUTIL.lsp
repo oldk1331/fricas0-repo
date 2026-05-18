@@ -243,7 +243,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|safetymargin|
               (|Integer|) (0 . |order|) (|PositiveInteger|) (5 . |precision|)
-              (9 . |Zero|) (13 . |One|) (17 . |float|) (23 . +) (29 . |floor|)
+              (9 . |0|) (13 . |1|) (17 . |float|) (23 . +) (29 . |floor|)
               (34 . |retract|) (39 . |safeFloor|) (44 . |ceiling|)
               (49 . |safeCeiling|) (|NonNegativeInteger|) (54 . |safetyMargin|)
               (59 . |safetyMargin|) (|FlexibleArray| 6) (63 . |empty|)

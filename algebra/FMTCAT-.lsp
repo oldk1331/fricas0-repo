@@ -603,7 +603,7 @@
               |FMTCAT-;formatExpression;IM;16| |FMTCAT-;precedence;I2M;17|
               |FMTCAT-;bracket;2S2M;18| (190 . <) (196 . |parenthesizeIf|)
               |FMTCAT-;prefix;SI2M;19| (202 . |bracket|) (209 . |prefix|)
-              |FMTCAT-;function;SI2M;20| (216 . |One|) (220 . |elt|)
+              |FMTCAT-;function;SI2M;20| (216 . |1|) (220 . |elt|)
               |FMTCAT-;infix;SI3M;21| (226 . |maxPrecedence|) (230 . |infix|)
               |FMTCAT-;binary;3M;22| (238 . |empty?|) (243 . |rest|)
               (248 . |cons|) (254 . |reverse!|) |FMTCAT-;nary;SI2M;23|

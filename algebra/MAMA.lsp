@@ -271,7 +271,7 @@
               (36 . |expand|) |MAMA;subMatrix;M2LM;13| |MAMA;rows;MLM;3|
               |MAMA;rows;MSM;4| (41 . |minRowIndex|) (46 . |maxRowIndex|)
               |MAMA;columnMatrix;MIM;5| (51 . |nrows|) |MAMA;columns;MLM;6|
-              |MAMA;columns;MSM;7| (56 . |elt|) (63 . |qsetelt!|) (71 . |Zero|)
+              |MAMA;columns;MSM;7| (56 . |elt|) (63 . |qsetelt!|) (71 . |0|)
               (75 . |new|) (82 . |diagonalMatrix|) (88 . |diagonalMatrix|)
               (93 . |bandMatrix|) (99 . |bandMatrix|) (105 . |qelt|)
               (112 . |low|) (117 . |high|) |MAMA;subMatrix;M2SM;14| (|List| %)

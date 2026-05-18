@@ -12,11 +12,9 @@
 (SDEFUN |PADICRC;makeQp| ((|r| (|Integer|)) (|int| (PADIC)) (% (%)))
         (CONS |r| |int|)) 
 
-(SDEFUN |PADICRC;Zero;%;4| ((% (%)))
-        (|PADICRC;makeQp| 0 (|spadConstant| % 13) %)) 
+(SDEFUN |PADICRC;0;%;4| ((% (%))) (|PADICRC;makeQp| 0 (|spadConstant| % 13) %)) 
 
-(SDEFUN |PADICRC;One;%;5| ((% (%)))
-        (|PADICRC;makeQp| 0 (|spadConstant| % 15) %)) 
+(SDEFUN |PADICRC;1;%;5| ((% (%))) (|PADICRC;makeQp| 0 (|spadConstant| % 15) %)) 
 
 (SDEFUN |PADICRC;coerce;I%;6| ((|x| (|Integer|)) (% (%)))
         (SPADCALL (SPADCALL |x| (QREFELT % 17)) (QREFELT % 18))) 
@@ -589,13 +587,10 @@
 (MAKEPROP '|PAdicRationalConstructor| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|OutputForm|) (|Integer|) (0 . |coerce|) 'PEXPR '|Rep|
-              (5 . |Zero|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |PADICRC;Zero;%;4|) %))
-              (9 . |One|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |PADICRC;One;%;5|) %))
+              (|OutputForm|) (|Integer|) (0 . |coerce|) 'PEXPR '|Rep| (5 . |0|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |PADICRC;0;%;4|) %))
+              (9 . |1|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |PADICRC;1;%;5|) %))
               (13 . |coerce|) |PADICRC;coerce;PADIC%;8| |PADICRC;coerce;I%;6|
               (|Fraction| 9) (18 . |numer|) (23 . |denom|) |PADICRC;/;3%;24|
               |PADICRC;coerce;F%;7| |PADICRC;removeZeroes;I2%;14| (28 . *)
@@ -611,7 +606,7 @@
               (89 . |recip|) |PADICRC;recip;%U;22| |PADICRC;/;2PADIC%;25|
               |PADICRC;*;PADIC2%;26| (94 . |coerce|) (99 . ^)
               (105 . |approximate|) (111 . *) |PADICRC;approximate;%IF;27|
-              (117 . |One|) (|Stream| 20) (121 . |concat|) (|Mapping| %)
+              (117 . |1|) (|Stream| 20) (121 . |concat|) (|Mapping| %)
               (127 . |delay|) (|ContinuedFraction| 20)
               (132 . |reducedContinuedFraction|)
               |PADICRC;continuedFraction;%Cf;29| (138 . ^) (144 . -) (149 . *)
@@ -658,9 +653,9 @@
               |continuedFraction| 748 |conditionP| 753 |commutator| 758
               |coerce| 764 |charthRoot| 794 |characteristic| 799 |ceiling| 803
               |associator| 808 |associates?| 815 |approximate| 821
-              |antiCommutator| 827 |annihilate?| 833 |abs| 839 ^ 844 |Zero| 862
-              |One| 866 D 870 >= 920 > 926 = 932 <= 938 < 944 / 950 - 962 + 973
-              * 979)
+              |antiCommutator| 827 |annihilate?| 833 |abs| 839 ^ 844 D 862 >=
+              912 > 918 = 924 <= 930 < 936 |1| 942 |0| 946 / 950 - 962 + 973 *
+              979)
            'NIL
            (CONS
             (|makeByteWordVec2| 25
@@ -775,11 +770,11 @@
                                     1 0 0 86 1 1 23 7 0 1 3 0 0 0 0 0 1 2 0 35
                                     0 0 1 2 0 20 0 9 64 2 0 0 0 0 1 2 0 35 0 0
                                     1 1 7 0 0 1 2 0 0 0 50 1 2 0 0 0 86 1 2 0 0
-                                    0 9 54 0 0 0 14 0 0 0 16 2 0 0 0 104 1 3 0
-                                    0 0 104 86 1 1 16 0 0 1 2 16 0 0 86 1 2 15
-                                    0 0 116 1 2 15 0 0 82 1 3 15 0 0 116 119 1
-                                    3 15 0 0 82 86 1 2 8 35 0 0 1 2 8 35 0 0 1
-                                    2 0 35 0 0 40 2 8 35 0 0 1 2 8 35 0 0 1 2 0
+                                    0 9 54 2 0 0 0 104 1 3 0 0 0 104 86 1 1 16
+                                    0 0 1 2 16 0 0 86 1 2 15 0 0 116 1 2 15 0 0
+                                    82 1 3 15 0 0 116 119 1 3 15 0 0 82 86 1 2
+                                    8 35 0 0 1 2 8 35 0 0 1 2 0 35 0 0 40 2 8
+                                    35 0 0 1 2 8 35 0 0 1 0 0 0 16 0 0 0 14 2 0
                                     0 0 0 23 2 0 0 7 7 58 2 0 0 0 0 46 1 0 0 0
                                     44 2 0 0 0 0 42 2 0 0 50 0 1 2 0 0 0 0 49 2
                                     0 0 9 0 47 2 0 0 86 0 1 2 0 0 0 7 1 2 0 0 7

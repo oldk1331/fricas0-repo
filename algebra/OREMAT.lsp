@@ -924,12 +924,11 @@
 
 (MAKEPROP '|OrePolynomialMatrixOperations| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (0 . |Zero|) (4 . |Zero|)
-              (|Record| (|:| |mat| 11) (|:| |vecs| 12)) (|Matrix| 7)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |0|)
+              (4 . |0|) (|Record| (|:| |mat| 11) (|:| |vecs| 12)) (|Matrix| 7)
               (|List| 16) |OREMAT;rowEchelon;MFLR;2| |OREMAT;rowEchelon;2M;1|
               (8 . |copy|) (|Vector| 6) (13 . |copy|) (|Boolean|)
-              (|NonNegativeInteger|) (18 . ~=) (24 . |One|) (28 . |One|)
+              (|NonNegativeInteger|) (18 . ~=) (24 . |1|) (28 . |1|)
               (|Integer|) (32 . |elt|) (39 . |zero?|) (44 . |degree|)
               (49 . |swapRows!|) (|Void|) (56 . |swap!|)
               (|Record| (|:| |generator| %) (|:| |coef1| %) (|:| |coef2| %)

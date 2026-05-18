@@ -63,7 +63,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|Expression| 24) '|Rep| |OEXPR;retract;E%;1|
               |OEXPR;coerce;%E;2| (|Union| % '"failed")
-              |OEXPR;retractIfCan;EU;3| (0 . -) (6 . |Zero|) (10 . |Zero|)
+              |OEXPR;retractIfCan;EU;3| (0 . -) (6 . |0|) (10 . |0|)
               (|Boolean|) (14 . =) (|Union| 24 '"failed")
               (|ElementaryFunctionSign| 24 5) (20 . |sign|) |OEXPR;<;2%B;4|
               (|String|) (|OutputForm|) (|PositiveInteger|)
@@ -74,8 +74,8 @@
               |opposite?| 100 |one?| 106 |negative?| 111 |min| 116 |max| 122
               |leftRecip| 128 |leftPower| 133 |latex| 145 |commutator| 150
               |coerce| 156 |characteristic| 176 |associator| 180
-              |antiCommutator| 187 |annihilate?| 193 |abs| 199 ^ 204 |Zero| 216
-              |One| 220 >= 224 > 230 = 236 <= 242 < 248 - 254 + 265 * 271)
+              |antiCommutator| 187 |annihilate?| 193 |abs| 199 ^ 204 >= 216 >
+              222 = 228 <= 234 < 240 |1| 246 |0| 250 - 254 + 265 * 271)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -115,9 +115,9 @@
                                     0 0 22 1 1 0 20 0 1 2 0 0 0 0 1 1 0 21 0 1
                                     1 0 0 24 1 1 0 0 25 1 1 0 5 0 8 0 0 23 1 3
                                     0 0 0 0 0 1 2 0 0 0 0 1 2 0 14 0 0 1 1 0 0
-                                    0 1 2 0 0 0 23 1 2 0 0 0 22 1 0 0 0 12 0 0
-                                    0 1 2 0 14 0 0 1 2 0 14 0 0 1 2 0 14 0 0 15
-                                    2 0 14 0 0 1 2 0 14 0 0 19 1 0 0 0 1 2 0 0
+                                    0 1 2 0 0 0 23 1 2 0 0 0 22 1 2 0 14 0 0 1
+                                    2 0 14 0 0 1 2 0 14 0 0 15 2 0 14 0 0 1 2 0
+                                    14 0 0 19 0 0 0 1 0 0 0 12 1 0 0 0 1 2 0 0
                                     0 0 11 2 0 0 0 0 1 2 0 0 22 0 1 2 0 0 23 0
                                     1 2 0 0 24 0 1 2 0 0 0 0 1 2 0 0 25 0 1 2 0
                                     0 0 25 1)))))

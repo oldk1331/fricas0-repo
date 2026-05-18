@@ -271,7 +271,7 @@
 (MAKEPROP '|ExpressionTubePlot| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|List| 11) (|Expression| 29)
-              (0 . |variables|) (5 . |One|) (|Mapping| 36 36) (|Symbol|)
+              (0 . |variables|) (5 . |1|) (|Mapping| 36 36) (|Symbol|)
               (|MakeFloatCompiledFunction| 7) (9 . |makeFloatFunction|)
               (15 . |differentiate|) (|PositiveInteger|) (21 . ^) (27 . +)
               (33 . |sqrt|) (38 . /) (44 . *) (50 . -) (|Segment| 36)

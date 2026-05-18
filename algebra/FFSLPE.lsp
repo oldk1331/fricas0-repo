@@ -141,7 +141,7 @@
 (MAKEPROP '|FiniteFieldSolveLinearPolynomialEquation| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) '|oldlp| (0 . |One|) (4 . |One|)
+              (|local| |#3|) '|oldlp| (0 . |1|) (4 . |1|)
               (|NonNegativeInteger|) (8 . |monomial|) '|slpePrime| '|oldtable|
               (|Boolean|) (|List| 8) (14 . ~=) (20 . |degree|) (25 . +)
               (|Union| 30 '"failed") (|GenExEuclid| 7 8) (31 . |tablePow|)

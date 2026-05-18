@@ -223,15 +223,14 @@
 (MAKEPROP '|BrillhartTests| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|NonNegativeInteger|)
-              (0 . |degree|) (5 . |Zero|) (9 . |reductum|) (|Integer|)
-              (|Float|) (14 . |coerce|) (19 . /) (25 . |One|) (|Boolean|)
-              (29 . <) (35 . |prime?|) '|brillharttrials|
-              |BRILL;brillhartTrials;Nni;3| |BRILL;brillhartTrials;2Nni;4|
-              |BRILL;noLinearFactor?;UPB;7|
+              (0 . |degree|) (5 . |0|) (9 . |reductum|) (|Integer|) (|Float|)
+              (14 . |coerce|) (19 . /) (25 . |1|) (|Boolean|) (29 . <)
+              (35 . |prime?|) '|brillharttrials| |BRILL;brillhartTrials;Nni;3|
+              |BRILL;brillhartTrials;2Nni;4| |BRILL;noLinearFactor?;UPB;7|
               |BRILL;brillhartIrreducible?;UP2B;6|
               |BRILL;brillhartIrreducible?;UPB;5|
               (|GaloisGroupFactorizationUtilities| 11 6 12) (40 . |rootBound|)
-              (45 . |coefficient|) (51 . |One|) (55 . |elt|)
+              (45 . |coefficient|) (51 . |1|) (55 . |elt|)
               (61 . |leadingCoefficient|))
            '#(|noLinearFactor?| 66 |brillhartTrials| 71 |brillhartIrreducible?|
               80)

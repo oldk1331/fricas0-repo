@@ -1674,7 +1674,7 @@
               |SBOUND;getMax;%PT;14| (|Boolean|) |SBOUND;containsPoint?;%PTB;8|
               |SBOUND;isEllipse?;%B;11| (|DoubleFloat|) (40 . |screenCoordX|)
               (45 . |screenCoordY|) (50 . >) (56 . |inBounds?|) (63 . |sqrt|)
-              (68 . |svec|) (74 . *) (|Fraction| 21) (80 . |Zero|) (84 . ~=)
+              (68 . |svec|) (74 . *) (|Fraction| 21) (80 . |0|) (84 . ~=)
               |SBOUND;lineIntersect;%2PT;9| |SBOUND;isNull?;%B;10|
               |SBOUND;isBox?;%B;12| (90 . |toPoint|) |SBOUND;getCentre;%PT;15|
               (|List| 6) |SBOUND;link;2%L;16| (|Symbol|) (|OutputForm|)

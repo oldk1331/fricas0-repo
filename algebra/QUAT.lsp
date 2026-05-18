@@ -107,8 +107,8 @@
                                    (NRTEVAL
                                     (SPADCALL (|spadConstant| % 8)
                                               (QREFELT % 9))))
-              (|local| |#1|) (0 . |One|) (4 . |One|) (8 . -) (|Boolean|)
-              (|String|) (|OutputForm|) (|PositiveInteger|) (|Integer|)
+              (|local| |#1|) (0 . |1|) (4 . |1|) (8 . -) (|Boolean|) (|String|)
+              (|OutputForm|) (|PositiveInteger|) (|Integer|)
               (|Union| % '"failed") (|NonNegativeInteger|)
               (|Union| 6 '#1="failed") (|Mapping| 6 6) (|Matrix| 6)
               (|Matrix| %) (|Record| (|:| |mat| 19) (|:| |vec| (|Vector| 6)))
@@ -118,7 +118,7 @@
               (|Union| 23 '"failed") (|Matrix| 14)
               (|Record| (|:| |mat| 32) (|:| |vec| (|Vector| 14))) (|List| 16)
               (|Union| 14 '#1#))
-           '#(|One| 13) 'NIL
+           '#(|1| 13) 'NIL
            (CONS
             (|makeByteWordVec2| 16
                                 '(0 4 0 12 11 7 6 2 1 0 0 7 0 0 0 7 0 0 0 16 7

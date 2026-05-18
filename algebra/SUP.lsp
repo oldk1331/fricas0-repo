@@ -1411,19 +1411,18 @@
            '#(NIL NIL NIL NIL NIL (|PolynomialRing| 6 11) (|local| |#1|) '|Rep|
               (|SparseUnivariatePolynomial| 6) |SUP;makeSUP;2%;1|
               |SUP;unmakeSUP;2%;2| (|NonNegativeInteger|) (0 . ^)
-              (|PositiveInteger|) (6 . ^) (12 . |One|) (16 . |Zero|) (20 . ^)
+              (|PositiveInteger|) (6 . ^) (12 . |1|) (16 . |0|) (20 . ^)
               (|Boolean|) (26 . |zero?|) (31 . |characteristic|)
               (|RepeatedSquaring| $$) (35 . |expt|) (41 . *)
               (47 . |binomThmExpt|) (54 . |primeFrobenius|) |SUP;zero?;%B;5|
-              (59 . |One|) (63 . =) (69 . |one?|) |SUP;ground?;%B;7|
+              (59 . |1|) (63 . =) (69 . |one?|) |SUP;ground?;%B;7|
               |SUP;multiplyExponents;%Nni%;8| (|Union| % '#1="failed")
-              |SUP;divideExponents;%NniU;9| (74 . |Zero|)
-              (78 . |subtractIfCan|)
+              |SUP;divideExponents;%NniU;9| (74 . |0|) (78 . |subtractIfCan|)
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
               |SUP;karatsubaDivide;%NniR;10| |SUP;shiftRight;%Nni%;11|
               |SUP;shiftLeft;%Nni%;12| |SUP;univariate;2%;13|
               (|SingletonAsOrderedSet|) |SUP;multivariate;%Saos%;14|
-              (|SparseUnivariatePolynomial| $$) (84 . |Zero|)
+              (|SparseUnivariatePolynomial| $$) (84 . |0|)
               (88 . |leadingCoefficient|) (93 . |coerce|) (98 . |degree|)
               (103 . |monomial|) (109 . |reductum|)
               (|SparseUnivariatePolynomial| %) |SUP;univariate;%SaosSup;15|
@@ -1511,8 +1510,8 @@
               |composite| 1326 |commutator| 1338 |coerce| 1344 |coefficients|
               1374 |coefficient| 1379 |charthRoot| 1399 |characteristic| 1404
               |binomThmExpt| 1408 |associator| 1415 |associates?| 1422
-              |antiCommutator| 1428 |annihilate?| 1434 ^ 1440 |Zero| 1452 |One|
-              1456 D 1460 = 1536 / 1542 - 1548 + 1559 * 1565)
+              |antiCommutator| 1428 |annihilate?| 1434 ^ 1440 D 1452 = 1528 |1|
+              1534 |0| 1538 / 1542 - 1548 + 1559 * 1565)
            'NIL
            (CONS
             (|makeByteWordVec2| 47
@@ -1668,14 +1667,14 @@
                                     141 136 1 1 49 32 0 1 0 55 11 1 3 48 0 0 0
                                     11 24 3 55 0 0 0 0 1 2 50 18 0 0 1 2 0 0 0
                                     0 1 2 55 18 0 0 1 2 0 0 0 13 14 2 54 0 0 11
-                                    12 0 56 0 16 0 54 0 15 2 38 0 0 155 1 2 38
-                                    0 0 156 1 3 38 0 0 156 11 1 3 38 0 0 155
-                                    136 1 3 4 0 0 141 136 1 2 4 0 0 141 1 3 4 0
-                                    0 41 11 1 2 4 0 0 41 1 3 4 0 0 135 11 1 2 4
-                                    0 0 135 1 2 4 0 0 11 1 1 4 0 0 1 2 0 18 0 0
-                                    111 2 14 0 0 6 132 1 58 0 0 1 2 58 0 0 0 1
-                                    2 0 0 0 0 59 2 0 0 13 0 1 2 0 0 0 0 23 2 0
-                                    0 6 0 131 2 0 0 0 6 1 2 40 0 0 92 1 2 58 0
-                                    92 0 1 2 56 0 11 0 1 2 1 0 0 160 1 2 1 0
-                                    160 0 1)))))
+                                    12 2 38 0 0 155 1 2 38 0 0 156 1 3 38 0 0
+                                    156 11 1 3 38 0 0 155 136 1 3 4 0 0 141 136
+                                    1 2 4 0 0 141 1 3 4 0 0 41 11 1 2 4 0 0 41
+                                    1 3 4 0 0 135 11 1 2 4 0 0 135 1 2 4 0 0 11
+                                    1 1 4 0 0 1 2 0 18 0 0 111 0 54 0 15 0 56 0
+                                    16 2 14 0 0 6 132 1 58 0 0 1 2 58 0 0 0 1 2
+                                    0 0 0 0 59 2 0 0 13 0 1 2 0 0 0 0 23 2 0 0
+                                    6 0 131 2 0 0 0 6 1 2 40 0 0 92 1 2 58 0 92
+                                    0 1 2 56 0 11 0 1 2 1 0 0 160 1 2 1 0 160 0
+                                    1)))))
            '|lookupComplete|)) 

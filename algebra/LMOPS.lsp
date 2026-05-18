@@ -211,7 +211,7 @@
               |LMOPS;=;2%B;7| (|Integer|) (16 . |elt|) |LMOPS;nthExpon;%IE;9|
               |LMOPS;nthFactor;%IS;10| |LMOPS;reverse;2%;11|
               |LMOPS;reverse!;2%;12| (|Mapping| 6 6) |LMOPS;mapGen;M2%;13|
-              (22 . |Zero|) (26 . ~=) (|Mapping| 7 7) |LMOPS;mapExpon;M2%;14|
+              (22 . |0|) (26 . ~=) (|Mapping| 7 7) |LMOPS;mapExpon;M2%;14|
               (32 . |coerce|) (37 . =) (43 . |coerce|) (48 . |coerce|)
               (|Mapping| 17 17 17) (|List| 17) (53 . |reduce|)
               |LMOPS;outputForm;%2MIOf;15| (|Union| 6 '"failed")

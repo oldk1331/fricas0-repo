@@ -191,8 +191,8 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|NonNegativeInteger|) (0 . |size|)
-              (|SparseUnivariatePolynomial| 7) (4 . |degree|) (9 . |Zero|)
-              (13 . |Zero|) (17 . |One|) (21 . |One|) (25 . |coefficient|)
+              (|SparseUnivariatePolynomial| 7) (4 . |degree|) (9 . |0|)
+              (13 . |0|) (17 . |1|) (21 . |1|) (25 . |coefficient|)
               (31 . |coerce|) (36 . -) (|SparseUnivariatePolynomial| 6)
               (|Mapping| 6 7) (|SparseUnivariatePolynomialFunctions2| 7 6)
               (41 . |map|) (|PrimitiveArray| 10)

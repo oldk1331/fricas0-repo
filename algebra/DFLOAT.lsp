@@ -61,15 +61,15 @@
 (SDEFUN |DFLOAT;order;%I;11| ((|a| (%)) (% (|Integer|)))
         (- (+ (SPADCALL (QREFELT % 22)) (SPADCALL |a| (QREFELT % 21))) 1)) 
 
-(MAKEPROP '|DFLOAT;Zero;%;12| '|SPADreplace|
+(MAKEPROP '|DFLOAT;0;%;12| '|SPADreplace|
           '(XLAM NIL (FLOAT 0 MOST-POSITIVE-DOUBLE-FLOAT))) 
 
-(SDEFUN |DFLOAT;Zero;%;12| ((% (%))) (FLOAT 0 MOST-POSITIVE-DOUBLE-FLOAT)) 
+(SDEFUN |DFLOAT;0;%;12| ((% (%))) (FLOAT 0 MOST-POSITIVE-DOUBLE-FLOAT)) 
 
-(MAKEPROP '|DFLOAT;One;%;13| '|SPADreplace|
+(MAKEPROP '|DFLOAT;1;%;13| '|SPADreplace|
           '(XLAM NIL (FLOAT 1 MOST-POSITIVE-DOUBLE-FLOAT))) 
 
-(SDEFUN |DFLOAT;One;%;13| ((% (%))) (FLOAT 1 MOST-POSITIVE-DOUBLE-FLOAT)) 
+(SDEFUN |DFLOAT;1;%;13| ((% (%))) (FLOAT 1 MOST-POSITIVE-DOUBLE-FLOAT)) 
 
 (SDEFUN |DFLOAT;exp1;%;14| ((% (%)))
         (|div_DF| (FLOAT 534625820200 MOST-POSITIVE-DOUBLE-FLOAT)
@@ -754,10 +754,8 @@
               |DFLOAT;precision;Pi;7| |DFLOAT;log2;2%;38| (16 . *)
               |DFLOAT;bits;Pi;8| |DFLOAT;max;%;9| |DFLOAT;min;%;10|
               |DFLOAT;order;%I;11|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |DFLOAT;Zero;%;12|) %))
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |DFLOAT;One;%;13|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |DFLOAT;0;%;12|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |DFLOAT;1;%;13|) %))
               |DFLOAT;exp1;%;14| |DFLOAT;pi;%;15| |DFLOAT;convert;%S;16|
               (22 . >=) (|OutputForm|) (28 . |message|) |DFLOAT;coerce;%Of;17|
               (33 . -) (|InputForm|) (38 . |convert|) |DFLOAT;convert;%If;18|
@@ -812,7 +810,7 @@
               |DFLOAT;retract;%I;100| |DFLOAT;retractIfCan;%U;101|
               |DFLOAT;sign;%I;102| |DFLOAT;sign;2%;103| |DFLOAT;abs;2%;104|
               |DFLOAT;conjugate;2%;105| (205 . |coerce|) (210 . /)
-              (216 . |zero?|) (221 . |negative?|) (226 . |One|) (230 . =)
+              (216 . |zero?|) (221 . |negative?|) (226 . |1|) (230 . =)
               (236 . |numer|) (241 . |denom|) |DFLOAT;^;%F%;108|
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
@@ -865,9 +863,9 @@
               1309 |antiCommutator| 1314 |annihilate?| 1320 |angerJ| 1326
               |airyBiPrime| 1332 |airyBi| 1337 |airyAiPrime| 1342 |airyAi| 1347
               |acsch| 1352 |acsc| 1357 |acoth| 1362 |acot| 1367 |acosh| 1372
-              |acos| 1377 |abs| 1382 ^ 1387 |Zero| 1417 |One| 1421 |OMwrite|
-              1425 |Gamma| 1449 D 1460 |Beta| 1471 >= 1484 > 1490 = 1496 <=
-              1502 < 1508 / 1514 - 1526 + 1537 * 1543)
+              |acos| 1377 |abs| 1382 ^ 1387 |OMwrite| 1417 |Gamma| 1441 D 1452
+              |Beta| 1463 >= 1476 > 1482 = 1488 <= 1494 < 1500 |1| 1506 |0|
+              1510 / 1514 - 1526 + 1537 * 1543)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -1006,14 +1004,14 @@
                                     0 0 109 1 0 0 0 83 1 0 0 0 70 1 0 0 0 84 1
                                     0 0 0 72 1 0 0 0 81 1 0 0 0 68 1 0 0 0 169
                                     2 0 0 0 17 1 2 0 0 0 116 1 2 0 0 0 19 55 2
-                                    0 0 0 157 179 2 0 0 0 0 56 0 0 0 29 0 0 0
-                                    30 1 0 7 0 1 2 0 9 10 0 1 2 0 7 0 15 1 3 0
-                                    9 10 0 15 16 1 0 0 0 107 2 0 0 0 0 1 2 0 0
-                                    0 116 1 1 0 0 0 1 3 0 0 0 0 0 1 2 0 0 0 0
-                                    105 2 0 15 0 0 34 2 0 15 0 0 160 2 0 15 0 0
-                                    50 2 0 15 0 0 1 2 0 15 0 0 42 2 0 0 0 0 86
-                                    2 0 0 0 19 51 1 0 0 0 43 2 0 0 0 0 45 2 0 0
-                                    0 0 44 2 0 0 17 0 24 2 0 0 0 0 46 2 0 0 19
-                                    0 47 2 0 0 116 0 1 2 1 0 157 0 1 2 1 0 0
-                                    157 1)))))
+                                    0 0 0 157 179 2 0 0 0 0 56 1 0 7 0 1 2 0 9
+                                    10 0 1 2 0 7 0 15 1 3 0 9 10 0 15 16 1 0 0
+                                    0 107 2 0 0 0 0 1 2 0 0 0 116 1 1 0 0 0 1 3
+                                    0 0 0 0 0 1 2 0 0 0 0 105 2 0 15 0 0 34 2 0
+                                    15 0 0 160 2 0 15 0 0 50 2 0 15 0 0 1 2 0
+                                    15 0 0 42 0 0 0 30 0 0 0 29 2 0 0 0 0 86 2
+                                    0 0 0 19 51 1 0 0 0 43 2 0 0 0 0 45 2 0 0 0
+                                    0 44 2 0 0 17 0 24 2 0 0 0 0 46 2 0 0 19 0
+                                    47 2 0 0 116 0 1 2 1 0 157 0 1 2 1 0 0 157
+                                    1)))))
            '|lookupComplete|)) 

@@ -109,11 +109,11 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|Boolean|) (0 . |ground?|)
-              (5 . |leadingCoefficient|) (10 . |One|) (14 . *) (20 . |Zero|)
+              (5 . |leadingCoefficient|) (10 . |1|) (14 . *) (20 . |0|)
               (24 . |zero?|) (|NonNegativeInteger|) (29 . |degree|)
               (|Distribution| 6) (34 . |moment|) (40 . *) (46 . +)
               (52 . |reductum|) |DISTPOL;eval;DUPSS;1|
-              |DISTPOL;integrate;UPSDS;2| (57 . |One|) (|Integer|)
+              |DISTPOL;integrate;UPSDS;2| (57 . |1|) (|Integer|)
               (|UniversalSegment| 26) (61 . SEGMENT) (|Stream| 26) (|List| %)
               (66 . |expand|) (|PositiveInteger|) (71 . ^) (|Stream| 7)
               (|Mapping| 7 26) (|StreamFunctions2| 26 7) (77 . |map|)

@@ -86,11 +86,11 @@
                            (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                       (EXIT |res|))))))) 
 
-(MAKEPROP '|MRING;Zero;%;10| '|SPADreplace| '(XLAM NIL NIL)) 
+(MAKEPROP '|MRING;0;%;10| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(SDEFUN |MRING;Zero;%;10| ((% (%))) NIL) 
+(SDEFUN |MRING;0;%;10| ((% (%))) NIL) 
 
-(SDEFUN |MRING;One;%;11| ((% (%)))
+(SDEFUN |MRING;1;%;11| ((% (%)))
         (LIST (CONS (|spadConstant| % 38) (|spadConstant| % 37)))) 
 
 (MAKEPROP '|MRING;zero?;%B;12| '|SPADreplace| 'NULL) 
@@ -1025,17 +1025,16 @@
               (|NonNegativeInteger|) (0 . |characteristic|)
               |MRING;characteristic;Nni;3| (|Record| (|:| |k| 7) (|:| |c| 6))
               (|List| 12) |MRING;coerce;L%;4|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |MRING;Zero;%;10|) %))
-              (4 . |Zero|) (|Boolean|) (8 . =) |MRING;monomial;RM%;5|
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |MRING;0;%;10|) %))
+              (4 . |0|) (|Boolean|) (8 . =) |MRING;monomial;RM%;5|
               |MRING;monomial?;%B;6| (14 . |size|) (18 . |size|) (22 . |size|)
               (|Integer|) (26 . ~=) (|PositiveInteger|) (32 . |index|)
               (37 . |index|) (42 . +) (48 . |index|) |MRING;zero?;%B;12|
               |MRING;terms;%L;14| (53 . |lookup|) (58 . |lookup|)
               (63 . |lookup|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |MRING;One;%;11|) %))
-              (68 . |One|) (72 . |One|) (76 . |size?|) (82 . |one?|)
-              (87 . |one?|) |MRING;one?;%B;13| (92 . |copy|) (|List| %)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |MRING;1;%;11|) %))
+              (68 . |1|) (72 . |1|) (76 . |size?|) (82 . |one?|) (87 . |one?|)
+              |MRING;one?;%B;13| (92 . |copy|) (|List| %)
               |MRING;monomials;%L;15| (|List| 6) |MRING;coefficients;%L;16|
               |MRING;coerce;M%;17| |MRING;coerce;R%;18| (97 . |coerce|)
               |MRING;coerce;I%;19| (102 . -) |MRING;-;2%;20| (107 . *)
@@ -1071,8 +1070,8 @@
               551 |hash| 557 |enumerate| 562 |convert| 566 |constructOrdered|
               571 |construct| 576 |commutator| 581 |coerce| 587 |coefficients|
               617 |coefficient| 622 |characteristic| 628 |associator| 632
-              |antiCommutator| 639 |annihilate?| 645 ^ 651 |Zero| 663 |One| 667
-              = 671 - 677 + 688 * 694)
+              |antiCommutator| 639 |annihilate?| 645 ^ 651 = 663 |1| 669 |0|
+              673 - 677 + 688 * 694)
            'NIL
            (CONS
             (|makeByteWordVec2| 7
@@ -1144,9 +1143,9 @@
                                     82 1 0 0 24 51 1 0 0 7 48 1 0 0 13 14 1 0 0
                                     6 49 1 3 0 0 1 1 0 46 0 47 2 0 6 0 7 102 0
                                     0 9 11 3 0 0 0 0 0 1 2 0 0 0 0 1 2 0 17 0 0
-                                    1 2 0 0 0 26 1 2 0 0 0 9 1 0 0 0 15 0 0 0
-                                    36 2 0 17 0 0 100 1 0 0 0 53 2 0 0 0 0 1 2
-                                    0 0 0 0 29 2 0 0 26 0 1 2 0 0 0 0 104 2 0 0
+                                    1 2 0 0 0 26 1 2 0 0 0 9 1 2 0 17 0 0 100 0
+                                    0 0 36 0 0 0 15 1 0 0 0 53 2 0 0 0 0 1 2 0
+                                    0 0 0 29 2 0 0 26 0 1 2 0 0 0 0 104 2 0 0
                                     24 0 58 2 0 0 9 0 1 2 0 0 6 0 55 2 0 0 0 6
                                     1)))))
            '|lookupComplete|)) 

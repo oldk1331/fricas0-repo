@@ -1503,9 +1503,9 @@
 ;     -- FIXME: we should handle 0 and 1 in systematic way, instead
 ;     -- of renaming hacks like below
 ;     if op = 0 then
-;         op := "Zero"
+;         op := "0"
 ;     else if op = 1 then
-;         op := "One"
+;         op := "1"
 ;     -- Next clause added JHD 8/Feb/94: the clause after doesn't work
 ;     -- since addDomain refuses to add modemaps from Mapping
 ;     domain=$Float and op="float" and m=$DoubleFloat =>
@@ -1555,8 +1555,7 @@
         (|coerce| T$ |m|)))
       (#1#
        (PROGN
-        (COND ((EQL |op| 0) (SETQ |op| '|Zero|))
-              ((EQL |op| 1) (SETQ |op| '|One|)))
+        (COND ((EQL |op| 0) (SETQ |op| '|0|)) ((EQL |op| 1) (SETQ |op| '|1|)))
         (COND
          ((AND (EQUAL |domain| |$Float|) (EQ |op| '|float|)
                (EQUAL |m| |$DoubleFloat|))
@@ -1606,10 +1605,10 @@
             (#1# NIL)))))))))))
 
 ; try_constant_DF(mant, exp, m, e) ==
-;     if mant = ["Zero"] then mant := 0
-;     if mant = ["One"] then mant := 1
-;     if exp = ["Zero"] then exp := 0
-;     if exp = ["One"] then exp := 1
+;     if mant = ["0"] then mant := 0
+;     if mant = ["1"] then mant := 1
+;     if exp = ["0"] then exp := 0
+;     if exp = ["1"] then exp := 1
 ;     INTEGERP(mant) and INTEGERP(exp) => [["mk_DF", mant, exp], m, e]
 ;     nil
 
@@ -1617,10 +1616,10 @@
   (PROG ()
     (RETURN
      (PROGN
-      (COND ((EQUAL |mant| (LIST '|Zero|)) (SETQ |mant| 0)))
-      (COND ((EQUAL |mant| (LIST '|One|)) (SETQ |mant| 1)))
-      (COND ((EQUAL |exp| (LIST '|Zero|)) (SETQ |exp| 0)))
-      (COND ((EQUAL |exp| (LIST '|One|)) (SETQ |exp| 1)))
+      (COND ((EQUAL |mant| (LIST '|0|)) (SETQ |mant| 0)))
+      (COND ((EQUAL |mant| (LIST '|1|)) (SETQ |mant| 1)))
+      (COND ((EQUAL |exp| (LIST '|0|)) (SETQ |exp| 0)))
+      (COND ((EQUAL |exp| (LIST '|1|)) (SETQ |exp| 1)))
       (COND
        ((AND (INTEGERP |mant|) (INTEGERP |exp|))
         (LIST (LIST '|mk_DF| |mant| |exp|) |m| |e|))
@@ -3348,7 +3347,7 @@
 ; compSel(form is ["Sel", aDomain, anOp], m, E) ==
 ;   aDomain="Lisp" =>
 ;     [anOp',m,E] where anOp'() == (anOp=$Zero => 0; anOp=$One => 1; anOp)
-;   anOp := (anOp = $Zero => "Zero"; anOp = $One => "One"; anOp)
+;   anOp := (anOp = $Zero => "0"; anOp = $One => "1"; anOp)
 ;   compSel1(aDomain, anOp, [], m, E)
 
 (DEFUN |compSel| (|form| |m| E)
@@ -3366,8 +3365,8 @@
        (#2#
         (PROGN
          (SETQ |anOp|
-                 (COND ((EQUAL |anOp| |$Zero|) '|Zero|)
-                       ((EQUAL |anOp| |$One|) '|One|) (#2# |anOp|)))
+                 (COND ((EQUAL |anOp| |$Zero|) '|0|)
+                       ((EQUAL |anOp| |$One|) '|1|) (#2# |anOp|)))
          (|compSel1| |aDomain| |anOp| NIL |m| E))))))))
 
 ; compHas(pred is ["has", a, b], m, e) ==
@@ -4792,8 +4791,8 @@
 
 ; constant_coerce([x, m, e], m') ==
 ;     m' = $SingleInteger =>
-;         if x = ["Zero"] then x = 0
-;         if x = ["One"] then x = 1
+;         if x = ["0"] then x = 0
+;         if x = ["1"] then x = 1
 ;         not(INTEGERP(x)) => nil
 ;         -- Check if in range of FIXNUM on all supported implementations
 ;         x > 8000000 or x < -8000000 => nil
@@ -4817,8 +4816,8 @@
       (COND
        ((EQUAL |m'| |$SingleInteger|)
         (PROGN
-         (COND ((EQUAL |x| (LIST '|Zero|)) (EQL |x| 0)))
-         (COND ((EQUAL |x| (LIST '|One|)) (EQL |x| 1)))
+         (COND ((EQUAL |x| (LIST '|0|)) (EQL |x| 0)))
+         (COND ((EQUAL |x| (LIST '|1|)) (EQL |x| 1)))
          (COND ((NULL (INTEGERP |x|)) NIL)
                ((OR (< 8000000 |x|) (< |x| (- 8000000))) NIL)
                ((OR (EQUAL |m| |$Integer|) (EQUAL |m| |$PositiveInteger|)
@@ -5049,13 +5048,13 @@
 ;   -- of hacks like below
 ;   atom x =>
 ;       x = y => true
-;       x = 0 => y = ["Zero"]
-;       x = 1 => y = ["One"]
+;       x = 0 => y = ["0"]
+;       x = 1 => y = ["1"]
 ;       false
 ;   atom y =>
 ;       x = y => true
-;       y = 0 => x = ["Zero"]
-;       y = 1 => x = ["One"]
+;       y = 0 => x = ["0"]
+;       y = 1 => x = ["1"]
 ;       false
 ;   #x ~=#y => nil
 ;   (and/[modeEqual(u,v) for u in x for v in y])
@@ -5065,11 +5064,11 @@
     (RETURN
      (COND ((EQ |x| |y|) T)
            ((ATOM |x|)
-            (COND ((EQUAL |x| |y|) T) ((EQL |x| 0) (EQUAL |y| (LIST '|Zero|)))
-                  ((EQL |x| 1) (EQUAL |y| (LIST '|One|))) (#1='T NIL)))
+            (COND ((EQUAL |x| |y|) T) ((EQL |x| 0) (EQUAL |y| (LIST '|0|)))
+                  ((EQL |x| 1) (EQUAL |y| (LIST '|1|))) (#1='T NIL)))
            ((ATOM |y|)
-            (COND ((EQUAL |x| |y|) T) ((EQL |y| 0) (EQUAL |x| (LIST '|Zero|)))
-                  ((EQL |y| 1) (EQUAL |x| (LIST '|One|))) (#1# NIL)))
+            (COND ((EQUAL |x| |y|) T) ((EQL |y| 0) (EQUAL |x| (LIST '|0|)))
+                  ((EQL |y| 1) (EQUAL |x| (LIST '|1|))) (#1# NIL)))
            ((NOT (EQL (LENGTH |x|) (LENGTH |y|))) NIL)
            (#1#
             ((LAMBDA (|bfVar#167| |bfVar#165| |u| |bfVar#166| |v|)

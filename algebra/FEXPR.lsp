@@ -504,7 +504,7 @@
                         (|:| |presup| (|List| 32)) (|:| |presub| (|List| 32))
                         (|:| |args| (|List| 32)))
               (5 . |scripts|) (10 . |script|) (|Equation| 5) (16 . |equation|)
-              (|List| 10) (22 . |variables|) (27 . |One|) (|Equation| %)
+              (|List| 10) (22 . |variables|) (27 . |1|) (|Equation| %)
               (31 . |subst|) (|Boolean|) (37 . |scripted?|) (42 . |name|)
               (47 . |removeDuplicates!|) (|List| 20) (52 . |subst|)
               (58 . |setUnion|) (64 . |setDifference|) (|String|)
@@ -524,7 +524,7 @@
               (186 . |retractIfCan|) (191 . |retract|) (|Float|)
               (196 . |coerce|) (|Mapping| 8 73) (|ExpressionFunctions2| 73 8)
               (201 . |map|) (207 . |operator|) (212 . |kernel|)
-              |FEXPR;log10;2%;22| (218 . |Zero|) |FEXPR;pi;%;23|
+              |FEXPR;log10;2%;22| (218 . |0|) |FEXPR;pi;%;23|
               |FEXPR;coerce;%E;24| |FEXPR;retractIfCan;SU;27|
               |FEXPR;retract;S%;28| (|Union| 87 '#1="failed") (|Kernel| %)
               (|List| 87) (|List| %) (|NonNegativeInteger|) (|Mapping| % %)
@@ -543,8 +543,8 @@
               |cosh| 814 |cos| 819 |commutator| 824 |coerce| 830
               |characteristic| 855 |box| 859 |belong?| 864 |atan| 869
               |associator| 874 |asin| 881 |antiCommutator| 886 |annihilate?|
-              892 |acos| 898 |abs| 903 ^ 908 |Zero| 920 |One| 924 D 928 = 954 -
-              960 + 971 * 977)
+              892 |acos| 898 |abs| 903 ^ 908 D 920 = 946 |1| 952 |0| 956 - 960
+              + 971 * 977)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -624,9 +624,9 @@
                                     83 0 0 90 1 1 0 0 0 1 1 0 22 36 1 1 0 0 0 1
                                     3 0 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 0 22
                                     0 0 1 1 0 0 0 1 1 0 0 0 1 2 0 0 0 90 1 2 0
-                                    0 0 95 1 0 0 0 81 0 0 0 19 3 0 0 0 10 90 1
-                                    3 0 0 0 17 97 1 2 0 0 0 10 1 2 0 0 0 17 1 2
-                                    0 22 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 0 0 0 0
+                                    0 0 95 1 3 0 0 0 10 90 1 3 0 0 0 17 97 1 2
+                                    0 0 0 10 1 2 0 0 0 17 1 2 0 22 0 0 1 0 0 0
+                                    19 0 0 0 81 1 0 0 0 1 2 0 0 0 0 1 2 0 0 0 0
                                     1 2 0 0 8 0 1 2 0 0 0 8 1 2 0 0 90 0 1 2 0
                                     0 55 0 1 2 0 0 0 0 1 2 0 0 95 0 1)))))
            '|lookupComplete|)) 

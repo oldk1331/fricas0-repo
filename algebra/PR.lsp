@@ -1,5 +1,5 @@
 
-(SDEFUN |PR;One;%;1| ((% (%)))
+(SDEFUN |PR;1;%;1| ((% (%)))
         (LIST (CONS (|spadConstant| % 10) (|spadConstant| % 11)))) 
 
 (SDEFUN |PR;characteristic;Nni;2| ((% (|NonNegativeInteger|)))
@@ -1000,7 +1000,7 @@
      ((|HasCategory| |#1| '(|Monoid|))
       (QSETREFV % 12
                 (CONS #'|makeSpadConstant|
-                      (LIST (|dispatchFunction| |PR;One;%;1|) % 12)))))
+                      (LIST (|dispatchFunction| |PR;1;%;1|) % 12)))))
     (COND
      ((|testBitVector| |pv$| 10)
       (QSETREFV % 15 (CONS (|dispatchFunction| |PR;characteristic;Nni;2|) %))))
@@ -1077,16 +1077,15 @@
 (MAKEPROP '|PolynomialRing| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|FreeModule| 6 7) (|local| |#1|)
-              (|local| |#2|) '|Rep| '|commutative| (0 . |Zero|) (4 . |One|)
-              (8 . |One|) (|NonNegativeInteger|) (12 . |characteristic|)
+              (|local| |#2|) '|Rep| '|commutative| (0 . |0|) (4 . |1|)
+              (8 . |1|) (|NonNegativeInteger|) (12 . |characteristic|)
               (16 . |characteristic|) |PR;degree;%E;3|
               (|Record| (|:| |k| 7) (|:| |c| 6)) (20 . |last|)
-              |PR;minimumDegree;%E;4| (25 . |Zero|)
-              |PR;leadingCoefficient;%R;5| (29 . |Zero|)
-              |PR;leadingMonomial;2%;6| |PR;reductum;2%;7| (|Boolean|)
-              (33 . |zero?|) (|Union| 6 '"failed") |PR;retractIfCan;%U;8|
-              (38 . |coefficient|) (44 . =) (50 . <) (56 . >)
-              (|Union| % '"failed") (62 . |recip|) |PR;coerce;R%;12|
+              |PR;minimumDegree;%E;4| (25 . |0|) |PR;leadingCoefficient;%R;5|
+              (29 . |0|) |PR;leadingMonomial;2%;6| |PR;reductum;2%;7|
+              (|Boolean|) (33 . |zero?|) (|Union| 6 '"failed")
+              |PR;retractIfCan;%U;8| (38 . |coefficient|) (44 . =) (50 . <)
+              (56 . >) (|Union| % '"failed") (62 . |recip|) |PR;coerce;R%;12|
               |PR;recip;%U;11| (67 . |zero?|) (|Integer|) (72 . |coerce|)
               (77 . |coerce|) |PR;ground?;%B;14| '|entireRing?| (82 . +)
               (88 . *) (|Mapping| 17 17) (94 . |map|) (100 . +)
@@ -1116,8 +1115,8 @@
               |content| 525 |constructOrdered| 530 |construct| 535 |commutator|
               540 |coerce| 546 |coefficients| 571 |coefficient| 576
               |characteristic| 582 |binomThmExpt| 586 |associator| 593
-              |associates?| 600 |antiCommutator| 606 |annihilate?| 612 ^ 618
-              |Zero| 630 |One| 634 = 638 / 644 - 650 + 661 * 667)
+              |associates?| 600 |antiCommutator| 606 |annihilate?| 612 ^ 618 =
+              630 |1| 636 |0| 640 / 644 - 650 + 661 * 667)
            'NIL
            (CONS
             (|makeByteWordVec2| 24
@@ -1196,8 +1195,8 @@
                                     86 1 1 0 81 0 1 2 0 6 0 7 29 0 31 13 15 3
                                     27 0 0 0 13 57 3 31 0 0 0 0 1 2 28 25 0 0
                                     72 2 0 0 0 0 1 2 31 25 0 0 1 2 0 0 0 53 54
-                                    2 30 0 0 13 52 0 32 0 22 0 30 0 12 2 0 25 0
-                                    0 71 2 18 0 0 6 59 1 34 0 0 1 2 34 0 0 0 1
+                                    2 30 0 0 13 52 2 0 25 0 0 71 0 30 0 12 0 32
+                                    0 22 2 18 0 0 6 59 1 34 0 0 1 2 34 0 0 0 1
                                     2 0 0 0 0 1 2 0 0 53 0 1 2 0 0 0 0 51 2 0 0
                                     6 0 49 2 0 0 0 6 50 2 34 0 38 0 1 2 32 0 13
                                     0 1 2 1 0 0 86 1 2 1 0 86 0 1)))))

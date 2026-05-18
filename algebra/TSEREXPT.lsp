@@ -186,10 +186,10 @@
 
 (MAKEPROP '|TaylorSeriesExpansionTaylor| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |One|)
-              (4 . |One|) (|Integer|) (8 . |One|) (|Fraction| 10) (12 . /)
-              (18 . *) (|Stream| 6) (|StreamTaylorSeriesOperations| 6) (24 . *)
-              (30 . *) (36 . +) (|Stream| 15) (42 . |concat|) (|Mapping| %)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |1|)
+              (4 . |1|) (|Integer|) (8 . |1|) (|Fraction| 10) (12 . /) (18 . *)
+              (|Stream| 6) (|StreamTaylorSeriesOperations| 6) (24 . *) (30 . *)
+              (36 . +) (|Stream| 15) (42 . |concat|) (|Mapping| %)
               (48 . |delay|) (|Boolean|) (|NonNegativeInteger|) (53 . ~=)
               (59 . |order|) (|List| 7) (|Mapping| 6 6) (|List| 29)
               |TSEREXPT;taylor_via_deriv;UTSLLUTS;2| (65 . |coefficients|)

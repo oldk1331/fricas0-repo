@@ -740,14 +740,13 @@
                                                       (QREFELT % 15))
                                             (QREFELT % 16))))
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
-              (|local| |#5|) (|Fraction| 7) (0 . |One|) (|NonNegativeInteger|)
-              (4 . |monomial|) (10 . |coerce|) (15 . -) '|brandNew?|
-              (21 . |Zero|) '|discPoly| (25 . |Zero|) '|newrad| '|n1|
-              '|modulus| '|ibasis| '|invibasis| '|infbasis| '|invinfbasis|
-              (|Integer|) (|Vector| 11) (29 . |minIndex|) '|mini|
-              |RADFF;discriminant;F;1| (|Vector| %) |RADFF;integralBasis;V;3|
-              |RADFF;integralBasisAtInfinity;V;4| (|Matrix| 11)
-              (34 . |diagonalMatrix|) |RADFF;integralMatrix;M;6|
+              (|local| |#5|) (|Fraction| 7) (0 . |1|) (|NonNegativeInteger|)
+              (4 . |monomial|) (10 . |coerce|) (15 . -) '|brandNew?| (21 . |0|)
+              '|discPoly| (25 . |0|) '|newrad| '|n1| '|modulus| '|ibasis|
+              '|invibasis| '|infbasis| '|invinfbasis| (|Integer|) (|Vector| 11)
+              (29 . |minIndex|) '|mini| |RADFF;discriminant;F;1| (|Vector| %)
+              |RADFF;integralBasis;V;3| |RADFF;integralBasisAtInfinity;V;4|
+              (|Matrix| 11) (34 . |diagonalMatrix|) |RADFF;integralMatrix;M;6|
               |RADFF;integralMatrixAtInfinity;M;7|
               |RADFF;inverseIntegralMatrix;M;8|
               |RADFF;inverseIntegralMatrixAtInfinity;M;9|
@@ -763,12 +762,12 @@
               (93 . |differentiate|) (99 . *) (105 . *) (111 . +) (|Matrix| 7)
               (117 . |diagonalMatrix|) (|Record| (|:| |num| 69) (|:| |den| 7))
               |RADFF;integralDerivationMatrix;MR;18| (|Factored| %)
-              (122 . |squareFree|) (127 . ^) (133 . *) (139 . |One|)
+              (122 . |squareFree|) (127 . ^) (133 . *) (139 . |1|)
               (|Factored| 7) (143 . |unit|)
               (|Record| (|:| |factor| 7) (|:| |exponent| 13)) (|List| 80)
               (148 . |factors|) (|PrimitiveArray| 7) (153 . |maxIndex|)
               (158 . =) (|Union| 80 '"failed") (|Mapping| 44 80) (164 . |find|)
-              (170 . |One|) (174 . |monomial|) (180 . |coerce|) (185 . |inv|)
+              (170 . |1|) (174 . |monomial|) (180 . |coerce|) (185 . |inv|)
               (|Fraction| %) (190 . |elt|)
               (|Record| (|:| |exponent| 13) (|:| |coef| 11) (|:| |radicand| 7))
               (|ChangeOfVariable| 6 7 8) (196 . |rootPoly|) (202 . ~=)
@@ -846,8 +845,8 @@
               |characteristic| 1124 |branchPointAtInfinity?| 1128
               |branchPoint?| 1132 |basis| 1142 |associator| 1146 |associates?|
               1153 |antiCommutator| 1159 |annihilate?| 1165 |algSplitSimple|
-              1171 |absolutelyIrreducible?| 1177 ^ 1181 |Zero| 1199 |One| 1203
-              D 1207 = 1257 / 1263 - 1269 + 1280 * 1286)
+              1171 |absolutelyIrreducible?| 1177 ^ 1181 D 1199 = 1249 |1| 1255
+              |0| 1259 / 1263 - 1269 + 1280 * 1286)
            'NIL
            (CONS
             (|makeByteWordVec2| 14
@@ -981,12 +980,12 @@
                                     44 6 129 1 0 44 7 130 0 0 33 105 3 0 0 0 0
                                     0 1 2 3 44 0 0 1 2 0 0 0 0 1 2 0 44 0 0 1 2
                                     0 139 0 64 1 0 0 44 1 2 0 0 0 126 1 2 0 0 0
-                                    13 1 2 3 0 0 28 1 0 0 0 1 0 0 0 1 2 13 0 0
-                                    141 1 3 13 0 0 141 13 1 2 13 0 0 142 1 3 13
-                                    0 0 142 143 1 1 9 0 0 1 2 9 0 0 13 1 2 3 0
-                                    0 148 1 3 3 0 0 148 13 1 2 0 44 0 0 1 2 3 0
-                                    0 0 1 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 0
-                                    0 126 0 1 2 0 0 0 0 1 2 0 0 28 0 1 2 0 0 13
-                                    0 1 2 0 0 0 11 1 2 0 0 11 0 1 2 19 0 0 144
-                                    1 2 19 0 144 0 1 2 12 0 0 28 1)))))
+                                    13 1 2 3 0 0 28 1 2 13 0 0 141 1 3 13 0 0
+                                    141 13 1 2 13 0 0 142 1 3 13 0 0 142 143 1
+                                    1 9 0 0 1 2 9 0 0 13 1 2 3 0 0 148 1 3 3 0
+                                    0 148 13 1 2 0 44 0 0 1 0 0 0 1 0 0 0 1 2 3
+                                    0 0 0 1 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2
+                                    0 0 126 0 1 2 0 0 0 0 1 2 0 0 28 0 1 2 0 0
+                                    13 0 1 2 0 0 0 11 1 2 0 0 11 0 1 2 19 0 0
+                                    144 1 2 19 0 144 0 1 2 12 0 0 28 1)))))
            '|lookupComplete|)) 

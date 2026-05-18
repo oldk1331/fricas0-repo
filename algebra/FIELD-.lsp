@@ -79,7 +79,7 @@
 (MAKEPROP '|Field&| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Boolean|) (0 . |zero?|)
-              (5 . |One|) (9 . |Zero|) (13 . |inv|)
+              (5 . |1|) (9 . |0|) (13 . |inv|)
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               |FIELD-;unitNormal;SR;1| |FIELD-;unitCanonical;2S;2|
               |FIELD-;associates?;2SB;3| (|Union| % '"failed") (18 . |recip|)

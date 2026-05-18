@@ -460,9 +460,9 @@
                          (|XRPOLY;outForm| (QCDR (QCDR |p|)) %)
                          (QREFELT % 90))))) 
 
-(SDEFUN |XRPOLY;Zero;%;24| ((% (%))) (CONS 0 (|spadConstant| % 15))) 
+(SDEFUN |XRPOLY;0;%;24| ((% (%))) (CONS 0 (|spadConstant| % 15))) 
 
-(SDEFUN |XRPOLY;One;%;25| ((% (%))) (CONS 0 (|spadConstant| % 56))) 
+(SDEFUN |XRPOLY;1;%;25| ((% (%))) (CONS 0 (|spadConstant| % 56))) 
 
 (MAKEPROP '|XRPOLY;constant?;%B;26| '|SPADreplace| '(XLAM (|p|) (QEQCAR |p| 0))) 
 
@@ -1205,14 +1205,12 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|Rep|
               (|Boolean|) (0 . =) (|FreeModule| $$ 6) (6 . =) |XRPOLY;=;2%B;1|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |XRPOLY;Zero;%;24|) %))
-              (12 . |Zero|) (|FreeMonoid| 6) (16 . |one?|) (21 . |rest|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |XRPOLY;0;%;24|) %))
+              (12 . |0|) (|FreeMonoid| 6) (16 . |one?|) (21 . |rest|)
               (26 . |first|) (31 . |monomial|) (37 . |mirror|)
-              |XRPOLY;monomial;RFm%;3| (42 . |One|) (46 . =)
-              (52 . |coefficient|) |XRPOLY;coefficient;%FmR;5|
-              (|Record| (|:| |k| 16) (|:| |c| 7)) (|List| 27)
-              (|XDistributedPolynomial| 6 7) (58 . |construct|)
+              |XRPOLY;monomial;RFm%;3| (42 . |1|) (46 . =) (52 . |coefficient|)
+              |XRPOLY;coefficient;%FmR;5| (|Record| (|:| |k| 16) (|:| |c| 7))
+              (|List| 27) (|XDistributedPolynomial| 6 7) (58 . |construct|)
               |XRPOLY;unexpand;Xdp%;14| |XRPOLY;construct;L%;6|
               (63 . |constructOrdered|) |XRPOLY;constructOrdered;L%;7|
               |XRPOLY;expand;%Xdp;36| (68 . |listOfTerms|)
@@ -1223,11 +1221,10 @@
               |XRPOLY;numberOfMonomials;%Nni;11| |XRPOLY;*;R2%;42|
               |XRPOLY;*;3%;45| |XRPOLY;lquo;3%;12| (95 . ~=)
               (101 . |construct|) |XRPOLY;coef;2%R;20| |XRPOLY;constant;%R;27|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |XRPOLY;One;%;25|) %))
-              (106 . |One|) |XRPOLY;trunc;%Nni%;13| (110 . |constant?|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |XRPOLY;1;%;25|) %))
+              (106 . |1|) |XRPOLY;trunc;%Nni%;13| (110 . |constant?|)
               (115 . |constant|) (120 . >) (|List| 6) (126 . |varList|)
-              (|Mapping| 9 6 6) (131 . |sort|) (137 . |rquo|) (143 . |Zero|)
+              (|Mapping| 9 6 6) (131 . |sort|) (137 . |rquo|) (143 . |0|)
               (147 . ~=) (153 . ^) (159 . |sh|) (165 . *) (171 . |sh|)
               |XRPOLY;*;%R%;43| (177 . +) (|Record| (|:| |k| 6) (|:| |c| %))
               (|List| 74) |XRPOLY;RemainderList;%L;17| (183 . *)
@@ -1238,7 +1235,7 @@
               (241 . |coerce|) |XRPOLY;constant?;%B;26| (|Union| 7 '"failed")
               |XRPOLY;retractIfCan;%U;28| (|Union| 16 '"failed")
               |XRPOLY;retractIfCan;%U;29| (246 . *) |XRPOLY;monomial?;%B;30|
-              (252 . |Zero|) |XRPOLY;coerce;VarSet%;32| |XRPOLY;coerce;R%;33|
+              (252 . |0|) |XRPOLY;coerce;VarSet%;32| |XRPOLY;coerce;R%;33|
               (|Integer|) (256 . |coerce|) |XRPOLY;coerce;I%;34| (261 . ~=)
               |XRPOLY;coerce;Fm%;35| (267 . |coerce|) (272 . |coerce|)
               (277 . |monomial|) (283 . *) (289 . +) |XRPOLY;mirror;2%;37|
@@ -1271,8 +1268,8 @@
               |constructOrdered| 659 |construct| 664 |constant?| 669 |constant|
               674 |commutator| 679 |coerce| 685 |coefficients| 710
               |coefficient| 715 |coef| 721 |characteristic| 733 |associator|
-              737 |antiCommutator| 744 |annihilate?| 750 ^ 756 |Zero| 768
-              |RemainderList| 772 |One| 777 = 781 - 787 + 798 * 804)
+              737 |antiCommutator| 744 |annihilate?| 750 ^ 756 |RemainderList|
+              768 = 773 |1| 779 |0| 783 - 787 + 798 * 804)
            'NIL
            (CONS
             (|makeByteWordVec2| 4
@@ -1348,8 +1345,8 @@
                                     16 109 1 0 0 6 103 1 0 158 0 1 2 0 7 0 16
                                     26 2 0 7 0 16 132 2 0 7 0 0 53 0 0 46 136 3
                                     0 0 0 0 0 1 2 0 0 0 0 1 2 0 9 0 0 1 2 0 0 0
-                                    156 1 2 0 0 0 46 68 0 0 0 14 1 0 75 0 76 0
-                                    0 0 55 2 0 9 0 0 13 2 0 0 0 0 120 1 0 0 0
+                                    156 1 2 0 0 0 46 68 1 0 75 0 76 2 0 9 0 0
+                                    13 0 0 0 55 0 0 0 14 2 0 0 0 0 120 1 0 0 0
                                     117 2 0 0 0 0 78 2 0 0 156 0 1 2 0 0 0 0 49
                                     2 0 0 105 0 123 2 0 0 46 0 70 2 0 0 7 0 48
                                     2 0 0 0 7 72 2 0 0 6 0 127)))))

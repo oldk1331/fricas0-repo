@@ -135,10 +135,10 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) '|op_of_PS| '#:G0 '|RepPS|
-              (0 . |Zero|) (4 . |Zero|) (|Boolean|) (8 . =)
-              (14 . |leadingCoefficient|) (19 . |Zero|) (23 . ~=)
+              (0 . |0|) (4 . |0|) (|Boolean|) (8 . =)
+              (14 . |leadingCoefficient|) (19 . |0|) (23 . ~=)
               (|NonNegativeInteger|) (29 . |degree|) (34 . |reductum|)
-              (|Mapping| 8 6) (39 . |map|) (45 . |Zero|) (49 . |monomial|)
+              (|Mapping| 8 6) (39 . |map|) (45 . |0|) (49 . |monomial|)
               (55 . +))
            '#(|map| 61) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

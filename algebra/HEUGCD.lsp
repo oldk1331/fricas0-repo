@@ -725,21 +725,21 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|bigPrime| (|Integer|)
               (|IntegerPrimesPackage| 8) (0 . |nextPrime|)
               (|NonNegativeInteger|) (5 . |degree|) (|Boolean|) (10 . |zero?|)
-              (15 . |Zero|) (19 . ~=) (25 . |leadingCoefficient|)
-              (30 . |reductum|) (35 . ~=) (41 . |monomial|) (47 . +)
-              (53 . |One|) (|List| 8) (57 . |member?|) |HEUGCD;lintgcd;LI;7|
+              (15 . |0|) (19 . ~=) (25 . |leadingCoefficient|)
+              (30 . |reductum|) (35 . ~=) (41 . |monomial|) (47 . +) (53 . |1|)
+              (|List| 8) (57 . |member?|) |HEUGCD;lintgcd;LI;7|
               (63 . |coefficients|) (|List| 6) |HEUGCD;content;LL;8|
               (|Union| % '"failed") (68 . |exquo|) (|Mapping| 13 6)
               (74 . |select|) (|List| 11) (80 . |member?|) (86 . |coerce|)
-              (91 . |exquo|) (|PositiveInteger|) (97 . |One|)
-              (101 . |position|) (107 . |elt|) 'IMG (113 . |elt|)
-              (119 . |content|) (124 . |modularGcdPrimitive|) (129 . =)
-              (135 . |minimumDegree|) (140 . *) (146 . *)
-              (152 . |positiveRemainder|) (|SparseUnivariatePolynomial| 8)
-              (158 . |makeSUP|) (|U32Vector|) (|U32VectorPolynomialOperations|)
-              (163 . |to_mod_pa|) (169 . |gcd|) (176 . |degree|)
-              |HEUGCD;gcdprim;LBP;16| |HEUGCD;gcdcofactprim;2L;17|
-              |HEUGCD;gcd;LBP;18| |HEUGCD;gcdcofact;2L;19|)
+              (91 . |exquo|) (|PositiveInteger|) (97 . |1|) (101 . |position|)
+              (107 . |elt|) 'IMG (113 . |elt|) (119 . |content|)
+              (124 . |modularGcdPrimitive|) (129 . =) (135 . |minimumDegree|)
+              (140 . *) (146 . *) (152 . |positiveRemainder|)
+              (|SparseUnivariatePolynomial| 8) (158 . |makeSUP|) (|U32Vector|)
+              (|U32VectorPolynomialOperations|) (163 . |to_mod_pa|)
+              (169 . |gcd|) (176 . |degree|) |HEUGCD;gcdprim;LBP;16|
+              |HEUGCD;gcdcofactprim;2L;17| |HEUGCD;gcd;LBP;18|
+              |HEUGCD;gcdcofact;2L;19|)
            '#(|lintgcd| 181 |gcdprim| 186 |gcdcofactprim| 191 |gcdcofact| 196
               |gcd| 201 |content| 206)
            'NIL

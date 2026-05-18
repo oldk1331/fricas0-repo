@@ -127,7 +127,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|Union| 7 '"failed") (0 . |mainVariable|)
-              (5 . |One|) (9 . |One|) (|SparseUnivariatePolynomial| %)
+              (5 . |1|) (9 . |1|) (|SparseUnivariatePolynomial| %)
               (13 . |univariate|) (|SparseUnivariatePolynomial| 8)
               (19 . |content|) (|Union| % '"failed") (24 . |exquo|)
               (|Mapping| 8 8) (30 . |map|)

@@ -15,9 +15,9 @@
                   #1#)
                  (QREFELT % 36))))) 
 
-(SDEFUN |SAE;Zero;%;3| ((% (%))) (|spadConstant| % 38)) 
+(SDEFUN |SAE;0;%;3| ((% (%))) (|spadConstant| % 38)) 
 
-(SDEFUN |SAE;One;%;4| ((% (%))) (|spadConstant| % 40)) 
+(SDEFUN |SAE;1;%;4| ((% (%))) (|spadConstant| % 40)) 
 
 (SDEFUN |SAE;*;R2%;5| ((|c| (R)) (|x| (%)) (% (%)))
         (SPADCALL |c| |x| (QREFELT % 41))) 
@@ -600,16 +600,16 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (0 . |leadingCoefficient|) (|Union| % '"failed")
               (5 . |recip|) '|r| '|Rep| (10 . *) (|NonNegativeInteger|)
-              (16 . |degree|) '|d| (21 . |One|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |SAE;One;%;4|) %))
+              (16 . |degree|) '|d| (21 . |1|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |SAE;1;%;4|) %))
               (25 . |subtractIfCan|) '|d1| (|Matrix| 6) (31 . |zero|)
-              '|discmat| '|nodiscmat?| (37 . |Zero|) '|disc| '|nodisc?|
-              (41 . |One|) (45 . |monomial|) '|bsis| (51 . |size|)
-              (55 . |size|) (59 . |random|) (|Vector| 6) |SAE;represents;V%;18|
-              (63 . |random|) (67 . |Zero|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |SAE;Zero;%;3|) %))
-              (71 . |One|) (75 . *) |SAE;*;R2%;5| (|Integer|) (81 . *)
-              |SAE;*;I2%;6| (87 . |coerce|) |SAE;coerce;I%;7| (92 . |Zero|)
+              '|discmat| '|nodiscmat?| (37 . |0|) '|disc| '|nodisc?| (41 . |1|)
+              (45 . |monomial|) '|bsis| (51 . |size|) (55 . |size|)
+              (59 . |random|) (|Vector| 6) |SAE;represents;V%;18|
+              (63 . |random|) (67 . |0|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |SAE;0;%;3|) %))
+              (71 . |1|) (75 . *) |SAE;*;R2%;5| (|Integer|) (81 . *)
+              |SAE;*;I2%;6| (87 . |coerce|) |SAE;coerce;I%;7| (92 . |0|)
               |SAE;coerce;R%;8| (|OutputForm|) (96 . |coerce|)
               |SAE;coerce;%Of;9| |SAE;lift;%UP;10|
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
@@ -681,8 +681,8 @@
               |coordinates| 870 |convert| 892 |conditionP| 917 |commutator| 922
               |coerce| 928 |charthRoot| 953 |characteristicPolynomial| 963
               |characteristic| 968 |basis| 972 |associator| 976 |associates?|
-              983 |antiCommutator| 989 |annihilate?| 995 ^ 1001 |Zero| 1019
-              |One| 1023 D 1027 = 1077 / 1083 - 1089 + 1100 * 1106)
+              983 |antiCommutator| 989 |annihilate?| 995 ^ 1001 D 1019 = 1069
+              |1| 1075 |0| 1079 / 1083 - 1089 + 1100 * 1106)
            'NIL
            (CONS
             (|makeByteWordVec2| 16
@@ -797,11 +797,11 @@
                                     1 0 0 0 1 1 17 0 144 1 1 19 10 0 1 1 2 0 0
                                     1 1 0 7 0 81 0 0 15 74 0 0 79 80 3 0 0 0 0
                                     0 1 2 3 57 0 0 1 2 0 0 0 0 1 2 0 57 0 0 1 2
-                                    0 0 0 75 1 2 0 0 0 15 1 2 3 0 0 43 1 0 0 0
-                                    39 0 0 0 19 2 13 0 0 141 1 2 13 0 0 140 1 3
-                                    13 0 0 140 15 1 3 13 0 0 141 142 1 1 8 0 0
-                                    1 2 8 0 0 15 1 3 3 0 0 148 15 1 2 3 0 0 148
-                                    1 2 0 57 0 0 59 2 3 0 0 0 1 2 0 0 0 0 1 1 0
+                                    0 0 0 75 1 2 0 0 0 15 1 2 3 0 0 43 1 2 13 0
+                                    0 141 1 2 13 0 0 140 1 3 13 0 0 140 15 1 3
+                                    13 0 0 141 142 1 1 8 0 0 1 2 8 0 0 15 1 3 3
+                                    0 0 148 15 1 2 3 0 0 148 1 2 0 57 0 0 59 0
+                                    0 0 19 0 0 0 39 2 3 0 0 0 1 2 0 0 0 0 1 1 0
                                     0 0 66 2 0 0 0 0 64 2 0 0 75 0 1 2 0 0 0 0
                                     68 2 0 0 43 0 45 2 0 0 15 0 1 2 0 0 6 0 42
                                     2 0 0 0 6 1 2 18 0 144 0 1 2 18 0 0 144 1 2

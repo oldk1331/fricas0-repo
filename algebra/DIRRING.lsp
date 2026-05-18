@@ -50,17 +50,17 @@
 (SDEFUN |DIRRING;coerce;%Of;8| ((|f| (%)) (% (|OutputForm|)))
         (SPADCALL (SPADCALL |f| (QREFELT % 24)) (QREFELT % 28))) 
 
-(SDEFUN |DIRRING;One;%;9| ((% (%)))
-        (SPADCALL (CONS #'|DIRRING;One;%;9!0| %) (QREFELT % 12))) 
+(SDEFUN |DIRRING;1;%;9| ((% (%)))
+        (SPADCALL (CONS #'|DIRRING;1;%;9!0| %) (QREFELT % 12))) 
 
-(SDEFUN |DIRRING;One;%;9!0| ((|n| NIL) (% NIL))
+(SDEFUN |DIRRING;1;%;9!0| ((|n| NIL) (% NIL))
         (COND ((SPADCALL |n| (QREFELT % 31)) (|spadConstant| % 14))
               ('T (|spadConstant| % 32)))) 
 
-(SDEFUN |DIRRING;Zero;%;10| ((% (%)))
-        (SPADCALL (CONS #'|DIRRING;Zero;%;10!0| %) (QREFELT % 12))) 
+(SDEFUN |DIRRING;0;%;10| ((% (%)))
+        (SPADCALL (CONS #'|DIRRING;0;%;10!0| %) (QREFELT % 12))) 
 
-(SDEFUN |DIRRING;Zero;%;10!0| ((|n| NIL) (% NIL)) (|spadConstant| % 32)) 
+(SDEFUN |DIRRING;0;%;10!0| ((|n| NIL) (% NIL)) (|spadConstant| % 32)) 
 
 (SDEFUN |DIRRING;zeta;%;11| ((% (%)))
         (SPADCALL (CONS #'|DIRRING;zeta;%;11!0| %) (QREFELT % 12))) 
@@ -450,16 +450,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (|PositiveInteger|)
               |DIRRING;elt;%PiCoef;3| (|Mapping| 6 8) |DIRRING;coerce;%M;4|
               |DIRRING;coerce;M%;5|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |DIRRING;One;%;9|) %))
-              (0 . |One|) (|Stream| 16) (|Integer|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |DIRRING;1;%;9|) %))
+              (0 . |1|) (|Stream| 16) (|Integer|)
               (|StreamTaylorSeriesOperations| 16) (4 . |integers|) '|indices|
               (|Stream| 6) (|Mapping| 6 16) (|StreamFunctions2| 16 6)
               (9 . |map|) |DIRRING;coerce;%S;6| (15 . |elt|)
               |DIRRING;coerce;S%;7| (|OutputForm|) (21 . |coerce|)
-              |DIRRING;coerce;%Of;8| (|Boolean|) (26 . |one?|) (31 . |Zero|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |DIRRING;Zero;%;10|) %))
+              |DIRRING;coerce;%Of;8| (|Boolean|) (26 . |one?|) (31 . |0|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |DIRRING;0;%;10|) %))
               (CONS IDENTITY
                     (FUNCALL (|dispatchFunction| |DIRRING;zeta;%;11|) %))
               (35 . +) |DIRRING;+;3%;12| (41 . -) |DIRRING;-;2%;13| (46 . *)
@@ -484,8 +482,8 @@
               |one?| 192 |multiplicative?| 197 |leftRecip| 203 |leftPower| 208
               |latex| 220 |exquo| 225 |elt| 231 |commutator| 237 |coerce| 243
               |characteristic| 283 |associator| 287 |associates?| 294
-              |antiCommutator| 300 |annihilate?| 306 |additive?| 312 ^ 318
-              |Zero| 330 |One| 334 = 338 - 344 + 355 * 361)
+              |antiCommutator| 300 |annihilate?| 306 |additive?| 312 ^ 318 =
+              330 |1| 336 |0| 340 - 344 + 355 * 361)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -531,8 +529,8 @@
                                     26 1 0 10 0 11 1 0 20 0 24 1 1 0 0 1 1 1 0
                                     6 1 0 0 65 1 3 0 0 0 0 0 1 2 1 30 0 0 1 2 0
                                     0 0 0 1 2 0 30 0 0 1 2 0 30 0 8 72 2 0 0 0
-                                    8 1 2 0 0 0 65 1 0 0 0 33 0 0 0 13 2 0 30 0
-                                    0 1 2 0 0 0 0 1 1 0 0 0 38 2 0 0 0 0 36 2 0
-                                    0 8 0 1 2 0 0 0 0 51 2 0 0 16 0 40 2 0 0 65
-                                    0 1 2 1 0 6 0 42 2 1 0 0 6 1)))))
+                                    8 1 2 0 0 0 65 1 2 0 30 0 0 1 0 0 0 13 0 0
+                                    0 33 2 0 0 0 0 1 1 0 0 0 38 2 0 0 0 0 36 2
+                                    0 0 8 0 1 2 0 0 0 0 51 2 0 0 16 0 40 2 0 0
+                                    65 0 1 2 1 0 6 0 42 2 1 0 0 6 1)))))
            '|lookupComplete|)) 

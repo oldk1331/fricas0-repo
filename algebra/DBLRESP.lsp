@@ -120,7 +120,7 @@
 (MAKEPROP '|DoubleResultantPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|local| |#4|) (0 . |One|) (4 . |One|)
+              (|local| |#3|) (|local| |#4|) (0 . |1|) (4 . |1|)
               (|NonNegativeInteger|) (8 . |minimumDegree|) (13 . |monomial|)
               (|Union| % '"failed") (19 . |exquo|) (25 . |primitivePart|)
               (30 . |coerce|) (|SparseUnivariatePolynomial| 7) (|Mapping| 7 6)

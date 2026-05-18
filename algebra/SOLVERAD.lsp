@@ -880,13 +880,13 @@
 (MAKEPROP '|RadicalSolvePackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|SideEquations|
-              '|ContractSoln| (0 . |Zero|) (|Equation| 12) (4 . |Zero|)
-              (|Expression| 6) (8 . |Zero|) (|Boolean|) (12 . =) (|Symbol|)
+              '|ContractSoln| (0 . |0|) (|Equation| 12) (4 . |0|)
+              (|Expression| 6) (8 . |0|) (|Boolean|) (12 . =) (|Symbol|)
               (18 . |new|) (|Polynomial| 6) (22 . |coerce|) (|Fraction| 18)
               (27 . |coerce|) (32 . |coerce|) (37 . =) (|List| 10)
               (43 . |append|) (|NonNegativeInteger|)
               (|SparseUnivariatePolynomial| 18) (49 . |coefficient|) (55 . -)
-              (60 . |coerce|) (65 . |One|) (69 . |One|) (73 . /)
+              (60 . |coerce|) (65 . |1|) (69 . |1|) (73 . /)
               (|SparseUnivariatePolynomial| 12) (|Mapping| 12 18)
               (|SparseUnivariatePolynomialFunctions2| 18 12) (79 . |map|)
               (|List| 12) (|PolynomialSolveByFormulas| 34 12 6)
@@ -910,7 +910,7 @@
               (|SuchThat| 38 24) |SOLVERAD;contractSolve;ESSt;21|
               |SOLVERAD;contractSolve;FSSt;22| (222 . |lhs|) (227 . |degree|)
               (233 . =) (239 . |list|) (|SparseUnivariatePolynomial| 43)
-              (244 . |Zero|) (248 . |Zero|) (252 . =) (258 . |ground?|)
+              (244 . |0|) (248 . |0|) (252 . =) (258 . |ground?|)
               (263 . |ground|) (|Union| 43 '"failed") (268 . |retractIfCan|)
               (273 . |degree|) (278 . |monomial|) (284 . +) (290 . |reductum|)
               (|CyclotomicUtilities|) (295 . |cyclotomic?|)
@@ -918,7 +918,7 @@
               (|RootUtilities| 6 12) (305 . |radical_solve|)
               (310 . |radical_solve|) (|Record| (|:| |pol| 27) (|:| |deg| 120))
               (|DegreeReductionPackage| 18 6) (315 . |reduce|) (320 . =)
-              (326 . |One|) (|PositiveInteger|) (330 . |expand|)
+              (326 . |1|) (|PositiveInteger|) (330 . |expand|)
               (336 . |construct|) (|Factored| 18)
               (|MultivariateFactorize| 16 (|IndexedExponents| 16) 6 18)
               (342 . |factor|) (|Union| '"nil" '"sqfr" '"irred" '"prime")

@@ -126,12 +126,11 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|)
               (|SparseUnivariatePolynomial| 8) (|Integer|)
-              (|PolynomialNumberTheoryFunctions|) (0 . |cyclotomic|)
-              (5 . |Zero|) (9 . |Zero|) (|Boolean|) (13 . ~=)
-              (|NonNegativeInteger|) (19 . |degree|)
-              (24 . |leadingCoefficient|) (29 . |reductum|) (34 . ^) (40 . *)
-              (46 . +) |NTPOLFN;cyclotomic;Nni2R;1|
-              (|SparseUnivariatePolynomial| 28) (52 . |euler|) (57 . |Zero|)
+              (|PolynomialNumberTheoryFunctions|) (0 . |cyclotomic|) (5 . |0|)
+              (9 . |0|) (|Boolean|) (13 . ~=) (|NonNegativeInteger|)
+              (19 . |degree|) (24 . |leadingCoefficient|) (29 . |reductum|)
+              (34 . ^) (40 . *) (46 . +) |NTPOLFN;cyclotomic;Nni2R;1|
+              (|SparseUnivariatePolynomial| 28) (52 . |euler|) (57 . |0|)
               (61 . ~=) (67 . |degree|) (|Fraction| 8)
               (72 . |leadingCoefficient|) (77 . |reductum|) (82 . *)
               (88 . |eulerE|) (94 . |bernoulli|) (99 . |bernoulliB|))

@@ -246,7 +246,7 @@
 
 (MAKEPROP '|OrthogonalPolynomialFunctions| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |Zero|) (4 . |One|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |0|) (4 . |1|)
               (8 . -) (13 . +) (|Integer|) (19 . |coerce|) (|PositiveInteger|)
               (24 . *) (30 . -) (36 . *) (42 . *) (|NonNegativeInteger|)
               |ORTHPOL;laguerreL;Nni2R;1| (48 . ^) (54 . |binomial|)

@@ -1489,9 +1489,9 @@
               (109 . |ground?|) (114 . =) |SFRGCD;stoseInvertible?;PTSB;5|
               (|Integer|) (|List| 9) (120 . |elt|) (126 . |leadingCoefficient|)
               (|NonNegativeInteger|) (132 . |degree|) (138 . -) (143 . |prem|)
-              (149 . |init|) (154 . |mdeg|) (159 . ^) (165 . |Zero|)
-              (169 . |One|) (|Record| (|:| |val| 54) (|:| |tower| 10))
-              (|List| 66) |SFRGCD;stosePrepareSubResAlgo;2PTSL;6|
+              (149 . |init|) (154 . |mdeg|) (159 . ^) (165 . |0|) (169 . |1|)
+              (|Record| (|:| |val| 54) (|:| |tower| 10)) (|List| 66)
+              |SFRGCD;stosePrepareSubResAlgo;2PTSL;6|
               (173 . |lastSubResultant|) (179 . <) (185 . |gcd|) (191 . *)
               (|Union| % '"failed") (197 . |exquo|)
               |SFRGCD;stoseIntegralLastSubResultant;2PTSL;7|
@@ -1499,7 +1499,7 @@
               (213 . |insert!|) |SFRGCD;stoseInternalLastSubResultant;LVBL;9|
               (219 . |LazardQuotient2|) (227 . |next_subResultant2|)
               (235 . |initiallyReduced?|) (241 . |purelyTranscendental?|)
-              |SFRGCD;stoseLastSubResultant;2PTSL;10| (247 . |One|) (251 . D)
+              |SFRGCD;stoseLastSubResultant;2PTSL;10| (247 . |1|) (251 . D)
               (257 . |mainPrimitivePart|) (262 . |lazyPquo|)
               (268 . |stronglyReduce|) |SFRGCD;stoseSquareFreePart;PTSL;13|
               |SFRGCD;stoseInvertible?_sqfreg;PTSL;14| (274 . |removeZero|)

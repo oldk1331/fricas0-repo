@@ -2348,7 +2348,7 @@
               (|Mapping| 7) (54 . |expression2Fortran1|) (|NonNegativeInteger|)
               (61 . |first|) (67 . |do_with_error_env2|) (73 . |string|) '|Rep|
               '|labelValue| (|SingleInteger|) |FC;setLabelValue;2Si;15|
-              (|Polynomial| 17) (78 . |One|) (82 . |elt|)
+              (|Polynomial| 17) (78 . |1|) (82 . |elt|)
               (88 . |expression2Fortran|) (93 . |indentFortLevel|)
               |FC;getCode;%L;36|
               (|Union| (|:| |Null| '"null") (|:| |Assignment| '"assignment")
@@ -2390,7 +2390,7 @@
               |FC;save;%;42| |FC;printStatement;L%;43| |FC;comment;L%;44|
               (172 . |list|) |FC;comment;S%;45| (177 . |incr|) (182 . |coerce|)
               |FC;forLoop;Sb2%;46| |FC;forLoop;SbP2%;47| |FC;continue;Si%;49|
-              |FC;whileLoop;S2%;50| |FC;repeatUntilLoop;S2%;51| (187 . |Zero|)
+              |FC;whileLoop;S2%;50| |FC;repeatUntilLoop;S2%;51| (187 . |0|)
               |FC;returns;%;52| (|Expression| (|MachineInteger|))
               (191 . |coerce|) |FC;returns;E%;53|
               (|Expression| (|MachineFloat|)) (196 . |coerce|)

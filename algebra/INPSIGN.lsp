@@ -94,13 +94,12 @@
 
 (MAKEPROP '|InnerPolySign| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |One|)
-              (4 . |One|) (|Union| 11 '#1="failed") (|Integer|)
-              (|Mapping| 10 6) |INPSIGN;signAround;UPRIMU;2|
-              |INPSIGN;signAround;UPRMU;1| (|Boolean|) (8 . |zero?|)
-              (13 . |elt|) (19 . |zero?|) (24 . |differentiate|)
-              (29 . |leadingCoefficient|) (34 . |Zero|) (38 . |Zero|)
-              (|NonNegativeInteger|) (42 . |degree|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |1|)
+              (4 . |1|) (|Union| 11 '#1="failed") (|Integer|) (|Mapping| 10 6)
+              |INPSIGN;signAround;UPRIMU;2| |INPSIGN;signAround;UPRMU;1|
+              (|Boolean|) (8 . |zero?|) (13 . |elt|) (19 . |zero?|)
+              (24 . |differentiate|) (29 . |leadingCoefficient|) (34 . |0|)
+              (38 . |0|) (|NonNegativeInteger|) (42 . |degree|)
               |INPSIGN;signAround;UPIMU;3|)
            '#(|signAround| 47) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

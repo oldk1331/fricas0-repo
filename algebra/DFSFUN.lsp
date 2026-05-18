@@ -156,7 +156,7 @@
               (|IntegerRetractions| 8) (0 . |integer?|) |DFSFUN;besselY;3Df;5|
               (|IntegerRetractions| 6) (5 . |integer?|) (10 . |coerce|)
               (15 . +) (21 . |pi|) (25 . *) (31 . |cos|) (36 . -) (41 . -)
-              (47 . |sin|) (52 . /) |DFSFUN;besselY;3C;6| (58 . |One|)
+              (47 . |sin|) (52 . /) |DFSFUN;besselY;3C;6| (58 . |1|)
               |DFSFUN;besselK;3Df;7| (|Integer|) (62 . |coerce|)
               |DFSFUN;besselK;3C;8|)
            '#(|besselY| 67 |besselK| 79 |besselJ| 91 |besselI| 103) 'NIL

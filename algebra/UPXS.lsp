@@ -678,9 +678,9 @@
               (0 . |coerce|) (5 . |coerce|) |UPXS;coerce;Uts%;4|
               (|Union| 14 '"failed") (10 . |retractIfCan|)
               (|Union| 13 '"failed") (15 . |retractIfCan|)
-              |UPXS;retractIfCan;%U;5| (|Boolean|) (20 . |zero?|) (25 . |One|)
-              (29 . |One|) (|Fraction| 40) (33 . |One|) (37 . |monomial|)
-              (43 . |Zero|) (47 . |Zero|) (51 . |Zero|) (55 . +)
+              |UPXS;retractIfCan;%U;5| (|Boolean|) (20 . |zero?|) (25 . |1|)
+              (29 . |1|) (|Fraction| 40) (33 . |1|) (37 . |monomial|)
+              (43 . |0|) (47 . |0|) (51 . |0|) (55 . +)
               (|Variable| (NRTEVAL (QREFELT % 7))) |UPXS;coerce;V%;6|
               (61 . |differentiate|) (66 . |differentiate|) (72 . |integrate|)
               (77 . |integrate|) (|Integer|) (83 . |denom|) (88 . |numer|)
@@ -708,7 +708,7 @@
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %)))
            '#(|variable| 303 |retractIfCan| 308 |rationalPower| 318 |monomial|
               323 |laurentRep| 329 |integrate| 334 |differentiate| 345 |coerce|
-              356 |center| 376 |approximate| 381 |Zero| 387 |One| 391 + 395)
+              356 |center| 376 |approximate| 381 |1| 387 |0| 391 + 395)
            'NIL
            (CONS
             (|makeByteWordVec2| 28
@@ -800,6 +800,6 @@
                                     2 0 0 6 27 29 1 0 14 0 59 1 6 0 0 38 2 6 0
                                     0 34 39 2 0 0 0 34 37 1 3 0 0 36 1 0 63 0
                                     87 1 0 0 14 16 1 0 0 34 35 1 0 0 13 17 1 0
-                                    6 0 12 2 13 6 0 27 61 0 36 0 31 0 34 0 26 2
+                                    6 0 12 2 13 6 0 27 61 0 34 0 26 0 36 0 31 2
                                     0 0 0 0 33)))))
            '|lookupIncomplete|)) 

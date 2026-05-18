@@ -126,26 +126,26 @@
 
 (MAKEPROP '|PiDomain| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|Fraction| 12) '|Rep| '|sympi| (0 . |One|)
-              (4 . |One|) (|Integer|) (|NonNegativeInteger|)
+           '#(NIL NIL NIL NIL NIL (|Fraction| 12) '|Rep| '|sympi| (0 . |1|)
+              (4 . |1|) (|Integer|) (|NonNegativeInteger|)
               (|SparseUnivariatePolynomial| 10) (8 . |monomial|)
               (14 . |coerce|) |HACKPI;pi;%;1| |HACKPI;convert;%F;2| (|Float|)
               |HACKPI;coerce;%F;6| |HACKPI;convert;%F;3| (|DoubleFloat|)
               |HACKPI;coerce;%Df;5| |HACKPI;convert;%Df;4| (19 . |numer|)
               (24 . |denom|) (29 . /) (|OutputForm|) (|Symbol|) (35 . |coerce|)
               (40 . |outputForm|) (|InputForm|) (|Polynomial| 10)
-              (46 . |convert|) (51 . |Zero|) (55 . |Zero|) (59 . |Zero|)
-              (63 . |Zero|) (|Boolean|) (67 . ~=) (73 . |leadingCoefficient|)
-              (78 . |coerce|) (83 . |degree|) (88 . |monomial|) (95 . +)
-              (101 . |reductum|) (|Union| 12 '"failed") (106 . |retractIfCan|)
-              (111 . /) |HACKPI;coerce;%Of;10| (117 . /)
-              |HACKPI;convert;%If;11| (123 . |coerce|)
-              (|SparseUnivariatePolynomial| 20) (|Mapping| 20 10)
-              (|SparseUnivariatePolynomialFunctions2| 10 20) (128 . |map|)
-              (134 . |elt|) (140 . |coerce|) (|SparseUnivariatePolynomial| 17)
-              (|Mapping| 17 10) (|SparseUnivariatePolynomialFunctions2| 10 17)
-              (145 . |map|) (151 . |pi|) (155 . |elt|) (|String|)
-              (|PositiveInteger|) (|Union| % '"failed")
+              (46 . |convert|) (51 . |0|) (55 . |0|) (59 . |0|) (63 . |0|)
+              (|Boolean|) (67 . ~=) (73 . |leadingCoefficient|) (78 . |coerce|)
+              (83 . |degree|) (88 . |monomial|) (95 . +) (101 . |reductum|)
+              (|Union| 12 '"failed") (106 . |retractIfCan|) (111 . /)
+              |HACKPI;coerce;%Of;10| (117 . /) |HACKPI;convert;%If;11|
+              (123 . |coerce|) (|SparseUnivariatePolynomial| 20)
+              (|Mapping| 20 10) (|SparseUnivariatePolynomialFunctions2| 10 20)
+              (128 . |map|) (134 . |elt|) (140 . |coerce|)
+              (|SparseUnivariatePolynomial| 17) (|Mapping| 17 10)
+              (|SparseUnivariatePolynomialFunctions2| 10 17) (145 . |map|)
+              (151 . |pi|) (155 . |elt|) (|String|) (|PositiveInteger|)
+              (|Union| % '"failed")
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|Record| (|:| |llcm_res| %) (|:| |coeff1| %) (|:| |coeff2| %))
               (|List| %) (|SparseUnivariatePolynomial| %)
@@ -167,8 +167,8 @@
               370 |exquo| 383 |expressIdealMember| 389 |euclideanSize| 395
               |divide| 400 |convert| 406 |commutator| 426 |coerce| 432
               |characteristic| 462 |associator| 466 |associates?| 473
-              |antiCommutator| 479 |annihilate?| 485 ^ 491 |Zero| 509 |One| 513
-              = 517 / 523 - 529 + 540 * 546)
+              |antiCommutator| 479 |annihilate?| 485 ^ 491 = 509 |1| 515 |0|
+              519 / 523 - 529 + 540 * 546)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -234,8 +234,8 @@
                                     48 1 0 0 10 1 1 0 0 0 1 1 0 0 78 1 1 0 20 0
                                     21 1 0 17 0 18 0 0 11 1 3 0 0 0 0 0 1 2 0
                                     37 0 0 1 2 0 0 0 0 1 2 0 37 0 0 1 2 0 0 0
-                                    65 1 2 0 0 0 11 1 2 0 0 0 10 1 0 0 0 34 0 0
-                                    0 8 2 0 37 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1 1
+                                    65 1 2 0 0 0 11 1 2 0 0 0 10 1 2 0 37 0 0 1
+                                    0 0 0 8 0 0 0 34 2 0 0 0 0 1 2 0 0 0 0 1 1
                                     0 0 0 1 2 0 0 0 0 1 2 0 0 65 0 1 2 0 0 0 0
                                     1 2 0 0 10 0 1 2 0 0 11 0 1 2 1 0 78 0 1 2
                                     1 0 0 78 1)))))

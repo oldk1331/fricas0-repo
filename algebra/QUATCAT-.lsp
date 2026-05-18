@@ -380,9 +380,9 @@
               (|Boolean|) (53 . =) |QUATCAT-;=;2SB;5| (59 . +)
               |QUATCAT-;+;3S;6| (65 . -) |QUATCAT-;-;3S;7| |QUATCAT-;-;2S;8|
               (71 . *) |QUATCAT-;*;R2S;9| (|Integer|) (77 . *)
-              |QUATCAT-;*;I2S;10| |QUATCAT-;differentiate;SMS;11| (83 . |Zero|)
+              |QUATCAT-;*;I2S;10| |QUATCAT-;differentiate;SMS;11| (83 . |0|)
               |QUATCAT-;coerce;RS;12| (87 . |coerce|) |QUATCAT-;coerce;IS;13|
-              (92 . |One|) (96 . |zero?|) |QUATCAT-;one?;SB;14|
+              (92 . |1|) (96 . |zero?|) |QUATCAT-;one?;SB;14|
               |QUATCAT-;zero?;SB;15| |QUATCAT-;retract;SR;16|
               (|Union| 7 '"failed") |QUATCAT-;retractIfCan;SU;17|
               (101 . |zero?|) (|OutputForm|) (106 . |coerce|) (111 . |coerce|)

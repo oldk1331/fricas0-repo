@@ -291,11 +291,11 @@
               (10 . |ground?|) (|Union| 7 '"failed") (15 . |mainVariable|)
               (|SparseUnivariatePolynomial| %)
               (|SparseMultivariatePolynomial| 6 7) (20 . |univariate|)
-              (26 . |Zero|) |PDO;adjoint;2%;1| (|Mapping| $$ $$) (30 . |map|)
-              (36 . |Zero|) (40 . |Zero|) (44 . ~=) (|NonNegativeInteger|)
-              (50 . |degree|) (55 . |One|) (59 . |One|) (63 . -)
-              (68 . |monomial|) (75 . *) (81 . |leadingCoefficient|) (86 . +)
-              (92 . |reductum|) (|String|) (|OutputForm|) (|PositiveInteger|)
+              (26 . |0|) |PDO;adjoint;2%;1| (|Mapping| $$ $$) (30 . |map|)
+              (36 . |0|) (40 . |0|) (44 . ~=) (|NonNegativeInteger|)
+              (50 . |degree|) (55 . |1|) (59 . |1|) (63 . -) (68 . |monomial|)
+              (75 . *) (81 . |leadingCoefficient|) (86 . +) (92 . |reductum|)
+              (|String|) (|OutputForm|) (|PositiveInteger|)
               (|Record| (|:| |k| 43) (|:| |c| 6)) (|List| 41)
               (|IndexedExponents| 7) (|List| 43) (|List| %) (|List| 6)
               (|Union| 6 '#1="failed") (|Mapping| 43 43) (|List| 28) (|List| 7)
@@ -322,8 +322,8 @@
               452 |coerce| 458 |coefficients| 483 |coefficient| 488
               |characteristic| 508 |binomThmExpt| 512 |associator| 519
               |associates?| 526 |antiCommutator| 532 |annihilate?| 538
-              |adjoint| 544 ^ 549 |Zero| 561 |One| 565 D 569 = 574 / 580 - 586
-              + 597 * 603)
+              |adjoint| 544 ^ 549 D 561 = 566 |1| 572 |0| 576 / 580 - 586 + 597
+              * 603)
            'NIL
            (CONS
             (|makeByteWordVec2| 28
@@ -401,9 +401,9 @@
                                     6 0 43 1 3 0 0 0 50 49 1 3 0 0 0 7 28 1 0
                                     39 28 1 3 32 0 0 0 28 1 3 39 0 0 0 0 1 2 33
                                     14 0 0 1 2 0 0 0 0 1 2 39 14 0 0 1 1 0 0 0
-                                    22 2 0 0 0 40 1 2 37 0 0 28 1 0 36 0 21 0
-                                    37 0 30 1 0 0 7 1 2 0 14 0 0 1 2 16 0 0 6 1
-                                    2 34 0 0 0 1 1 34 0 0 32 2 0 0 0 0 36 2 0 0
+                                    22 2 0 0 0 40 1 2 37 0 0 28 1 1 0 0 7 1 2 0
+                                    14 0 0 1 0 37 0 30 0 36 0 21 2 16 0 0 6 1 2
+                                    34 0 0 0 1 1 34 0 0 32 2 0 0 0 0 36 2 0 0
                                     40 0 1 2 0 0 0 0 34 2 0 0 0 6 1 2 0 0 6 0 1
                                     2 21 0 0 51 1 2 34 0 51 0 1 2 36 0 28 0 1 2
                                     1 0 58 0 1 2 1 0 0 58 1)))))

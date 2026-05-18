@@ -147,12 +147,12 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|Symbol|)
               (0 . |new|) (|Kernel| 7) (4 . |kernel|) (|SegmentBinding| 7)
               (9 . |variable|) (|SegmentBinding| %) (14 . |summation|)
-              (20 . |One|) (24 . |One|) (|Segment| 7) (28 . |segment|)
+              (20 . |1|) (24 . |1|) (|Segment| 7) (28 . |segment|)
               (33 . |high|) (38 . +) (|Kernel| %) (44 . |eval|) (51 . |low|)
               (56 . -) |SUMFS;sum;FSbF;2| (62 . |summation|) |SUMFS;sum;FSF;3|
               (|List| 22) (68 . |tower|) (73 . |coerce|) (|Boolean|)
               (|List| 10) (78 . |member?|) (|Union| 8 '"failed")
-              (84 . |symbolIfCan|) (89 . |zero?|) (94 . |Zero|) (98 . /)
+              (84 . |symbolIfCan|) (89 . |zero?|) (94 . |0|) (98 . /)
               (|ElementaryFunctionStructurePackage| 6 7) (104 . |normalize|)
               (|Union| 7 '"failed") (|Mapping| 10)
               (|GosperSummationMethod| (|IndexedExponents| 10) 10 6

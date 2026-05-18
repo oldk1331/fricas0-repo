@@ -10437,8 +10437,8 @@ osubResultantGcd`2`n`(polR,polR)->polR`pPseudoRemainderSequence(R,polR)``1214740
 osubResultantGcd`2`x`(%,%)->%`cRecursivePolynomialCategory(R,E,V)`has(R,IntegralDomain)`1214851
 osubResultantGcd`2`x`(%,%)->%`cUnivariatePolynomialCategory(R)`has(R,IntegralDomain)`1215180
 osubResultantGcdEuclidean`2`n`(polR,polR)->Record(coef1:polR,coef2:polR,gcd:polR)`pPseudoRemainderSequence(R,polR)``1215326
+osubresultants`2`n`(UP,UP)->IndexedVector(UP,0)`pBezoutMatrix(R,UP,M,Row,Col)`has(R,CommutativeRing)`1215532
 osubresultants`2`n`(UP,UP)->IndexedVector(UP,0)`pBezoutMatrixWrapper(R,UP)`has(R,CommutativeRing)`0
-osubresultants`2`n`(UP,UP)->IndexedVector(UP,Zero)`pBezoutMatrix(R,UP,M,Row,Col)`has(R,CommutativeRing)`1215532
 osubResultantsChain`2`n`(%,%)->List(%)`dNewSparseUnivariatePolynomial(R)`has(R,IntegralDomain)`1215669
 osubresultantVector`2`n`(UP,UP)->PrimitiveArray(UP)`pSubResultantPackage(R,UP)``1215810
 osubscript`1`n`(Integer)->(Integer,List(OutputForm))->OutputBox`cFormatterCategory``1215996

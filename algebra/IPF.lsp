@@ -410,14 +410,14 @@
               (|local| |#1|) '|primitiveElementNotPresent?| '|primitiveElt|
               '|cyclicGroupSize| '|factorsOfCyclicGroupSize|
               '|logarithmTableNotPresent?| (|Table| 19 34) (0 . |table|)
-              '|discLogTable| '|twoPowerOfCyclicGroupSize| (4 . |Zero|)
+              '|discLogTable| '|twoPowerOfCyclicGroupSize| (4 . |0|)
               (|Boolean|) (8 . =) (|PositiveInteger|) (14 . |order|)
               (|Factored| %) (|Integer|) (19 . |factor|)
               (|Record| (|:| |factor| 22) (|:| |exponent| 49)) (|List| 24)
               (|Factored| 22) (24 . |factors|) (29 . |createPrimitiveElement|)
               (33 . |lookup|) (|Void|) (38 . |void|)
               |IPF;primitiveElement;%;17| |IPF;^;%I%;7| (|Table| 19 49)
-              (42 . |table|) (46 . |One|)
+              (42 . |table|) (46 . |1|)
               (|Record| (|:| |key| 19) (|:| |entry| 49)) (50 . |insert!|)
               (56 . *) (62 . |copy|) (|Record| (|:| |key| 19) (|:| |entry| 34))
               (67 . |insert!|) (|IntegerNumberTheoryFunctions|) (73 . |jacobi|)
@@ -462,8 +462,8 @@
               |extensionDegree| 265 |degree| 269 |definingPolynomial| 274
               |createPrimitiveElement| 278 |createNormalElement| 282
               |coordinates| 286 |convert| 291 |coerce| 296 |charthRoot| 301
-              |characteristic| 306 |basis| 310 ^ 319 |Zero| 337 |One| 341 = 345
-              / 351 - 357 * 362)
+              |characteristic| 306 |basis| 310 ^ 319 = 337 |1| 343 |0| 347 /
+              351 - 357 * 362)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -526,7 +526,7 @@
                                     0 19 0 76 0 0 92 93 0 0 0 28 0 4 0 67 1 0
                                     81 0 82 1 0 22 0 48 1 0 0 22 45 1 0 0 0 95
                                     0 0 49 68 0 0 81 87 1 4 81 19 88 2 0 0 0 19
-                                    52 2 0 0 0 49 50 2 0 0 0 22 33 0 0 0 16 0 0
-                                    0 36 2 0 17 0 0 18 2 0 0 0 0 53 1 0 0 0 51
-                                    2 0 0 0 0 39)))))
+                                    52 2 0 0 0 49 50 2 0 0 0 22 33 2 0 17 0 0
+                                    18 0 0 0 36 0 0 0 16 2 0 0 0 0 53 1 0 0 0
+                                    51 2 0 0 0 0 39)))))
            '|lookupIncomplete|)) 

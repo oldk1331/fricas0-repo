@@ -428,7 +428,7 @@
               |OMEXPR;OMwrite;OmdEBV;15| (17 . |OMputEndApp|)
               (22 . |OMputBind|) (27 . |OMputBVar|) (32 . |OMputEndBVar|)
               (37 . |OMputEndBind|) (|NonNegativeInteger|) (42 . ~=)
-              (|Integer|) (|List| 19) (48 . |elt|) (54 . |One|) (58 . |One|)
+              (|Integer|) (|List| 19) (48 . |elt|) (54 . |1|) (58 . |1|)
               (62 . |eval|) (|Union| 7 '"failed") (|Symbol|) (69 . |search|)
               (75 . |string|) (80 . |ground?|) (85 . |ground|) (90 . |OMwrite|)
               (|Union| 36 '"failed") (97 . |retractIfCan|)

@@ -187,12 +187,12 @@
               (|Record| (|:| |flag| 8) (|:| |factor| 7) (|:| |exponent| 13))
               (|List| 9) (|Factored| 7) (0 . |factorList|)
               (|NonNegativeInteger|) (5 . |degree|) (|List| 7)
-              (|PositiveInteger|) |GALPOLYU;factorsOfDegree;PiFL;1|
-              (10 . |Zero|) |GALPOLYU;factorOfDegree;PiFUP;2| (|List| 13)
-              (|Multiset| 13) (14 . |multiset|) |GALPOLYU;degreePartition;FM;3|
-              (19 . |leadingCoefficient|) (24 . |One|) (|Boolean|) (28 . =)
+              (|PositiveInteger|) |GALPOLYU;factorsOfDegree;PiFL;1| (10 . |0|)
+              |GALPOLYU;factorOfDegree;PiFUP;2| (|List| 13) (|Multiset| 13)
+              (14 . |multiset|) |GALPOLYU;degreePartition;FM;3|
+              (19 . |leadingCoefficient|) (24 . |1|) (|Boolean|) (28 . =)
               |GALPOLYU;monic?;UPB;4| (34 . |coefficient|) (40 . |monomial|)
-              (46 . +) |GALPOLYU;reverse;2UP;5| (52 . |One|) (56 . |zero?|)
+              (46 . +) |GALPOLYU;reverse;2UP;5| (52 . |1|) (56 . |zero?|)
               (61 . *) |GALPOLYU;scaleRoots;UPRUP;6| (67 . |coerce|)
               (|SparseUnivariatePolynomial| 7) (|Mapping| 7 6)
               (|UnivariatePolynomialCategoryFunctions2| 6 7 7 38) (72 . |map|)

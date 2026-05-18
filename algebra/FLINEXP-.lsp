@@ -56,7 +56,7 @@
 
 (MAKEPROP '|FullyLinearlyExplicitOver&| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |One|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |1|)
               (|Integer|) (4 . *) (10 . *) (16 . *) (|Matrix| 7) (|Matrix| %)
               (22 . |reducedSystem|) (|Matrix| 9) (27 . |reducedSystem|)
               (32 . |reducedSystem|)

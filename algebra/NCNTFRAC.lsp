@@ -98,8 +98,8 @@
               (0 . |wholePart|) (5 . |coerce|) (10 . -) (|Boolean|)
               (16 . |zero?|) (|Stream| 7) (21 . |empty|) (25 . |concat|)
               (31 . |inv|) (|Mapping| %) (36 . |delay|) (|ContinuedFraction| 7)
-              (41 . |reducedContinuedFraction|) (47 . |negative?|) (52 . |One|)
-              (56 . |One|) (60 . +) |NCNTFRAC;continuedFraction;FCf;2|)
+              (41 . |reducedContinuedFraction|) (47 . |negative?|) (52 . |1|)
+              (56 . |1|) (60 . +) |NCNTFRAC;continuedFraction;FCf;2|)
            '#(|continuedFraction| 66) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)

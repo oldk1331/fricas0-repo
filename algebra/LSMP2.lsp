@@ -116,7 +116,7 @@
               (|Union| 16 '#1#)
               (|Record| (|:| |particular| 23) (|:| |basis| (|List| 16)))
               (|LinearSystemMatrixPackage| 14 16 16 20) (29 . |solve|)
-              (35 . |Zero|) (39 . |Zero|) (|Integer|) (43 . |elt|)
+              (35 . |0|) (39 . |0|) (|Integer|) (43 . |elt|)
               (|Union| 6 '"failed") (49 . |retractIfCan|) (54 . |setelt!|))
            '#(|solveUniquely| 61) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

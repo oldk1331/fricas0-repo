@@ -19,7 +19,7 @@
 
 (MAKEPROP '|NonAssociativeRing&| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |One|) (|Integer|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |1|) (|Integer|)
               (4 . *) |NARING-;coerce;IS;1| (|OutputForm|))
            '#(|coerce| 10) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

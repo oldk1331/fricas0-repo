@@ -2503,14 +2503,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|Boolean|) (0 . |ground?|)
               (5 . |ground|) (|OutputForm|) (10 . |coerce|) (15 . |init|)
-              (20 . |One|) (24 . |One|) (28 . =) (34 . |tail|) (39 . |zero?|)
+              (20 . |1|) (24 . |1|) (28 . =) (34 . |tail|) (39 . |zero?|)
               (|NonNegativeInteger|) (44 . |mdeg|) (49 . |mvar|)
               (54 . |coerce|) (59 . |coerce|) (64 . ^) (70 . |coerce|) (75 . +)
               (81 . *) |RPOLCAT-;coerce;SOf;1| (|Union| 9 '"failed")
               (87 . |mainVariable|) |RPOLCAT-;mvar;SV;2| (92 . |degree|)
               |RPOLCAT-;mdeg;SNni;3| (98 . |coefficient|) |RPOLCAT-;init;2S;4|
               |RPOLCAT-;leadingCoefficient;SVS;5| (105 . |monomial|)
-              |RPOLCAT-;head;2S;6| (112 . |Zero|) (116 . -)
+              |RPOLCAT-;head;2S;6| (112 . |0|) (116 . -)
               |RPOLCAT-;reductum;SVS;7| (122 . |head|) |RPOLCAT-;tail;2S;8|
               (127 . >) (133 . |deepestTail|) |RPOLCAT-;deepestTail;2S;9|
               (|List| %) (138 . |iteratedInitials|)

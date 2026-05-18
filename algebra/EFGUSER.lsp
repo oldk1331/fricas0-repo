@@ -490,25 +490,24 @@
 (MAKEPROP '|ElementaryFunctionsGeneralizedUnivariatePowerSeries| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) 'TRANSFCN (0 . |Zero|) (4 . |Zero|)
-              (8 . |removeZeros|) (14 . |degree|) (|Boolean|) (19 . <)
-              (25 . |coefficient|) (|Stream| 6) (|Integer|)
-              (|StreamTaylorSeriesOperations| 6) (31 . |monom|) (37 . |One|)
-              (41 . |One|) (45 . +) (51 . |monomial|) (57 . -)
-              (63 . |apply_taylor|) (69 . >=) (75 . =) (81 . |One|)
+              (|local| |#3|) 'TRANSFCN (0 . |0|) (4 . |0|) (8 . |removeZeros|)
+              (14 . |degree|) (|Boolean|) (19 . <) (25 . |coefficient|)
+              (|Stream| 6) (|Integer|) (|StreamTaylorSeriesOperations| 6)
+              (31 . |monom|) (37 . |1|) (41 . |1|) (45 . +) (51 . |monomial|)
+              (57 . -) (63 . |apply_taylor|) (69 . >=) (75 . =) (81 . |1|)
               (|PositiveInteger|) (85 . *) (91 . +) (97 . -) (|Fraction| 18)
-              (102 . |One|) (106 . -) (111 . -) (116 . *) (122 . *)
-              (128 . |One|) (132 . /) (138 . |powern|) (144 . *)
-              (|Union| 8 '"failed") (|NonNegativeInteger|)
-              (150 . |nthRootIfCan|) (|StreamTranscendentalFunctions| 6)
-              (156 . |exp|) (161 . |exp|) (166 . *) |EFGUSER;expIfCan;PSU;3|
-              (172 . |log|) |EFGUSER;logIfCan;PSU;4|
-              (|Record| (|:| |sin| 17) (|:| |cos| 17)) (177 . |sincos|)
-              (182 . |sin|) (187 . |cos|) (192 . +) |EFGUSER;sinIfCan;PSU;6|
-              |EFGUSER;cosIfCan;PSU;7| (198 . |do_quo|)
-              |EFGUSER;tanIfCan;PSU;8| |EFGUSER;cotIfCan;PSU;9|
-              |EFGUSER;secIfCan;PSU;10| |EFGUSER;cscIfCan;PSU;11|
-              (204 . |asin|) |EFGUSER;asinIfCan;PSU;12| (209 . |acos|)
+              (102 . |1|) (106 . -) (111 . -) (116 . *) (122 . *) (128 . |1|)
+              (132 . /) (138 . |powern|) (144 . *) (|Union| 8 '"failed")
+              (|NonNegativeInteger|) (150 . |nthRootIfCan|)
+              (|StreamTranscendentalFunctions| 6) (156 . |exp|) (161 . |exp|)
+              (166 . *) |EFGUSER;expIfCan;PSU;3| (172 . |log|)
+              |EFGUSER;logIfCan;PSU;4| (|Record| (|:| |sin| 17) (|:| |cos| 17))
+              (177 . |sincos|) (182 . |sin|) (187 . |cos|) (192 . +)
+              |EFGUSER;sinIfCan;PSU;6| |EFGUSER;cosIfCan;PSU;7|
+              (198 . |do_quo|) |EFGUSER;tanIfCan;PSU;8|
+              |EFGUSER;cotIfCan;PSU;9| |EFGUSER;secIfCan;PSU;10|
+              |EFGUSER;cscIfCan;PSU;11| (204 . |asin|)
+              |EFGUSER;asinIfCan;PSU;12| (209 . |acos|)
               |EFGUSER;acosIfCan;PSU;13| (214 . |atan|)
               |EFGUSER;atanIfCan;PSU;14| (219 . |acot|)
               |EFGUSER;acotIfCan;PSU;15| (224 . |asec|)

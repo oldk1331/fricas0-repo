@@ -71,9 +71,9 @@
                           (EXIT (NREVERSE #1#)))))
               (EXIT (SPADCALL |ps| |vl1| |vl2| (QREFELT % 44)))))) 
 
-(SDEFUN |EXPR;Zero;%;6| ((% (%))) (|spadConstant| % 46)) 
+(SDEFUN |EXPR;0;%;6| ((% (%))) (|spadConstant| % 46)) 
 
-(SDEFUN |EXPR;One;%;7| ((% (%))) (|spadConstant| % 48)) 
+(SDEFUN |EXPR;1;%;7| ((% (%))) (|spadConstant| % 48)) 
 
 (SDEFUN |EXPR;one?;%B;8| ((|x| (%)) (% (|Boolean|)))
         (SPADCALL |x| (|spadConstant| % 49) (QREFELT % 51))) 
@@ -1804,9 +1804,9 @@
          (% (|PatternMatchResult| #1# . #2#)))
         (SPADCALL |x| |p| |l| (QREFELT % 591))) 
 
-(SDEFUN |EXPR;Zero;%;209| ((% (%))) (|spadConstant| % 46)) 
+(SDEFUN |EXPR;0;%;209| ((% (%))) (|spadConstant| % 46)) 
 
-(SDEFUN |EXPR;One;%;210| ((% (%))) (|spadConstant| % 48)) 
+(SDEFUN |EXPR;1;%;210| ((% (%))) (|spadConstant| % 48)) 
 
 (SDEFUN |EXPR;-;2%;211| ((|x| (%)) (% (%))) (SPADCALL |x| (QREFELT % 55))) 
 
@@ -1875,7 +1875,7 @@
         (SPADCALL |x| |p| |l| (CONS (|function| |EXPR;kfltmatch|) %)
                   (QREFELT % 607))) 
 
-(SDEFUN |EXPR;Zero;%;227| ((% (%))) (|spadConstant| % 46)) 
+(SDEFUN |EXPR;0;%;227| ((% (%))) (|spadConstant| % 46)) 
 
 (SDEFUN |EXPR;+;3%;228| ((|x| (%)) (|y| (%)) (% (%)))
         (SPADCALL |x| |y| (QREFELT % 64))) 
@@ -2444,10 +2444,10 @@
                      (|SparseMultivariatePolynomial| |#1| (|Kernel| %))))
           (QSETREFV % 47
                     (CONS #'|makeSpadConstant|
-                          (LIST (|dispatchFunction| |EXPR;Zero;%;6|) % 47)))
+                          (LIST (|dispatchFunction| |EXPR;0;%;6|) % 47)))
           (QSETREFV % 49
                     (CONS #'|makeSpadConstant|
-                          (LIST (|dispatchFunction| |EXPR;One;%;7|) % 49)))
+                          (LIST (|dispatchFunction| |EXPR;1;%;7|) % 49)))
           (QSETREFV % 52 (CONS (|dispatchFunction| |EXPR;one?;%B;8|) %))
           (QSETREFV % 54 (CONS (|dispatchFunction| |EXPR;zero?;%B;9|) %))
           (QSETREFV % 56 (CONS (|dispatchFunction| |EXPR;-;2%;10|) %))
@@ -2765,10 +2765,10 @@
           (SETELT % 45 (|SparseMultivariatePolynomial| |#1| (|Kernel| %)))
           (QSETREFV % 47
                     (CONS #'|makeSpadConstant|
-                          (LIST (|dispatchFunction| |EXPR;Zero;%;209|) % 47)))
+                          (LIST (|dispatchFunction| |EXPR;0;%;209|) % 47)))
           (QSETREFV % 49
                     (CONS #'|makeSpadConstant|
-                          (LIST (|dispatchFunction| |EXPR;One;%;210|) % 49)))
+                          (LIST (|dispatchFunction| |EXPR;1;%;210|) % 49)))
           (QSETREFV % 56 (CONS (|dispatchFunction| |EXPR;-;2%;211|) %))
           (QSETREFV % 59 (CONS (|dispatchFunction| |EXPR;*;I2%;212|) %))
           (QSETREFV % 63 (CONS (|dispatchFunction| |EXPR;*;3%;213|) %))
@@ -2805,7 +2805,7 @@
        (SETELT % 45 (|FreeModule| (|Integer|) (|Kernel| %)))
        (QSETREFV % 47
                  (CONS #'|makeSpadConstant|
-                       (LIST (|dispatchFunction| |EXPR;Zero;%;227|) % 47)))
+                       (LIST (|dispatchFunction| |EXPR;0;%;227|) % 47)))
        (QSETREFV % 65 (CONS (|dispatchFunction| |EXPR;+;3%;228|) %))
        (QSETREFV % 96 (CONS (|dispatchFunction| |EXPR;=;2%B;229|) %))
        (QSETREFV % 95 (CONS (|dispatchFunction| |EXPR;smaller?;2%B;230|) %))
@@ -2875,22 +2875,21 @@
               (|SparseMultivariatePolynomial| 6 27) (82 . |variables|)
               (|SparseMultivariatePolynomial| 6 15) (|List| 15)
               (|SparsePolynomialCoercionHelpers| 6 27 15)
-              (87 . |remap_variables|) '|Rep| (94 . |Zero|) (98 . |Zero|)
-              (102 . |One|) (106 . |One|) (110 . |One|) (114 . =)
-              (120 . |one?|) (125 . |zero?|) (130 . |zero?|) (135 . -)
-              (140 . -) (|Integer|) (145 . *) (151 . *) (157 . |coerce|)
-              (162 . |coerce|) (167 . *) (173 . *) (179 . +) (185 . +)
-              (191 . -) (197 . -) (203 . /) (209 . /) (215 . |ground?|)
-              (|Union| 519 '#1#) (220 . |retractIfCan|) (225 . |number?|)
-              (|List| 12) (230 . |kernels|) (235 . |is?|) (241 . |first|)
-              (|List| $$) (246 . |argument|) (251 . |#|) (256 . |elt|)
-              (262 . ^) (268 . |algtower|) (273 . ^) (279 . |first|)
-              (284 . |second|) (289 . |Zero|) (293 . |numerator|)
+              (87 . |remap_variables|) '|Rep| (94 . |0|) (98 . |0|) (102 . |1|)
+              (106 . |1|) (110 . |1|) (114 . =) (120 . |one?|) (125 . |zero?|)
+              (130 . |zero?|) (135 . -) (140 . -) (|Integer|) (145 . *)
+              (151 . *) (157 . |coerce|) (162 . |coerce|) (167 . *) (173 . *)
+              (179 . +) (185 . +) (191 . -) (197 . -) (203 . /) (209 . /)
+              (215 . |ground?|) (|Union| 519 '#1#) (220 . |retractIfCan|)
+              (225 . |number?|) (|List| 12) (230 . |kernels|) (235 . |is?|)
+              (241 . |first|) (|List| $$) (246 . |argument|) (251 . |#|)
+              (256 . |elt|) (262 . ^) (268 . |algtower|) (273 . ^)
+              (279 . |first|) (284 . |second|) (289 . |0|) (293 . |numerator|)
               (298 . |denominator|) (303 . ^) (309 . ^) (|PositiveInteger|)
               (315 . ^) (321 . |smaller?|) (327 . |smaller?|) (333 . =)
               (339 . |numer|) (|SparseMultivariatePolynomial| 6 12)
-              (344 . |numer|) (349 . |denom|) (354 . |denom|) 'EREP
-              (359 . |One|) (363 . |coerce|) (|Polynomial| 6) (368 . |coerce|)
+              (344 . |numer|) (349 . |denom|) (354 . |denom|) 'EREP (359 . |1|)
+              (363 . |coerce|) (|Polynomial| 6) (368 . |coerce|)
               (|Fraction| 105) (373 . |numer|) (378 . |denom|) (383 . |coerce|)
               (388 . |reduce|) (|Mapping| 9 15) (393 . |select!|)
               (|AlgebraicManipulations| 6 $$) (399 . |ratDenom|) (405 . |is?|)
@@ -3001,7 +3000,7 @@
               (|PolynomialCategoryQuotientFunctions| 514 15 6 41 428)
               (2114 . |univariate|) (|SparseUnivariatePolynomial| 428)
               (2120 . |numer|) (2125 . |degree|) (2131 . |degree|)
-              (2136 . |rem|) (2142 . |coerce|) (2147 . |elt|) (2153 . |Zero|)
+              (2136 . |rem|) (2142 . |coerce|) (2147 . |elt|) (2153 . |0|)
               (2157 . ~=) (2163 . |leadingCoefficient|) (2168 . |reductum|)
               (2173 . |concat|) (2179 . |removeDuplicates|) (2184 . =)
               (2190 . |coefficients|) (|Mapping| 9 $$) (2195 . |every?|)
@@ -3009,8 +3008,8 @@
               (|UnivariatePolynomialCategoryFunctions2| $$ 133 41 120)
               (2201 . |map|) (2207 . |retract|) (2212 . |monomial|)
               (2218 . |coerce|) (2223 . -) (2229 . =) (|Polynomial| 57)
-              (2235 . |One|) (2239 . |One|) (2243 . |monomial|)
-              (2250 . |coerce|) (|Mapping| 458 15) (|Mapping| 458 57)
+              (2235 . |1|) (2239 . |1|) (2243 . |monomial|) (2250 . |coerce|)
+              (|Mapping| 458 15) (|Mapping| 458 57)
               (|PolynomialCategoryLifting| 514 15 57 41 458) (2255 . |map|)
               (2262 . |multivariate|) 'MD 'MOP1 'MGCD1 (2268 . |coerce|)
               (|Mapping| 41 27) (|Mapping| 41 57)
@@ -3022,7 +3021,7 @@
               (2292 . |coerce|) (|SparseUnivariatePolynomial| 482)
               (2297 . |coerce|) (|Mapping| 482 $$)
               (|UnivariatePolynomialCategoryFunctions2| $$ 133 482 485)
-              (2302 . |map|) (2308 . =) (2314 . |One|) (2318 . |gcdPolynomial|)
+              (2302 . |map|) (2308 . =) (2314 . |1|) (2318 . |gcdPolynomial|)
               (2324 . |concat|) (2330 . |algtower|) (2335 . |kernels|)
               (2340 . |setUnion|) (2346 . |sort|) (2351 . |new|)
               (2355 . |cons|) (2361 . |setDifference|) (|List| 458)
@@ -3032,7 +3031,7 @@
               (|GcdDomain&| $$) (2393 . |gcdPolynomial|) (|Factored| 133)
               (|ExpressionFactorPolynomial| 6 $$) (2399 . |factorPolynomial|)
               (|Factored| 118) (2404 . |factorPolynomial|)
-              (|IndexedExponents| 15) (2409 . |Zero|) (2413 . |monomial|)
+              (|IndexedExponents| 15) (2409 . |0|) (2413 . |monomial|)
               (|AlgebraicNumber|) (2419 . |coerce|) (|Fraction| 57) (2424 . ^)
               (2430 . ^) (2436 . |minPoly|) (2441 . |definingPolynomial|)
               (2446 . |definingPolynomial|) (2451 . |retract|)
@@ -3042,11 +3041,11 @@
               (2477 . /) (|Union| 517 '"failed") (2483 . |retractIfCan|)
               (2488 . |coerce|) (2493 . |coerce|) (2498 . |is?|)
               (|Union| 27 '#1#) (2504 . |retractIfCan|)
-              (|SparseUnivariatePolynomial| 517) (2509 . |Zero|)
-              (2513 . |Zero|) (2517 . ~=) (2523 . |degree|) (2528 . |monomial|)
-              (2534 . +) (2540 . |rootOf|) (2546 . |operator|) (2551 . |elt|)
+              (|SparseUnivariatePolynomial| 517) (2509 . |0|) (2513 . |0|)
+              (2517 . ~=) (2523 . |degree|) (2528 . |monomial|) (2534 . +)
+              (2540 . |rootOf|) (2546 . |operator|) (2551 . |elt|)
               (|Union| 15 '"failed") (2557 . |mainVariable|)
-              (2562 . |leadingCoefficient|) (2567 . |Zero|) (2571 . |ground?|)
+              (2562 . |leadingCoefficient|) (2567 . |0|) (2571 . |ground?|)
               (2576 . ^) (2582 . *) (2588 . +) (|InputForm|) (2594 . |convert|)
               (2599 . |convert|) (|List| 10) (2604 . |eval|) (2612 . |eval|)
               (2620 . |variables|) (2625 . |concat|)
@@ -3149,9 +3148,9 @@
               4583 |antiCommutator| 4619 |annihilate?| 4625 |angerJ| 4631
               |algtower| 4637 |airyBiPrime| 4647 |airyBi| 4652 |airyAiPrime|
               4657 |airyAi| 4662 |acsch| 4667 |acsc| 4672 |acoth| 4677 |acot|
-              4682 |acosh| 4687 |acos| 4692 |abs| 4697 ^ 4702 |Zero| 4732 |Si|
-              4736 |Shi| 4741 |One| 4746 |Gamma| 4750 |Ei| 4761 D 4766 |Ci|
-              4792 |Chi| 4797 |Beta| 4802 = 4815 / 4821 - 4833 + 4844 * 4850)
+              4682 |acosh| 4687 |acos| 4692 |abs| 4697 ^ 4702 |Si| 4732 |Shi|
+              4737 |Gamma| 4742 |Ei| 4753 D 4758 |Ci| 4784 |Chi| 4789 |Beta|
+              4794 = 4807 |1| 4813 |0| 4817 / 4821 - 4833 + 4844 * 4850)
            'NIL
            (CONS
             (|makeByteWordVec2| 34
@@ -3517,11 +3516,11 @@
                                     194 1 1 0 0 214 1 1 0 0 190 1 1 0 0 210 1 1
                                     0 0 186 1 1 0 0 221 2 9 0 0 57 91 2 1 0 0
                                     519 521 2 1 0 0 0 84 2 17 0 0 92 93 2 17 0
-                                    0 35 90 0 32 0 47 1 1 0 0 399 1 1 0 0 403 0
-                                    17 0 49 2 1 0 0 0 239 1 1 0 0 237 1 1 0 0
-                                    397 2 6 0 0 38 1 2 6 0 0 27 1 3 6 0 0 27 35
-                                    1 3 6 0 0 38 657 1 1 1 0 0 401 1 1 0 0 405
-                                    3 1 0 0 0 0 243 2 1 0 0 0 241 2 0 9 0 0 96
+                                    0 35 90 1 1 0 0 399 1 1 0 0 403 2 1 0 0 0
+                                    239 1 1 0 0 237 1 1 0 0 397 2 6 0 0 38 1 2
+                                    6 0 0 27 1 3 6 0 0 27 35 1 3 6 0 0 38 657 1
+                                    1 1 0 0 401 1 1 0 0 405 3 1 0 0 0 0 243 2 1
+                                    0 0 0 241 2 0 9 0 0 96 0 17 0 49 0 32 0 47
                                     2 9 0 0 0 69 2 1 0 98 98 139 1 22 0 0 56 2
                                     22 0 0 0 67 2 28 0 0 0 65 2 35 0 0 519 1 2
                                     35 0 519 0 1 2 24 0 0 57 1 2 32 0 35 0 1 2

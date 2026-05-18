@@ -542,7 +542,7 @@
            '#(NIL NIL NIL NIL NIL (|DirectProduct| (NRTEVAL (QREFELT % 6)) 9)
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
               '|Rep| (|Integer|) (0 . |elt|) (6 . *) |DPMM;*;R2%;1|
-              (12 . |elt|) (19 . +) (25 . |Zero|) |DPMM;*;M2%;2| (|Boolean|)
+              (12 . |elt|) (19 . +) (25 . |0|) |DPMM;*;M2%;2| (|Boolean|)
               (|NonNegativeInteger|) (|Mapping| 9 9) (|List| 9) (|List| 11)
               (|Vector| 9) (|PositiveInteger|) (|OutputForm|) (|String|)
               (|List| 29) (|Equation| 9)
@@ -567,9 +567,9 @@
               |empty?| 401 |empty| 406 |elt| 410 |dot| 423 |directProduct| 429
               |differentiate| 434 |count| 484 |copy| 496 |convert| 501
               |commutator| 506 |coerce| 512 |characteristic| 542 |associator|
-              546 |any?| 553 |antiCommutator| 559 |annihilate?| 565 ^ 571
-              |Zero| 583 |One| 587 D 591 >= 641 > 647 = 653 <= 659 < 665 - 671
-              + 682 * 688 |#| 742)
+              546 |any?| 553 |antiCommutator| 559 |annihilate?| 565 ^ 571 D 583
+              >= 633 > 639 = 645 <= 651 < 657 |1| 663 |0| 667 - 671 + 682 * 688
+              |#| 742)
            'NIL
            (CONS
             (|makeByteWordVec2| 49
@@ -652,11 +652,11 @@
                                     0 24 0 1 1 0 26 0 1 1 29 0 37 1 1 28 0 11 1
                                     1 6 0 0 1 1 18 0 9 1 0 8 20 1 3 8 0 0 0 0 1
                                     2 50 19 41 0 1 2 7 0 0 0 1 2 8 19 0 0 1 2 9
-                                    0 0 20 1 2 25 0 0 25 1 0 54 0 1 0 9 0 1 1
-                                    23 0 0 1 2 23 0 0 20 1 2 24 0 0 34 1 3 24 0
-                                    0 34 20 1 2 24 0 0 35 1 3 24 0 0 35 36 1 3
-                                    8 0 0 21 20 1 2 8 0 0 21 1 2 3 19 0 0 1 2 3
-                                    19 0 0 1 2 0 19 0 0 1 2 3 19 0 0 1 2 3 19 0
+                                    0 0 20 1 2 25 0 0 25 1 1 23 0 0 1 2 23 0 0
+                                    20 1 2 24 0 0 34 1 3 24 0 0 34 20 1 2 24 0
+                                    0 35 1 3 24 0 0 35 36 1 3 8 0 0 21 20 1 2 8
+                                    0 0 21 1 2 3 19 0 0 1 2 3 19 0 0 1 2 0 19 0
+                                    0 1 2 3 19 0 0 1 2 3 19 0 0 1 0 9 0 1 0 54
                                     0 1 1 56 0 0 1 2 56 0 0 0 1 2 0 0 0 0 1 2 0
                                     0 7 0 14 2 0 0 25 0 1 2 0 0 8 0 18 2 33 0 0
                                     11 1 2 56 0 11 0 1 2 54 0 20 0 1 2 25 0 9 0

@@ -240,8 +240,8 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Matrix| 6) (0 . |copy|)
               (|Integer|) (5 . |maxRowIndex|) (10 . |maxColIndex|) (|Boolean|)
-              (15 . ~=) (21 . |One|) (25 . *) (31 . -) (37 . |zero?|)
-              (42 . |Zero|) (46 . |swapRows!|) (53 . /)
+              (15 . ~=) (21 . |1|) (25 . *) (31 . -) (37 . |zero?|) (42 . |0|)
+              (46 . |swapRows!|) (53 . /)
               (|Record| (|:| LU 7) (|:| |Perm| 25) (|:| |Pivots| (|List| 6)))
               |LUD;LUDecomp;MR;1| (|Vector| 6) (59 . |copy|) (|Vector| 9)
               |LUD;LUSolve;MV2V;2| (64 . |setColumn!|)

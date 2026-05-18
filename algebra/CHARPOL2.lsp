@@ -300,12 +300,12 @@
 (MAKEPROP '|CharacteristicPolynomial2| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Boolean|)
-              (|NonNegativeInteger|) (0 . ~=) (6 . |One|) (10 . |Zero|)
-              (14 . =) (20 . ~=) (|Integer|) (|Matrix| 6) (26 . |swapRows!|)
+              (|NonNegativeInteger|) (0 . ~=) (6 . |1|) (10 . |0|) (14 . =)
+              (20 . ~=) (|Integer|) (|Matrix| 6) (26 . |swapRows!|)
               (33 . |swapColumns!|) (40 . /) (46 . *) (52 . -) (58 . +)
               (|Record| (|:| |matrix| 15) (|:| |block_list| (|List| 14)))
               |CHARPOL2;danilewski;MR;1| (64 . |copy|)
-              (|SparseUnivariatePolynomial| 6) (69 . |One|) (73 . |Zero|)
+              (|SparseUnivariatePolynomial| 6) (69 . |1|) (73 . |0|)
               (77 . |elt|) (84 . |monomial|) (90 . +) (96 . -) (101 . -)
               (106 . *) |CHARPOL2;char_pol;MSup;2|)
            '#(|danilewski| 112 |char_pol| 117) 'NIL

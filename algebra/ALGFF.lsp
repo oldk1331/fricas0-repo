@@ -604,10 +604,10 @@
            '#(NIL NIL NIL NIL NIL
               (|SimpleAlgebraicExtension| 12 8 (NRTEVAL (QREFELT % 9)))
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
-              '|brandNew?| '|infBr?| (|Fraction| 7) (0 . |Zero|) '|discPoly|
-              (|NonNegativeInteger|) (4 . |degree|) '|n| (9 . |One|)
-              (13 . |One|) '|n1| (|Matrix| 12) (17 . |zero|) '|ibasis|
-              (23 . |copy|) '|invibasis| '|infbasis| '|invinfbasis| (|Boolean|)
+              '|brandNew?| '|infBr?| (|Fraction| 7) (0 . |0|) '|discPoly|
+              (|NonNegativeInteger|) (4 . |degree|) '|n| (9 . |1|) (13 . |1|)
+              '|n1| (|Matrix| 12) (17 . |zero|) '|ibasis| (23 . |copy|)
+              '|invibasis| '|infbasis| '|invinfbasis| (|Boolean|)
               |ALGFF;branchPointAtInfinity?;B;1| |ALGFF;discriminant;F;2|
               (|Vector| %) |ALGFF;integralBasis;V;3|
               |ALGFF;integralBasisAtInfinity;V;4| |ALGFF;integralMatrix;M;5|
@@ -620,7 +620,7 @@
               (55 . |represents|) (60 . |coordinates|) (65 . *)
               (|Record| (|:| |num| 108) (|:| |den| 7))
               (|InnerCommonDenominator| 7 12 108 45) (71 . |splitDenominator|)
-              |ALGFF;integralCoordinates;%R;12| (76 . |One|) (80 . |monomial|)
+              |ALGFF;integralCoordinates;%R;12| (76 . |1|) (80 . |monomial|)
               (86 . |coerce|) (91 . |minIndex|) (96 . |inv|)
               (101 . |diagonalMatrix|) (106 . |maxColIndex|) (111 . |setelt!|)
               (119 . |elt|) (|Void|) (126 . |void|)
@@ -706,8 +706,8 @@
               |characteristic| 1117 |branchPointAtInfinity?| 1121
               |branchPoint?| 1125 |basis| 1135 |associator| 1139 |associates?|
               1146 |antiCommutator| 1152 |annihilate?| 1158 |algSplitSimple|
-              1164 |absolutelyIrreducible?| 1170 ^ 1174 |Zero| 1192 |One| 1196
-              D 1200 = 1250 / 1256 - 1262 + 1273 * 1279)
+              1164 |absolutelyIrreducible?| 1170 ^ 1174 D 1192 = 1242 |1| 1248
+              |0| 1252 / 1256 - 1262 + 1273 * 1279)
            'NIL
            (CONS
             (|makeByteWordVec2| 14
@@ -840,13 +840,13 @@
                                     0 0 15 1 0 0 28 29 1 0 28 7 115 1 0 28 6 40
                                     0 0 31 79 3 0 0 0 0 0 1 2 3 28 0 0 1 2 0 0
                                     0 0 1 2 0 28 0 0 1 2 0 124 0 102 1 0 0 28 1
-                                    2 0 0 0 118 1 2 0 0 0 15 1 2 3 0 0 43 1 0 0
-                                    0 1 0 0 0 19 2 13 0 0 127 1 2 13 0 0 126 1
-                                    3 13 0 0 126 128 1 3 13 0 0 127 15 1 1 9 0
-                                    0 1 2 9 0 0 15 1 3 3 0 0 68 15 1 2 3 0 0 68
-                                    1 2 0 28 0 0 1 2 3 0 0 0 1 2 0 0 0 0 1 1 0
-                                    0 0 1 2 0 0 0 0 1 2 0 0 118 0 1 2 0 0 0 0 1
-                                    2 0 0 43 0 1 2 0 0 15 0 1 2 0 0 0 12 1 2 0
-                                    0 12 0 1 2 19 0 0 129 1 2 19 0 129 0 1 2 12
-                                    0 0 43 1)))))
+                                    2 0 0 0 118 1 2 0 0 0 15 1 2 3 0 0 43 1 2
+                                    13 0 0 127 1 2 13 0 0 126 1 3 13 0 0 126
+                                    128 1 3 13 0 0 127 15 1 1 9 0 0 1 2 9 0 0
+                                    15 1 3 3 0 0 68 15 1 2 3 0 0 68 1 2 0 28 0
+                                    0 1 0 0 0 19 0 0 0 1 2 3 0 0 0 1 2 0 0 0 0
+                                    1 1 0 0 0 1 2 0 0 0 0 1 2 0 0 118 0 1 2 0 0
+                                    0 0 1 2 0 0 43 0 1 2 0 0 15 0 1 2 0 0 0 12
+                                    1 2 0 0 12 0 1 2 19 0 0 129 1 2 19 0 129 0
+                                    1 2 12 0 0 43 1)))))
            '|lookupComplete|)) 

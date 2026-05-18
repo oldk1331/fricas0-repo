@@ -708,9 +708,9 @@
            '#(NIL NIL NIL NIL NIL (|SparseUnivariatePolynomial| 7)
               (|local| |#1|) (|local| |#2|) '|Rep| (|Symbol|) (|OutputForm|)
               (0 . |outputForm|) (5 . |outputForm|) |UP;coerce;%Of;1|
-              (11 . |One|) (15 . |One|) (|NonNegativeInteger|)
-              (19 . |monomial|) (|Variable| (NRTEVAL (QREFELT % 6)))
-              |UP;coerce;V%;2| (|Boolean|) (|String|) (|PositiveInteger|)
+              (11 . |1|) (15 . |1|) (|NonNegativeInteger|) (19 . |monomial|)
+              (|Variable| (NRTEVAL (QREFELT % 6))) |UP;coerce;V%;2| (|Boolean|)
+              (|String|) (|PositiveInteger|)
               (|Record| (|:| |k| 16) (|:| |c| 7)) (|List| 23) (|Mapping| 7 7)
               (|List| 16) (|List| %) (|List| 7) (|Union| 7 '#1="failed")
               (|Mapping| 16 16) (|SingletonAsOrderedSet|) (|List| 31)
@@ -768,8 +768,7 @@
               954 |coefficients| 989 |coefficient| 994 |charthRoot| 1014
               |characteristic| 1019 |binomThmExpt| 1023 |associator| 1030
               |associates?| 1037 |antiCommutator| 1043 |annihilate?| 1049 ^
-              1055 |Zero| 1067 |One| 1071 D 1075 = 1151 / 1157 - 1163 + 1174 *
-              1180)
+              1055 D 1067 = 1143 |1| 1149 |0| 1153 / 1157 - 1163 + 1174 * 1180)
            'NIL
            (CONS
             (|makeByteWordVec2| 47
@@ -899,13 +898,14 @@
                                     0 31 16 1 3 0 0 0 32 26 1 1 49 37 0 1 0 55
                                     16 1 3 48 0 0 0 16 1 3 55 0 0 0 0 1 2 50 20
                                     0 0 1 2 0 0 0 0 1 2 55 20 0 0 1 2 0 0 0 22
-                                    1 2 54 0 0 16 1 0 56 0 1 0 54 0 14 2 38 0 0
-                                    49 1 2 38 0 0 9 1 3 38 0 0 9 16 1 3 38 0 0
-                                    49 26 1 3 4 0 0 32 26 1 2 4 0 0 32 1 3 4 0
-                                    0 31 16 1 2 4 0 0 31 1 3 4 0 0 25 16 1 2 4
-                                    0 0 25 1 2 4 0 0 16 1 1 4 0 0 1 2 0 20 0 0
-                                    1 2 14 0 0 7 1 1 58 0 0 1 2 58 0 0 0 1 2 0
-                                    0 0 0 1 2 0 0 22 0 1 2 0 0 0 0 1 2 0 0 7 0
-                                    1 2 0 0 0 7 1 2 40 0 0 45 1 2 58 0 45 0 1 2
-                                    56 0 16 0 1 2 1 0 0 53 1 2 1 0 53 0 1)))))
+                                    1 2 54 0 0 16 1 2 38 0 0 49 1 2 38 0 0 9 1
+                                    3 38 0 0 9 16 1 3 38 0 0 49 26 1 3 4 0 0 32
+                                    26 1 2 4 0 0 32 1 3 4 0 0 31 16 1 2 4 0 0
+                                    31 1 3 4 0 0 25 16 1 2 4 0 0 25 1 2 4 0 0
+                                    16 1 1 4 0 0 1 2 0 20 0 0 1 0 54 0 14 0 56
+                                    0 1 2 14 0 0 7 1 1 58 0 0 1 2 58 0 0 0 1 2
+                                    0 0 0 0 1 2 0 0 22 0 1 2 0 0 0 0 1 2 0 0 7
+                                    0 1 2 0 0 0 7 1 2 40 0 0 45 1 2 58 0 45 0 1
+                                    2 56 0 16 0 1 2 1 0 0 53 1 2 1 0 53 0
+                                    1)))))
            '|lookupComplete|)) 

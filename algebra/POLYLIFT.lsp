@@ -178,8 +178,8 @@
               (10 . |univariate|) (|List| %) (|SparseUnivariatePolynomial| 9)
               (16 . |monomials|) (|NonNegativeInteger|) (21 . |degree|)
               (26 . |leadingCoefficient|) (|Mapping| 10 7) (|Mapping| 10 8)
-              (31 . |map|) (38 . |Zero|) (42 . |Zero|) (46 . ^) (52 . *)
-              (58 . +) (|PositiveInteger|) (64 . ^) (70 . *) (76 . |reductum|)
+              (31 . |map|) (38 . |0|) (42 . |0|) (46 . ^) (52 . *) (58 . +)
+              (|PositiveInteger|) (64 . ^) (70 . *) (76 . |reductum|)
               (|Boolean|) (81 . |zero?|))
            '#(|map| 86) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

@@ -132,11 +132,11 @@
               (37 . |map|) (|List| 10) (44 . |coefficients|) (49 . |denom|)
               (|List| %) (54 . |lcm|) (59 . *) (|Factored| 12)
               (|MultivariateFactorize| 7 (|IndexedExponents| 7) 8 12)
-              (65 . |factor|) (70 . |One|) (74 . |One|) (78 . /) (84 . |unit|)
+              (65 . |factor|) (70 . |1|) (74 . |1|) (78 . /) (84 . |unit|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 39) (|:| |factor| 12) (|:| |exponent| 43))
               (|List| 40) (89 . |factorList|) (|NonNegativeInteger|)
-              (|Factored| 9) (94 . |primeFactor|) (100 . *) (106 . |One|)
+              (|Factored| 9) (94 . |primeFactor|) (100 . *) (106 . |1|)
               (110 . *) |MRATFAC;factor;PF;5|)
            '#(|factor| 116) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

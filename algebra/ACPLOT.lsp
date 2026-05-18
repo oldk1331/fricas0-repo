@@ -2721,17 +2721,17 @@
 
 (MAKEPROP '|PlaneAlgebraicCurvePlot| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL '|Rep| (|Float|) (0 . |One|) (|Integer|)
+           '#(NIL NIL NIL NIL NIL NIL '|Rep| (|Float|) (0 . |1|) (|Integer|)
               (|PositiveInteger|) (4 . |float|) 'EPSILON (|DoubleFloat|)
-              (11 . |float|) 'PLOTERR 'NADA 'BDRY 'CRIT 'BOTTOM 'TOP
-              (18 . |Zero|) (22 . |convert|) (|List| 13) (|Point| 13)
-              (27 . |point|) (|PointPackage| 13) (32 . |yCoord|)
-              (37 . |xCoord|) (|Boolean|) (|Polynomial| 13) (42 . |zero?|)
-              (|SparseUnivariatePolynomial| 13) (47 . |Zero|)
+              (11 . |float|) 'PLOTERR 'NADA 'BDRY 'CRIT 'BOTTOM 'TOP (18 . |0|)
+              (22 . |convert|) (|List| 13) (|Point| 13) (27 . |point|)
+              (|PointPackage| 13) (32 . |yCoord|) (37 . |xCoord|) (|Boolean|)
+              (|Polynomial| 13) (42 . |zero?|)
+              (|SparseUnivariatePolynomial| 13) (47 . |0|)
               (51 . |leadingCoefficient|) (|NonNegativeInteger|)
               (56 . |totalDegree|) (61 . |monomial|) (67 . |reductum|) (72 . +)
               (|Polynomial| 44) (78 . |zero?|)
-              (|SparseUnivariatePolynomial| 44) (83 . |Zero|) (|Fraction| 9)
+              (|SparseUnivariatePolynomial| 44) (83 . |0|) (|Fraction| 9)
               (87 . |leadingCoefficient|) (92 . |totalDegree|)
               (97 . |monomial|) (103 . |reductum|) (108 . +) (114 . |coerce|)
               (|Mapping| 13 9) (|Polynomial| 9) (|PolynomialFunctions2| 9 13)
@@ -2749,7 +2749,7 @@
               (296 . |numberOfFactors|) (301 . |differentiate|) (307 . -)
               (312 . |elt|) (318 . /) (|List| 64) (|List| 52)
               (324 . |realSolve|) (331 . <) (|Mapping| 29 13 13) (337 . |sort|)
-              (343 . |elt|) (349 . |Zero|) (353 . =) (359 . |last|)
+              (343 . |elt|) (349 . |0|) (353 . =) (359 . |last|)
               (364 . |remove|) (370 . >) (|Mapping| 13 13) (|Plot|)
               (376 . |plot|) (|List| 118) (382 . |listBranches|)
               (|Mapping| 24 24) (|List| 24) (387 . |map|)

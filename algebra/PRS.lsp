@@ -3533,15 +3533,15 @@
 
 (MAKEPROP '|PseudoRemainderSequence| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |One|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |1|)
               (|NonNegativeInteger|) (4 . |monomial|) 'X (10 . |coerce|)
               (|Vector| 7) (15 . *) (|Union| % '"failed") (21 . |exquo|)
               (|Mapping| 7 7) (27 . |map|) (33 . |leadingCoefficient|)
-              (38 . |degree|) (43 . |Zero|) (47 . |Zero|) (51 . |reductum|)
+              (38 . |degree|) (43 . |0|) (47 . |0|) (51 . |reductum|)
               (56 . |exquo|) (62 . +) (68 . *) (74 . -)
               (|Record| (|:| |quotient| 7) (|:| |remainder| 7))
               |PRS;divide;2polRR;3| (|Boolean|) (80 . |zero?|) (85 . -)
-              (90 . ^) (96 . *) (102 . |One|) (106 . *)
+              (90 . ^) (96 . *) (102 . |1|) (106 . *)
               |PRS;LazardQuotient;2RNniR;8|
               |PRS;LazardQuotient2;polR2RNnipolR;9| (112 . -)
               (117 . |coefficient|) |PRS;next_sousResultant2;3polRRpolR;11|

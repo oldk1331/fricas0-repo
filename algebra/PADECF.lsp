@@ -210,14 +210,14 @@
 (MAKEPROP '|PadeContinuousFraction| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|NonNegativeInteger|) (0 . |One|) (|Stream| 6)
+              (|NonNegativeInteger|) (0 . |1|) (|Stream| 6)
               (|StreamTaylorSeriesOperations| 6) (4 . -) (|Boolean|)
               (10 . |empty?|) (15 . |rst|) (|Stream| 20) (20 . |empty|)
-              (24 . |frst|) (29 . |Zero|)
-              (|UnivariatePolynomial| (NRTEVAL (QREFELT % 7)) 6) (33 . |Zero|)
-              (37 . =) (43 . |One|) (47 . |One|) (51 . +) (57 . /)
-              (|PositiveInteger|) (63 . |One|) (|Fraction| (|Integer|))
-              (67 . |One|) (71 . *) (77 . ^) (83 . *) (89 . |concat|)
+              (24 . |frst|) (29 . |0|)
+              (|UnivariatePolynomial| (NRTEVAL (QREFELT % 7)) 6) (33 . |0|)
+              (37 . =) (43 . |1|) (47 . |1|) (51 . +) (57 . /)
+              (|PositiveInteger|) (63 . |1|) (|Fraction| (|Integer|))
+              (67 . |1|) (71 . *) (77 . ^) (83 . *) (89 . |concat|)
               (|Mapping| %) (95 . |delay|) (|StreamTaylorSeriesOperations| 20)
               (100 . -) (105 . |coerce|) (|List| 6) (110 . |construct|)
               |PADECF;pade_stream;SUpS;3| |PADECF;pade_stream2;2SUpS;4|

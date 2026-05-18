@@ -1693,26 +1693,26 @@
               |JBFC-;P;NniS;8| (|Symbol|) (49 . |setNotation|) (|Void|)
               |JBFC-;setNotation;SV;9| (54 . |getNotation|)
               |JBFC-;getNotation;S;10| |JBFC-;numIndVar;Pi;11|
-              (58 . |numDepVar|) |JBFC-;numDepVar;Pi;12| (62 . |One|)
+              (58 . |numDepVar|) |JBFC-;numDepVar;Pi;12| (62 . |1|)
               |JBFC-;gcd;3S;13| (|List| 7) (66 . |jetVariables|)
               (71 . |differentiate|) (|Boolean|) (77 . |one?|)
-              (|Union| 7 '"failed") |JBFC-;retractIfCan;SU;14| (82 . |One|)
+              (|Union| 7 '"failed") |JBFC-;retractIfCan;SU;14| (82 . |1|)
               (86 . =) |JBFC-;const?;SB;15| (92 . |leadingDer|) (97 . |order|)
               |JBFC-;order;SNni;16| (102 . |class|) |JBFC-;class;SNni;17|
               |JBFC-;leadingDer;SJB;18| (107 . |member?|)
-              |JBFC-;freeOf?;SJBB;19| |JBFC-;characteristic;Nni;20|
-              (113 . |Zero|) (117 . ~=) (123 . |derivativeOf?|)
-              (129 . |formalDiff|) (135 . |subst|) (142 . <)
-              |JBFC-;dSubst;SJB2S;21| (148 . |dimJ|) (|List| %)
-              (|SparseEchelonMatrix| 7 %) |JBFC-;dimension;LSem2Nni;22|
-              (153 . |dimS|) |JBFC-;orderDim;LSem2Nni;23| '|noChecks?|
-              (|List| 41) (158 . |jacobiMatrix|) |JBFC-;jacobiMatrix;LSem;24|
-              (164 . >) (|Mapping| 44 7 7) (170 . |merge|)
-              (177 . |removeDuplicates!|) (|Integer|)
-              (|SparseEchelonMatrix| 7 6) (182 . |new|) (188 . |zero?|)
-              (|List| 6) (193 . |setRow!|) |JBFC-;jacobiMatrix;LLSem;25|
-              (201 . |max|) (207 . |max|) (213 . |max|) (|Mapping| 25 25 25)
-              (219 . |reduce|) |JBFC-;symbol;LSem;26| (226 . |allIndices|)
+              |JBFC-;freeOf?;SJBB;19| |JBFC-;characteristic;Nni;20| (113 . |0|)
+              (117 . ~=) (123 . |derivativeOf?|) (129 . |formalDiff|)
+              (135 . |subst|) (142 . <) |JBFC-;dSubst;SJB2S;21| (148 . |dimJ|)
+              (|List| %) (|SparseEchelonMatrix| 7 %)
+              |JBFC-;dimension;LSem2Nni;22| (153 . |dimS|)
+              |JBFC-;orderDim;LSem2Nni;23| '|noChecks?| (|List| 41)
+              (158 . |jacobiMatrix|) |JBFC-;jacobiMatrix;LSem;24| (164 . >)
+              (|Mapping| 44 7 7) (170 . |merge|) (177 . |removeDuplicates!|)
+              (|Integer|) (|SparseEchelonMatrix| 7 6) (182 . |new|)
+              (188 . |zero?|) (|List| 6) (193 . |setRow!|)
+              |JBFC-;jacobiMatrix;LLSem;25| (201 . |max|) (207 . |max|)
+              (213 . |max|) (|Mapping| 25 25 25) (219 . |reduce|)
+              |JBFC-;symbol;LSem;26| (226 . |allIndices|)
               (|Record| (|:| |Left| %) (|:| |Right| %)) (231 . |horizSplit|)
               |JBFC-;extractSymbol;2Sem;27| (237 . |jacobiMatrix|)
               (|Record| (|:| |DSys| 68) (|:| |JVars| 74)) (242 . |formalDiff2|)

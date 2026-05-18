@@ -238,7 +238,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|NonNegativeInteger|) (0 . |#|) (|Boolean|) (|Integer|) (5 . ~=)
-              (11 . +) (|Mapping| 7 7 7) (17 . |map|) (24 . +) (30 . |Zero|)
+              (11 . +) (|Mapping| 7 7 7) (17 . |map|) (24 . +) (30 . |0|)
               (34 . |new|) (40 . |zero|) (45 . |minIndex|) (50 . |maxIndex|)
               (55 . |qelt|) (61 . ~=) (67 . |zero?|) (72 . -) (|Mapping| 7 7)
               (77 . |map|) (83 . -) (88 . *) (94 . *) (100 . -) (105 . +)

@@ -67,11 +67,10 @@
 
 (MAKEPROP '|PartialFractionUtilities| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (0 . |Zero|) (4 . |Zero|) (|Boolean|) (8 . =)
-              (|NonNegativeInteger|) (14 . |degree|) (|Union| 15 '"failed")
-              (|List| %) (19 . |multiEuclidean|) (|List| 7)
-              |PFUTIL;decompose;UP2L;1|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |0|)
+              (4 . |0|) (|Boolean|) (8 . =) (|NonNegativeInteger|)
+              (14 . |degree|) (|Union| 15 '"failed") (|List| %)
+              (19 . |multiEuclidean|) (|List| 7) |PFUTIL;decompose;UP2L;1|)
            '#(|decompose| 25) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)

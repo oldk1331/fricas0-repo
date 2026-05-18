@@ -12,7 +12,7 @@
              (LETT #1#
                    (|Join| (|AbelianSemiGroup|)
                            (|mkCategory|
-                            '(((|Zero| (%) |constant|) T)
+                            '(((|0| (%) |constant|) T)
                               ((|sample| (%) |constant|) T)
                               ((|zero?| ((|Boolean|) %)) T)
                               ((* (% (|NonNegativeInteger|) %)) T)

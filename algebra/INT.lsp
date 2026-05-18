@@ -24,13 +24,13 @@
 
 (SDEFUN |INT;one?;%B;4| ((|x| (%)) (% (|Boolean|))) (EQL |x| 1)) 
 
-(MAKEPROP '|INT;Zero;%;5| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|INT;0;%;5| '|SPADreplace| '(XLAM NIL 0)) 
 
-(SDEFUN |INT;Zero;%;5| ((% (%))) 0) 
+(SDEFUN |INT;0;%;5| ((% (%))) 0) 
 
-(MAKEPROP '|INT;One;%;6| '|SPADreplace| '(XLAM NIL 1)) 
+(MAKEPROP '|INT;1;%;6| '|SPADreplace| '(XLAM NIL 1)) 
 
-(SDEFUN |INT;One;%;6| ((% (%))) 1) 
+(SDEFUN |INT;1;%;6| ((% (%))) 1) 
 
 (MAKEPROP '|INT;base;%;7| '|SPADreplace| '(XLAM NIL 2)) 
 
@@ -397,8 +397,8 @@
               (12 . |OMputInteger|) (18 . |OMputEndApp|) (23 . |OMputObject|)
               (28 . |OMputEndObject|) (|Boolean|) |INT;OMwrite;Omd%BV;2|
               |INT;zero?;%B;3| |INT;one?;%B;4|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |INT;Zero;%;5|) %))
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |INT;One;%;6|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |INT;0;%;5|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |INT;1;%;6|) %))
               |INT;base;%;7| |INT;copy;2%;8| |INT;inc;2%;9| |INT;dec;2%;10|
               (|HashState|) |INT;hashUpdate!;Hs%Hs;11| |INT;negative?;%B;12|
               |INT;positive?;%B;13| (|OutputForm|) (33 . |outputForm|)
@@ -473,8 +473,8 @@
               595 |coerce| 601 |charthRoot| 616 |characteristic| 621 |bit?| 625
               |binomial| 631 |base| 637 |associator| 641 |associates?| 648
               |antiCommutator| 654 |annihilate?| 660 |addmod| 666 |abs| 673 ^
-              678 |Zero| 690 |One| 694 |OMwrite| 698 D 722 >= 733 > 739 = 745
-              <= 751 < 757 - 763 + 774 * 780)
+              678 |OMwrite| 690 D 714 >= 725 > 731 = 737 <= 743 < 749 |1| 755
+              |0| 759 - 763 + 774 * 780)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -561,11 +561,12 @@
                                     1 82 0 1 0 0 69 1 2 0 16 0 0 1 2 0 0 0 0 1
                                     0 0 0 22 3 0 0 0 0 0 1 2 0 16 0 0 1 2 0 0 0
                                     0 1 2 0 16 0 0 126 3 0 0 0 0 0 36 1 0 0 0
-                                    55 2 0 0 0 67 72 2 0 0 0 69 71 0 0 0 20 0 0
-                                    0 21 2 0 9 0 16 1 1 0 9 0 1 3 0 6 7 0 16 17
-                                    2 0 6 7 0 1 2 0 0 0 69 1 1 0 0 0 1 2 0 16 0
-                                    0 61 2 0 16 0 0 60 2 0 16 0 0 58 2 0 16 0 0
-                                    62 2 0 16 0 0 59 1 0 0 0 63 2 0 0 0 0 65 2
-                                    0 0 0 0 64 2 0 0 67 0 68 2 0 0 0 0 66 2 0 0
-                                    11 0 1 2 0 0 69 0 70 2 0 0 0 11 1)))))
+                                    55 2 0 0 0 67 72 2 0 0 0 69 71 2 0 9 0 16 1
+                                    1 0 9 0 1 3 0 6 7 0 16 17 2 0 6 7 0 1 2 0 0
+                                    0 69 1 1 0 0 0 1 2 0 16 0 0 61 2 0 16 0 0
+                                    60 2 0 16 0 0 58 2 0 16 0 0 62 2 0 16 0 0
+                                    59 0 0 0 21 0 0 0 20 1 0 0 0 63 2 0 0 0 0
+                                    65 2 0 0 0 0 64 2 0 0 67 0 68 2 0 0 0 0 66
+                                    2 0 0 11 0 1 2 0 0 69 0 70 2 0 0 0 11
+                                    1)))))
            '|lookupComplete|)) 

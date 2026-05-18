@@ -488,11 +488,11 @@
 (MAKEPROP '|InnerModularGcd| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|local| |#4|) (0 . |Zero|) (4 . |Zero|)
-              (|Boolean|) (8 . =) (14 . |symmetricRemainder|) (|Mapping| 6 6)
-              (20 . |map|) (26 . |reduction|) (32 . |rem|) 'FP '|zeroChar|
-              (38 . |zero?|) (|NonNegativeInteger|) (43 . |degree|) (|List| 7)
-              |INMODGCD;modularGcdPrimitive;LBP;3| (48 . |One|) (52 . |One|)
+              (|local| |#3|) (|local| |#4|) (0 . |0|) (4 . |0|) (|Boolean|)
+              (8 . =) (14 . |symmetricRemainder|) (|Mapping| 6 6) (20 . |map|)
+              (26 . |reduction|) (32 . |rem|) 'FP '|zeroChar| (38 . |zero?|)
+              (|NonNegativeInteger|) (43 . |degree|) (|List| 7)
+              |INMODGCD;modularGcdPrimitive;LBP;3| (48 . |1|) (52 . |1|)
               (|Integer|) (|List| 22) (56 . |position|) (62 . |elt|)
               (|Union| % '"failed") (68 . |exquo|) (74 . |coefficient|)
               (80 . |exquo|) (86 . |leadingCoefficient|) (91 . |gcd|)

@@ -256,7 +256,7 @@
               (0 . |nrows|) (5 . |zero|) (|Integer|) (11 . |minColIndex|)
               (16 . |minRowIndex|) (21 . |maxRowIndex|) (26 . |maxColIndex|)
               (31 . |qelt|) (|Union| % '"failed") (38 . |exquo|)
-              (44 . |qsetelt!|) (52 . |One|) (56 . *) (62 . +) (68 . |Zero|)
+              (44 . |qsetelt!|) (52 . |1|) (56 . *) (62 . +) (68 . |0|)
               (72 . -) |TRIMAT;UpTriBddDenomInv;MRM;1|
               |TRIMAT;LowTriBddDenomInv;MRM;2|)
            '#(|UpTriBddDenomInv| 77 |LowTriBddDenomInv| 83) 'NIL

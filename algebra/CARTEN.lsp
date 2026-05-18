@@ -533,10 +533,10 @@
 (SDEFUN |CARTEN;coerce;%Of;24| ((|x| (%)) (% (|OutputForm|)))
         (|CARTEN;mkOutf| |x| 0 (SPADCALL |x| (QREFELT % 37)) %)) 
 
-(SDEFUN |CARTEN;Zero;%;25| ((% (%)))
+(SDEFUN |CARTEN;0;%;25| ((% (%)))
         (SPADCALL (|spadConstant| % 30) (QREFELT % 61))) 
 
-(SDEFUN |CARTEN;One;%;26| ((% (%)))
+(SDEFUN |CARTEN;1;%;26| ((% (%)))
         (SPADCALL (|spadConstant| % 34) (QREFELT % 61))) 
 
 (SDEFUN |CARTEN;coerce;R%;27| ((|r| (R)) (% (%)))
@@ -1203,8 +1203,8 @@
               (|Vector| 15) (0 . |setelt!|) (|Boolean|) (7 . ~=) (13 . |elt|)
               (|NonNegativeInteger|) (19 . ~=) (|Vector| 18) (25 . |setelt!|)
               (32 . |elt|) (38 . |#|) (43 . |elt|) (|List| 8)
-              |CARTEN;ravel;%L;8| (49 . |Zero|) (53 . |new|) (59 . |setelt!|)
-              |CARTEN;unravel;L%;9| (66 . |One|) (70 . |coerce|)
+              |CARTEN;ravel;%L;8| (49 . |0|) (53 . |new|) (59 . |setelt!|)
+              |CARTEN;unravel;L%;9| (66 . |1|) (70 . |coerce|)
               |CARTEN;leviCivitaSymbol;%;11| |CARTEN;rank;%Nni;13|
               |CARTEN;degree;%Nni;12| |CARTEN;elt;%R;14| |CARTEN;elt;%IR;15|
               |CARTEN;elt;%2IR;16| |CARTEN;elt;%3IR;17| |CARTEN;elt;%4IR;18|
@@ -1213,10 +1213,8 @@
               (|Union| 8 '"failed") |CARTEN;retractIfCan;%U;22| (|OutputForm|)
               (|List| 54) (85 . |coerce|) (90 . |coerce|) (|List| 50)
               (95 . |matrix|) |CARTEN;coerce;%Of;24| |CARTEN;coerce;R%;27|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |CARTEN;Zero;%;25|) %))
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |CARTEN;One;%;26|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |CARTEN;0;%;25|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |CARTEN;1;%;26|) %))
               (|DirectProduct| (NRTEVAL (QREFELT % 7)) 8) (100 . |minIndex|)
               (105 . |maxIndex|) (110 . |elt|) |CARTEN;coerce;Dp%;28|
               (|SquareMatrix| (NRTEVAL (QREFELT % 7)) 8) (116 . |elt|)
@@ -1231,8 +1229,8 @@
            '#(~= 158 |unravel| 164 |transpose| 169 |sample| 181 |retractIfCan|
               185 |retract| 190 |reindex| 195 |ravel| 201 |rank| 206 |product|
               211 |leviCivitaSymbol| 217 |latex| 221 |kroneckerDelta| 226 |elt|
-              230 |degree| 271 |contract| 276 |coerce| 291 |Zero| 321 |One| 325
-              = 329 - 335 + 346 * 352)
+              230 |degree| 271 |contract| 276 |coerce| 291 = 321 |1| 327 |0|
+              331 - 335 + 346 * 352)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS
@@ -1263,7 +1261,7 @@
                                          21 0 38 3 0 0 0 15 15 89 4 0 0 0 15 0
                                          15 87 1 0 54 0 60 1 0 0 8 61 1 0 0 69
                                          71 1 0 0 64 68 1 0 0 50 51 1 0 0 28 46
-                                         0 0 0 62 0 0 0 63 2 0 18 0 0 73 1 0 0
+                                         2 0 18 0 0 73 0 0 0 63 0 0 0 62 1 0 0
                                          0 79 2 0 0 0 0 77 2 0 0 0 0 75 2 0 0 8
                                          0 84 2 0 0 0 8 85 2 0 0 0 15 82 2 0 0
                                          15 0 81 2 0 0 0 0 88)))))

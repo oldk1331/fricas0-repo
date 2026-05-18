@@ -1770,9 +1770,9 @@
 (MAKEPROP '|DoubleFloatSpecialFunctions2| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|List| 14) (|DoubleFloatVector|)
-              (0 . |construct|) '|bernoulli_coeffs| (|Complex| 14) (5 . |One|)
+              (0 . |construct|) '|bernoulli_coeffs| (|Complex| 14) (5 . |1|)
               (9 . /) (15 . *) (|DoubleFloat|) (21 . |complex|) (27 . +) '|c1|
-              '|c_pi| '|c_lpi| (33 . -) (39 . |log|) (44 . |Zero|) (48 . |log|)
+              '|c_pi| '|c_lpi| (33 . -) (39 . |log|) (44 . |0|) (48 . |log|)
               '|gamma_coefs| (53 . |round|) (|Integer|) (58 . |retract|)
               |DFSFUN2;Gamma;2Df;9| |DFSFUN2;Beta;3Df;10|
               |DFSFUN2;logGamma;2Df;11| (63 . |exp|) (68 . |imag|)
@@ -1783,7 +1783,7 @@
               '|df_dig| (|NonNegativeInteger|) (126 . *) (132 . <=)
               |DFSFUN2;polygamma;Nni2Df;30| (138 . |ceiling|)
               |DFSFUN2;digamma;2Df;31| |DFSFUN2;polygamma;Nni2C;32|
-              (143 . |cot|) (|Fraction| 26) (148 . |One|) (|PositiveInteger|)
+              (143 . |cot|) (|Fraction| 26) (148 . |1|) (|PositiveInteger|)
               (152 . *) |DFSFUN2;digamma;2C;33| (|Float|) (158 . |bits|)
               (162 . |bits|) (167 . |convert|) (|FloatLiouvilianFunctions|)
               (172 . |erf|) (177 . |convert|) |DFSFUN2;erf;2Df;34|

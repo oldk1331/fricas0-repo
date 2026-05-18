@@ -7,7 +7,7 @@
 
 (SDEFUN |SEQU;per| ((|r| (|Rep|)) (% (%))) |r|) 
 
-(SDEFUN |SEQU;Zero;%;3| ((% (%)))
+(SDEFUN |SEQU;0;%;3| ((% (%)))
         (|SEQU;per| (SPADCALL (LIST (|spadConstant| % 8)) (QREFELT % 10)) %)) 
 
 (SDEFUN |SEQU;elt;%IR;4| ((|mm| (%)) (|n| (|Integer|)) (% (R)))
@@ -183,10 +183,10 @@
 
 (MAKEPROP '|Sequence| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|Stream| 6) (|local| |#1|) '|Rep|
-              (0 . |Zero|) (|List| 6) (4 . |repeating|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |SEQU;Zero;%;3|) %))
-              (9 . |One|) (|Integer|) (13 . |elt|) |SEQU;elt;%IR;4| (|List| 13)
+           '#(NIL NIL NIL NIL NIL (|Stream| 6) (|local| |#1|) '|Rep| (0 . |0|)
+              (|List| 6) (4 . |repeating|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |SEQU;0;%;3|) %))
+              (9 . |1|) (|Integer|) (13 . |elt|) |SEQU;elt;%IR;4| (|List| 13)
               (|Partition|) (19 . |convert|) (24 . *) (|Mapping| 6 6 6)
               (30 . |reduce|) |SEQU;apply;%PR;5| (36 . |cons|)
               |SEQU;cons;R2%;6| (42 . +) (48 . |map|) |SEQU;+;3%;7| (55 . -)
@@ -225,8 +225,8 @@
               |cycleSplit!| 805 |cycleLength| 810 |cycleEntry| 815 |count| 820
               |copyInto!| 832 |copy| 839 |convert| 844 |construct| 849 |cons|
               854 |concat!| 860 |concat| 877 |complete| 900 |coerce| 905
-              |children| 915 |child?| 920 |apply| 926 |any?| 932 |Zero| 938 >=
-              942 > 948 = 954 <= 960 < 966 - 972 + 983 * 989 |#| 1019)
+              |children| 915 |child?| 920 |apply| 926 |any?| 932 >= 938 > 944 =
+              950 <= 956 < 962 |0| 968 - 972 + 983 * 989 |#| 1019)
            'NIL
            (CONS
             (|makeByteWordVec2| 10
@@ -300,10 +300,10 @@
                                     0 0 0 1 1 16 0 50 1 2 16 0 0 6 1 2 0 0 0 0
                                     1 2 0 0 6 0 1 2 0 0 0 6 1 1 0 0 50 1 1 0 0
                                     0 41 1 0 46 0 48 1 0 0 5 35 1 0 50 0 1 2 4
-                                    33 0 0 1 2 0 6 0 17 22 2 11 33 57 0 1 0 9 0
-                                    11 2 13 33 0 0 1 2 13 33 0 0 1 2 0 33 0 0
-                                    34 2 13 33 0 0 1 2 13 33 0 0 1 1 3 0 0 31 2
-                                    3 0 0 0 1 2 0 0 0 0 27 2 0 0 0 6 1 2 0 0 58
-                                    0 1 2 0 0 6 0 32 2 3 0 13 0 1 2 9 0 38 0 1
-                                    1 11 38 0 1)))))
+                                    33 0 0 1 2 0 6 0 17 22 2 11 33 57 0 1 2 13
+                                    33 0 0 1 2 13 33 0 0 1 2 0 33 0 0 34 2 13
+                                    33 0 0 1 2 13 33 0 0 1 0 9 0 11 1 3 0 0 31
+                                    2 3 0 0 0 1 2 0 0 0 0 27 2 0 0 0 6 1 2 0 0
+                                    58 0 1 2 0 0 6 0 32 2 3 0 13 0 1 2 9 0 38 0
+                                    1 1 11 38 0 1)))))
            '|lookupComplete|)) 

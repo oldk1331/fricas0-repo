@@ -139,9 +139,9 @@
                    (LETT |dd| (+ |dd| -1)) (GO G190) G191 (EXIT NIL))
               (EXIT (+ |res| 1))))) 
 
-(SDEFUN |MODMON;Zero;%;7| ((% (%))) (|spadConstant| % 49)) 
+(SDEFUN |MODMON;0;%;7| ((% (%))) (|spadConstant| % 49)) 
 
-(SDEFUN |MODMON;One;%;8| ((% (%))) (|spadConstant| % 50)) 
+(SDEFUN |MODMON;1;%;8| ((% (%))) (|spadConstant| % 50)) 
 
 (SDEFUN |MODMON;*;R2%;9| ((|c| (R)) (|x| (%)) (% (%)))
         (SPADCALL |c| |x| (QREFELT % 51))) 
@@ -434,12 +434,11 @@
 (MAKEPROP '|ModMonic| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |MODMON;One;%;8|) %))
-              (0 . |One|) (|NonNegativeInteger|) (4 . |monomial|) '|m|
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |MODMON;1;%;8|) %))
+              (0 . |1|) (|NonNegativeInteger|) (4 . |monomial|) '|m|
               (10 . |degree|) '|d| '|d1| '|twod| '|frobenius?|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |MODMON;Zero;%;7|) %))
-              (15 . |Zero|) (|PrimitiveArray| $$) (19 . |new|) '|power|
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |MODMON;0;%;7|) %))
+              (15 . |0|) (|PrimitiveArray| $$) (19 . |new|) '|power|
               '|frobeniusPower| (|Boolean|) (25 . =) (31 . ~=) (37 . |zero?|)
               |MODMON;+;3%;20| (|Union| % '"failed") (42 . |exquo|) (|Integer|)
               (48 . |elt|) |MODMON;lift;%Rep;17| |MODMON;reduce;Rep%;18|
@@ -447,7 +446,7 @@
               (61 . |size|) (65 . |size|) (69 . |random|) (|Vector| 6)
               |MODMON;UnVectorise;V%;24| (73 . |random|) (|PositiveInteger|)
               (77 . |index|) (82 . |index|) (87 . |lookup|) (92 . |lookup|)
-              (97 . |Zero|) (101 . |One|) (105 . *) |MODMON;*;R2%;9|
+              (97 . |0|) (101 . |1|) (105 . *) |MODMON;*;R2%;9|
               (111 . |coerce|) |MODMON;*;I2%;10| |MODMON;coerce;R%;11|
               (|OutputForm|) (116 . |coerce|) |MODMON;coerce;%Of;12|
               (121 . |coefficient|) (127 . |reductum|)
@@ -469,8 +468,8 @@
               |hashUpdate!| 324 |hash| 330 |frobenius| 335 |enumerate| 340
               |convert| 344 |commutator| 349 |coerce| 355 |characteristic| 375
               |associator| 379 |antiCommutator| 386 |annihilate?| 392 ^ 398
-              |Zero| 410 |Vectorise| 414 |UnVectorise| 419 |One| 424 = 428 -
-              434 + 445 * 451)
+              |Vectorise| 410 |UnVectorise| 415 = 420 |1| 426 |0| 430 - 434 +
+              445 * 451)
            'NIL
            (CONS
             (|makeByteWordVec2| 2
@@ -518,9 +517,9 @@
                                     0 1 85 1 1 1 82 0 1 2 0 0 0 0 1 1 0 56 0 58
                                     1 0 0 31 1 1 0 0 6 55 1 2 0 0 1 0 0 10 1 3
                                     0 0 0 0 0 1 2 0 0 0 0 1 2 0 24 0 0 1 2 0 0
-                                    0 44 1 2 0 0 0 10 76 0 0 0 18 1 0 41 0 70 1
-                                    0 0 41 42 0 0 0 8 2 0 24 0 0 64 2 0 0 0 0 1
-                                    1 0 0 0 67 2 0 0 0 0 28 2 0 0 44 0 1 2 0 0
-                                    0 0 69 2 0 0 31 0 54 2 0 0 10 0 1 2 0 0 6 0
-                                    52)))))
+                                    0 44 1 2 0 0 0 10 76 1 0 41 0 70 1 0 0 41
+                                    42 2 0 24 0 0 64 0 0 0 8 0 0 0 18 2 0 0 0 0
+                                    1 1 0 0 0 67 2 0 0 0 0 28 2 0 0 44 0 1 2 0
+                                    0 0 0 69 2 0 0 31 0 54 2 0 0 10 0 1 2 0 0 6
+                                    0 52)))))
            '|lookupComplete|)) 

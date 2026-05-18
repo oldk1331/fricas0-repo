@@ -306,12 +306,12 @@
 (MAKEPROP '|LieExponentials| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|XPBWPolynomial| 6 7) (|local| |#1|)
-              (|local| |#2|) (|local| |#3|) '|Rep| (0 . |Zero|) (|Equation| 7)
+              (|local| |#2|) (|local| |#3|) '|Rep| (0 . |0|) (|Equation| 7)
               (4 . |equation|) (|Boolean|) (|LyndonWord| 6) (10 . =) (16 . -)
-              (22 . =) (28 . |lexico|) (34 . |One|) (|OutputForm|)
-              (|Character|) (38 . |coerce|) (43 . |coerce|) (48 . ^)
-              (54 . |coerce|) (59 . *) (|Record| (|:| |k| 14) (|:| |c| 7))
-              (|List| 27) |LEXP;LyndonCoordinates;%L;5| (|List| 11)
+              (22 . =) (28 . |lexico|) (34 . |1|) (|OutputForm|) (|Character|)
+              (38 . |coerce|) (43 . |coerce|) (48 . ^) (54 . |coerce|) (59 . *)
+              (|Record| (|:| |k| 14) (|:| |c| 7)) (|List| 27)
+              |LEXP;LyndonCoordinates;%L;5| (|List| 11)
               |LEXP;identification;2%L;4| (|Record| (|:| |k| 36) (|:| |c| 7))
               (|List| 32) (65 . |listOfTerms|) (|Union| 14 '"failed")
               (|PoincareBirkhoffWittLyndonBasis| 6) (70 . |retractIfCan|)
@@ -319,7 +319,7 @@
               (81 . |product|) |LEXP;*;3%;6| (|LiePolynomial| 6 7)
               (88 . |coerce|) (93 . |exp|) |LEXP;exp;Lp%;7| (99 . |log|)
               (|Union| 43 '"failed") (105 . |LiePolyIfCan|) |LEXP;log;%Lp;8|
-              (110 . |One|) (114 . =) (|Mapping| 20 20 20) (|List| 20)
+              (110 . |1|) (114 . =) (|Mapping| 20 20 20) (|List| 20)
               (120 . |reduce|) |LEXP;coerce;%Of;9| (|List| %) (|List| 6)
               (|PositiveInteger|) (126 . |LyndonWordsList|) (132 . |LiePoly|)
               (|List| 43) |LEXP;LyndonBasis;LL;10| |LEXP;coerce;%Xpbwp;11|
@@ -330,8 +330,8 @@
               172 |recip| 184 |one?| 189 |mirror| 194 |log| 199 |listOfTerms|
               204 |leftRecip| 209 |leftPower| 214 |latex| 226 |inv| 231
               |identification| 236 |exp| 242 |conjugate| 247 |commutator| 253
-              |coerce| 259 ^ 274 |One| 292 |LyndonCoordinates| 296
-              |LyndonBasis| 301 = 306 / 312 * 318)
+              |coerce| 259 ^ 274 |LyndonCoordinates| 292 |LyndonBasis| 297 =
+              302 |1| 308 / 312 * 318)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -359,7 +359,7 @@
                                          69 0 1 1 0 0 0 68 2 0 30 0 0 31 1 0 0
                                          43 46 2 0 0 0 0 1 2 0 0 0 0 1 1 0 20 0
                                          56 1 0 72 0 1 1 0 5 0 64 2 0 0 0 59 1
-                                         2 0 0 0 40 1 2 0 0 0 71 1 0 0 0 51 1 0
-                                         28 0 29 1 0 62 58 63 2 0 13 0 0 52 2 0
-                                         0 0 0 1 2 0 0 0 0 42)))))
+                                         2 0 0 0 40 1 2 0 0 0 71 1 1 0 28 0 29
+                                         1 0 62 58 63 2 0 13 0 0 52 0 0 0 51 2
+                                         0 0 0 0 1 2 0 0 0 0 42)))))
            '|lookupComplete|)) 

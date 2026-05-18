@@ -286,18 +286,17 @@
 (MAKEPROP '|SymmetricPolynomial| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|PolynomialRing| 6 11) (|local| |#1|)
-              '|Term| '|Rep| (0 . |Zero|) (|Boolean|) (|Partition|)
-              (4 . |zero?|) (9 . *) (15 . |One|) (19 . |One|) (23 . =) (29 . +)
-              (35 . *) (41 . +) (47 . *) (53 . |Zero|) (57 . ~=) (|OutputForm|)
-              (|String|) (|PositiveInteger|)
-              (|Record| (|:| |k| 11) (|:| |c| 6)) (|List| 26) (|Mapping| 6 6)
-              (|List| %) (|List| 6) (|List| 11) (|NonNegativeInteger|)
-              (|Union| 6 '#1="failed") (|Mapping| 11 11) (|SingleInteger|)
-              (|HashState|) (|Integer|) (|Union| % '"failed")
+              '|Term| '|Rep| (0 . |0|) (|Boolean|) (|Partition|) (4 . |zero?|)
+              (9 . *) (15 . |1|) (19 . |1|) (23 . =) (29 . +) (35 . *) (41 . +)
+              (47 . *) (53 . |0|) (57 . ~=) (|OutputForm|) (|String|)
+              (|PositiveInteger|) (|Record| (|:| |k| 11) (|:| |c| 6))
+              (|List| 26) (|Mapping| 6 6) (|List| %) (|List| 6) (|List| 11)
+              (|NonNegativeInteger|) (|Union| 6 '#1="failed") (|Mapping| 11 11)
+              (|SingleInteger|) (|HashState|) (|Integer|) (|Union| % '"failed")
               (|Record| (|:| |unit| %) (|:| |canonical| %) (|:| |associate| %))
               (|Fraction| 37) (|Mapping| 6 11) (|Union| 40 '#1#)
               (|Union| 37 '#1#))
-           '#(|Zero| 63 |One| 67 = 71 + 77 * 83) 'NIL
+           '#(= 63 |1| 69 |0| 73 + 77 * 83) 'NIL
            (CONS
             (|makeByteWordVec2| 24
                                 '(0 0 3 7 8 6 5 4 7 1 11 9 11 6 7 1 0 6 7 1 0 0
@@ -345,7 +344,7 @@
                                   '(0 0 0 9 1 11 10 0 12 2 0 0 6 0 13 0 0 0 14
                                     0 6 0 15 2 0 10 0 0 16 2 11 0 0 0 17 2 6 0
                                     0 0 18 2 0 0 0 0 19 2 0 0 0 0 20 0 6 0 21 2
-                                    6 10 0 0 22 0 32 0 9 0 30 0 14 2 0 10 0 0
-                                    16 2 0 0 0 0 19 2 0 0 0 0 20 2 0 0 6 0
+                                    6 10 0 0 22 2 0 10 0 0 16 0 30 0 14 0 32 0
+                                    9 2 0 0 0 0 19 2 0 0 0 0 20 2 0 0 6 0
                                     13)))))
            '|lookupIncomplete|)) 

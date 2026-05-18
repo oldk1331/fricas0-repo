@@ -255,7 +255,7 @@
               (|DistributedMultivariatePolynomial| (NRTEVAL (QREFELT % 10)) 26)
               (14 . |coerce|) (|Boolean|) (19 . =)
               (|DistributedMultivariatePolynomial| (NRTEVAL (QREFELT % 6)) 26)
-              (25 . |Zero|) (29 . |convert|) (34 . |variable|) (39 . |coerce|)
+              (25 . |0|) (29 . |convert|) (34 . |variable|) (39 . |coerce|)
               (|Fraction| (|Integer|)) (44 . |coerce|) (|Mapping| 17 15)
               (|Mapping| 17 26)
               (|PolynomialCategoryLifting|
@@ -276,7 +276,7 @@
                                     (|NonNegativeInteger|))
                                    21)
               (78 . |status|) (83 . =) (|List| 21) (89 . |definingEquations|)
-              (94 . |definingInequation|) (99 . *) (105 . |One|) (109 . -)
+              (94 . |definingInequation|) (99 . *) (105 . |1|) (109 . -)
               (|List| 17)
               (|PolynomialIdeal| 26
                                  (|DirectProduct|

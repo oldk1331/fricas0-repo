@@ -316,16 +316,16 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|FreeModule| 7 20) (|local| |#1|)
               (|local| |#2|) (|local| |#3|) (|local| |#4|) (|Boolean|)
-              (0 . |zero?|) (5 . |Zero|) (|OutputForm|) (9 . |coerce|)
+              (0 . |zero?|) (5 . |0|) (|OutputForm|) (9 . |coerce|)
               (|Record| (|:| |k| 20) (|:| |c| 7)) (|List| 15)
               (14 . |listOfTerms|) (19 . |tensor|) (|List| 8) (|Vector| 8)
               (25 . |parts|) (30 . |coerce|) (|Mapping| 13 13 13) (|List| 13)
-              (35 . |reduce|) (41 . |One|) (45 . =) (51 . *) (57 . +)
+              (35 . |reduce|) (41 . |1|) (45 . =) (51 . *) (57 . +)
               |TENSPOW;coerce;%Of;1| (|Record| (|:| |k| 8) (|:| |c| 7))
               (|List| 31) (63 . |listOfTerms|) (68 . *) (74 . |vector|)
               (79 . |monomial|) |TENSPOW;tensor;L%;3| (|NonNegativeInteger|)
               (|List| 9) (85 . |size?|) (91 . |zero?|) (|Mapping| 10 9)
-              (96 . |any?|) (102 . |Zero|) (106 . |constructOrdered|)
+              (96 . |any?|) (102 . |0|) (106 . |constructOrdered|)
               (111 . |tensor|) (116 . |monomial|) (122 . *) (128 . *)
               (134 . |construct|) (139 . *) (|String|) (|PositiveInteger|)
               (|List| 20) (|List| %) (|List| 7) (|Mapping| 7 7) (|Integer|)
@@ -340,8 +340,7 @@
               307 |latex| 312 |constructOrdered| 317 |construct| 322
               |commutator| 327 |coerce| 333 |coefficients| 348 |coefficient|
               353 |characteristic| 359 |associator| 363 |antiCommutator| 370
-              |annihilate?| 376 ^ 382 |Zero| 394 |One| 398 = 402 - 408 + 419 *
-              425)
+              |annihilate?| 376 ^ 382 = 394 |1| 400 |0| 404 - 408 + 419 * 425)
            'NIL
            (CONS
             (|makeByteWordVec2| 8
@@ -391,8 +390,8 @@
                                     0 16 50 2 1 0 0 0 1 1 0 13 0 30 1 1 0 7 1 1
                                     1 0 58 1 1 0 56 0 1 2 0 7 0 20 1 0 1 38 1 3
                                     1 0 0 0 0 1 2 1 0 0 0 1 2 1 10 0 0 1 2 1 0
-                                    0 38 1 2 1 0 0 53 1 0 5 0 44 0 1 0 1 2 0 10
-                                    0 0 1 1 2 0 0 1 2 2 0 0 0 1 2 0 0 0 0 1 2 0
-                                    0 53 0 1 2 0 0 0 7 1 2 0 0 7 0 49 2 2 0 58
-                                    0 1 2 5 0 38 0 1 2 1 0 0 0 51)))))
+                                    0 38 1 2 1 0 0 53 1 2 0 10 0 0 1 0 1 0 1 0
+                                    5 0 44 1 2 0 0 1 2 2 0 0 0 1 2 0 0 0 0 1 2
+                                    0 0 53 0 1 2 0 0 0 7 1 2 0 0 7 0 49 2 2 0
+                                    58 0 1 2 5 0 38 0 1 2 1 0 0 0 51)))))
            '|lookupComplete|)) 

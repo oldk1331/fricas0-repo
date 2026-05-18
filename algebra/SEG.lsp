@@ -253,7 +253,7 @@
               (|List| 27) (|InputFormFunctions1| $$) (50 . |packageCall|)
               (56 . |convert|) (61 . |convert|) (66 . +) (72 . +) (78 . +)
               (84 . -) (90 . -) (96 . |reverse|) (101 . |coerce|)
-              (106 . |zero?|) (111 . |Zero|) (115 . >) (121 . <=) (127 . >=)
+              (106 . |zero?|) (111 . |0|) (115 . >) (121 . <=) (127 . >=)
               (|List| 6) (|List| %) (133 . |expand|) (138 . |expand|)
               (|Mapping| 6 6) (143 . |map|))
            '#(~= 149 |segment| 155 |reverse| 161 |map| 166 |low| 172 |latex|

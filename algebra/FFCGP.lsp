@@ -341,13 +341,13 @@
 (SDEFUN |FFCGP;index;Pi%;32| ((|a| (|PositiveInteger|)) (% (%)))
         (|sub_SI| (SPADCALL |a| (QREFELT % 14) (QREFELT % 101)) 1)) 
 
-(MAKEPROP '|FFCGP;Zero;%;33| '|SPADreplace| '(XLAM NIL -1)) 
+(MAKEPROP '|FFCGP;0;%;33| '|SPADreplace| '(XLAM NIL -1)) 
 
-(SDEFUN |FFCGP;Zero;%;33| ((% (%))) -1) 
+(SDEFUN |FFCGP;0;%;33| ((% (%))) -1) 
 
-(MAKEPROP '|FFCGP;One;%;34| '|SPADreplace| '(XLAM NIL 0)) 
+(MAKEPROP '|FFCGP;1;%;34| '|SPADreplace| '(XLAM NIL 0)) 
 
-(SDEFUN |FFCGP;One;%;34| ((% (%))) 0) 
+(SDEFUN |FFCGP;1;%;34| ((% (%))) 0) 
 
 (SDEFUN |FFCGP;coerce;%Of;35| ((|x| (%)) (% (|OutputForm|)))
         (SPROG ((|y| (|Integer|)))
@@ -482,19 +482,18 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|Rep|
               (|NonNegativeInteger|) (|SparseUnivariatePolynomial| 6)
-              (0 . |degree|) '|extdeg| (5 . |size|) '|sizeFF| '#:G0 (9 . |One|)
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FFCGP;One;%;34|) %))
+              (0 . |degree|) '|extdeg| (5 . |size|) '|sizeFF| '#:G0 (9 . |1|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FFCGP;1;%;34|) %))
               '|sizeCG| '|sizeFG| '|zechlog| (|Symbol|) (13 . |new|)
-              (|OutputForm|) (17 . |coerce|) '|alpha| (22 . |Zero|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |FFCGP;Zero;%;33|) %))
+              (|OutputForm|) (17 . |coerce|) '|alpha| (22 . |0|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FFCGP;0;%;33|) %))
               (26 . |coefficient|) (32 . -) '|primEltGF| '|facOfGroupSize|
               '|initzech?| '|initelt?| '|normalElt| (|Table| 43 9)
               (37 . |table|) (|Integer|) |FFCGP;tableForDiscreteLogarithm;IT;1|
               (|PrimitiveArray| 166) |FFCGP;getZechTable;Pa;2| (|Boolean|)
               (41 . |zero?|) (|PositiveInteger|) |FFCGP;order;%Pi;3|
-              |FFCGP;=;2%B;36| |FFCGP;primitive?;%B;4| (46 . |Zero|)
-              (50 . |One|) (54 . |monomial|)
+              |FFCGP;=;2%B;36| |FFCGP;primitive?;%B;4| (46 . |0|) (50 . |1|)
+              (54 . |monomial|)
               (|SimpleAlgebraicExtension| 6 10 (NRTEVAL (QREFELT % 7)))
               (60 . |convert|) (65 . ^) (|Vector| 6) (71 . |coordinates|)
               |FFCGP;coordinates;%V;5| (76 . <=) |FFCGP;+;3%;6|
@@ -514,14 +513,13 @@
               |FFCGP;representationType;U;12| |FFCGP;definingPolynomial;Sup;13|
               |FFCGP;random;%;14|
               (|FiniteFieldExtensionByPolynomial| 6 (NRTEVAL (QREFELT % 7)))
-              (155 . |represents|) (160 . |Zero|) (164 . =)
-              (170 . |discreteLog|) |FFCGP;represents;V%;15| (175 . |zero?|)
-              (|Union| 9 '"failed") (180 . |discreteLog|)
-              (186 . |positiveRemainder|) (|Union| % '#1="failed")
-              (192 . |exquo|) (|Union| $$ '#1#) (198 . =) (204 . ^)
-              (|Union| 6 '"failed") |FFCGP;retractIfCan;%U;17| (210 . =)
-              |FFCGP;basis;V;19| (216 . |positiveRemainder|)
-              |FFCGP;inGroundField?;%B;20|
+              (155 . |represents|) (160 . |0|) (164 . =) (170 . |discreteLog|)
+              |FFCGP;represents;V%;15| (175 . |zero?|) (|Union| 9 '"failed")
+              (180 . |discreteLog|) (186 . |positiveRemainder|)
+              (|Union| % '#1="failed") (192 . |exquo|) (|Union| $$ '#1#)
+              (198 . =) (204 . ^) (|Union| 6 '"failed")
+              |FFCGP;retractIfCan;%U;17| (210 . =) |FFCGP;basis;V;19|
+              (216 . |positiveRemainder|) |FFCGP;inGroundField?;%B;20|
               (|Record| (|:| |coef1| %) (|:| |coef2| %))
               (|Union| 113 '#2="failed") (222 . |extendedEuclidean|)
               (|Record| (|:| |coef1| $$) (|:| |coef2| $$)) (|Union| 116 '#2#)
@@ -576,8 +574,8 @@
               |coerce| 857 |charthRoot| 882 |characteristicPolynomial| 892
               |characteristic| 897 |basis| 901 |associator| 910 |associates?|
               917 |antiCommutator| 923 |annihilate?| 929 |algebraic?| 935 ^ 940
-              |Zero| 958 |One| 962 |Frobenius| 966 D 977 = 988 / 994 - 1006 +
-              1017 * 1023)
+              |Frobenius| 958 D 969 = 980 |1| 986 |0| 990 / 994 - 1006 + 1017 *
+              1023)
            'NIL
            (CONS
             (|makeByteWordVec2| 4
@@ -681,9 +679,9 @@
                                     1 0 10 0 1 0 0 9 134 0 0 67 110 1 2 67 43
                                     68 3 0 0 0 0 0 1 2 0 41 0 0 1 2 0 0 0 0 1 2
                                     0 41 0 0 1 1 0 41 0 1 2 0 0 0 43 146 2 0 0
-                                    0 9 147 2 0 0 0 37 145 0 0 0 27 0 0 0 17 2
-                                    2 0 0 9 1 1 2 0 0 76 1 2 0 0 1 2 2 0 0 9 1
-                                    2 0 41 0 0 45 2 0 0 0 0 142 2 0 0 0 6 143 2
+                                    0 9 147 2 0 0 0 37 145 2 2 0 0 9 1 1 2 0 0
+                                    76 1 2 0 0 1 2 2 0 0 9 1 2 0 41 0 0 45 0 0
+                                    0 17 0 0 0 27 2 0 0 0 0 142 2 0 0 0 6 143 2
                                     0 0 0 0 1 1 0 0 0 122 2 0 0 0 0 57 2 0 0 43
                                     0 1 2 0 0 0 0 71 2 0 0 37 0 72 2 0 0 9 0 1
                                     2 0 0 6 0 141 2 0 0 0 6 1 2 7 0 0 159 1 2 7

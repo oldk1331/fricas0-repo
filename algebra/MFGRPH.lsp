@@ -1589,7 +1589,7 @@
               (25 . |createX|) (31 . |createY|) (37 . |concat|) (|List| 15)
               (43 . |elt|) |MFGRPH;multifunctionGraph;LL%;4|
               (|Record| (|:| |preimage| 8) (|:| |image| 8)) (|Permutation| 6)
-              (49 . |listRepresentation|) (54 . |One|) (58 . |position|)
+              (49 . |listRepresentation|) (54 . |1|) (58 . |position|)
               (64 . |concat|) (|List| 32) |MFGRPH;multifunctionGraph;L%;5|
               (|Boolean|) (70 . =) |MFGRPH;addObject!;%S%;6|
               |MFGRPH;addObject!;%R%;7| (76 . |elt|) (|String|)

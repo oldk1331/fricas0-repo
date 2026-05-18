@@ -581,7 +581,7 @@
               (|Record| (|:| |eigval| 10) (|:| |geneigvec| 33)) (|List| 20)
               |IEP;generalizedEigenvectors;MML;16|
               (15 . |generalizedEigenvectors|) (|SparseUnivariatePolynomial| 6)
-              (20 . |rem|) (|Boolean|) (26 . =) (32 . |Zero|) (36 . |Zero|)
+              (20 . |rem|) (|Boolean|) (26 . =) (32 . |0|) (36 . |0|)
               (|Record| (|:| |coef1| %) (|:| |coef2| %)) (|Union| 30 '"failed")
               (40 . |extendedEuclidean|) (|List| 65) (|NonNegativeInteger|)
               |IEP;generalizedEigenvector;UM2NniL;14|
@@ -591,12 +591,12 @@
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 41) (|:| |factor| 24) (|:| |exponent| 34))
               (|List| 42) (|Factored| 24) (62 . |factorList|) (67 . |degree|)
-              (72 . |One|) (76 . |coefficient|) (82 . |leadingCoefficient|)
+              (72 . |1|) (76 . |coefficient|) (82 . |leadingCoefficient|)
               (87 . /) (93 . -) (98 . |append|) |IEP;eigenvector;UML;11|
               (104 . |zero|) (|Integer|) (110 . |elt|) (117 . |setelt!|)
               (125 . -) (131 . ^) (|List| 62) (137 . |nullSpace|) (|Vector| 6)
               (142 . |elt|) (148 . |coerce|) (|Vector| 24) (153 . |setelt!|)
-              (160 . |unitCanonical|) (165 . |One|) (169 . |monomial|)
+              (160 . |unitCanonical|) (165 . |1|) (169 . |monomial|)
               |IEP;generalizedEigenvector;RML;15| (175 . |append|))
            '#(|generalizedEigenvectors| 181 |generalizedEigenvector| 192
               |eigenvectors| 206 |eigenvector| 217 |eigenvalues| 223

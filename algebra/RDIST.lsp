@@ -130,15 +130,15 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Table| 6 11)
               (0 . |table|) (|Union| 11 '"failed") (4 . |search|) (|Integer|)
-              (10 . |Zero|) (14 . +) (20 . |setelt!|) (|List| 6) (27 . |keys|)
-              (|NonNegativeInteger|) (32 . |#|) (37 . |Zero|) (|Boolean|)
-              (41 . =) (47 . |elt|) (|Vector| 6) (53 . |new|) (|Vector| 11)
-              (59 . |new|) (|SingleInteger|) (65 . |One|) (69 . |One|)
-              (73 . |setelt!|) (80 . |elt|) (86 . |setelt!|) (|Mapping| 6)
+              (10 . |0|) (14 . +) (20 . |setelt!|) (|List| 6) (27 . |keys|)
+              (|NonNegativeInteger|) (32 . |#|) (37 . |0|) (|Boolean|) (41 . =)
+              (47 . |elt|) (|Vector| 6) (53 . |new|) (|Vector| 11) (59 . |new|)
+              (|SingleInteger|) (65 . |1|) (69 . |1|) (73 . |setelt!|)
+              (80 . |elt|) (86 . |setelt!|) (|Mapping| 6)
               |RDIST;rdHack1;VVIM;2|
               (|Record| (|:| |value| 6) (|:| |weight| 11)) (|List| 35)
               |RDIST;weighted;LM;1| (|RandomNumberSource|) (93 . |randnum|)
-              (98 . |One|) (102 . |elt|) (|Set| 6) (108 . |members|)
+              (98 . |1|) (102 . |elt|) (|Set| 6) (108 . |members|)
               (113 . |randnum|) |RDIST;uniform;SM;3|)
            '#(|weighted| 117 |uniform| 122 |rdHack1| 127) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

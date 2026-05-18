@@ -185,10 +185,10 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL '|large| '|two| '|half| '|half_pi|
               '|four| '|fourth| (|Boolean|) (|DoubleFloat|) (0 . >) (6 . |log|)
-              (|Fraction| 26) (11 . |One|) (|DoubleFloatEllipticIntegrals|)
+              (|Fraction| 26) (11 . |1|) (|DoubleFloatEllipticIntegrals|)
               (15 . |ellipticRC|) |DFELEM;log_plus_1;2Df;1| (|Complex| 13)
               (21 . |real|) (26 . |imag|) (31 . -) |DFELEM;atanh;2C;2|
-              (|Integer|) (36 . |sign|) (41 . |complex|) (47 . |One|) (51 . *)
+              (|Integer|) (36 . |sign|) (41 . |complex|) (47 . |1|) (51 . *)
               (57 . -) (63 . |ellipticRC|) (69 . |sqrt|))
            '#(|log_plus_1| 74 |atanh| 79) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

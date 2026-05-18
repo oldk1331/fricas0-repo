@@ -1307,32 +1307,32 @@
            '#(NIL NIL NIL NIL NIL (|PolynomialRing| 6 9) (|local| |#1|)
               (|local| |#2|) (|local| |#3|) (|local| |#4|) (|OutputForm|)
               (0 . |coerce|) 'LJVO '|nl| '|Term| '|Rep| (|Boolean|) (5 . =)
-              (|NonNegativeInteger|) (|Vector| 18) (11 . |zero|) (16 . |One|)
-              (20 . |One|) (24 . |One|) (28 . |directProduct|)
-              (33 . |monomial|) (39 . *) |DJBP;monomial;%JBNni%;2|
-              |DJBP;coerce;JB%;3| |DJBP;zero?;%B;4| (|Union| 7 '"failed")
-              |DJBP;mainVariable;%U;8| |DJBP;ground?;%B;5|
-              |DJBP;monomial?;%B;6| |DJBP;numberOfMonomials;%Nni;7|
-              (45 . |degree|) (|Integer|) (50 . |elt|) (56 . |Zero|)
-              (60 . |Zero|) (64 . |new|) (70 . |reductum|) (75 . |elt|)
-              (81 . |setelt!|) (88 . ~=) (|List| 7) |DJBP;variables;%L;9|
-              (94 . |coerce|) (|List| 10) (99 . |elt|) (105 . |coerce|)
-              (110 . ^) (116 . ~=) (122 . *) (|Mapping| 10 10 10)
-              (128 . |reduce|) (134 . +) |DJBP;coerce;%Of;10|
-              (|JetBundlePolynomial| 6 7) (140 . |mainVariable|)
-              (145 . |retract|) (150 . |coerce|) (155 . |member?|)
-              (|SparseUnivariatePolynomial| %) (161 . |univariate|)
-              (|SparseUnivariatePolynomial| 58) (167 . |zero?|)
-              (172 . |leadingCoefficient|) |DJBP;convert;Jbp%;11|
-              (177 . |degree|) (182 . +) (188 . |reductum|)
-              |DJBP;retract;%R;15| (193 . |coerce|) |DJBP;univariate;%JBSup;16|
-              (198 . |Zero|) (|SparseUnivariatePolynomial| $$) (202 . |zero?|)
+              (|NonNegativeInteger|) (|Vector| 18) (11 . |zero|) (16 . |1|)
+              (20 . |1|) (24 . |1|) (28 . |directProduct|) (33 . |monomial|)
+              (39 . *) |DJBP;monomial;%JBNni%;2| |DJBP;coerce;JB%;3|
+              |DJBP;zero?;%B;4| (|Union| 7 '"failed") |DJBP;mainVariable;%U;8|
+              |DJBP;ground?;%B;5| |DJBP;monomial?;%B;6|
+              |DJBP;numberOfMonomials;%Nni;7| (45 . |degree|) (|Integer|)
+              (50 . |elt|) (56 . |0|) (60 . |0|) (64 . |new|) (70 . |reductum|)
+              (75 . |elt|) (81 . |setelt!|) (88 . ~=) (|List| 7)
+              |DJBP;variables;%L;9| (94 . |coerce|) (|List| 10) (99 . |elt|)
+              (105 . |coerce|) (110 . ^) (116 . ~=) (122 . *)
+              (|Mapping| 10 10 10) (128 . |reduce|) (134 . +)
+              |DJBP;coerce;%Of;10| (|JetBundlePolynomial| 6 7)
+              (140 . |mainVariable|) (145 . |retract|) (150 . |coerce|)
+              (155 . |member?|) (|SparseUnivariatePolynomial| %)
+              (161 . |univariate|) (|SparseUnivariatePolynomial| 58)
+              (167 . |zero?|) (172 . |leadingCoefficient|)
+              |DJBP;convert;Jbp%;11| (177 . |degree|) (182 . +)
+              (188 . |reductum|) |DJBP;retract;%R;15| (193 . |coerce|)
+              |DJBP;univariate;%JBSup;16| (198 . |0|)
+              (|SparseUnivariatePolynomial| $$) (202 . |zero?|)
               (207 . |leadingCoefficient|) |DJBP;convert;%Jbp;12|
               (212 . |degree|) (217 . |monomial|) (224 . +) (230 . |reductum|)
               (235 . |leadingCoefficient|) |DJBP;const;%R;13|
-              (|Union| 6 '"failed") |DJBP;retractIfCan;%U;14| (240 . |Zero|)
+              (|Union| 6 '"failed") |DJBP;retractIfCan;%U;14| (240 . |0|)
               (244 . |monomial|) (250 . +) (|SparseUnivariatePolynomial| 6)
-              (256 . |monomial|) (262 . |Zero|) (266 . +)
+              (256 . |monomial|) (262 . |0|) (266 . +)
               |DJBP;univariate;%Sup;17| (272 . ^) |DJBP;multivariate;SupJB%;18|
               (278 . |zero?|) (283 . |leadingCoefficient|) (288 . |degree|)
               (293 . *) (299 . |reductum|) |DJBP;multivariate;SupJB%;19|
@@ -1394,8 +1394,8 @@
               |conditionP| 1135 |commutator| 1140 |coerce| 1146 |coefficients|
               1176 |coefficient| 1181 |charthRoot| 1201 |characteristic| 1206
               |binomThmExpt| 1210 |associator| 1217 |associates?| 1224
-              |antiCommutator| 1230 |annihilate?| 1236 ^ 1242 |Zero| 1254 |One|
-              1258 D 1262 = 1288 / 1294 - 1300 + 1311 * 1317)
+              |antiCommutator| 1230 |annihilate?| 1236 ^ 1242 D 1254 = 1280 |1|
+              1286 |0| 1290 / 1294 - 1300 + 1311 * 1317)
            'NIL
            (CONS
             (|makeByteWordVec2| 44
@@ -1529,9 +1529,9 @@
                                     0 0 0 7 18 1 3 0 0 0 45 110 1 1 46 166 0 1
                                     0 52 18 1 3 45 0 0 0 18 1 3 52 0 0 0 0 1 2
                                     47 16 0 0 1 2 0 0 0 0 1 2 52 16 0 0 1 2 0 0
-                                    0 157 1 2 51 0 0 18 96 0 53 0 38 0 51 0 22
-                                    3 4 0 0 7 18 1 3 4 0 0 45 110 1 2 4 0 0 7 1
-                                    2 4 0 0 45 1 2 0 16 0 0 1 2 21 0 0 6 140 2
+                                    0 157 1 2 51 0 0 18 96 3 4 0 0 7 18 1 3 4 0
+                                    0 45 110 1 2 4 0 0 7 1 2 4 0 0 45 1 2 0 16
+                                    0 0 1 0 51 0 22 0 53 0 38 2 21 0 0 6 140 2
                                     55 0 0 0 1 1 55 0 0 1 2 0 0 0 0 70 2 0 0
                                     157 0 1 2 0 0 0 0 26 2 0 0 0 6 1 2 0 0 6 0
                                     101 2 37 0 0 36 1 2 55 0 36 0 1 2 53 0 18 0

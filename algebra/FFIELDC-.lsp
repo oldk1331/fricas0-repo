@@ -396,7 +396,7 @@
 
 (MAKEPROP '|FiniteFieldCategory&| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |Zero|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |0|)
               |FFIELDC-;differentiate;2S;1| |FFIELDC-;init;S;2|
               (|PositiveInteger|) (4 . |lookup|) (9 . |index|) (|Boolean|)
               (14 . |zero?|) (|Union| % '#1="failed") |FFIELDC-;nextItem;SU;3|
@@ -410,11 +410,11 @@
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (59 . |representationType|) |FFIELDC-;createPrimitiveElement;S;8|
               (|Record| (|:| |factor| 43) (|:| |exponent| 31)) (|List| 40)
-              (63 . |factorsOfCyclicGroupSize|) (|Integer|) (67 . ^)
-              (73 . |One|) (77 . =) |FFIELDC-;primitive?;SB;9| (|Factored| 43)
-              (83 . |Zero|) |FFIELDC-;order;SPi;10| (87 . |primitiveElement|)
-              (|Table| 10 31) (91 . |tableForDiscreteLogarithm|) (96 . |#|)
-              (101 . |One|) (|Union| 31 '"failed") (105 . |search|) (111 . *)
+              (63 . |factorsOfCyclicGroupSize|) (|Integer|) (67 . ^) (73 . |1|)
+              (77 . =) |FFIELDC-;primitive?;SB;9| (|Factored| 43) (83 . |0|)
+              |FFIELDC-;order;SPi;10| (87 . |primitiveElement|) (|Table| 10 31)
+              (91 . |tableForDiscreteLogarithm|) (96 . |#|) (101 . |1|)
+              (|Union| 31 '"failed") (105 . |search|) (111 . *)
               |FFIELDC-;discreteLog;SNni;11| (|Void|) (|String|) (|OutputForm|)
               (117 . |messagePrint|) (|Factored| %) (122 . |factor|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")

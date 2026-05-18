@@ -598,12 +598,12 @@
 
 (MAKEPROP '|SturmHabichtPackage| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |One|)
-              (4 . |One|) (8 . -) (|NonNegativeInteger|) (13 . ^) (|Integer|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |1|)
+              (4 . |1|) (8 . -) (|NonNegativeInteger|) (13 . ^) (|Integer|)
               (19 . |sign|) (24 . |coerce|) (29 . |differentiate|) (34 . *)
               (40 . |pseudoRemainder|) (|Union| % '"failed") (46 . |exquo|)
-              (52 . |leadingCoefficient|) (57 . |degree|) (62 . |Zero|)
-              (66 . |monomial|) (72 . *) (78 . |Zero|) (|List| 7) (82 . |new|)
+              (52 . |leadingCoefficient|) (57 . |degree|) (62 . |0|)
+              (66 . |monomial|) (72 . *) (78 . |0|) (|List| 7) (82 . |new|)
               (88 . |append|) (|Boolean|) (94 . =) (|PrimitiveArray| 7)
               (|SubResultantPackage| 6 7) (100 . |subresultantVector|)
               (106 . |parts|) (111 . |elt|) (117 . =)

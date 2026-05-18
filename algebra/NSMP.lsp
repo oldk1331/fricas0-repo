@@ -1565,7 +1565,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|SparseMultivariatePolynomial| 6 7)
               (|local| |#1|) (|local| |#2|) 'D '|VPoly| '|Rep|
-              (|NonNegativeInteger|) (0 . |degree|) (5 . |Zero|)
+              (|NonNegativeInteger|) (0 . |degree|) (5 . |0|)
               (9 . |leadingCoefficient|) |NSMP;coerce;%Smp;2|
               |NSMP;coerce;Smp%;3| (|Union| 5 '"failed")
               |NSMP;retractIfCan;%U;4| |NSMP;mvar;%VarSet;5| |NSMP;mdeg;%Nni;6|
@@ -1573,7 +1573,7 @@
               (19 . |reductum|) (|Boolean|) (24 . |ground?|) (29 . |ground|)
               |NSMP;tail;2%;9| (|List| %) |NSMP;iteratedInitials;%L;10|
               (|List| $$) (34 . |cons|) |NSMP;deepestInitial;2%;12|
-              (40 . |zero?|) (45 . |One|) (49 . |monomial|)
+              (40 . |zero?|) (45 . |1|) (49 . |monomial|)
               |NSMP;mainMonomial;2%;13| (56 . |minimumDegree|)
               |NSMP;leastMonomial;2%;14| (61 . |coefficients|)
               |NSMP;mainCoefficients;%L;15| (66 . =) (72 . |degree|)
@@ -1581,7 +1581,7 @@
               (85 . <) (91 . >) (|NewSparseUnivariatePolynomial| $$)
               (|Mapping| $$ $$)
               (|NewSparseUnivariatePolynomialFunctions2| $$ $$) (97 . |map|)
-              (103 . |monicModulo|) (109 . |ground?|) (114 . |One|) (118 . =)
+              (103 . |monicModulo|) (109 . |ground?|) (114 . |1|) (118 . =)
               (124 . |ground|) (|Union| % '"failed") (129 . |recip|) (134 . *)
               |NSMP;monicModulo;3%;18| (140 . ^) (146 . |pseudoRemainder|)
               (152 . -) |NSMP;prem;3%;19|
@@ -1594,7 +1594,7 @@
               |NSMP;lazyPquo;3%;23|
               (|Record| (|:| |coef| $$) (|:| |gap| 11) (|:| |quotient| %)
                         (|:| |remainder| %))
-              (176 . |lazyPseudoDivide|) (182 . |Zero|)
+              (176 . |lazyPseudoDivide|) (182 . |0|)
               (|Record| (|:| |polnum| %) (|:| |polden| $$) (|:| |power| 11))
               (186 . |lazyResidueClass|)
               (|Record| (|:| |polnum| %) (|:| |polden| %) (|:| |power| 11))
@@ -1653,8 +1653,8 @@
               |gcd| 563 |extendedSubResultantGcd| 569 |exquo| 575
               |exactQuotient!| 581 |exactQuotient| 587 |degree| 593
               |deepestInitial| 599 |content| 604 |coerce| 609 |coefficient| 619
-              ^ 626 |Zero| 632 |One| 636 |LazardQuotient2| 640 |LazardQuotient|
-              648 = 655 - 661 + 667 * 673)
+              ^ 626 |LazardQuotient2| 632 |LazardQuotient| 640 = 647 |1| 653
+              |0| 657 - 661 + 667 * 673)
            'NIL
            (CONS
             (|makeByteWordVec2| 45
@@ -1761,8 +1761,8 @@
                                     0 56 2 14 6 6 0 114 2 24 98 0 0 100 2 50 57
                                     0 0 83 2 24 0 0 6 110 2 24 0 0 6 109 2 0 11
                                     0 7 43 1 0 0 0 33 1 14 6 0 113 1 0 5 0 15 1
-                                    0 0 5 16 3 0 0 0 7 11 44 2 54 0 0 11 61 0
-                                    56 0 13 0 54 0 35 4 24 0 0 0 0 11 86 3 24 0
-                                    0 0 11 85 2 0 25 0 0 55 2 58 0 0 0 63 2 0 0
-                                    0 0 73 2 0 0 0 0 59)))))
+                                    0 0 5 16 3 0 0 0 7 11 44 2 54 0 0 11 61 4
+                                    24 0 0 0 0 11 86 3 24 0 0 0 11 85 2 0 25 0
+                                    0 55 0 54 0 35 0 56 0 13 2 58 0 0 0 63 2 0
+                                    0 0 0 73 2 0 0 0 0 59)))))
            '|lookupIncomplete|)) 

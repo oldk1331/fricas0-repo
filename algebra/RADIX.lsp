@@ -5,11 +5,11 @@
 
 (SDEFUN |RADIX;differentiate;2%;2| ((|a| (%)) (% (%))) (|spadConstant| % 10)) 
 
-(MAKEPROP '|RADIX;Zero;%;3| '|SPADreplace| '(XLAM NIL (VECTOR 1 NIL NIL NIL))) 
+(MAKEPROP '|RADIX;0;%;3| '|SPADreplace| '(XLAM NIL (VECTOR 1 NIL NIL NIL))) 
 
-(SDEFUN |RADIX;Zero;%;3| ((% (%))) (VECTOR 1 NIL NIL NIL)) 
+(SDEFUN |RADIX;0;%;3| ((% (%))) (VECTOR 1 NIL NIL NIL)) 
 
-(SDEFUN |RADIX;One;%;4| ((% (%))) (VECTOR 1 (LIST 1) NIL NIL)) 
+(SDEFUN |RADIX;1;%;4| ((% (%))) (VECTOR 1 (LIST 1) NIL NIL)) 
 
 (SDEFUN |RADIX;-;2%;5| ((|a| (%)) (% (%)))
         (COND
@@ -551,9 +551,9 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep|
               (|NonNegativeInteger|) |RADIX;characteristic;Nni;1|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |RADIX;Zero;%;3|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |RADIX;0;%;3|) %))
               |RADIX;differentiate;2%;2|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |RADIX;One;%;4|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |RADIX;1;%;4|) %))
               (|Boolean|) |RADIX;=;2%B;13| |RADIX;-;2%;5| (|Fraction| 23)
               |RADIX;coerce;%F;16| (0 . +) |RADIX;coerce;F%;18| |RADIX;+;3%;6|
               (6 . -) |RADIX;-;3%;7| (|Integer|) (12 . *) |RADIX;*;I2%;8|
@@ -561,7 +561,7 @@
               |RADIX;/;2I%;11| (36 . <) |RADIX;<;2%B;12| (|List| 23) (42 . =)
               (48 . |numer|) |RADIX;numer;%I;14| (53 . |denom|)
               |RADIX;denom;%I;15| |RADIX;wholePart;%I;23| (58 . |coerce|)
-              |RADIX;fractionPart;%F;24| |RADIX;coerce;I%;17| (63 . |Zero|)
+              |RADIX;fractionPart;%F;24| |RADIX;coerce;I%;17| (63 . |0|)
               (67 . -) (|Union| 16 '"failed") |RADIX;retractIfCan;%U;19|
               (|Union| 23 '"failed") |RADIX;retractIfCan;%U;20|
               (72 . |ceiling|) |RADIX;ceiling;%I;21| (77 . |floor|)
@@ -612,8 +612,8 @@
               690 |convert| 695 |conditionP| 720 |commutator| 725 |coerce| 731
               |charthRoot| 761 |characteristic| 766 |ceiling| 770 |associator|
               775 |associates?| 782 |antiCommutator| 788 |annihilate?| 794
-              |abs| 800 ^ 805 |Zero| 823 |One| 827 D 831 >= 881 > 887 = 893 <=
-              899 < 905 / 911 - 923 + 934 * 940)
+              |abs| 800 ^ 805 D 823 >= 873 > 879 = 885 <= 891 < 897 |1| 903 |0|
+              907 / 911 - 923 + 934 * 940)
            'NIL
            (CONS
             (|makeByteWordVec2| 25
@@ -724,12 +724,12 @@
                                     0 17 1 28 0 16 19 1 3 0 106 1 1 27 84 0 1 0
                                     0 8 9 1 23 23 0 51 3 0 0 0 0 0 1 2 0 13 0 0
                                     1 2 0 0 0 0 1 2 0 13 0 0 1 1 7 0 0 1 2 0 0
-                                    0 83 1 2 0 0 0 8 1 2 0 0 0 23 1 0 0 0 10 0
-                                    0 0 12 2 0 0 0 95 1 3 0 0 0 95 8 1 1 16 0 0
-                                    1 2 16 0 0 8 1 2 15 0 0 106 1 2 15 0 0 107
-                                    1 3 15 0 0 107 108 1 3 15 0 0 106 8 1 2 8
-                                    13 0 0 1 2 8 13 0 0 1 2 0 13 0 0 14 2 8 13
-                                    0 0 1 2 8 13 0 0 33 2 0 0 0 0 29 2 0 0 23
+                                    0 83 1 2 0 0 0 8 1 2 0 0 0 23 1 2 0 0 0 95
+                                    1 3 0 0 0 95 8 1 1 16 0 0 1 2 16 0 0 8 1 2
+                                    15 0 0 106 1 2 15 0 0 107 1 3 15 0 0 107
+                                    108 1 3 15 0 0 106 8 1 2 8 13 0 0 1 2 8 13
+                                    0 0 1 2 0 13 0 0 14 2 8 13 0 0 1 2 8 13 0 0
+                                    33 0 0 0 12 0 0 0 10 2 0 0 0 0 29 2 0 0 23
                                     23 31 2 0 0 0 0 22 1 0 0 0 15 2 0 0 0 0 20
                                     2 0 0 83 0 1 2 0 0 0 0 27 2 0 0 23 0 25 2 0
                                     0 8 0 1 2 0 0 0 23 1 2 26 0 0 16 1 2 26 0

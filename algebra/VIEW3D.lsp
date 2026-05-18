@@ -1497,7 +1497,7 @@
 
 (MAKEPROP '|ThreeDimensionalViewport| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL '|Rep| (|Float|) (0 . |pi|) (4 . |Zero|)
+           '#(NIL NIL NIL NIL NIL NIL '|Rep| (|Float|) (0 . |pi|) (4 . |0|)
               (|Integer|) (|PositiveInteger|) (8 . |float|) (15 . /) '|degrees|
               '|degreesSF| (|DoubleFloat|) (21 . |convert|) '|defaultTheta|
               (26 . -) '|defaultPhi| '|defaultZoom| '|defaultDeltaX|
@@ -1520,8 +1520,8 @@
               (|List| (|List| 31)) (104 . |lllip|) (|List| 66) (109 . |llprop|)
               (|List| 81) (114 . |lprop|) (|Set| 11) (119 . |empty|)
               (123 . |dimension|) (128 . |insert!|) (134 . |#|) (139 . |parts|)
-              (144 . |One|) (|PointPackage| 16) (148 . |xCoord|)
-              (153 . |yCoord|) (158 . |zCoord|) (163 . |color|) (|Boolean|)
+              (144 . |1|) (|PointPackage| 16) (148 . |xCoord|) (153 . |yCoord|)
+              (158 . |zCoord|) (163 . |color|) (|Boolean|)
               (|SubSpaceComponentProperty|) (168 . |closed?|) (173 . |solid?|)
               (178 . |#|) (183 . |convert|) |VIEW3D;viewThetaDefault;F;12|
               |VIEW3D;viewThetaDefault;2F;13| |VIEW3D;viewPhiDefault;F;14|

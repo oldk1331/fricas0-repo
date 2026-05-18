@@ -1466,16 +1466,16 @@
 (MAKEPROP '|RecurrenceOperator| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|Symbol|)
-              (|BasicOperator|) (0 . |operator|) '|oprecur| '|opADE|
-              (5 . |One|) (|None|) (9 . |setProperty|) (|Union| 14 '"failed")
+              (|BasicOperator|) (0 . |operator|) '|oprecur| '|opADE| (5 . |1|)
+              (|None|) (9 . |setProperty|) (|Union| 14 '"failed")
               (16 . |property|) (|List| 7) (|Kernel| 7) (22 . |argument|)
               (27 . |coerce|) (|Boolean|) (32 . |freeOf?|) (|Mapping| 22 7)
-              (38 . |every?|) (|Integer|) (44 . ~=) (50 . |One|) (54 . |elt|)
+              (38 . |every?|) (|Integer|) (44 . ~=) (50 . |1|) (54 . |elt|)
               (|Kernel| %) (60 . |retract|) (|Fraction| 72) (65 . |univariate|)
-              (|Fraction| 38) (71 . |denominator|) (76 . |One|) (80 . ~=)
+              (|Fraction| 38) (71 . |denominator|) (76 . |1|) (80 . ~=)
               (|SparseUnivariatePolynomial| 7) (86 . |numer|)
               (|NonNegativeInteger|) (91 . |degree|) (96 . |coefficient|)
-              (102 . =) (108 . |coefficients|) (113 . |Zero|) (117 . |Zero|)
+              (102 . =) (108 . |coefficients|) (113 . |0|) (117 . |0|)
               (|Union| 26 '"failed") (121 . |retractIfCan|) (|List| 30)
               (126 . |kernels|) (131 . |is?|) (137 . |new|) (142 . |operator|)
               (|List| %) (148 . |kernel|) (154 . |concat|) (160 . |denom|)

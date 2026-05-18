@@ -135,7 +135,7 @@
               (|Fraction| 26) (21 . |denom|) (|SparseUnivariatePolynomial| 24)
               (|Mapping| 24 7) (|SparseUnivariatePolynomialFunctions2| 7 24)
               (26 . |map|) (|SparseUnivariatePolynomial| %) (32 . |minPoly|)
-              (37 . |One|) (|Record| (|:| |coef1| %) (|:| |coef2| %))
+              (37 . |1|) (|Record| (|:| |coef1| %) (|:| |coef2| %))
               (|Union| 36 '"failed") (41 . |extendedEuclidean|) (48 . |numer|)
               (53 . *) (59 . |rem|) |FSRED;bringDown;FKSup;2| (|List| 22)
               (65 . |kernels|) (|List| %) (70 . |eval|) (77 . |retract|)

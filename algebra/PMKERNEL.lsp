@@ -358,8 +358,8 @@
               (80 . |second|) (|Record| (|:| |val| %) (|:| |exponent| %))
               (|Union| 38 '"failed") (85 . |isPower|) (|Symbol|) (90 . |is?|)
               (96 . |second|) (|Union| % '"failed") (101 . |recip|)
-              (106 . |optional?|) (111 . |One|) (115 . |isTimes|)
-              (120 . |isPlus|) (125 . |Zero|) (129 . |patternMatch|))
+              (106 . |optional?|) (111 . |1|) (115 . |isTimes|)
+              (120 . |isPlus|) (125 . |0|) (129 . |patternMatch|))
            '#(|patternMatch| 136) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)

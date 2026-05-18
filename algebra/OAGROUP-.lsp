@@ -36,7 +36,7 @@
 
 (MAKEPROP '|OrderedAbelianGroup&| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |Zero|) (|Boolean|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |0|) (|Boolean|)
               (4 . >) |OAGROUP-;positive?;SB;1| (10 . <)
               |OAGROUP-;negative?;SB;2| (16 . |positive?|) (21 . |negative?|)
               (26 . |zero?|) (|Integer|) |OAGROUP-;sign;SI;3| (31 . -)

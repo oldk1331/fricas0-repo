@@ -1915,7 +1915,7 @@
 (MAKEPROP '|WeightedGraph| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|Rep|
-              (0 . |Zero|) (|List| 6) |WGRPH;weightedGraph;L%;1|
+              (0 . |0|) (|List| 6) |WGRPH;weightedGraph;L%;1|
               (|Record| (|:| |value| 6) (|:| |posX| 25) (|:| |posY| 25)
                         (|:| |weight| 7))
               (|List| 12) |WGRPH;weightedGraph;L%;2|

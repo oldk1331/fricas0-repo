@@ -1091,22 +1091,22 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|Union| % '"failed") (|Symbol|)
               (|OrderedVariableList| (NRTEVAL (QREFELT % 6))) (0 . |variable|)
-              '|lvar| (5 . |One|) (9 . |Zero|) (|Vector| 7) (|Integer|)
-              (|Matrix| 7) (13 . |row|) (|Vector| 16) (19 . |elt|) (25 . |elt|)
-              (31 . *) (37 . -) (42 . |exquo|) (48 . |setelt!|) (55 . -)
+              '|lvar| (5 . |1|) (9 . |0|) (|Vector| 7) (|Integer|) (|Matrix| 7)
+              (13 . |row|) (|Vector| 16) (19 . |elt|) (25 . |elt|) (31 . *)
+              (37 . -) (42 . |exquo|) (48 . |setelt!|) (55 . -)
               (|Record| (|:| |poly| 28) (|:| |mult| 7))
               (|HomogeneousDistributedMultivariatePolynomial|
                (NRTEVAL (QREFELT % 6)) 7)
               (|List| 28) (|GroebnerInternalPackage| 7 78 28) (61 . |redPo|)
-              (67 . |Zero|) (|Boolean|) (71 . =) (77 . |reductum|) (82 . -)
+              (67 . |0|) (|Boolean|) (71 . =) (77 . |reductum|) (82 . -)
               (88 . *) (94 . +) |LGROBP;computeBasis;2L;7|
               (|DistributedMultivariatePolynomial| (NRTEVAL (QREFELT % 6)) 7)
-              (100 . |One|) (104 . |One|) (|NonNegativeInteger|) (108 . |zero|)
+              (100 . |1|) (104 . |1|) (|NonNegativeInteger|) (108 . |zero|)
               (114 . |setelt!|) (122 . |setelt!|) (|List| 40)
               |LGROBP;choosemon;DmpLDmp;11| (129 . ~=) (135 . |exquo|)
               |LGROBP;transform;DmpHdmp;6| (141 . *) (147 . |content|)
               (152 . |gcd|) (158 . |exquo|) |LGROBP;coord;HdmpLV;9|
-              (164 . |zero|) (169 . =) (175 . *) (181 . +) (187 . |Zero|)
+              (164 . |zero|) (169 . =) (175 . *) (181 . +) (187 . |0|)
               (191 . |primitivePart|) (196 . |reductum|) (201 . -)
               (207 . |setRow!|) |LGROBP;totolex;LL;3|
               |LGROBP;minPol;2LOvlHdmp;5| |LGROBP;minPol;LOvlHdmp;4|

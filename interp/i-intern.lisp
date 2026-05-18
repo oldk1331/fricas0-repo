@@ -263,14 +263,14 @@
 ;   op='_$elt =>
 ;     argl is [D,a] =>
 ;       INTEGERP a =>
-;         a = 0 => mkAtree1 [['_$elt,D,'Zero]]
-;         a = 1 => mkAtree1 [['_$elt,D,'One]]
+;         a = 0 => mkAtree1([['_$elt, D, "0"]])
+;         a = 1 => mkAtree1([['_$elt, D, "1"]])
 ;         t := evaluateType unabbrev [D]
 ;         typeIsASmallInteger(t) and SINTP a =>
 ;             v := mkAtreeNode $immediateDataSymbol
 ;             putValue(v,mkObjWrap(a, t))
 ;             v
-;         mkAtree1 ["*",a,[['_$elt,D,'One]]]
+;         mkAtree1(["*", a, [['_$elt, D, "1"]]])
 ;       [mkAtreeNode 'Dollar,D,mkAtree1 a]
 ;     system_error("S2II0003",
 ;         '"Improper use of %1b with argument %2s: not qualifying an operator",
@@ -437,8 +437,8 @@
                      (PROGN (SETQ |a| (CAR |ISTMP#1|)) #1#))))
           (COND
            ((INTEGERP |a|)
-            (COND ((EQL |a| 0) (|mkAtree1| (LIST (LIST '|$elt| D '|Zero|))))
-                  ((EQL |a| 1) (|mkAtree1| (LIST (LIST '|$elt| D '|One|))))
+            (COND ((EQL |a| 0) (|mkAtree1| (LIST (LIST '|$elt| D '|0|))))
+                  ((EQL |a| 1) (|mkAtree1| (LIST (LIST '|$elt| D '|1|))))
                   (#1#
                    (PROGN
                     (SETQ |t| (|evaluateType| (|unabbrev| (LIST D))))
@@ -450,7 +450,7 @@
                        |v|))
                      (#1#
                       (|mkAtree1|
-                       (LIST '* |a| (LIST (LIST '|$elt| D '|One|))))))))))
+                       (LIST '* |a| (LIST (LIST '|$elt| D '|1|))))))))))
            (#1# (LIST (|mkAtreeNode| '|Dollar|) D (|mkAtree1| |a|)))))
          (#1#
           (|system_error| 'S2II0003

@@ -516,24 +516,24 @@
 
 (MAKEPROP '|FiniteAlgebraicExtensionField&| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (0 . |Zero|) (|Vector| %) (4 . |basis|) (|PositiveInteger|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (0 . |0|)
+              (|Vector| %) (4 . |basis|) (|PositiveInteger|)
               (8 . |extensionDegree|) (|Integer|) (|Vector| 7) (12 . |elt|)
               (|Vector| 6) (18 . |elt|) (24 . *) (30 . +)
               |FAXF-;represents;VS;1| (|NonNegativeInteger|)
               |FAXF-;transcendenceDegree;Nni;2| (|OnePointCompletion| 11)
               (36 . |coerce|) |FAXF-;extensionDegree;Opc;3| (41 . |degree|)
-              |FAXF-;degree;SOpc;4| (46 . |Zero|) (50 . |minIndex|)
+              |FAXF-;degree;SOpc;4| (46 . |0|) (50 . |minIndex|)
               (55 . |coordinates|) (|Matrix| 7) (60 . |setRow!|)
               |FAXF-;coordinates;VM;5| (|Boolean|) |FAXF-;algebraic?;SB;6|
               |FAXF-;transcendent?;SB;7| |FAXF-;extensionDegree;Pi;8| (67 . *)
               (73 . +) |FAXF-;trace;SF;9| (79 . |determinant|)
               |FAXF-;norm;SF;10| (|SparseUnivariatePolynomial| 7)
               (84 . |degree|) (89 . |coefficient|) (95 . |Frobenius|)
-              (100 . |linearAssociatedExp|) (106 . =) (112 . |Zero|) (|List| 7)
+              (100 . |linearAssociatedExp|) (106 . =) (112 . |0|) (|List| 7)
               (116 . |entries|) (|List| 50) (121 . |concat|) (127 . |matrix|)
               (132 . |transpose|) (137 . |rowEchelon|) (142 . |zero|)
-              (147 . |One|) (151 . =) (157 . |One|) (161 . |setelt!|)
+              (147 . |1|) (151 . =) (157 . |1|) (161 . |setelt!|)
               (168 . |monomial|) (174 . +) (180 . =) (|Void|) (|String|)
               (|OutputForm|) (186 . |messagePrint|) (|Union| 43 '#1="failed")
               (191 . |linearAssociatedLog|) (197 . |normalElement|)
@@ -547,8 +547,8 @@
               (286 . |norm|) (292 . |trace|) (298 . |size|)
               (302 . |characteristic|) (306 . |index|) (311 . |inGroundField?|)
               (316 . |normal?|) (321 . |createNormalElement|) (325 . +)
-              (331 . |Zero|) (335 . |gcd|) (341 . |One|) (345 . =)
-              (351 . |normal?|) (356 . ~=) (362 . |degree|))
+              (331 . |0|) (335 . |gcd|) (341 . |1|) (345 . =) (351 . |normal?|)
+              (356 . ~=) (362 . |degree|))
            '#(|transcendent?| 367 |transcendenceDegree| 372 |trace| 376 |size|
               387 |represents| 391 |normal?| 396 |norm| 401 |minimalPolynomial|
               412 |linearAssociatedOrder| 418 |linearAssociatedLog| 423

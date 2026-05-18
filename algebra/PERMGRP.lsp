@@ -2481,7 +2481,7 @@
               |PERMGRP;coerce;%L;31| (|NonNegativeInteger|) (|Permutation| 6)
               (0 . |order|) (|List| 10) (5 . |copy|) (|Integer|) (10 . |elt|)
               (|Boolean|) (16 . |member?|) (22 . |position|) (28 . |delete|)
-              (34 . |#|) (39 . |One|) (43 . ~=) (49 . |rest|) (|Vector| 10)
+              (34 . |#|) (39 . |1|) (43 . ~=) (49 . |rest|) (|Vector| 10)
               (55 . |#|) (60 . |new|) (|Vector| 25) (66 . |elt|) (|Vector| 13)
               (72 . |elt|) (78 . |append|) (|List| 25) (84 . |vector|)
               (|List| 13) (89 . |vector|) (94 . |qelt|) (|List| 6) (|List| 38)

@@ -452,10 +452,10 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) 'SPFCN
               (|Stream| 6) (|Integer|) (|List| 9) (0 . |elt|)
               (|StreamTaylorSeriesOperations| 6) (6 . *) (|Mapping| 9)
-              (12 . |lazyIntegrate|) (18 . |One|) (22 . |One|)
-              (|PositiveInteger|) (26 . |One|) (30 . *) (36 . *) (|Boolean|)
-              (42 . |empty?|) (47 . |Zero|) (51 . |coerce|) (56 . |frst|)
-              (61 . |Zero|) (65 . =) (71 . |deriv|) (76 . -) (|Mapping| 11 11)
+              (12 . |lazyIntegrate|) (18 . |1|) (22 . |1|) (|PositiveInteger|)
+              (26 . |1|) (30 . *) (36 . *) (|Boolean|) (42 . |empty?|)
+              (47 . |0|) (51 . |coerce|) (56 . |frst|) (61 . |0|) (65 . =)
+              (71 . |deriv|) (76 . -) (|Mapping| 11 11)
               (|ParadoxicalCombinatorsForStreams| 6) (81 . Y) (87 . |jacobiSn|)
               (93 . |jacobiCn|) (99 . |jacobiDn|) (105 . ^) (111 . -)
               (|Union| 9 '"failed") (117 . |recip|) (122 . +)
@@ -466,7 +466,7 @@
               (172 . -) (177 . ^) (|NonNegativeInteger|) (183 . |coefficient|)
               (189 . *) (195 . |integrate|) (200 . |ellipticE|)
               (206 . |coerce|) (211 . +) (217 . |ellipticE|)
-              (223 . |ellipticF|) (229 . |ellipticF|) (235 . |One|)
+              (223 . |ellipticF|) (229 . |ellipticF|) (235 . |1|)
               (239 . |ellipticPi|) (246 . |ellipticPi|))
            '#(|sncndn| 253 |jacobiSn| 259 |jacobiDn| 265 |jacobiCn| 271
               |ellipticPi| 277 |ellipticF| 284 |ellipticE| 290)

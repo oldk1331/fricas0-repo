@@ -192,11 +192,11 @@
            '#(NIL NIL NIL NIL NIL (|AssociatedLieAlgebra| 7 10) (|local| |#1|)
               (|local| |#2|) '|Rep| '|n2|
               (|SquareMatrix| (NRTEVAL (QREFELT % 6)) 7) (0 . |coerce|)
-              |LSQM;convert;Sm%;1| (5 . |Zero|) (|Integer|)
+              |LSQM;convert;Sm%;1| (5 . |0|) (|Integer|)
               (|DirectProduct| (NRTEVAL (QREFELT % 9)) 7) (9 . |elt|)
               (|Matrix| 7) (15 . |setelt!|) (23 . |squareMatrix|) (28 . |qelt|)
               (|Vector| 7) (35 . |setelt!|) (|Vector| $$) (42 . |elt|)
-              (48 . |elt|) (54 . |One|) (|Boolean|) (58 . =) (|Vector| %)
+              (48 . |elt|) (54 . |1|) (|Boolean|) (58 . =) (|Vector| %)
               |LSQM;coordinates;%VV;4| (|PositiveInteger|) (64 . |unitVector|)
               (|List| $$) (|Mapping| $$ 15) (|List| 15)
               (|ListFunctions2| 15 $$) (69 . |map|) (75 . |vector|)
@@ -231,8 +231,8 @@
               |commutative?| 441 |coerce| 445 |basis| 455
               |associatorDependence| 459 |associator| 463 |associative?| 470
               |apply| 474 |antiCommutator| 480 |antiCommutative?| 486
-              |antiAssociative?| 490 |alternative?| 494 ^ 498 |Zero| 504 = 508
-              - 514 + 525 * 531)
+              |antiAssociative?| 490 |alternative?| 494 ^ 498 = 504 |0| 510 -
+              514 + 525 * 531)
            'NIL
            (CONS
             (|makeByteWordVec2| 3
@@ -283,7 +283,7 @@
                                     0 0 0 0 1 0 0 27 1 1 0 10 0 1 1 0 48 0 1 0
                                     0 29 39 0 1 56 1 3 0 0 0 0 0 1 0 0 27 1 2 0
                                     0 17 0 1 2 0 0 0 0 1 0 0 27 1 0 0 27 1 0 0
-                                    27 1 2 0 0 0 31 1 0 0 0 1 2 0 27 0 0 1 2 0
+                                    27 1 2 0 0 0 31 1 2 0 27 0 0 1 0 0 0 1 2 0
                                     0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 0 0 7 0 1 2
                                     0 0 0 7 1 2 0 0 45 0 1 2 0 0 14 0 1 2 0 0 0
                                     0 1 2 0 0 31 0 1)))))

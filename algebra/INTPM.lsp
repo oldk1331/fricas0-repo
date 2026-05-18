@@ -493,14 +493,13 @@
               (24 . |empty?|) (|Mapping| 24 7)
               (|FunctionSpaceAttachPredicates| 6 7 7) (29 . |suchThat|) '|w|
               (|TrigonometricManipulations| 6 7) (35 . |real?|) '|s|
-              (|Union| 36 '#1="failed") (40 . |retractIfCan|) (45 . |Zero|)
-              (|Integer|) (49 . |Zero|) (53 . >=) '|m| (59 . |pi|)
-              (63 . |sqrt|) '|spi| (68 . |One|) (72 . |coerce|) (77 . /)
-              '|half| '|spio2| '|s2opi|
-              (|Record| (|:| |key| 8) (|:| |entry| 7)) (|List| 49)
+              (|Union| 36 '#1="failed") (40 . |retractIfCan|) (45 . |0|)
+              (|Integer|) (49 . |0|) (53 . >=) '|m| (59 . |pi|) (63 . |sqrt|)
+              '|spi| (68 . |1|) (72 . |coerce|) (77 . /) '|half| '|spio2|
+              '|s2opi| (|Record| (|:| |key| 8) (|:| |entry| 7)) (|List| 49)
               (|PatternMatchResult| 36 7) (83 . |destruct|)
               (|AssociationList| 8 7) (88 . |construct|) (93 . |member?|)
-              (99 . |One|) (|Union| (|Kernel| %) '#1#) (103 . |retractIfCan|)
+              (99 . |1|) (|Union| (|Kernel| %) '#1#) (103 . |retractIfCan|)
               (|Union| 89 '#2="failed") (108 . |isTimes|)
               (|Record| (|:| |const| 7) (|:| |nconst| 7))
               |INTPM;splitConstant;FSR;2| (113 . *) (119 . |isPlus|) (124 . =)
@@ -514,7 +513,7 @@
               (217 . |eval|) (224 . |new|) (228 . |log|) (233 . ^)
               (239 . |exp|) (|Pattern| 36) (244 . |convert|)
               (|PatternMatchResult| 36 %) (249 . |patternMatch|)
-              (256 . |failed?|) (261 . |Zero|) (265 . |elt|) (|SingleInteger|)
+              (256 . |failed?|) (261 . |0|) (265 . |elt|) (|SingleInteger|)
               (|OrderedCompletion| 7) (271 . |whatInfinity|) (276 . |retract|)
               (281 . |constant|) (286 . |freeOf?|) (|Union| 7 '#3="failed")
               (292 . |pmintegrate|))

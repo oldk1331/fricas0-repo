@@ -2022,7 +2022,7 @@
               |DGRPH;directedGraph;Fp%;5| (|List| 8) (|Integer|) (|List| 30)
               (40 . |elt|) (46 . |#|) (51 . |elt|) |DGRPH;directedGraph;LL%;6|
               (|Record| (|:| |preimage| 14) (|:| |image| 14)) (|Permutation| 6)
-              (57 . |listRepresentation|) (62 . |One|) (66 . |position|)
+              (57 . |listRepresentation|) (62 . |1|) (66 . |position|)
               (72 . |concat|) (78 . |elt|) (84 . |setelt!|) (|List| 38)
               |DGRPH;directedGraph;L%;7| (|Boolean|) (91 . =)
               |DGRPH;addObject!;%S%;8| |DGRPH;addObject!;%R%;9|

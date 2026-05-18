@@ -1376,16 +1376,15 @@
            '#(NIL NIL NIL NIL NIL (|Expression| 24) (|local| |#1|) '|Rep|
               (0 . |coerce|) |JBE;coerce;JB%;1| |JBE;coerce;E%;2|
               |JBE;coerce;%E;3| (|SparseMultivariatePolynomial| 24 34)
-              (5 . |One|) (|SparseMultivariatePolynomial| 24 28) (9 . /)
+              (5 . |1|) (|SparseMultivariatePolynomial| 24 28) (9 . /)
               |JBE;coerce;Smp%;4| (|SparseMultivariatePolynomial| 5 6)
-              (15 . |Zero|) (19 . |numer|) (|List| %)
-              (24 . |primitiveMonomials|) (|List| 24) (29 . |coefficients|)
-              (|Integer|) (34 . |coerce|) (|List| 34) (39 . |variables|)
-              (|Kernel| %) (44 . |coerce|) (|Union| 6 '#1="failed")
-              (49 . |retractIfCan|) (54 . *) (|NonNegativeInteger|)
-              (|Kernel| $$) (60 . |degree|) (66 . |One|) (70 . |One|)
-              (74 . |One|) (|List| 6) (|List| 33) (78 . |monomial|) (85 . *)
-              (91 . +) |JBE;numerJP;%Smp;5| (97 . |Zero|)
+              (15 . |0|) (19 . |numer|) (|List| %) (24 . |primitiveMonomials|)
+              (|List| 24) (29 . |coefficients|) (|Integer|) (34 . |coerce|)
+              (|List| 34) (39 . |variables|) (|Kernel| %) (44 . |coerce|)
+              (|Union| 6 '#1="failed") (49 . |retractIfCan|) (54 . *)
+              (|NonNegativeInteger|) (|Kernel| $$) (60 . |degree|) (66 . |1|)
+              (70 . |1|) (74 . |1|) (|List| 6) (|List| 33) (78 . |monomial|)
+              (85 . *) (91 . +) |JBE;numerJP;%Smp;5| (97 . |0|)
               (101 . |primitiveMonomials|) (|List| 5) (106 . |coefficients|)
               (111 . |variables|) (116 . |degree|) (122 . ^) (128 . *)
               (134 . +) |JBE;coerce;Smp%;6| (140 . |gcd|) |JBE;gcd;3%;7|
@@ -1403,7 +1402,7 @@
               (|SparseUnivariatePolynomial| %) (257 . |univariate|)
               (|SparseUnivariatePolynomial| 12) (263 . |monomial?|)
               (268 . |leadingCoefficient|) (273 . |monomial|)
-              (280 . |minimumDegree|) (285 . |Zero|) (289 . |monomial|)
+              (280 . |minimumDegree|) (285 . |0|) (289 . |monomial|)
               (|Record| (|:| |quotient| %) (|:| |remainder| %))
               (295 . |monicDivide|) (301 . |multivariate|) (307 . |zero?|)
               |JBE;simpOne;2%;15| (312 . =) (318 . >) (|String|) (|OutputForm|)
@@ -1522,9 +1521,9 @@
               |annihilate?| 2650 |angerJ| 2656 |algtower| 2662 |airyBiPrime|
               2672 |airyBi| 2677 |airyAiPrime| 2682 |airyAi| 2687 |acsch| 2692
               |acsc| 2697 |acoth| 2702 |acot| 2707 |acosh| 2712 |acos| 2717
-              |abs| 2722 ^ 2727 |Zero| 2757 X 2761 U 2770 |Si| 2779 |Shi| 2784
-              P 2789 |One| 2811 |Gamma| 2815 |Ei| 2826 D 2831 |Ci| 2857 |Chi|
-              2862 |Beta| 2867 = 2880 / 2886 - 2898 + 2909 * 2915)
+              |abs| 2722 ^ 2727 X 2757 U 2766 |Si| 2775 |Shi| 2780 P 2785
+              |Gamma| 2807 |Ei| 2818 D 2823 |Ci| 2849 |Chi| 2854 |Beta| 2859 =
+              2872 |1| 2878 |0| 2882 / 2886 - 2898 + 2909 * 2915)
            'NIL
            (CONS
             (|makeByteWordVec2| 16
@@ -1755,16 +1754,16 @@
                                     0 1 1 0 0 0 1 1 0 0 0 1 1 0 0 0 1 1 0 0 0 1
                                     1 0 0 0 1 1 0 0 0 1 1 0 0 0 1 1 0 0 0 1 1 0
                                     0 0 1 2 0 0 0 147 1 2 0 0 0 33 51 2 0 0 0
-                                    225 1 2 0 0 0 24 1 2 0 0 0 0 1 0 0 0 45 1 0
-                                    0 147 1 0 0 0 1 1 0 0 147 1 0 0 0 1 1 0 0 0
-                                    1 1 0 0 0 1 2 0 0 147 40 1 1 0 0 40 1 2 0 0
-                                    147 33 1 1 0 0 33 1 0 0 0 36 1 0 0 0 1 2 0
-                                    0 0 0 1 1 0 0 0 1 2 0 0 0 210 1 2 0 0 0 144
-                                    1 3 0 0 0 144 33 1 3 0 0 0 210 40 1 1 0 0 0
-                                    1 1 0 0 0 1 3 0 0 0 0 0 1 2 0 0 0 0 1 2 0
-                                    65 0 0 143 2 0 0 0 0 60 2 1 0 14 14 15 2 0
-                                    0 0 0 1 1 0 0 0 187 2 0 0 0 0 53 2 0 0 147
-                                    0 1 2 0 0 0 0 52 2 0 0 24 0 1 2 0 0 33 0 1
-                                    2 18 0 225 0 1 2 18 0 0 225 1 2 5 0 0 24
-                                    1)))))
+                                    225 1 2 0 0 0 24 1 2 0 0 0 0 1 1 0 0 147 1
+                                    0 0 0 1 1 0 0 147 1 0 0 0 1 1 0 0 0 1 1 0 0
+                                    0 1 2 0 0 147 40 1 1 0 0 40 1 2 0 0 147 33
+                                    1 1 0 0 33 1 1 0 0 0 1 2 0 0 0 0 1 1 0 0 0
+                                    1 2 0 0 0 210 1 2 0 0 0 144 1 3 0 0 0 144
+                                    33 1 3 0 0 0 210 40 1 1 0 0 0 1 1 0 0 0 1 3
+                                    0 0 0 0 0 1 2 0 0 0 0 1 2 0 65 0 0 143 0 0
+                                    0 36 0 0 0 45 2 0 0 0 0 60 2 1 0 14 14 15 2
+                                    0 0 0 0 1 1 0 0 0 187 2 0 0 0 0 53 2 0 0
+                                    147 0 1 2 0 0 0 0 52 2 0 0 24 0 1 2 0 0 33
+                                    0 1 2 18 0 225 0 1 2 18 0 0 225 1 2 5 0 0
+                                    24 1)))))
            '|lookupComplete|)) 

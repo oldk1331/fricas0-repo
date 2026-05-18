@@ -237,7 +237,7 @@
            ((NULL
              (SPADCALL (QVELT |ee| 2)
                        (SPADCALL
-                        (|compiledLookupCheck| '|One| (LIST '%)
+                        (|compiledLookupCheck| '|1| (LIST '%)
                                                (|SparseUnivariatePolynomial|
                                                 |sae|)))
                        (|compiledLookupCheck| '= (LIST (LIST '|Boolean|) '% '%)
@@ -570,17 +570,17 @@
 (MAKEPROP '|ChineseRemainderToolsForIntegralBases| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (0 . |Zero|) (4 . |Zero|) (|NonNegativeInteger|)
-              (8 . ^) (|Mapping| 6 6) (14 . |map|)
+              (|local| |#3|) (0 . |0|) (4 . |0|) (|NonNegativeInteger|) (8 . ^)
+              (|Mapping| 6 6) (14 . |map|)
               (|Record| (|:| |basis| 63) (|:| |basisDen| 7)
                         (|:| |basisInv| 63))
-              (|List| 15) (20 . |list|) (25 . |One|) (29 . |One|)
+              (|List| 15) (20 . |list|) (25 . |1|) (29 . |1|)
               |IBACHIN;listConjugateBases;R2NniL;2|
               (|SparseUnivariatePolynomial| 6) (33 . |monomial|) (39 . -)
               (45 . ^) (|List| 21) (51 . |list|) |IBACHIN;factorList;K3NniL;3|
-              (56 . |Zero|) (60 . |quo|) (66 . *) (72 . |monomial|) (78 . +)
+              (56 . |0|) (60 . |quo|) (66 . *) (72 . |monomial|) (78 . +)
               (|SparseUnivariatePolynomial| 7) (84 . |makeSUP|) (89 . *)
-              (95 . |One|) (99 . |One|) (103 . -) (|Union| % '"failed")
+              (95 . |1|) (99 . |1|) (103 . -) (|Union| % '"failed")
               (109 . |exquo|) (115 . |rem|) (|Mapping| 7 7) (121 . |map|)
               (127 . *) (133 . +)
               (|Record| (|:| |quotient| %) (|:| |remainder| %))

@@ -794,8 +794,8 @@
 ;     key := opOf form
 ;     entryList := LASSOC(key,opAlist)
 ;     entryList is [[., ., ., type]] and type in '(CONST ASCONST) => true
-;     key = "One" => constantInDomain?(["1"], domainForm)
-;     key = "Zero" => constantInDomain?(["0"], domainForm)
+;     key = "1" => constantInDomain?(["1"], domainForm)
+;     key = "0" => constantInDomain?(["0"], domainForm)
 ;     false
 
 (DEFUN |constantInDomain?| (|form| |domainForm|)
@@ -825,8 +825,8 @@
                                       #1='T)))))))))
              (|member| |type| '(CONST ASCONST)))
         T)
-       ((EQ |key| '|One|) (|constantInDomain?| (LIST '|1|) |domainForm|))
-       ((EQ |key| '|Zero|) (|constantInDomain?| (LIST '|0|) |domainForm|))
+       ((EQ |key| '|1|) (|constantInDomain?| (LIST '|1|) |domainForm|))
+       ((EQ |key| '|0|) (|constantInDomain?| (LIST '|0|) |domainForm|))
        (#1# NIL))))))
 
 ; getConstantFromDomain1(form,domainForm) ==
@@ -835,8 +835,8 @@
 ;     key := opOf form
 ;     entryList := LASSOC(key,opAlist)
 ;     entryList isnt [[sig, ., ., .]] =>
-;         key = "One" => getConstantFromDomain(["1"], domainForm)
-;         key = "Zero" => getConstantFromDomain(["0"], domainForm)
+;         key = "1" => getConstantFromDomain(["1"], domainForm)
+;         key = "0" => getConstantFromDomain(["0"], domainForm)
 ;         throw_msg("S2IC0008", '"No such constant %1b in domain %2bp .",
 ;                   [form, domainForm])
 ;     -- i.e., there should be exactly one item under this key of that form
@@ -872,9 +872,9 @@
                                         (AND (CONSP |ISTMP#4|)
                                              (EQ (CDR |ISTMP#4|) NIL)))))))))))
                (COND
-                ((EQ |key| '|One|)
+                ((EQ |key| '|1|)
                  (|getConstantFromDomain| (LIST '|1|) |domainForm|))
-                ((EQ |key| '|Zero|)
+                ((EQ |key| '|0|)
                  (|getConstantFromDomain| (LIST '|0|) |domainForm|))
                 (#1#
                  (|throw_msg| 'S2IC0008 "No such constant %1b in domain %2bp ."
@@ -884,36 +884,36 @@
                 (SETQ |domain| (|evalDomain| |domainForm|))
                 (SPADCALL (|compiledLookupCheck| |key| |sig| |domain|)))))))))))
 
-; domainOne(domain) == getConstantFromDomain('(One),domain)
+; domainOne(domain) == getConstantFromDomain(["1"], domain)
 
 (DEFUN |domainOne| (|domain|)
-  (PROG () (RETURN (|getConstantFromDomain| '(|One|) |domain|))))
+  (PROG () (RETURN (|getConstantFromDomain| (LIST '|1|) |domain|))))
 
-; domainZero(domain) == getConstantFromDomain('(Zero),domain)
+; domainZero(domain) == getConstantFromDomain(["0"], domain)
 
 (DEFUN |domainZero| (|domain|)
-  (PROG () (RETURN (|getConstantFromDomain| '(|Zero|) |domain|))))
+  (PROG () (RETURN (|getConstantFromDomain| (LIST '|0|) |domain|))))
 
 ; equalOne(object, domain) ==
 ;   -- tries using constant One and "=" from domain
 ;   -- object should not be wrapped
-;   algEqual(object, getConstantFromDomain('(One),domain), domain)
+;     algEqual(object, getConstantFromDomain(["1"], domain), domain)
 
 (DEFUN |equalOne| (|object| |domain|)
   (PROG ()
     (RETURN
-     (|algEqual| |object| (|getConstantFromDomain| '(|One|) |domain|)
+     (|algEqual| |object| (|getConstantFromDomain| (LIST '|1|) |domain|)
       |domain|))))
 
 ; equalZero(object, domain) ==
 ;   -- tries using constant Zero and "=" from domain
 ;   -- object should not be wrapped
-;   algEqual(object, getConstantFromDomain('(Zero),domain), domain)
+;     algEqual(object, getConstantFromDomain(["0"], domain), domain)
 
 (DEFUN |equalZero| (|object| |domain|)
   (PROG ()
     (RETURN
-     (|algEqual| |object| (|getConstantFromDomain| '(|Zero|) |domain|)
+     (|algEqual| |object| (|getConstantFromDomain| (LIST '|0|) |domain|)
       |domain|))))
 
 ; algEqual(object1, object2, domain) ==
@@ -2901,11 +2901,11 @@
 ;   t1 := objMode object
 ;   val := objValUnwrap object
 ;   ofCategory(t1,'(Monoid)) and ofCategory(t2,'(Monoid)) and
-;     val = getConstantFromDomain('(One),t1) =>
-;       objNewWrap(getConstantFromDomain('(One),t2),t2)
+;         val = getConstantFromDomain(["1"], t1) =>
+;             objNewWrap(getConstantFromDomain(["1"], t2), t2)
 ;   ofCategory(t1,'(AbelianMonoid)) and ofCategory(t2,'(AbelianMonoid)) and
-;     val = getConstantFromDomain('(Zero),t1) =>
-;       objNewWrap(getConstantFromDomain('(Zero),t2),t2)
+;         val = getConstantFromDomain(["0"], t1) =>
+;             objNewWrap(getConstantFromDomain(["0"], t2), t2)
 ;   NIL
 
 (DEFUN |coerceIntAlgebraicConstant| (|object| |t2|)
@@ -2916,12 +2916,12 @@
       (SETQ |val| (|objValUnwrap| |object|))
       (COND
        ((AND (|ofCategory| |t1| '(|Monoid|)) (|ofCategory| |t2| '(|Monoid|))
-             (EQUAL |val| (|getConstantFromDomain| '(|One|) |t1|)))
-        (|objNewWrap| (|getConstantFromDomain| '(|One|) |t2|) |t2|))
+             (EQUAL |val| (|getConstantFromDomain| (LIST '|1|) |t1|)))
+        (|objNewWrap| (|getConstantFromDomain| (LIST '|1|) |t2|) |t2|))
        ((AND (|ofCategory| |t1| '(|AbelianMonoid|))
              (|ofCategory| |t2| '(|AbelianMonoid|))
-             (EQUAL |val| (|getConstantFromDomain| '(|Zero|) |t1|)))
-        (|objNewWrap| (|getConstantFromDomain| '(|Zero|) |t2|) |t2|))
+             (EQUAL |val| (|getConstantFromDomain| (LIST '|0|) |t1|)))
+        (|objNewWrap| (|getConstantFromDomain| (LIST '|0|) |t2|) |t2|))
        ('T NIL))))))
 
 ; stripUnionTags doms ==

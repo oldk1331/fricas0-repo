@@ -18,10 +18,10 @@
 (SDEFUN |ULSCONS;degree;%I;5| ((|x| (%)) (% (|Integer|)))
         (|ULSCONS;getExpon| |x| %)) 
 
-(SDEFUN |ULSCONS;Zero;%;6| ((% (%)))
+(SDEFUN |ULSCONS;0;%;6| ((% (%)))
         (SPADCALL 0 (|spadConstant| % 15) (QREFELT % 10))) 
 
-(SDEFUN |ULSCONS;One;%;7| ((% (%)))
+(SDEFUN |ULSCONS;1;%;7| ((% (%)))
         (SPADCALL 0 (|spadConstant| % 17) (QREFELT % 10))) 
 
 (SDEFUN |ULSCONS;monomial;CoefI%;8| ((|s| (|Coef|)) (|e| (|Integer|)) (% (%)))
@@ -1885,19 +1885,17 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) '|Rep|
               (|Integer|) |ULSCONS;laurent;IUTS%;3| |ULSCONS;taylorRep;%UTS;4|
               |ULSCONS;degree;%I;5|
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |ULSCONS;Zero;%;6|) %))
-              (0 . |Zero|) (4 . |Zero|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |ULSCONS;One;%;7|) %))
-              (8 . |One|) (12 . |coerce|) |ULSCONS;monomial;CoefI%;8|
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |ULSCONS;0;%;6|) %))
+              (0 . |0|) (4 . |0|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |ULSCONS;1;%;7|) %))
+              (8 . |1|) (12 . |coerce|) |ULSCONS;monomial;CoefI%;8|
               |ULSCONS;coerce;UTS%;9| |ULSCONS;coerce;Coef%;10| (17 . |coerce|)
-              |ULSCONS;coerce;I%;11| |ULSCONS;removeZeroes;I2%;22| (22 . |One|)
+              |ULSCONS;coerce;I%;11| |ULSCONS;removeZeroes;I2%;22| (22 . |1|)
               (|NonNegativeInteger|) (26 . |monomial|) (32 . *)
               (|Union| 7 '"failed") |ULSCONS;taylorIfCan;%U;12|
               |ULSCONS;taylor;%UTS;13| (|Boolean|) (|Stream| 6) (38 . |empty?|)
               (|Record| (|:| |k| 9) (|:| |c| 6)) (|Stream| 35) (43 . |empty|)
-              (47 . |frst|) (52 . |zero?|) (57 . |rst|) (62 . |One|) (66 . +)
+              (47 . |frst|) (52 . |zero?|) (57 . |rst|) (62 . |1|) (66 . +)
               (72 . |concat|) (|Mapping| %) (78 . |delay|)
               (83 . |coefficients|) |ULSCONS;terms;%S;18| (88 . |empty?|)
               (93 . |empty|) (97 . |frst|) (102 . =) (108 . |rst|)
@@ -1915,7 +1913,7 @@
               |ULSCONS;center;%Coef;33| |ULSCONS;elt;%ICoef;35| (214 . |order|)
               |ULSCONS;order;%I;36| (219 . |order|) |ULSCONS;order;%2I;37|
               (225 . |truncate|) |ULSCONS;truncate;%I%;38| (231 . |truncate|)
-              |ULSCONS;truncate;%2I%;39| (|Fraction| 99) (238 . |Zero|)
+              |ULSCONS;truncate;%2I%;39| (|Fraction| 99) (238 . |0|)
               (|Polynomial| 6) (242 . |polynomial|) (248 . |coerce|)
               (253 . |coerce|) (258 . |coerce|) (263 . -) (269 . ^) (275 . *)
               (281 . /) (287 . |rationalFunction|) (293 . |polynomial|)
@@ -2009,9 +2007,9 @@
               |associator| 1776 |associates?| 1783 |asinh| 1789 |asin| 1794
               |asech| 1799 |asec| 1804 |approximate| 1809 |antiCommutator| 1815
               |annihilate?| 1821 |acsch| 1827 |acsc| 1832 |acoth| 1837 |acot|
-              1842 |acosh| 1847 |acos| 1852 |abs| 1857 ^ 1862 |Zero| 1892 |One|
-              1896 D 1900 >= 1950 > 1956 = 1962 <= 1968 < 1974 / 1980 - 1998 +
-              2009 * 2015)
+              1842 |acosh| 1847 |acos| 1852 |abs| 1857 ^ 1862 D 1892 >= 1942 >
+              1948 = 1954 <= 1960 < 1966 |1| 1972 |0| 1976 / 1980 - 1998 + 2009
+              * 2015)
            'NIL
            (CONS
             (|makeByteWordVec2| 52
@@ -2212,16 +2210,16 @@
                                     0 1 2 61 32 0 0 1 1 2 0 0 205 1 2 0 0 181 1
                                     2 0 0 201 1 2 0 0 177 1 2 0 0 197 1 2 0 0
                                     173 1 8 0 0 1 2 0 0 0 129 1 2 60 0 0 26 70
-                                    2 2 0 0 0 1 2 2 0 0 148 153 2 3 0 0 9 141 0
-                                    62 0 13 0 60 0 16 2 43 0 0 26 1 1 43 0 0 1
-                                    3 42 0 0 210 265 1 2 42 0 0 210 1 3 42 0 0
-                                    83 26 1 2 42 0 0 83 1 2 3 0 0 276 1 3 3 0 0
-                                    276 26 1 2 32 32 0 0 1 2 32 32 0 0 1 2 0 32
-                                    0 0 62 2 32 32 0 0 1 2 32 32 0 0 1 2 3 0 0
-                                    6 1 2 3 0 0 0 144 2 3 0 7 7 145 2 64 0 0 0
-                                    67 1 64 0 0 208 2 0 0 0 0 65 2 0 0 129 0 1
-                                    2 0 0 0 0 68 2 0 0 6 0 134 2 0 0 0 6 1 2 15
-                                    0 0 9 1 2 56 0 0 148 1 2 56 0 148 0 1 2 64
-                                    0 9 0 1 2 62 0 26 0 1 2 3 0 0 7 143 2 3 0 7
-                                    0 142)))))
+                                    2 2 0 0 0 1 2 2 0 0 148 153 2 3 0 0 9 141 2
+                                    43 0 0 26 1 1 43 0 0 1 3 42 0 0 210 265 1 2
+                                    42 0 0 210 1 3 42 0 0 83 26 1 2 42 0 0 83 1
+                                    2 3 0 0 276 1 3 3 0 0 276 26 1 2 32 32 0 0
+                                    1 2 32 32 0 0 1 2 0 32 0 0 62 2 32 32 0 0 1
+                                    2 32 32 0 0 1 0 60 0 16 0 62 0 13 2 3 0 0 6
+                                    1 2 3 0 0 0 144 2 3 0 7 7 145 2 64 0 0 0 67
+                                    1 64 0 0 208 2 0 0 0 0 65 2 0 0 129 0 1 2 0
+                                    0 0 0 68 2 0 0 6 0 134 2 0 0 0 6 1 2 15 0 0
+                                    9 1 2 56 0 0 148 1 2 56 0 148 0 1 2 64 0 9
+                                    0 1 2 62 0 26 0 1 2 3 0 0 7 143 2 3 0 7 0
+                                    142)))))
            '|lookupComplete|)) 

@@ -233,8 +233,8 @@
 
 (MAKEPROP '|DenavitHartenbergMatrix| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|Matrix| 6) (|local| |#1|) (0 . |One|)
-              (4 . |Zero|) (|List| 17) (8 . |matrix|) |DHMATRIX;identity;%;1|
+           '#(NIL NIL NIL NIL NIL (|Matrix| 6) (|local| |#1|) (0 . |1|)
+              (4 . |0|) (|List| 17) (8 . |matrix|) |DHMATRIX;identity;%;1|
               (|Vector| 6) (13 . |concat|) (19 . *) (|Integer|) (25 . |elt|)
               (|List| 6) (|Point| 6) (31 . |point|) |DHMATRIX;*;%2P;2|
               (36 . |pi|) (40 . *) (46 . |coerce|) (51 . /) (57 . |cos|)

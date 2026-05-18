@@ -20,9 +20,9 @@
                   (SPADCALL (SPADCALL |x| (QREFELT % 23)) (|spadConstant| % 21)
                             (QREFELT % 24)))))))) 
 
-(SDEFUN |GENUSER;Zero;%;5| ((% (%))) (SPADCALL (QREFELT % 26))) 
+(SDEFUN |GENUSER;0;%;5| ((% (%))) (SPADCALL (QREFELT % 26))) 
 
-(SDEFUN |GENUSER;One;%;6| ((% (%)))
+(SDEFUN |GENUSER;1;%;6| ((% (%)))
         (SPADCALL (CONS (|spadConstant| % 21) (|spadConstant| % 27))
                   (SPADCALL (QREFELT % 26)) (QREFELT % 28))) 
 
@@ -1364,18 +1364,16 @@
               (|local| |#3|) (|local| |#4|) '|Rep|
               (|Record| (|:| |k| 7) (|:| |c| 6)) (|Stream| 11)
               |GENUSER;terms;%S;1| |GENUSER;center;%Coef;2| (|Symbol|)
-              |GENUSER;variable;%S;3| (|Boolean|) (0 . |empty?|) (5 . |Zero|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |GENUSER;Zero;%;5|) %))
-              (9 . |Zero|) |GENUSER;removeZeros;%Expon%;28|
+              |GENUSER;variable;%S;3| (|Boolean|) (0 . |empty?|) (5 . |0|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |GENUSER;0;%;5|) %))
+              (9 . |0|) |GENUSER;removeZeros;%Expon%;28|
               |GENUSER;degree;%Expon;12| (13 . <) |GENUSER;pole?;%B;4|
-              (19 . |empty|) (23 . |One|) (27 . |concat|)
-              (CONS IDENTITY
-                    (FUNCALL (|dispatchFunction| |GENUSER;One;%;6|) %))
+              (19 . |empty|) (23 . |1|) (27 . |concat|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |GENUSER;1;%;6|) %))
               (33 . |rst|) |GENUSER;reductum;2%;7| (|NonNegativeInteger|)
               (38 . |characteristic|) |GENUSER;characteristic;Nni;8|
               |GENUSER;monomial;CoefExpon%;9| (42 . =) (|OutputForm|)
-              (48 . |coerce|) (53 . |One|) (57 . |coerce|) (62 . ^) (68 . =)
+              (48 . |coerce|) (53 . |1|) (57 . |coerce|) (62 . ^) (68 . =)
               (74 . -) (79 . -) (84 . *) (90 . |zero?|) (95 . |coerce|)
               (100 . -) (106 . |paren|) (111 . |frst|) (116 . ~=)
               (122 . |explicitlyEmpty?|) (|String|) (127 . |message|)
@@ -1449,8 +1447,8 @@
               |associator| 1072 |associates?| 1079 |asinh| 1085 |asin| 1090
               |asech| 1095 |asec| 1100 |approximate| 1105 |apply_taylor| 1111
               |antiCommutator| 1117 |annihilate?| 1123 |acsch| 1129 |acsc| 1134
-              |acoth| 1139 |acot| 1144 |acosh| 1149 |acos| 1154 ^ 1159 |Zero|
-              1183 |One| 1187 D 1191 = 1228 / 1234 - 1246 + 1257 * 1263)
+              |acoth| 1139 |acot| 1144 |acosh| 1149 |acos| 1154 ^ 1159 D 1183 =
+              1220 |1| 1226 |0| 1230 / 1234 - 1246 + 1257 * 1263)
            'NIL
            (CONS
             (|makeByteWordVec2| 31
@@ -1575,10 +1573,10 @@
                                     17 0 0 1 1 6 0 0 165 1 6 0 0 141 1 6 0 0
                                     161 1 6 0 0 137 1 6 0 0 157 1 6 0 0 133 2 0
                                     0 0 68 1 2 15 0 0 178 1 2 36 0 0 32 1 2 6 0
-                                    0 0 1 0 35 0 20 0 36 0 29 3 4 0 0 179 180 1
-                                    2 4 0 0 179 1 3 4 0 0 15 32 1 2 4 0 0 15 1
-                                    2 3 0 0 32 1 1 3 0 0 1 2 0 17 0 0 100 2 15
-                                    0 0 0 85 2 8 0 0 6 1 2 33 0 0 0 76 1 33 0 0
+                                    0 0 1 3 4 0 0 179 180 1 2 4 0 0 179 1 3 4 0
+                                    0 15 32 1 2 4 0 0 15 1 2 3 0 0 32 1 1 3 0 0
+                                    1 2 0 17 0 0 100 0 36 0 29 0 35 0 20 2 15 0
+                                    0 0 85 2 8 0 0 6 1 2 33 0 0 0 76 1 33 0 0
                                     71 2 0 0 0 0 72 2 0 0 68 0 1 2 0 0 0 0 79 2
                                     0 0 0 6 1 2 0 0 6 0 67 2 41 0 0 181 1 2 41
                                     0 181 0 1 2 33 0 178 0 1 2 35 0 32 0 1)))))

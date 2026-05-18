@@ -274,10 +274,10 @@
                        (EXIT |ans|)))))))) 
 
 (SDEFUN |ODERTRIC;reverseUP|
-        ((|p| (UP)) (% (|UnivariateTaylorSeries| F |dummy| (|Zero|))))
+        ((|p| (UP)) (% (|UnivariateTaylorSeries| F |dummy| (|0|))))
         (SPROG
          ((|n| (|Integer|)) (#1=#:G106 NIL)
-          (|ans| (|UnivariateTaylorSeries| F |dummy| (|Zero|))))
+          (|ans| (|UnivariateTaylorSeries| F |dummy| (|0|))))
          (SEQ (LETT |ans| (|spadConstant| % 82))
               (LETT |n| (SPADCALL |p| (QREFELT % 83)))
               (SEQ G190
@@ -305,7 +305,7 @@
               (EXIT |ans|)))) 
 
 (SDEFUN |ODERTRIC;reverseUTS|
-        ((|s| (|UnivariateTaylorSeries| F |dummy| (|Zero|)))
+        ((|s| (|UnivariateTaylorSeries| F |dummy| (|0|)))
          (|n| (|NonNegativeInteger|)) (% (UP)))
         (SPROG
          ((|i| NIL) (#1=#:G116 NIL) (#2=#:G114 NIL) (#3=#:G113 (UP))
@@ -337,12 +337,11 @@
         (SPROG
          ((|mu| (|NonNegativeInteger|)) (|op| #1#) (|m| (|Integer|)) (|c| (UP))
           (|d| (|NonNegativeInteger|)) (#2=#:G128 NIL)
-          (|s| (|UnivariateTaylorSeries| F |dummy| (|Zero|)))
+          (|s| (|UnivariateTaylorSeries| F |dummy| (|0|)))
           (|aeq|
            (|SparseUnivariatePolynomial|
-            (|UnivariateTaylorSeries| F |dummy| (|Zero|))))
-          (|u|
-           (|Union| (|UnivariateTaylorSeries| F |dummy| (|Zero|)) "failed"))
+            (|UnivariateTaylorSeries| F |dummy| (|0|))))
+          (|u| (|Union| (|UnivariateTaylorSeries| F |dummy| (|0|)) "failed"))
           (|atn| (UP))
           (|neq| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
           (#3=#:G141 NIL) (|sol| NIL) (#4=#:G142 NIL) (|sols| (|List| UP)))
@@ -426,18 +425,17 @@
 (SDEFUN |ODERTRIC;newtonSolve|
         ((|eq|
           (|SparseUnivariatePolynomial|
-           (|UnivariateTaylorSeries| F |dummy| (|Zero|))))
+           (|UnivariateTaylorSeries| F |dummy| (|0|))))
          (|a| (F)) (|n| (|NonNegativeInteger|))
-         (% (|Union| (|UnivariateTaylorSeries| F |dummy| (|Zero|)) "failed")))
+         (% (|Union| (|UnivariateTaylorSeries| F |dummy| (|0|)) "failed")))
         (SPROG
          ((|deq|
            (|SparseUnivariatePolynomial|
-            (|UnivariateTaylorSeries| F |dummy| (|Zero|))))
+            (|UnivariateTaylorSeries| F |dummy| (|0|))))
           (|i| NIL) (#1=#:G152 NIL)
           (|xquo|
-           (|Union| (|UnivariateTaylorSeries| F |dummy| (|Zero|)) "failed"))
-          (#2=#:G151 NIL)
-          (|sol| (|UnivariateTaylorSeries| F |dummy| (|Zero|))))
+           (|Union| (|UnivariateTaylorSeries| F |dummy| (|0|)) "failed"))
+          (#2=#:G151 NIL) (|sol| (|UnivariateTaylorSeries| F |dummy| (|0|))))
          (SEQ
           (EXIT
            (SEQ (LETT |deq| (SPADCALL |eq| (QREFELT % 103)))
@@ -831,7 +829,7 @@
               (0 . |new|) '|dummy| (|Polynomial| 6) (4 . |coerce|)
               (|SparseUnivariatePolynomial| 11) (|Mapping| 11 6)
               (|UnivariatePolynomialCategoryFunctions2| 6 7 11 13) (9 . |map|)
-              (15 . |Zero|) (19 . |Zero|) (|Fraction| 7) (23 . |Zero|)
+              (15 . |0|) (19 . |0|) (|Fraction| 7) (23 . |0|)
               (|Union| 19 '"failed")
               (|Record| (|:| |particular| 21) (|:| |basis| 30))
               (|LinearOrdinaryDifferentialOperator2| 7 19) (|RationalLODE| 6 7)
@@ -849,7 +847,7 @@
               (|List| 6) (62 . |eval|) (69 . |ground|) (|Mapping| 6 11)
               (|UnivariatePolynomialCategoryFunctions2| 11 13 6 7) (74 . |map|)
               (|Fraction| 11) (80 . |numer|) (|Union| 6 '"failed")
-              (85 . |retractIfCan|) (90 . |denom|) (95 . /) (101 . |Zero|)
+              (85 . |retractIfCan|) (90 . |denom|) (95 . /) (101 . |0|)
               (105 . |new|) (110 . |coerce|) (|NonNegativeInteger|)
               (115 . |monomial|) (121 . +) (|Equation| 54) (127 . |rhs|)
               (132 . |lhs|) (|Union| 8 '"failed") (137 . |retractIfCan|)
@@ -860,12 +858,12 @@
               |ODERTRIC;polyRicDE;LodoML;12|
               (|UnivariateTaylorSeries| 6 (NRTEVAL (QREFELT % 10))
                                         (NRTEVAL (|spadConstant| % 17)))
-              (165 . |Zero|) (169 . |degree|) (174 . |leadingCoefficient|)
+              (165 . |0|) (169 . |degree|) (174 . |leadingCoefficient|)
               (179 . |monomial|) (185 . +) (191 . |reductum|)
               (196 . |coefficient|) (202 . |monomial|) (208 . +)
-              (|SparseUnivariatePolynomial| 81) (214 . |Zero|) (218 . |Zero|)
+              (|SparseUnivariatePolynomial| 81) (214 . |0|) (218 . |0|)
               (222 . ~=) (228 . |degree|) (233 . |leadingCoefficient|)
-              (238 . |reductum|) (243 . |One|) (247 . |One|) (251 . *)
+              (238 . |reductum|) (243 . |1|) (247 . |1|) (251 . *)
               (257 . |monomial|) (263 . +) (269 . |differentiate|)
               (274 . |coerce|) (279 . |elt|) (|Union| % '"failed")
               (285 . |exquo|) (291 . -) (297 . |truncate|) (303 . +)

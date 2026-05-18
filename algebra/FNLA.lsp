@@ -331,10 +331,9 @@
               (|local| |#2|) (|local| |#3|) '|Rep| (|Vector| 16)
               (|NonNegativeInteger|) (|HallBasis|) (0 . |basis|) '|coms|
               |FNLA;dimension;Nni;1| (|List| 17) (|Integer|) (6 . |elt|)
-              (12 . |elt|) (18 . |Zero|) (|OrdSetInts|) (22 . |coerce|)
-              (27 . |One|) (31 . |monomial|) (37 . |Zero|)
-              |FNLA;generator;Nni%;3| (|Boolean|) (41 . =)
-              (47 . |leadingSupport|) (52 . |value|) (57 . |reductum|)
+              (12 . |elt|) (18 . |0|) (|OrdSetInts|) (22 . |coerce|) (27 . |1|)
+              (31 . |monomial|) (37 . |0|) |FNLA;generator;Nni%;3| (|Boolean|)
+              (41 . =) (47 . |leadingSupport|) (52 . |value|) (57 . |reductum|)
               (62 . |leadingCoefficient|) (67 . *) (73 . -)
               (78 . |inHallBasis?|) (86 . -) (92 . +) |FNLA;*;3%;6|
               (|Commutator|) (98 . |mkcomm|) (103 . |mkcomm|) (109 . =)
@@ -346,7 +345,7 @@
               |sample| 169 |rightPower| 173 |plenaryPower| 179 |opposite?| 185
               |leftPower| 191 |latex| 197 |generator| 202 |dimension| 207
               |deepExpand| 211 |commutator| 216 |coerce| 222 |associator| 227
-              |antiCommutator| 234 ^ 240 |Zero| 246 = 250 - 256 + 267 * 273)
+              |antiCommutator| 234 ^ 240 = 246 |0| 252 - 256 + 267 * 273)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -377,7 +376,7 @@
                                          0 53 1 1 0 52 0 1 1 0 0 11 26 0 0 11
                                          15 1 0 43 0 51 2 0 0 0 0 1 1 0 43 0 1
                                          3 0 0 0 0 0 1 2 0 0 0 0 1 2 0 0 0 53 1
-                                         0 0 0 20 2 0 27 0 0 28 1 0 0 0 34 2 0
+                                         2 0 27 0 0 28 0 0 0 20 1 0 0 0 34 2 0
                                          0 0 0 36 2 0 0 0 0 37 2 0 0 53 0 1 2 0
                                          0 0 0 38 2 0 0 17 0 1 2 0 0 11 0 1 2 0
                                          0 8 0 33 2 0 0 0 8 1)))))

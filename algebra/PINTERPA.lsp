@@ -109,9 +109,9 @@
 (MAKEPROP '|PolynomialInterpolationAlgorithms| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|Boolean|)
-              (|NonNegativeInteger|) (0 . ~=) (6 . |Zero|) (10 . |One|)
-              (14 . |One|) (18 . |monomial|) (24 . |Zero|) (28 . -) (34 . *)
-              (40 . -) (46 . *) (52 . /) (58 . *) (64 . +) (|List| 6)
+              (|NonNegativeInteger|) (0 . ~=) (6 . |0|) (10 . |1|) (14 . |1|)
+              (18 . |monomial|) (24 . |0|) (28 . -) (34 . *) (40 . -) (46 . *)
+              (52 . /) (58 . *) (64 . +) (|List| 6)
               |PINTERPA;LagrangeInterpolation;2LP;1|)
            '#(|LagrangeInterpolation| 70) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

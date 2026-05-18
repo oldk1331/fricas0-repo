@@ -849,12 +849,12 @@
                                  (|SparseMultivariatePolynomial| 8
                                                                  (|Kernel| 7))
                                  7)
-              (0 . |froot|) (6 . |One|) (10 . |One|) (|Integer|)
-              (|Fraction| 15) (14 . /) (20 . ^) (26 . *) (|Factored| %)
-              (32 . |squareFree|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              (0 . |froot|) (6 . |1|) (10 . |1|) (|Integer|) (|Fraction| 15)
+              (14 . /) (20 . ^) (26 . *) (|Factored| %) (32 . |squareFree|)
+              (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 22) (|:| |factor| 6) (|:| |exponent| 10))
               (|List| 23) (|Factored| 6) (37 . |factorList|) (42 . |elt|)
-              (48 . |degree|) (53 . |coefficient|) (59 . |Zero|) (63 . |Zero|)
+              (48 . |degree|) (53 . |coefficient|) (59 . |0|) (63 . |0|)
               (|List| 7) |SOLVEFOR;linear;2FL;14| |SOLVEFOR;quadratic;3FL;16|
               |SOLVEFOR;cubic;4FL;18| |SOLVEFOR;quartic;5FL;20| (67 . |append|)
               |SOLVEFOR;solve;UPL;4| |SOLVEFOR;aLinear;3F;15|

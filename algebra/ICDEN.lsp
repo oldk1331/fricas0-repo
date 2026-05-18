@@ -102,7 +102,7 @@
               |ICDEN;clearDenominator;BA;1|
               (|Record| (|:| |num| 8) (|:| |den| 6))
               |ICDEN;splitDenominator;BR;2| (28 . |lcm|) (34 . |denom|)
-              (39 . |One|) (|Mapping| 6 6 6) (43 . |reduce|))
+              (39 . |1|) (|Mapping| 6 6 6) (43 . |reduce|))
            '#(|splitDenominator| 50 |commonDenominator| 55 |clearDenominator|
               60)
            'NIL

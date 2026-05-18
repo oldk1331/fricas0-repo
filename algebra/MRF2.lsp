@@ -63,7 +63,7 @@
 (MAKEPROP '|MonoidRingFunctions2| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|MonoidRing| 7 8) (0 . |Zero|)
+              (|local| |#3|) (|MonoidRing| 7 8) (0 . |0|)
               (|Record| (|:| |k| 8) (|:| |c| 6)) (|List| 11) (|MonoidRing| 6 8)
               (4 . |terms|) (9 . |monomial|) (15 . +) (|Mapping| 7 6)
               |MRF2;map;MMrMr;1|)

@@ -184,7 +184,7 @@
 (SDEFUN |FR;numberOfFactors;%Nni;11| ((|u| (%)) (% (|NonNegativeInteger|)))
         (LENGTH (QCDR |u|))) 
 
-(SDEFUN |FR;Zero;%;12| ((% (%)))
+(SDEFUN |FR;0;%;12| ((% (%)))
         (CONS (|spadConstant| % 15)
               (LIST (VECTOR (CONS 0 "nil") (|spadConstant| % 50) 1)))) 
 
@@ -200,7 +200,7 @@
            (#1# NIL)))
          (#1# NIL))) 
 
-(SDEFUN |FR;One;%;14| ((% (%))) (CONS (|spadConstant| % 15) NIL)) 
+(SDEFUN |FR;1;%;14| ((% (%))) (CONS (|spadConstant| % 15) NIL)) 
 
 (SDEFUN |FR;one?;%B;15| ((|u| (%)) (% (|Boolean|)))
         (COND
@@ -1795,19 +1795,19 @@
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flag| 8) (|:| |factor| 6) (|:| |exponent| 39))
               (|List| 9) |FR;factorList;%L;9| |FR;unit;%R;10| (|InputForm|)
-              (0 . |convert|) (5 . |One|) (|Boolean|) (9 . =) (|Void|)
-              (|String|) (|OutputForm|) (15 . |messagePrint|)
-              (|InputFormFunctions1| 6) (20 . |coerceToType|) (|Integer|)
-              (25 . |convert|) (|Symbol|) (30 . |convert|) (35 . ~=) (|List| %)
-              (41 . |binary|) (47 . |convert|) '|ordered_R?| '|comparable_R?|
-              '|has_order?| (52 . <) (58 . |smaller?|) (|Mapping| 16 9 9)
-              (64 . |sort!|) (|NonNegativeInteger|) |FR;flagFactor;RNniU%;46|
+              (0 . |convert|) (5 . |1|) (|Boolean|) (9 . =) (|Void|) (|String|)
+              (|OutputForm|) (15 . |messagePrint|) (|InputFormFunctions1| 6)
+              (20 . |coerceToType|) (|Integer|) (25 . |convert|) (|Symbol|)
+              (30 . |convert|) (35 . ~=) (|List| %) (41 . |binary|)
+              (47 . |convert|) '|ordered_R?| '|comparable_R?| '|has_order?|
+              (52 . <) (58 . |smaller?|) (|Mapping| 16 9 9) (64 . |sort!|)
+              (|NonNegativeInteger|) |FR;flagFactor;RNniU%;46|
               |FR;nilFactor;RNni%;4| |FR;sqfrFactor;RNni%;5|
               |FR;irreducibleFactor;RNni%;6| |FR;primeFactor;RNni%;7|
               (70 . |zero?|) |FR;unit?;%B;8| |FR;numberOfFactors;%Nni;11|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FR;One;%;14|) %))
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FR;Zero;%;12|) %))
-              (75 . |Zero|) (79 . |size?|) |FR;zero?;%B;13| |FR;one?;%B;15|
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FR;1;%;14|) %))
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FR;0;%;12|) %))
+              (75 . |0|) (79 . |size?|) |FR;zero?;%B;13| |FR;one?;%B;15|
               (85 . |coerce|) (90 . |coerce|) |FR;coerce;I%;17|
               (95 . |characteristic|) |FR;characteristic;Nni;18| |FR;*;3%;34|
               |FR;*;I2%;19| |FR;*;R2%;20|
@@ -1817,17 +1817,16 @@
               |FR;makeFR;RL%;23| (123 . |rational?|) (|Fraction| 24)
               (128 . |rational|) (|Union| 73 '"failed") (133 . |rationalIfCan|)
               (138 . |convert|) (143 . |coerce|) (148 . ^) (154 . *)
-              (160 . |One|) (164 . *) (170 . |elt|) (176 . |elt|)
-              (|Equation| $$) (182 . |lhs|) (187 . |rhs|) (|Equation| 6)
-              (192 . =) (|List| 88) (198 . |eval|) (|List| 159) (204 . |eval|)
-              (|List| 26) (|List| 6) (210 . |eval|) (217 . |eval|) (|Float|)
-              (224 . |convert|) (229 . ^) (235 . *) (241 . |One|)
-              (245 . |convert|) (|DoubleFloat|) (250 . |convert|)
-              (255 . |convert|) (260 . |concat!|) (266 . |copy|)
-              |FR;^;%Nni%;35| (271 . |coerce|) (276 . |coerce|) (281 . ^)
-              (287 . *) (|Mapping| 20 20 20) (|List| 20) (293 . |reduce|)
-              |FR;coerce;%Of;36| |FR;retract;%R;37| (|Union| 6 '"failed")
-              |FR;retractIfCan;%U;38| (|Factored| 6)
+              (160 . |1|) (164 . *) (170 . |elt|) (176 . |elt|) (|Equation| $$)
+              (182 . |lhs|) (187 . |rhs|) (|Equation| 6) (192 . =) (|List| 88)
+              (198 . |eval|) (|List| 159) (204 . |eval|) (|List| 26) (|List| 6)
+              (210 . |eval|) (217 . |eval|) (|Float|) (224 . |convert|)
+              (229 . ^) (235 . *) (241 . |1|) (245 . |convert|) (|DoubleFloat|)
+              (250 . |convert|) (255 . |convert|) (260 . |concat!|)
+              (266 . |copy|) |FR;^;%Nni%;35| (271 . |coerce|) (276 . |coerce|)
+              (281 . ^) (287 . *) (|Mapping| 20 20 20) (|List| 20)
+              (293 . |reduce|) |FR;coerce;%Of;36| |FR;retract;%R;37|
+              (|Union| 6 '"failed") |FR;retractIfCan;%U;38| (|Factored| 6)
               (|IntegerFactorizationPackage| 6) (299 . |factor|)
               (304 . |unit?|) (|Factored| %) (309 . |squareFree|) (314 . ~=)
               |FR;=;2%B;43| (320 . -) |FR;-;2%;44| (|Union| % '"failed")
@@ -1858,8 +1857,8 @@
               |exquo| 684 |expand| 690 |eval| 695 |elt| 775 |differentiate| 787
               |convert| 837 |commutator| 852 |coerce| 858 |characteristic| 883
               |associator| 887 |associates?| 894 |antiCommutator| 900
-              |annihilate?| 906 ^ 912 |Zero| 924 |One| 928 D 932 = 982 - 988 +
-              999 * 1005)
+              |annihilate?| 906 ^ 912 D 924 = 974 |1| 980 |0| 984 - 988 + 999 *
+              1005)
            'NIL
            (CONS
             (|makeByteWordVec2| 15
@@ -1958,11 +1957,11 @@
                                     104 0 106 2 0 0 0 0 1 1 0 20 0 117 1 0 0 24
                                     56 1 0 0 0 1 1 0 0 6 55 1 6 0 73 1 0 0 39
                                     58 3 0 0 0 0 0 1 2 0 16 0 0 1 2 0 0 0 0 1 2
-                                    0 16 0 0 1 2 0 0 0 158 1 2 0 0 0 39 109 0 0
-                                    0 49 0 0 0 48 2 0 0 0 137 1 3 0 0 0 137 39
-                                    1 1 2 0 0 1 2 2 0 0 39 1 2 1 0 0 26 1 3 1 0
-                                    0 26 39 1 2 1 0 0 94 1 3 1 0 0 94 162 1 2 0
-                                    16 0 0 128 2 0 0 0 0 1 1 0 0 0 130 2 0 0 0
+                                    0 16 0 0 1 2 0 0 0 158 1 2 0 0 0 39 109 2 0
+                                    0 0 137 1 3 0 0 0 137 39 1 1 2 0 0 1 2 2 0
+                                    0 39 1 2 1 0 0 26 1 3 1 0 0 26 39 1 2 1 0 0
+                                    94 1 3 1 0 0 94 162 1 2 0 16 0 0 128 0 0 0
+                                    48 0 0 0 49 2 0 0 0 0 1 1 0 0 0 130 2 0 0 0
                                     0 136 2 0 0 158 0 1 2 0 0 0 0 59 2 0 0 24 0
                                     60 2 0 0 39 0 1 2 0 0 6 0 61 2 0 0 0 6
                                     1)))))

@@ -1350,14 +1350,14 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|PolynomialRing| 7 8) (|local| |#1|)
               (|local| |#2|) (|local| |#3|) '|Term| '|Rep| '|n| (|Boolean|)
-              |GDMP;zero?;%B;1| (|Vector| 17) (0 . |coerce|) (5 . |Zero|)
+              |GDMP;zero?;%B;1| (|Vector| 17) (0 . |coerce|) (5 . |0|)
               (|NonNegativeInteger|) (9 . +) (|Mapping| 17 17 17)
               (15 . |reduce|) |GDMP;totalDegree;%Nni;2| (|PositiveInteger|)
               (|OrderedVariableList| (NRTEVAL (QREFELT % 6))) (22 . |lookup|)
-              (27 . |One|) (31 . |One|) (35 . |directProduct|)
-              (40 . |monomial|) (46 . *) |GDMP;monomial;%OvlNni%;3|
-              |GDMP;coerce;Ovl%;4| (|Union| % '"failed") (|Symbol|)
-              (52 . |variable|) |GDMP;degree;%OvlNni;10| (|Union| 23 '"failed")
+              (27 . |1|) (31 . |1|) (35 . |directProduct|) (40 . |monomial|)
+              (46 . *) |GDMP;monomial;%OvlNni%;3| |GDMP;coerce;Ovl%;4|
+              (|Union| % '"failed") (|Symbol|) (52 . |variable|)
+              |GDMP;degree;%OvlNni;10| (|Union| 23 '"failed")
               |GDMP;mainVariable;%U;6| |GDMP;ground?;%B;7|
               (57 . |leadingCoefficient|) |GDMP;retract;%R;8|
               (|Union| 7 '"failed") |GDMP;retractIfCan;%U;9| (|Integer|)
@@ -1368,28 +1368,28 @@
               |GDMP;differentiate;%Ovl%;12| (|List| 17) (|List| 23)
               |GDMP;degree;%LL;13| |GDMP;minimumDegree;%LL;14|
               |GDMP;numberOfMonomials;%Nni;15| |GDMP;monomial?;%B;16|
-              (78 . |Zero|) (82 . >) (88 . -) (93 . |inv|) (98 . *) (104 . /)
+              (78 . |0|) (82 . >) (88 . -) (93 . |inv|) (98 . *) (104 . /)
               (110 . |new|) (116 . |degree|) (121 . |reductum|) (126 . |elt|)
               (132 . |setelt!|) (139 . ~=) (145 . |index|)
               |GDMP;variables;%L;19| (150 . >) (|Mapping| 12 9 9)
-              (156 . |sort|) (|List| 43) |GDMP;reorder;%L%;20| (162 . |Zero|)
+              (156 . |sort|) (|List| 43) |GDMP;reorder;%L%;20| (162 . |0|)
               (166 . |monomial|) (172 . +) (178 . |elt|) |GDMP;eval;%Ovl2%;22|
               (184 . |coerce|) |GDMP;eval;%OvlR%;23| (189 . =) (|List| 7)
               |GDMP;eval;%LL%;24| (|List| $$) (195 . =) (201 . >) '"rest"
               (207 . |elt|) '"first" (213 . |elt|) (|Mapping| $$ $$)
               (219 . |map|) (225 . =) (|Mapping| 12 23 23) (231 . |sort|)
               (237 . |position|) (243 . |elt|) (|List| %) |GDMP;eval;%LL%;26|
-              (249 . |Zero|) (253 . =) (259 . |degree|)
+              (249 . |0|) (253 . =) (259 . |degree|)
               (264 . |leadingCoefficient|) (269 . ^) (275 . |reductum|)
               (280 . +) (|SparseUnivariatePolynomial| 7) (286 . |monomial|)
-              (292 . |Zero|) (296 . ~=) (302 . |ground|) (307 . +)
+              (292 . |0|) (296 . ~=) (302 . |ground|) (307 . +)
               |GDMP;univariate;%Sup;28| (313 . =) (319 . |leadingCoefficient|)
               (324 . |degree|) (329 . |reductum|)
               |GDMP;multivariate;SupOvl%;29| (334 . |gcd|) (340 . |content|)
               (345 . =) (351 . <) (357 . |content|) (362 . |gcd|) (368 . |gcd|)
               (|PolynomialGcdPackage| 8 23 7 $$) (374 . |gcd|) (|OutputForm|)
               (380 . |coerce|) (385 . |coerce|) (|List| 132) (390 . |elt|)
-              (396 . |coerce|) (401 . ^) (407 . ~=) (413 . |One|) (417 . *)
+              (396 . |coerce|) (401 . ^) (407 . ~=) (413 . |1|) (417 . *)
               (|Mapping| 132 132 132) (423 . |reduce|) (429 . +)
               |GDMP;coerce;%Of;34| (|String|)
               (|Record| (|:| |k| 8) (|:| |c| 7)) (|List| 147) (|Mapping| 7 7)
@@ -1433,8 +1433,8 @@
               |commutator| 1088 |coerce| 1094 |coefficients| 1124 |coefficient|
               1129 |charthRoot| 1149 |characteristic| 1154 |binomThmExpt| 1158
               |associator| 1165 |associates?| 1172 |antiCommutator| 1178
-              |annihilate?| 1184 ^ 1190 |Zero| 1202 |One| 1206 D 1210 = 1236 /
-              1242 - 1248 + 1259 * 1265)
+              |annihilate?| 1184 ^ 1190 D 1202 = 1228 |1| 1234 |0| 1238 / 1242
+              - 1248 + 1259 * 1265)
            'NIL
            (CONS
             (|makeByteWordVec2| 44
@@ -1569,9 +1569,9 @@
                                     0 8 1 3 0 0 0 54 53 1 3 0 0 0 23 17 1 1 46
                                     32 0 1 0 52 17 1 3 45 0 0 0 17 1 3 52 0 0 0
                                     0 1 2 47 12 0 0 1 2 0 0 0 0 1 2 52 12 0 0 1
-                                    2 0 0 0 22 1 2 51 0 0 17 108 0 53 0 16 0 51
-                                    0 25 3 4 0 0 54 53 1 3 4 0 0 23 17 1 2 4 0
-                                    0 23 1 2 4 0 0 54 1 2 0 12 0 0 1 2 21 0 0 7
+                                    2 0 0 0 22 1 2 51 0 0 17 108 3 4 0 0 54 53
+                                    1 3 4 0 0 23 17 1 2 4 0 0 23 1 2 4 0 0 54 1
+                                    2 0 12 0 0 1 0 51 0 25 0 53 0 16 2 21 0 0 7
                                     64 2 55 0 0 0 1 1 55 0 0 1 2 0 0 0 0 110 2
                                     0 0 22 0 1 2 0 0 0 0 29 2 0 0 0 7 1 2 0 0 7
                                     0 63 2 37 0 0 43 1 2 55 0 43 0 1 2 53 0 17
