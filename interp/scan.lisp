@@ -1057,9 +1057,9 @@
            ('T (SETQ |n| (+ |n| 1)))))))
       |n|))))
 
-; digit? x== DIGITP x
+; digit? x== char_to_digit(x)
 
-(DEFUN |digit?| (|x|) (PROG () (RETURN (DIGITP |x|))))
+(DEFUN |digit?| (|x|) (PROG () (RETURN (|char_to_digit| |x|))))
 
 ; scanW(b)==             -- starts pointing to first char
 ;        n1:=$n         -- store starting character position

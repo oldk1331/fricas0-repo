@@ -648,7 +648,7 @@
 
 ; parseWord x ==
 ;   STRINGP x =>
-;     and/[DIGITP x.i for i in 0..MAXINDEX x] => PARSE_-INTEGER x
+;     and/[char_to_digit(x.i) for i in 0..MAXINDEX(x)] => PARSE_-INTEGER(x)
 ;     INTERN x
 ;   x
 
@@ -663,7 +663,7 @@
              (COND ((> |i| |bfVar#5|) (RETURN |bfVar#6|))
                    (#1='T
                     (PROGN
-                     (SETQ |bfVar#6| (DIGITP (ELT |x| |i|)))
+                     (SETQ |bfVar#6| (|char_to_digit| (ELT |x| |i|)))
                      (COND ((NOT |bfVar#6|) (RETURN NIL))))))
              (SETQ |i| (+ |i| 1))))
           T (MAXINDEX |x|) 0)

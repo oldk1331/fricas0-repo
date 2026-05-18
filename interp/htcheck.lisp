@@ -137,9 +137,7 @@
 ;     i = m => 0
 ;     j := charPosition(char '_],line,i + 1)
 ;     digitString := SUBSTRING(line,i + 1,j - i - 1)
-;     and/[DIGITP digitString.i for i in 0..MAXINDEX digitString]
-;       => PARSE_-INTEGER digitString
-;     return nil
+;     string2Integer(digitString)
 ;   [command,:numOfArgs]
 
 (DEFUN |getHtMacroItem| (|line|)
@@ -163,21 +161,7 @@
                               (SETQ |digitString|
                                       (SUBSTRING |line| (+ |i| 1)
                                                  (- (- |j| |i|) 1)))
-                              (COND
-                               (((LAMBDA (|bfVar#4| |bfVar#3| |i|)
-                                   (LOOP
-                                    (COND
-                                     ((> |i| |bfVar#3|) (RETURN |bfVar#4|))
-                                     (#1#
-                                      (PROGN
-                                       (SETQ |bfVar#4|
-                                               (DIGITP
-                                                (ELT |digitString| |i|)))
-                                       (COND ((NOT |bfVar#4|) (RETURN NIL))))))
-                                    (SETQ |i| (+ |i| 1))))
-                                 T (MAXINDEX |digitString|) 0)
-                                (PARSE-INTEGER |digitString|))
-                               (#1# (RETURN NIL))))))))
+                              (|string2Integer| |digitString|))))))
              (CONS |command| |numOfArgs|)))))))
 
 ; spadSysChoose(tree,form) ==     --tree is ((word . tree) ..)

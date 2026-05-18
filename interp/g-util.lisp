@@ -1046,7 +1046,7 @@
 
 ; intern x ==
 ;   STRINGP x =>
-;     DIGITP x.0 => string2Integer x
+;     char_to_digit(x.0) => string2Integer x
 ;     INTERN x
 ;   x
 
@@ -1055,7 +1055,7 @@
     (RETURN
      (COND
       ((STRINGP |x|)
-       (COND ((DIGITP (ELT |x| 0)) (|string2Integer| |x|))
+       (COND ((|char_to_digit| (ELT |x| 0)) (|string2Integer| |x|))
              (#1='T (INTERN |x|))))
       (#1# |x|)))))
 
@@ -1498,8 +1498,8 @@
 ;   ok := true
 ;   c := 0
 ;   for i in 1..(n-1) while ok repeat
-;     d := ELT(p,i)
-;     ok := DIGITP d => c := 10*c + DIG2FIX d
+;         d := ELT(p,i)
+;         ok := char_to_digit(d) => c := 10*c + ok
 ;   if ok then c else nil
 
 (DEFUN |isSharpVarWithNum| (|x|)
@@ -1518,8 +1518,8 @@
                         (PROGN
                          (SETQ |d| (ELT |p| |i|))
                          (COND
-                          ((SETQ |ok| (DIGITP |d|))
-                           (SETQ |c| (+ (* 10 |c|) (DIG2FIX |d|))))))))
+                          ((SETQ |ok| (|char_to_digit| |d|))
+                           (SETQ |c| (+ (* 10 |c|) |ok|)))))))
                  (SETQ |i| (+ |i| 1))))
               (- |n| 1) 1)
              (COND (|ok| |c|) (#1# NIL))))))))

@@ -322,8 +322,7 @@
 ;     n := STRINGLENGTH x
 ;
 ;     -- x requires parameter substitution
-;     (x.0 = char "%") and (n > 1) and (DIGITP x.1) =>
-;       a := DIG2FIX x.1
+;     (x.0 = char "%") and (n > 1) and (a := char_to_digit(x.1)) =>
 ;       arg :=
 ;         a <= nargs => args.(a-1)
 ;         '"???"
@@ -388,9 +387,8 @@
                (SETQ |n| (STRINGLENGTH |x|))
                (COND
                 ((AND (EQUAL (ELT |x| 0) (|char| '%)) (< 1 |n|)
-                      (DIGITP (ELT |x| 1)))
+                      (SETQ |a| (|char_to_digit| (ELT |x| 1))))
                  (PROGN
-                  (SETQ |a| (DIG2FIX (ELT |x| 1)))
                   (SETQ |arg|
                           (COND ((NOT (< |nargs| |a|)) (ELT |args| (- |a| 1)))
                                 (#1# "???")))
@@ -1625,7 +1623,7 @@
 ;     1
 ;   member(x,'("%l" %l)) => 0
 ;   STRINGP x and STRINGLENGTH x > 2 and x.0 = char "%" and x.1 = char "x" =>
-;       DIGITP(x.2)
+;         char_to_digit(x.2)
 ;   STRINGP x => STRINGLENGTH x
 ;   IDENTP x => STRINGLENGTH PNAME x
 ;   -- following line helps find certain bugs that slip through
@@ -1643,7 +1641,7 @@
       ((|member| |x| '("%l" |%l|)) 0)
       ((AND (STRINGP |x|) (< 2 (STRINGLENGTH |x|))
             (EQUAL (ELT |x| 0) (|char| '%)) (EQUAL (ELT |x| 1) (|char| '|x|)))
-       (DIGITP (ELT |x| 2)))
+       (|char_to_digit| (ELT |x| 2)))
       ((STRINGP |x|) (STRINGLENGTH |x|))
       ((IDENTP |x|) (STRINGLENGTH (PNAME |x|)))
       ((VECP |x|) (STRINGLENGTH "UNPRINTABLE"))

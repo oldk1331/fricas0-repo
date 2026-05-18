@@ -1963,11 +1963,12 @@
 ;       x = char '_% or x = '"%"  => ['"\%",:acc]
 ;       x = char '_, or x = '","  => ['",",:acc]
 ;       x = '"\spad" => ['"\spad",:acc]
-;       STRINGP x and DIGITP x.0 => [x,:acc]
+;       STRINGP(x) and char_to_digit(x.0) => [x, :acc]
 ;       null spadflag and
 ;         (CHARP x and ALPHA_-CHAR_-P x and not MEMQ(x,$charExclusions) or
 ;           member(x,$argl)) => [$charRbrace,x,$charLbrace,'"\spad",:acc]
-;       null spadflag and ((STRINGP x and not (x.0 = $charBack) and DIGITP(x.(MAXINDEX x))) or member(x, '("true" "false"))) =>
+;       not(spadflag) and ((STRINGP(x) and not(x.0 = $charBack) and
+;             char_to_digit(x.(MAXINDEX x))) or member(x, '("true" "false"))) =>
 ;         [$charRbrace,x,$charLbrace,'"\spad",:acc]  --wrap x1, alpha3, etc
 ;       CHARP x => [checkAddBackSlashes x,:acc]
 ;       xcount := #x
@@ -2059,7 +2060,7 @@
                            ((OR (EQUAL |x| (|char| '|,|)) (EQUAL |x| ","))
                             (CONS "," |acc|))
                            ((EQUAL |x| "\\spad") (CONS "\\spad" |acc|))
-                           ((AND (STRINGP |x|) (DIGITP (ELT |x| 0)))
+                           ((AND (STRINGP |x|) (|char_to_digit| (ELT |x| 0)))
                             (CONS |x| |acc|))
                            ((AND (NULL |spadflag|)
                                  (OR
@@ -2074,7 +2075,8 @@
                                  (OR
                                   (AND (STRINGP |x|)
                                        (NULL (EQUAL (ELT |x| 0) |$charBack|))
-                                       (DIGITP (ELT |x| (MAXINDEX |x|))))
+                                       (|char_to_digit|
+                                        (ELT |x| (MAXINDEX |x|))))
                                   (|member| |x| '("true" "false"))))
                             (CONS |$charRbrace|
                                   (CONS |x|
@@ -2967,26 +2969,6 @@
                   (SETQ |u| (CDR |u|))))))))
       |found|))))
 
-; checkInteger s ==
-;   CHARP s => false
-;   s = '"" => false
-;   and/[DIGIT_-CHAR_-P s.i for i in 0..MAXINDEX s]
-
-(DEFUN |checkInteger| (|s|)
-  (PROG ()
-    (RETURN
-     (COND ((CHARP |s|) NIL) ((EQUAL |s| "") NIL)
-           (#1='T
-            ((LAMBDA (|bfVar#59| |bfVar#58| |i|)
-               (LOOP
-                (COND ((> |i| |bfVar#58|) (RETURN |bfVar#59|))
-                      (#1#
-                       (PROGN
-                        (SETQ |bfVar#59| (DIGIT-CHAR-P (ELT |s| |i|)))
-                        (COND ((NOT |bfVar#59|) (RETURN NIL))))))
-                (SETQ |i| (+ |i| 1))))
-             T (MAXINDEX |s|) 0))))))
-
 ; checkTransformFirsts(opname,u,margin) ==
 ; --case 1: \spad{...
 ; --case 2: form(args)
@@ -3308,12 +3290,13 @@
       (COND ((EQUAL |i| |m|) NIL) (#1# |i|))))))
 
 ; checkAlphabetic c ==
-;   ALPHA_-CHAR_-P c or DIGITP c or MEMQ(c,$charIdentifierEndings)
+;     ALPHA_-CHAR_-P(c) or char_to_digit(c) or MEMQ(c, $charIdentifierEndings)
 
 (DEFUN |checkAlphabetic| (|c|)
   (PROG ()
     (RETURN
-     (OR (ALPHA-CHAR-P |c|) (DIGITP |c|) (MEMQ |c| |$charIdentifierEndings|)))))
+     (OR (ALPHA-CHAR-P |c|) (|char_to_digit| |c|)
+         (MEMQ |c| |$charIdentifierEndings|)))))
 
 ; checkDocError u ==
 ;   $checkErrorFlag := true

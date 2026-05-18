@@ -97,6 +97,19 @@
 
 (DEFVAR |$timer_list| NIL)
 
+; IS_GENVAR(x) ==
+;     IDENTP(x) and (y := PNAME(x); #y > 1 and '"$".0 = y.0 and
+;                    char_to_digit(y.1))
+
+(DEFUN IS_GENVAR (|x|)
+  (PROG (|y|)
+    (RETURN
+     (AND (IDENTP |x|)
+          (PROGN
+           (SETQ |y| (PNAME |x|))
+           (AND (< 1 (LENGTH |y|)) (EQUAL (ELT "$" 0) (ELT |y| 0))
+                (|char_to_digit| (ELT |y| 1))))))))
+
 ; trace l == traceSpad2Cmd l
 
 (DEFUN |trace| (|l|) (PROG () (RETURN (|traceSpad2Cmd| |l|))))

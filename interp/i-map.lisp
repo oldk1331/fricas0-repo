@@ -60,7 +60,7 @@
 ;   (not IDENTP(name)) or (name = "*") or (name = "**") => false
 ;   sz := SIZE (name' := PNAME name)
 ;   (sz < 7) or (char("*") ~= name'.0) => false
-;   null DIGITP name'.1 => false
+;   null(char_to_digit(name'.1)) => false
 ;   null STRPOS('"_;",name',1,NIL) => false
 ;   -- good enough
 ;   true
@@ -74,7 +74,7 @@
              (SETQ |sz| (SIZE (SETQ |name'| (PNAME |name|))))
              (COND
               ((OR (< |sz| 7) (NOT (EQUAL (|char| '*) (ELT |name'| 0)))) NIL)
-              ((NULL (DIGITP (ELT |name'| 1))) NIL)
+              ((NULL (|char_to_digit| (ELT |name'| 1))) NIL)
               ((NULL (STRPOS ";" |name'| 1 NIL)) NIL) (#1# T))))))))
 
 ; makeInternalMapMinivectorName(name) ==
