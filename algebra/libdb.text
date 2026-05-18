@@ -11478,7 +11478,7 @@ pElementaryFunctionStructurePackage`2`x`(R:Join(IntegralDomain,etc),F:Join(Algeb
 pElementaryIntegration`2`n`(R:Join(GcdDomain,etc),F:Join(AlgebraicallyClosedField,etc))->etc`(R,F)`INTEF`1343932
 pElementaryRischDEX2`2`n`(R:Join(GcdDomain,etc),F:Join(TranscendentalFunctionCategory,etc))->etc`(R,F)`RDEEFX2`1344092
 pElementaryRischDEX`2`n`(R:Join(PolynomialFactorizationExplicit,etc),F:Join(TranscendentalFunctionCategory,etc))->etc`(R,F)`RDEEFX`1344159
-pEllipticFunctionsUnivariateTaylorSeries`2`n`(Coef:Field,UTS:UnivariateTaylorSeriesCategory(Coef))->etc`(Coef,UTS)`ELFUTS`1344273
+pEllipticFunctionsUnivariateTaylorSeries`2`n`(Coef:Join(Field,etc),UTS:UnivariateTaylorSeriesCategory(Coef))->etc`(Coef,UTS)`ELFUTS`1344273
 pEquationFunctions2`2`x`(Type,R:Type)->etc`(S,R)`EQ2`1344370
 pErrorFunctions`0`x`()->etc``ERROR`1344447
 pEuclideanGroebnerBasisPackage`4`x`(Dom:EuclideanDomain,Expon:OrderedAbelianMonoidSup,VarSet:OrderedSet,Dpol:PolynomialCategory(Dom,Expon,VarSet))->etc`(Dom,Expon,VarSet,Dpol)`GBEUCLID`1346391
@@ -11870,7 +11870,7 @@ pSortedCache`1`n`(CachableSet)->etc`(S)`SCACHE`1418408
 pSortPackage`2`n`(S:Type,A:Join(IndexedAggregate(Integer,S),etc))->etc`(S,A)`SORTPAK`1418764
 pSparsePolynomialCoercionHelpers`3`n`(Ring,VarSet1:OrderedSet,VarSet2:OrderedSet)->etc`(R,VarSet1,VarSet2)`SMPCOER`1418813
 pSparseUnivariatePolynomialFunctions2`2`x`(Ring,S:Ring)->etc`(R,S)`SUP2`1418909
-pSpecialFunctionUnivariateTaylorSeries`2`n`(Coef:Field,UTS:UnivariateTaylorSeriesCategory(Coef))->etc`(Coef,UTS)`SPFUTS`1419233
+pSpecialFunctionUnivariateTaylorSeries`2`n`(Coef:Join(Field,etc),UTS:UnivariateTaylorSeriesCategory(Coef))->etc`(Coef,UTS)`SPFUTS`1419233
 pSpecialOutputPackage`0`x`()->etc``SPECOUT`1419312
 pSquareFreeQuasiComponentPackage`5`x`(R:GcdDomain,E:OrderedAbelianMonoidSup,V:OrderedSet,P:RecursivePolynomialCategory(R,E,V),TS:RegularTriangularSetCategory(R,E,V,P))->etc`(R,E,V,P,TS)`SFQCMPK`1419404
 pSquareFreeRegularSetDecompositionPackage`5`x`(R:GcdDomain,E:OrderedAbelianMonoidSup,V:OrderedSet,P:RecursivePolynomialCategory(R,E,V),TS:SquareFreeRegularTriangularSetCategory(R,E,V,P))->etc`(R,E,V,P,TS)`SRDCMPK`1419587
