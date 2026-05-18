@@ -5331,7 +5331,7 @@
 ;         [name, :sigs] := op
 ;         for sigm in sigs repeat
 ;             [sig, cond] := sigm
-;             res := cons([[name, sig], cond, ["ELT", nil, nil]], res)
+;             res := cons([[name, sig], cond], res)
 ;     NREVERSE(res)
 
 (DEFUN |get_op_alist| (|form|)
@@ -5362,10 +5362,7 @@
                     (SETQ |sig| (CAR |sigm|))
                     (SETQ |cond| (CADR |sigm|))
                     (SETQ |res|
-                            (CONS
-                             (LIST (LIST |name| |sig|) |cond|
-                                   (LIST 'ELT NIL NIL))
-                             |res|)))))
+                            (CONS (LIST (LIST |name| |sig|) |cond|) |res|)))))
                  (SETQ |bfVar#106| (CDR |bfVar#106|))))
               |sigs| NIL))))
           (SETQ |bfVar#105| (CDR |bfVar#105|))))
@@ -5390,18 +5387,16 @@
 ;       '"exposed in this frame."]
 ;
 ;   for [opt] in $options repeat
-;     opt := selectOptionLC(opt,$showOptions,'optionError)
-;     opt = 'operations =>
-;       if isRecordOrUnion
-;         then
+;       opt := selectOptionLC(opt, $showOptions, 'optionError)
+;       not(opt = 'operations) => "iterate"
+;       if isRecordOrUnion then
 ;           constructorFunction := get_oplist_maker(top) or
 ;             systemErrorHere '"reportOpsFromUnitDirectly"
 ;           [funlist, .] := FUNCALL(constructorFunction, "%", unitForm,
 ;                                   $CategoryFrame)
-;           sigList := REMDUP MSORT [[[a,b],true,[c,0,1]] for
-;             [a,b,c] in funlist]
-;         else
-;             sigList := get_op_alist(unitForm)
+;           sigList := [[[a, b], true] for [a, b, c] in funlist]
+;       else
+;           sigList := get_op_alist(unitForm)
 ;
 ;       sigList := REMDUP(MSORT(sigList))
 ;
@@ -5459,99 +5454,101 @@
                   (SETQ |opt|
                           (|selectOptionLC| |opt| |$showOptions|
                            '|optionError|))
-                  (COND
-                   ((EQ |opt| '|operations|)
-                    (PROGN
-                     (COND
-                      (|isRecordOrUnion|
-                       (SETQ |constructorFunction|
-                               (OR (|get_oplist_maker| |top|)
-                                   (|systemErrorHere|
-                                    "reportOpsFromUnitDirectly")))
-                       (SETQ |LETTMP#1|
-                               (FUNCALL |constructorFunction| '% |unitForm|
-                                        |$CategoryFrame|))
-                       (SETQ |funlist| (CAR |LETTMP#1|))
-                       (SETQ |sigList|
-                               (REMDUP
-                                (MSORT
-                                 ((LAMBDA (|bfVar#111| |bfVar#110| |bfVar#109|)
-                                    (LOOP
-                                     (COND
-                                      ((OR (ATOM |bfVar#110|)
-                                           (PROGN
-                                            (SETQ |bfVar#109|
-                                                    (CAR |bfVar#110|))
-                                            NIL))
-                                       (RETURN (NREVERSE |bfVar#111|)))
-                                      (#1#
-                                       (AND (CONSP |bfVar#109|)
+                  (COND ((NULL (EQ |opt| '|operations|)) '|iterate|)
+                        (#1#
+                         (PROGN
+                          (COND
+                           (|isRecordOrUnion|
+                            (SETQ |constructorFunction|
+                                    (OR (|get_oplist_maker| |top|)
+                                        (|systemErrorHere|
+                                         "reportOpsFromUnitDirectly")))
+                            (SETQ |LETTMP#1|
+                                    (FUNCALL |constructorFunction| '%
+                                             |unitForm| |$CategoryFrame|))
+                            (SETQ |funlist| (CAR |LETTMP#1|))
+                            (SETQ |sigList|
+                                    ((LAMBDA
+                                         (|bfVar#111| |bfVar#110| |bfVar#109|)
+                                       (LOOP
+                                        (COND
+                                         ((OR (ATOM |bfVar#110|)
+                                              (PROGN
+                                               (SETQ |bfVar#109|
+                                                       (CAR |bfVar#110|))
+                                               NIL))
+                                          (RETURN (NREVERSE |bfVar#111|)))
+                                         (#1#
+                                          (AND (CONSP |bfVar#109|)
+                                               (PROGN
+                                                (SETQ |a| (CAR |bfVar#109|))
+                                                (SETQ |ISTMP#1|
+                                                        (CDR |bfVar#109|))
+                                                (AND (CONSP |ISTMP#1|)
+                                                     (PROGN
+                                                      (SETQ |b|
+                                                              (CAR |ISTMP#1|))
+                                                      (SETQ |ISTMP#2|
+                                                              (CDR |ISTMP#1|))
+                                                      (AND (CONSP |ISTMP#2|)
+                                                           (EQ (CDR |ISTMP#2|)
+                                                               NIL)
+                                                           (PROGN
+                                                            (SETQ |c|
+                                                                    (CAR
+                                                                     |ISTMP#2|))
+                                                            #1#)))))
+                                               (SETQ |bfVar#111|
+                                                       (CONS
+                                                        (LIST (LIST |a| |b|) T)
+                                                        |bfVar#111|)))))
+                                        (SETQ |bfVar#110| (CDR |bfVar#110|))))
+                                     NIL |funlist| NIL)))
+                           (#1# (SETQ |sigList| (|get_op_alist| |unitForm|))))
+                          (SETQ |sigList| (REMDUP (MSORT |sigList|)))
+                          (SETQ |ops| NIL)
+                          (SETQ |numOfNames|
+                                  (LENGTH
+                                   (REMDUP
+                                    ((LAMBDA (|bfVar#113| |bfVar#112| |x|)
+                                       (LOOP
+                                        (COND
+                                         ((OR (ATOM |bfVar#112|)
+                                              (PROGN
+                                               (SETQ |x| (CAR |bfVar#112|))
+                                               NIL))
+                                          (RETURN (NREVERSE |bfVar#113|)))
+                                         (#1#
+                                          (SETQ |bfVar#113|
+                                                  (CONS (CAR (CAR |x|))
+                                                        |bfVar#113|))))
+                                        (SETQ |bfVar#112| (CDR |bfVar#112|))))
+                                     NIL |sigList| NIL))))
+                          (|sayBrightly|
+                           (LIST " " |numOfNames| " names for "
+                                 (LENGTH |sigList|) " operations in this "
+                                 (PNAME |kind|) '|.|))
+                          (SETQ |ops|
+                                  ((LAMBDA (|bfVar#115| |bfVar#114| |x|)
+                                     (LOOP
+                                      (COND
+                                       ((OR (ATOM |bfVar#114|)
                                             (PROGN
-                                             (SETQ |a| (CAR |bfVar#109|))
-                                             (SETQ |ISTMP#1| (CDR |bfVar#109|))
-                                             (AND (CONSP |ISTMP#1|)
-                                                  (PROGN
-                                                   (SETQ |b| (CAR |ISTMP#1|))
-                                                   (SETQ |ISTMP#2|
-                                                           (CDR |ISTMP#1|))
-                                                   (AND (CONSP |ISTMP#2|)
-                                                        (EQ (CDR |ISTMP#2|)
-                                                            NIL)
-                                                        (PROGN
-                                                         (SETQ |c|
-                                                                 (CAR
-                                                                  |ISTMP#2|))
-                                                         #1#)))))
-                                            (SETQ |bfVar#111|
-                                                    (CONS
-                                                     (LIST (LIST |a| |b|) T
-                                                           (LIST |c| 0 1))
-                                                     |bfVar#111|)))))
-                                     (SETQ |bfVar#110| (CDR |bfVar#110|))))
-                                  NIL |funlist| NIL)))))
-                      (#1# (SETQ |sigList| (|get_op_alist| |unitForm|))))
-                     (SETQ |sigList| (REMDUP (MSORT |sigList|)))
-                     (SETQ |ops| NIL)
-                     (SETQ |numOfNames|
-                             (LENGTH
-                              (REMDUP
-                               ((LAMBDA (|bfVar#113| |bfVar#112| |x|)
-                                  (LOOP
-                                   (COND
-                                    ((OR (ATOM |bfVar#112|)
-                                         (PROGN
-                                          (SETQ |x| (CAR |bfVar#112|))
-                                          NIL))
-                                     (RETURN (NREVERSE |bfVar#113|)))
-                                    (#1#
-                                     (SETQ |bfVar#113|
-                                             (CONS (CAR (CAR |x|))
-                                                   |bfVar#113|))))
-                                   (SETQ |bfVar#112| (CDR |bfVar#112|))))
-                                NIL |sigList| NIL))))
-                     (|sayBrightly|
-                      (LIST " " |numOfNames| " names for " (LENGTH |sigList|)
-                            " operations in this " (PNAME |kind|) '|.|))
-                     (SETQ |ops|
-                             ((LAMBDA (|bfVar#115| |bfVar#114| |x|)
-                                (LOOP
-                                 (COND
-                                  ((OR (ATOM |bfVar#114|)
-                                       (PROGN
-                                        (SETQ |x| (CAR |bfVar#114|))
-                                        NIL))
-                                   (RETURN (NREVERSE |bfVar#115|)))
-                                  (#1#
-                                   (SETQ |bfVar#115|
-                                           (CONS
-                                            (|formatOperationWithPred| |x|)
-                                            |bfVar#115|))))
-                                 (SETQ |bfVar#114| (CDR |bfVar#114|))))
-                              NIL |sigList| NIL))
-                     (|centerAndHighlight| "Operations" $LINELENGTH
-                      (|specialChar| '|hbar|))
-                     (|sayBrightly| "")
-                     (|say2PerLine| |ops|))))))))
+                                             (SETQ |x| (CAR |bfVar#114|))
+                                             NIL))
+                                        (RETURN (NREVERSE |bfVar#115|)))
+                                       (#1#
+                                        (SETQ |bfVar#115|
+                                                (CONS
+                                                 (|formatOperationWithPred|
+                                                  |x|)
+                                                 |bfVar#115|))))
+                                      (SETQ |bfVar#114| (CDR |bfVar#114|))))
+                                   NIL |sigList| NIL))
+                          (|centerAndHighlight| "Operations" $LINELENGTH
+                           (|specialChar| '|hbar|))
+                          (|sayBrightly| "")
+                          (|say2PerLine| |ops|))))))))
           (SETQ |bfVar#108| (CDR |bfVar#108|))))
        |$options| NIL)
       NIL))))

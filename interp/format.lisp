@@ -668,7 +668,7 @@
       (SETQ |sig| (CADAR . #1#))
       (|formatOpSignature| |op| |sig|)))))
 
-; formatOperationWithPred([[op,sig],pred,.]) ==
+; formatOperationWithPred([[op, sig], pred]) ==
 ;     concat(formatOpSignature(op, sig), formatIf pred)
 
 (DEFUN |formatOperationWithPred| (|bfVar#18|)
