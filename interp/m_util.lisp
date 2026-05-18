@@ -7,6 +7,82 @@
 
 (DEFPARAMETER |$error_mark| (GENSYM))
 
+; $mode_off := 0
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$mode_off| 0))
+
+; $dir_name_off := 1
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$dir_name_off| 1))
+
+; $index_table_off := 2
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$index_table_off| 2))
+
+; $index_stream_off := 3
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$index_stream_off| 3))
+
+; make_kaf(mode, dir_name, index_table, index_stream) ==
+;     kaf := GETREFV(4)
+;     kaf.$mode_off := mode
+;     kaf.$dir_name_off := dir_name
+;     kaf.$index_table_off := index_table
+;     kaf.$index_stream_off := index_stream
+;     kaf
+
+(DEFUN |make_kaf| (|mode| |dir_name| |index_table| |index_stream|)
+  (PROG (|kaf|)
+    (RETURN
+     (PROGN
+      (SETQ |kaf| (GETREFV 4))
+      (SETF (ELT |kaf| |$mode_off|) |mode|)
+      (SETF (ELT |kaf| |$dir_name_off|) |dir_name|)
+      (SETF (ELT |kaf| |$index_table_off|) |index_table|)
+      (SETF (ELT |kaf| |$index_stream_off|) |index_stream|)
+      |kaf|))))
+
+; kaf_mode(kaf) == kaf.$mode_off
+
+(DEFUN |kaf_mode| (|kaf|) (PROG () (RETURN (ELT |kaf| |$mode_off|))))
+
+; kaf_dir_name(kaf) == kaf.$dir_name_off
+
+(DEFUN |kaf_dir_name| (|kaf|) (PROG () (RETURN (ELT |kaf| |$dir_name_off|))))
+
+; kaf_index_table(kaf) == kaf.$index_table_off
+
+(DEFUN |kaf_index_table| (|kaf|)
+  (PROG () (RETURN (ELT |kaf| |$index_table_off|))))
+
+; kaf_set_indextable(kaf, index_table) ==
+;     kaf.$index_table_off := index_table
+
+(DEFUN |kaf_set_indextable| (|kaf| |index_table|)
+  (PROG () (RETURN (SETF (ELT |kaf| |$index_table_off|) |index_table|))))
+
+; kaf_index_stream(kaf) == kaf.$index_stream_off
+
+(DEFUN |kaf_index_stream| (|kaf|)
+  (PROG () (RETURN (ELT |kaf| |$index_stream_off|))))
+
+; $index_filename := "index.KAF"
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$index_filename| '|index.KAF|))
+
+; get_io_index_stream(dir_name, io?) ==
+;     ds := (io? => 'io; 'input)
+;     ind_name := CONCAT(dir_name, '"/", $index_filename)
+;     open_stream(ind_name, ds, false)
+
+(DEFUN |get_io_index_stream| (|dir_name| |io?|)
+  (PROG (|ds| |ind_name|)
+    (RETURN
+     (PROGN
+      (SETQ |ds| (COND (|io?| '|io|) ('T '|input|)))
+      (SETQ |ind_name| (CONCAT |dir_name| "/" |$index_filename|))
+      (|open_stream| |ind_name| |ds| NIL)))))
+
 ; get_io_index_table(stream, io?) ==
 ;     pos := READ(stream, nil, nil)
 ;     NUMBERP(pos) =>
@@ -73,32 +149,32 @@
        (|get_io_index_table| |stream| |io?|) |stream|)))))
 
 ; kaf_close(kaf) ==
-;     istr := LIBSTREAM_-INDEXSTREAM(kaf)
-;     if LIBSTREAM_-MODE(kaf) = 'output then
-;         write_indextable(istr, LIBSTREAM_-INDEXTABLE(kaf))
+;     istr := kaf_index_stream(kaf)
+;     if kaf_mode(kaf) = 'output then
+;         write_indextable(istr, kaf_index_table(kaf))
 ;     CLOSE(istr)
 
 (DEFUN |kaf_close| (|kaf|)
   (PROG (|istr|)
     (RETURN
      (PROGN
-      (SETQ |istr| (LIBSTREAM-INDEXSTREAM |kaf|))
+      (SETQ |istr| (|kaf_index_stream| |kaf|))
       (COND
-       ((EQ (LIBSTREAM-MODE |kaf|) '|output|)
-        (|write_indextable| |istr| (LIBSTREAM-INDEXTABLE |kaf|))))
+       ((EQ (|kaf_mode| |kaf|) '|output|)
+        (|write_indextable| |istr| (|kaf_index_table| |kaf|))))
       (CLOSE |istr|)))))
 
 ; kaf_read(kaf, key, sv) ==
-;     not(LIBSTREAM_-MODE(kaf) = 'input) =>
+;     not(kaf_mode(kaf) = 'input) =>
 ;         ERROR('"not input stream")
-;     NULL(entry := find_key(LIBSTREAM_-INDEXTABLE(kaf), key)) =>
+;     NULL(entry := find_key(kaf_index_table(kaf), key)) =>
 ;         sv = $error_mark =>
 ;             ERROR(FORMAT(nil, '"key ~a not found", key))
 ;         sv
 ;     pos := CADR(entry)
 ;     NULL(pos) => CDDR(entry)
 ;     NUMBERP(pos) =>
-;         stream := LIBSTREAM_-INDEXSTREAM(kaf)
+;         stream := kaf_index_stream(kaf)
 ;         FILE_-POSITION(stream, pos)
 ;         READ(stream)
 ;     BREAK()
@@ -106,23 +182,22 @@
 (DEFUN |kaf_read| (|kaf| |key| |sv|)
   (PROG (|entry| |pos| |stream|)
     (RETURN
-     (COND
-      ((NULL (EQ (LIBSTREAM-MODE |kaf|) '|input|)) (ERROR "not input stream"))
-      ((NULL (SETQ |entry| (|find_key| (LIBSTREAM-INDEXTABLE |kaf|) |key|)))
-       (COND
-        ((EQUAL |sv| |$error_mark|)
-         (ERROR (FORMAT NIL "key ~a not found" |key|)))
-        (#1='T |sv|)))
-      (#1#
-       (PROGN
-        (SETQ |pos| (CADR |entry|))
-        (COND ((NULL |pos|) (CDDR |entry|))
-              ((NUMBERP |pos|)
-               (PROGN
-                (SETQ |stream| (LIBSTREAM-INDEXSTREAM |kaf|))
-                (FILE-POSITION |stream| |pos|)
-                (READ |stream|)))
-              (#1# (BREAK)))))))))
+     (COND ((NULL (EQ (|kaf_mode| |kaf|) '|input|)) (ERROR "not input stream"))
+           ((NULL (SETQ |entry| (|find_key| (|kaf_index_table| |kaf|) |key|)))
+            (COND
+             ((EQUAL |sv| |$error_mark|)
+              (ERROR (FORMAT NIL "key ~a not found" |key|)))
+             (#1='T |sv|)))
+           (#1#
+            (PROGN
+             (SETQ |pos| (CADR |entry|))
+             (COND ((NULL |pos|) (CDDR |entry|))
+                   ((NUMBERP |pos|)
+                    (PROGN
+                     (SETQ |stream| (|kaf_index_stream| |kaf|))
+                     (FILE-POSITION |stream| |pos|)
+                     (READ |stream|)))
+                   (#1# (BREAK)))))))))
 
 ; kaf_read_list(kaf, key) ==
 ;     IDENTP(key) => kaf_read(kaf, PNAME(key), [])
@@ -135,27 +210,27 @@
            ('T (BREAK))))))
 
 ; make_entry(kaf, key, pos) ==
-;     entry := find_key(LIBSTREAM_-INDEXTABLE(kaf), key)
+;     entry := find_key(kaf_index_table(kaf), key)
 ;     NULL(entry) =>
 ;         kaf_set_indextable(kaf,
-;                            CONS([key, :pos], LIBSTREAM_-INDEXTABLE(kaf)))
+;                            CONS([key, :pos], kaf_index_table(kaf)))
 ;     SETF(CDR(entry), pos)
 
 (DEFUN |make_entry| (|kaf| |key| |pos|)
   (PROG (|entry|)
     (RETURN
      (PROGN
-      (SETQ |entry| (|find_key| (LIBSTREAM-INDEXTABLE |kaf|) |key|))
+      (SETQ |entry| (|find_key| (|kaf_index_table| |kaf|) |key|))
       (COND
        ((NULL |entry|)
         (|kaf_set_indextable| |kaf|
-         (CONS (CONS |key| |pos|) (LIBSTREAM-INDEXTABLE |kaf|))))
+         (CONS (CONS |key| |pos|) (|kaf_index_table| |kaf|))))
        ('T (SETF (CDR |entry|) |pos|)))))))
 
 ; kaf_write(kaf, key, val) ==
-;     not(LIBSTREAM_-MODE(kaf) = 'output) =>
+;     not(kaf_mode(kaf) = 'output) =>
 ;         ERROR('"not output stream")
-;     stream := LIBSTREAM_-INDEXSTREAM(kaf)
+;     stream := kaf_index_stream(kaf)
 ;     pos :=
 ;         NULL(val) => CONS(nil, val)
 ;         [FILE_-POSITION(stream)]
@@ -166,11 +241,10 @@
   (PROG (|stream| |pos|)
     (RETURN
      (COND
-      ((NULL (EQ (LIBSTREAM-MODE |kaf|) '|output|))
-       (ERROR "not output stream"))
+      ((NULL (EQ (|kaf_mode| |kaf|) '|output|)) (ERROR "not output stream"))
       (#1='T
        (PROGN
-        (SETQ |stream| (LIBSTREAM-INDEXSTREAM |kaf|))
+        (SETQ |stream| (|kaf_index_stream| |kaf|))
         (SETQ |pos|
                 (COND ((NULL |val|) (CONS NIL |val|))
                       (#1# (LIST (FILE-POSITION |stream|)))))
@@ -188,7 +262,7 @@
            ('T (BREAK))))))
 
 ; kaf_remove(kaf, key) ==
-;     itable := LIBSTREAM_-INDEXTABLE(kaf)
+;     itable := kaf_index_table(kaf)
 ;     itable := assoc_delete_equal(itable, key)
 ;     kaf_set_indextable(kaf, itable)
 
@@ -196,15 +270,15 @@
   (PROG (|itable|)
     (RETURN
      (PROGN
-      (SETQ |itable| (LIBSTREAM-INDEXTABLE |kaf|))
+      (SETQ |itable| (|kaf_index_table| |kaf|))
       (SETQ |itable| (|assoc_delete_equal| |itable| |key|))
       (|kaf_set_indextable| |kaf| |itable|)))))
 
 ; rkeys2(kaf) ==
-;     MAPCAR(function CAR, LIBSTREAM_-INDEXTABLE(kaf))
+;     MAPCAR(function CAR, kaf_index_table(kaf))
 
 (DEFUN |rkeys2| (|kaf|)
-  (PROG () (RETURN (MAPCAR #'CAR (LIBSTREAM-INDEXTABLE |kaf|)))))
+  (PROG () (RETURN (MAPCAR #'CAR (|kaf_index_table| |kaf|)))))
 
 ; rkeys(name) ==
 ;     kaf := kaf_open(name, false)
@@ -433,11 +507,74 @@
   (PROG ()
     (RETURN (COND ((|has_extention?| |n| |e|) |n|) ('T (CONCAT |n| "." |e|))))))
 
+; probe_name(name) ==
+;     fricas_probe_file(name) => name
+;     nil
+
+(DEFUN |probe_name| (|name|)
+  (PROG () (RETURN (COND ((|fricas_probe_file| |name|) |name|) ('T NIL)))))
+
 ; make_input_filename2(n, e) ==
 ;     make_input_filename1(make_filename2(n, e))
 
 (DEFUN |make_input_filename2| (|n| |e|)
   (PROG () (RETURN (|make_input_filename1| (|make_filename2| |n| |e|)))))
+
+; make_input_filename1(name) ==
+;     is_absolute_name?(name) =>
+;         probe_name(name)
+;     ext := file_extention(name)
+;     d_lst := get_directory_list(ext)
+;     found := false
+;     for d in d_lst while(not(found)) repeat
+;         n1 := CONCAT(d, '"/", name)
+;         found := fricas_probe_file(n1)
+;     found => n1
+;     probe_name(name)
+
+(DEFUN |make_input_filename1| (|name|)
+  (PROG (|ext| |d_lst| |found| |n1|)
+    (RETURN
+     (COND ((|is_absolute_name?| |name|) (|probe_name| |name|))
+           (#1='T
+            (PROGN
+             (SETQ |ext| (|file_extention| |name|))
+             (SETQ |d_lst| (|get_directory_list| |ext|))
+             (SETQ |found| NIL)
+             ((LAMBDA (|bfVar#2| |d|)
+                (LOOP
+                 (COND
+                  ((OR (ATOM |bfVar#2|) (PROGN (SETQ |d| (CAR |bfVar#2|)) NIL)
+                       |found|)
+                   (RETURN NIL))
+                  (#1#
+                   (PROGN
+                    (SETQ |n1| (CONCAT |d| "/" |name|))
+                    (SETQ |found| (|fricas_probe_file| |n1|)))))
+                 (SETQ |bfVar#2| (CDR |bfVar#2|))))
+              |d_lst| NIL)
+             (COND (|found| |n1|) (#1# (|probe_name| |name|)))))))))
+
+; find_file(name, ftl) ==
+;     res := nil
+;     for ft in ftl while(not(res)) repeat
+;         res := make_input_filename2(name, ft)
+;     res
+
+(DEFUN |find_file| (|name| |ftl|)
+  (PROG (|res|)
+    (RETURN
+     (PROGN
+      (SETQ |res| NIL)
+      ((LAMBDA (|bfVar#3| |ft|)
+         (LOOP
+          (COND
+           ((OR (ATOM |bfVar#3|) (PROGN (SETQ |ft| (CAR |bfVar#3|)) NIL) |res|)
+            (RETURN NIL))
+           ('T (SETQ |res| (|make_input_filename2| |name| |ft|))))
+          (SETQ |bfVar#3| (CDR |bfVar#3|))))
+       |ftl| NIL)
+      |res|))))
 
 ; erase_lib0(n, e) == erase_lib(make_filename2(n, e))
 
@@ -490,9 +627,9 @@
            (#1='T
             (PROGN
              (SETQ |res| T)
-             ((LAMBDA (|bfVar#2| |i|)
+             ((LAMBDA (|bfVar#4| |i|)
                 (LOOP
-                 (COND ((OR (> |i| |bfVar#2|) (NOT |res|)) (RETURN NIL))
+                 (COND ((OR (> |i| |bfVar#4|) (NOT |res|)) (RETURN NIL))
                        (#1# (SETQ |res| (EQUAL (ELT |n| |i|) (ELT |sr| |i|)))))
                  (SETQ |i| (+ |i| 1))))
               (- (LENGTH |sr|) 1) 0)
@@ -528,3 +665,30 @@
 
 (DEFUN |make_std_out_stream| ()
   (PROG () (RETURN (CONS NIL (|get_lisp_std_out|)))))
+
+; make_compiler_output_name(dir_name, name) ==
+;     CONCAT(dir_name, '"/", name, '".lsp")
+
+(DEFUN |make_compiler_output_name| (|dir_name| |name|)
+  (PROG () (RETURN (CONCAT |dir_name| "/" |name| ".lsp"))))
+
+; make_compiler_output_stream(lib, name) ==
+;     open_stream(make_compiler_output_name(kaf_dir_name(lib), name),
+;                 'output, false)
+
+(DEFUN |make_compiler_output_stream| (|lib| |name|)
+  (PROG ()
+    (RETURN
+     (|open_stream| (|make_compiler_output_name| (|kaf_dir_name| |lib|) |name|)
+      '|output| NIL))))
+
+; compile_lib(dir_name) ==
+;     name := file_basename(dir_name)
+;     compile_lib_file(make_compiler_output_name(dir_name, name))
+
+(DEFUN |compile_lib| (|dir_name|)
+  (PROG (|name|)
+    (RETURN
+     (PROGN
+      (SETQ |name| (|file_basename| |dir_name|))
+      (|compile_lib_file| (|make_compiler_output_name| |dir_name| |name|))))))
