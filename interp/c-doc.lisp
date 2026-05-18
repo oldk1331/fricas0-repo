@@ -2994,9 +2994,10 @@
 ; --case 3: form arg
 ; --case 4: op arg
 ; --case 5: arg op arg
-;   namestring := PNAME opname
-;   if namestring = '"Zero" then namestring := '"0"
-;   else if namestring = '"One" then namestring := '"1"
+;   namestring :=
+;       opname = ["Zero"] => '"0"
+;       opname = ["One"] => '"1"
+;       PNAME(opname)
 ;   margin > 0 =>
 ;     s := leftTrim u
 ;     STRCONC(filler_spaces(margin), checkTransformFirsts(opname, s, 0))
@@ -3061,16 +3062,17 @@
          |p| |l| |n| |prefixOp|)
     (RETURN
      (PROGN
-      (SETQ |namestring| (PNAME |opname|))
-      (COND ((EQUAL |namestring| "Zero") (SETQ |namestring| "0"))
-            ((EQUAL |namestring| "One") (SETQ |namestring| "1")))
+      (SETQ |namestring|
+              (COND ((EQUAL |opname| (LIST '|Zero|)) "0")
+                    ((EQUAL |opname| (LIST '|One|)) "1")
+                    (#1='T (PNAME |opname|))))
       (COND
        ((< 0 |margin|)
         (PROGN
          (SETQ |s| (|leftTrim| |u|))
          (STRCONC (|filler_spaces| |margin|)
           (|checkTransformFirsts| |opname| |s| 0))))
-       (#1='T
+       (#1#
         (PROGN
          (SETQ |m| (MAXINDEX |u|))
          (COND ((< |m| 2) |u|) ((EQUAL (ELT |u| 0) |$charBack|) |u|)
