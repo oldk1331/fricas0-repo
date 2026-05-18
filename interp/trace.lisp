@@ -3037,8 +3037,8 @@
 ;     anyifTrue or MEMQ(op,listOfOperations) repeat
 ;       rplac(first domain.n, bpiPointer)
 ;       rplac(CDDDR pair, nil)
-;       if assocPair:= assoc(BPINAME bpiPointer,$letAssoc) then
-;             $letAssoc := DELASC($letAssoc, assocPair)
+;       if assoc(key := BPINAME bpiPointer, $letAssoc) then
+;                 $letAssoc := DELASC(key, $letAssoc)
 ;   newSigSlotNumberAlist:= [x for x in sigSlotNumberAlist | CDDDR x]
 ;   newSigSlotNumberAlist => rplac(rest pair, newSigSlotNumberAlist)
 ;   $trace_names := DELASC(domain, $trace_names)
@@ -3047,7 +3047,7 @@
 (DEFUN |spadUntrace| (|domain| |options|)
   (PROG (|anyifTrue| |listOfOperations| |domainId| |pair| |sigSlotNumberAlist|
          |op| |ISTMP#1| |sig| |ISTMP#2| |n| |ISTMP#3| |lv| |ISTMP#4|
-         |bpiPointer| |assocPair| |newSigSlotNumberAlist|)
+         |bpiPointer| |key| |newSigSlotNumberAlist|)
     (RETURN
      (COND
       ((NULL (|isDomainOrPackage| |domain|))
@@ -3100,10 +3100,9 @@
                        (|rplac| (CAR (ELT |domain| |n|)) |bpiPointer|)
                        (|rplac| (CDDDR |pair|) NIL)
                        (COND
-                        ((SETQ |assocPair|
-                                 (|assoc| (BPINAME |bpiPointer|) |$letAssoc|))
-                         (SETQ |$letAssoc|
-                                 (DELASC |$letAssoc| |assocPair|))))))))
+                        ((|assoc| (SETQ |key| (BPINAME |bpiPointer|))
+                          |$letAssoc|)
+                         (SETQ |$letAssoc| (DELASC |key| |$letAssoc|))))))))
                (SETQ |bfVar#87| (CDR |bfVar#87|))))
             |sigSlotNumberAlist| NIL)
            (SETQ |newSigSlotNumberAlist|
