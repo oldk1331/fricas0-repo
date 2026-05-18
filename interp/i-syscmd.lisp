@@ -1809,7 +1809,7 @@
   (PROG () (RETURN (|print_text_file| (STRCONC |$spadroot| "/lib/copyright")))))
 
 ; credits() ==
-;  for i in CREDITS repeat
+;  for i in $CREDITS repeat
 ;   PRINC(i)
 ;   TERPRI()
 
@@ -1823,7 +1823,7 @@
            (RETURN NIL))
           ('T (PROGN (PRINC |i|) (TERPRI))))
          (SETQ |bfVar#32| (CDR |bfVar#32|))))
-      CREDITS NIL))))
+      $CREDITS NIL))))
 
 ; display l ==
 ;   ioHook("startSysCmd", "display")
