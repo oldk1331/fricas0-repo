@@ -358,17 +358,6 @@
       (COND ((EQ |v| '|restart|) (LIST "error"))
             ('T (NREVERSE |$outputLines|)))))))
 
-; parseAndInterpToString str ==
-;   v := applyWithOutputToString('parseAndEvalStr, [str])
-;   breakIntoLines rest v
-
-(DEFUN |parseAndInterpToString| (|str|)
-  (PROG (|v|)
-    (RETURN
-     (PROGN
-      (SETQ |v| (|applyWithOutputToString| '|parseAndEvalStr| (LIST |str|)))
-      (|breakIntoLines| (CDR |v|))))))
-
 ; parseAndEvalStr string ==
 ;   $InteractiveMode :fluid := true
 ;   $e:fluid := $InteractiveFrame

@@ -3935,7 +3935,7 @@
 ;     vecl := first readHiFi i
 ;     if STRINGP vecl then vecl := [vecl]
 ;     for vec in vecl repeat
-;       n := SIZE vec
+;       n := #vec
 ;       while n > maxn repeat
 ;         -- search backwards for a blank
 ;         done := nil
@@ -3946,7 +3946,7 @@
 ;             lineList := [svec,:lineList]
 ;             done := true
 ;             vec := SUBSTRING(vec,k+1,NIL)
-;             n := SIZE vec
+;             n := #vec
 ;         -- in case we can't find a breaking point
 ;         if not done then n := 0
 ;       lineList := [vec,:lineList]
@@ -3994,7 +3994,7 @@
                           (RETURN NIL))
                          (#1#
                           (PROGN
-                           (SETQ |n| (SIZE |vec|))
+                           (SETQ |n| (LENGTH |vec|))
                            ((LAMBDA ()
                               (LOOP
                                (COND ((NOT (< |maxn| |n|)) (RETURN NIL))
@@ -4026,7 +4026,8 @@
                                                          (SUBSTRING |vec|
                                                                     (+ |k| 1)
                                                                     NIL))
-                                                 (SETQ |n| (SIZE |vec|))))))))
+                                                 (SETQ |n|
+                                                         (LENGTH |vec|))))))))
                                            (SETQ |j| (+ |j| 1))))
                                         1)
                                        (COND
@@ -7604,19 +7605,20 @@
 ;   syn := STRING2ID_N (synstr, 1)
 ;   null (fun := LASSOC (syn, $CommandSynonymAlist)) => NIL
 ;   to := STRPOS('")",fun,1,NIL)
-;   if to and to ~= SIZE(fun)-1 then
+;   if to and to ~= #fun - 1 then
 ;     opt := STRCONC('" ",SUBSTRING(fun,to,NIL))
 ;     fun := SUBSTRING(fun,0,to-1)
 ;   else opt := '" "
-;   if (SIZE synstr) > (SIZE fun) then
-;     for i in (SIZE fun)..(SIZE synstr) repeat
+;   if (s_syn := #synstr) > (s_fun := #fun) then
+;     for i in s_fun..s_syn repeat
 ;       fun := CONCAT (fun, '" ")
-;   cl := STRCONC(fill,RPLACSTR(line, 1, SIZE synstr, fun),opt)
+;   cl := STRCONC(fill, RPLACSTR(line, 1, #synstr, fun, 0, #fun), opt)
 ;   SETQ(LINE,cl)
 ;   processSynonyms ()
 
 (DEFUN |processSynonyms| ()
-  (PROG (|cl| |opt| |fun| |syn| |synstr| |to| |line| |fill| |p|)
+  (PROG (|cl| |s_syn| |s_fun| |opt| |fun| |syn| |synstr| |to| |line| |fill|
+         |p|)
     (RETURN
      (PROGN
       (SETQ |p| (STRPOS ")" LINE 0 NIL))
@@ -7634,20 +7636,23 @@
              (PROGN
               (SETQ |to| (STRPOS ")" |fun| 1 NIL))
               (COND
-               ((AND |to| (NOT (EQUAL |to| (- (SIZE |fun|) 1))))
+               ((AND |to| (NOT (EQUAL |to| (- (LENGTH |fun|) 1))))
                 (SETQ |opt| (STRCONC " " (SUBSTRING |fun| |to| NIL)))
                 (SETQ |fun| (SUBSTRING |fun| 0 (- |to| 1))))
                (#1# (SETQ |opt| " ")))
               (COND
-               ((< (SIZE |fun|) (SIZE |synstr|))
-                ((LAMBDA (|bfVar#166| |i|)
+               ((< (SETQ |s_fun| (LENGTH |fun|))
+                   (SETQ |s_syn| (LENGTH |synstr|)))
+                ((LAMBDA (|i|)
                    (LOOP
-                    (COND ((> |i| |bfVar#166|) (RETURN NIL))
+                    (COND ((> |i| |s_syn|) (RETURN NIL))
                           (#1# (SETQ |fun| (CONCAT |fun| " "))))
                     (SETQ |i| (+ |i| 1))))
-                 (SIZE |synstr|) (SIZE |fun|))))
+                 |s_fun|)))
               (SETQ |cl|
-                      (STRCONC |fill| (RPLACSTR |line| 1 (SIZE |synstr|) |fun|)
+                      (STRCONC |fill|
+                       (RPLACSTR |line| 1 (LENGTH |synstr|) |fun| 0
+                        (LENGTH |fun|))
                        |opt|))
               (SETQ LINE |cl|)
               (|processSynonyms|))))))))
@@ -7812,9 +7817,9 @@
       (SETQ |found| NIL)
       (SETQ |strIndex| 0)
       (SETQ |lispStr| "lisp")
-      ((LAMBDA (|bfVar#167| |c0| |bfVar#168| |c1|)
+      ((LAMBDA (|bfVar#166| |c0| |bfVar#167| |c1|)
          (LOOP
-          (COND ((OR (> |c0| |bfVar#167|) (> |c1| |bfVar#168|)) (RETURN NIL))
+          (COND ((OR (> |c0| |bfVar#166|) (> |c1| |bfVar#167|)) (RETURN NIL))
                 (#1='T
                  (COND
                   ((NOT
@@ -7912,9 +7917,9 @@
   (PROG (|val|)
     (RETURN
      (PROGN
-      ((LAMBDA (|bfVar#169| |i|)
+      ((LAMBDA (|bfVar#168| |i|)
          (LOOP
-          (COND ((> |i| |bfVar#169|) (RETURN NIL))
+          (COND ((> |i| |bfVar#168|) (RETURN NIL))
                 ('T
                  (PROGN
                   (SETQ |val| (DIGIT-CHAR-P (ELT |tok| |i|)))
@@ -7949,9 +7954,9 @@
       (SETQ |inString| NIL)
       (SETQ |blockStart| 0)
       (SETQ |parenCount| 0)
-      ((LAMBDA (|bfVar#170| |i|)
+      ((LAMBDA (|bfVar#169| |i|)
          (LOOP
-          (COND ((> |i| |bfVar#170|) (RETURN NIL))
+          (COND ((> |i| |bfVar#169|) (RETURN NIL))
                 (#1='T
                  (COND
                   ((EQUAL (ELT |str| |i|) (|char| "\""))
@@ -8009,9 +8014,9 @@
       (SETQ |tokenList| NIL)
       (SETQ |tokenStart| 0)
       (SETQ |previousSpace| NIL)
-      ((LAMBDA (|bfVar#171| |i|)
+      ((LAMBDA (|bfVar#170| |i|)
          (LOOP
-          (COND ((> |i| |bfVar#171|) (RETURN NIL))
+          (COND ((> |i| |bfVar#170|) (RETURN NIL))
                 (#1='T
                  (COND
                   ((EQUAL (STRING (ELT |str| |i|)) "\"")
@@ -8046,44 +8051,44 @@
     (RETURN
      (PROGN
       (SETQ |restOptionList|
-              ((LAMBDA (|bfVar#173| |bfVar#172| |opt|)
+              ((LAMBDA (|bfVar#172| |bfVar#171| |opt|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#172|)
-                        (PROGN (SETQ |opt| (CAR |bfVar#172|)) NIL))
-                    (RETURN (NREVERSE |bfVar#173|)))
+                   ((OR (ATOM |bfVar#171|)
+                        (PROGN (SETQ |opt| (CAR |bfVar#171|)) NIL))
+                    (RETURN (NREVERSE |bfVar#172|)))
                    (#1='T
-                    (SETQ |bfVar#173|
-                            (CONS (|dumbTokenize| |opt|) |bfVar#173|))))
-                  (SETQ |bfVar#172| (CDR |bfVar#172|))))
+                    (SETQ |bfVar#172|
+                            (CONS (|dumbTokenize| |opt|) |bfVar#172|))))
+                  (SETQ |bfVar#171| (CDR |bfVar#171|))))
                NIL (CDR |optionList|) NIL))
       (SETQ |parcmd|
               (CONS (|parseSystemCmd| (CAR |optionList|))
-                    ((LAMBDA (|bfVar#177| |bfVar#176| |opt|)
+                    ((LAMBDA (|bfVar#176| |bfVar#175| |opt|)
                        (LOOP
                         (COND
-                         ((OR (ATOM |bfVar#176|)
-                              (PROGN (SETQ |opt| (CAR |bfVar#176|)) NIL))
-                          (RETURN (NREVERSE |bfVar#177|)))
+                         ((OR (ATOM |bfVar#175|)
+                              (PROGN (SETQ |opt| (CAR |bfVar#175|)) NIL))
+                          (RETURN (NREVERSE |bfVar#176|)))
                          (#1#
-                          (SETQ |bfVar#177|
+                          (SETQ |bfVar#176|
                                   (CONS
-                                   ((LAMBDA (|bfVar#175| |bfVar#174| |tok|)
+                                   ((LAMBDA (|bfVar#174| |bfVar#173| |tok|)
                                       (LOOP
                                        (COND
-                                        ((OR (ATOM |bfVar#174|)
+                                        ((OR (ATOM |bfVar#173|)
                                              (PROGN
-                                              (SETQ |tok| (CAR |bfVar#174|))
+                                              (SETQ |tok| (CAR |bfVar#173|))
                                               NIL))
-                                         (RETURN (NREVERSE |bfVar#175|)))
+                                         (RETURN (NREVERSE |bfVar#174|)))
                                         (#1#
-                                         (SETQ |bfVar#175|
+                                         (SETQ |bfVar#174|
                                                  (CONS (|tokTran| |tok|)
-                                                       |bfVar#175|))))
-                                       (SETQ |bfVar#174| (CDR |bfVar#174|))))
+                                                       |bfVar#174|))))
+                                       (SETQ |bfVar#173| (CDR |bfVar#173|))))
                                     NIL |opt| NIL)
-                                   |bfVar#177|))))
-                        (SETQ |bfVar#176| (CDR |bfVar#176|))))
+                                   |bfVar#176|))))
+                        (SETQ |bfVar#175| (CDR |bfVar#175|))))
                      NIL |restOptionList| NIL)))
       (|systemCommand| |parcmd|)))))
 
@@ -8111,14 +8116,14 @@
          (SETQ |pform| (|parseFromString| |argString|))
          (LIST |command| |pform|)))
        (#1='T
-        ((LAMBDA (|bfVar#179| |bfVar#178| |tok|)
+        ((LAMBDA (|bfVar#178| |bfVar#177| |tok|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#178|)
-                  (PROGN (SETQ |tok| (CAR |bfVar#178|)) NIL))
-              (RETURN (NREVERSE |bfVar#179|)))
-             (#1# (SETQ |bfVar#179| (CONS (|tokTran| |tok|) |bfVar#179|))))
-            (SETQ |bfVar#178| (CDR |bfVar#178|))))
+             ((OR (ATOM |bfVar#177|)
+                  (PROGN (SETQ |tok| (CAR |bfVar#177|)) NIL))
+              (RETURN (NREVERSE |bfVar#178|)))
+             (#1# (SETQ |bfVar#178| (CONS (|tokTran| |tok|) |bfVar#178|))))
+            (SETQ |bfVar#177| (CDR |bfVar#177|))))
          NIL (|dumbTokenize| |opt|) NIL)))))))
 
 ; handleTokensizeSystemCommands(unabr, optionList) ==
@@ -8131,43 +8136,43 @@
     (RETURN
      (PROGN
       (SETQ |optionList|
-              ((LAMBDA (|bfVar#181| |bfVar#180| |opt|)
+              ((LAMBDA (|bfVar#180| |bfVar#179| |opt|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#180|)
-                        (PROGN (SETQ |opt| (CAR |bfVar#180|)) NIL))
-                    (RETURN (NREVERSE |bfVar#181|)))
+                   ((OR (ATOM |bfVar#179|)
+                        (PROGN (SETQ |opt| (CAR |bfVar#179|)) NIL))
+                    (RETURN (NREVERSE |bfVar#180|)))
                    (#1='T
-                    (SETQ |bfVar#181|
-                            (CONS (|dumbTokenize| |opt|) |bfVar#181|))))
-                  (SETQ |bfVar#180| (CDR |bfVar#180|))))
+                    (SETQ |bfVar#180|
+                            (CONS (|dumbTokenize| |opt|) |bfVar#180|))))
+                  (SETQ |bfVar#179| (CDR |bfVar#179|))))
                NIL |optionList| NIL))
       (SETQ |parcmd|
-              ((LAMBDA (|bfVar#185| |bfVar#184| |opt|)
+              ((LAMBDA (|bfVar#184| |bfVar#183| |opt|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#184|)
-                        (PROGN (SETQ |opt| (CAR |bfVar#184|)) NIL))
-                    (RETURN (NREVERSE |bfVar#185|)))
+                   ((OR (ATOM |bfVar#183|)
+                        (PROGN (SETQ |opt| (CAR |bfVar#183|)) NIL))
+                    (RETURN (NREVERSE |bfVar#184|)))
                    (#1#
-                    (SETQ |bfVar#185|
+                    (SETQ |bfVar#184|
                             (CONS
-                             ((LAMBDA (|bfVar#183| |bfVar#182| |tok|)
+                             ((LAMBDA (|bfVar#182| |bfVar#181| |tok|)
                                 (LOOP
                                  (COND
-                                  ((OR (ATOM |bfVar#182|)
+                                  ((OR (ATOM |bfVar#181|)
                                        (PROGN
-                                        (SETQ |tok| (CAR |bfVar#182|))
+                                        (SETQ |tok| (CAR |bfVar#181|))
                                         NIL))
-                                   (RETURN (NREVERSE |bfVar#183|)))
+                                   (RETURN (NREVERSE |bfVar#182|)))
                                   (#1#
-                                   (SETQ |bfVar#183|
+                                   (SETQ |bfVar#182|
                                            (CONS (|tokTran| |tok|)
-                                                 |bfVar#183|))))
-                                 (SETQ |bfVar#182| (CDR |bfVar#182|))))
+                                                 |bfVar#182|))))
+                                 (SETQ |bfVar#181| (CDR |bfVar#181|))))
                               NIL |opt| NIL)
-                             |bfVar#185|))))
-                  (SETQ |bfVar#184| (CDR |bfVar#184|))))
+                             |bfVar#184|))))
+                  (SETQ |bfVar#183| (CDR |bfVar#183|))))
                NIL |optionList| NIL))
       (COND (|parcmd| (|tokenSystemCommand| |unabr| |parcmd|)))))))
 

@@ -19,7 +19,7 @@
 
 (DEFUN |U64Int| ()
   (SPROG NIL
-         (PROG (#1=#:G2799)
+         (PROG (#1=#:G2802)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|U64Int|))

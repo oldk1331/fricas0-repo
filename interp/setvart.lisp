@@ -684,18 +684,6 @@
     (|userlevel| "operation access level of system user" |interpreter| LITERALS
      |$UserLevel| (|interpreter| |compiler| |development|) |development|)))
 
-; DEFPARAMETER($setOptionNames, [x.0 for x in $setOptions])
-
-(DEFPARAMETER |$setOptionNames|
-  ((LAMBDA (|bfVar#2| |bfVar#1| |x|)
-     (LOOP
-      (COND
-       ((OR (ATOM |bfVar#1|) (PROGN (SETQ |x| (CAR |bfVar#1|)) NIL))
-        (RETURN (NREVERSE |bfVar#2|)))
-       ('T (SETQ |bfVar#2| (CONS (ELT |x| 0) |bfVar#2|))))
-      (SETQ |bfVar#1| (CDR |bfVar#1|))))
-   NIL |$setOptions| NIL))
-
 ; initializeSetVariables $setOptions
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)

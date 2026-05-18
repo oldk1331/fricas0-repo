@@ -475,21 +475,6 @@
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$collectOutput| NIL))
 
-; new_alg_rec(stream) ==
-;     res := GETREFV(3)
-;     ref.$stream_off := CONS([], stream)
-;     ref.$file_off := '"CONSOLE"
-;     ref.$on_off := true
-
-(DEFUN |new_alg_rec| (|stream|)
-  (PROG (|res|)
-    (RETURN
-     (PROGN
-      (SETQ |res| (GETREFV 3))
-      (SETF (ELT |ref| |$stream_off|) (CONS NIL |stream|))
-      (SETF (ELT |ref| |$file_off|) "CONSOLE")
-      (SETF (ELT |ref| |$on_off|) T)))))
-
 ; get_lisp_stream(fs) == REST(fs)
 
 (DEFUN |get_lisp_stream| (|fs|) (PROG () (RETURN (REST |fs|))))
@@ -688,13 +673,13 @@
 ; atom2String x ==
 ;   IDENTP x => PNAME x
 ;   STRINGP x => x
-;   stringer x
+;   STRINGIMAGE(x)
 
 (DEFUN |atom2String| (|x|)
   (PROG ()
     (RETURN
      (COND ((IDENTP |x|) (PNAME |x|)) ((STRINGP |x|) |x|)
-           ('T (|stringer| |x|))))))
+           ('T (STRINGIMAGE |x|))))))
 
 ; appChar(string,x,y,d) ==
 ;   line:= LASSOC(y,d) =>
@@ -5849,20 +5834,6 @@
               (APP |b| (+ (+ |aox| |aw|) |x|)
                (- (- |y| 1) (MAX |ab| (|superspan| |b|))) |di|))
       (RETURN |di|)))))
-
-; stringer x ==
-;   STRINGP x => x
-;   EQ('_|, FETCHCHAR(s:= STRINGIMAGE x, 0)) =>
-;     RPLACSTR(s, 0, 1, "", nil, nil)
-;   s
-
-(DEFUN |stringer| (|x|)
-  (PROG (|s|)
-    (RETURN
-     (COND ((STRINGP |x|) |x|)
-           ((EQ '|\|| (FETCHCHAR (SETQ |s| (STRINGIMAGE |x|)) 0))
-            (RPLACSTR |s| 0 1 '|| NIL NIL))
-           ('T |s|)))))
 
 ; superSubSub u ==
 ;   a:= first (u:= rest u)

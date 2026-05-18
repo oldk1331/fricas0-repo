@@ -110,8 +110,8 @@
 
 ; set1(l,setTree) ==
 ;   null l => displaySetVariableSettings(setTree,"")
-;   $setOptionNames : local := [x.0 for x in setTree]
-;   arg := selectOption(DOWNCASE first l, $setOptionNames, 'optionError)
+;   setOptionNames := [x.0 for x in setTree]
+;   arg := selectOption(DOWNCASE first l, setOptionNames, 'optionError)
 ;   setData := [arg,:LASSOC(arg,setTree)]
 ;
 ;   -- check is the user is authorized for the set variable
@@ -182,14 +182,13 @@
 ;   NIL
 
 (DEFUN |set1| (|l| |setTree|)
-  (PROG (|$setOptionNames| |upperlimit| |num| |arg2| |setfunarg| |st| |setData|
-         |arg|)
-    (DECLARE (SPECIAL |$setOptionNames|))
+  (PROG (|setOptionNames| |arg| |setData| |st| |setfunarg| |arg2| |num|
+         |upperlimit|)
     (RETURN
      (COND ((NULL |l|) (|displaySetVariableSettings| |setTree| '||))
            (#1='T
             (PROGN
-             (SETQ |$setOptionNames|
+             (SETQ |setOptionNames|
                      ((LAMBDA (|bfVar#3| |bfVar#2| |x|)
                         (LOOP
                          (COND
@@ -200,7 +199,7 @@
                          (SETQ |bfVar#2| (CDR |bfVar#2|))))
                       NIL |setTree| NIL))
              (SETQ |arg|
-                     (|selectOption| (DOWNCASE (CAR |l|)) |$setOptionNames|
+                     (|selectOption| (DOWNCASE (CAR |l|)) |setOptionNames|
                       '|optionError|))
              (SETQ |setData| (CONS |arg| (LASSOC |arg| |setTree|)))
              (COND
@@ -1732,7 +1731,7 @@
 ;                 quiet := true
 ;             arg := rest(arg)
 ;
-;     if not(arg is [fn] and fn in '(Y N YE YES NO O ON OF OFF CONSOLE _
+;     if arg is [fn] and not(fn in '(Y N YE YES NO O ON OF OFF CONSOLE _
 ;                                    y n ye yes no o on of off console)) then
 ;         arg := [fn, def_rec.$ext_off]
 ;
@@ -1796,9 +1795,9 @@
                        ((EQ (UPCASE (CAR |arg|)) 'QUIET) (SETQ |quiet| T)))
                  (SETQ |arg| (CDR |arg|))))))))))
         (COND
-         ((NULL
-           (AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
-                (PROGN (SETQ |fn| (CAR |arg|)) #1#)
+         ((AND (CONSP |arg|) (EQ (CDR |arg|) NIL)
+               (PROGN (SETQ |fn| (CAR |arg|)) #1#)
+               (NULL
                 (|member| |fn|
                  '(Y N YE YES NO O ON OF OFF CONSOLE |y| |n| |ye| |yes| |no|
                    |o| |on| OF |off| |console|))))

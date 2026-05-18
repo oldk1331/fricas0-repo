@@ -1272,8 +1272,6 @@
 ;   pat' := SUBSTQ($definition, '%, CADR(pattern))
 ;   sig' := SUBSTQ($definition, '%, CADR(sig))
 ;   sig' = pat' => true
-;   --If we don't have this next test, then we'll recurse in SetFunctionSlots
-;   SourceLevelSubsume(sig',pat') => true
 ;   nil
 
 (DEFUN |SigSlotsMatch| (|sig| |pattern| |implem|)
@@ -1286,8 +1284,7 @@
             (PROGN
              (SETQ |pat'| (SUBSTQ |$definition| '% (CADR |pattern|)))
              (SETQ |sig'| (SUBSTQ |$definition| '% (CADR |sig|)))
-             (COND ((EQUAL |sig'| |pat'|) T)
-                   ((|SourceLevelSubsume| |sig'| |pat'|) T) (#1# NIL))))))))
+             (COND ((EQUAL |sig'| |pat'|) T) (#1# NIL))))))))
 
 ; makeMissingFunctionEntry(alist,i) ==
 ;   tran SUBLIS(alist,$MissingFunctionInfo.i) where
@@ -2409,7 +2406,7 @@
 
 ; DescendCodeVarAdd(base, flag, kvec, e) ==
 ;    princview := kvec
-;    [SetFunctionSlots(sig, SUBST('ELT,'CONST,implem), flag, kvec) repeat
+;    [SetFunctionSlots(sig, SUBST('ELT,'CONST,implem), flag, kvec)
 ;        for i in 6..MAXINDEX princview |
 ;          princview.i is [sig:=[op,types],:.] and
 ;            LASSOC([base, :SUBST(base, '%, types)], get(op, 'modemap, e)) is

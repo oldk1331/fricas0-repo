@@ -3,10 +3,6 @@
 
 (IN-PACKAGE "BOOT")
 
-; $bcParseOnly := true
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$bcParseOnly| T))
-
 ; $htLineList := nil
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$htLineList| NIL))
@@ -1175,25 +1171,17 @@
 ;       LASSOC(LASSOC(spadType,htpDomainPvarSubstList htPage),
 ;              htpDomainVariableAlist htPage)
 ;     string := htpLabelFilteredInputString(htPage, stringName)
-;     $bcParseOnly =>
-;       null ncParseFromString string =>
+;     null(ncParseFromString(string)) =>
 ;         -- FIXME: this effectively ignores errors, but otherwise
 ;         -- search without parameters does not work
 ;         -- errorCondition := true
 ;         htpSetLabelErrorMsg(htPage, '"Syntax Error", '"Syntax Error")
-;       nil
-;     val := checkCondition(htpLabelInputString(htPage, stringName),
-;                           string, condList)
-;     STRINGP val =>
-;       errorCondition := true
-;       htpSetLabelErrorMsg(htPage, stringName, val)
-;     htpSetLabelSpadValue(htPage, stringName, val)
+;     nil
 ;   errorCondition
 
 (DEFUN |typeCheckInputAreas| (|htPage|)
   (PROG (|errorCondition| |stringName| |ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4|
-         |ISTMP#5| |ISTMP#6| |spadType| |ISTMP#7| |filter| |condList| |string|
-         |val|)
+         |ISTMP#5| |ISTMP#6| |spadType| |ISTMP#7| |filter| |condList| |string|)
     (RETURN
      (PROGN
       (SETQ |errorCondition| NIL)
@@ -1248,101 +1236,13 @@
                           (|htpLabelFilteredInputString| |htPage|
                            |stringName|))
                   (COND
-                   (|$bcParseOnly|
-                    (COND
-                     ((NULL (|ncParseFromString| |string|))
-                      (|htpSetLabelErrorMsg| |htPage| "Syntax Error"
-                       "Syntax Error"))
-                     (#1# NIL)))
-                   (#1#
-                    (PROGN
-                     (SETQ |val|
-                             (|checkCondition|
-                              (|htpLabelInputString| |htPage| |stringName|)
-                              |string| |condList|))
-                     (COND
-                      ((STRINGP |val|)
-                       (PROGN
-                        (SETQ |errorCondition| T)
-                        (|htpSetLabelErrorMsg| |htPage| |stringName| |val|)))
-                      (#1#
-                       (|htpSetLabelSpadValue| |htPage| |stringName|
-                        |val|))))))))))
+                   ((NULL (|ncParseFromString| |string|))
+                    (|htpSetLabelErrorMsg| |htPage| "Syntax Error"
+                     "Syntax Error"))
+                   (#1# NIL))))))
           (SETQ |bfVar#30| (CDR |bfVar#30|))))
        (|htpInputAreaAlist| |htPage|) NIL)
       |errorCondition|))))
-
-; checkCondition(s1, string, condList) ==
-;   condList is [['Satisfies, pvar, pred]] =>
-;     val := FUNCALL(pred, string)
-;     STRINGP val => val
-;     ['(String), :wrap s1]
-;   condList isnt [['isDomain, pvar, pattern]] =>
-;     systemError '"currently invalid domain condition"
-;   pattern is '(String) => ['(String), :wrap s1]
-;   val := parseAndEval string
-;   STRINGP val =>
-;     val = '"Syntax Error " => '"Error: Syntax Error "
-;     condErrorMsg pattern
-;   [type, : data] := val
-;   newType := CATCH('SPAD_READER, resolveTM(type, pattern))
-;   null newType =>
-;     condErrorMsg pattern
-;   coerceInt(val, newType)
-
-(DEFUN |checkCondition| (|s1| |string| |condList|)
-  (PROG (|ISTMP#1| |ISTMP#2| |pvar| |ISTMP#3| |pred| |val| |pattern| |type|
-         |data| |newType|)
-    (RETURN
-     (COND
-      ((AND (CONSP |condList|) (EQ (CDR |condList|) NIL)
-            (PROGN
-             (SETQ |ISTMP#1| (CAR |condList|))
-             (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|Satisfies|)
-                  (PROGN
-                   (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                   (AND (CONSP |ISTMP#2|)
-                        (PROGN
-                         (SETQ |pvar| (CAR |ISTMP#2|))
-                         (SETQ |ISTMP#3| (CDR |ISTMP#2|))
-                         (AND (CONSP |ISTMP#3|) (EQ (CDR |ISTMP#3|) NIL)
-                              (PROGN
-                               (SETQ |pred| (CAR |ISTMP#3|))
-                               #1='T))))))))
-       (PROGN
-        (SETQ |val| (FUNCALL |pred| |string|))
-        (COND ((STRINGP |val|) |val|) (#1# (CONS '(|String|) (|wrap| |s1|))))))
-      ((NOT
-        (AND (CONSP |condList|) (EQ (CDR |condList|) NIL)
-             (PROGN
-              (SETQ |ISTMP#1| (CAR |condList|))
-              (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|isDomain|)
-                   (PROGN
-                    (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                    (AND (CONSP |ISTMP#2|)
-                         (PROGN
-                          (SETQ |pvar| (CAR |ISTMP#2|))
-                          (SETQ |ISTMP#3| (CDR |ISTMP#2|))
-                          (AND (CONSP |ISTMP#3|) (EQ (CDR |ISTMP#3|) NIL)
-                               (PROGN
-                                (SETQ |pattern| (CAR |ISTMP#3|))
-                                #1#)))))))))
-       (|systemError| "currently invalid domain condition"))
-      ((EQUAL |pattern| '(|String|)) (CONS '(|String|) (|wrap| |s1|)))
-      (#1#
-       (PROGN
-        (SETQ |val| (|parseAndEval| |string|))
-        (COND
-         ((STRINGP |val|)
-          (COND ((EQUAL |val| "Syntax Error ") "Error: Syntax Error ")
-                (#1# (|condErrorMsg| |pattern|))))
-         (#1#
-          (PROGN
-           (SETQ |type| (CAR |val|))
-           (SETQ |data| (CDR |val|))
-           (SETQ |newType| (CATCH 'SPAD_READER (|resolveTM| |type| |pattern|)))
-           (COND ((NULL |newType|) (|condErrorMsg| |pattern|))
-                 (#1# (|coerceInt| |val| |newType|))))))))))))
 
 ; condErrorMsg type ==
 ;   typeString := form2String type
@@ -1358,58 +1258,6 @@
        ((CONSP |typeString|)
         (SETQ |typeString| (|concatenateStringList| |typeString|))))
       (CONCAT "Error: Could not make your input into a " |typeString|)))))
-
-; parseAndEval string ==
-;   $InteractiveMode :fluid := true
-;   $e:fluid := $InteractiveFrame
-;   $QuietCommand:local := true
-;   parseAndEval1 string
-
-(DEFUN |parseAndEval| (|string|)
-  (PROG (|$QuietCommand| |$e| |$InteractiveMode|)
-    (DECLARE (SPECIAL |$QuietCommand| |$e| |$InteractiveMode|))
-    (RETURN
-     (PROGN
-      (SETQ |$InteractiveMode| T)
-      (SETQ |$e| |$InteractiveFrame|)
-      (SETQ |$QuietCommand| T)
-      (|parseAndEval1| |string|)))))
-
-; parseAndEval1 string ==
-;   syntaxError := false
-;   pform :=
-;       v := applyWithOutputToString('ncParseFromString, [string])
-;       CAR v => CAR v
-;       syntaxError := true
-;       CDR v
-;   syntaxError =>
-;      '"Syntax Error "
-;   pform =>
-;     val := applyWithOutputToString('processInteractive, [pform, nil])
-;     CAR val => CAR val
-;     '"Type Analysis Error"
-;   nil
-
-(DEFUN |parseAndEval1| (|string|)
-  (PROG (|syntaxError| |v| |pform| |val|)
-    (RETURN
-     (PROGN
-      (SETQ |syntaxError| NIL)
-      (SETQ |pform|
-              (PROGN
-               (SETQ |v|
-                       (|applyWithOutputToString| '|ncParseFromString|
-                        (LIST |string|)))
-               (COND ((CAR |v|) (CAR |v|))
-                     (#1='T (PROGN (SETQ |syntaxError| T) (CDR |v|))))))
-      (COND (|syntaxError| "Syntax Error ")
-            (|pform|
-             (PROGN
-              (SETQ |val|
-                      (|applyWithOutputToString| '|processInteractive|
-                       (LIST |pform| NIL)))
-              (COND ((CAR |val|) (CAR |val|)) (#1# "Type Analysis Error"))))
-            (#1# NIL))))))
 
 ; quoteString string == CONCAT('"_"", string, '"_"")
 

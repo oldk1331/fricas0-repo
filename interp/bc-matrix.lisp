@@ -52,16 +52,10 @@
       (|htShowPage|)))))
 
 ; get_int_value(page, key) ==
-;     null($bcParseOnly) => objValUnwrap(htpLabelSpadValue(page, key))
 ;     PARSE_-INTEGER(htpLabelInputString(page, key))
 
 (DEFUN |get_int_value| (|page| |key|)
-  (PROG ()
-    (RETURN
-     (COND
-      ((NULL |$bcParseOnly|)
-       (|objValUnwrap| (|htpLabelSpadValue| |page| |key|)))
-      ('T (PARSE-INTEGER (|htpLabelInputString| |page| |key|)))))))
+  (PROG () (RETURN (PARSE-INTEGER (|htpLabelInputString| |page| |key|)))))
 
 ; bcInputMatrixByFormula(htPage, junk) ==
 ;   page := htInitPage('"Basic Matrix Command", htpPropertyList htPage)

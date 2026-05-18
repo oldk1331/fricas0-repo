@@ -1241,7 +1241,7 @@
 ;     dbReduceOpAlist(opAlist,data.key,branch)
 ;   MEMQ(branch,'(origins conditions implementation)) =>
 ;     key < 8192 => dbReduceOpAlist(opAlist,data.key,branch)
-;     [newkey,binkey] := DIVIDE(key,8192)  --newkey is 1 too large
+;     [newkey, :binkey] := divide_INT(key, 8192)  --newkey is 1 too large
 ;     innerData := CDDR data.(newkey - 1)
 ;     dbReduceOpAlist(opAlist,innerData.binkey,'signatures)
 ;   [opAlist . key]
@@ -1261,9 +1261,9 @@
           (|dbReduceOpAlist| |opAlist| (ELT |data| |key|) |branch|))
          (#1='T
           (PROGN
-           (SETQ |LETTMP#1| (DIVIDE |key| 8192))
+           (SETQ |LETTMP#1| (|divide_INT| |key| 8192))
            (SETQ |newkey| (CAR |LETTMP#1|))
-           (SETQ |binkey| (CADR |LETTMP#1|))
+           (SETQ |binkey| (CDR |LETTMP#1|))
            (SETQ |innerData| (CDDR (ELT |data| (- |newkey| 1))))
            (|dbReduceOpAlist| |opAlist| (ELT |innerData| |binkey|)
             '|signatures|)))))
@@ -1943,7 +1943,7 @@
        |opAlist| NIL)))))
 
 ; dbChooseDomainOp(htPage, index) ==
-;   [opKey,entryKey] := DIVIDE(index,8192)
+;   [opKey, :entryKey] := divide_INT(index, 8192)
 ;   opAlist := htpProperty(htPage, 'opAlist)
 ;   [op, :entries] := opAlist(opKey)
 ;   entry := entries(entryKey)
@@ -1957,9 +1957,9 @@
   (PROG (|LETTMP#1| |opKey| |entryKey| |opAlist| |op| |entries| |entry|)
     (RETURN
      (PROGN
-      (SETQ |LETTMP#1| (DIVIDE |index| 8192))
+      (SETQ |LETTMP#1| (|divide_INT| |index| 8192))
       (SETQ |opKey| (CAR |LETTMP#1|))
-      (SETQ |entryKey| (CADR |LETTMP#1|))
+      (SETQ |entryKey| (CDR |LETTMP#1|))
       (SETQ |opAlist| (|htpProperty| |htPage| '|opAlist|))
       (SETQ |LETTMP#1| (|opAlist| |opKey|))
       (SETQ |op| (CAR |LETTMP#1|))

@@ -3,7 +3,7 @@
 
 (DEFUN |IndexedVector;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G1136 NIL) (#2=#:G1137 NIL) (#3=#:G1138 NIL) (% NIL)
+   ((|pv$| NIL) (#1=#:G1139 NIL) (#2=#:G1140 NIL) (#3=#:G1141 NIL) (% NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|))
@@ -125,9 +125,9 @@
     (SETF |pv$| (QREFELT % 3))
     %))) 
 
-(DEFUN |IndexedVector| (&REST #1=#:G1139)
+(DEFUN |IndexedVector| (&REST #1=#:G1142)
   (SPROG NIL
-         (PROG (#2=#:G1140)
+         (PROG (#2=#:G1143)
            (RETURN
             (COND
              ((LETT #2#

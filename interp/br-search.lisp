@@ -1342,7 +1342,7 @@
 
 ; showIt(htPage,index,searchAlist) ==
 ;   filter      := htpProperty(htPage,'filter)
-;   [relativeIndex,n] := DIVIDE(index,8)
+;   [relativeIndex, :n] := divide_INT(index, 8)
 ;   relativeIndex = 0 => showNamedConstruct(searchAlist.n)
 ;   [kind,items,:.] := searchAlist . n
 ;   for j in 1.. while j < relativeIndex repeat items := rest items
@@ -1356,9 +1356,9 @@
     (RETURN
      (PROGN
       (SETQ |filter| (|htpProperty| |htPage| '|filter|))
-      (SETQ |LETTMP#1| (DIVIDE |index| 8))
+      (SETQ |LETTMP#1| (|divide_INT| |index| 8))
       (SETQ |relativeIndex| (CAR |LETTMP#1|))
-      (SETQ |n| (CADR |LETTMP#1|))
+      (SETQ |n| (CDR |LETTMP#1|))
       (COND
        ((EQL |relativeIndex| 0) (|showNamedConstruct| (ELT |searchAlist| |n|)))
        (#1='T

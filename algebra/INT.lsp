@@ -264,7 +264,7 @@
 (SDEFUN |INT;factorPolynomial;SupF;59|
         ((|p| (|SparseUnivariatePolynomial| %))
          (% (|Factored| (|SparseUnivariatePolynomial| %))))
-        (SPROG ((#1=#:G1245 NIL) (|pp| (|SparseUnivariatePolynomial| %)))
+        (SPROG ((#1=#:G1248 NIL) (|pp| (|SparseUnivariatePolynomial| %)))
                (SEQ (LETT |pp| (SPADCALL |p| (QREFELT % 104)))
                     (EXIT
                      (COND
@@ -312,7 +312,7 @@
         (COND ((ZEROP |x|) 'T) ('T (ZEROP |y|)))) 
 
 (SDEFUN |INT;powmod;4%;64| ((|x| (%)) (|n| (%)) (|p| (%)) (% (%)))
-        (SPROG ((|z| (%)) (#1=#:G1265 NIL) (|y| (%)))
+        (SPROG ((|z| (%)) (#1=#:G1268 NIL) (|y| (%)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -335,7 +335,7 @@
                                         ((ZEROP (LETT |n| (ASH |n| -1)))
                                          (PROGN
                                           (LETT #1# |y|)
-                                          (GO #2=#:G1264)))
+                                          (GO #2=#:G1267)))
                                         ('T
                                          (LETT |z|
                                                (SPADCALL |z| |z| |p|
@@ -376,7 +376,7 @@
 
 (DEFUN |Integer| ()
   (SPROG NIL
-         (PROG (#1=#:G1291)
+         (PROG (#1=#:G1294)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Integer|))
