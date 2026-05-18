@@ -37,7 +37,6 @@
 ;   for con in conlist repeat
 ;     parents := asyParents con
 ;     HPUT($parentsHash,con,asyParents con)
-;   $newConlist := union(conlist, $newConlist)
 ;   [[x,:asMakeAlist x] for x in HKEYS $conHash]
 
 (DEFUN |astran| (|asyFile|)
@@ -117,7 +116,6 @@
              (HPUT |$parentsHash| |con| (|asyParents| |con|)))))
           (SETQ |bfVar#7| (CDR |bfVar#7|))))
        |conlist| NIL)
-      (SETQ |$newConlist| (|union| |conlist| |$newConlist|))
       ((LAMBDA (|bfVar#9| |bfVar#8| |x|)
          (LOOP
           (COND

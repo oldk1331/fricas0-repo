@@ -5224,7 +5224,6 @@
 ;         unknown_compile_option([STRCONC('")", object2String(optname))])
 ;
 ;     compilerDoit(lib, path)
-;     extendLocalLibdb $newConlist
 ;     terminateSystemCommand()
 ;     spadPrompt()
 
@@ -5283,7 +5282,6 @@
              (SETQ |bfVar#171| (CDR |bfVar#171|))))
           |$options| NIL)
          (|compilerDoit| |lib| |path|)
-         (|extendLocalLibdb| |$newConlist|)
          (|terminateSystemCommand|)
          (|spadPrompt|))))))))
 

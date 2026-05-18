@@ -391,7 +391,6 @@
 ;   FRESH_-LINE(get_algebra_stream())
 ;   sayMSG(filler_chars(72, '"-"))
 ;   merge_info_from_objects([get_database(op, 'ABBREVIATION)], [], false)
-;   $newConlist := [op, :$newConlist]  ---------->  bound in function "compiler"
 ;   if $lisplibKind = 'category
 ;     then updateCategoryFrameForCategory op
 ;      else updateCategoryFrameForConstructor op
@@ -453,7 +452,6 @@
       (|sayMSG| (|filler_chars| 72 "-"))
       (|merge_info_from_objects| (LIST (|get_database| |op| 'ABBREVIATION)) NIL
        NIL)
-      (SETQ |$newConlist| (CONS |op| |$newConlist|))
       (COND
        ((EQ |$lisplibKind| '|category|)
         (|updateCategoryFrameForCategory| |op|))

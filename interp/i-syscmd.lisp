@@ -3,10 +3,6 @@
 
 (IN-PACKAGE "BOOT")
 
-; $newConlist := []
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$newConlist| NIL))
-
 ; $edit_file := nil
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$edit_file| NIL))
@@ -1013,7 +1009,6 @@
       ('T |af1|)))))
 
 ; compile args ==
-;     $newConlist: local := nil    --reset by compDefineLisplib and astran
 ;     null args and null $options and null($edit_file) =>
 ;         helpSpad2Cmd '(compile)
 ;     if null args then args := [$edit_file]
@@ -1077,94 +1072,90 @@
 ;         '" %b .as, .ao, .al, %d or %b .spad %d can be compiled."), [])
 
 (DEFUN |compile| (|args|)
-  (PROG (|$newConlist| |af1| |afe| |af| |fullopt| |optargs| |optname| |haveOld|
-         |haveNew| |optlist|)
-    (DECLARE (SPECIAL |$newConlist|))
+  (PROG (|optlist| |haveNew| |haveOld| |optname| |optargs| |fullopt| |af| |afe|
+         |af1|)
     (RETURN
-     (PROGN
-      (SETQ |$newConlist| NIL)
-      (COND
-       ((AND (NULL |args|) (NULL |$options|) (NULL |$edit_file|))
-        (|helpSpad2Cmd| '(|compile|)))
-       (#1='T
-        (PROGN
-         (COND ((NULL |args|) (SETQ |args| (LIST |$edit_file|))))
-         (SETQ |optlist| '(|new| |old| |constructor|))
-         (SETQ |haveNew| NIL)
-         (SETQ |haveOld| NIL)
-         ((LAMBDA (|bfVar#23| |opt|)
-            (LOOP
-             (COND
-              ((OR (ATOM |bfVar#23|) (PROGN (SETQ |opt| (CAR |bfVar#23|)) NIL)
-                   (AND |haveNew| |haveOld|))
-               (RETURN NIL))
-              (#1#
-               (PROGN
-                (SETQ |optname| (CAR |opt|))
-                (SETQ |optargs| (CDR |opt|))
-                (SETQ |fullopt| (|selectOptionLC| |optname| |optlist| NIL))
-                (COND ((EQ |fullopt| '|new|) (SETQ |haveNew| T))
-                      ((EQ |fullopt| '|constructor|) (SETQ |haveOld| T))
-                      ((EQ |fullopt| '|old|) (SETQ |haveOld| T))))))
-             (SETQ |bfVar#23| (CDR |bfVar#23|))))
-          |$options| NIL)
-         (COND
-          ((AND |haveNew| |haveOld|)
-           (|throw_msg| 'S2IZ0081
-            (CONCAT
-             "You can only specify one of the %b )new %d and %b )old %d for"
-             " the %b )compile %d system command.")
-            NIL))
-          (#1#
-           (PROGN
-            (SETQ |af| (CAR |args|))
-            (COND ((SYMBOLP |af|) (SETQ |af| (SYMBOL-NAME |af|))))
-            (COND ((NULL (STRINGP |af|)) (BREAK))
-                  (#1#
-                   (PROGN
-                    (SETQ |afe| (|file_extention| |af|))
-                    (COND
-                     ((OR |haveNew| (EQUAL |afe| "as"))
-                      (PROGN
-                       (SETQ |af1| (|must_find_file| |af| '("as")))
-                       (|compileAsharpCmd| (LIST |af1|))))
-                     ((OR |haveOld| (EQUAL |afe| "spad"))
-                      (PROGN
-                       (SETQ |af1| (|must_find_file| |af| '("spad")))
-                       (|compileSpad2Cmd| (LIST |af1|))))
-                     ((EQUAL |afe| "lsp")
-                      (PROGN
-                       (SETQ |af1| (|must_find_file| |af| '("lsp")))
-                       (|compileAsharpLispCmd| (LIST |af1|))))
-                     ((EQUAL |afe| "NRLIB")
-                      (PROGN
-                       (SETQ |af1| (|must_find_file| |af| '("NRLIB")))
-                       (|compileSpadLispCmd| (LIST |af1|))))
-                     ((EQUAL |afe| "ao")
-                      (PROGN
-                       (SETQ |af1| (|must_find_file| |af| '("ao")))
-                       (|compileAsharpCmd| (LIST |af1|))))
-                     ((EQUAL |afe| "al")
-                      (PROGN
-                       (SETQ |af1| (|must_find_file| |af| '("al")))
-                       (|compileAsharpArchiveCmd| (LIST |af1|))))
-                     (#1#
-                      (PROGN
-                       (SETQ |af1|
-                               (|find_file| |af| '("as" "spad" "ao" "asy")))
-                       (SETQ |afe| (|file_extention| |af1|))
-                       (COND
-                        ((EQUAL |afe| "as") (|compileAsharpCmd| (LIST |af1|)))
-                        ((EQUAL |afe| "ao") (|compileAsharpCmd| (LIST |af1|)))
-                        ((EQUAL |afe| "spad") (|compileSpad2Cmd| (LIST |af1|)))
-                        ((EQUAL |afe| "asy")
-                         (|compileAsharpArchiveCmd| (LIST |af1|)))
-                        (#1#
-                         (|throw_msg| 'S2IZ0039
-                          (CONCAT
-                           "Only FriCAS source files with file extensions"
-                           " %b .as, .ao, .al, %d or %b .spad %d can be compiled.")
-                          NIL)))))))))))))))))))
+     (COND
+      ((AND (NULL |args|) (NULL |$options|) (NULL |$edit_file|))
+       (|helpSpad2Cmd| '(|compile|)))
+      (#1='T
+       (PROGN
+        (COND ((NULL |args|) (SETQ |args| (LIST |$edit_file|))))
+        (SETQ |optlist| '(|new| |old| |constructor|))
+        (SETQ |haveNew| NIL)
+        (SETQ |haveOld| NIL)
+        ((LAMBDA (|bfVar#23| |opt|)
+           (LOOP
+            (COND
+             ((OR (ATOM |bfVar#23|) (PROGN (SETQ |opt| (CAR |bfVar#23|)) NIL)
+                  (AND |haveNew| |haveOld|))
+              (RETURN NIL))
+             (#1#
+              (PROGN
+               (SETQ |optname| (CAR |opt|))
+               (SETQ |optargs| (CDR |opt|))
+               (SETQ |fullopt| (|selectOptionLC| |optname| |optlist| NIL))
+               (COND ((EQ |fullopt| '|new|) (SETQ |haveNew| T))
+                     ((EQ |fullopt| '|constructor|) (SETQ |haveOld| T))
+                     ((EQ |fullopt| '|old|) (SETQ |haveOld| T))))))
+            (SETQ |bfVar#23| (CDR |bfVar#23|))))
+         |$options| NIL)
+        (COND
+         ((AND |haveNew| |haveOld|)
+          (|throw_msg| 'S2IZ0081
+           (CONCAT
+            "You can only specify one of the %b )new %d and %b )old %d for"
+            " the %b )compile %d system command.")
+           NIL))
+         (#1#
+          (PROGN
+           (SETQ |af| (CAR |args|))
+           (COND ((SYMBOLP |af|) (SETQ |af| (SYMBOL-NAME |af|))))
+           (COND ((NULL (STRINGP |af|)) (BREAK))
+                 (#1#
+                  (PROGN
+                   (SETQ |afe| (|file_extention| |af|))
+                   (COND
+                    ((OR |haveNew| (EQUAL |afe| "as"))
+                     (PROGN
+                      (SETQ |af1| (|must_find_file| |af| '("as")))
+                      (|compileAsharpCmd| (LIST |af1|))))
+                    ((OR |haveOld| (EQUAL |afe| "spad"))
+                     (PROGN
+                      (SETQ |af1| (|must_find_file| |af| '("spad")))
+                      (|compileSpad2Cmd| (LIST |af1|))))
+                    ((EQUAL |afe| "lsp")
+                     (PROGN
+                      (SETQ |af1| (|must_find_file| |af| '("lsp")))
+                      (|compileAsharpLispCmd| (LIST |af1|))))
+                    ((EQUAL |afe| "NRLIB")
+                     (PROGN
+                      (SETQ |af1| (|must_find_file| |af| '("NRLIB")))
+                      (|compileSpadLispCmd| (LIST |af1|))))
+                    ((EQUAL |afe| "ao")
+                     (PROGN
+                      (SETQ |af1| (|must_find_file| |af| '("ao")))
+                      (|compileAsharpCmd| (LIST |af1|))))
+                    ((EQUAL |afe| "al")
+                     (PROGN
+                      (SETQ |af1| (|must_find_file| |af| '("al")))
+                      (|compileAsharpArchiveCmd| (LIST |af1|))))
+                    (#1#
+                     (PROGN
+                      (SETQ |af1| (|find_file| |af| '("as" "spad" "ao" "asy")))
+                      (SETQ |afe| (|file_extention| |af1|))
+                      (COND
+                       ((EQUAL |afe| "as") (|compileAsharpCmd| (LIST |af1|)))
+                       ((EQUAL |afe| "ao") (|compileAsharpCmd| (LIST |af1|)))
+                       ((EQUAL |afe| "spad") (|compileSpad2Cmd| (LIST |af1|)))
+                       ((EQUAL |afe| "asy")
+                        (|compileAsharpArchiveCmd| (LIST |af1|)))
+                       (#1#
+                        (|throw_msg| 'S2IZ0039
+                         (CONCAT
+                          "Only FriCAS source files with file extensions"
+                          " %b .as, .ao, .al, %d or %b .spad %d can be compiled.")
+                         NIL))))))))))))))))))
 
 ; unknown_compile_option(args) == throw_msg("S2IZ0036",
 ;     '"%1b is unknown or unavailable for the %b )compile %d command.",
@@ -5177,18 +5168,15 @@
            ((FUNCALL |f| |ob|) (THROW '|ScanOrPairVecAnswer| T)) (#1# NIL)))))
 
 ; library(args) ==
-;    $newConlist : local := []
 ;    original_directory := get_current_directory()
 ;    merge_info_from_objects(args, $options, false)
 ;    CHDIR(original_directory)
 ;    terminateSystemCommand()
 
 (DEFUN |library| (|args|)
-  (PROG (|$newConlist| |original_directory|)
-    (DECLARE (SPECIAL |$newConlist|))
+  (PROG (|original_directory|)
     (RETURN
      (PROGN
-      (SETQ |$newConlist| NIL)
       (SETQ |original_directory| (|get_current_directory|))
       (|merge_info_from_objects| |args| |$options| NIL)
       (CHDIR |original_directory|)
