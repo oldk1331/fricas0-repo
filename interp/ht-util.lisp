@@ -1364,3 +1364,207 @@
         (|unescapeStringsInForm| (CDR |form|))
         |form|))
       ('T |form|)))))
+
+; bcBlankLine(page) ==
+;     ht_add_string(page, '"\vspace{1}\newline ")
+
+(DEFUN |bcBlankLine| (|page|)
+  (PROG () (RETURN (|ht_add_string| |page| "\\vspace{1}\\newline "))))
+
+; errorPage(htPage,[heading,kind,:info]) ==
+;   kind = 'invalidType => kInvalidTypePage first info
+;   if heading = 'error then htInitPage('"Error",nil) else
+;                            htInitPage(heading,nil)
+;   bcBlankLine()
+;   for x in info repeat htSay x
+;   htShowPage()
+
+(DEFUN |errorPage| (|htPage| |bfVar#33|)
+  (PROG (|heading| |kind| |info|)
+    (RETURN
+     (PROGN
+      (SETQ |heading| (CAR |bfVar#33|))
+      (SETQ |kind| (CADR . #1=(|bfVar#33|)))
+      (SETQ |info| (CDDR . #1#))
+      (COND ((EQ |kind| '|invalidType|) (|kInvalidTypePage| (CAR |info|)))
+            (#2='T
+             (PROGN
+              (COND ((EQ |heading| '|error|) (|htInitPage| "Error" NIL))
+                    (#2# (|htInitPage| |heading| NIL)))
+              (|bcBlankLine|)
+              ((LAMBDA (|bfVar#32| |x|)
+                 (LOOP
+                  (COND
+                   ((OR (ATOM |bfVar#32|)
+                        (PROGN (SETQ |x| (CAR |bfVar#32|)) NIL))
+                    (RETURN NIL))
+                   (#2# (|htSay| |x|)))
+                  (SETQ |bfVar#32| (CDR |bfVar#32|))))
+               |info| NIL)
+              (|htShowPage|))))))))
+
+; bcFinish(name,arg,:args) == bcGen bcMkFunction(name,arg,args)
+
+(DEFUN |bcFinish| (|name| |arg| &REST |args|)
+  (PROG () (RETURN (|bcGen| (|bcMkFunction| |name| |arg| |args|)))))
+
+; bcMkFunction(name,arg,args) ==
+;   args := [x for x in args | x]
+;   STRCONC(name,'"(",arg,"STRCONC"/[STRCONC('",", x) for x in args],'")")
+
+(DEFUN |bcMkFunction| (|name| |arg| |args|)
+  (PROG ()
+    (RETURN
+     (PROGN
+      (SETQ |args|
+              ((LAMBDA (|bfVar#35| |bfVar#34| |x|)
+                 (LOOP
+                  (COND
+                   ((OR (ATOM |bfVar#34|)
+                        (PROGN (SETQ |x| (CAR |bfVar#34|)) NIL))
+                    (RETURN (NREVERSE |bfVar#35|)))
+                   (#1='T (AND |x| (SETQ |bfVar#35| (CONS |x| |bfVar#35|)))))
+                  (SETQ |bfVar#34| (CDR |bfVar#34|))))
+               NIL |args| NIL))
+      (STRCONC |name| "(" |arg|
+       ((LAMBDA (|bfVar#37| |bfVar#36| |x|)
+          (LOOP
+           (COND
+            ((OR (ATOM |bfVar#36|) (PROGN (SETQ |x| (CAR |bfVar#36|)) NIL))
+             (RETURN |bfVar#37|))
+            (#1# (SETQ |bfVar#37| (STRCONC |bfVar#37| (STRCONC "," |x|)))))
+           (SETQ |bfVar#36| (CDR |bfVar#36|))))
+        "" |args| NIL)
+       ")")))))
+
+; bcFindString(s,i,n,char) ==  or/[j for j in i..n | s.j = char]
+
+(DEFUN |bcFindString| (|s| |i| |n| |char|)
+  (PROG ()
+    (RETURN
+     ((LAMBDA (|bfVar#38| |j|)
+        (LOOP
+         (COND ((> |j| |n|) (RETURN |bfVar#38|))
+               ('T
+                (AND (EQUAL (ELT |s| |j|) |char|)
+                     (PROGN
+                      (SETQ |bfVar#38| |j|)
+                      (COND (|bfVar#38| (RETURN |bfVar#38|)))))))
+         (SETQ |j| (+ |j| 1))))
+      NIL |i|))))
+
+; bcGen command ==
+;   page := htInitPage('"Basic Command",nil)
+;   string :=
+;     #command < 50 => STRCONC('"{\centerline{\tt ",command,'" }}")
+;     STRCONC('"{\tt ",command,'" }")
+;   ht_add_to_page(page, [
+;      '(text
+;         "{Here is the FriCAS command you could have issued to compute this result:}"
+;             "\vspace{2}\newline "),
+;       ['text,:string]])
+;   htMakeDoitButton('"Do It", command)
+;   htShowPage1(page)
+
+(DEFUN |bcGen| (|command|)
+  (PROG (|page| |string|)
+    (RETURN
+     (PROGN
+      (SETQ |page| (|htInitPage| "Basic Command" NIL))
+      (SETQ |string|
+              (COND
+               ((< (LENGTH |command|) 50)
+                (STRCONC "{\\centerline{\\tt " |command| " }}"))
+               ('T (STRCONC "{\\tt " |command| " }"))))
+      (|ht_add_to_page| |page|
+       (LIST
+        '(|text|
+          "{Here is the FriCAS command you could have issued to compute this result:}"
+          "\\vspace{2}\\newline ")
+        (CONS '|text| |string|)))
+      (|htMakeDoitButton| "Do It" |command|)
+      (|htShowPage1| |page|)))))
+
+; bcString2WordList s == fn(s,0,MAXINDEX s) where
+;   fn(s,i,n) ==
+;     i > n => nil
+;     k := or/[j for j in i..n | s.j ~= char '_  ]
+;     null INTEGERP k => nil
+;     l := bcFindString(s,k + 1,n,char '_  )
+;     null INTEGERP l => [SUBSTRING(s,k,nil)]
+;     [SUBSTRING(s,k,l-k),:fn(s,l + 1,n)]
+
+(DEFUN |bcString2WordList| (|s|)
+  (PROG () (RETURN (|bcString2WordList,fn| |s| 0 (MAXINDEX |s|)))))
+(DEFUN |bcString2WordList,fn| (|s| |i| |n|)
+  (PROG (|k| |l|)
+    (RETURN
+     (COND ((< |n| |i|) NIL)
+           (#1='T
+            (PROGN
+             (SETQ |k|
+                     ((LAMBDA (|bfVar#39| |j|)
+                        (LOOP
+                         (COND ((> |j| |n|) (RETURN |bfVar#39|))
+                               (#1#
+                                (AND (NOT (EQUAL (ELT |s| |j|) (|char| '| |)))
+                                     (PROGN
+                                      (SETQ |bfVar#39| |j|)
+                                      (COND
+                                       (|bfVar#39| (RETURN |bfVar#39|)))))))
+                         (SETQ |j| (+ |j| 1))))
+                      NIL |i|))
+             (COND ((NULL (INTEGERP |k|)) NIL)
+                   (#1#
+                    (PROGN
+                     (SETQ |l|
+                             (|bcFindString| |s| (+ |k| 1) |n| (|char| '| |)))
+                     (COND
+                      ((NULL (INTEGERP |l|)) (LIST (SUBSTRING |s| |k| NIL)))
+                      (#1#
+                       (CONS (SUBSTRING |s| |k| (- |l| |k|))
+                             (|bcString2WordList,fn| |s| (+ |l| 1)
+                              |n|)))))))))))))
+
+; bcwords2liststring u ==
+;   null u => nil
+;   STRCONC('"[",first u,fn rest u) where
+;     fn(u) ==
+;       null u => '"]"
+;       STRCONC('", ",first u,fn rest u)
+
+(DEFUN |bcwords2liststring| (|u|)
+  (PROG ()
+    (RETURN
+     (COND ((NULL |u|) NIL)
+           ('T (STRCONC "[" (CAR |u|) (|bcwords2liststring,fn| (CDR |u|))))))))
+(DEFUN |bcwords2liststring,fn| (|u|)
+  (PROG ()
+    (RETURN
+     (COND ((NULL |u|) "]")
+           ('T (STRCONC ", " (CAR |u|) (|bcwords2liststring,fn| (CDR |u|))))))))
+
+; bcVectorGen vec == bcwords2liststring vec
+
+(DEFUN |bcVectorGen| (|vec|) (PROG () (RETURN (|bcwords2liststring| |vec|))))
+
+; bcError string ==
+;   sayBrightlyNT '"NOTE: "
+;   sayBrightly string
+
+(DEFUN |bcError| (|string|)
+  (PROG ()
+    (RETURN (PROGN (|sayBrightlyNT| "NOTE: ") (|sayBrightly| |string|)))))
+
+; htStringPad(n,w) ==
+;   s := STRINGIMAGE n
+;   ws := #s
+;   STRCONC('"\space{",STRINGIMAGE (w - ws + 1),'"}",s)
+
+(DEFUN |htStringPad| (|n| |w|)
+  (PROG (|s| |ws|)
+    (RETURN
+     (PROGN
+      (SETQ |s| (STRINGIMAGE |n|))
+      (SETQ |ws| (LENGTH |s|))
+      (STRCONC "\\space{" (STRINGIMAGE (+ (- |w| |ws|) 1)) "}" |s|)))))

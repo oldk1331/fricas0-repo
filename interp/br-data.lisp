@@ -3,6 +3,44 @@
 
 (IN-PACKAGE "BOOT")
 
+; $tick := char '_`            --field separator for database files
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$tick| (|char| '|`|)))
+
+; getConstructorForm(name) ==
+;     name = 'Union   => '(Union  (_: a A) (_: b B))
+;     name = 'UntaggedUnion => '(Union A B)
+;     name = 'Record  => '(Record (_: a A) (_: b B))
+;     name = 'Mapping => '(Mapping T S)
+;     name = 'Enumeration => '(Enumeration a b)
+;     get_database(name, 'CONSTRUCTORFORM)
+
+(DEFUN |getConstructorForm| (|name|)
+  (PROG ()
+    (RETURN
+     (COND ((EQ |name| '|Union|) '(|Union| (|:| |a| A) (|:| |b| B)))
+           ((EQ |name| '|UntaggedUnion|) '(|Union| A B))
+           ((EQ |name| '|Record|) '(|Record| (|:| |a| A) (|:| |b| B)))
+           ((EQ |name| '|Mapping|) '(|Mapping| T S))
+           ((EQ |name| '|Enumeration|) '(|Enumeration| |a| |b|))
+           ('T (|get_database| |name| 'CONSTRUCTORFORM))))))
+
+; dbInfovec(name) ==
+;     'category = get_database(name, 'CONSTRUCTORKIND) => nil
+;     get_database(name, 'ASHARP?) => nil
+;     loadLibIfNotLoaded(name)
+;     u := GET(name, 'infovec) => u
+
+(DEFUN |dbInfovec| (|name|)
+  (PROG (|u|)
+    (RETURN
+     (COND ((EQ '|category| (|get_database| |name| 'CONSTRUCTORKIND)) NIL)
+           ((|get_database| |name| 'ASHARP?) NIL)
+           ('T
+            (PROGN
+             (|loadLibIfNotLoaded| |name|)
+             (COND ((SETQ |u| (GET |name| '|infovec|)) |u|))))))))
+
 ; buildLibdb(domainList) ==  --called by make-databases (daase.lisp)
 ;   $OpLst: local := nil
 ;   $AttrLst: local := nil

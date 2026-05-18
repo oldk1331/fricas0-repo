@@ -1552,3 +1552,27 @@
         (LOOP (COND ((> |i| |n|) (RETURN NIL)) ('T (PRINC " " |str|)))
               (SETQ |i| (+ |i| 1))))
       1))))
+
+; mySort(u) == listSort(function GLESSEQP, u)
+
+(DEFUN |mySort| (|u|) (PROG () (RETURN (|listSort| #'GLESSEQP |u|))))
+
+; string2Integer(s) ==
+;     and/[char_to_digit(s.i) for i in 0..MAXINDEX(s)] => PARSE_-INTEGER(s)
+;     nil
+
+(DEFUN |string2Integer| (|s|)
+  (PROG ()
+    (RETURN
+     (COND
+      (((LAMBDA (|bfVar#19| |bfVar#18| |i|)
+          (LOOP
+           (COND ((> |i| |bfVar#18|) (RETURN |bfVar#19|))
+                 (#1='T
+                  (PROGN
+                   (SETQ |bfVar#19| (|char_to_digit| (ELT |s| |i|)))
+                   (COND ((NOT |bfVar#19|) (RETURN NIL))))))
+           (SETQ |i| (+ |i| 1))))
+        T (MAXINDEX |s|) 0)
+       (PARSE-INTEGER |s|))
+      (#1# NIL)))))
