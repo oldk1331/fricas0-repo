@@ -444,7 +444,7 @@
                                                      (QREFELT % 93))
                                                     (SPADCALL 1 2
                                                               (QREFELT % 94))
-                                                    (QREFELT % 113))
+                                                    (QREFELT % 96))
                                                    (QREFELT % 101))
                                          (QCDR |rec|) (QREFELT % 33))
                                         (QREFELT % 112))))))))))
@@ -478,7 +478,7 @@
                                                      (QREFELT % 101))
                                                     (SPADCALL 1 2
                                                               (QREFELT % 94))
-                                                    (QREFELT % 113))
+                                                    (QREFELT % 96))
                                                    (QREFELT % 101))
                                          (QCDR |rec|) (QREFELT % 33))
                                         (QREFELT % 112))))))))))
@@ -588,7 +588,7 @@
     (LETT |dv$|
           (LIST '|ElementaryFunctionsUnivariatePuiseuxSeries| DV$1 DV$2 DV$3
                 DV$4))
-    (LETT % (GETREFV 139))
+    (LETT % (GETREFV 138))
     (QSETREFV % 0 |dv$|)
     (QSETREFV % 3
               (LETT |pv$|
@@ -675,7 +675,7 @@
               (325 . |acos|) (330 . -) |EFUPXS;acosIfCan;UPXSU;27|
               (335 . |asec|) (|Union| % '"failed") (340 . |recip|)
               |EFUPXS;asecIfCan;UPXSU;28| (345 . |acsc|)
-              |EFUPXS;acscIfCan;UPXSU;29| |EFUPXS;log;2UPXS;36| (350 . *)
+              |EFUPXS;acscIfCan;UPXSU;29| |EFUPXS;log;2UPXS;36|
               |EFUPXS;exp;2UPXS;35| |EFUPXS;sin;2UPXS;37| |EFUPXS;cos;2UPXS;38|
               |EFUPXS;tan;2UPXS;39| |EFUPXS;cot;2UPXS;40| |EFUPXS;sec;2UPXS;41|
               |EFUPXS;csc;2UPXS;42| |EFUPXS;asin;2UPXS;43|
@@ -688,23 +688,23 @@
               |EFUPXS;acosh;2UPXS;56| |EFUPXS;atanh;2UPXS;57|
               |EFUPXS;acoth;2UPXS;58| |EFUPXS;asech;2UPXS;59|
               |EFUPXS;acsch;2UPXS;60|)
-           '#(|tanhIfCan| 356 |tanh| 361 |tanIfCan| 366 |tan| 371 |sinhIfCan|
-              376 |sinh| 381 |sinIfCan| 386 |sin| 391 |sechIfCan| 396 |sech|
-              401 |secIfCan| 406 |sec| 411 |nthRootIfCan| 416 |logIfCan| 422
-              |log| 427 |expIfCan| 432 |exp| 437 |cschIfCan| 442 |csch| 447
-              |cscIfCan| 452 |csc| 457 |cothIfCan| 462 |coth| 467 |cotIfCan|
-              472 |cot| 477 |coshIfCan| 482 |cosh| 487 |cosIfCan| 492 |cos| 497
-              |atanhIfCan| 502 |atanh| 507 |atanIfCan| 512 |atan| 517
-              |asinhIfCan| 522 |asinh| 527 |asinIfCan| 532 |asin| 537
-              |asechIfCan| 542 |asech| 547 |asecIfCan| 552 |asec| 557
-              |acschIfCan| 562 |acsch| 567 |acscIfCan| 572 |acsc| 577
-              |acothIfCan| 582 |acoth| 587 |acotIfCan| 592 |acot| 597
-              |acoshIfCan| 602 |acosh| 607 |acosIfCan| 612 |acos| 617 ^ 622)
+           '#(|tanhIfCan| 350 |tanh| 355 |tanIfCan| 360 |tan| 365 |sinhIfCan|
+              370 |sinh| 375 |sinIfCan| 380 |sin| 385 |sechIfCan| 390 |sech|
+              395 |secIfCan| 400 |sec| 405 |nthRootIfCan| 410 |logIfCan| 416
+              |log| 421 |expIfCan| 426 |exp| 431 |cschIfCan| 436 |csch| 441
+              |cscIfCan| 446 |csc| 451 |cothIfCan| 456 |coth| 461 |cotIfCan|
+              466 |cot| 471 |coshIfCan| 476 |cosh| 481 |cosIfCan| 486 |cos| 491
+              |atanhIfCan| 496 |atanh| 501 |atanIfCan| 506 |atan| 511
+              |asinhIfCan| 516 |asinh| 521 |asinIfCan| 526 |asin| 531
+              |asechIfCan| 536 |asech| 541 |asecIfCan| 546 |asec| 551
+              |acschIfCan| 556 |acsch| 561 |acscIfCan| 566 |acsc| 571
+              |acothIfCan| 576 |acoth| 581 |acotIfCan| 586 |acot| 591
+              |acoshIfCan| 596 |acosh| 601 |acosIfCan| 606 |acos| 611 ^ 616)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS '#((|PartialTranscendentalFunctions| 8))
-                             (|makeByteWordVec2| 138
+                             (|makeByteWordVec2| 137
                                                  '(0 6 0 11 0 7 0 12 1 8 13 0
                                                    14 1 8 7 0 15 1 7 16 0 17 2
                                                    7 6 0 16 18 1 6 19 0 20 2 7
@@ -734,29 +734,29 @@
                                                    1 6 0 0 99 1 8 0 6 100 2 8 0
                                                    0 0 101 1 6 0 0 103 1 8 0 0
                                                    104 1 6 0 0 106 1 8 107 0
-                                                   108 1 6 0 0 110 2 8 0 0 13
-                                                   113 1 0 34 8 66 1 0 8 8 129
-                                                   1 0 34 8 50 1 0 8 8 117 1 0
-                                                   34 8 62 1 0 8 8 127 1 0 34 8
-                                                   46 1 0 8 8 115 1 0 34 8 70 1
-                                                   0 8 8 131 1 0 34 8 54 1 0 8
-                                                   8 119 2 0 34 8 25 35 1 0 34
-                                                   8 44 1 0 8 8 112 1 0 34 8 42
-                                                   1 0 8 8 114 1 0 34 8 72 1 0
-                                                   8 8 132 1 0 34 8 56 1 0 8 8
-                                                   120 1 0 34 8 68 1 0 8 8 130
-                                                   1 0 34 8 52 1 0 8 8 118 1 0
-                                                   34 8 64 1 0 8 8 128 1 0 34 8
-                                                   48 1 0 8 8 116 1 0 34 8 78 1
-                                                   0 8 8 135 1 0 34 8 58 1 0 8
-                                                   8 123 1 0 34 8 74 1 0 8 8
-                                                   133 1 0 34 8 102 1 0 8 8 121
-                                                   1 0 34 8 82 1 0 8 8 137 1 0
-                                                   34 8 109 1 0 8 8 125 1 0 34
-                                                   8 84 1 0 8 8 138 1 0 34 8
-                                                   111 1 0 8 8 126 1 0 34 8 80
-                                                   1 0 8 8 136 1 0 34 8 60 1 0
-                                                   8 8 124 1 0 34 8 76 1 0 8 8
-                                                   134 1 0 34 8 105 1 0 8 8 122
-                                                   2 1 8 8 13 40)))))
+                                                   108 1 6 0 0 110 1 0 34 8 66
+                                                   1 0 8 8 128 1 0 34 8 50 1 0
+                                                   8 8 116 1 0 34 8 62 1 0 8 8
+                                                   126 1 0 34 8 46 1 0 8 8 114
+                                                   1 0 34 8 70 1 0 8 8 130 1 0
+                                                   34 8 54 1 0 8 8 118 2 0 34 8
+                                                   25 35 1 0 34 8 44 1 0 8 8
+                                                   112 1 0 34 8 42 1 0 8 8 113
+                                                   1 0 34 8 72 1 0 8 8 131 1 0
+                                                   34 8 56 1 0 8 8 119 1 0 34 8
+                                                   68 1 0 8 8 129 1 0 34 8 52 1
+                                                   0 8 8 117 1 0 34 8 64 1 0 8
+                                                   8 127 1 0 34 8 48 1 0 8 8
+                                                   115 1 0 34 8 78 1 0 8 8 134
+                                                   1 0 34 8 58 1 0 8 8 122 1 0
+                                                   34 8 74 1 0 8 8 132 1 0 34 8
+                                                   102 1 0 8 8 120 1 0 34 8 82
+                                                   1 0 8 8 136 1 0 34 8 109 1 0
+                                                   8 8 124 1 0 34 8 84 1 0 8 8
+                                                   137 1 0 34 8 111 1 0 8 8 125
+                                                   1 0 34 8 80 1 0 8 8 135 1 0
+                                                   34 8 60 1 0 8 8 123 1 0 34 8
+                                                   76 1 0 8 8 133 1 0 34 8 105
+                                                   1 0 8 8 121 2 1 8 8 13
+                                                   40)))))
            '|lookupComplete|)) 
