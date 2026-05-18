@@ -555,7 +555,8 @@
                  (COND
                   ((|VIEW3D;checkViewport| |viewport| %)
                    (SEQ (|sockGetInt| |$ViewportServer|)
-                        (EXIT (QSETVELT |viewport| 0 0))))))))
+                        (QSETVELT |viewport| 0 0)
+                        (EXIT (|sockGetInt| |$ViewportServer|))))))))
           ('T (SPADCALL (QREFELT % 104)))))) 
 
 (SDEFUN |VIEW3D;viewpoint;%R;30|

@@ -769,7 +769,8 @@
                  (COND
                   ((|VIEW2D;checkViewport| |viewport| %)
                    (SEQ (|sockGetInt| |$ViewportServer|)
-                        (EXIT (QSETVELT |viewport| 0 0))))))))
+                        (QSETVELT |viewport| 0 0)
+                        (EXIT (|sockGetInt| |$ViewportServer|))))))))
           ('T (SPADCALL (QREFELT % 39)))))) 
 
 (SDEFUN |VIEW2D;coerce;%Of;34| ((|viewport| (%)) (% (|OutputForm|)))
