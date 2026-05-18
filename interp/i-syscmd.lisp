@@ -1037,6 +1037,7 @@
 ;
 ;     af  := first(args)
 ;     if SYMBOLP(af) then af := SYMBOL_-NAME(af)
+;     not(STRINGP(af)) => BREAK()
 ;
 ;     afe := file_extention(af)
 ;
@@ -1118,46 +1119,52 @@
            (PROGN
             (SETQ |af| (CAR |args|))
             (COND ((SYMBOLP |af|) (SETQ |af| (SYMBOL-NAME |af|))))
-            (SETQ |afe| (|file_extention| |af|))
-            (COND
-             ((OR |haveNew| (EQUAL |afe| "as"))
-              (PROGN
-               (SETQ |af1| (|must_find_file| |af| '("as")))
-               (|compileAsharpCmd| (LIST |af1|))))
-             ((OR |haveOld| (EQUAL |afe| "spad"))
-              (PROGN
-               (SETQ |af1| (|must_find_file| |af| '("spad")))
-               (|compileSpad2Cmd| (LIST |af1|))))
-             ((EQUAL |afe| "lsp")
-              (PROGN
-               (SETQ |af1| (|must_find_file| |af| '("lsp")))
-               (|compileAsharpLispCmd| (LIST |af1|))))
-             ((EQUAL |afe| "NRLIB")
-              (PROGN
-               (SETQ |af1| (|must_find_file| |af| '("NRLIB")))
-               (|compileSpadLispCmd| (LIST |af1|))))
-             ((EQUAL |afe| "ao")
-              (PROGN
-               (SETQ |af1| (|must_find_file| |af| '("ao")))
-               (|compileAsharpCmd| (LIST |af1|))))
-             ((EQUAL |afe| "al")
-              (PROGN
-               (SETQ |af1| (|must_find_file| |af| '("al")))
-               (|compileAsharpArchiveCmd| (LIST |af1|))))
-             (#1#
-              (PROGN
-               (SETQ |af1| (|find_file| |af| '("as" "spad" "ao" "asy")))
-               (SETQ |afe| (|file_extention| |af1|))
-               (COND ((EQUAL |afe| "as") (|compileAsharpCmd| (LIST |af1|)))
-                     ((EQUAL |afe| "ao") (|compileAsharpCmd| (LIST |af1|)))
-                     ((EQUAL |afe| "spad") (|compileSpad2Cmd| (LIST |af1|)))
-                     ((EQUAL |afe| "asy")
-                      (|compileAsharpArchiveCmd| (LIST |af1|)))
+            (COND ((NULL (STRINGP |af|)) (BREAK))
+                  (#1#
+                   (PROGN
+                    (SETQ |afe| (|file_extention| |af|))
+                    (COND
+                     ((OR |haveNew| (EQUAL |afe| "as"))
+                      (PROGN
+                       (SETQ |af1| (|must_find_file| |af| '("as")))
+                       (|compileAsharpCmd| (LIST |af1|))))
+                     ((OR |haveOld| (EQUAL |afe| "spad"))
+                      (PROGN
+                       (SETQ |af1| (|must_find_file| |af| '("spad")))
+                       (|compileSpad2Cmd| (LIST |af1|))))
+                     ((EQUAL |afe| "lsp")
+                      (PROGN
+                       (SETQ |af1| (|must_find_file| |af| '("lsp")))
+                       (|compileAsharpLispCmd| (LIST |af1|))))
+                     ((EQUAL |afe| "NRLIB")
+                      (PROGN
+                       (SETQ |af1| (|must_find_file| |af| '("NRLIB")))
+                       (|compileSpadLispCmd| (LIST |af1|))))
+                     ((EQUAL |afe| "ao")
+                      (PROGN
+                       (SETQ |af1| (|must_find_file| |af| '("ao")))
+                       (|compileAsharpCmd| (LIST |af1|))))
+                     ((EQUAL |afe| "al")
+                      (PROGN
+                       (SETQ |af1| (|must_find_file| |af| '("al")))
+                       (|compileAsharpArchiveCmd| (LIST |af1|))))
                      (#1#
-                      (|throw_msg| 'S2IZ0039
-                       (CONCAT "Only FriCAS source files with file extensions"
-                               " %b .as, .ao, .al, %d or %b .spad %d can be compiled.")
-                       NIL))))))))))))))))
+                      (PROGN
+                       (SETQ |af1|
+                               (|find_file| |af| '("as" "spad" "ao" "asy")))
+                       (SETQ |afe| (|file_extention| |af1|))
+                       (COND
+                        ((EQUAL |afe| "as") (|compileAsharpCmd| (LIST |af1|)))
+                        ((EQUAL |afe| "ao") (|compileAsharpCmd| (LIST |af1|)))
+                        ((EQUAL |afe| "spad") (|compileSpad2Cmd| (LIST |af1|)))
+                        ((EQUAL |afe| "asy")
+                         (|compileAsharpArchiveCmd| (LIST |af1|)))
+                        (#1#
+                         (|throw_msg| 'S2IZ0039
+                          (CONCAT
+                           "Only FriCAS source files with file extensions"
+                           " %b .as, .ao, .al, %d or %b .spad %d can be compiled.")
+                          NIL)))))))))))))))))))
 
 ; unknown_compile_option(args) == throw_msg("S2IZ0036",
 ;     '"%1b is unknown or unavailable for the %b )compile %d command.",
@@ -1169,7 +1176,7 @@
      (|throw_msg| 'S2IZ0036
       "%1b is unknown or unavailable for the %b )compile %d command." |args|))))
 
-; do_compile_lisp(lsp) ==
+; do_compile_lisp(lsp, beQuiet) ==
 ;     if fnameReadable?(lsp) then
 ;         if not beQuiet then say_msg("S2IZ0089",
 ;             '"Compiling Lisp source code from file %1", [lsp])
@@ -1178,7 +1185,7 @@
 ;         say_msg("S2IL0003", '"The file %1b is needed but does not exist.",
 ;                 [lsp])
 
-(DEFUN |do_compile_lisp| (|lsp|)
+(DEFUN |do_compile_lisp| (|lsp| |beQuiet|)
   (PROG ()
     (RETURN
      (COND
@@ -1327,15 +1334,15 @@
 ;     rc := run_shell_command command
 ;
 ;     if (rc = 0) and doCompileLisp then
-;         do_compile_lisp(lsp)
+;         lsp := make_filename2(file_basename(path), '"lsp")
+;         do_compile_lisp(lsp, beQuiet)
 ;
 ;     do_merge_info(rc = 0 and doLibrary, beQuiet, path)
-;     extendLocalLibdb $newConlist
 
 (DEFUN |compileAsharpCmd1| (|args|)
   (PROG (|path| |path_ext| |optList| |beQuiet| |doLibrary| |doCompileLisp|
          |moreArgs| |onlyArgs| |optname| |optargs| |fullopt| |p| |tempArgs| |s|
-         |asharpArgs| |command| |rc|)
+         |asharpArgs| |command| |rc| |lsp|)
     (RETURN
      (PROGN
       (SETQ |path| (CAR |args|))
@@ -1440,9 +1447,12 @@
                  (STRCONC (|getEnv| "ALDOR_COMPILER") " " |asharpArgs| " "
                   |path|))
          (SETQ |rc| (|run_shell_command| |command|))
-         (COND ((AND (EQL |rc| 0) |doCompileLisp|) (|do_compile_lisp| |lsp|)))
-         (|do_merge_info| (AND (EQL |rc| 0) |doLibrary|) |beQuiet| |path|)
-         (|extendLocalLibdb| |$newConlist|))))))))
+         (COND
+          ((AND (EQL |rc| 0) |doCompileLisp|)
+           (SETQ |lsp| (|make_filename2| (|file_basename| |path|) "lsp"))
+           (|do_compile_lisp| |lsp| |beQuiet|)))
+         (|do_merge_info| (AND (EQL |rc| 0) |doLibrary|) |beQuiet|
+          |path|))))))))
 
 ; compileAsharpArchiveCmd args ==
 ;     -- Assume we entered from the "compile" function, so args ~= nil
@@ -1607,7 +1617,7 @@
 ;
 ;         unknown_compile_option([STRCONC('")", object2String(optname))])
 ;
-;     do_compile_lisp(lsp)
+;     do_compile_lisp(path, beQuiet)
 ;
 ;     do_merge_info(doLibrary, beQuiet, path)
 ;     terminateSystemCommand()
@@ -1641,7 +1651,7 @@
                      (LIST (STRCONC ")" (|object2String| |optname|)))))))))
           (SETQ |bfVar#30| (CDR |bfVar#30|))))
        |$options| NIL)
-      (|do_compile_lisp| |lsp|)
+      (|do_compile_lisp| |path| |beQuiet|)
       (|do_merge_info| |doLibrary| |beQuiet| |path|)
       (|terminateSystemCommand|)
       (|spadPrompt|)))))
@@ -1677,7 +1687,7 @@
 ;
 ;         unknown_compile_option([STRCONC('")", object2String(optname))])
 ;
-;     do_compile_lisp(lsp)
+;     do_compile_lisp(path, beQuiet)
 ;
 ;     do_merge_info(doLibrary, beQuiet, path)
 ;
@@ -1715,7 +1725,7 @@
                      (LIST (STRCONC ")" (|object2String| |optname|)))))))))
           (SETQ |bfVar#31| (CDR |bfVar#31|))))
        |$options| NIL)
-      (|do_compile_lisp| |lsp|)
+      (|do_compile_lisp| |path| |beQuiet|)
       (|do_merge_info| |doLibrary| |beQuiet| |path|)
       (|terminateSystemCommand|)
       (|spadPrompt|)))))
@@ -5169,7 +5179,6 @@
 ;    $newConlist : local := []
 ;    original_directory := get_current_directory()
 ;    merge_info_from_objects(args, $options, false)
-;    extendLocalLibdb($newConlist)
 ;    CHDIR(original_directory)
 ;    terminateSystemCommand()
 
@@ -5181,7 +5190,6 @@
       (SETQ |$newConlist| NIL)
       (SETQ |original_directory| (|get_current_directory|))
       (|merge_info_from_objects| |args| |$options| NIL)
-      (|extendLocalLibdb| |$newConlist|)
       (CHDIR |original_directory|)
       (|terminateSystemCommand|)))))
 
