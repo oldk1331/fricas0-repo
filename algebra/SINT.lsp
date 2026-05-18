@@ -219,7 +219,7 @@
                     (EXIT
                      (COND
                       ((|negative?_SI| |r|)
-                       (COND ((|negative?_SI| |n|) (|sub_SI| |x| |n|))
+                       (COND ((|negative?_SI| |n|) (|sub_SI| |r| |n|))
                              (#1='T (|add_SI| |r| |n|))))
                       (#1# |r|)))))) 
 

@@ -6274,7 +6274,7 @@
 704016`\spad{positive?(x)} tests whether \spad{x} is strictly greater than 0.
 704167`\spad{positive?(pol, aRoot)} answers if \spad{pol} interpreted as \spad{aRoot} is positive
 704330`\spad{positivePower(x, n)} computes a positive integral power of the matrix \spad{x}. Error: if the matrix is not square.
-704413`\spad{positiveRemainder(a, b)} (where \spad{b > 1}) yields \spad{r} where \spad{0 <= r < b} and \spad{r = a rem b}.
+704413`\spad{positiveRemainder(a, b)} (where \spad{b > 1}) yields \spad{r} where \spad{0 <= r < b} and \spad{a = q*b + r}.
 704474`\spad{positiveSolve(lp)} returns the same as \spad{positiveSolve(lp, false, false)}.
 704600`\spad{positiveSolve(ts)} returns the points of the regular set of \spad{ts} with (real) strictly positive coordinates.
 704725`\spad{positiveSolve(lp)} returns the same as \spad{positiveSolve(lp, info?, false)}.
