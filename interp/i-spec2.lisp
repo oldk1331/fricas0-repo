@@ -144,7 +144,9 @@
 ;   putAtree(first form,'dollar,t)
 ;   ms := bottomUp form
 ;   f in '(One Zero) and PAIRP(ms) and first(ms) = $OutputForm =>
-;     throwKeyedMsg("S2IS0021",[f,t])
+;         throw_msg("S2IS0021",
+;            '"There is no operation named %1b in the domain or package %2bp .",
+;            [f, t])
 ;   putValue(op,getValue first form)
 ;   putModeSet(op,ms)
 
@@ -272,7 +274,9 @@
                     (COND
                      ((AND (|member| |f| '(|One| |Zero|)) (CONSP |ms|)
                            (EQUAL (CAR |ms|) |$OutputForm|))
-                      (|throwKeyedMsg| 'S2IS0021 (LIST |f| |t|)))
+                      (|throw_msg| 'S2IS0021
+                       "There is no operation named %1b in the domain or package %2bp ."
+                       (LIST |f| |t|)))
                      (#1#
                       (PROGN
                        (|putValue| |op| (|getValue| (CAR |form|)))
@@ -514,20 +518,36 @@
       (|putModeSet| |t| (LIST |$Void|))))))
 
 ; upfreeWithType(var,type) ==
-;   sayKeyedMsg("S2IS0055",['"free",var])
-;   var
+;     say_msg("S2IS0055", CONCAT(
+;         '"The reserved word %1b is not supported yet and so ignored",
+;         '" for variable %2b"), ['"free", var])
+;     var
 
 (DEFUN |upfreeWithType| (|var| |type|)
   (PROG ()
-    (RETURN (PROGN (|sayKeyedMsg| 'S2IS0055 (LIST "free" |var|)) |var|))))
+    (RETURN
+     (PROGN
+      (|say_msg| 'S2IS0055
+       (CONCAT "The reserved word %1b is not supported yet and so ignored"
+               " for variable %2b")
+       (LIST "free" |var|))
+      |var|))))
 
 ; uplocalWithType(var,type) ==
-;   sayKeyedMsg("S2IS0055",['"local",var])
-;   var
+;     say_msg("S2IS0055", CONCAT(
+;         '"The reserved word %1b is not supported yet and so ignored",
+;         '" for variable %2b"), ['"local", var])
+;     var
 
 (DEFUN |uplocalWithType| (|var| |type|)
   (PROG ()
-    (RETURN (PROGN (|sayKeyedMsg| 'S2IS0055 (LIST "local" |var|)) |var|))))
+    (RETURN
+     (PROGN
+      (|say_msg| 'S2IS0055
+       (CONCAT "The reserved word %1b is not supported yet and so ignored"
+               " for variable %2b")
+       (LIST "local" |var|))
+      |var|))))
 
 ; uphas t ==
 ;   t isnt [op,type,prop] => nil
@@ -696,12 +716,19 @@
          (|evalIF| |op| (CDR |t|) |m|)
          (|putModeSet| |op| (LIST |m|)))))))))
 
+; $msg_fun_undefined :=
+;     '"The function %1bp is not defined for the given argument(s)."
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (SETQ |$msg_fun_undefined|
+          "The function %1bp is not defined for the given argument(s)."))
+
 ; evalIF(op,[cond,a,b],m) ==
 ;   -- generate code form compiled IF
 ;   elseCode:=
 ;     b='noMapVal =>
-;       [[MKQ true, ['throwKeyedMsg,MKQ "S2IM0018",
-;         ['CONS,MKQ object2Identifier $mapName,NIL]]]]
+;       [[MKQ(true), ['throw_msg, MKQ("S2IM0018"), $msg_fun_undefined,
+;         ['CONS, MKQ(object2Identifier($mapName)), []]]]]
 ;     b = 'noBranch => [[MKQ true, ['voidValue]]]
 ;     [[MKQ true,genIFvalCode(b,m)]]
 ;   code:=['COND,[getArgValue(cond,$Boolean),
@@ -721,7 +748,7 @@
                ((EQ |b| '|noMapVal|)
                 (LIST
                  (LIST (MKQ T)
-                       (LIST '|throwKeyedMsg| (MKQ 'S2IM0018)
+                       (LIST '|throw_msg| (MKQ 'S2IM0018) |$msg_fun_undefined|
                              (LIST 'CONS (MKQ (|object2Identifier| |$mapName|))
                                    NIL)))))
                ((EQ |b| '|noBranch|) (LIST (LIST (MKQ T) (LIST '|voidValue|))))
@@ -1410,10 +1437,14 @@
 ;             " not allowed."), [var, var'])
 ;     if get0(var, 'isInterpreterFunction, $e) then
 ;       putHist(var,'isInterpreterFunction,false,$e)
-;       sayKeyedMsg("S2IS0049",['"Function",var])
+;       say_msg("S2IS0049",
+;             '"%1 definition for %2b is being overwritten.",
+;             ['"Function", var])
 ;     else if get0(var, 'isInterpreterRule, $e) then
 ;       putHist(var,'isInterpreterRule,false,$e)
-;       sayKeyedMsg("S2IS0049",['"Rule",var])
+;       say_msg("S2IS0049",
+;             '"%1 definition for %2b is being overwritten.",
+;             ['"Rule", var])
 ;     not isTupleForm(rhs) and (m := isType rhs) => upLETtype(op,lhs,m)
 ;     transferPropsToNode(var,lhs)
 ;     if ( m:= getMode(lhs) ) then
@@ -1485,10 +1516,14 @@
                 (COND
                  ((|get0| |var| '|isInterpreterFunction| |$e|)
                   (|putHist| |var| '|isInterpreterFunction| NIL |$e|)
-                  (|sayKeyedMsg| 'S2IS0049 (LIST "Function" |var|)))
+                  (|say_msg| 'S2IS0049
+                   "%1 definition for %2b is being overwritten."
+                   (LIST "Function" |var|)))
                  ((|get0| |var| '|isInterpreterRule| |$e|)
                   (|putHist| |var| '|isInterpreterRule| NIL |$e|)
-                  (|sayKeyedMsg| 'S2IS0049 (LIST "Rule" |var|))))
+                  (|say_msg| 'S2IS0049
+                   "%1 definition for %2b is being overwritten."
+                   (LIST "Rule" |var|))))
                 (COND
                  ((AND (NULL (|isTupleForm| |rhs|))
                        (SETQ |m| (|isType| |rhs|)))
@@ -3387,8 +3422,8 @@
 
 ; evalTuple(op,l,m,tar) ==
 ;   [agg,:.,underMode]:= m
-;   code := asTupleNewCode(#l,
-;     [(getArgValue(x,underMode) or throwKeyedMsg("S2IC0007",[underMode])) for x in l])
+;   code := asTupleNewCode(#l, [(getArgValue(x, underMode) or
+;         err_cannot_convert(underMode)) for x in l])
 ;   val :=
 ;     $genValue => objNewWrap(timedEVALFUN code,m)
 ;     objNew(code,m)
@@ -3419,8 +3454,7 @@
                      (SETQ |bfVar#78|
                              (CONS
                               (OR (|getArgValue| |x| |underMode|)
-                                  (|throwKeyedMsg| 'S2IC0007
-                                   (LIST |underMode|)))
+                                  (|err_cannot_convert| |underMode|))
                               |bfVar#78|))))
                    (SETQ |bfVar#77| (CDR |bfVar#77|))))
                 NIL |l| NIL)))

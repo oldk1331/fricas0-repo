@@ -985,7 +985,8 @@
 ; scanS()==
 ;    if $n>=$sz
 ;    then
-;      ncSoftError(cons($linepos,lnExtraBlanks $linepos+$n),"S2CN0001",[])
+;      ncSoftError(cons($linepos, lnExtraBlanks($linepos + $n)),
+;                  '"Quote added at end of line.", [])
 ;      '""
 ;    else
 ;            n:=$n
@@ -997,7 +998,7 @@
 ;            then
 ;                  $n:=$sz
 ;                  ncSoftError(cons($linepos,lnExtraBlanks $linepos+$n),
-;                          "S2CN0001",[])
+;                          '"Quote added at end of line.", [])
 ;                  SUBSTRING($ln,n,nil)
 ;            else if mn=strsym
 ;                 then
@@ -1017,8 +1018,8 @@
     (RETURN
      (COND
       ((NOT (< |$n| |$sz|))
-       (|ncSoftError| (CONS |$linepos| (+ (|lnExtraBlanks| |$linepos|) |$n|))
-        'S2CN0001 NIL)
+       (|ncSoftError| (CONS |$linepos| (|lnExtraBlanks| (+ |$linepos| |$n|)))
+        "Quote added at end of line." NIL)
        "")
       (#1='T (SETQ |n| |$n|)
        (SETQ |strsym| (OR (STRPOS "\"" |$ln| |$n| NIL) |$sz|))
@@ -1027,7 +1028,7 @@
        (COND
         ((EQUAL |mn| |$sz|) (SETQ |$n| |$sz|)
          (|ncSoftError| (CONS |$linepos| (+ (|lnExtraBlanks| |$linepos|) |$n|))
-          'S2CN0001 NIL)
+          "Quote added at end of line." NIL)
          (SUBSTRING |$ln| |n| NIL))
         ((EQUAL |mn| |strsym|) (SETQ |$n| (+ |mn| 1))
          (SUBSTRING |$ln| |n| (- |mn| |n|)))
@@ -1171,13 +1172,14 @@
 ; scanCheckRadix(r,w)==
 ;        ns:=#w
 ;        ns = 0 =>
-;             ncSoftError([$linepos, :lnExtraBlanks $linepos+$n], "S2CN0004", [])
+;             ncSoftError([$linepos, :lnExtraBlanks($linepos + $n)],
+;                  '"No digits after radix specification", [])
 ;        done:=false
 ;        for i in 0..ns-1  repeat
 ;          a:=rdigit? w.i
-;          if null a or a>=r
-;          then  ncSoftError(cons($linepos,lnExtraBlanks $linepos+$n-ns+i),
-;                     "S2CN0002", [w.i])
+;          if null a or a>=r then
+;             ncSoftError(cons($linepos, lnExtraBlanks($linepos + $n - ns + i)),
+;                 '"The character %b %1 %d is greater than the radix.", [w.i])
 
 (DEFUN |scanCheckRadix| (|r| |w|)
   (PROG (|ns| |done| |a|)
@@ -1186,8 +1188,8 @@
       (SETQ |ns| (LENGTH |w|))
       (COND
        ((EQL |ns| 0)
-        (|ncSoftError| (CONS |$linepos| (+ (|lnExtraBlanks| |$linepos|) |$n|))
-         'S2CN0004 NIL))
+        (|ncSoftError| (CONS |$linepos| (|lnExtraBlanks| (+ |$linepos| |$n|)))
+         "No digits after radix specification" NIL))
        (#1='T
         (PROGN
          (SETQ |done| NIL)
@@ -1201,9 +1203,10 @@
                       ((OR (NULL |a|) (NOT (< |a| |r|)))
                        (|ncSoftError|
                         (CONS |$linepos|
-                              (+ (- (+ (|lnExtraBlanks| |$linepos|) |$n|) |ns|)
-                                 |i|))
-                        'S2CN0002 (LIST (ELT |w| |i|))))))))
+                              (|lnExtraBlanks|
+                               (+ (- (+ |$linepos| |$n|) |ns|) |i|)))
+                        "The character %b %1 %d is greater than the radix."
+                        (LIST (ELT |w| |i|))))))))
              (SETQ |i| (+ |i| 1))))
           (- |ns| 1) 0))))))))
 
@@ -1345,7 +1348,7 @@
 ;       n:=$n
 ;       $n:=$n+1
 ;       ncSoftError(cons($linepos,lnExtraBlanks $linepos+$n),
-;          "S2CN0003",[$ln.n])
+;           '"The character %b %1 %d is not a FriCAS character.", [$ln.n])
 ;       lferror ($ln.n)
 
 (DEFUN |scanError| ()
@@ -1355,7 +1358,8 @@
       (SETQ |n| |$n|)
       (SETQ |$n| (+ |$n| 1))
       (|ncSoftError| (CONS |$linepos| (+ (|lnExtraBlanks| |$linepos|) |$n|))
-       'S2CN0003 (LIST (ELT |$ln| |n|)))
+       "The character %b %1 %d is not a FriCAS character."
+       (LIST (ELT |$ln| |n|)))
       (|lferror| (ELT |$ln| |n|))))))
 
 ; keyword st   == HGET(scanKeyTable,st)

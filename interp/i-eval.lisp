@@ -1122,13 +1122,11 @@
       ('T (|getArgValue| |a| |t|))))))
 
 ; getArgValueOrThrow(x, type) ==
-;   getArgValue(x,type) or throwKeyedMsg("S2IC0007",[type])
+;     getArgValue(x, type) or err_cannot_convert(type)
 
 (DEFUN |getArgValueOrThrow| (|x| |type|)
   (PROG ()
-    (RETURN
-     (OR (|getArgValue| |x| |type|)
-         (|throwKeyedMsg| 'S2IC0007 (LIST |type|))))))
+    (RETURN (OR (|getArgValue| |x| |type|) (|err_cannot_convert| |type|)))))
 
 ; getMappingArgValue(a,t,m is ['Mapping,:ml]) ==
 ;   (una := getUnname a) in $localVars =>

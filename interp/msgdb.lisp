@@ -713,11 +713,6 @@
       (|say_msg_local| |msg| |args|)
       (|ioHook| '|endOfKeyedMsg| |key|)))))
 
-; sayKeyedMsg(key, args) == say_msg(key, getKeyedMsg(key), args)
-
-(DEFUN |sayKeyedMsg| (|key| |args|)
-  (PROG () (RETURN (|say_msg| |key| (|getKeyedMsg| |key|) |args|))))
-
 ; say_msg_local(msg, args) ==
 ;   msg := segmentKeyedMsg msg
 ;   msg := substituteSegmentedMsg(msg,args)
@@ -882,7 +877,7 @@
 ;   ioHook("startQueryUser")
 ;   ans := read_line conStream
 ;   ioHook("endOfQueryUser")
-;   ans
+;   UPCASE(ans)
 
 (DEFUN |query_user_msg| (|key| |msg| |args|)
   (PROG (|conStream| |ans|)
@@ -893,12 +888,7 @@
       (|ioHook| '|startQueryUser|)
       (SETQ |ans| (|read_line| |conStream|))
       (|ioHook| '|endOfQueryUser|)
-      |ans|))))
-
-; queryUserKeyedMsg(key, args) == query_user_msg(key, getKeyedMsg(key), args)
-
-(DEFUN |queryUserKeyedMsg| (|key| |args|)
-  (PROG () (RETURN (|query_user_msg| |key| (|getKeyedMsg| |key|) |args|))))
+      (UPCASE |ans|)))))
 
 ; flowSegmentedMsg(msg, len, offset) ==
 ;   -- tries to break a sayBrightly-type input msg into multiple
@@ -1085,12 +1075,6 @@
 
 (DEFUN |msg_comp_failure| (|key| |msg| |args|)
   (PROG () (RETURN (|msg_comp_failure1| |key| |msg| |args| NIL))))
-
-; keyedMsgCompFailure(key, args) ==
-;     msg_comp_failure(key, getKeyedMsg(key), args)
-
-(DEFUN |keyedMsgCompFailure| (|key| |args|)
-  (PROG () (RETURN (|msg_comp_failure| |key| (|getKeyedMsg| |key|) |args|))))
 
 ; keyedMsgCompFailureSP(key, args, atree) ==
 ;     msg_comp_failure1(key, getKeyedMsg(key), args, atree)

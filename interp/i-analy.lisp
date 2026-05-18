@@ -1868,16 +1868,17 @@
 ;     val:= fetchOutput(-1)
 ;     putValue(op,val)
 ;     putModeSet(op,[objMode(val)])
+;   err_msg := '"The argument to %b %% %d must be a single integer."
 ;   argl is [t] =>
 ;     i:= getArgValue(t,$Integer) =>
 ;       val:= fetchOutput i
 ;       putValue(op,val)
 ;       putModeSet(op,[objMode(val)])
-;     throwKeyedMsgSP("S2IB0006", NIL, t)
-;   throwKeyedMsgSP("S2IB0006", NIL, op)
+;     throw_msg_pos("S2IB0006", err_msg, [], t)
+;   throw_msg_pos("S2IB0006", err_msg, [], op)
 
 (DEFUN |bottomUpPercent| (|tree|)
-  (PROG (|op| |argl| |val| |t| |i|)
+  (PROG (|op| |argl| |val| |err_msg| |t| |i|)
     (RETURN
      (PROGN
       (SETQ |op| (CAR |tree|))
@@ -1888,16 +1889,20 @@
          (SETQ |val| (|fetchOutput| (- 1)))
          (|putValue| |op| |val|)
          (|putModeSet| |op| (LIST (|objMode| |val|)))))
-       ((AND (CONSP |argl|) (EQ (CDR |argl|) NIL)
-             (PROGN (SETQ |t| (CAR |argl|)) #1='T))
-        (COND
-         ((SETQ |i| (|getArgValue| |t| |$Integer|))
-          (PROGN
-           (SETQ |val| (|fetchOutput| |i|))
-           (|putValue| |op| |val|)
-           (|putModeSet| |op| (LIST (|objMode| |val|)))))
-         (#1# (|throwKeyedMsgSP| 'S2IB0006 NIL |t|))))
-       (#1# (|throwKeyedMsgSP| 'S2IB0006 NIL |op|)))))))
+       (#1='T
+        (PROGN
+         (SETQ |err_msg| "The argument to %b %% %d must be a single integer.")
+         (COND
+          ((AND (CONSP |argl|) (EQ (CDR |argl|) NIL)
+                (PROGN (SETQ |t| (CAR |argl|)) #1#))
+           (COND
+            ((SETQ |i| (|getArgValue| |t| |$Integer|))
+             (PROGN
+              (SETQ |val| (|fetchOutput| |i|))
+              (|putValue| |op| |val|)
+              (|putModeSet| |op| (LIST (|objMode| |val|)))))
+            (#1# (|throw_msg_pos| 'S2IB0006 |err_msg| NIL |t|))))
+          (#1# (|throw_msg_pos| 'S2IB0006 |err_msg| NIL |op|))))))))))
 
 ; bottomUpFormRetract(t,op,opName,argl,amsl) ==
 ;   -- tries to find one argument, which can be pulled back, and calls

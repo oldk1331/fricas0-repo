@@ -849,6 +849,20 @@
               (|putValue| |x| (|getValue| |code|))
               (|putModeSet| |x| |ms|)))))))))))))
 
+; err_msg_local_type(obj) == msg_comp_failure("S2IC0006", CONCAT(
+;     '"Cannot compile conversion for types involving local variables.  In",
+;     '" particular, could not compile the expression involving %b :: %1p %d"),
+;     [obj])
+
+(DEFUN |err_msg_local_type| (|obj|)
+  (PROG ()
+    (RETURN
+     (|msg_comp_failure| 'S2IC0006
+      (CONCAT
+       "Cannot compile conversion for types involving local variables.  In"
+       " particular, could not compile the expression involving %b :: %1p %d")
+      (LIST |obj|)))))
+
 ; upcase t ==
 ;   t isnt [op,lhs,rhs] => nil
 ;   bottomUp lhs
@@ -871,7 +885,7 @@
 ;               [''T, false]]
 ;   else
 ;     (not $genValue) and or/[CONTAINED(var,rhs) for var in $localVars] =>
-;         keyedMsgCompFailure("S2IC0006",[rhs])
+;             err_msg_local_type(rhs)
 ;     rhs := evaluateType unabbrev rhs
 ;     $genValue =>
 ;         t' := coerceUnion2Branch triple
@@ -979,7 +993,7 @@
                          (COND (|bfVar#19| (RETURN |bfVar#19|))))))
                       (SETQ |bfVar#18| (CDR |bfVar#18|))))
                    NIL |$localVars| NIL))
-             (|keyedMsgCompFailure| 'S2IC0006 (LIST |rhs|)))
+             (|err_msg_local_type| |rhs|))
             (#1#
              (PROGN
               (SETQ |rhs| (|evaluateType| (|unabbrev| |rhs|)))
@@ -1108,7 +1122,7 @@
 ;   $useConvertForCoercions : local := true
 ;   -- do not (yet) support local variables on the rhs
 ;   (not $genValue) and or/[CONTAINED(var,rhs) for var in $localVars] =>
-;     keyedMsgCompFailure("S2IC0006",[rhs])
+;         err_msg_local_type(rhs)
 ;   $declaredMode: local := NIL
 ;   m := evaluateType unabbrev rhs
 ;   not isLegitimateMode(m,NIL,NIL) => throwKeyedMsg("S2IE0004",[m])
@@ -1154,7 +1168,7 @@
                       (COND (|bfVar#23| (RETURN |bfVar#23|))))))
                    (SETQ |bfVar#22| (CDR |bfVar#22|))))
                 NIL |$localVars| NIL))
-          (|keyedMsgCompFailure| 'S2IC0006 (LIST |rhs|)))
+          (|err_msg_local_type| |rhs|))
          (#1#
           (PROGN
            (SETQ |$declaredMode| NIL)
@@ -3716,10 +3730,20 @@
          (|putModeSet| |op| (LIST (OR |tar| |m|)))))
        (#1# (PROGN (|putValue| |op| |val|) (|putModeSet| |op| (LIST |m|)))))))))
 
+; err_cannot_convert(type) == throw_msg("S2IC0007",
+;     '"Cannot convert an element of the construct to type %1bp .", [type])
+
+(DEFUN |err_cannot_convert| (|type|)
+  (PROG ()
+    (RETURN
+     (|throw_msg| 'S2IC0007
+      "Cannot convert an element of the construct to type %1bp ."
+      (LIST |type|)))))
+
 ; evalInfiniteTupleConstruct(op,l,m,tar) ==
 ;   ['Stream, ud] := m
 ;   code := first [(getArgValue(x,['InfiniteTuple, ud]) or
-;     throwKeyedMsg("S2IC0007",[['InifinteTuple, ud]])) for x in l]
+;         err_cannot_convert(['InifinteTuple, ud])) for x in l]
 ;   val :=
 ;     $genValue => objNewWrap(timedEVALFUN code,m)
 ;     objNew(code,m)
@@ -3749,8 +3773,8 @@
                              (CONS
                               (OR
                                (|getArgValue| |x| (LIST '|InfiniteTuple| |ud|))
-                               (|throwKeyedMsg| 'S2IC0007
-                                (LIST (LIST '|InifinteTuple| |ud|))))
+                               (|err_cannot_convert|
+                                (LIST '|InifinteTuple| |ud|)))
                               |bfVar#87|))))
                    (SETQ |bfVar#86| (CDR |bfVar#86|))))
                 NIL |l| NIL)))
@@ -3769,7 +3793,7 @@
 ; evalconstruct(op,l,m,tar) ==
 ;   [agg,:.,underMode]:= m
 ;   code := ['LIST, :(argCode:=[(getArgValue(x,underMode) or
-;     throwKeyedMsg("S2IC0007",[underMode])) for x in l])]
+;         err_cannot_convert(underMode))  for x in l])]
 ;   val :=
 ;     $genValue => objNewWrap(timedEVALFUN code,m)
 ;     objNew(code,m)
@@ -3801,8 +3825,8 @@
                                   (SETQ |bfVar#89|
                                           (CONS
                                            (OR (|getArgValue| |x| |underMode|)
-                                               (|throwKeyedMsg| 'S2IC0007
-                                                (LIST |underMode|)))
+                                               (|err_cannot_convert|
+                                                |underMode|))
                                            |bfVar#89|))))
                                 (SETQ |bfVar#88| (CDR |bfVar#88|))))
                              NIL |l| NIL))))
@@ -4137,8 +4161,11 @@
 ;   mode = $Void => throw_msg_pos("S2IS0015",
 ;       '"An identifier cannot be declared to have type %b Void %d:", [], op)
 ;   not isLegitimateMode(mode,nil,nil) => throwKeyedMsgSP("S2IE0004",[mode],op)
-;   categoryForm?(mode) => throwKeyedMsgSP("S2IE0011",[mode, 'category],op)
-;   packageForm?(mode) => throwKeyedMsgSP("S2IE0011",[mode, 'package],op)
+;   err_m := '"%1bp is a %2 , not a domain, and declarations require domains."
+;   categoryForm?(mode) =>
+;         throw_msg_pos("S2IE0011", err_m, [mode, 'category], op)
+;   packageForm?(mode) =>
+;         throw_msg_pos("S2IE0011", err_m, [mode, 'package], op)
 ;   if true then
 ;     lhs is ['free,['Tuple,:vars]] or lhs is ['free,['LISTOF,:vars]] or
 ;       lhs is ['free,:vars] =>
@@ -4153,7 +4180,7 @@
 ;   putModeSet(op,[$Void])
 
 (DEFUN |upDeclare| (|t|)
-  (PROG (|op| |ISTMP#1| |lhs| |ISTMP#2| |rhs| |mode| |vars|)
+  (PROG (|op| |ISTMP#1| |lhs| |ISTMP#2| |rhs| |mode| |err_m| |vars|)
     (RETURN
      (COND
       ((NOT
@@ -4195,90 +4222,106 @@
            |op|))
          ((NULL (|isLegitimateMode| |mode| NIL NIL))
           (|throwKeyedMsgSP| 'S2IE0004 (LIST |mode|) |op|))
-         ((|categoryForm?| |mode|)
-          (|throwKeyedMsgSP| 'S2IE0011 (LIST |mode| '|category|) |op|))
-         ((|packageForm?| |mode|)
-          (|throwKeyedMsgSP| 'S2IE0011 (LIST |mode| '|package|) |op|))
          (#1#
           (PROGN
+           (SETQ |err_m|
+                   "%1bp is a %2 , not a domain, and declarations require domains.")
            (COND
-            (T
-             (COND
-              ((OR
-                (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|free|)
-                     (PROGN
-                      (SETQ |ISTMP#1| (CDR |lhs|))
-                      (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                           (PROGN
-                            (SETQ |ISTMP#2| (CAR |ISTMP#1|))
-                            (AND (CONSP |ISTMP#2|)
-                                 (EQ (CAR |ISTMP#2|) '|Tuple|)
-                                 (PROGN (SETQ |vars| (CDR |ISTMP#2|)) #1#))))))
-                (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|free|)
-                     (PROGN
-                      (SETQ |ISTMP#1| (CDR |lhs|))
-                      (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                           (PROGN
-                            (SETQ |ISTMP#2| (CAR |ISTMP#1|))
-                            (AND (CONSP |ISTMP#2|) (EQ (CAR |ISTMP#2|) 'LISTOF)
-                                 (PROGN (SETQ |vars| (CDR |ISTMP#2|)) #1#))))))
-                (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|free|)
-                     (PROGN (SETQ |vars| (CDR |lhs|)) #1#)))
-               ((LAMBDA (|bfVar#103| |var|)
-                  (LOOP
-                   (COND
-                    ((OR (ATOM |bfVar#103|)
-                         (PROGN (SETQ |var| (CAR |bfVar#103|)) NIL))
-                     (RETURN NIL))
-                    (#1# (|declare| (LIST '|free| |var|) |mode|)))
-                   (SETQ |bfVar#103| (CDR |bfVar#103|))))
-                |vars| NIL))
-              ((OR
-                (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|local|)
-                     (PROGN
-                      (SETQ |ISTMP#1| (CDR |lhs|))
-                      (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                           (PROGN
-                            (SETQ |ISTMP#2| (CAR |ISTMP#1|))
-                            (AND (CONSP |ISTMP#2|)
-                                 (EQ (CAR |ISTMP#2|) '|Tuple|)
-                                 (PROGN (SETQ |vars| (CDR |ISTMP#2|)) #1#))))))
-                (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|local|)
-                     (PROGN
-                      (SETQ |ISTMP#1| (CDR |lhs|))
-                      (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                           (PROGN
-                            (SETQ |ISTMP#2| (CAR |ISTMP#1|))
-                            (AND (CONSP |ISTMP#2|) (EQ (CAR |ISTMP#2|) 'LISTOF)
-                                 (PROGN (SETQ |vars| (CDR |ISTMP#2|)) #1#))))))
-                (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|local|)
-                     (PROGN (SETQ |vars| (CDR |lhs|)) #1#)))
-               ((LAMBDA (|bfVar#104| |var|)
-                  (LOOP
-                   (COND
-                    ((OR (ATOM |bfVar#104|)
-                         (PROGN (SETQ |var| (CAR |bfVar#104|)) NIL))
-                     (RETURN NIL))
-                    (#1# (|declare| (LIST '|local| |var|) |mode|)))
-                   (SETQ |bfVar#104| (CDR |bfVar#104|))))
-                |vars| NIL))
-              ((OR
-                (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|Tuple|)
-                     (PROGN (SETQ |vars| (CDR |lhs|)) #1#))
-                (AND (CONSP |lhs|) (EQ (CAR |lhs|) 'LISTOF)
-                     (PROGN (SETQ |vars| (CDR |lhs|)) #1#)))
-               ((LAMBDA (|bfVar#105| |var|)
-                  (LOOP
-                   (COND
-                    ((OR (ATOM |bfVar#105|)
-                         (PROGN (SETQ |var| (CAR |bfVar#105|)) NIL))
-                     (RETURN NIL))
-                    (#1# (|declare| |var| |mode|)))
-                   (SETQ |bfVar#105| (CDR |bfVar#105|))))
-                |vars| NIL))
-              (#1# (|declare| |lhs| |mode|)))))
-           (|putValue| |op| (|objNewWrap| (|voidValue|) |$Void|))
-           (|putModeSet| |op| (LIST |$Void|)))))))))))
+            ((|categoryForm?| |mode|)
+             (|throw_msg_pos| 'S2IE0011 |err_m| (LIST |mode| '|category|)
+              |op|))
+            ((|packageForm?| |mode|)
+             (|throw_msg_pos| 'S2IE0011 |err_m| (LIST |mode| '|package|) |op|))
+            (#1#
+             (PROGN
+              (COND
+               (T
+                (COND
+                 ((OR
+                   (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|free|)
+                        (PROGN
+                         (SETQ |ISTMP#1| (CDR |lhs|))
+                         (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
+                              (PROGN
+                               (SETQ |ISTMP#2| (CAR |ISTMP#1|))
+                               (AND (CONSP |ISTMP#2|)
+                                    (EQ (CAR |ISTMP#2|) '|Tuple|)
+                                    (PROGN
+                                     (SETQ |vars| (CDR |ISTMP#2|))
+                                     #1#))))))
+                   (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|free|)
+                        (PROGN
+                         (SETQ |ISTMP#1| (CDR |lhs|))
+                         (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
+                              (PROGN
+                               (SETQ |ISTMP#2| (CAR |ISTMP#1|))
+                               (AND (CONSP |ISTMP#2|)
+                                    (EQ (CAR |ISTMP#2|) 'LISTOF)
+                                    (PROGN
+                                     (SETQ |vars| (CDR |ISTMP#2|))
+                                     #1#))))))
+                   (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|free|)
+                        (PROGN (SETQ |vars| (CDR |lhs|)) #1#)))
+                  ((LAMBDA (|bfVar#103| |var|)
+                     (LOOP
+                      (COND
+                       ((OR (ATOM |bfVar#103|)
+                            (PROGN (SETQ |var| (CAR |bfVar#103|)) NIL))
+                        (RETURN NIL))
+                       (#1# (|declare| (LIST '|free| |var|) |mode|)))
+                      (SETQ |bfVar#103| (CDR |bfVar#103|))))
+                   |vars| NIL))
+                 ((OR
+                   (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|local|)
+                        (PROGN
+                         (SETQ |ISTMP#1| (CDR |lhs|))
+                         (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
+                              (PROGN
+                               (SETQ |ISTMP#2| (CAR |ISTMP#1|))
+                               (AND (CONSP |ISTMP#2|)
+                                    (EQ (CAR |ISTMP#2|) '|Tuple|)
+                                    (PROGN
+                                     (SETQ |vars| (CDR |ISTMP#2|))
+                                     #1#))))))
+                   (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|local|)
+                        (PROGN
+                         (SETQ |ISTMP#1| (CDR |lhs|))
+                         (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
+                              (PROGN
+                               (SETQ |ISTMP#2| (CAR |ISTMP#1|))
+                               (AND (CONSP |ISTMP#2|)
+                                    (EQ (CAR |ISTMP#2|) 'LISTOF)
+                                    (PROGN
+                                     (SETQ |vars| (CDR |ISTMP#2|))
+                                     #1#))))))
+                   (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|local|)
+                        (PROGN (SETQ |vars| (CDR |lhs|)) #1#)))
+                  ((LAMBDA (|bfVar#104| |var|)
+                     (LOOP
+                      (COND
+                       ((OR (ATOM |bfVar#104|)
+                            (PROGN (SETQ |var| (CAR |bfVar#104|)) NIL))
+                        (RETURN NIL))
+                       (#1# (|declare| (LIST '|local| |var|) |mode|)))
+                      (SETQ |bfVar#104| (CDR |bfVar#104|))))
+                   |vars| NIL))
+                 ((OR
+                   (AND (CONSP |lhs|) (EQ (CAR |lhs|) '|Tuple|)
+                        (PROGN (SETQ |vars| (CDR |lhs|)) #1#))
+                   (AND (CONSP |lhs|) (EQ (CAR |lhs|) 'LISTOF)
+                        (PROGN (SETQ |vars| (CDR |lhs|)) #1#)))
+                  ((LAMBDA (|bfVar#105| |var|)
+                     (LOOP
+                      (COND
+                       ((OR (ATOM |bfVar#105|)
+                            (PROGN (SETQ |var| (CAR |bfVar#105|)) NIL))
+                        (RETURN NIL))
+                       (#1# (|declare| |var| |mode|)))
+                      (SETQ |bfVar#105| (CDR |bfVar#105|))))
+                   |vars| NIL))
+                 (#1# (|declare| |lhs| |mode|)))))
+              (|putValue| |op| (|objNewWrap| (|voidValue|) |$Void|))
+              (|putModeSet| |op| (LIST |$Void|))))))))))))))
 
 ; declare(var,mode) ==
 ;   -- performs declaration.

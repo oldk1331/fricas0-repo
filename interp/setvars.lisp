@@ -705,7 +705,16 @@
 ;     displayHiddenConstructors()
 ;     -- give some more details
 ;     sayMSG '" "
-;     sayKeyedMsg("S2IZ0049D", ['"exposed"])
+;     say_msg("S2IZ0049D", CONCAT(
+;             '"When %b )set expose %d is followed by no arguments, the",
+;             '" information you now see is displayed. When followed by",
+;             '" the %b initialize %d argument, the exposure group data in",
+;             '" the file %1b is read and is then available. The arguments",
+;             '" %b add %d and %b drop %d are used to add or drop exposure",
+;             '" groups or explicit constructors from the local frame",
+;             '" exposure data.  Issue %ceon %b )set expose add %d %x3",
+;             '" or %x3 %b )set expose drop %d %ceoff for more information."),
+;             ['"exposed"])
 ;
 ;   arg is [fn,:fnargs] and (fn := selectOptionLC(fn,
 ;     '(add drop initialize),NIL)) =>
@@ -728,7 +737,16 @@
              (|sayMSG| " ")
              (|displayHiddenConstructors|)
              (|sayMSG| " ")
-             (|sayKeyedMsg| 'S2IZ0049D (LIST "exposed"))))
+             (|say_msg| 'S2IZ0049D
+              (CONCAT "When %b )set expose %d is followed by no arguments, the"
+                      " information you now see is displayed. When followed by"
+                      " the %b initialize %d argument, the exposure group data in"
+                      " the file %1b is read and is then available. The arguments"
+                      " %b add %d and %b drop %d are used to add or drop exposure"
+                      " groups or explicit constructors from the local frame"
+                      " exposure data.  Issue %ceon %b )set expose add %d %x3"
+                      " or %x3 %b )set expose drop %d %ceoff for more information.")
+              (LIST "exposed"))))
            ((AND (CONSP |arg|)
                  (PROGN
                   (SETQ |fn| (CAR |arg|))
@@ -752,7 +770,15 @@
 ;     sayMSG '" "
 ;     displayExposedConstructors()
 ;     sayMSG '" "
-;     sayKeyedMsg("S2IZ0049E",NIL)
+;     say_msg("S2IZ0049E", CONCAT(
+;             '"When %b )set expose add %d is followed by no arguments,",
+;             '" the information you now see is displayed.  The arguments",
+;             '" %b group %d and %b constructor %d are used to specify",
+;             '" exposure groups or an explicit constructor to be added",
+;             '" to the local frame exposure data. Issue %ceon %b",
+;             '" )set expose add group %d %ceoff or %ceon %b",
+;             '" )set expose add constructor %d %ceoff for more information."),
+;             [])
 ;   arg is [fn,:fnargs] and (fn := selectOptionLC(fn,
 ;     '(group constructor),NIL)) =>
 ;       fn = 'group  =>  setExposeAddGroup fnargs
@@ -772,7 +798,15 @@
         (|sayMSG| " ")
         (|displayExposedConstructors|)
         (|sayMSG| " ")
-        (|sayKeyedMsg| 'S2IZ0049E NIL)))
+        (|say_msg| 'S2IZ0049E
+         (CONCAT "When %b )set expose add %d is followed by no arguments,"
+                 " the information you now see is displayed.  The arguments"
+                 " %b group %d and %b constructor %d are used to specify"
+                 " exposure groups or an explicit constructor to be added"
+                 " to the local frame exposure data. Issue %ceon %b"
+                 " )set expose add group %d %ceoff or %ceon %b"
+                 " )set expose add constructor %d %ceoff for more information.")
+         NIL)))
       ((AND (CONSP |arg|)
             (PROGN (SETQ |fn| (CAR |arg|)) (SETQ |fnargs| (CDR |arg|)) #1='T)
             (SETQ |fn| (|selectOptionLC| |fn| '(|group| |constructor|) NIL)))
@@ -787,7 +821,13 @@
 ;     --  give msg about exposure groups
 ;     displayExposedGroups()
 ;     sayMSG '" "
-;     sayKeyedMsg("S2IZ0049G", ['"exposed"])
+;     say_msg("S2IZ0049G", CONCAT(
+;             '"When %b )set expose add group %d is followed by no arguments,",
+;             '" the information you now see is displayed. Otherwise, the",
+;             '" words following %b group %d must be valid names of exposure",
+;             '" groups defined in %1b . The group %b all %d is special: using",
+;             '" this group name causes all known constructors to be exposed.",
+;             '"  The known exposure group names are:"), ['"exposed"])
 ;     sayMSG '" "
 ;     sayAsManyPerLineAsPossible [object2String first x for x in
 ;       $globalExposureGroupAlist]
@@ -804,11 +844,16 @@
 ;       displayHiddenConstructors()
 ;       clearClams()
 ;     null GETALIST($globalExposureGroupAlist,x) =>
-;       sayKeyedMsg("S2IZ0049H",[x])
+;             say_msg("S2IZ0049H",
+;                 '"%1b is not a known exposure group name.", [x])
 ;     member(x,$localExposureData.0) =>
-;       sayKeyedMsg("S2IZ0049I",[x,$interpreterFrameName])
+;             say_msg("S2IZ0049I",
+;                 '"%1b is already an exposure group for frame %2b",
+;                 [x, $interpreterFrameName])
 ;     $localExposureData.0 := MSORT cons(x,$localExposureData.0)
-;     sayKeyedMsg("S2IZ0049R",[x,$interpreterFrameName])
+;     say_msg("S2IZ0049R",
+;             '"%1b is now an exposure group for frame %2b",
+;             [x, $interpreterFrameName])
 ;     clearClams()
 
 (DEFUN |setExposeAddGroup| (|arg|)
@@ -821,7 +866,15 @@
          (|specialChar| '|hbar|))
         (|displayExposedGroups|)
         (|sayMSG| " ")
-        (|sayKeyedMsg| 'S2IZ0049G (LIST "exposed"))
+        (|say_msg| 'S2IZ0049G
+         (CONCAT
+          "When %b )set expose add group %d is followed by no arguments,"
+          " the information you now see is displayed. Otherwise, the"
+          " words following %b group %d must be valid names of exposure"
+          " groups defined in %1b . The group %b all %d is special: using"
+          " this group name causes all known constructors to be exposed."
+          "  The known exposure group names are:")
+         (LIST "exposed"))
         (|sayMSG| " ")
         (|sayAsManyPerLineAsPossible|
          ((LAMBDA (|bfVar#9| |bfVar#8| |x|)
@@ -865,14 +918,19 @@
                  (|displayHiddenConstructors|)
                  (|clearClams|)))
                ((NULL (GETALIST |$globalExposureGroupAlist| |x|))
-                (|sayKeyedMsg| 'S2IZ0049H (LIST |x|)))
+                (|say_msg| 'S2IZ0049H "%1b is not a known exposure group name."
+                 (LIST |x|)))
                ((|member| |x| (ELT |$localExposureData| 0))
-                (|sayKeyedMsg| 'S2IZ0049I (LIST |x| |$interpreterFrameName|)))
+                (|say_msg| 'S2IZ0049I
+                 "%1b is already an exposure group for frame %2b"
+                 (LIST |x| |$interpreterFrameName|)))
                (#1#
                 (PROGN
                  (SETF (ELT |$localExposureData| 0)
                          (MSORT (CONS |x| (ELT |$localExposureData| 0))))
-                 (|sayKeyedMsg| 'S2IZ0049R (LIST |x| |$interpreterFrameName|))
+                 (|say_msg| 'S2IZ0049R
+                  "%1b is now an exposure group for frame %2b"
+                  (LIST |x| |$interpreterFrameName|))
                  (|clearClams|)))))))
            (SETQ |bfVar#10| (CDR |bfVar#10|))))
         |arg| NIL))))))
@@ -888,17 +946,23 @@
 ;     if PAIRP x then x := QCAR x
 ;     -- if the constructor is known, we know what type it is
 ;     null(get_database(x, 'CONSTRUCTORKIND)) =>
-;       sayKeyedMsg("S2IZ0049J",[x])
+;             say_msg("S2IZ0049J", CONCAT(
+;                 '"%1b is not a known constructor. You can make the",
+;                 '" constructor known to the system by loading it."), [x])
 ;     member(x,$localExposureData.1) =>
 ;         if noquiet then
-;             sayKeyedMsg("S2IZ0049K", [x, $interpreterFrameName])
+;                 say_msg("S2IZ0049K",
+;                     '"%1b is already explicitly exposed in frame %2b",
+;                     [x, $interpreterFrameName])
 ;     -- if the constructor is explicitly hidden, then remove that
 ;     if member(x,$localExposureData.2) then
 ;       $localExposureData.2 := delete(x,$localExposureData.2)
 ;     $localExposureData.1 := MSORT cons(x,$localExposureData.1)
 ;     clearClams()
 ;     if noquiet then
-;         sayKeyedMsg("S2IZ0049P", [x, $interpreterFrameName])
+;             say_msg("S2IZ0049P",
+;                 '"%1b is now explicitly exposed in frame %2b",
+;                 [x, $interpreterFrameName])
 
 (DEFUN |setExposeAddConstr2| (|arg| |noquiet|)
   (PROG ()
@@ -921,11 +985,15 @@
               (COND ((CONSP |x|) (SETQ |x| (QCAR |x|))))
               (COND
                ((NULL (|get_database| |x| 'CONSTRUCTORKIND))
-                (|sayKeyedMsg| 'S2IZ0049J (LIST |x|)))
+                (|say_msg| 'S2IZ0049J
+                 (CONCAT "%1b is not a known constructor. You can make the"
+                         " constructor known to the system by loading it.")
+                 (LIST |x|)))
                ((|member| |x| (ELT |$localExposureData| 1))
                 (COND
                  (|noquiet|
-                  (|sayKeyedMsg| 'S2IZ0049K
+                  (|say_msg| 'S2IZ0049K
+                   "%1b is already explicitly exposed in frame %2b"
                    (LIST |x| |$interpreterFrameName|)))))
                (#1#
                 (PROGN
@@ -938,7 +1006,8 @@
                  (|clearClams|)
                  (COND
                   (|noquiet|
-                   (|sayKeyedMsg| 'S2IZ0049P
+                   (|say_msg| 'S2IZ0049P
+                    "%1b is now explicitly exposed in frame %2b"
                     (LIST |x| |$interpreterFrameName|))))))))))
            (SETQ |bfVar#13| (CDR |bfVar#13|))))
         |arg| NIL))))))
@@ -955,7 +1024,15 @@
 ;     --  give msg about explicitly hidden constructors
 ;     displayHiddenConstructors()
 ;     sayMSG '" "
-;     sayKeyedMsg("S2IZ0049F",NIL)
+;     say_msg("S2IZ0049F", CONCAT(
+;             '"When %b )set expose drop %d is followed by no arguments,",
+;             '" the information you now see is displayed.  The arguments",
+;             '" %b group %d and %b constructor %d are used to specify",
+;             '" exposure groups or an explicit constructor to be dropped",
+;             '" from the local frame exposure data. Issue %ceon %b",
+;             '" )set expose drop group %d %ceoff or %ceon %b",
+;             '" )set expose drop constructor %d %ceoff for more information."),
+;             [])
 ;   arg is [fn,:fnargs] and (fn := selectOptionLC(fn,
 ;     '(group constructor),NIL)) =>
 ;       fn = 'group  =>  setExposeDropGroup fnargs
@@ -973,7 +1050,15 @@
          (|specialChar| '|hbar|))
         (|displayHiddenConstructors|)
         (|sayMSG| " ")
-        (|sayKeyedMsg| 'S2IZ0049F NIL)))
+        (|say_msg| 'S2IZ0049F
+         (CONCAT "When %b )set expose drop %d is followed by no arguments,"
+                 " the information you now see is displayed.  The arguments"
+                 " %b group %d and %b constructor %d are used to specify"
+                 " exposure groups or an explicit constructor to be dropped"
+                 " from the local frame exposure data. Issue %ceon %b"
+                 " )set expose drop group %d %ceoff or %ceon %b"
+                 " )set expose drop constructor %d %ceoff for more information.")
+         NIL)))
       ((AND (CONSP |arg|)
             (PROGN (SETQ |fn| (CAR |arg|)) (SETQ |fnargs| (CDR |arg|)) #1='T)
             (SETQ |fn| (|selectOptionLC| |fn| '(|group| |constructor|) NIL)))
@@ -985,7 +1070,10 @@
 ; setExposeDropGroup arg ==
 ;   (null arg) =>
 ;     centerAndHighlight ('"The group Option",$LINELENGTH,specialChar 'hbar)
-;     sayKeyedMsg("S2IZ0049L",NIL)
+;     say_msg("S2IZ0049L", CONCAT(
+;             '"When followed by one or more exposure group names, this",
+;             '" option allows you to remove those groups from the local",
+;             '" frame exposure data."), [])
 ;     sayMSG '" "
 ;     displayExposedGroups()
 ;   for x in arg repeat
@@ -1003,10 +1091,14 @@
 ;     member(x,$localExposureData.0) =>
 ;       $localExposureData.0 := delete(x,$localExposureData.0)
 ;       clearClams()
-;       sayKeyedMsg("S2IZ0049S",[x,$interpreterFrameName])
+;       say_msg("S2IZ0049S",
+;                 '"%1b is no longer an exposure group for frame %2b",
+;                 [x,$interpreterFrameName])
 ;     GETALIST($globalExposureGroupAlist,x) =>
-;       sayKeyedMsg("S2IZ0049I",[x,$interpreterFrameName])
-;     sayKeyedMsg("S2IZ0049H",[x])
+;             say_msg("S2IZ0049I",
+;                 '"%1b is already an exposure group for frame %2b",
+;                 [x, $interpreterFrameName])
+;     say_msg("S2IZ0049H", '"%1b is not a known exposure group name.", [x])
 
 (DEFUN |setExposeDropGroup| (|arg|)
   (PROG ()
@@ -1016,7 +1108,11 @@
        (PROGN
         (|centerAndHighlight| "The group Option" $LINELENGTH
          (|specialChar| '|hbar|))
-        (|sayKeyedMsg| 'S2IZ0049L NIL)
+        (|say_msg| 'S2IZ0049L
+         (CONCAT "When followed by one or more exposure group names, this"
+                 " option allows you to remove those groups from the local"
+                 " frame exposure data.")
+         NIL)
         (|sayMSG| " ")
         (|displayExposedGroups|)))
       (#1='T
@@ -1045,11 +1141,16 @@
                  (SETF (ELT |$localExposureData| 0)
                          (|delete| |x| (ELT |$localExposureData| 0)))
                  (|clearClams|)
-                 (|sayKeyedMsg| 'S2IZ0049S
+                 (|say_msg| 'S2IZ0049S
+                  "%1b is no longer an exposure group for frame %2b"
                   (LIST |x| |$interpreterFrameName|))))
                ((GETALIST |$globalExposureGroupAlist| |x|)
-                (|sayKeyedMsg| 'S2IZ0049I (LIST |x| |$interpreterFrameName|)))
-               (#1# (|sayKeyedMsg| 'S2IZ0049H (LIST |x|)))))))
+                (|say_msg| 'S2IZ0049I
+                 "%1b is already an exposure group for frame %2b"
+                 (LIST |x| |$interpreterFrameName|)))
+               (#1#
+                (|say_msg| 'S2IZ0049H "%1b is not a known exposure group name."
+                 (LIST |x|)))))))
            (SETQ |bfVar#14| (CDR |bfVar#14|))))
         |arg| NIL))))))
 
@@ -1057,7 +1158,10 @@
 ;   (null arg) =>
 ;     centerAndHighlight ('"The constructor Option",$LINELENGTH,
 ;       specialChar 'hbar)
-;     sayKeyedMsg("S2IZ0049N",NIL)
+;     say_msg("S2IZ0049N", CONCAT(
+;             '"When followed by one or more constructor names, this option",
+;             '" allows you to explicitly hide constructors in this frame."),
+;             [])
 ;     sayMSG '" "
 ;     displayExposedConstructors()
 ;     sayMSG '" "
@@ -1067,14 +1171,20 @@
 ;     if PAIRP x then x := QCAR x
 ;     -- if the constructor is known, we know what type it is
 ;     null(get_database(x, 'CONSTRUCTORKIND)) =>
-;       sayKeyedMsg("S2IZ0049J",[x])
+;             say_msg("S2IZ0049J", CONCAT(
+;                 '"%1b is not a known constructor. You can make the",
+;                 '" constructor known to the system by loading it."), [x])
 ;     member(x,$localExposureData.2) =>
-;       sayKeyedMsg("S2IZ0049O",[x,$interpreterFrameName])
+;             say_msg("S2IZ0049O",
+;                 '"%1b is already explicitly hidden in frame %2b",
+;                 [x, $interpreterFrameName])
 ;     if member(x,$localExposureData.1) then
 ;       $localExposureData.1 := delete(x,$localExposureData.1)
 ;     $localExposureData.2 := MSORT cons(x,$localExposureData.2)
 ;     clearClams()
-;     sayKeyedMsg("S2IZ0049Q",[x,$interpreterFrameName])
+;     say_msg("S2IZ0049Q",
+;             '"%1b is now explicitly hidden in frame %2b",
+;             [x, $interpreterFrameName])
 
 (DEFUN |setExposeDropConstr| (|arg|)
   (PROG ()
@@ -1084,7 +1194,10 @@
        (PROGN
         (|centerAndHighlight| "The constructor Option" $LINELENGTH
          (|specialChar| '|hbar|))
-        (|sayKeyedMsg| 'S2IZ0049N NIL)
+        (|say_msg| 'S2IZ0049N
+         (CONCAT "When followed by one or more constructor names, this option"
+                 " allows you to explicitly hide constructors in this frame.")
+         NIL)
         (|sayMSG| " ")
         (|displayExposedConstructors|)
         (|sayMSG| " ")
@@ -1101,9 +1214,14 @@
               (COND ((CONSP |x|) (SETQ |x| (QCAR |x|))))
               (COND
                ((NULL (|get_database| |x| 'CONSTRUCTORKIND))
-                (|sayKeyedMsg| 'S2IZ0049J (LIST |x|)))
+                (|say_msg| 'S2IZ0049J
+                 (CONCAT "%1b is not a known constructor. You can make the"
+                         " constructor known to the system by loading it.")
+                 (LIST |x|)))
                ((|member| |x| (ELT |$localExposureData| 2))
-                (|sayKeyedMsg| 'S2IZ0049O (LIST |x| |$interpreterFrameName|)))
+                (|say_msg| 'S2IZ0049O
+                 "%1b is already explicitly hidden in frame %2b"
+                 (LIST |x| |$interpreterFrameName|)))
                (#1#
                 (PROGN
                  (COND
@@ -1113,7 +1231,8 @@
                  (SETF (ELT |$localExposureData| 2)
                          (MSORT (CONS |x| (ELT |$localExposureData| 2))))
                  (|clearClams|)
-                 (|sayKeyedMsg| 'S2IZ0049Q
+                 (|say_msg| 'S2IZ0049Q
+                  "%1b is now explicitly hidden in frame %2b"
                   (LIST |x| |$interpreterFrameName|))))))))
            (SETQ |bfVar#15| (CDR |bfVar#15|))))
         |arg| NIL))))))

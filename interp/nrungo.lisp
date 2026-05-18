@@ -432,8 +432,7 @@
 ;   -- gives k boundary values, one general term plus possibly an
 ;   -- "out of domain" condition
 ;   pcl := [x for x in pcl | not (x is [''T,:mess] and
-;     (CONTAINED('throwMessage,mess) or
-;       CONTAINED('throwKeyedMsg,mess)))]
+;         CONTAINED('throw_msg, mess))]
 ;   integer := EVAL $Integer
 ;   iequalSlot := compiledLookupCheck("=", '((Boolean) % %), integer)
 ;   lt_slot := compiledLookupCheck("<", '((Boolean) % %), integer)
@@ -540,8 +539,7 @@
                        (NULL
                         (AND (CONSP |x|) (EQUAL (CAR |x|) ''T)
                              (PROGN (SETQ |mess| (CDR |x|)) #1#)
-                             (OR (CONTAINED '|throwMessage| |mess|)
-                                 (CONTAINED '|throwKeyedMsg| |mess|))))
+                             (CONTAINED '|throw_msg| |mess|)))
                        (SETQ |bfVar#18| (CONS |x| |bfVar#18|)))))
                     (SETQ |bfVar#17| (CDR |bfVar#17|))))
                  NIL |pcl| NIL))
