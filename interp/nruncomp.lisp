@@ -71,7 +71,8 @@
 ;   sig := substitute('%, dc, substitute("$$", '%,sig))
 ;   dcCode :=
 ;     dc = '% => 0
-;     NRTassocIndex dc or keyedSystemError("S2NR0004",[dc])
+;     NRTassocIndex(dc) or system_error("S2NR0004",
+;         '"Cannot find domain in template: %1s", [dc])
 ;   formalSig:= SUBLISLIS($FormalMapVariableList,$formalArgList,sig)
 ;   kindFlag:= (kind = 'CONST => 'CONST; nil)
 ;   newSig := [NRTassocIndex x or x for x in formalSig]
@@ -101,7 +102,9 @@
                 (COND ((EQ |dc| '%) 0)
                       (#1#
                        (OR (|NRTassocIndex| |dc|)
-                           (|keyedSystemError| 'S2NR0004 (LIST |dc|))))))
+                           (|system_error| 'S2NR0004
+                            "Cannot find domain in template: %1s"
+                            (LIST |dc|))))))
         (SETQ |formalSig|
                 (SUBLISLIS |$FormalMapVariableList| |$formalArgList| |sig|))
         (SETQ |kindFlag| (COND ((EQ |kind| 'CONST) 'CONST) (#1# NIL)))
@@ -2645,7 +2648,7 @@
 ;     getConstructorSignature x is [., :ml] =>
 ;         for y in rest x for m in ml | not (y = '%) repeat
 ;             isCategoryForm(m) => NRTinnerGetLocalIndex(y, e)
-;     keyedSystemError("S2NR0003", [x])
+;     system_error("S2NR0003", '"Error while instantiating type %1b", [x])
 ;   x
 
 (DEFUN |NRTaddInner| (|x| |e|)
@@ -2722,7 +2725,9 @@
                  (SETQ |bfVar#126| (CDR |bfVar#126|))
                  (SETQ |bfVar#127| (CDR |bfVar#127|))))
               (CDR |x|) NIL |ml| NIL))
-            (#1# (|keyedSystemError| 'S2NR0003 (LIST |x|))))
+            (#1#
+             (|system_error| 'S2NR0003 "Error while instantiating type %1b"
+              (LIST |x|))))
       |x|))))
 
 ; NRTinnerGetLocalIndex(x, e) ==

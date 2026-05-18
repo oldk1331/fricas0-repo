@@ -614,7 +614,7 @@
 ;     ncPutQ(carrier, 'ok?, nerr = 0)
 ;     nerr = 0 => 'OK
 ;     processMsgList(msgs, lines)
-;     intSayKeyedMsg ('S2CTP010,[nerr])
+;     say_msg("S2CTP010", '"%b %1 error(s) parsing %d", [nerr])
 ;     'OK
 
 (DEFUN |phIntReportMsgs| (|carrier| |interactive?|)
@@ -631,14 +631,9 @@
                    (#1#
                     (PROGN
                      (|processMsgList| |msgs| |lines|)
-                     (|intSayKeyedMsg| 'S2CTP010 (LIST |nerr|))
+                     (|say_msg| 'S2CTP010 "%b %1 error(s) parsing %d"
+                      (LIST |nerr|))
                      'OK)))))))))
-
-; intSayKeyedMsg(key, args) ==
-;   sayKeyedMsg(key, args)
-
-(DEFUN |intSayKeyedMsg| (|key| |args|)
-  (PROG () (RETURN (|sayKeyedMsg| |key| |args|))))
 
 ; mkLineList lines ==
 ;   l := [rest line for line in lines | nonBlank rest line]
@@ -825,7 +820,7 @@
 ;
 ;     ptree  := macroExpanded ptree
 ;     if $ncmMacro then
-;         intSayKeyedMsg ('S2CTP007,[%pform ptree] )
+;         say_msg("S2CTP007", '"Macro expanded: %U %1fl", [%pform ptree])
 ;
 ;     ncPutQ(carrier, 'ptree, ptree)
 ;     'OK
@@ -839,7 +834,9 @@
       (|ncPutQ| |carrier| '|ptreePremacro| |ptree|)
       (SETQ |ptree| (|macroExpanded| |ptree|))
       (COND
-       (|$ncmMacro| (|intSayKeyedMsg| 'S2CTP007 (LIST (|%pform| |ptree|)))))
+       (|$ncmMacro|
+        (|say_msg| 'S2CTP007 "Macro expanded: %U %1fl"
+         (LIST (|%pform| |ptree|)))))
       (|ncPutQ| |carrier| '|ptree| |ptree|)
       'OK))))
 
@@ -906,11 +903,11 @@
 
 ; phBegin id ==
 ;     $convPhase := id
-;     if $ncmPhase then intSayKeyedMsg('S2CTP021,[id])
+;     if $ncmPhase then say_msg("S2CTP021", '"%1 ...", [id])
 
 (DEFUN |phBegin| (|id|)
   (PROG ()
     (RETURN
      (PROGN
       (SETQ |$convPhase| |id|)
-      (COND (|$ncmPhase| (|intSayKeyedMsg| 'S2CTP021 (LIST |id|))))))))
+      (COND (|$ncmPhase| (|say_msg| 'S2CTP021 "%1 ..." (LIST |id|))))))))

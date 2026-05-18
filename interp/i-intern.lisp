@@ -1179,11 +1179,20 @@
 
 (DEFUN |isLeaf| (|x|) (PROG () (RETURN (ATOM |x|))))
 
+; not_vector(x) == system_error("S2II0001",
+;     '"The attributed tree form %1s is not a vector.", [x])
+
+(DEFUN |not_vector| (|x|)
+  (PROG ()
+    (RETURN
+     (|system_error| 'S2II0001 "The attributed tree form %1s is not a vector."
+      (LIST |x|)))))
+
 ; getMode x ==
 ;   x is [op,:.] => getMode op
 ;   VECP x => x.1
 ;   m := getBasicMode x => m
-;   keyedSystemError("S2II0001",[x])
+;   not_vector(x)
 
 (DEFUN |getMode| (|x|)
   (PROG (|op| |m|)
@@ -1191,11 +1200,11 @@
      (COND
       ((AND (CONSP |x|) (PROGN (SETQ |op| (CAR |x|)) #1='T)) (|getMode| |op|))
       ((VECP |x|) (ELT |x| 1)) ((SETQ |m| (|getBasicMode| |x|)) |m|)
-      (#1# (|keyedSystemError| 'S2II0001 (LIST |x|)))))))
+      (#1# (|not_vector| |x|))))))
 
 ; putMode(x,y) ==
 ;   x is [op,:.] => putMode(op,y)
-;   null VECP x => keyedSystemError("S2II0001",[x])
+;   null(VECP(x)) => not_vector(x)
 ;   x.1 := y
 
 (DEFUN |putMode| (|x| |y|)
@@ -1204,14 +1213,13 @@
      (COND
       ((AND (CONSP |x|) (PROGN (SETQ |op| (CAR |x|)) #1='T))
        (|putMode| |op| |y|))
-      ((NULL (VECP |x|)) (|keyedSystemError| 'S2II0001 (LIST |x|)))
-      (#1# (SETF (ELT |x| 1) |y|))))))
+      ((NULL (VECP |x|)) (|not_vector| |x|)) (#1# (SETF (ELT |x| 1) |y|))))))
 
 ; getValue x ==
 ;   VECP x => x.2
 ;   atom x =>
 ;     t := getBasicObject x => t
-;     keyedSystemError("S2II0001",[x])
+;     not_vector(x)
 ;   getValue first x
 
 (DEFUN |getValue| (|x|)
@@ -1220,12 +1228,12 @@
      (COND ((VECP |x|) (ELT |x| 2))
            ((ATOM |x|)
             (COND ((SETQ |t| (|getBasicObject| |x|)) |t|)
-                  (#1='T (|keyedSystemError| 'S2II0001 (LIST |x|)))))
+                  (#1='T (|not_vector| |x|))))
            (#1# (|getValue| (CAR |x|)))))))
 
 ; putValue(x,y) ==
 ;   x is [op,:.] => putValue(op,y)
-;   null VECP x => keyedSystemError("S2II0001",[x])
+;   null(VECP(x)) => not_vector(x)
 ;   x.2 := y
 
 (DEFUN |putValue| (|x| |y|)
@@ -1234,8 +1242,7 @@
      (COND
       ((AND (CONSP |x|) (PROGN (SETQ |op| (CAR |x|)) #1='T))
        (|putValue| |op| |y|))
-      ((NULL (VECP |x|)) (|keyedSystemError| 'S2II0001 (LIST |x|)))
-      (#1# (SETF (ELT |x| 2) |y|))))))
+      ((NULL (VECP |x|)) (|not_vector| |x|)) (#1# (SETF (ELT |x| 2) |y|))))))
 
 ; putValueValue(vec,val) ==
 ;   putValue(vec,val)
@@ -1272,19 +1279,18 @@
 
 ; getUnname1 x ==
 ;   VECP x => x.0
-;   null atom x => keyedSystemError("S2II0001",[x])
+;   null(atom(x)) => not_vector(x)
 ;   x
 
 (DEFUN |getUnname1| (|x|)
   (PROG ()
     (RETURN
-     (COND ((VECP |x|) (ELT |x| 0))
-           ((NULL (ATOM |x|)) (|keyedSystemError| 'S2II0001 (LIST |x|)))
+     (COND ((VECP |x|) (ELT |x| 0)) ((NULL (ATOM |x|)) (|not_vector| |x|))
            ('T |x|)))))
 
 ; computedMode t ==
-;   getModeSet t is [m] => m
-;   keyedSystemError("S2GE0016",['"computedMode",'"non-singleton modeset"])
+;     getModeSet(t) is [m] => m
+;     unexpected_error(['"computedMode", '"non-singleton modeset"])
 
 (DEFUN |computedMode| (|t|)
   (PROG (|ISTMP#1| |m|)
@@ -1296,12 +1302,11 @@
              (PROGN (SETQ |m| (CAR |ISTMP#1|)) #1='T)))
        |m|)
       (#1#
-       (|keyedSystemError| 'S2GE0016
-        (LIST "computedMode" "non-singleton modeset")))))))
+       (|unexpected_error| (LIST "computedMode" "non-singleton modeset")))))))
 
 ; putModeSet(x,y) ==
 ;   x is [op,:.] => putModeSet(op,y)
-;   not VECP x => keyedSystemError("S2II0001",[x])
+;   not(VECP(x)) => not_vector(x)
 ;   x.3 := y
 ;   y
 
@@ -1311,7 +1316,7 @@
      (COND
       ((AND (CONSP |x|) (PROGN (SETQ |op| (CAR |x|)) #1='T))
        (|putModeSet| |op| |y|))
-      ((NULL (VECP |x|)) (|keyedSystemError| 'S2II0001 (LIST |x|)))
+      ((NULL (VECP |x|)) (|not_vector| |x|))
       (#1# (PROGN (SETF (ELT |x| 3) |y|) |y|))))))
 
 ; getModeOrFirstModeSetIfThere x ==
@@ -1353,11 +1358,10 @@
 ;       (y = [$EmptyMode]) and ((m := getMode x) is ['Mapping,:.]) =>
 ;         [m]
 ;       y
-;     keyedSystemError("S2GE0016",['"getModeSet",'"no mode set"])
+;     unexpected_error(['"getModeSet", '"no mode set"])
 ;   m:= getBasicMode x => [m]
 ;   null atom x => getModeSet first x
-;   keyedSystemError("S2GE0016",['"getModeSet",
-;     '"not an attributed tree"])
+;   unexpected_error(['"getModeSet", '"not an attributed tree"])
 
 (DEFUN |getModeSet| (|x|)
   (PROG (|y| |m| |ISTMP#1|)
@@ -1373,13 +1377,11 @@
                       (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|Mapping|))))
                 (LIST |m|))
                (#1='T |y|)))
-             (#1#
-              (|keyedSystemError| 'S2GE0016
-               (LIST "getModeSet" "no mode set")))))
+             (#1# (|unexpected_error| (LIST "getModeSet" "no mode set")))))
            ((SETQ |m| (|getBasicMode| |x|)) (LIST |m|))
            ((NULL (ATOM |x|)) (|getModeSet| (CAR |x|)))
            (#1#
-            (|keyedSystemError| 'S2GE0016
+            (|unexpected_error|
              (LIST "getModeSet" "not an attributed tree")))))))
 
 ; getModeSetUseSubdomain x ==
@@ -1402,12 +1404,10 @@
 ;         INTEGERP(f := objValUnwrap val) =>
 ;           [getBasicMode0(f,true)]
 ;       y
-;     keyedSystemError("S2GE0016",
-;       ['"getModeSetUseSubomain",'"no mode set"])
+;     unexpected_error(['"getModeSetUseSubomain", '"no mode set"])
 ;   m := getBasicMode0(x,true) => [m]
 ;   null atom x => getModeSetUseSubdomain first x
-;   keyedSystemError("S2GE0016",
-;     ['"getModeSetUseSubomain",'"not an attributed tree"])
+;   unexpected_error(['"getModeSetUseSubomain", '"not an attributed tree"])
 
 (DEFUN |getModeSetUseSubdomain| (|x|)
   (PROG (|y| |m| |ISTMP#1| |val| |f|)
@@ -1442,12 +1442,12 @@
                         (LIST (|getBasicMode0| |f| T)))
                        (#1# |y|))))))
                   (#1#
-                   (|keyedSystemError| 'S2GE0016
+                   (|unexpected_error|
                     (LIST "getModeSetUseSubomain" "no mode set")))))
            ((SETQ |m| (|getBasicMode0| |x| T)) (LIST |m|))
            ((NULL (ATOM |x|)) (|getModeSetUseSubdomain| (CAR |x|)))
            (#1#
-            (|keyedSystemError| 'S2GE0016
+            (|unexpected_error|
              (LIST "getModeSetUseSubomain" "not an attributed tree")))))))
 
 ; getValueFromEnvironment(x,mode) ==

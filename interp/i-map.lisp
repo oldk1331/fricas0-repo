@@ -119,6 +119,34 @@
            (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) 'SPADMAP)))
           (IDENTITY |x|)))))))))
 
+; check_partial(mode) ==
+;     if isPartialMode(mode) then throw_msg("S2IM0004", CONCAT(
+;         '"Partial types are not allowed in the declarations of",
+;         '" function arguments or return types."), [])
+
+(DEFUN |check_partial| (|mode|)
+  (PROG ()
+    (RETURN
+     (COND
+      ((|isPartialMode| |mode|)
+       (|throw_msg| 'S2IM0004
+        (CONCAT "Partial types are not allowed in the declarations of"
+                " function arguments or return types.")
+        NIL))))))
+
+; msg_wrong_arg_number(op) ==
+;     throw_msg("S2IM0008", CONCAT(
+;         '"The number of parameters in your definition for %1bp does not",
+;         '" correspond to the declared number of arguments."), [op])
+
+(DEFUN |msg_wrong_arg_number| (|op|)
+  (PROG ()
+    (RETURN
+     (|throw_msg| 'S2IM0008
+      (CONCAT "The number of parameters in your definition for %1bp does not"
+              " correspond to the declared number of arguments.")
+      (LIST |op|)))))
+
 ; addDefMap(['DEF,lhs,mapsig,.,rhs],pred) ==
 ;   -- Create a new map, add to an existing one, or define a variable
 ;   --   compute the dependencies for a map
@@ -168,7 +196,7 @@
 ;     if d then
 ;       someDecs := true
 ;       d' := evaluateType unabbrev d
-;       isPartialMode d' => throwKeyedMsg("S2IM0004",NIL)
+;       check_partial(d')
 ;       mapmode := [d',:mapmode]
 ;     else allDecs := false
 ;   if allDecs then
@@ -188,7 +216,7 @@
 ;           throw_msg("S2IM0027", CONCAT( _
 ;     '"No arguments are allowed on the left had side of a rule definition", _
 ;     '" and you supplied %1b for rule %2b"), [numargs, op])
-;       #rest lhs ~= #mapargs => throwKeyedMsg("S2IM0008",[op])
+;       #rest lhs ~= #mapargs => msg_wrong_arg_number(op)
 ;   --get all the user variables in the map definition.  This is a multi
 ;   --step process as this should not include recursive calls to the map
 ;   --itself, or the formal parameters
@@ -276,8 +304,7 @@
                (COND
                 (|d| (SETQ |someDecs| T)
                  (SETQ |d'| (|evaluateType| (|unabbrev| |d|)))
-                 (COND ((|isPartialMode| |d'|) (|throwKeyedMsg| 'S2IM0004 NIL))
-                       (#2# (SETQ |mapmode| (CONS |d'| |mapmode|)))))
+                 (|check_partial| |d'|) (SETQ |mapmode| (CONS |d'| |mapmode|)))
                 (#2# (SETQ |allDecs| NIL)))))
              (SETQ |bfVar#3| (CDR |bfVar#3|))))
           |mapsig| NIL)
@@ -308,7 +335,7 @@
                " and you supplied %1b for rule %2b")
               (LIST |numargs| |op|)))
             ((NOT (EQL (LENGTH (CDR |lhs|)) (LENGTH |mapargs|)))
-             (|throwKeyedMsg| 'S2IM0008 (LIST |op|))))))
+             (|msg_wrong_arg_number| |op|)))))
          (SETQ |userVariables1| (|getUserIdentifiersIn| |rhs|))
          (SETQ |$freeVars| NIL)
          (SETQ |$localVars| NIL)
@@ -617,8 +644,8 @@
 ;     x is ["ON",.,y]   => varList:= [:getUserIdentifiersIn y,:varList]
 ;     x is [op,a] and op in '(_| WHILE UNTIL) =>
 ;       varList:= [:getUserIdentifiersIn a,:varList]
-;     keyedSystemError("S2GE0016",['"getUserIdentifiersInIterators",
-;       '"unknown iterator construct"])
+;     unexpected_error(['"getUserIdentifiersInIterators",
+;                       '"unknown iterator construct"])
 ;   REMDUP varList
 
 (DEFUN |getUserIdentifiersInIterators| (|itl|)
@@ -682,7 +709,7 @@
                    (|member| |op| '(|\|| WHILE UNTIL)))
               (SETQ |varList| (APPEND (|getUserIdentifiersIn| |a|) |varList|)))
              (#1#
-              (|keyedSystemError| 'S2GE0016
+              (|unexpected_error|
                (LIST "getUserIdentifiersInIterators"
                      "unknown iterator construct"))))))
           (SETQ |bfVar#15| (CDR |bfVar#15|))))
@@ -2459,8 +2486,7 @@
 ;       mapRecurDepth(opName, opList, getMapBody(op, mapDef))
 ;         + argc
 ;     argc
-;   keyedSystemError("S2GE0016",['"mapRecurDepth",
-;     '"unknown function form"])
+;   unexpected_error(['"mapRecurDepth", '"unknown function form"])
 
 (DEFUN |mapRecurDepth| (|opName| |opList| |body|)
   (PROG (|op| |argl| |argc| |obj| |ISTMP#1| |mapDef|)
@@ -2504,7 +2530,7 @@
                       |argc|)))
                    (#1# |argc|))))
            (#1#
-            (|keyedSystemError| 'S2GE0016
+            (|unexpected_error|
              (LIST "mapRecurDepth" "unknown function form")))))))
 
 ; analyzeUndeclaredMap(op,argTypes,mapDef,$mapList) ==
@@ -2887,8 +2913,7 @@
 ;         expandRecursiveBody([op,:alreadyExpanded],newBody)
 ;       [op,:[expandRecursiveBody(alreadyExpanded,arg) for arg in argl]]
 ;     [op,:[expandRecursiveBody(alreadyExpanded,arg) for arg in argl]]
-;   keyedSystemError("S2GE0016",['"expandRecursiveBody",
-;     '"unknown form of function body"])
+;   unexpected_error(['"expandRecursiveBody", '"unknown form of function body"])
 
 (DEFUN |expandRecursiveBody| (|alreadyExpanded| |body|)
   (PROG (|obj| |ISTMP#1| |mapDef| |op| |argl| |newBody|)
@@ -2960,7 +2985,7 @@
                    (SETQ |bfVar#104| (CDR |bfVar#104|))))
                 NIL |argl| NIL)))))
       (#1#
-       (|keyedSystemError| 'S2GE0016
+       (|unexpected_error|
         (LIST "expandRecursiveBody" "unknown form of function body")))))))
 
 ; nonRecursivePart1(opName, funBody) ==
@@ -3073,8 +3098,7 @@
 ;   form is [op,:argl] =>
 ;     op=opName => false
 ;     and/[notCalled(opName,x) for x in argl]
-;   keyedSystemError("S2GE0016",['"notCalled",
-;     '"unknown form of function body"])
+;   unexpected_error(['"notCalled", '"unknown form of function body"])
 
 (DEFUN |notCalled| (|opName| |form|)
   (PROG (|op| |argl|)
@@ -3100,7 +3124,7 @@
                        (SETQ |bfVar#110| (CDR |bfVar#110|))))
                     T |argl| NIL))))
            (#1#
-            (|keyedSystemError| 'S2GE0016
+            (|unexpected_error|
              (LIST "notCalled" "unknown form of function body")))))))
 
 ; mapDefsWithCorrectArgCount(n, mapDef) ==
@@ -3156,8 +3180,7 @@
 ;     isSharpVarWithNum cond or (cond is ['Tuple,:args] and
 ;       and/[isSharpVarWithNum arg for arg in args]) or (null cond) => part
 ;     ['IF,mkMapPred cond,part,combineMapParts restMap]
-;   keyedSystemError("S2GE0016",['"combineMapParts",
-;     '"unknown function form"])
+;   unexpected_error(['"combineMapParts", '"unknown function form"])
 
 (DEFUN |combineMapParts| (|mapTail|)
   (PROG (|ISTMP#1| |cond| |part| |restMap| |args|)
@@ -3194,7 +3217,7 @@
               (LIST 'IF (|mkMapPred| |cond|) |part|
                     (|combineMapParts| |restMap|)))))
            (#1#
-            (|keyedSystemError| 'S2GE0016
+            (|unexpected_error|
              (LIST "combineMapParts" "unknown function form")))))))
 
 ; mkMapPred cond ==

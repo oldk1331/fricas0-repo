@@ -2191,8 +2191,8 @@
 ;   -- return function named op in domain dom if unique, choose one if not
 ;   mmList := ASSQ(opName, getOperationAlistFromLisplib first dom)
 ;   mmList := subCopy(mmList,constructSubst dom)
-;   null mmList =>
-;     throwKeyedMsg("S2IS0021",[opName,dom])
+;   null mmList => throw_msg("S2IS0021",
+;         '"The function %1b is not implemented in %2bp .", [opName, dom])
 ;   mmList := rest mmList   -- ignore the operator name
 ;   -- use evaluation type context to narrow down the candidate set
 ;   if target := getTarget op then
@@ -2213,7 +2213,8 @@
 ;          compiledLookupCheck(opName,sig,evalDomain dom)
 ;       NRTcompileEvalForm(opName, sig, evalDomain dom)
 ;   NULL(fun) or NULL(PAIRP(fun)) => NIL
-;   first fun = function(Undef) => throwKeyedMsg("S2IS0023", [opName, dom])
+;   first fun = function(Undef) => throw_msg("S2IS0023",
+;         '"The function %1b is not implemented in %2bp .", [opName, dom])
 ;   binVal :=
 ;     $genValue => wrap fun
 ;     fun
@@ -2227,61 +2228,63 @@
       (SETQ |mmList|
               (ASSQ |opName| (|getOperationAlistFromLisplib| (CAR |dom|))))
       (SETQ |mmList| (|subCopy| |mmList| (|constructSubst| |dom|)))
-      (COND ((NULL |mmList|) (|throwKeyedMsg| 'S2IS0021 (LIST |opName| |dom|)))
-            (#1='T
-             (PROGN
-              (SETQ |mmList| (CDR |mmList|))
-              (COND
-               ((SETQ |target| (|getTarget| |op|))
-                (SETQ |mmList|
-                        ((LAMBDA (|bfVar#46| |bfVar#45| |mm|)
-                           (LOOP
-                            (COND
-                             ((OR (ATOM |bfVar#45|)
-                                  (PROGN (SETQ |mm| (CAR |bfVar#45|)) NIL))
-                              (RETURN (NREVERSE |bfVar#46|)))
-                             (#1#
-                              (AND (CONSP |mm|)
-                                   (EQUAL (CAR |mm|) (CDR |target|))
-                                   (SETQ |bfVar#46| (CONS |mm| |bfVar#46|)))))
-                            (SETQ |bfVar#45| (CDR |bfVar#45|))))
-                         NIL |mmList| NIL))
-                (COND
-                 ((NULL |mmList|)
-                  (|throw_msg| 'S2IS0061
-                   (CONCAT
-                    "There is no operation named %1b with type %2p in the domain"
-                    " or package %3p.")
-                   (LIST |opName| |target| |dom|))))))
-              (COND
-               ((< 1 (LENGTH |mmList|))
-                (SETQ |mm| (|selectMostGeneralMm| |mmList|))
-                (|say_msg| 'S2IS0022
-                 (CONCAT
-                  "There is more than one %1b in the domain or package %2bp ."
-                  " The one being chosen has type %3bp .")
-                 (LIST |opName| |dom| (CONS '|Mapping| (CAR |mm|)))))
-               (#1# (SETQ |mm| (CAR |mmList|))))
-              (SETQ |sig| (CAR |mm|))
-              (SETQ |slot| (CADR |mm|))
-              (SETQ |fun|
-                      (COND
-                       (|$genValue|
-                        (|compiledLookupCheck| |opName| |sig|
-                         (|evalDomain| |dom|)))
-                       (#1#
-                        (|NRTcompileEvalForm| |opName| |sig|
-                         (|evalDomain| |dom|)))))
-              (COND ((OR (NULL |fun|) (NULL (CONSP |fun|))) NIL)
-                    ((EQUAL (CAR |fun|) #'|Undef|)
-                     (|throwKeyedMsg| 'S2IS0023 (LIST |opName| |dom|)))
-                    (#1#
-                     (PROGN
-                      (SETQ |binVal|
-                              (COND (|$genValue| (|wrap| |fun|)) (#1# |fun|)))
-                      (|putValue| |op|
-                       (|objNew| |binVal| (SETQ |m| (CONS '|Mapping| |sig|))))
-                      (|putModeSet| |op| (LIST |m|))))))))))))
+      (COND
+       ((NULL |mmList|)
+        (|throw_msg| 'S2IS0021 "The function %1b is not implemented in %2bp ."
+         (LIST |opName| |dom|)))
+       (#1='T
+        (PROGN
+         (SETQ |mmList| (CDR |mmList|))
+         (COND
+          ((SETQ |target| (|getTarget| |op|))
+           (SETQ |mmList|
+                   ((LAMBDA (|bfVar#46| |bfVar#45| |mm|)
+                      (LOOP
+                       (COND
+                        ((OR (ATOM |bfVar#45|)
+                             (PROGN (SETQ |mm| (CAR |bfVar#45|)) NIL))
+                         (RETURN (NREVERSE |bfVar#46|)))
+                        (#1#
+                         (AND (CONSP |mm|) (EQUAL (CAR |mm|) (CDR |target|))
+                              (SETQ |bfVar#46| (CONS |mm| |bfVar#46|)))))
+                       (SETQ |bfVar#45| (CDR |bfVar#45|))))
+                    NIL |mmList| NIL))
+           (COND
+            ((NULL |mmList|)
+             (|throw_msg| 'S2IS0061
+              (CONCAT
+               "There is no operation named %1b with type %2p in the domain"
+               " or package %3p.")
+              (LIST |opName| |target| |dom|))))))
+         (COND
+          ((< 1 (LENGTH |mmList|)) (SETQ |mm| (|selectMostGeneralMm| |mmList|))
+           (|say_msg| 'S2IS0022
+            (CONCAT
+             "There is more than one %1b in the domain or package %2bp ."
+             " The one being chosen has type %3bp .")
+            (LIST |opName| |dom| (CONS '|Mapping| (CAR |mm|)))))
+          (#1# (SETQ |mm| (CAR |mmList|))))
+         (SETQ |sig| (CAR |mm|))
+         (SETQ |slot| (CADR |mm|))
+         (SETQ |fun|
+                 (COND
+                  (|$genValue|
+                   (|compiledLookupCheck| |opName| |sig| (|evalDomain| |dom|)))
+                  (#1#
+                   (|NRTcompileEvalForm| |opName| |sig|
+                    (|evalDomain| |dom|)))))
+         (COND ((OR (NULL |fun|) (NULL (CONSP |fun|))) NIL)
+               ((EQUAL (CAR |fun|) #'|Undef|)
+                (|throw_msg| 'S2IS0023
+                 "The function %1b is not implemented in %2bp ."
+                 (LIST |opName| |dom|)))
+               (#1#
+                (PROGN
+                 (SETQ |binVal|
+                         (COND (|$genValue| (|wrap| |fun|)) (#1# |fun|)))
+                 (|putValue| |op|
+                  (|objNew| |binVal| (SETQ |m| (CONS '|Mapping| |sig|))))
+                 (|putModeSet| |op| (LIST |m|))))))))))))
 
 ; selectMostGeneralMm mmList ==
 ;   -- selects the modemap in mmList with arguments all the other
@@ -2801,8 +2804,7 @@
 ;     cond is ['has,dom,x] =>
 ;       hasCaty(dom,x,NIL) ~= 'failed
 ;     cond is ['not,cond1] => not matchMmCond cond1
-;     keyedSystemError("S2GE0016",
-;       ['"matchMmCond",'"unknown form of condition"])
+;     unexpected_error(['"matchMmCond", '"unknown form of condition"])
 
 (DEFUN |matchMmCond| (|cond|)
   (PROG (|$domPvar| |cond1| |x| |ISTMP#2| |dom| |ISTMP#1| |conds|)
@@ -2863,7 +2865,7 @@
                        (PROGN (SETQ |cond1| (CAR |ISTMP#1|)) #1#))))
             (NULL (|matchMmCond| |cond1|)))
            (#1#
-            (|keyedSystemError| 'S2GE0016
+            (|unexpected_error|
              (LIST "matchMmCond" "unknown form of condition")))))))))
 
 ; matchMmSig(mm, tar, args1, args2, rtcp) ==
@@ -3740,8 +3742,8 @@
 
 ; evalMmStackInner(mmC) ==
 ;   mmC is ['OR,:args] =>
-;     keyedSystemError("S2GE0016",
-;       ['"evalMmStackInner",'"OR condition nested inside an AND"])
+;       unexpected_error(['"evalMmStackInner",
+;                         '"OR condition nested inside an AND"])
 ;   mmC is ['partial,:mmD] => evalMmStackInner mmD
 ;   mmC is ['ofCategory,pvar,cat] and cat is ['Join,:args] =>
 ;     [['ofCategory, pvar, c] for c in args]
@@ -3760,7 +3762,7 @@
      (COND
       ((AND (CONSP |mmC|) (EQ (CAR |mmC|) 'OR)
             (PROGN (SETQ |args| (CDR |mmC|)) #1='T))
-       (|keyedSystemError| 'S2GE0016
+       (|unexpected_error|
         (LIST "evalMmStackInner" "OR condition nested inside an AND")))
       ((AND (CONSP |mmC|) (EQ (CAR |mmC|) '|partial|)
             (PROGN (SETQ |mmD| (CDR |mmC|)) #1#))
@@ -4116,7 +4118,7 @@
 ;   t1 = t2 => arg2
 ;   obj1 := objNewWrap(arg1, t1)
 ;   obj2 := coerceInt(obj1, t2)
-;   null obj2 => throwKeyedMsgCannotCoerceWithValue(wrap arg1,t1,t2)
+;   null obj2 => throwMsgCannotCoerceWithValue(wrap arg1,t1,t2)
 ;   objValUnwrap obj2
 
 (DEFUN |makeConstrArg| (|arg1| |arg2| |t1| |t2| |cs|)
@@ -4144,8 +4146,7 @@
               (SETQ |obj2| (|coerceInt| |obj1| |t2|))
               (COND
                ((NULL |obj2|)
-                (|throwKeyedMsgCannotCoerceWithValue| (|wrap| |arg1|) |t1|
-                 |t2|))
+                (|throwMsgCannotCoerceWithValue| (|wrap| |arg1|) |t1| |t2|))
                (#1# (|objValUnwrap| |obj2|))))))))))
 
 ; evalMmDom(st) ==
@@ -4909,8 +4910,7 @@
 ;       x is ['has,a,b] => hasCate(a,b,copy SL)
 ;       hasCaty1(x, copy SL)
 ;     S
-;   keyedSystemError("S2GE0016",
-;     ['"hasCaty1",'"unexpected condition from category table"])
+;   unexpected_error(['"hasCaty1", '"unexpected condition from category table"])
 
 (DEFUN |hasCaty1| (|cond| SL)
   (PROG (|$domPvar| S |args| |b| |ISTMP#2| |a| |ISTMP#1|)
@@ -4990,7 +4990,7 @@
                |args| NIL NIL)
               S))
             (#1#
-             (|keyedSystemError| 'S2GE0016
+             (|unexpected_error|
               (LIST "hasCaty1"
                     "unexpected condition from category table"))))))))
 
@@ -5000,8 +5000,7 @@
 ;   for y in x until SL='failed repeat SL:=
 ;     y is ['ATTRIBUTE,a] => BREAK()
 ;     y is ['SIGNATURE,foo,s] => hasSig(d,foo,s,SL)
-;     keyedSystemError("S2GE0016",
-;       ['"hasAttSig",'"unexpected form of unnamed category"])
+;     unexpected_error(['"hasAttSig", '"unexpected form of unnamed category"])
 ;   SL
 
 (DEFUN |hasAttSig| (|d| |x| SL)
@@ -5037,7 +5036,7 @@
                                         #1#))))))
                       (|hasSig| |d| |foo| |s| SL))
                      (#1#
-                      (|keyedSystemError| 'S2GE0016
+                      (|unexpected_error|
                        (LIST "hasAttSig"
                              "unexpected form of unnamed category")))))))
           (SETQ |bfVar#142| (CDR |bfVar#142|))
@@ -5053,8 +5052,7 @@
 ;       atom cls => copy SL
 ;       cls is ['has,a,b] =>
 ;         hasCate(subCopy(a,S0),subCopy(b,S0),copy SL)
-;       keyedSystemError("S2GE0016",
-;         ['"hasSigAnd",'"unexpected condition for signature"])
+;       unexpected_error(['"hasSigAnd", '"unexpected condition for signature"])
 ;     if SA = 'failed then dead := true
 ;   SA
 
@@ -5089,7 +5087,7 @@
                             (|hasCate| (|subCopy| |a| S0) (|subCopy| |b| S0)
                              (COPY SL)))
                            (#1#
-                            (|keyedSystemError| 'S2GE0016
+                            (|unexpected_error|
                              (LIST "hasSigAnd"
                                    "unexpected condition for signature")))))
              (COND ((EQ SA '|failed|) (SETQ |dead| T))))))
@@ -5107,8 +5105,7 @@
 ;         hasCate(subCopy(a,S0),subCopy(b,S0),copy SL)
 ;       cls is ['AND,:andCls] or cls is ['and,:andCls] =>
 ;         hasSigAnd(andCls, S0, SL)
-;       keyedSystemError("S2GE0016",
-;         ['"hasSigOr",'"unexpected condition for signature"])
+;       unexpected_error(['"hasSigOr", '"unexpected condition for signature"])
 ;     if SA ~= 'failed then found := true
 ;   SA
 
@@ -5149,7 +5146,7 @@
                                   (PROGN (SETQ |andCls| (CDR |cls|)) #1#)))
                             (|hasSigAnd| |andCls| S0 SL))
                            (#1#
-                            (|keyedSystemError| 'S2GE0016
+                            (|unexpected_error|
                              (LIST "hasSigOr"
                                    "unexpected condition for signature")))))
              (COND ((NOT (EQ SA '|failed|)) (SETQ |found| T))))))
@@ -5174,8 +5171,7 @@
 ;             hasSigAnd(andCls, S0, SL)
 ;           cond is ['OR,:orCls] or cond is ['or,:orCls] =>
 ;             hasSigOr(orCls, S0, SL)
-;           keyedSystemError("S2GE0016",
-;              ['"hasSig",'"unexpected condition for signature"])
+;           unexpected_error(['"hasSig", '"unexpected condition for signature"])
 ;         not (S='failed) => S:= unifyStruct(subCopy(x,S0),sig,S)
 ;       S
 ;     'failed
@@ -5263,7 +5259,7 @@
                                               #1#)))
                                        (|hasSigOr| |orCls| S0 SL))
                                       (#1#
-                                       (|keyedSystemError| 'S2GE0016
+                                       (|unexpected_error|
                                         (LIST "hasSig"
                                               "unexpected condition for signature")))))
                         (COND
@@ -5284,8 +5280,7 @@
 ;   cond is ['AND,:l] =>
 ;     and/[(SL:= hasCatExpression(x,SL)) ~= 'failed for x in l] => SL
 ;   cond is ['has,a,b] => hasCate(a,b,SL)
-;   keyedSystemError("S2GE0016",
-;     ['"hasSig",'"unexpected condition for attribute"])
+;   unexpected_error(['"hasSig", '"unexpected condition for attribute"])
 
 (DEFUN |hasCatExpression| (|cond| SL)
   (PROG (|l| |y| |ISTMP#1| |a| |ISTMP#2| |b|)
@@ -5337,7 +5332,7 @@
                         (PROGN (SETQ |b| (CAR |ISTMP#2|)) #1#))))))
        (|hasCate| |a| |b| SL))
       (#1#
-       (|keyedSystemError| 'S2GE0016
+       (|unexpected_error|
         (LIST "hasSig" "unexpected condition for attribute")))))))
 
 ; unifyStruct(s1,s2,SL) ==

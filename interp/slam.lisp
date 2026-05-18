@@ -3,6 +3,17 @@
 
 (IN-PACKAGE "BOOT")
 
+; report_bad_count(args) == system_error("S2IM0019",
+;     '"Bad cache count ( %1b ) found when trying to compile function %2b .",
+;     args)
+
+(DEFUN |report_bad_count| (|args|)
+  (PROG ()
+    (RETURN
+     (|system_error| 'S2IM0019
+      "Bad cache count ( %1b ) found when trying to compile function %2b ."
+      |args|))))
+
 ; reportFunctionCompilation(op,nam,argl,body,isRecursive) ==
 ;   -- for an alternate definition of this function which does not allow
 ;   -- dynamic caching, see SLAMOLD BOOT
@@ -23,10 +34,9 @@
 ;     nam
 ;   num :=
 ;     FIXP cacheCount =>
-;       cacheCount < 1 =>
-;         keyedSystemError("S2IM0019",[cacheCount,op])
+;       cacheCount < 1 => report_bad_count([cacheCount, op])
 ;       cacheCount
-;     keyedSystemError("S2IM0019",[cacheCount,op])
+;     report_bad_count([cacheCount, op])
 ;   say_msg("S2IX0003",
 ;       '"%1bp will cache %2b most recently computed value(s).", [op, num])
 ;   auxfn := mkAuxiliaryName nam
@@ -112,12 +122,9 @@
                      ((FIXP |cacheCount|)
                       (COND
                        ((< |cacheCount| 1)
-                        (|keyedSystemError| 'S2IM0019
-                         (LIST |cacheCount| |op|)))
+                        (|report_bad_count| (LIST |cacheCount| |op|)))
                        (#1# |cacheCount|)))
-                     (#1#
-                      (|keyedSystemError| 'S2IM0019
-                       (LIST |cacheCount| |op|)))))
+                     (#1# (|report_bad_count| (LIST |cacheCount| |op|)))))
             (|say_msg| 'S2IX0003
              "%1bp will cache %2b most recently computed value(s)."
              (LIST |op| |num|))

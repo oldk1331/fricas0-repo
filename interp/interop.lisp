@@ -1478,6 +1478,15 @@
                         (|newLookupInAddChain| |op| |sig| |domain| |dollar|))
                        (#1# NIL))))))))))))
 
+; report_bad_fun(args) == system_error("S2NR0001",
+;     '"The function %1b with signature %2 is missing from domain %3b", args)
+
+(DEFUN |report_bad_fun| (|args|)
+  (PROG ()
+    (RETURN
+     (|system_error| 'S2NR0001
+      "The function %1b with signature %2 is missing from domain %3b" |args|))))
+
 ; replaceGoGetSlot env ==
 ;   [thisDomain,index,:op] := env
 ;   thisDomainForm := devaluate thisDomain
@@ -1502,7 +1511,7 @@
 ;       ['nowhere,:goGetDomain]  --see newGetDomainOpTable
 ;     sayBrightly concat('"Function: ",formatOpSignature(op,sig),
 ;       '" is missing from domain: ",form2String goGetDomain.0)
-;     keyedSystemError("S2NR0001",[op,sig,goGetDomain.0])
+;     report_bad_fun([op, sig, goGetDomain.0])
 ;   if $monitorNewWorld then
 ;     sayLooking1(['"goget stuffing slot",:bright thisSlot,'"of "],thisDomain)
 ;   SETELT(thisDomain,thisSlot,slot)
@@ -1563,8 +1572,7 @@
             (|concat| "Function: " (|formatOpSignature| |op| |sig|)
              " is missing from domain: "
              (|form2String| (ELT |goGetDomain| 0))))
-           (|keyedSystemError| 'S2NR0001
-            (LIST |op| |sig| (ELT |goGetDomain| 0)))))))
+           (|report_bad_fun| (LIST |op| |sig| (ELT |goGetDomain| 0)))))))
        (#2#
         (PROGN
          (COND
@@ -1955,7 +1963,8 @@
 ;     for mm in nreverse p until b repeat
 ;       [[.,:osig],nsig,:.] := mm
 ;       b := compiledLookup(op,nsig,domain)
-;     b or  throwKeyedMsg("S2IS0023",[op,dc])
+;     b or  throw_msg("S2IS0023",
+;         '"The function %1b is not implemented in %2bp .", [op, dc])
 ;   throw_msg("S2IF0004", '"The function %1b cannot be found in %2bp .",
 ;             [op, dc])
 
@@ -1991,7 +2000,10 @@
              (SETQ |bfVar#40| (CDR |bfVar#40|))
              (SETQ |bfVar#41| |b|)))
           (NREVERSE |p|) NIL NIL)
-         (OR |b| (|throwKeyedMsg| 'S2IS0023 (LIST |op| |dc|)))))
+         (OR |b|
+             (|throw_msg| 'S2IS0023
+              "The function %1b is not implemented in %2bp ."
+              (LIST |op| |dc|)))))
        (#1#
         (|throw_msg| 'S2IF0004 "The function %1b cannot be found in %2bp ."
          (LIST |op| |dc|))))))))

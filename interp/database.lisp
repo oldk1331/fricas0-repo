@@ -1155,8 +1155,8 @@
 ;                "arbitraryPrecision", "canonicalUnitNormal"]))_
 ;              => return opOf cat
 ;   null val =>
-;     keyedSystemError("S2GE0016",
-;       ['"getDomainFromMm",'"Can't find domain in modemap condition"])
+;         unexpected_error(['"getDomainFromMm",
+;                           '"Can't find domain in modemap condition"])
 ;   val
 
 (DEFUN |getDomainFromMm| (|mm|)
@@ -1227,7 +1227,7 @@
                |condList| NIL))
       (COND
        ((NULL |val|)
-        (|keyedSystemError| 'S2GE0016
+        (|unexpected_error|
          (LIST "getDomainFromMm" "Can't find domain in modemap condition")))
        (#1# |val|))))))
 
@@ -1441,15 +1441,14 @@
 ;               atomizeOp op ==
 ;                 atom op => op
 ;                 op is [a] => a
-;                 keyedSystemError("S2GE0016",
+;                 unexpected_error(
 ;                   ['"mkAlistOfExplicitCategoryOps",'"bad signature"])
 ;     opList:= REMDUP ASSOCLEFT u
 ;     [[x,:fn(x,u)] for x in opList] where
 ;       fn(op,u) ==
 ;         u is [[a,:b],:c] => (a=op => [b,:fn(op,c)]; fn(op,c))
 ;   isCategoryForm(target) => nil
-;   keyedSystemError("S2GE0016",
-;     ['"mkAlistOfExplicitCategoryOps",'"bad signature"])
+;   unexpected_error(['"mkAlistOfExplicitCategoryOps", '"bad signature"])
 
 (DEFUN |mkAlistOfExplicitCategoryOps| (|target|)
   (PROG (|ISTMP#1| |a| |l| |op| |ISTMP#2| |sig| |u| |opList|)
@@ -1528,7 +1527,7 @@
           NIL |opList| NIL)))
        ((|isCategoryForm| |target|) NIL)
        (#1#
-        (|keyedSystemError| 'S2GE0016
+        (|unexpected_error|
          (LIST "mkAlistOfExplicitCategoryOps" "bad signature"))))))))
 (DEFUN |mkAlistOfExplicitCategoryOps,fn| (|op| |u|)
   (PROG (|ISTMP#1| |a| |b| |c|)
@@ -1556,7 +1555,7 @@
                  (PROGN (SETQ |a| (CAR |op|)) #1='T))
             |a|)
            (#1#
-            (|keyedSystemError| 'S2GE0016
+            (|unexpected_error|
              (LIST "mkAlistOfExplicitCategoryOps" "bad signature")))))))
 
 ; flattenSignatureList(x) ==

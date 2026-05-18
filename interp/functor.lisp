@@ -495,7 +495,8 @@
 ;          then formalArgs:= take(#formalArgModes,$FormalMapVariableList)
 ;                 --argument substitution if parameterized?
 ;
-;          else keyedSystemError("S2OR0001",[opOf base])
+;          else system_error("S2OR0001",
+;                            '"Category or domain %1b not known.", [opOf base])
 ;       DescendCodeAdd1(base, flag, target, formalArgs, formalArgModes, kvec, e)
 ;   for [[[.,:formalArgs],target,:formalArgModes],.] in modemap repeat
 ;       (ans := DescendCodeAdd1(base, flag, target, formalArgs,
@@ -525,7 +526,9 @@
                (SETQ |formalArgs|
                        (TAKE (LENGTH |formalArgModes|)
                         |$FormalMapVariableList|)))
-              (#1# (|keyedSystemError| 'S2OR0001 (LIST (|opOf| |base|)))))
+              (#1#
+               (|system_error| 'S2OR0001 "Category or domain %1b not known."
+                (LIST (|opOf| |base|)))))
              (|DescendCodeAdd1| |base| |flag| |target| |formalArgs|
               |formalArgModes| |kvec| |e|)))
            (#1#
@@ -1140,7 +1143,7 @@
 ;               not $SetFunctions.index=>flag --JHD didn't set $SF on this branch
 ;               ["or",$SetFunctions.index,flag]
 ;       else
-;           keyedSystemError("S2OR0002",[catImplem])
+;           system_error("S2OR0002", '"Unknown implementation: %1s". [catImplem])
 ;   body is ['SETELT,:.] => body
 ;   body is ['QSETREFV,:.] => body
 ;   nil
@@ -1223,7 +1226,9 @@
                                                              |index|)
                                                         |flag|))))))))))))
                       (#1#
-                       (|keyedSystemError| 'S2OR0002 (LIST |catImplem|))))))
+                       (|system_error| 'S2OR0002
+                        (ELT "Unknown implementation: %1s"
+                             (LIST |catImplem|)))))))
                    (SETQ |bfVar#45| (CDR |bfVar#45|))))
                 (|LookUpSigSlots| |sig| (ELT |u| 1)) NIL)))))
       (COND ((AND (CONSP |body|) (EQ (CAR |body|) 'SETELT)) |body|)

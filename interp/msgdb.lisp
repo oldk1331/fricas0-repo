@@ -740,13 +740,6 @@
 (DEFUN |throw_error_msg| (|kind| |key| |msg| |args|)
   (PROG () (RETURN (|throw_msg| |key| |msg| |args|))))
 
-; throwKeyedErrorMsg(kind, key, args) ==
-;     throw_error_msg(kind, key, getKeyedMsg(key), args)
-
-(DEFUN |throwKeyedErrorMsg| (|kind| |key| |args|)
-  (PROG ()
-    (RETURN (|throw_error_msg| |kind| |key| (|getKeyedMsg| |key|) |args|))))
-
 ; throw_msg_pos(key, msg, args, tree) ==
 ;     if tree and (sp := getSrcPos(tree)) then
 ;         sayMSG '" "
@@ -793,27 +786,27 @@
              (|say_msg| |key| |msg| |args|)
              (|spadThrow|)))))))
 
-; throwListOfKeyedMsgs(descKey,descArgs,l) ==
-;   -- idea is that descKey and descArgs are the message describing
-;   -- what the list is about and l is a list of [key,args] messages
+; throw_msg_list(k1, msg1, arg1, l) ==
+;   -- idea is that k1, msg1 and arg1 are the message describing
+;   -- what the list is about and l is a list of [key, msg, args] messages
 ;   -- the messages in the list are numbered and should have a %1 as
 ;   -- the first token in the message text.
 ;   sayMSG '" "
 ;   if $testingSystem then sayMSG $testingErrorPrefix
-;   sayKeyedMsg(descKey,descArgs)
+;   say_msg(k1, msg1, arg1)
 ;   sayMSG '" "
-;   for [key,args] in l for i in 1.. repeat
+;   for [key, msg, args] in l for i in 1.. repeat
 ;     n := STRCONC(object2String i,'".")
-;     sayKeyedMsg(key,[n,:args])
+;     say_msg(key, msg, [n, :args])
 ;   spadThrow()
 
-(DEFUN |throwListOfKeyedMsgs| (|descKey| |descArgs| |l|)
-  (PROG (|key| |ISTMP#1| |args| |n|)
+(DEFUN |throw_msg_list| (|k1| |msg1| |arg1| |l|)
+  (PROG (|key| |ISTMP#1| |msg| |ISTMP#2| |args| |n|)
     (RETURN
      (PROGN
       (|sayMSG| " ")
       (COND (|$testingSystem| (|sayMSG| |$testingErrorPrefix|)))
-      (|sayKeyedMsg| |descKey| |descArgs|)
+      (|say_msg| |k1| |msg1| |arg1|)
       (|sayMSG| " ")
       ((LAMBDA (|bfVar#13| |bfVar#12| |i|)
          (LOOP
@@ -826,11 +819,15 @@
                  (PROGN
                   (SETQ |key| (CAR |bfVar#12|))
                   (SETQ |ISTMP#1| (CDR |bfVar#12|))
-                  (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                       (PROGN (SETQ |args| (CAR |ISTMP#1|)) #1#)))
+                  (AND (CONSP |ISTMP#1|)
+                       (PROGN
+                        (SETQ |msg| (CAR |ISTMP#1|))
+                        (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                        (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
+                             (PROGN (SETQ |args| (CAR |ISTMP#2|)) #1#)))))
                  (PROGN
                   (SETQ |n| (STRCONC (|object2String| |i|) "."))
-                  (|sayKeyedMsg| |key| (CONS |n| |args|))))))
+                  (|say_msg| |key| |msg| (CONS |n| |args|))))))
           (SETQ |bfVar#13| (CDR |bfVar#13|))
           (SETQ |i| (+ |i| 1))))
        |l| NIL 1)
@@ -858,11 +855,6 @@
       (|say_msg| 'S2GE0000 "Internal Error" NIL)
       (|break_msg| |key| |msg| |args|)))))
 
-; keyedSystemError(key, args) == system_error(key, getKeyedMsg(key), args)
-
-(DEFUN |keyedSystemError| (|key| |args|)
-  (PROG () (RETURN (|system_error| |key| (|getKeyedMsg| |key|) |args|))))
-
 ; systemErrorHere(fname) ==
 ;     system_error("S2GE0017",
 ;                  '"Unexpected error in call to system function %1b", [fname])
@@ -873,10 +865,15 @@
      (|system_error| 'S2GE0017
       "Unexpected error in call to system function %1b" (LIST |fname|)))))
 
-; queryUserKeyedMsg(key, args) == query_user_msg(key, getKeyedMsg(key), args)
+; unexpected_error(args) ==
+;     system_error("S2GE0016",
+;         '"Unexpected error or improper call to system function %1b: %2", args)
 
-(DEFUN |queryUserKeyedMsg| (|key| |args|)
-  (PROG () (RETURN (|query_user_msg| |key| (|getKeyedMsg| |key|) |args|))))
+(DEFUN |unexpected_error| (|args|)
+  (PROG ()
+    (RETURN
+     (|system_error| 'S2GE0016
+      "Unexpected error or improper call to system function %1b: %2" |args|))))
 
 ; query_user_msg(key, msg, args) ==
 ;   -- display message and return reply
@@ -1102,7 +1099,7 @@
   (PROG ()
     (RETURN (|msg_comp_failure1| |key| (|getKeyedMsg| |key|) |args| |atree|))))
 
-; throwKeyedMsgCannotCoerceWithValue(val,t1,t2) ==
+; throwMsgCannotCoerceWithValue(val,t1,t2) ==
 ;   val' :=
 ;      not($genValue) => nil
 ;      coerceInteractive(mkObj(val,t1),$OutputForm)
@@ -1114,7 +1111,7 @@
 ;             '"Cannot convert from type %1bp to %2bp for value %3m",
 ;             [t1, t2, val'])
 
-(DEFUN |throwKeyedMsgCannotCoerceWithValue| (|val| |t1| |t2|)
+(DEFUN |throwMsgCannotCoerceWithValue| (|val| |t1| |t2|)
   (PROG (|val'|)
     (RETURN
      (PROGN

@@ -524,7 +524,11 @@
 ;           '" would get by issuing %ceon %b )what operations %1 %d %ceoff"),
 ;             [op1])
 ;     if SIZE PNAME op1 < 3 then
-;       x := UPCASE queryUserKeyedMsg("S2IZ0060",[op1])
+;       x := UPCASE(query_user_msg("S2IZ0060", CONCAT(
+;           '"%l There are possibly a great many operation names containing".
+;           '" the substring %1b . Please confirm your request to have these",
+;           '" listed by typing %b y %d or %b yes %d and then pressing",
+;           '" %b Enter %d :"), [op1]))
 ;       null MEMQ(STRING2ID_N(x, 1),'(Y YES)) =>
 ;         ok := nil
 ;         say_msg("S2IZ0061", CONCAT(
@@ -563,7 +567,16 @@
           (LIST |op1|))
          (COND
           ((< (SIZE (PNAME |op1|)) 3)
-           (SETQ |x| (UPCASE (|queryUserKeyedMsg| 'S2IZ0060 (LIST |op1|))))
+           (SETQ |x|
+                   (UPCASE
+                    (|query_user_msg| 'S2IZ0060
+                     (CONCAT
+                      (ELT
+                       "%l There are possibly a great many operation names containing"
+                       " the substring %1b . Please confirm your request to have these")
+                      " listed by typing %b y %d or %b yes %d and then pressing"
+                      " %b Enter %d :")
+                     (LIST |op1|))))
            (COND
             ((NULL (MEMQ (STRING2ID_N |x| 1) '(Y YES)))
              (PROGN

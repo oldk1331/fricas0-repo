@@ -222,7 +222,9 @@
       |$clamList| NIL))))
 
 ; clearClam fn ==
-;   infovec := GET(fn, 'cacheInfo) or keyedSystemError("S2GE0003", [fn])
+;   infovec := GET(fn, 'cacheInfo) or system_error("S2GE0003", CONCAT(
+;         '"The cache for %1b cannot be cleared because that function is not",
+;         '" privately clammed."), [fn])
 ;   ir := infovec.cacheReset
 ;   ir is ["SETQ", var , ['MAKE_HASHTABLE, ["QUOTE", mode]]] =>
 ;      SETF(SYMBOL_-VALUE(var), MAKE_HASHTABLE(mode))
@@ -237,7 +239,11 @@
      (PROGN
       (SETQ |infovec|
               (OR (GET |fn| '|cacheInfo|)
-                  (|keyedSystemError| 'S2GE0003 (LIST |fn|))))
+                  (|system_error| 'S2GE0003
+                   (CONCAT
+                    "The cache for %1b cannot be cleared because that function is not"
+                    " privately clammed.")
+                   (LIST |fn|))))
       (SETQ |ir| (CADDDR |infovec|))
       (COND
        ((AND (CONSP |ir|) (EQ (CAR |ir|) 'SETQ)
@@ -1265,7 +1271,9 @@
 ;   for key in keys repeat
 ;     u:= HGET(x,key)
 ;     for [argList,n,:.] in u repeat
-;       not INTEGERP n =>   keyedSystemError("S2GE0013",[x])
+;       not INTEGERP n => system_error("S2GE0013",
+;           '"%1b has the wrong format: the reference counts are missing.",
+;           [x])
 ;       argList1:= [constructor2ConstructorForm x for x in argList]
 ;       reportList:= [[n,key,argList1],:reportList]
 ;   sayBrightly ["%b",'"  USE  NAME ARGS","%d"]
@@ -1302,7 +1310,9 @@
                               (PROGN (SETQ |n| (CAR |ISTMP#1|)) #1#)))
                         (COND
                          ((NULL (INTEGERP |n|))
-                          (|keyedSystemError| 'S2GE0013 (LIST |x|)))
+                          (|system_error| 'S2GE0013
+                           "%1b has the wrong format: the reference counts are missing."
+                           (LIST |x|)))
                          (#1#
                           (PROGN
                            (SETQ |argList1|
@@ -1364,7 +1374,7 @@
 
 ; rightJustifyString(x,maxWidth) ==
 ;   size:= entryWidth x
-;   size > maxWidth => keyedSystemError("S2GE0014",[x])
+;   size > maxWidth => system_error("S2GE0014", '"%1b is too large", [x])
 ;   [filler_spaces(maxWidth - size), x]
 
 (DEFUN |rightJustifyString| (|x| |maxWidth|)
@@ -1372,8 +1382,10 @@
     (RETURN
      (PROGN
       (SETQ SIZE (|entryWidth| |x|))
-      (COND ((< |maxWidth| SIZE) (|keyedSystemError| 'S2GE0014 (LIST |x|)))
-            ('T (LIST (|filler_spaces| (- |maxWidth| SIZE)) |x|)))))))
+      (COND
+       ((< |maxWidth| SIZE)
+        (|system_error| 'S2GE0014 "%1b is too large" (LIST |x|)))
+       ('T (LIST (|filler_spaces| (- |maxWidth| SIZE)) |x|)))))))
 
 ; domainEqualList(argl1, argl2) == EQUAL(argl1, argl2)
 

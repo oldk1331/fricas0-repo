@@ -519,15 +519,14 @@
 ;   triple:= getValue algExtension
 ;   upmode:= resolveTMOrCroak(objMode(triple),upmode)
 ;   null (T:= coerceInteractive(triple,upmode)) =>
-;     throwKeyedMsgCannotCoerceWithValue(objVal(triple),
-;       objMode(triple),upmode)
+;       throwMsgCannotCoerceWithValue(objVal(triple), objMode(triple), upmode)
 ;   newmode := objMode T
 ;   (field := resolveTCat(CADDR newmode,'(Field))) or
 ;       throw_msg("S2IS0002",
 ;                 '"Cannot pass to a field from the domain %1pb .", [eq])
 ;   pd:= ['UnivariatePolynomial,a,field]
 ;   null (canonicalAE:= coerceInteractive(T,pd)) =>
-;     throwKeyedMsgCannotCoerceWithValue(objVal T,objMode T,pd)
+;       throwMsgCannotCoerceWithValue(objVal(T), objMode(T), pd)
 ;   sae:= ['SimpleAlgebraicExtension,field,pd,objValUnwrap canonicalAE]
 ;   saeTypeSynonym := INTERN STRCONC('"SAE",STRINGIMAGE a)
 ;   saeTypeSynonymValue := objNew(sae,'(Type))
@@ -582,7 +581,7 @@
         (SETQ |upmode| (|resolveTMOrCroak| (|objMode| |triple|) |upmode|))
         (COND
          ((NULL (SETQ T$ (|coerceInteractive| |triple| |upmode|)))
-          (|throwKeyedMsgCannotCoerceWithValue| (|objVal| |triple|)
+          (|throwMsgCannotCoerceWithValue| (|objVal| |triple|)
            (|objMode| |triple|) |upmode|))
          (#1#
           (PROGN
@@ -593,7 +592,7 @@
            (SETQ |pd| (LIST '|UnivariatePolynomial| |a| |field|))
            (COND
             ((NULL (SETQ |canonicalAE| (|coerceInteractive| T$ |pd|)))
-             (|throwKeyedMsgCannotCoerceWithValue| (|objVal| T$) (|objMode| T$)
+             (|throwMsgCannotCoerceWithValue| (|objVal| T$) (|objMode| T$)
               |pd|))
             (#1#
              (PROGN
@@ -1188,10 +1187,10 @@
 ;             resolveTM(['UnivariatePolynomial,objValUnwrap(v),'(Integer)],m)
 ;           resolveTM(t1,m)
 ;         else m
-;     null t2 => throwKeyedMsgCannotCoerceWithValue(e,t1,m)
+;     null(t2) => throwMsgCannotCoerceWithValue(e, t1, m)
 ;     $genValue => coerceOrRetract(v,t2)
 ;     objNew(getArgValue(tree,t2),t2)
-;   val:= value or throwKeyedMsgCannotCoerceWithValue(e,t1,m)
+;   val := value or throwMsgCannotCoerceWithValue(e, t1, m)
 ;   if categoryForm?(m) then
 ;       putValue(op, objNew(devaluate objValUnwrap val, m))
 ;   else
@@ -1226,11 +1225,10 @@
                                (#1# |m|)))
                       (COND
                        ((NULL |t2|)
-                        (|throwKeyedMsgCannotCoerceWithValue| |e| |t1| |m|))
+                        (|throwMsgCannotCoerceWithValue| |e| |t1| |m|))
                        (|$genValue| (|coerceOrRetract| |v| |t2|))
                        (#1# (|objNew| (|getArgValue| |tree| |t2|) |t2|)))))))
-      (SETQ |val|
-              (OR |value| (|throwKeyedMsgCannotCoerceWithValue| |e| |t1| |m|)))
+      (SETQ |val| (OR |value| (|throwMsgCannotCoerceWithValue| |e| |t1| |m|)))
       (COND
        ((|categoryForm?| |m|)
         (|putValue| |op| (|objNew| (|devaluate| (|objValUnwrap| |val|)) |m|)))
@@ -1252,8 +1250,7 @@
 ;     it is ['_|,pred] =>
 ;       [['SUCHTHAT,mkAtree1 pred]]
 ;     it is [op,:.] and (op in '(VALUE UNTIL)) => nil
-;     keyedSystemError("S2GE0016",
-;         ['"transformCollect",'"Unknown type of iterator"])
+;     unexpected_error(['"transformCollect", '"Unknown type of iterator"])
 ;   bodyTree:=mkAtree1 body
 ;   iterList:=NCONC(iterList,[:iterTran2 for it in itrl]) where
 ;     iterTran2 ==
@@ -1264,8 +1261,7 @@
 ;       it is [op,b] and (op in '(UNTIL)) =>
 ;         [[op,mkAtree1 b]]
 ;       it is ['_|,pred] => nil
-;       keyedSystemError("S2GE0016",
-;         ['"transformCollect",'"Unknown type of iterator"])
+;       unexpected_error(['"transformCollect", '"Unknown type of iterator"])
 ;   [:iterList,bodyTree]
 
 (DEFUN |transformCollect| (|bfVar#30|)
@@ -1394,7 +1390,7 @@
                                      (|member| |op| '(VALUE UNTIL)))
                                 NIL)
                                (#1#
-                                (|keyedSystemError| 'S2GE0016
+                                (|unexpected_error|
                                  (LIST "transformCollect"
                                        "Unknown type of iterator")))))
                              |bfVar#25|))))
@@ -1445,7 +1441,7 @@
                                                    #1#))))
                                        NIL)
                                       (#1#
-                                       (|keyedSystemError| 'S2GE0016
+                                       (|unexpected_error|
                                         (LIST "transformCollect"
                                               "Unknown type of iterator")))))
                                     |bfVar#29|))))
@@ -1730,20 +1726,31 @@
             (|putIntSymTab| |index| '|mode| |ud| |$env|)
             (|mkLocalVar| "the iterator expression" |index|)))))))))))
 
+; report_bound(kind) ==
+;     throw_msg("S2IS0007", '"The %1 bound in a loop must be an integer.",
+;               [kind])
+
+(DEFUN |report_bound| (|kind|)
+  (PROG ()
+    (RETURN
+     (|throw_msg| 'S2IS0007 "The %1 bound in a loop must be an integer."
+      (LIST |kind|)))))
+
 ; upLoopIterSTEP(index,lower,step,upperList) ==
 ;   null IDENTP index => throwKeyedMsg("S2IS0005",[index])
 ;   ltype := IFCAR bottomUpUseSubdomain(lower)
 ;   not (typeIsASmallInteger(ltype) or isEqualOrSubDomain(ltype,$Integer))=>
-;     throwKeyedMsg("S2IS0007",['"lower"])
+;         report_bound('"lower")
 ;   stype := IFCAR bottomUpUseSubdomain(step)
 ;   not (typeIsASmallInteger(stype) or isEqualOrSubDomain(stype,$Integer))=>
-;     throwKeyedMsg("S2IS0008",NIL)
+;       throw_msg("S2IS0008",
+;           '"The step value in a loop must be a constant integer.", [])
 ;   types := [ltype]
 ;   utype := nil
 ;   for upper in upperList repeat
 ;     utype := IFCAR bottomUpUseSubdomain(upper)
 ;     not (typeIsASmallInteger(utype) or isEqualOrSubDomain(utype,$Integer))=>
-;       throwKeyedMsg("S2IS0007",['"upper"])
+;         report_bound('"upper")
 ;   if utype then types := [utype, :types]
 ;   else types := [stype, :types]
 ;   type := resolveTypeListAny REMDUP types
@@ -1761,7 +1768,7 @@
               ((NULL
                 (OR (|typeIsASmallInteger| |ltype|)
                     (|isEqualOrSubDomain| |ltype| |$Integer|)))
-               (|throwKeyedMsg| 'S2IS0007 (LIST "lower")))
+               (|report_bound| "lower"))
               (#1#
                (PROGN
                 (SETQ |stype| (IFCAR (|bottomUpUseSubdomain| |step|)))
@@ -1769,7 +1776,8 @@
                  ((NULL
                    (OR (|typeIsASmallInteger| |stype|)
                        (|isEqualOrSubDomain| |stype| |$Integer|)))
-                  (|throwKeyedMsg| 'S2IS0008 NIL))
+                  (|throw_msg| 'S2IS0008
+                   "The step value in a loop must be a constant integer." NIL))
                  (#1#
                   (PROGN
                    (SETQ |types| (LIST |ltype|))
@@ -1788,7 +1796,7 @@
                            ((NULL
                              (OR (|typeIsASmallInteger| |utype|)
                                  (|isEqualOrSubDomain| |utype| |$Integer|)))
-                            (|throwKeyedMsg| 'S2IS0007 (LIST "upper")))))))
+                            (|report_bound| "upper"))))))
                        (SETQ |bfVar#33| (CDR |bfVar#33|))))
                     |upperList| NIL)
                    (COND (|utype| (SETQ |types| (CONS |utype| |types|)))
@@ -2231,7 +2239,8 @@
 ;   $collectTypeList:=
 ;     null $collectTypeList => [rm:=m]
 ;     [:$collectTypeList,rm:=resolveTT(m,last $collectTypeList)]
-;   null rm => throwKeyedMsg("S2IS0010",NIL)
+;   null(rm) => throw_msg("S2IS0010",
+;         '"Cannot resolve types in collect body.", [])
 ;   value:=
 ;     rm ~= m => coerceInteractive(getValue exp,rm)
 ;     getValue exp
@@ -2266,15 +2275,17 @@
                                       (|resolveTT| |m|
                                        (|last| |$collectTypeList|)))
                               NIL)))))
-      (COND ((NULL |rm|) (|throwKeyedMsg| 'S2IS0010 NIL))
-            (#1#
-             (PROGN
-              (SETQ |value|
-                      (COND
-                       ((NOT (EQUAL |rm| |m|))
-                        (|coerceInteractive| (|getValue| |exp|) |rm|))
-                       (#1# (|getValue| |exp|))))
-              (|objValUnwrap| |value|))))))))
+      (COND
+       ((NULL |rm|)
+        (|throw_msg| 'S2IS0010 "Cannot resolve types in collect body." NIL))
+       (#1#
+        (PROGN
+         (SETQ |value|
+                 (COND
+                  ((NOT (EQUAL |rm| |m|))
+                   (|coerceInteractive| (|getValue| |exp|) |rm|))
+                  (#1# (|getValue| |exp|))))
+         (|objValUnwrap| |value|))))))))
 
 ; isStreamCollect itrl ==
 ;   -- calls bottomUp on iterators and if any of them are streams
@@ -2558,15 +2569,17 @@
 
 ; upStreamIterSTEP(index,lower,step,upperList) ==
 ;   null isEqualOrSubDomain(ltype := IFCAR bottomUpUseSubdomain(lower),
-;     $Integer) => throwKeyedMsg("S2IS0007",['"lower"])
+;         $Integer) => report_bound('"lower")
 ;   null isEqualOrSubDomain(stype := IFCAR bottomUpUseSubdomain(step),
-;     $Integer) => throwKeyedMsg("S2IS0008",NIL)
+;     $Integer) => throw_msg("S2IS0008",
+;         '"The step value in a loop must be a constant integer.", [])
 ;   for upper in upperList repeat
 ;     null isEqualOrSubDomain(IFCAR bottomUpUseSubdomain(upper),
-;       $Integer) => throwKeyedMsg("S2IS0007",['"upper"])
+;         $Integer) => report_bound('"upper")
 ;
 ;   putIntSymTab(index, 'mode, type := resolveTT(ltype, stype), $env)
-;   null type => throwKeyedMsg("S2IS0010", nil)
+;   null(type) => throw_msg("S2IS0010",
+;         '"Cannot resolve types in collect body.", [])
 ;   mkLocalVar('"the iterator expression",index)
 ;
 ;   s :=
@@ -2597,11 +2610,12 @@
       ((NULL
         (|isEqualOrSubDomain|
          (SETQ |ltype| (IFCAR (|bottomUpUseSubdomain| |lower|))) |$Integer|))
-       (|throwKeyedMsg| 'S2IS0007 (LIST "lower")))
+       (|report_bound| "lower"))
       ((NULL
         (|isEqualOrSubDomain|
          (SETQ |stype| (IFCAR (|bottomUpUseSubdomain| |step|))) |$Integer|))
-       (|throwKeyedMsg| 'S2IS0008 NIL))
+       (|throw_msg| 'S2IS0008
+        "The step value in a loop must be a constant integer." NIL))
       (#1='T
        (PROGN
         ((LAMBDA (|bfVar#58| |upper|)
@@ -2615,53 +2629,51 @@
                ((NULL
                  (|isEqualOrSubDomain| (IFCAR (|bottomUpUseSubdomain| |upper|))
                   |$Integer|))
-                (IDENTITY (|throwKeyedMsg| 'S2IS0007 (LIST "upper")))))))
+                (IDENTITY (|report_bound| "upper"))))))
             (SETQ |bfVar#58| (CDR |bfVar#58|))))
          |upperList| NIL)
         (|putIntSymTab| |index| '|mode|
          (SETQ |type| (|resolveTT| |ltype| |stype|)) |$env|)
-        (COND ((NULL |type|) (|throwKeyedMsg| 'S2IS0010 NIL))
-              (#1#
-               (PROGN
-                (|mkLocalVar| "the iterator expression" |index|)
-                (SETQ |s|
-                        (COND
-                         ((NULL |upperList|)
-                          (PROGN
-                           (SETQ |genFun| '|stream|)
-                           (SETQ |form|
-                                   (LIST (|mkAtreeNode| |genFun|)
-                                         (LIST
-                                          (LIST (|mkAtreeNode| '|Dollar|)
-                                                (LIST '|IncrementingMaps|
-                                                      |type|)
-                                                (|mkAtreeNode| '|incrementBy|))
-                                          |step|)
-                                         |lower|))
-                           (|bottomUp| |form|)
-                           |form|))
-                         (#1#
-                          (PROGN
-                           (SETQ |form|
-                                   (LIST (|mkAtreeNode| 'SEGMENT) |lower|
-                                         (CAR |upperList|)))
-                           (|putTarget| |form| (LIST '|Segment| |type|))
-                           (SETQ |form|
-                                   (LIST (|mkAtreeNode| '|construct|) |form|))
-                           (|putTarget| |form|
-                            (LIST '|List| (LIST '|Segment| |type|)))
-                           (SETQ |form|
-                                   (LIST (|mkAtreeNode| '|expand|) |form|))
-                           (|putTarget| |form| '(|List| (|Integer|)))
-                           (SETQ |form|
-                                   (LIST (|mkAtreeNode| '|pretend|)
-                                         (LIST (|mkAtreeNode| 'COERCE) |form|
-                                               (LIST '|Stream| |$Integer|))
-                                         (LIST '|InfiniteTuple| |$Integer|)))
-                           (|bottomUp| |form|)
-                           |form|))))
-                (SETQ |$indexVars|
-                        (CONS (CONS |index| |s|) |$indexVars|)))))))))))
+        (COND
+         ((NULL |type|)
+          (|throw_msg| 'S2IS0010 "Cannot resolve types in collect body." NIL))
+         (#1#
+          (PROGN
+           (|mkLocalVar| "the iterator expression" |index|)
+           (SETQ |s|
+                   (COND
+                    ((NULL |upperList|)
+                     (PROGN
+                      (SETQ |genFun| '|stream|)
+                      (SETQ |form|
+                              (LIST (|mkAtreeNode| |genFun|)
+                                    (LIST
+                                     (LIST (|mkAtreeNode| '|Dollar|)
+                                           (LIST '|IncrementingMaps| |type|)
+                                           (|mkAtreeNode| '|incrementBy|))
+                                     |step|)
+                                    |lower|))
+                      (|bottomUp| |form|)
+                      |form|))
+                    (#1#
+                     (PROGN
+                      (SETQ |form|
+                              (LIST (|mkAtreeNode| 'SEGMENT) |lower|
+                                    (CAR |upperList|)))
+                      (|putTarget| |form| (LIST '|Segment| |type|))
+                      (SETQ |form| (LIST (|mkAtreeNode| '|construct|) |form|))
+                      (|putTarget| |form|
+                       (LIST '|List| (LIST '|Segment| |type|)))
+                      (SETQ |form| (LIST (|mkAtreeNode| '|expand|) |form|))
+                      (|putTarget| |form| '(|List| (|Integer|)))
+                      (SETQ |form|
+                              (LIST (|mkAtreeNode| '|pretend|)
+                                    (LIST (|mkAtreeNode| 'COERCE) |form|
+                                          (LIST '|Stream| |$Integer|))
+                                    (LIST '|InfiniteTuple| |$Integer|)))
+                      (|bottomUp| |form|)
+                      |form|))))
+           (SETQ |$indexVars| (CONS (CONS |index| |s|) |$indexVars|)))))))))))
 
 ; collectOneStream(t,op,itrl,body) ==
 ;   -- build stream collect for case of iterating over a single stream
@@ -2779,7 +2791,7 @@
 ;   -- transform funBody into a lambda with index as the parameter
 ;   mode := objMode getValue s
 ;   mode isnt ['Stream, indMode] and mode isnt ['InfiniteTuple, indMode] =>
-;     keyedSystemError('"S2GE0016", '("mkIterFun" "bad stream index type"))
+;         unexpected_error( '("mkIterFun" "bad stream index type"))
 ;   putIntSymTab(index, 'mode, indMode, $env)
 ;   mkLocalVar($mapName,index)
 ;   [m]:=bottomUpCompile funBody
@@ -2817,7 +2829,7 @@
                 (SETQ |ISTMP#1| (CDR |mode|))
                 (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                      (PROGN (SETQ |indMode| (CAR |ISTMP#1|)) #1#))))))
-        (|keyedSystemError| "S2GE0016" '("mkIterFun" "bad stream index type")))
+        (|unexpected_error| '("mkIterFun" "bad stream index type")))
        (#1#
         (PROGN
          (|putIntSymTab| |index| '|mode| |indMode| |$env|)
@@ -3937,7 +3949,7 @@
 ;     bottomUp(val)
 ;     obj := getValue(val)
 ;     (code := coerceInteractive(obj, tar1)) or
-;         throwKeyedMsgCannotCoerceWithValue(objVal(obj), objMode(obj), tar1)
+;         throwMsgCannotCoerceWithValue(objVal(obj), objMode(obj), tar1)
 ;     code := ["CONS", n, objVal(code)]
 ;     if $genValue then code := wrap(timedEVALFUN(code))
 ;     putValue(op, objNew(code, um))
@@ -3976,7 +3988,7 @@
               (|bottomUp| |val|)
               (SETQ |obj| (|getValue| |val|))
               (OR (SETQ |code| (|coerceInteractive| |obj| |tar1|))
-                  (|throwKeyedMsgCannotCoerceWithValue| (|objVal| |obj|)
+                  (|throwMsgCannotCoerceWithValue| (|objVal| |obj|)
                    (|objMode| |obj|) |tar1|))
               (SETQ |code| (LIST 'CONS |n| (|objVal| |code|)))
               (COND
@@ -3997,7 +4009,7 @@
 ;   bottomUp(a1)
 ;   obj := getValue(a1)
 ;   (code := coerceInteractive(getValue(a1), tar)) or
-;     throwKeyedMsgCannotCoerceWithValue(objVal obj, objMode obj,tar)
+;         throwMsgCannotCoerceWithValue(objVal(obj), objMode(obj), tar)
 ;   putValue(op,code)
 ;   putModeSet(op,[tar])
 
@@ -4035,7 +4047,7 @@
            (|bottomUp| |a1|)
            (SETQ |obj| (|getValue| |a1|))
            (OR (SETQ |code| (|coerceInteractive| (|getValue| |a1|) |tar|))
-               (|throwKeyedMsgCannotCoerceWithValue| (|objVal| |obj|)
+               (|throwMsgCannotCoerceWithValue| (|objVal| |obj|)
                 (|objMode| |obj|) |tar|))
            (|putValue| |op| |code|)
            (|putModeSet| |op| (LIST |tar|)))))))))))
@@ -4045,7 +4057,7 @@
 ;   tar isnt [.,:types] => nil
 ;   for arg in l repeat bottomUp arg
 ;   argCode :=
-;     [(getArgValue(arg,type) or throwKeyedMsgCannotCoerceWithValue(
+;     [(getArgValue(arg,type) or throwMsgCannotCoerceWithValue(
 ;       objVal getValue arg,objMode getValue arg,type))
 ;         for arg in l for ['_:,.,type] in types]
 ;   len := #l
@@ -4096,7 +4108,7 @@
                            (SETQ |bfVar#100|
                                    (CONS
                                     (OR (|getArgValue| |arg| |type|)
-                                        (|throwKeyedMsgCannotCoerceWithValue|
+                                        (|throwMsgCannotCoerceWithValue|
                                          (|objVal| (|getValue| |arg|))
                                          (|objMode| (|getValue| |arg|))
                                          |type|))
@@ -4301,7 +4313,7 @@
 ;       null margs => 0
 ;       PAIRP margs => -1 + #margs
 ;       1
-;     nargs ~= #args => throwKeyedMsg("S2IM0008",[var])
+;     nargs ~= #args => msg_wrong_arg_number(var)
 ;   if $compilingMap then mkLocalVar($mapName,var)
 ;   else clearDependencies(var)
 ;   isLocalVar(var) => putIntSymTab(var, 'mode, mode, $env)
@@ -4374,7 +4386,7 @@
                             (#1# 1)))
               (COND
                ((NOT (EQL |nargs| (LENGTH |args|)))
-                (|throwKeyedMsg| 'S2IM0008 (LIST |var|)))))))))
+                (|msg_wrong_arg_number| |var|))))))))
          (COND (|$compilingMap| (|mkLocalVar| |$mapName| |var|))
                (#1# (|clearDependencies| |var|)))
          (COND
@@ -4403,7 +4415,7 @@
 ;       throw_msg("S2IS0019", CONCAT(
 ;           '"Cannot process mapping declaration on %1b since it already",
 ;           '" has a value."), [var])
-;   isPartialMode mode => throwKeyedMsg("S2IM0004",NIL)
+;   check_partial(mode)
 ;   putHist(var,'mode,mode,$e)
 
 (DEFUN |declareMap| (|var| |mode|)
@@ -4423,8 +4435,10 @@
           (CONCAT "Cannot process mapping declaration on %1b since it already"
                   " has a value.")
           (LIST |var|)))))
-      ((|isPartialMode| |mode|) (|throwKeyedMsg| 'S2IM0004 NIL))
-      (#1# (|putHist| |var| '|mode| |mode| |$e|))))))
+      (#1#
+       (PROGN
+        (|check_partial| |mode|)
+        (|putHist| |var| '|mode| |mode| |$e|)))))))
 
 ; containsLocalVar(tree) ==
 ;     or/[CONTAINED(var, tree) for var in $localVars] or

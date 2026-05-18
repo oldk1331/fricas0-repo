@@ -493,7 +493,7 @@
 ;             (tree := mkAtree x) and  putTarget(tree,m) and ((bottomUp tree) is [m1]) =>
 ;                 [zt,:zv]:= z1:= getAndEvalConstructorArgument tree
 ;                 (v1 := coerceOrRetract(z1, m)) => objValUnwrap v1
-;                 throwKeyedMsgCannotCoerceWithValue(zv,zt,m)
+;                 throwMsgCannotCoerceWithValue(zv, zt, m)
 ;         throw_eval_type_msg("S2IE0006",
 ;             '"Cannot convert the %1 argument of %3p to the type %2p .",
 ;             [makeOrdinal(argnum), m, form])
@@ -574,8 +574,8 @@
                                     ((SETQ |v1| (|coerceOrRetract| |z1| |m|))
                                      (|objValUnwrap| |v1|))
                                     (#1#
-                                     (|throwKeyedMsgCannotCoerceWithValue| |zv|
-                                      |zt| |m|)))))
+                                     (|throwMsgCannotCoerceWithValue| |zv| |zt|
+                                      |m|)))))
                                  (#1#
                                   (|throw_eval_type_msg| 'S2IE0006
                                    "Cannot convert the %1 argument of %3p to the type %2p ."

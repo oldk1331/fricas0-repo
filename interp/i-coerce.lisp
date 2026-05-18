@@ -46,7 +46,7 @@
 ;   null isValidType target => throwKeyedMsg("S2IE0004",[target])
 ;   x' := coerceInteractive(objNewWrap(x,source),target) =>
 ;     objValUnwrap(x')
-;   throwKeyedMsgCannotCoerceWithValue(wrap x,source,target)
+;   throwMsgCannotCoerceWithValue(wrap(x), source, target)
 
 (DEFUN |spad2BootCoerce| (|x| |source| |target|)
   (PROG (|x'|)
@@ -58,9 +58,7 @@
        (|throwKeyedMsg| 'S2IE0004 (LIST |target|)))
       ((SETQ |x'| (|coerceInteractive| (|objNewWrap| |x| |source|) |target|))
        (|objValUnwrap| |x'|))
-      ('T
-       (|throwKeyedMsgCannotCoerceWithValue| (|wrap| |x|) |source|
-        |target|))))))
+      ('T (|throwMsgCannotCoerceWithValue| (|wrap| |x|) |source| |target|))))))
 
 ; coerceOrFail(triple,t,mapName) ==
 ;   -- some code generated for this is in coerceInt0
@@ -93,10 +91,10 @@
 ;   t' := coerceOrConvertOrRetract(triple,t)
 ;   t' => objValUnwrap(t')
 ;   mapName = 'noMapName =>
-;     throwKeyedMsgCannotCoerceWithValue(objVal triple,objMode triple, t)
+;         throwMsgCannotCoerceWithValue(objVal(triple), objMode(triple), t)
 ;   say_msg("S2IC0005", '"Conversion failed in the compiled user function %1b .",
 ;           [mapName])
-;   throwKeyedMsgCannotCoerceWithValue(objVal triple,objMode triple, t)
+;   throwMsgCannotCoerceWithValue(objVal(triple), objMode(triple), t)
 
 (DEFUN |coerceOrCroak| (|triple| |t| |mapName|)
   (PROG (|t'|)
@@ -107,14 +105,14 @@
              (SETQ |t'| (|coerceOrConvertOrRetract| |triple| |t|))
              (COND (|t'| (|objValUnwrap| |t'|))
                    ((EQ |mapName| '|noMapName|)
-                    (|throwKeyedMsgCannotCoerceWithValue| (|objVal| |triple|)
+                    (|throwMsgCannotCoerceWithValue| (|objVal| |triple|)
                      (|objMode| |triple|) |t|))
                    (#1#
                     (PROGN
                      (|say_msg| 'S2IC0005
                       "Conversion failed in the compiled user function %1b ."
                       (LIST |mapName|))
-                     (|throwKeyedMsgCannotCoerceWithValue| (|objVal| |triple|)
+                     (|throwMsgCannotCoerceWithValue| (|objVal| |triple|)
                       (|objMode| |triple|) |t|))))))))))
 
 ; coerceOrThrowFailure(value, t1, t2) ==
@@ -1328,8 +1326,7 @@
 ;   t1 is ['Union,d1, ='"failed"] and t2 = d1 => true
 ;   isUnion1 =>
 ;     and/[canCoerce(ud,t2) for ud in unionDoms1]
-;   keyedSystemError("S2GE0016",['"canCoerceUnion",
-;      '"called with 2 non-Unions"])
+;   unexpected_error(['"canCoerceUnion", '"called with 2 non-Unions"])
 
 (DEFUN |canCoerceUnion| (|t1| |t2|)
   (PROG (|uds1| |isUnion1| |ISTMP#1| |ISTMP#2| |t| |unionDoms1| |uds2|
@@ -1468,7 +1465,7 @@
             (SETQ |bfVar#18| (CDR |bfVar#18|))))
          T |unionDoms1| NIL))
        (#1#
-        (|keyedSystemError| 'S2GE0016
+        (|unexpected_error|
          (LIST "canCoerceUnion" "called with 2 non-Unions"))))))))
 
 ; canCoerceByMap(t1,t2) ==
@@ -4028,7 +4025,7 @@
 ;   -- compiles a catchpoint for compiling boot coercions
 ;   c:= CATCH('coerceFailure,FUNCALL(fn,x,t1,t2))
 ;   c = $coerceFailure =>
-;     throwKeyedMsgCannotCoerceWithValue(wrap unwrap x,t1,t2)
+;         throwMsgCannotCoerceWithValue(wrap(unwrap(x)), t1, t2)
 ;   c
 
 (DEFUN |catchCoerceFailure| (|fn| |x| |t1| |t2|)
@@ -4038,8 +4035,7 @@
       (SETQ |c| (CATCH '|coerceFailure| (FUNCALL |fn| |x| |t1| |t2|)))
       (COND
        ((EQUAL |c| |$coerceFailure|)
-        (|throwKeyedMsgCannotCoerceWithValue| (|wrap| (|unwrap| |x|)) |t1|
-         |t2|))
+        (|throwMsgCannotCoerceWithValue| (|wrap| (|unwrap| |x|)) |t1| |t2|))
        ('T |c|))))))
 
 ; coercionFailure() ==

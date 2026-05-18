@@ -162,27 +162,28 @@
 ;   initNewWorld()
 ;   open_interp_db(display_messages)
 ;   createInitializers()
-;   if $displayStartMsgs then sayKeyedMsg("S2IZ0053",['"interpreter"])
+;   init_msg := '"FriCAS initialization: %1b"
+;   if $displayStartMsgs then say_msg("S2IZ0053", init_msg, ['"interpreter"])
 ;   initializeTimedNames()
 ;   $InteractiveFrame := makeInitialModemapFrame()
 ;   initializeInterpreterFrameRing()
 ;   setOutputAlgebra "%initialize%"
 ;   loadExposureGroupData()
-;   if $displayStartMsgs then sayKeyedMsg("S2IZ0053",['"database"])
+;   if $displayStartMsgs then say_msg("S2IZ0053", init_msg, ['"database"])
 ;   mkLowerCaseConTable()
 ;   if not $ruleSetsInitialized then initializeRuleSets()
-;   if $displayStartMsgs then sayKeyedMsg("S2IZ0053",['"constructors"])
+;   if $displayStartMsgs then say_msg("S2IZ0053", init_msg, ['"constructors"])
 ;   makeConstructorsAutoLoad()
 ;   GCMSG(NIL)
 ;   SETQ($IOindex,1)
-;   if $displayStartMsgs then sayKeyedMsg("S2IZ0053",['"history"])
+;   if $displayStartMsgs then say_msg("S2IZ0053", init_msg, ['"history"])
 ;   initHist()
 ;   if $displayStartMsgs then spadStartUpMsgs()
 ;   $superHash := MAKE_HASHTABLE('EQUAL)
 ;   $displayStartMsgs := save_displayStartMsgs
 
 (DEFUN |interpsysInitialization| (|display_messages|)
-  (PROG (|$PrintCompilerMessageIfTrue| |save_displayStartMsgs|)
+  (PROG (|$PrintCompilerMessageIfTrue| |init_msg| |save_displayStartMsgs|)
     (DECLARE (SPECIAL |$PrintCompilerMessageIfTrue|))
     (RETURN
      (PROGN
@@ -196,22 +197,28 @@
       (|initNewWorld|)
       (|open_interp_db| |display_messages|)
       (|createInitializers|)
+      (SETQ |init_msg| "FriCAS initialization: %1b")
       (COND
-       (|$displayStartMsgs| (|sayKeyedMsg| 'S2IZ0053 (LIST "interpreter"))))
+       (|$displayStartMsgs|
+        (|say_msg| 'S2IZ0053 |init_msg| (LIST "interpreter"))))
       (|initializeTimedNames|)
       (SETQ |$InteractiveFrame| (|makeInitialModemapFrame|))
       (|initializeInterpreterFrameRing|)
       (|setOutputAlgebra| '|%initialize%|)
       (|loadExposureGroupData|)
-      (COND (|$displayStartMsgs| (|sayKeyedMsg| 'S2IZ0053 (LIST "database"))))
+      (COND
+       (|$displayStartMsgs|
+        (|say_msg| 'S2IZ0053 |init_msg| (LIST "database"))))
       (|mkLowerCaseConTable|)
       (COND ((NULL |$ruleSetsInitialized|) (|initializeRuleSets|)))
       (COND
-       (|$displayStartMsgs| (|sayKeyedMsg| 'S2IZ0053 (LIST "constructors"))))
+       (|$displayStartMsgs|
+        (|say_msg| 'S2IZ0053 |init_msg| (LIST "constructors"))))
       (|makeConstructorsAutoLoad|)
       (GCMSG NIL)
       (SETQ |$IOindex| 1)
-      (COND (|$displayStartMsgs| (|sayKeyedMsg| 'S2IZ0053 (LIST "history"))))
+      (COND
+       (|$displayStartMsgs| (|say_msg| 'S2IZ0053 |init_msg| (LIST "history"))))
       (|initHist|)
       (COND (|$displayStartMsgs| (|spadStartUpMsgs|)))
       (SETQ |$superHash| (MAKE_HASHTABLE 'EQUAL))
@@ -488,14 +495,15 @@
 ;     m' := objMode x'
 ;     m := ['Union, :[arg for arg in argl | sameUnionBranch(arg, m')], '"..."]
 ;   if $printTypeIfTrue then
+;     type_msg := '"%rjon Type: %1 %rjoff"
 ;     type_string := outputDomainConstructor(m)
 ;     $collectOutput =>
 ;         $outputLines :=
-;             [justifyMyType msgText("S2GL0012", [type_string]), :$outputLines]
-;     sayKeyedMsg("S2GL0012", [type_string])
+;             [justifyMyType msgText(type_msg, [type_string]), :$outputLines]
+;     say_msg("S2GL0012", type_msg, [type_string])
 
 (DEFUN |printType| (|x| |m|)
-  (PROG (|argl| |x'| |m'| |type_string|)
+  (PROG (|argl| |x'| |m'| |type_msg| |type_string|)
     (RETURN
      (PROGN
       (COND
@@ -519,14 +527,16 @@
                         NIL |argl| NIL)
                        (CONS "..." NIL))))))
       (COND
-       (|$printTypeIfTrue| (SETQ |type_string| (|outputDomainConstructor| |m|))
+       (|$printTypeIfTrue| (SETQ |type_msg| "%rjon Type: %1 %rjoff")
+        (SETQ |type_string| (|outputDomainConstructor| |m|))
         (COND
          (|$collectOutput|
           (SETQ |$outputLines|
                   (CONS
-                   (|justifyMyType| (|msgText| 'S2GL0012 (LIST |type_string|)))
+                   (|justifyMyType|
+                    (|msgText| |type_msg| (LIST |type_string|)))
                    |$outputLines|)))
-         (#1# (|sayKeyedMsg| 'S2GL0012 (LIST |type_string|))))))))))
+         (#1# (|say_msg| 'S2GL0012 |type_msg| (LIST |type_string|))))))))))
 
 ; sameUnionBranch(uArg, m) ==
 ;   uArg is [":", ., t] => t = m
@@ -547,17 +557,17 @@
        (EQUAL |t| |m|))
       (#1# (EQUAL |uArg| |m|))))))
 
-; msgText(key, args) ==
-;   msg := segmentKeyedMsg getKeyedMsg key
+; msgText(msg, args) ==
+;   msg := segmentKeyedMsg(msg)
 ;   msg := substituteSegmentedMsg(msg,args)
 ;   msg := flowSegmentedMsg(msg,$LINELENGTH,$MARGIN)
 ;   concatenateStringList([STRINGIMAGE x for x in CDAR msg])
 
-(DEFUN |msgText| (|key| |args|)
-  (PROG (|msg|)
+(DEFUN |msgText| (|msg| |args|)
+  (PROG ()
     (RETURN
      (PROGN
-      (SETQ |msg| (|segmentKeyedMsg| (|getKeyedMsg| |key|)))
+      (SETQ |msg| (|segmentKeyedMsg| |msg|))
       (SETQ |msg| (|substituteSegmentedMsg| |msg| |args|))
       (SETQ |msg| (|flowSegmentedMsg| |msg| $LINELENGTH $MARGIN))
       (|concatenateStringList|
@@ -737,7 +747,7 @@
 ;     systemErrorHere '"interpret2"
 ;   m1 =>
 ;     if (ans := coerceInteractive(object,m1)) then ans
-;     else throwKeyedMsgCannotCoerceWithValue(x,m,m1)
+;     else throwMsgCannotCoerceWithValue(x, m, m1)
 ;   object
 
 (DEFUN |interpret2| (|object| |m1| |posnForm|)
@@ -756,5 +766,5 @@
          (#1# (|systemErrorHere| "interpret2"))))
        (|m1|
         (COND ((SETQ |ans| (|coerceInteractive| |object| |m1|)) |ans|)
-              (#1# (|throwKeyedMsgCannotCoerceWithValue| |x| |m| |m1|))))
+              (#1# (|throwMsgCannotCoerceWithValue| |x| |m| |m1|))))
        (#1# |object|))))))

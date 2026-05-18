@@ -19,11 +19,11 @@
 ;   t isnt [op,def,pred,.] => nil
 ;   v:=addDefMap(['DEF,:def],pred)
 ;   null(LISTP(def)) or null(def) =>
-;     keyedSystemError("S2GE0016",['"upDEF",'"bad map definition"])
+;         unexpected_error(['"upDEF", '"bad map definition"])
 ;   mapOp := first def
 ;   if LISTP(mapOp) then
 ;     null mapOp =>
-;       keyedSystemError("S2GE0016",['"upDEF",'"bad map definition"])
+;           unexpected_error(['"upDEF", '"bad map definition"])
 ;     mapOp := first mapOp
 ;   putIntSymTab(mapOp, 'value, v, $e)
 ;   putValue(op,objNew(voidValue(), $Void))
@@ -54,7 +54,7 @@
         (SETQ |v| (|addDefMap| (CONS 'DEF |def|) |pred|))
         (COND
          ((OR (NULL (LISTP |def|)) (NULL |def|))
-          (|keyedSystemError| 'S2GE0016 (LIST "upDEF" "bad map definition")))
+          (|unexpected_error| (LIST "upDEF" "bad map definition")))
          (#1#
           (PROGN
            (SETQ |mapOp| (CAR |def|))
@@ -62,8 +62,7 @@
             ((LISTP |mapOp|)
              (COND
               ((NULL |mapOp|)
-               (|keyedSystemError| 'S2GE0016
-                (LIST "upDEF" "bad map definition")))
+               (|unexpected_error| (LIST "upDEF" "bad map definition")))
               (#1# (SETQ |mapOp| (CAR |mapOp|))))))
            (|putIntSymTab| |mapOp| '|value| |v| |$e|)
            (|putValue| |op| (|objNew| (|voidValue|) |$Void|))
@@ -137,8 +136,8 @@
 ;
 ;   (ms := upDollarTuple(op, f, t, t2, rest form, nargs)) => ms
 ;
-;   f ~= 'construct and null isOpInDomain(f,t,nargs) =>
-;     throwKeyedMsg("S2IS0023",[f,t])
+;   f ~= 'construct and null isOpInDomain(f,t,nargs) => throw_msg("S2IS0023",
+;         '"The function %1b is not implemented in %2bp ", [f,t])
 ;   if (sig := findCommonSigInDomain(f,t,nargs)) then
 ;     for x in sig for y in form repeat
 ;       if x then putTarget(y,x)
@@ -249,7 +248,9 @@
                    |ms|)
                   ((AND (NOT (EQ |f| '|construct|))
                         (NULL (|isOpInDomain| |f| |t| |nargs|)))
-                   (|throwKeyedMsg| 'S2IS0023 (LIST |f| |t|)))
+                   (|throw_msg| 'S2IS0023
+                    "The function %1b is not implemented in %2bp "
+                    (LIST |f| |t|)))
                   (#1#
                    (PROGN
                     (COND
@@ -762,7 +763,7 @@
 ;     m = $Void => code
 ;     code' := coerceInteractive(objNew(quote2Wrapped code,m1),m) =>
 ;       wrapped2Quote objVal code'
-;     throwKeyedMsgCannotCoerceWithValue(quote2Wrapped code,m1,m)
+;     throwMsgCannotCoerceWithValue(quote2Wrapped(code), m1, m)
 ;   a1:=IFcodeTran(a1,m,m1)
 ;   a2:=IFcodeTran(a2,m,m1)
 ;   ['COND,[p1,a1],[''T,a2]]
@@ -809,8 +810,8 @@
                             (|objNew| (|quote2Wrapped| |code|) |m1|) |m|))
                    (|wrapped2Quote| (|objVal| |code'|)))
                   (#1#
-                   (|throwKeyedMsgCannotCoerceWithValue|
-                    (|quote2Wrapped| |code|) |m1| |m|))))
+                   (|throwMsgCannotCoerceWithValue| (|quote2Wrapped| |code|)
+                    |m1| |m|))))
            (#1#
             (PROGN
              (SETQ |a1| (|IFcodeTran| |a1| |m| |m1|))
@@ -919,7 +920,7 @@
 ;   -- handler for "is" pattern matching
 ;   mS:= bottomUp a
 ;   mS isnt [m] =>
-;     keyedSystemError("S2GE0016",['"upisAndIsnt",'"non-unique modeset"])
+;         unexpected_error(['"upisAndIsnt",'"non-unique modeset"])
 ;   putPvarModes(removeConstruct pattern,m)
 ;   evalis(op,rest t,m)
 ;   putModeSet(op,[$Boolean])
@@ -936,8 +937,7 @@
        ((NOT
          (AND (CONSP |mS|) (EQ (CDR |mS|) NIL)
               (PROGN (SETQ |m| (CAR |mS|)) #2='T)))
-        (|keyedSystemError| 'S2GE0016
-         (LIST "upisAndIsnt" "non-unique modeset")))
+        (|unexpected_error| (LIST "upisAndIsnt" "non-unique modeset")))
        (#2#
         (PROGN
          (|putPvarModes| (|removeConstruct| |pattern|) |m|)
@@ -1251,8 +1251,7 @@
 ;       isPatMatch(DROP(m,l),restPats)
 ;     isPatMatch(first l,pat) = 'failed => 'failed
 ;     isPatMatch(rest l,restPats)
-;   keyedSystemError("S2GE0016",['"isPatMatch",
-;      '"unknown form of is predicate"])
+;   unexpected_error(['"isPatMatch", '"unknown form of is predicate"])
 
 (DEFUN |isPatMatch| (|l| |pats|)
   (PROG (|ISTMP#1| |ISTMP#2| |var| |pat| |restPats| |p| |n| |m|)
@@ -1328,7 +1327,7 @@
         ((EQ (|isPatMatch| (CAR |l|) |pat|) '|failed|) '|failed|)
         (#1# (|isPatMatch| (CDR |l|) |restPats|))))
       (#1#
-       (|keyedSystemError| 'S2GE0016
+       (|unexpected_error|
         (LIST "isPatMatch" "unknown form of is predicate")))))))
 
 ; upiterate t ==
@@ -1579,7 +1578,7 @@
 ;           '" the type %1bp of the left-hand side."), [t2])
 ;     t2 and objNew(($genValue => wrap timedEVALFUN v ; v),t2)
 ;   value => evalLETput(lhs,value)
-;   throwKeyedMsgCannotCoerceWithValue(objVal v,t1,getMode lhs)
+;   throwMsgCannotCoerceWithValue(objVal(v), t1, getMode(lhs))
 
 (DEFUN |evalLET| (|lhs| |rhs|)
   (PROG (|$useConvertForCoercions| |value| |v2| |t'| |t2'| |t2| |t1| |ISTMP#1|
@@ -1658,7 +1657,7 @@
                             |t2|))))))))
          (COND (|value| (|evalLETput| |lhs| |value|))
                (#1#
-                (|throwKeyedMsgCannotCoerceWithValue| (|objVal| |v|) |t1|
+                (|throwMsgCannotCoerceWithValue| (|objVal| |v|) |t1|
                  (|getMode| |lhs|)))))))))))
 
 ; evalLETput(lhs,value) ==
@@ -2641,8 +2640,7 @@
 ;     it is [op,b] and (op in '(UNTIL VALUE)) =>
 ;       [[op,mkAtree1 b]]
 ;     it is ['_|,pred] => nil
-;     keyedSystemError("S2GE0016",
-;       ['"transformREPEAT",'"Unknown type of iterator"])
+;     unexpected_error(['"transformREPEAT", '"Unknown type of iterator"])
 ;   [:iterList,bodyTree]
 
 (DEFUN |transformREPEAT| (|bfVar#59|)
@@ -2818,7 +2816,7 @@
                                                    #1#))))
                                        NIL)
                                       (#1#
-                                       (|keyedSystemError| 'S2GE0016
+                                       (|unexpected_error|
                                         (LIST "transformREPEAT"
                                               "Unknown type of iterator")))))
                                     |bfVar#58|))))
@@ -3079,7 +3077,7 @@
 ;     null requiredType => v
 ;     coerceInteractive(v,requiredType)
 ;   null val =>
-;     throwKeyedMsgCannotCoerceWithValue(objVal v,objMode v,requiredType)
+;         throwMsgCannotCoerceWithValue(objVal(v), objMode(v), requiredType)
 ;   objValUnwrap val
 
 (DEFUN |interpLoopIter|
@@ -3108,7 +3106,7 @@
                     (#1# (|coerceInteractive| |v| |requiredType|))))
       (COND
        ((NULL |val|)
-        (|throwKeyedMsgCannotCoerceWithValue| (|objVal| |v|) (|objMode| |v|)
+        (|throwMsgCannotCoerceWithValue| (|objVal| |v|) (|objMode| |v|)
          |requiredType|))
        (#1# (|objValUnwrap| |val|)))))))
 
@@ -3176,8 +3174,7 @@
 ;   if (target := getTarget(op)) then putTarget(last args, target)
 ;   for x in args repeat bottomUp x
 ;   null (m := computedMode last args) =>
-;     keyedSystemError("S2GE0016",['"upSEQ",
-;       '"last line of SEQ has no mode"])
+;         unexpected_error(['"upSEQ", '"last line of SEQ has no mode"])
 ;   evalSEQ(op,args,m)
 ;   putModeSet(op,[m])
 
@@ -3204,8 +3201,7 @@
          |args| NIL)
         (COND
          ((NULL (SETQ |m| (|computedMode| (|last| |args|))))
-          (|keyedSystemError| 'S2GE0016
-           (LIST "upSEQ" "last line of SEQ has no mode")))
+          (|unexpected_error| (LIST "upSEQ" "last line of SEQ has no mode")))
          (#1#
           (PROGN
            (|evalSEQ| |op| |args| |m|)

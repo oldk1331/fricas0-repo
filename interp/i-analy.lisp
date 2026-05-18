@@ -653,7 +653,7 @@
 ;   m := getBasicMode t => [m]
 ;   IDENTP (id := getUnname t) =>
 ;     putModeSet(t,bottomUpIdentifier(t,id))
-;   keyedSystemError("S2GE0016",['"bottomUp",'"unknown object form"])
+;   unexpected_error(['"bottomUp", '"unknown object form"])
 
 (DEFUN |bottomUp| (|t|)
   (PROG (|op| |argl| |tar| |v| |om| |r| |opName| |opVal| |dol| |fn| |u| |nargs|
@@ -795,9 +795,7 @@
       ((SETQ |m| (|getBasicMode| |t|)) (LIST |m|))
       ((IDENTP (SETQ |id| (|getUnname| |t|)))
        (|putModeSet| |t| (|bottomUpIdentifier| |t| |id|)))
-      (#1#
-       (|keyedSystemError| 'S2GE0016
-        (LIST "bottomUp" "unknown object form")))))))
+      (#1# (|unexpected_error| (LIST "bottomUp" "unknown object form")))))))
 
 ; computeTypeWithVariablesTarget(p, q) ==
 ;     polyVarlist(p) or polyVarlist(q) =>
@@ -899,9 +897,8 @@
 ;   m := isType t => bottomUpType(t, m)
 ;   EQ(id,'noMapVal) => throw_msg("S2IB0002",
 ;       '"The function is not defined for given value.", nil)
-;   EQ(id,'noBranch) =>
-;     keyedSystemError("S2GE0016",
-;       ['"bottomUpIdentifier",'"trying to evaluate noBranch"])
+;   EQ(id,'noBranch) => unexpected_error(
+;         ['"bottomUpIdentifier", '"trying to evaluate noBranch"])
 ;   transferPropsToNode(id,t)
 ;   defaultType := ['Variable,id]
 ;   -- This was meant to stop building silly symbols but had some unfortunate
@@ -918,8 +915,8 @@
 ;       bottomUpDefault(t,id,defaultType,getTarget t)
 ;     interpRewriteRule(t, id) or
 ;       (isMapExpr expr and [objMode(u)]) or
-;         keyedSystemError("S2GE0016",
-;           ['"bottomUpIdentifier",'"cannot evaluate identifier"])
+;           unexpected_error(['"bottomUpIdentifier",
+;                             '"cannot evaluate identifier"])
 ;   bottomUpDefault(t,id,defaultType,getTarget t)
 
 (DEFUN |bottomUpIdentifier| (|t| |id|)
@@ -930,7 +927,7 @@
             (|throw_msg| 'S2IB0002
              "The function is not defined for given value." NIL))
            ((EQ |id| '|noBranch|)
-            (|keyedSystemError| 'S2GE0016
+            (|unexpected_error|
              (LIST "bottomUpIdentifier" "trying to evaluate noBranch")))
            (#1='T
             (PROGN
@@ -961,7 +958,7 @@
                  (#1#
                   (OR (|interpRewriteRule| |t| |id|)
                       (AND (|isMapExpr| |expr|) (LIST (|objMode| |u|)))
-                      (|keyedSystemError| 'S2GE0016
+                      (|unexpected_error|
                        (LIST "bottomUpIdentifier"
                              "cannot evaluate identifier")))))))
               (#1#

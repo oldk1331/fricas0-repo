@@ -2038,8 +2038,8 @@
 
 ; substituteIntoFunctorModemap(argl,modemap is [[dc,:sig],:.],e) ==
 ;   #dc~=#sig =>
-;     keyedSystemError("S2GE0016",['"substituteIntoFunctorModemap",
-;       '"Incompatible maps"])
+;         unexpected_error(['"substituteIntoFunctorModemap",
+;                           '"Incompatible maps"])
 ;   #argl=#rest sig =>
 ;                         --here, we actually have a functor form
 ;     sig:= EQSUBSTLIST(argl,rest dc,sig)
@@ -2057,7 +2057,7 @@
       (SETQ |sig| (CDAR . #1#))
       (COND
        ((NOT (EQL (LENGTH |dc|) (LENGTH |sig|)))
-        (|keyedSystemError| 'S2GE0016
+        (|unexpected_error|
          (LIST "substituteIntoFunctorModemap" "Incompatible maps")))
        ((EQL (LENGTH |argl|) (LENGTH (CDR |sig|)))
         (PROGN
@@ -4443,8 +4443,9 @@
       (|coerce| T$ |m|)))))
 
 ; coerce(T,m) ==
-;   $InteractiveMode => keyedSystemError("S2GE0016",['"coerce",
+;   $InteractiveMode => unexpected_error(['"coerce",
 ;       '"function coerce called from the interpreter."])
+;   -- FIXME: Hardcoded assuption about Rep
 ;   rplac(CADR(T), substitute("%", $Rep, CADR(T)))
 ;   T':= coerceEasy(T,m) => T'
 ;   T' := constant_coerce(T, m) => T'
@@ -4463,7 +4464,7 @@
     (RETURN
      (COND
       (|$InteractiveMode|
-       (|keyedSystemError| 'S2GE0016
+       (|unexpected_error|
         (LIST "coerce" "function coerce called from the interpreter.")))
       (#1='T
        (PROGN
@@ -5221,9 +5222,7 @@
 ;         fullopt = 'break       => $scanIfTrue := nil
 ;         fullopt = 'vartrace      =>
 ;           $QuickLet  := false
-;         throw_msg("S2IZ0036", _
-;   '"%1b is an unknown or unavailable for the %b )compile %d command.",
-;            [STRCONC('")", object2String(optname))])
+;         unknown_compile_file([STRCONC('")", object2String(optname))])
 ;
 ;     compilerDoit(lib, path)
 ;     extendLocalLibdb $newConlist
@@ -5282,8 +5281,7 @@
                  ((EQ |fullopt| '|break|) (SETQ |$scanIfTrue| NIL))
                  ((EQ |fullopt| '|vartrace|) (SETQ |$QuickLet| NIL))
                  (#1#
-                  (|throw_msg| 'S2IZ0036
-                   "%1b is an unknown or unavailable for the %b )compile %d command."
+                  (|unknown_compile_file|
                    (LIST (STRCONC ")" (|object2String| |optname|)))))))))
              (SETQ |bfVar#171| (CDR |bfVar#171|))))
           |$options| NIL)

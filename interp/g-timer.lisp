@@ -199,7 +199,9 @@
 
 ; stopTimingProcess name ==
 ;   (name ~= peekTimedName()) and null $InteractiveMode =>
-;     keyedSystemError("S2GL0015",[name,peekTimedName()])
+;         system_error("S2GL0015",
+;      '"Internal timings are not balanced: timing classes are %1b and %2b",
+;             [name, peekTimedName()])
 ;   updateTimedName peekTimedName()
 ;   popTimedName()
 
@@ -208,7 +210,9 @@
     (RETURN
      (COND
       ((AND (NOT (EQUAL |name| (|peekTimedName|))) (NULL |$InteractiveMode|))
-       (|keyedSystemError| 'S2GL0015 (LIST |name| (|peekTimedName|))))
+       (|system_error| 'S2GL0015
+        "Internal timings are not balanced: timing classes are %1b and %2b"
+        (LIST |name| (|peekTimedName|))))
       ('T (PROGN (|updateTimedName| (|peekTimedName|)) (|popTimedName|)))))))
 
 ; DEFPARAMETER($timePrintDigits, 2)

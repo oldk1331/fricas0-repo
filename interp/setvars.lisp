@@ -116,7 +116,7 @@
 ;
 ;   -- check is the user is authorized for the set variable
 ;   null satisfiesUserLevel setData.setLevel =>
-;     sayKeyedMsg("S2IZ0007",[$UserLevel,'"set option"])
+;         say_user_level_msg([$UserLevel, '"set option"])
 ;
 ;   1 = #l => displaySetOptionInformation(arg,setData)
 ;   st := setData.setType
@@ -205,7 +205,7 @@
              (SETQ |setData| (CONS |arg| (LASSOC |arg| |setTree|)))
              (COND
               ((NULL (|satisfiesUserLevel| (ELT |setData| 2)))
-               (|sayKeyedMsg| 'S2IZ0007 (LIST |$UserLevel| "set option")))
+               (|say_user_level_msg| (LIST |$UserLevel| "set option")))
               ((EQL 1 (LENGTH |l|))
                (|displaySetOptionInformation| |arg| |setData|))
               (#1#
@@ -1522,6 +1522,30 @@
              (LIST |testStream| |filename|))
             ('T (LIST NIL NIL)))))))
 
+; say_printing_msg(args) == say_msg("S2IV0002", CONCAT(
+;     '"To toggle %1 printing on and off, specify %l",
+;     '" %b )set output %2 yes/no/on/off %d %l",
+;     '" Yes, no, on and off cannot be abbreviated.", args)
+
+
+; say_failed_open(args) == say_msg("S2IV0003",
+;     '"It is not possible to open or create a file called %b %1 %2 %d .", args)
+
+(DEFUN |say_failed_open| (|args|)
+  (PROG ()
+    (RETURN
+     (|say_msg| 'S2IV0003
+      "It is not possible to open or create a file called %b %1 %2 %d ."
+      |args|))))
+
+; say_writing(args) == say_msg("S2IV0004",
+;     '"%1 output will be written to file %2b .", args)
+
+(DEFUN |say_writing| (|args|)
+  (PROG ()
+    (RETURN
+     (|say_msg| 'S2IV0004 "%1 output will be written to file %2b ." |args|))))
+
 ; setOutputAlgebra arg ==
 ;   arg = "%initialize%" =>
 ;     $algebraOutputStream := mkOutputConsoleStream()
@@ -1543,8 +1567,7 @@
 ;       else arg := [fn,'spout]
 ;
 ;   arg is [fn] =>
-;     UPCASE(fn) in '(Y N YE O OF) =>
-;       sayKeyedMsg("S2IV0002",'(algebra algebra))
+;     UPCASE(fn) in '(Y N YE O OF) => say_printing_msg('(algebra algebra))
 ;     UPCASE(fn) in '(NO OFF)  => $algebraFormat := NIL
 ;     UPCASE(fn) in '(YES ON) => $algebraFormat := true
 ;     UPCASE(fn) = 'CONSOLE =>
@@ -1558,10 +1581,10 @@
 ;       stream_close($algebraOutputStream)
 ;       $algebraOutputStream := testStream
 ;       $algebraOutputFile := filename
-;       sayKeyedMsg("S2IV0004",['"Algebra",$algebraOutputFile])
-;     sayKeyedMsg("S2IV0003",[fn,ft])
+;       say_writing(['"Algebra", $algebraOutputFile])
+;     say_failed_open([fn, ft])
 ;
-;   sayKeyedMsg("S2IV0005",NIL)
+;   say_invalid_args()
 ;   describeSetOutputAlgebra()
 
 (DEFUN |setOutputAlgebra| (|arg|)
@@ -1596,7 +1619,7 @@
                (PROGN (SETQ |fn| (CAR |arg|)) #1#))
           (COND
            ((|member| (UPCASE |fn|) '(Y N YE O OF))
-            (|sayKeyedMsg| 'S2IV0002 '(|algebra| |algebra|)))
+            (|say_printing_msg| '(|algebra| |algebra|)))
            ((|member| (UPCASE |fn|) '(NO OFF)) (SETQ |$algebraFormat| NIL))
            ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$algebraFormat| T))
            ((EQ (UPCASE |fn|) 'CONSOLE)
@@ -1631,12 +1654,9 @@
               (|stream_close| |$algebraOutputStream|)
               (SETQ |$algebraOutputStream| |testStream|)
               (SETQ |$algebraOutputFile| |filename|)
-              (|sayKeyedMsg| 'S2IV0004 (LIST "Algebra" |$algebraOutputFile|))))
-            (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
-         (#1#
-          (PROGN
-           (|sayKeyedMsg| 'S2IV0005 NIL)
-           (|describeSetOutputAlgebra|))))))))))
+              (|say_writing| (LIST "Algebra" |$algebraOutputFile|))))
+            (#1# (|say_failed_open| (LIST |fn| |ft|))))))
+         (#1# (PROGN (|say_invalid_args|) (|describeSetOutputAlgebra|))))))))))
 
 ; describeSetOutputAlgebra() == describeSetOutputU(
 ;     '"algebra", '"algebra", '"spout", true, setOutputAlgebra "%display%")
@@ -1795,8 +1815,7 @@
 ;       else arg := [fn,'sfort]
 ;
 ;   arg is [fn] =>
-;     UPCASE(fn) in '(Y N YE O OF) =>
-;       sayKeyedMsg("S2IV0002",'(FORTRAN fortran))
+;     UPCASE(fn) in '(Y N YE O OF) => say_printing_msg('(FORTRAN fortran))
 ;     UPCASE(fn) in '(NO OFF)  => $fortranFormat := NIL
 ;     UPCASE(fn) in '(YES ON)  => $fortranFormat := true
 ;     UPCASE(fn) = 'CONSOLE =>
@@ -1810,9 +1829,9 @@
 ;       stream_close($fortranOutputStream)
 ;       $fortranOutputStream := testStream
 ;       $fortranOutputFile := filename
-;       if null quiet then sayKeyedMsg("S2IV0004",['FORTRAN,$fortranOutputFile])
-;     if null quiet then sayKeyedMsg("S2IV0003",[fn,ft])
-;   if null quiet then sayKeyedMsg("S2IV0005",NIL)
+;       if null quiet then say_writing(['FORTRAN, $fortranOutputFile])
+;     if null quiet then say_failed_open([fn, ft])
+;   if null quiet then say_invalid_args()
 ;   describeSetOutputFortran()
 
 (DEFUN |setOutputFortran| (|arg|)
@@ -1861,7 +1880,7 @@
                (PROGN (SETQ |fn| (CAR |arg|)) #1#))
           (COND
            ((|member| (UPCASE |fn|) '(Y N YE O OF))
-            (|sayKeyedMsg| 'S2IV0002 '(FORTRAN |fortran|)))
+            (|say_printing_msg| '(FORTRAN |fortran|)))
            ((|member| (UPCASE |fn|) '(NO OFF)) (SETQ |$fortranFormat| NIL))
            ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$fortranFormat| T))
            ((EQ (UPCASE |fn|) 'CONSOLE)
@@ -1898,14 +1917,12 @@
               (SETQ |$fortranOutputFile| |filename|)
               (COND
                ((NULL |quiet|)
-                (|sayKeyedMsg| 'S2IV0004
-                 (LIST 'FORTRAN |$fortranOutputFile|))))))
+                (|say_writing| (LIST 'FORTRAN |$fortranOutputFile|))))))
             (#1#
-             (COND
-              ((NULL |quiet|) (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))))
+             (COND ((NULL |quiet|) (|say_failed_open| (LIST |fn| |ft|))))))))
          (#1#
           (PROGN
-           (COND ((NULL |quiet|) (|sayKeyedMsg| 'S2IV0005 NIL)))
+           (COND ((NULL |quiet|) (|say_invalid_args|)))
            (|describeSetOutputFortran|))))))))))
 
 ; describeSetOutputFortran() == describeSetOutputU(
@@ -1938,8 +1955,7 @@
 ;       else arg := [fn,'smml]
 ;
 ;   arg is [fn] =>
-;     UPCASE(fn) in '(Y N YE O OF) =>
-;       sayKeyedMsg("S2IV0002",'(MathML mathml))
+;     UPCASE(fn) in '(Y N YE O OF) => say_printing_msg('(MathML mathml))
 ;     UPCASE(fn) in '(NO OFF)  => $mathmlFormat := NIL
 ;     UPCASE(fn) in '(YES ON) => $mathmlFormat := true
 ;     UPCASE(fn) = 'CONSOLE =>
@@ -1953,10 +1969,10 @@
 ;       stream_close($mathmlOutputStream)
 ;       $mathmlOutputStream := testStream
 ;       $mathmlOutputFile := filename
-;       sayKeyedMsg("S2IV0004",['"MathML",$mathmlOutputFile])
-;     sayKeyedMsg("S2IV0003",[fn,ft])
+;       say_writing(['"MathML", $mathmlOutputFile])
+;     say_failed_open([fn, ft])
 ;
-;   sayKeyedMsg("S2IV0005",NIL)
+;   say_invalid_args()
 ;   describeSetOutputMathml()
 
 (DEFUN |setOutputMathml| (|arg|)
@@ -1991,7 +2007,7 @@
                (PROGN (SETQ |fn| (CAR |arg|)) #1#))
           (COND
            ((|member| (UPCASE |fn|) '(Y N YE O OF))
-            (|sayKeyedMsg| 'S2IV0002 '(|MathML| |mathml|)))
+            (|say_printing_msg| '(|MathML| |mathml|)))
            ((|member| (UPCASE |fn|) '(NO OFF)) (SETQ |$mathmlFormat| NIL))
            ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$mathmlFormat| T))
            ((EQ (UPCASE |fn|) 'CONSOLE)
@@ -2026,12 +2042,9 @@
               (|stream_close| |$mathmlOutputStream|)
               (SETQ |$mathmlOutputStream| |testStream|)
               (SETQ |$mathmlOutputFile| |filename|)
-              (|sayKeyedMsg| 'S2IV0004 (LIST "MathML" |$mathmlOutputFile|))))
-            (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
-         (#1#
-          (PROGN
-           (|sayKeyedMsg| 'S2IV0005 NIL)
-           (|describeSetOutputMathml|))))))))))
+              (|say_writing| (LIST "MathML" |$mathmlOutputFile|))))
+            (#1# (|say_failed_open| (LIST |fn| |ft|))))))
+         (#1# (PROGN (|say_invalid_args|) (|describeSetOutputMathml|))))))))))
 
 ; describeSetOutputMathml() == describeSetOutputU(
 ;     '"mathml", '"MathML", '"smml", false, setOutputMathml "%display%")
@@ -2063,8 +2076,7 @@
 ;       else arg := [fn,'stmx]
 ;
 ;   arg is [fn] =>
-;     UPCASE(fn) in '(Y N YE O OF) =>
-;       sayKeyedMsg("S2IV0002",'(Texmacs texmacs))
+;     UPCASE(fn) in '(Y N YE O OF) => say_printing_msg('(Texmacs texmacs))
 ;     UPCASE(fn) in '(NO OFF)  => $texmacsFormat := NIL
 ;     UPCASE(fn) in '(YES ON) => $texmacsFormat := true
 ;     UPCASE(fn) = 'CONSOLE =>
@@ -2078,10 +2090,10 @@
 ;       stream_close($texmacsOutputStream)
 ;       $texmacsOutputStream := testStream
 ;       $texmacsOutputFile := filename
-;       sayKeyedMsg("S2IV0004",['"TeXmacs",$texmacsOutputFile])
-;     sayKeyedMsg("S2IV0003",[fn,ft])
+;       say_writing(['"TeXmacs", $texmacsOutputFile])
+;     say_failed_open([fn, ft])
 ;
-;   sayKeyedMsg("S2IV0005",NIL)
+;   say_invalid_args()
 ;   describeSetOutputTexmacs()
 
 (DEFUN |setOutputTexmacs| (|arg|)
@@ -2116,7 +2128,7 @@
                (PROGN (SETQ |fn| (CAR |arg|)) #1#))
           (COND
            ((|member| (UPCASE |fn|) '(Y N YE O OF))
-            (|sayKeyedMsg| 'S2IV0002 '(|Texmacs| |texmacs|)))
+            (|say_printing_msg| '(|Texmacs| |texmacs|)))
            ((|member| (UPCASE |fn|) '(NO OFF)) (SETQ |$texmacsFormat| NIL))
            ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$texmacsFormat| T))
            ((EQ (UPCASE |fn|) 'CONSOLE)
@@ -2151,12 +2163,9 @@
               (|stream_close| |$texmacsOutputStream|)
               (SETQ |$texmacsOutputStream| |testStream|)
               (SETQ |$texmacsOutputFile| |filename|)
-              (|sayKeyedMsg| 'S2IV0004 (LIST "TeXmacs" |$texmacsOutputFile|))))
-            (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
-         (#1#
-          (PROGN
-           (|sayKeyedMsg| 'S2IV0005 NIL)
-           (|describeSetOutputTexmacs|))))))))))
+              (|say_writing| (LIST "TeXmacs" |$texmacsOutputFile|))))
+            (#1# (|say_failed_open| (LIST |fn| |ft|))))))
+         (#1# (PROGN (|say_invalid_args|) (|describeSetOutputTexmacs|))))))))))
 
 ; describeSetOutputTexmacs() == describeSetOutputU(
 ;     '"texmacs", '"TeXmacs", '"stmx", false, setOutputTexmacs "%display%")
@@ -2188,8 +2197,7 @@
 ;       else arg := [fn,'shtml]
 ;
 ;   arg is [fn] =>
-;     UPCASE(fn) in '(Y N YE O OF) =>
-;       sayKeyedMsg("S2IV0002",'(HTML html))
+;     UPCASE(fn) in '(Y N YE O OF) => say_printing_msg('(HTML html))
 ;     UPCASE(fn) in '(NO OFF)  => $htmlFormat := NIL
 ;     UPCASE(fn) in '(YES ON) => $htmlFormat := true
 ;     UPCASE(fn) = 'CONSOLE =>
@@ -2203,10 +2211,10 @@
 ;       stream_close($htmlOutputStream)
 ;       $htmlOutputStream := testStream
 ;       $htmlOutputFile := filename
-;       sayKeyedMsg("S2IV0004",['"HTML",$htmlOutputFile])
-;     sayKeyedMsg("S2IV0003",[fn,ft])
+;       say_writing(['"HTML", $htmlOutputFile])
+;     say_failed_open([fn, ft])
 ;
-;   sayKeyedMsg("S2IV0005",NIL)
+;   say_invalid_args()
 ;   describeSetOutputHtml()
 
 (DEFUN |setOutputHtml| (|arg|)
@@ -2241,7 +2249,7 @@
                (PROGN (SETQ |fn| (CAR |arg|)) #1#))
           (COND
            ((|member| (UPCASE |fn|) '(Y N YE O OF))
-            (|sayKeyedMsg| 'S2IV0002 '(HTML |html|)))
+            (|say_printing_msg| '(HTML |html|)))
            ((|member| (UPCASE |fn|) '(NO OFF)) (SETQ |$htmlFormat| NIL))
            ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$htmlFormat| T))
            ((EQ (UPCASE |fn|) 'CONSOLE)
@@ -2276,12 +2284,9 @@
               (|stream_close| |$htmlOutputStream|)
               (SETQ |$htmlOutputStream| |testStream|)
               (SETQ |$htmlOutputFile| |filename|)
-              (|sayKeyedMsg| 'S2IV0004 (LIST "HTML" |$htmlOutputFile|))))
-            (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
-         (#1#
-          (PROGN
-           (|sayKeyedMsg| 'S2IV0005 NIL)
-           (|describeSetOutputHtml|))))))))))
+              (|say_writing| (LIST "HTML" |$htmlOutputFile|))))
+            (#1# (|say_failed_open| (LIST |fn| |ft|))))))
+         (#1# (PROGN (|say_invalid_args|) (|describeSetOutputHtml|))))))))))
 
 ; describeSetOutputHtml() == describeSetOutputU(
 ;     '"html", '"HTML", '"shtml", false, setOutputHtml "%display%")
@@ -2313,8 +2318,7 @@
 ;       else arg := [fn,'som]
 ;
 ;   arg is [fn] =>
-;     UPCASE(fn) in '(Y N YE O OF) =>
-;       sayKeyedMsg("S2IV0002",'(OpenMath openmath))
+;     UPCASE(fn) in '(Y N YE O OF) => say_printing_msg('(OpenMath openmath))
 ;     UPCASE(fn) in '(NO OFF)  => $openMathFormat := NIL
 ;     UPCASE(fn) in '(YES ON) => $openMathFormat := true
 ;     UPCASE(fn) = 'CONSOLE =>
@@ -2328,10 +2332,10 @@
 ;       stream_close($openMathOutputStream)
 ;       $openMathOutputStream := testStream
 ;       $openMathOutputFile := filename
-;       sayKeyedMsg("S2IV0004",['"OpenMath",$openMathOutputFile])
-;     sayKeyedMsg("S2IV0003",[fn,ft])
+;       say_writing(['"OpenMath", $openMathOutputFile])
+;     say_failed_open([fn, ft])
 ;
-;   sayKeyedMsg("S2IV0005",NIL)
+;   say_invalid_args()
 ;   describeSetOutputOpenMath()
 
 (DEFUN |setOutputOpenMath| (|arg|)
@@ -2366,7 +2370,7 @@
                (PROGN (SETQ |fn| (CAR |arg|)) #1#))
           (COND
            ((|member| (UPCASE |fn|) '(Y N YE O OF))
-            (|sayKeyedMsg| 'S2IV0002 '(|OpenMath| |openmath|)))
+            (|say_printing_msg| '(|OpenMath| |openmath|)))
            ((|member| (UPCASE |fn|) '(NO OFF)) (SETQ |$openMathFormat| NIL))
            ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$openMathFormat| T))
            ((EQ (UPCASE |fn|) 'CONSOLE)
@@ -2401,13 +2405,9 @@
               (|stream_close| |$openMathOutputStream|)
               (SETQ |$openMathOutputStream| |testStream|)
               (SETQ |$openMathOutputFile| |filename|)
-              (|sayKeyedMsg| 'S2IV0004
-               (LIST "OpenMath" |$openMathOutputFile|))))
-            (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
-         (#1#
-          (PROGN
-           (|sayKeyedMsg| 'S2IV0005 NIL)
-           (|describeSetOutputOpenMath|))))))))))
+              (|say_writing| (LIST "OpenMath" |$openMathOutputFile|))))
+            (#1# (|say_failed_open| (LIST |fn| |ft|))))))
+         (#1# (PROGN (|say_invalid_args|) (|describeSetOutputOpenMath|))))))))))
 
 ; describeSetOutputOpenMath() == describeSetOutputU(
 ;     '"openmath", '"OpenMath", '"som", false, setOutputOpenMath "%display%")
@@ -2439,8 +2439,7 @@
 ;       else arg := [fn,'stex]
 ;
 ;   arg is [fn] =>
-;     UPCASE(fn) in '(Y N YE O OF) =>
-;       sayKeyedMsg("S2IV0002",'(TeX tex))
+;     UPCASE(fn) in '(Y N YE O OF) => say_printing_msg('(TeX tex))
 ;     UPCASE(fn) in '(NO OFF)  => $texFormat := NIL
 ;     UPCASE(fn) in '(YES ON) => $texFormat := true
 ;     UPCASE(fn) = 'CONSOLE =>
@@ -2454,10 +2453,10 @@
 ;       stream_close($texOutputStream)
 ;       $texOutputStream := testStream
 ;       $texOutputFile := filename
-;       sayKeyedMsg("S2IV0004",['"TeX",$texOutputFile])
-;     sayKeyedMsg("S2IV0003",[fn,ft])
+;       say_writing(['"TeX", $texOutputFile])
+;     say_failed_open([fn, ft])
 ;
-;   sayKeyedMsg("S2IV0005",NIL)
+;   say_invalid_args()
 ;   describeSetOutputTex()
 
 (DEFUN |setOutputTex| (|arg|)
@@ -2492,7 +2491,7 @@
                (PROGN (SETQ |fn| (CAR |arg|)) #1#))
           (COND
            ((|member| (UPCASE |fn|) '(Y N YE O OF))
-            (|sayKeyedMsg| 'S2IV0002 '(|TeX| |tex|)))
+            (|say_printing_msg| '(|TeX| |tex|)))
            ((|member| (UPCASE |fn|) '(NO OFF)) (SETQ |$texFormat| NIL))
            ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$texFormat| T))
            ((EQ (UPCASE |fn|) 'CONSOLE)
@@ -2527,10 +2526,9 @@
               (|stream_close| |$texOutputStream|)
               (SETQ |$texOutputStream| |testStream|)
               (SETQ |$texOutputFile| |filename|)
-              (|sayKeyedMsg| 'S2IV0004 (LIST "TeX" |$texOutputFile|))))
-            (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
-         (#1#
-          (PROGN (|sayKeyedMsg| 'S2IV0005 NIL) (|describeSetOutputTex|))))))))))
+              (|say_writing| (LIST "TeX" |$texOutputFile|))))
+            (#1# (|say_failed_open| (LIST |fn| |ft|))))))
+         (#1# (PROGN (|say_invalid_args|) (|describeSetOutputTex|))))))))))
 
 ; describeSetOutputTex() == describeSetOutputU(
 ;     '"tex", '"TeX", '"stex", false, setOutputTex "%display%")
@@ -2562,8 +2560,7 @@
 ;       else arg := [fn,'formatted]
 ;
 ;   arg is [fn] =>
-;     UPCASE(fn) in '(Y N YE O OF) =>
-;       sayKeyedMsg("S2IV0002",'(FORMATTED formatted))
+;     UPCASE(fn) in '(Y N YE O OF) => say_printing_msg('(FORMATTED formatted))
 ;     UPCASE(fn) in '(NO OFF) => $formattedFormat := NIL
 ;     UPCASE(fn) in '(YES ON) => $formattedFormat := true
 ;     UPCASE(fn) = 'CONSOLE =>
@@ -2577,10 +2574,10 @@
 ;       stream_close($formattedOutputStream)
 ;       $formattedOutputStream := testStream
 ;       $formattedOutputFile := filename
-;       sayKeyedMsg("S2IV0004",['"FORMATTED",$formattedOutputFile])
-;     sayKeyedMsg("S2IV0003",[fn,ft])
+;       say_writing(['"FORMATTED", $formattedOutputFile])
+;     say_failed_open([fn, ft])
 ;
-;   sayKeyedMsg("S2IV0005",NIL)
+;   say_invalid_args()
 ;   describeSetOutputFormatted()
 
 (DEFUN |setOutputFormatted| (|arg|)
@@ -2615,7 +2612,7 @@
                (PROGN (SETQ |fn| (CAR |arg|)) #1#))
           (COND
            ((|member| (UPCASE |fn|) '(Y N YE O OF))
-            (|sayKeyedMsg| 'S2IV0002 '(FORMATTED |formatted|)))
+            (|say_printing_msg| '(FORMATTED |formatted|)))
            ((|member| (UPCASE |fn|) '(NO OFF)) (SETQ |$formattedFormat| NIL))
            ((|member| (UPCASE |fn|) '(YES ON)) (SETQ |$formattedFormat| T))
            ((EQ (UPCASE |fn|) 'CONSOLE)
@@ -2650,13 +2647,10 @@
               (|stream_close| |$formattedOutputStream|)
               (SETQ |$formattedOutputStream| |testStream|)
               (SETQ |$formattedOutputFile| |filename|)
-              (|sayKeyedMsg| 'S2IV0004
-               (LIST "FORMATTED" |$formattedOutputFile|))))
-            (#1# (|sayKeyedMsg| 'S2IV0003 (LIST |fn| |ft|))))))
+              (|say_writing| (LIST "FORMATTED" |$formattedOutputFile|))))
+            (#1# (|say_failed_open| (LIST |fn| |ft|))))))
          (#1#
-          (PROGN
-           (|sayKeyedMsg| 'S2IV0005 NIL)
-           (|describeSetOutputFormatted|))))))))))
+          (PROGN (|say_invalid_args|) (|describeSetOutputFormatted|))))))))))
 
 ; describeSetOutputFormatted() == describeSetOutputU(
 ;     '"formatted",'"formatted",'"formatted",false,setOutputFormatted "%display%")
@@ -2702,7 +2696,20 @@
                 (|terminateSystemCommand|)))
               (#1# (SETQ |$streamCount| |n|)))))))))
 
-; describeSetStreamsCalculate() == sayKeyedMsg("S2IV0001",[$streamCount])
+; describeSetStreamsCalculate() == say_msg("S2IV0001", CONCAT(
+;     '"%b )set streams calculate %d is used to tell FriCAS",
+;     '" how many elements of a stream to calculate when a computation",
+;     '" uses the stream.  The value given after %b calculate %d must",
+;     '" either be the word %b all %d or a positive integer.  %l %l The",
+;     '" current setting is %1b ."), [$streamCount])
 
 (DEFUN |describeSetStreamsCalculate| ()
-  (PROG () (RETURN (|sayKeyedMsg| 'S2IV0001 (LIST |$streamCount|)))))
+  (PROG ()
+    (RETURN
+     (|say_msg| 'S2IV0001
+      (CONCAT "%b )set streams calculate %d is used to tell FriCAS"
+              " how many elements of a stream to calculate when a computation"
+              " uses the stream.  The value given after %b calculate %d must"
+              " either be the word %b all %d or a positive integer.  %l %l The"
+              " current setting is %1b .")
+      (LIST |$streamCount|)))))

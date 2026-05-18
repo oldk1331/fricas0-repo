@@ -613,9 +613,11 @@
 ;       implementation is [impOp,:.] =>
 ;         impOp = 'XLAM => implementation
 ;         impOp = CONST => impOp
-;         keyedSystemError("S2IL0025",[impOp])
+;         system_error("S2IL0025", '"Unexpected type of entry in domain: %1s",
+;                      [impOp])
 ;       implementation = 'mkRecord => 'mkRecord
-;       keyedSystemError("S2IL0025",[implementation])
+;       system_error("S2IL0025", '"Unexpected type of entry in domain: %1s",
+;                    [implementation])
 ;     signatureItem:=
 ;       if u:= assoc([op,sig],$functionLocations) then n := [n,:rest u]
 ;       kind = 'ELT =>
@@ -682,11 +684,13 @@
                             (COND ((EQ |impOp| 'XLAM) |implementation|)
                                   ((EQUAL |impOp| CONST) |impOp|)
                                   (#1#
-                                   (|keyedSystemError| 'S2IL0025
+                                   (|system_error| 'S2IL0025
+                                    "Unexpected type of entry in domain: %1s"
                                     (LIST |impOp|)))))
                            ((EQ |implementation| '|mkRecord|) '|mkRecord|)
                            (#1#
-                            (|keyedSystemError| 'S2IL0025
+                            (|system_error| 'S2IL0025
+                             "Unexpected type of entry in domain: %1s"
                              (LIST |implementation|)))))
                   (SETQ |signatureItem|
                           (PROGN
