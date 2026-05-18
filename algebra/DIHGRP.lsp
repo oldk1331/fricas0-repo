@@ -87,7 +87,7 @@
          ('T |x|))) 
 
 (SDEFUN |DIHGRP;order;%I;13| ((|x| (%)) (% (|Integer|)))
-        (COND ((SPADCALL |x| (QREFELT % 25)) 0)
+        (COND ((SPADCALL |x| (QREFELT % 25)) 1)
               ((SPADCALL (SPADCALL |x| (QREFELT % 13)) (QREFELT % 45)) 2)
               ('T
                (|quotient_INT| (QREFELT % 6)
