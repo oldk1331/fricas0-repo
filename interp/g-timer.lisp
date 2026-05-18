@@ -354,11 +354,15 @@
 ;   i2 := GET('gc, 'index)
 ;   timeVec.i2 := timeVec.i2 + gcDelta * $inverseTimerTicksPerSecond
 ;   spaceVec.i := spaceVec.i + newSpace - oldSpace
-;   spaceVec.i2 := spaceVec.i2 + newSpace - newHeap - (oldSpace - oldHeap)
+;   -- if current_heap_size is unimplemented (returns 0),
+;   -- then don't compute GC recycled space.
+;   recycledSpace := if newHeap = 0 then 0 else newSpace - newHeap - (oldSpace - oldHeap)
+;   spaceVec.i2 := spaceVec.i2 + recycledSpace
 
 (DEFUN |updateTimedName| (|name|)
   (PROG (|oldTime| |oldGCTime| |oldSpace| |oldHeap| |newTime| |newGCTime|
-         |newSpace| |newHeap| |i| |timeVec| |spaceVec| |gcDelta| |i2|)
+         |newSpace| |newHeap| |i| |timeVec| |spaceVec| |gcDelta| |i2|
+         |recycledSpace|)
     (RETURN
      (PROGN
       (SETQ |oldTime| (ELT |$statsInfo| 2))
@@ -383,9 +387,11 @@
                  (* |gcDelta| |$inverseTimerTicksPerSecond|)))
       (SETF (ELT |spaceVec| |i|)
               (- (+ (ELT |spaceVec| |i|) |newSpace|) |oldSpace|))
-      (SETF (ELT |spaceVec| |i2|)
-              (- (- (+ (ELT |spaceVec| |i2|) |newSpace|) |newHeap|)
-                 (- |oldSpace| |oldHeap|)))))))
+      (SETQ |recycledSpace|
+              (COND ((EQL |newHeap| 0) 0)
+                    ('T
+                     (- (- |newSpace| |newHeap|) (- |oldSpace| |oldHeap|)))))
+      (SETF (ELT |spaceVec| |i2|) (+ (ELT |spaceVec| |i2|) |recycledSpace|))))))
 
 ; makeLongTimeString(listofnames,listofclasses) ==
 ;   makeLongStatStringByProperty(listofnames, listofclasses,  _
