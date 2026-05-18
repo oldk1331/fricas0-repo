@@ -520,7 +520,7 @@
                              (#3#
                               (COND ((EQL |ii| 1) |cc|)
                                     (#2# (|quotient_INT| |cc| |ii|))))))))
-                (#2# (|error| "chec_seg: zero increment"))))))) 
+                (#2# (|error| "check_seg: zero increment"))))))) 
 
 (SDEFUN |ARR2CAT-;elt;SLSS;17|
         ((|x| (S)) (|rowList| (|List| (|Integer|)))

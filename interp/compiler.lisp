@@ -4444,7 +4444,7 @@
 ; coerce(T,m) ==
 ;   $InteractiveMode => unexpected_error(['"coerce",
 ;       '"function coerce called from the interpreter."])
-;   -- FIXME: Hardcoded assuption about Rep
+;   -- FIXME: Hardcoded assumption about Rep
 ;   rplac(CADR(T), substitute("%", $Rep, CADR(T)))
 ;   T':= coerceEasy(T,m) => T'
 ;   T' := constant_coerce(T, m) => T'
@@ -4618,7 +4618,7 @@
 ; isUnionMode2(m, e, pl) ==
 ;   m is ["Union",:.] => m
 ;   (m' := getmode_pl(m, pl)) is ["Mapping", ["UnionCategory", :.]] => CADR m'
-;   -- FIXME: Hardcoded assumprion about Rep
+;   -- FIXME: Hardcoded assumption about Rep
 ;   v :=
 ;       m = "%" => get("Rep", "value", e)
 ;       QLASSQ("value", pl)
