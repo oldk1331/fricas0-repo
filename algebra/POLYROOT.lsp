@@ -66,7 +66,9 @@
                                   ((QEQCAR |ru| 0)
                                    (SEQ (LETT |x| (QCDR |ru|))
                                         (LETT |e| (* |e| |p|))
-                                        (EXIT (LETT |nn| (REM |nn| |p|)))))
+                                        (EXIT
+                                         (LETT |nn|
+                                               (|quotient_INT| |nn| |p|)))))
                                   ('T
                                    (LETT |p|
                                          (SPADCALL |p| (QREFELT % 22)))))))))))
