@@ -312,11 +312,14 @@
         (SPROG
          ((|s| (|NonNegativeInteger|))
           (|transform|
-           (|Mapping| #1=(|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|))))
-          (|tonto| (|List| (|Segment| (|DoubleFloat|)))) (#2=#:G103 NIL)
-          (|lColor| NIL) (#3=#:G102 NIL) (|pColor| NIL) (#4=#:G101 NIL)
-          (|aList| NIL) (#5=#:G100 NIL) (|p| NIL) (#6=#:G104 NIL)
-          (|aPoint| #1#) (|hueShade| (|Integer|)))
+           (|Mapping| (|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|))))
+          (#1=#:G105 NIL) (#2=#:G106 NIL)
+          (|pl| (|List| (|Point| (|DoubleFloat|))))
+          (|pll| (|List| (|List| (|Point| (|DoubleFloat|)))))
+          (|tonto| (|List| (|Segment| (|DoubleFloat|)))) (#3=#:G110 NIL)
+          (|lColor| NIL) (#4=#:G109 NIL) (|pColor| NIL) (#5=#:G108 NIL)
+          (|aList| NIL) (#6=#:G107 NIL) (|p| NIL) (#7=#:G111 NIL)
+          (|hueShade| (|Integer|)))
          (SEQ (|GRIMAGE;doOptions| |graf| %)
               (LETT |s| (LENGTH (QVELT |graf| 3)))
               (EXIT
@@ -329,9 +332,6 @@
                  (SEQ
                   (LETT |transform|
                         (SPADCALL (QVELT |graf| 7) (ELT % 68) (QREFELT % 70)))
-                  (QSETVELT |graf| 3
-                            (SPADCALL (QVELT |graf| 3) (QVELT |graf| 4)
-                                      (QREFELT % 39)))
                   (COND
                    ((NULL (SPADCALL |graf| (QREFELT % 8)))
                     (QSETVELT |graf| 1
@@ -342,6 +342,28 @@
                    ((NULL (SPADCALL |graf| (QREFELT % 23)))
                     (QSETVELT |graf| 2
                               (|GRIMAGE;figureUnits| (QVELT |graf| 1) %))))
+                  (LETT |pll| NIL)
+                  (SEQ (LETT |aList| NIL) (LETT #1# (QVELT |graf| 3)) G190
+                       (COND
+                        ((OR (ATOM #1#) (PROGN (LETT |aList| (CAR #1#)) NIL))
+                         (GO G191)))
+                       (SEQ (LETT |pl| NIL)
+                            (SEQ (LETT |p| NIL) (LETT #2# |aList|) G190
+                                 (COND
+                                  ((OR (ATOM #2#)
+                                       (PROGN (LETT |p| (CAR #2#)) NIL))
+                                   (GO G191)))
+                                 (SEQ
+                                  (EXIT
+                                   (LETT |pl|
+                                         (CONS (SPADCALL |p| |transform|)
+                                               |pl|))))
+                                 (LETT #2# (CDR #2#)) (GO G190) G191
+                                 (EXIT NIL))
+                            (EXIT (LETT |pll| (CONS (NREVERSE |pl|) |pll|))))
+                       (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+                  (LETT |pll| (NREVERSE |pll|))
+                  (LETT |pll| (SPADCALL |pll| (QVELT |graf| 4) (QREFELT % 39)))
                   (SPADCALL
                    "   Graph data being transmitted to the viewport manager..."
                    (QREFELT % 53))
@@ -365,29 +387,28 @@
                   (|sockSendFloat| |$ViewportServer|
                                    (SPADCALL (QVELT |graf| 2) (QREFELT % 73)))
                   (|sockSendInt| |$ViewportServer| |s|)
-                  (SEQ (LETT #2# (QVELT |graf| 6)) (LETT |lColor| NIL)
-                       (LETT #3# (QVELT |graf| 5)) (LETT |pColor| NIL)
-                       (LETT #4# (QVELT |graf| 4)) (LETT |aList| NIL)
-                       (LETT #5# (QVELT |graf| 3)) G190
+                  (SEQ (LETT #3# (QVELT |graf| 6)) (LETT |lColor| NIL)
+                       (LETT #4# (QVELT |graf| 5)) (LETT |pColor| NIL)
+                       (LETT #5# (QVELT |graf| 4)) (LETT |aList| NIL)
+                       (LETT #6# |pll|) G190
                        (COND
-                        ((OR (ATOM #5#) (PROGN (LETT |aList| (CAR #5#)) NIL)
-                             (ATOM #4#) (PROGN (LETT |pColor| (CAR #4#)) NIL)
-                             (ATOM #3#) (PROGN (LETT |lColor| (CAR #3#)) NIL)
-                             (ATOM #2#) (PROGN (LETT |s| (CAR #2#)) NIL))
+                        ((OR (ATOM #6#) (PROGN (LETT |aList| (CAR #6#)) NIL)
+                             (ATOM #5#) (PROGN (LETT |pColor| (CAR #5#)) NIL)
+                             (ATOM #4#) (PROGN (LETT |lColor| (CAR #4#)) NIL)
+                             (ATOM #3#) (PROGN (LETT |s| (CAR #3#)) NIL))
                          (GO G191)))
                        (SEQ (|sockSendInt| |$ViewportServer| (LENGTH |aList|))
-                            (SEQ (LETT |p| NIL) (LETT #6# |aList|) G190
+                            (SEQ (LETT |p| NIL) (LETT #7# |aList|) G190
                                  (COND
-                                  ((OR (ATOM #6#)
-                                       (PROGN (LETT |p| (CAR #6#)) NIL))
+                                  ((OR (ATOM #7#)
+                                       (PROGN (LETT |p| (CAR #7#)) NIL))
                                    (GO G191)))
                                  (SEQ
-                                  (LETT |aPoint| (SPADCALL |p| |transform|))
                                   (|sockSendFloat| |$ViewportServer|
-                                                   (SPADCALL |aPoint|
+                                                   (SPADCALL |p|
                                                              (QREFELT % 75)))
                                   (|sockSendFloat| |$ViewportServer|
-                                                   (SPADCALL |aPoint|
+                                                   (SPADCALL |p|
                                                              (QREFELT % 76)))
                                   (|sockSendFloat| |$ViewportServer|
                                                    (SPADCALL |p|
@@ -397,7 +418,7 @@
                                                     (SPADCALL |p|
                                                               (QREFELT %
                                                                        78)))))
-                                 (LETT #6# (CDR #6#)) (GO G190) G191
+                                 (LETT #7# (CDR #7#)) (GO G190) G191
                                  (EXIT NIL))
                             (LETT |hueShade|
                                   (+
@@ -418,13 +439,13 @@
                                    (SPADCALL |lColor| (QREFELT % 30))))
                             (|sockSendInt| |$ViewportServer| |hueShade|)
                             (EXIT (|sockSendInt| |$ViewportServer| |s|)))
-                       (LETT #5#
-                             (PROG1 (CDR #5#)
-                               (LETT #4#
-                                     (PROG1 (CDR #4#)
-                                       (LETT #3#
-                                             (PROG1 (CDR #3#)
-                                               (LETT #2# (CDR #2#))))))))
+                       (LETT #6#
+                             (PROG1 (CDR #6#)
+                               (LETT #5#
+                                     (PROG1 (CDR #5#)
+                                       (LETT #4#
+                                             (PROG1 (CDR #4#)
+                                               (LETT #3# (CDR #3#))))))))
                        (GO G190) G191 (EXIT NIL))
                   (EXIT
                    (QSETVELT |graf| 0 (|sockGetInt| |$ViewportServer|)))))))))) 
@@ -519,8 +540,8 @@
 (SDEFUN |GRIMAGE;makeGraphImage;L%;17|
         ((|llp| (|List| (|List| (|Point| (|DoubleFloat|))))) (% (%)))
         (SPROG
-         ((#1=#:G124 NIL) (|l| (|Integer|)) (#2=#:G125 NIL) (#3=#:G126 NIL)
-          (#4=#:G127 NIL) (#5=#:G128 NIL) (|i| NIL) (#6=#:G129 NIL))
+         ((#1=#:G131 NIL) (|l| (|Integer|)) (#2=#:G132 NIL) (#3=#:G133 NIL)
+          (#4=#:G134 NIL) (#5=#:G135 NIL) (|i| NIL) (#6=#:G136 NIL))
          (SEQ
           (SPADCALL |llp|
                     (PROGN
@@ -563,33 +584,12 @@
          (|lpc| (|List| (|Palette|))) (|llc| (|List| (|Palette|)))
          (|lps| (|List| (|PositiveInteger|))) (|opts| (|List| (|DrawOption|)))
          (% (%)))
-        (SPROG
-         ((|graf| (%))
-          (|transform|
-           (|Mapping| #1=(|Point| (|DoubleFloat|)) (|Point| (|DoubleFloat|))))
-          (|aList| NIL) (#2=#:G138 NIL) (|p| NIL) (#3=#:G139 NIL)
-          (|aPoint| #1#))
-         (SEQ
-          (LETT |graf|
-                (|GRIMAGE;graph| (SPADCALL |opts| NIL (QREFELT % 11)) %))
-          (QSETVELT |graf| 7 |opts|)
-          (LETT |graf| (|GRIMAGE;plotLists| |graf| |llp| |lpc| |llc| |lps| %))
-          (LETT |transform|
-                (SPADCALL (QVELT |graf| 7) (ELT % 68) (QREFELT % 70)))
-          (SEQ (LETT |aList| NIL) (LETT #2# (QVELT |graf| 3)) G190
-               (COND
-                ((OR (ATOM #2#) (PROGN (LETT |aList| (CAR #2#)) NIL))
-                 (GO G191)))
+        (SPROG ((|graf| (%)))
                (SEQ
-                (EXIT
-                 (SEQ (LETT |p| NIL) (LETT #3# |aList|) G190
-                      (COND
-                       ((OR (ATOM #3#) (PROGN (LETT |p| (CAR #3#)) NIL))
-                        (GO G191)))
-                      (SEQ (EXIT (LETT |aPoint| (SPADCALL |p| |transform|))))
-                      (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))))
-               (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
-          (EXIT |graf|)))) 
+                (LETT |graf|
+                      (|GRIMAGE;graph| (SPADCALL |opts| NIL (QREFELT % 11)) %))
+                (QSETVELT |graf| 7 |opts|)
+                (EXIT (|GRIMAGE;plotLists| |graf| |llp| |lpc| |llc| |lps| %))))) 
 
 (SDEFUN |GRIMAGE;component;%L2PPiV;20|
         ((|graf| (%)) (|ListOfPoints| (|List| (|Point| (|DoubleFloat|))))
