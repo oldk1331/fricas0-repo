@@ -122,10 +122,40 @@
     (DECLARE (SPECIAL |$ncMsgList|))
     (RETURN (PROGN (SETQ |$ncMsgList| NIL) (|kisValidType| |t|)))))
 
-; $add_description_string_fun := [0, nil]
+; clear_hyperdoc_funs() ==
+;     $add_description_string_fun := [0, nil]
+;     $add_to_noproces_fun := [0, nil]
+;     $add_to_page_fun := [0, nil]
+;     $destroy_page_fun := [0, nil]
+;     $do_gen_fun1_fun := [0, nil]
+;     $do_page_fun0_fun := [0, nil]
+;     $do_page_fun1_fun := [0, nil]
+;     $do_page_fun2_fun := [0, nil]
+;     $do_search_fun := [0, nil]
+;     $make_page_fun := [0, nil]
+;     $set_input_string_fun := [0, nil]
+;     $show_page_fun := [0, nil]
 
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
-  (SETQ |$add_description_string_fun| (LIST 0 NIL)))
+(DEFUN |clear_hyperdoc_funs| ()
+  (PROG ()
+    (RETURN
+     (PROGN
+      (SETQ |$add_description_string_fun| (LIST 0 NIL))
+      (SETQ |$add_to_noproces_fun| (LIST 0 NIL))
+      (SETQ |$add_to_page_fun| (LIST 0 NIL))
+      (SETQ |$destroy_page_fun| (LIST 0 NIL))
+      (SETQ |$do_gen_fun1_fun| (LIST 0 NIL))
+      (SETQ |$do_page_fun0_fun| (LIST 0 NIL))
+      (SETQ |$do_page_fun1_fun| (LIST 0 NIL))
+      (SETQ |$do_page_fun2_fun| (LIST 0 NIL))
+      (SETQ |$do_search_fun| (LIST 0 NIL))
+      (SETQ |$make_page_fun| (LIST 0 NIL))
+      (SETQ |$set_input_string_fun| (LIST 0 NIL))
+      (SETQ |$show_page_fun| (LIST 0 NIL))))))
+
+; clear_hyperdoc_funs()
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (PROG () (RETURN (|clear_hyperdoc_funs|))))
 
 ; ht_add_string(page, s) ==
 ;     not(STRINGP(s)) => BREAK()
@@ -146,10 +176,6 @@
                        '(|HyperdocPage|) |$Void|
                        '((|HyperdocPage|) (|String|)))))
              (SPADCALL |page| |s| |fun|)))))))
-
-; $add_to_noproces_fun := [0, nil]
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$add_to_noproces_fun| (LIST 0 NIL)))
 
 ; ht_add_item(page, line) ==
 ;     STRINGP line => ht_add_string(page, line)
@@ -177,10 +203,6 @@
                        '((|HyperdocPage|) (|List| (|SExpression|))))))
              (SPADCALL |page| |text| |fun|)))))))
 
-; $show_page_fun := [0, nil]
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$show_page_fun| (LIST 0 NIL)))
-
 ; ht_show_page(page) ==
 ;     fun := SpadFun($show_page_fun,
 ;                getFunctionFromDomain1("show", '(HyperdocPage),
@@ -197,10 +219,6 @@
                 '((|HyperdocPage|)))))
       (SPADCALL |page| |fun|)))))
 
-; $add_to_page_fun := [0, nil]
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$add_to_page_fun| (LIST 0 NIL)))
-
 ; ht_add_to_page(page, itemList) ==
 ;     fun := SpadFun($add_to_page_fun,
 ;               getFunctionFromDomain1("add_to", '(HyperdocPage),
@@ -216,10 +234,6 @@
                (|getFunctionFromDomain1| '|add_to| '(|HyperdocPage|) |$Void|
                 '((|HyperdocPage|) (|List| (|SExpression|))))))
       (SPADCALL |page| |itemList| |fun|)))))
-
-; $make_page_fun := [0, nil]
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$make_page_fun| (LIST 0 NIL)))
 
 ; ht_new_page(propList) ==
 ;     fun := SpadFun($make_page_fun,
@@ -239,10 +253,6 @@
       (SETQ |page| (SPADCALL |propList| |fun|))
       |page|))))
 
-; $destroy_page_fun := [0, nil]
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$destroy_page_fun| (LIST 0 NIL)))
-
 ; htpDestroyPage(name) ==
 ;     fun := SpadFun($destroy_page_fun,
 ;               getFunctionFromDomain1("destroy", '(HyperdocPage),
@@ -258,11 +268,6 @@
                (|getFunctionFromDomain1| '|destroy| '(|HyperdocPage|) |$Void|
                 '(|Symbol|))))
       (SPADCALL |name| |fun|)))))
-
-; $set_input_string_fun := [0, nil]
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
-  (SETQ |$set_input_string_fun| (LIST 0 NIL)))
 
 ; htpSetLabelInputString(page, key, val) ==
 ;     fun := SpadFun($set_input_string_fun,
@@ -282,10 +287,6 @@
                       (LIST '|String|)))))
       (SPADCALL |page| |key| |val| |fun|)))))
 
-; $do_search_fun := [0, nil]
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$do_search_fun| (LIST 0 NIL)))
-
 ; do_search(pat, tag, desc) ==
 ;     fun := SpadFun($do_search_fun,
 ;              getFunctionFromDomain1("do_search", ["HyperdocTopPage"],
@@ -303,10 +304,6 @@
                 (LIST (LIST '|String|) (LIST '|Symbol|) (LIST '|String|)))))
       (SPADCALL |pat| |tag| |desc| |fun|)))))
 
-; $do_page_fun0_fun := [0, nil]
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$do_page_fun0_fun| (LIST 0 NIL)))
-
 ; do_page_fun0(page, tag) ==
 ;     fun := SpadFun($do_page_fun0_fun,
 ;              getFunctionFromDomain1("do_page_fun0", ["HyperdocTopPage"],
@@ -323,10 +320,6 @@
                 (LIST '|HyperdocTopPage|) |$Void|
                 (LIST (LIST '|HyperdocPage|) (LIST '|Symbol|)))))
       (SPADCALL |page| |tag| |fun|)))))
-
-; $do_page_fun1_fun := [0, nil]
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$do_page_fun1_fun| (LIST 0 NIL)))
 
 ; do_page_fun1(page, tag, data) ==
 ;     fun := SpadFun($do_page_fun1_fun,
@@ -346,10 +339,6 @@
                       (LIST '|SExpression|)))))
       (SPADCALL |page| |tag| |data| |fun|)))))
 
-; $do_page_fun2_fun := [0, nil]
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$do_page_fun2_fun| (LIST 0 NIL)))
-
 ; do_page_fun2(page, tag, data1, data2) ==
 ;     fun := SpadFun($do_page_fun2_fun,
 ;              getFunctionFromDomain1("do_page_fun2", ["HyperdocTopPage"],
@@ -368,10 +357,6 @@
                 (LIST (LIST '|HyperdocPage|) (LIST '|Symbol|)
                       (LIST '|SExpression|) (LIST '|SExpression|)))))
       (SPADCALL |page| |tag| |data1| |data2| |fun|)))))
-
-; $do_gen_fun1_fun := [0, nil]
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$do_gen_fun1_fun| (LIST 0 NIL)))
 
 ; do_gen_fun1(tag, data) ==
 ;     fun := SpadFun($do_gen_fun1_fun,
