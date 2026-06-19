@@ -320,7 +320,7 @@
 ;     (text . "\newline List the number of {\em times} you want to differentiate with respect to each variable (leave blank if once for each):")
 ;     (text . "\newline\tab{2} ")
 ;     (bcStrings (55 "1 2" times S . quoteString))))
-;   htMakeDoneButton('"Continue", 'bcDifferentiateGen)
+;   htMakeDoneButton(page, '"Continue", 'bcDifferentiateGen)
 ;   htShowPage1(page)
 
 (DEFUN |bcDifferentiate| ()
@@ -346,7 +346,7 @@
           . "\\newline List the number of {\\em times} you want to differentiate with respect to each variable (leave blank if once for each):")
          (|text| . "\\newline\\tab{2} ")
          (|bcStrings| (55 "1 2" |times| S . |quoteString|))))
-      (|htMakeDoneButton| "Continue" '|bcDifferentiateGen|)
+      (|htMakeDoneButton| |page| "Continue" '|bcDifferentiateGen|)
       (|htShowPage1| |page|)))))
 
 ; bcDifferentiateGen(htPage) ==
@@ -651,7 +651,7 @@
 ;       "Optionally enter a {\em title} for your curve:")
 ;     (bcStrings (15 "" title S))
 ;     (text . "\indent{0}")))
-;   htMakeDoneButton('"Continue", 'bcDraw2DSolveGen)
+;   htMakeDoneButton(page, '"Continue", 'bcDraw2DSolveGen)
 ;   htShowPage1(page)
 
 (DEFUN |bcDraw2DSolve| ()
@@ -681,7 +681,7 @@
          (|text| "\\indent{0}\\vspace{1}\\newline\\menuitemstyle{}\\tab{2} "
           "Optionally enter a {\\em title} for your curve:")
          (|bcStrings| (15 "" |title| S)) (|text| . "\\indent{0}")))
-      (|htMakeDoneButton| "Continue" '|bcDraw2DSolveGen|)
+      (|htMakeDoneButton| |page| "Continue" '|bcDraw2DSolveGen|)
       (|htShowPage1| |page|)))))
 
 ; bcDraw2DSolveGen(htPage) ==
@@ -988,7 +988,7 @@
 ;       "Optionally enter a {\em title} for your surface:")
 ;     (bcStrings (15 "surface" title S))
 ;     (text . "\indent{0}")))
-;   htMakeDoneButton('"Continue", 'bcDraw3Dpar1Gen)
+;   htMakeDoneButton(page, '"Continue", 'bcDraw3Dpar1Gen)
 ;   htShowPage1(page)
 
 (DEFUN |bcDraw3Dpar1| ()
@@ -1024,7 +1024,7 @@
          (|text| "\\indent{0}\\newline\\menuitemstyle{}\\tab{2} "
           "Optionally enter a {\\em title} for your surface:")
          (|bcStrings| (15 "surface" |title| S)) (|text| . "\\indent{0}")))
-      (|htMakeDoneButton| "Continue" '|bcDraw3Dpar1Gen|)
+      (|htMakeDoneButton| |page| "Continue" '|bcDraw3Dpar1Gen|)
       (|htShowPage1| |page|)))))
 
 ; bcDraw3Dpar1Gen(htPage) ==
@@ -1134,7 +1134,7 @@
 ;     (text . "Enter the {\em point} about which you want to expand")
 ;     (text . "\tab{49}")
 ;     (bcStrings (8 "\%pi/2" point EM))))
-;   htMakeDoneButton('"Continue", 'bcSeriesExpansionGen)
+;   htMakeDoneButton(page, '"Continue", 'bcSeriesExpansionGen)
 ;   htShowPage1(page)
 
 (DEFUN |bcSeriesExpansion| (|a| |b|)
@@ -1159,7 +1159,7 @@
          (|text| . "\\menuitemstyle{}\\tab{2}")
          (|text| . "Enter the {\\em point} about which you want to expand")
          (|text| . "\\tab{49}") (|bcStrings| (8 "\\%pi/2" |point| EM))))
-      (|htMakeDoneButton| "Continue" '|bcSeriesExpansionGen|)
+      (|htMakeDoneButton| |page| "Continue" '|bcSeriesExpansionGen|)
       (|htShowPage1| |page|)))))
 
 ; bcSeriesExpansionGen(htPage) ==

@@ -95,7 +95,7 @@
 ;     (domainConditions (isDomain PI (PositiveInteger)))
 ;     (inputStrings
 ;       ("Enter the {\em number} of equations:" "" 5 2 numberOfEquations PI))))
-;   htMakeDoneButton('"Continue", 'bcLinearSolveEqns1)
+;   htMakeDoneButton(page, '"Continue", 'bcLinearSolveEqns1)
 ;   htShowPage1(page)
 
 (DEFUN |bcLinearSolveEqns| (|htPage| |p|)
@@ -108,7 +108,7 @@
          (|inputStrings|
           ("Enter the {\\em number} of equations:" "" 5 2 |numberOfEquations|
            PI))))
-      (|htMakeDoneButton| "Continue" '|bcLinearSolveEqns1|)
+      (|htMakeDoneButton| |page| "Continue" '|bcLinearSolveEqns1|)
       (|htShowPage1| |page|)))))
 
 ; bcSystemSolve(htPage, p) ==
@@ -117,7 +117,7 @@
 ;     (domainConditions (isDomain PI (PositiveInteger)))
 ;     (inputStrings
 ;       ("Enter the {\em number} of equations:" "" 5 2 numberOfEquations PI))))
-;   htMakeDoneButton('"Continue", 'bcSystemSolveEqns1)
+;   htMakeDoneButton(page, '"Continue", 'bcSystemSolveEqns1)
 ;   htShowPage1(page)
 
 (DEFUN |bcSystemSolve| (|htPage| |p|)
@@ -130,7 +130,7 @@
          (|inputStrings|
           ("Enter the {\\em number} of equations:" "" 5 2 |numberOfEquations|
            PI))))
-      (|htMakeDoneButton| "Continue" '|bcSystemSolveEqns1|)
+      (|htMakeDoneButton| |page| "Continue" '|bcSystemSolveEqns1|)
       (|htShowPage1| |page|)))))
 
 ; bcSolveSingle(htPage,p) ==
@@ -279,7 +279,7 @@
 ;     ['(text . "Enter the unknowns (leave blank if implied):"),
 ;      '(text . "\tab{44}"),
 ;       ['bcStrings, [10, bcMakeUnknowns(numEqs), 'unknowns, 'P]]]))
-;   htMakeDoneButton('"Continue", 'bcInputEquationsEnd)
+;   htMakeDoneButton(page, '"Continue", 'bcInputEquationsEnd)
 ;   htShowPage1(page)
 
 (DEFUN |bcInputEquations| (|htPage| |solutionMethod|)
@@ -336,7 +336,7 @@
                '(|text| . "\\tab{44}")
                (LIST '|bcStrings|
                      (LIST 10 (|bcMakeUnknowns| |numEqs|) '|unknowns| 'P))))))
-      (|htMakeDoneButton| "Continue" '|bcInputEquationsEnd|)
+      (|htMakeDoneButton| |page| "Continue" '|bcInputEquationsEnd|)
       (|htShowPage1| |page|)))))
 (DEFUN |bcInputEquations,f| (|i| |n| |linearp|)
   (PROG (|spacer| |prefix| |lnam| |rnam| |var|)
@@ -478,7 +478,7 @@
 ;       (inputStrings
 ;         ("Enter the number of desired {\em digits} of accuracy" ""
 ;           5 20 acc PI))))
-;   htMakeDoneButton('"Continue", 'bcSolveNumerically1)
+;   htMakeDoneButton(page, '"Continue", 'bcSolveNumerically1)
 ;   htShowPage1(page)
 
 (DEFUN |bcSolveEquationsNumerically| (|htPage| |p|)
@@ -499,7 +499,7 @@
          (|inputStrings|
           ("Enter the number of desired {\\em digits} of accuracy" "" 5 20
            |acc| PI))))
-      (|htMakeDoneButton| "Continue" '|bcSolveNumerically1|)
+      (|htMakeDoneButton| |page| "Continue" '|bcSolveNumerically1|)
       (|htShowPage1| |page|)))))
 
 ; bcSolveNumerically1(htPage) ==

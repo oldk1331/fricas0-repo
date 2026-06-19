@@ -1034,7 +1034,7 @@
                 (SETQ |bfVar#25| (CDR |bfVar#25|))))
              NIL (CDR |pattern|) NIL))))))
 
-; htMakeDoneButton(message, func) ==
+; htMakeDoneButton(page, message, func) ==
 ;   bcHt '"\newline\vspace{1}\centerline{"
 ;   if message = '"Continue" then
 ;     bchtMakeButton('"\lispdownlink", "\ContinueBitmap", func)
@@ -1042,7 +1042,7 @@
 ;     bchtMakeButton('"\lispdownlink",CONCAT('"\fbox{", message, '"}"), func)
 ;   bcHt '"} "
 
-(DEFUN |htMakeDoneButton| (|message| |func|)
+(DEFUN |htMakeDoneButton| (|page| |message| |func|)
   (PROG ()
     (RETURN
      (PROGN
@@ -1163,7 +1163,7 @@
       (|iht|
        "\\newline{Select \\  \\ExitButton{QuitPage} \\  to remove this window.}")))))
 
-; htMakeDoitButton(label, command) ==
+; htMakeDoitButton(page, label, command) ==
 ;   -- use bitmap button if just plain old "Do It"
 ;   if label = '"Do It" then
 ;     bcHt '"\newline\vspace{1}\centerline{\lispcommand{\DoItBitmap}{(|doDoitButton| "
@@ -1177,7 +1177,7 @@
 ;   bcHt '"\vspace{2}{Select \  \UpButton{} \  to go back one page.}"
 ;   bcHt '"\newline{Select \  \ExitButton{QuitPage} \  to remove this window.}"
 
-(DEFUN |htMakeDoitButton| (|label| |command|)
+(DEFUN |htMakeDoitButton| (|page| |label| |command|)
   (PROG ()
     (RETURN
      (PROGN
@@ -1465,7 +1465,7 @@
 ;         "{Here is the FriCAS command you could have issued to compute this result:}"
 ;             "\vspace{2}\newline "),
 ;       ['text,:string]])
-;   htMakeDoitButton('"Do It", command)
+;   htMakeDoitButton(page, '"Do It", command)
 ;   htShowPage1(page)
 
 (DEFUN |bcGen| (|command|)
@@ -1484,7 +1484,7 @@
           "{Here is the FriCAS command you could have issued to compute this result:}"
           "\\vspace{2}\\newline ")
         (CONS '|text| |string|)))
-      (|htMakeDoitButton| "Do It" |command|)
+      (|htMakeDoitButton| |page| "Do It" |command|)
       (|htShowPage1| |page|)))))
 
 ; bcString2WordList s == fn(s,0,MAXINDEX s) where
