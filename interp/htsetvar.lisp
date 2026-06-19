@@ -35,72 +35,43 @@
              (SETQ |pattern| (STRINGIMAGE |pattern|))
              (COND ((< 0 (LENGTH |pattern|)) |pattern|) (#1# "*"))))))))
 
-; htSystemVariables() == main where
-;   main ==
+; htSystemVariables() ==
 ;     not $fullScreenSysVars => htSetVars()
 ;     classlevel := $UserLevel
 ;     $levels : local := '(compiler development interpreter)
 ;     $heading  : local := nil
 ;     while classlevel ~= first $levels repeat $levels := rest $levels
-;     table := NREVERSE fn($setOptions,nil,true)
-;     htInitPage('"System Variables",nil)
-;     htSay '"\beginmenu"
+;     table := NREVERSE(hsv_fn($setOptions, nil, true))
+;     page := htInitPage('"System Variables", nil)
+;     ht_add_string(page, '"\beginmenu")
 ;     lastHeading := nil
 ;     for [heading,name,message,.,key,variable,options,func] in table repeat
-;       htSay('"\newline\item ")
-;       if heading = lastHeading then htSay '"\tab{8}" else
-;         htSayList([heading, '"\tab{8}"])
-;         lastHeading := heading
-;       htSayList(['"{\em ", name, "}\tab{22}", message])
-;       htSay('"\tab{80}")
+;       ht_add_string(page, '"\newline\item ")
+;       if heading = lastHeading then ht_add_string(page, '"\tab{8}") else
+;           ht_add_strings(page, [PNAME(heading), '"\tab{8}"])
+;           lastHeading := heading
+;       ht_add_strings(page, ['"{\em ", PNAME(name), "}\tab{22}", message])
+;       ht_add_string(page, '"\tab{80}")
 ;       key = 'FUNCTION =>
-;          null options => htMakePage [['bcLinks,['"reset",'"",func]]]
+;          null options => ht_add_to_page(page,
+;                                      [['bcLinks, ['"reset", '"", func]]])
 ;          [msg,class,var,valuesOrFunction,:.] := first options  --skip first message
-;          functionTail(name,class,var,valuesOrFunction)
+;          functionTail(page, name, class, var, valuesOrFunction)
 ;          for option in rest options repeat
 ;            option is ['break,:.] => 'skip
 ;            [msg,class,var,valuesOrFunction,:.] := option
-;            htSayList(['"\newline\tab{22}", msg,'"\tab{80}"])
-;            functionTail(name,class,var,valuesOrFunction)
+;            ht_add_strings(page, ['"\newline\tab{22}", msg,'"\tab{80}"])
+;            functionTail(page, name, class, var, valuesOrFunction)
 ;       val := eval variable
-;       displayOptions(name,key,variable,val,options)
-;     htSay '"\endmenu"
-;     htShowPage()
-;   functionTail(name,class,var,valuesOrFunction) ==
-;     val := eval var
-;     atom valuesOrFunction =>
-;       htMakePage '((domainConditions (isDomain STR (String))))
-;       htMakePage [['bcLinks,['"reset",'"",'htSetSystemVariableKind,[var,name,nil]]]]
-;       htMakePage [['bcStrings,[30,STRINGIMAGE val,name,valuesOrFunction]]]
-;     displayOptions(name,class,var,val,valuesOrFunction)
-;   displayOptions(name,class,variable,val,options) ==
-;     class = 'INTEGER =>
-;       htMakePage [['bcLispLinks,[[['text,options.0,'"-",options.1 or '""]],'"",'htSetSystemVariableKind,[variable,name,'PARSE_-INTEGER]]]]
-;       htMakePage '((domainConditions (isDomain INT (Integer))))
-;       htMakePage  [['bcStrings,[5,STRINGIMAGE val,name,'INT]]]
-;     class = 'STRING =>
-;       htSayList ['"{\em ", val, '"}\space{1}"]
-;     for x in options repeat
-;       val = x or val = true and x = 'on or null val and x = 'off =>
-;         htSayList ['"{\em ", x, '"}\space{1}"]
-;       htMakePage [['bcLispLinks,[x,'" ",'htSetSystemVariable,[variable,x]]]]
-;   fn(t,al,firstTime) ==
-;     atom t => al
-;     if firstTime then $heading := opOf first t
-;     fn(rest t,gn(first t,al),firstTime)
-;   gn(t,al) ==
-;     [.,.,class,key,.,options,:.] := t
-;     not MEMQ(class,$levels) => al
-;     key = 'LITERALS or key = 'INTEGER or key = 'STRING => [[$heading,:t],:al]
-;     key = 'TREE => fn(options,al,false)
-;     key = 'FUNCTION => [[$heading,:t],:al]
-;     systemError key
+;       displayOptions(page, name, key, variable, val, options)
+;     ht_add_string(page, '"\endmenu")
+;     htShowPage1(page)
 
 (DEFUN |htSystemVariables| ()
-  (PROG (|$heading| |$levels| |classlevel| |table| |lastHeading| |heading|
-         |ISTMP#1| |name| |ISTMP#2| |message| |ISTMP#3| |ISTMP#4| |key|
-         |ISTMP#5| |variable| |ISTMP#6| |options| |ISTMP#7| |func| |LETTMP#1|
-         |msg| |class| |var| |valuesOrFunction| |val|)
+  (PROG (|$heading| |$levels| |classlevel| |table| |page| |lastHeading|
+         |heading| |ISTMP#1| |name| |ISTMP#2| |message| |ISTMP#3| |ISTMP#4|
+         |key| |ISTMP#5| |variable| |ISTMP#6| |options| |ISTMP#7| |func|
+         |LETTMP#1| |msg| |class| |var| |valuesOrFunction| |val|)
     (DECLARE (SPECIAL |$heading| |$levels|))
     (RETURN
      (COND ((NULL |$fullScreenSysVars|) (|htSetVars|))
@@ -113,10 +84,9 @@
                 (LOOP
                  (COND ((EQUAL |classlevel| (CAR |$levels|)) (RETURN NIL))
                        (#1# (SETQ |$levels| (CDR |$levels|)))))))
-             (SETQ |table|
-                     (NREVERSE (|htSystemVariables,fn| |$setOptions| NIL T)))
-             (|htInitPage| "System Variables" NIL)
-             (|htSay| "\\beginmenu")
+             (SETQ |table| (NREVERSE (|hsv_fn| |$setOptions| NIL T)))
+             (SETQ |page| (|htInitPage| "System Variables" NIL))
+             (|ht_add_string| |page| "\\beginmenu")
              (SETQ |lastHeading| NIL)
              ((LAMBDA (|bfVar#2| |bfVar#1|)
                 (LOOP
@@ -170,31 +140,34 @@
                                                                         |ISTMP#7|))
                                                                #1#)))))))))))))))
                         (PROGN
-                         (|htSay| "\\newline\\item ")
+                         (|ht_add_string| |page| "\\newline\\item ")
                          (COND
                           ((EQUAL |heading| |lastHeading|)
-                           (|htSay| "\\tab{8}"))
-                          (#1# (|htSayList| (LIST |heading| "\\tab{8}"))
+                           (|ht_add_string| |page| "\\tab{8}"))
+                          (#1#
+                           (|ht_add_strings| |page|
+                            (LIST (PNAME |heading|) "\\tab{8}"))
                            (SETQ |lastHeading| |heading|)))
-                         (|htSayList|
-                          (LIST "{\\em " |name| '|}\\tab{22}| |message|))
-                         (|htSay| "\\tab{80}")
+                         (|ht_add_strings| |page|
+                          (LIST "{\\em " (PNAME |name|) '|}\\tab{22}|
+                                |message|))
+                         (|ht_add_string| |page| "\\tab{80}")
                          (COND
                           ((EQ |key| 'FUNCTION)
                            (COND
                             ((NULL |options|)
-                             (|htMakePage|
+                             (|ht_add_to_page| |page|
                               (LIST
                                (LIST '|bcLinks| (LIST "reset" "" |func|)))))
                             (#1#
                              (PROGN
                               (SETQ |LETTMP#1| (CAR |options|))
                               (SETQ |msg| (CAR |LETTMP#1|))
-                              (SETQ |class| (CADR |LETTMP#1|))
-                              (SETQ |var| (CADDR |LETTMP#1|))
-                              (SETQ |valuesOrFunction| (CADDDR |LETTMP#1|))
-                              (|htSystemVariables,functionTail| |name| |class|
-                               |var| |valuesOrFunction|)
+                              (SETQ |class| (CADR . #2=(|LETTMP#1|)))
+                              (SETQ |var| (CADDR . #2#))
+                              (SETQ |valuesOrFunction| (CADDDR . #2#))
+                              (|functionTail| |page| |name| |class| |var|
+                               |valuesOrFunction|)
                               ((LAMBDA (|bfVar#3| |option|)
                                  (LOOP
                                   (COND
@@ -211,28 +184,37 @@
                                      (#1#
                                       (PROGN
                                        (SETQ |msg| (CAR |option|))
-                                       (SETQ |class| (CADR |option|))
-                                       (SETQ |var| (CADDR |option|))
-                                       (SETQ |valuesOrFunction|
-                                               (CADDDR |option|))
-                                       (|htSayList|
+                                       (SETQ |class| (CADR . #3=(|option|)))
+                                       (SETQ |var| (CADDR . #3#))
+                                       (SETQ |valuesOrFunction| (CADDDR . #3#))
+                                       (|ht_add_strings| |page|
                                         (LIST "\\newline\\tab{22}" |msg|
                                               "\\tab{80}"))
-                                       (|htSystemVariables,functionTail| |name|
-                                        |class| |var| |valuesOrFunction|))))))
+                                       (|functionTail| |page| |name| |class|
+                                        |var| |valuesOrFunction|))))))
                                   (SETQ |bfVar#3| (CDR |bfVar#3|))))
                                (CDR |options|) NIL)))))
                           (#1#
                            (PROGN
                             (SETQ |val| (|eval| |variable|))
-                            (|htSystemVariables,displayOptions| |name| |key|
-                             |variable| |val| |options|))))))))
+                            (|displayOptions| |page| |name| |key| |variable|
+                             |val| |options|))))))))
                  (SETQ |bfVar#2| (CDR |bfVar#2|))))
               |table| NIL)
-             (|htSay| "\\endmenu")
-             (|htShowPage|)))))))
-(DEFUN |htSystemVariables,functionTail|
-       (|name| |class| |var| |valuesOrFunction|)
+             (|ht_add_string| |page| "\\endmenu")
+             (|htShowPage1| |page|)))))))
+
+; functionTail(page, name, class, var, valuesOrFunction) ==
+;     val := eval var
+;     atom valuesOrFunction =>
+;         ht_add_to_page(page, '((domainConditions (isDomain STR (String)))))
+;         ht_add_to_page(page, [['bcLinks,
+;             ['"reset", '"", 'htSetSystemVariableKind, [var, name, nil]]]])
+;         ht_add_to_page(page, [['bcStrings,
+;             [30, STRINGIMAGE(val), name, valuesOrFunction]]])
+;     displayOptions(page, name, class, var, val, valuesOrFunction)
+
+(DEFUN |functionTail| (|page| |name| |class| |var| |valuesOrFunction|)
   (PROG (|val|)
     (RETURN
      (PROGN
@@ -240,40 +222,61 @@
       (COND
        ((ATOM |valuesOrFunction|)
         (PROGN
-         (|htMakePage| '((|domainConditions| (|isDomain| STR (|String|)))))
-         (|htMakePage|
+         (|ht_add_to_page| |page|
+          '((|domainConditions| (|isDomain| STR (|String|)))))
+         (|ht_add_to_page| |page|
           (LIST
            (LIST '|bcLinks|
                  (LIST "reset" "" '|htSetSystemVariableKind|
                        (LIST |var| |name| NIL)))))
-         (|htMakePage|
+         (|ht_add_to_page| |page|
           (LIST
            (LIST '|bcStrings|
                  (LIST 30 (STRINGIMAGE |val|) |name| |valuesOrFunction|))))))
        ('T
-        (|htSystemVariables,displayOptions| |name| |class| |var| |val|
+        (|displayOptions| |page| |name| |class| |var| |val|
          |valuesOrFunction|)))))))
-(DEFUN |htSystemVariables,displayOptions|
-       (|name| |class| |variable| |val| |options|)
-  (PROG ()
+
+; displayOptions(page, name, class, variable, val, options) ==
+;     class = 'INTEGER =>
+;         opt1_str :=
+;             options.1 => STRINGIMAGE(options.1)
+;             ""
+;         ht_add_to_page(page, [['bcLispLinks,
+;             [STRCONC(STRINGIMAGE(options.0), '"-", opt1_str), '"",
+;              'htSetSystemVariableKind, [variable, name, 'PARSE_-INTEGER]]]])
+;         ht_add_to_page(page, '((domainConditions (isDomain INT (Integer)))))
+;         ht_add_to_page(page, [['bcStrings, [5, STRINGIMAGE(val), name, 'INT]]])
+;     class = 'STRING =>
+;         ht_add_strings(page, ['"{\em ", val, '"}\space{1}"])
+;     for x in options repeat
+;       val = x or val = true and x = 'on or null val and x = 'off =>
+;             ht_add_strings(page, ['"{\em ", STRINGIMAGE(x), '"}\space{1}"])
+;       ht_add_to_page(page, [['bcLispLinks,
+;                     [x, '" ", 'htSetSystemVariable, [variable, x]]]])
+
+(DEFUN |displayOptions| (|page| |name| |class| |variable| |val| |options|)
+  (PROG (|opt1_str|)
     (RETURN
      (COND
       ((EQ |class| 'INTEGER)
        (PROGN
-        (|htMakePage|
+        (SETQ |opt1_str|
+                (COND ((ELT |options| 1) (STRINGIMAGE (ELT |options| 1)))
+                      (#1='T '||)))
+        (|ht_add_to_page| |page|
          (LIST
           (LIST '|bcLispLinks|
-                (LIST
-                 (LIST
-                  (LIST '|text| (ELT |options| 0) "-"
-                        (OR (ELT |options| 1) "")))
-                 "" '|htSetSystemVariableKind|
-                 (LIST |variable| |name| 'PARSE-INTEGER)))))
-        (|htMakePage| '((|domainConditions| (|isDomain| INT (|Integer|)))))
-        (|htMakePage|
+                (LIST (STRCONC (STRINGIMAGE (ELT |options| 0)) "-" |opt1_str|)
+                      "" '|htSetSystemVariableKind|
+                      (LIST |variable| |name| 'PARSE-INTEGER)))))
+        (|ht_add_to_page| |page|
+         '((|domainConditions| (|isDomain| INT (|Integer|)))))
+        (|ht_add_to_page| |page|
          (LIST (LIST '|bcStrings| (LIST 5 (STRINGIMAGE |val|) |name| 'INT))))))
-      ((EQ |class| 'STRING) (|htSayList| (LIST "{\\em " |val| "}\\space{1}")))
-      (#1='T
+      ((EQ |class| 'STRING)
+       (|ht_add_strings| |page| (LIST "{\\em " |val| "}\\space{1}")))
+      (#1#
        ((LAMBDA (|bfVar#4| |x|)
           (LOOP
            (COND
@@ -283,35 +286,59 @@
              (COND
               ((OR (EQUAL |val| |x|) (AND (EQUAL |val| T) (EQ |x| '|on|))
                    (AND (NULL |val|) (EQ |x| '|off|)))
-               (|htSayList| (LIST "{\\em " |x| "}\\space{1}")))
+               (|ht_add_strings| |page|
+                (LIST "{\\em " (STRINGIMAGE |x|) "}\\space{1}")))
               (#1#
-               (|htMakePage|
+               (|ht_add_to_page| |page|
                 (LIST
                  (LIST '|bcLispLinks|
                        (LIST |x| " " '|htSetSystemVariable|
                              (LIST |variable| |x|)))))))))
            (SETQ |bfVar#4| (CDR |bfVar#4|))))
         |options| NIL))))))
-(DEFUN |htSystemVariables,fn| (|t| |al| |firstTime|)
+
+; hsv_fn(lt, al, firstTime) ==
+;     for t in lt repeat
+;         if firstTime then $heading := opOf(t)
+;         al := hsv_gn(t, al)
+;     al
+
+(DEFUN |hsv_fn| (|lt| |al| |firstTime|)
   (PROG ()
     (RETURN
-     (COND ((ATOM |t|) |al|)
+     (PROGN
+      ((LAMBDA (|bfVar#5| |t|)
+         (LOOP
+          (COND
+           ((OR (ATOM |bfVar#5|) (PROGN (SETQ |t| (CAR |bfVar#5|)) NIL))
+            (RETURN NIL))
            ('T
             (PROGN
-             (COND (|firstTime| (SETQ |$heading| (|opOf| (CAR |t|)))))
-             (|htSystemVariables,fn| (CDR |t|)
-              (|htSystemVariables,gn| (CAR |t|) |al|) |firstTime|)))))))
-(DEFUN |htSystemVariables,gn| (|t| |al|)
+             (COND (|firstTime| (SETQ |$heading| (|opOf| |t|))))
+             (SETQ |al| (|hsv_gn| |t| |al|)))))
+          (SETQ |bfVar#5| (CDR |bfVar#5|))))
+       |lt| NIL)
+      |al|))))
+
+; hsv_gn(t, al) ==
+;     [.,.,class,key,.,options,:.] := t
+;     not MEMQ(class,$levels) => al
+;     key = 'LITERALS or key = 'INTEGER or key = 'STRING => [[$heading,:t],:al]
+;     key = 'TREE => hsv_fn(options, al, false)
+;     key = 'FUNCTION => [[$heading,:t],:al]
+;     systemError key
+
+(DEFUN |hsv_gn| (|t| |al|)
   (PROG (|class| |key| |options|)
     (RETURN
      (PROGN
-      (SETQ |class| (CADDR |t|))
-      (SETQ |key| (CADDDR |t|))
-      (SETQ |options| (CADR (CDDDDR |t|)))
+      (SETQ |class| (CADDR . #1=(|t|)))
+      (SETQ |key| (CADDDR . #1#))
+      (SETQ |options| (CADR (CDDDDR . #1#)))
       (COND ((NULL (MEMQ |class| |$levels|)) |al|)
             ((OR (EQ |key| 'LITERALS) (EQ |key| 'INTEGER) (EQ |key| 'STRING))
              (CONS (CONS |$heading| |t|) |al|))
-            ((EQ |key| 'TREE) (|htSystemVariables,fn| |options| |al| NIL))
+            ((EQ |key| 'TREE) (|hsv_fn| |options| |al| NIL))
             ((EQ |key| 'FUNCTION) (CONS (CONS |$heading| |t|) |al|))
             ('T (|systemError| |key|)))))))
 
@@ -322,12 +349,12 @@
 ;   SET(variable,value)
 ;   htSystemVariables ()
 
-(DEFUN |htSetSystemVariableKind| (|htPage| |bfVar#5|)
+(DEFUN |htSetSystemVariableKind| (|htPage| |bfVar#6|)
   (PROG (|variable| |name| |fun| |value|)
     (RETURN
      (PROGN
-      (SETQ |variable| (CAR |bfVar#5|))
-      (SETQ |name| (CADR . #1=(|bfVar#5|)))
+      (SETQ |variable| (CAR |bfVar#6|))
+      (SETQ |name| (CADR . #1=(|bfVar#6|)))
       (SETQ |fun| (CADDR . #1#))
       (SETQ |value| (|htpLabelInputString| |htPage| |name|))
       (COND
@@ -343,12 +370,12 @@
 ;   SET(name,value)
 ;   htSystemVariables ()
 
-(DEFUN |htSetSystemVariable| (|htPage| |bfVar#6|)
+(DEFUN |htSetSystemVariable| (|htPage| |bfVar#7|)
   (PROG (|name| |value|)
     (RETURN
      (PROGN
-      (SETQ |name| (CAR |bfVar#6|))
-      (SETQ |value| (CADR |bfVar#6|))
+      (SETQ |name| (CAR |bfVar#7|))
+      (SETQ |value| (CADR |bfVar#7|))
       (SETQ |value|
               (COND ((EQ |value| '|on|) T) ((EQ |value| '|off|) NIL)
                     ('T |value|)))
@@ -447,11 +474,11 @@
                 (PROGN
                  (|htInitPageNoScroll| NIL |heading|)
                  (|htSay| "\\beginscroll\\beginmenu")
-                 ((LAMBDA (|bfVar#7| |line|)
+                 ((LAMBDA (|bfVar#8| |line|)
                     (LOOP
                      (COND
-                      ((OR (ATOM |bfVar#7|)
-                           (PROGN (SETQ |line| (CAR |bfVar#7|)) NIL))
+                      ((OR (ATOM |bfVar#8|)
+                           (PROGN (SETQ |line| (CAR |bfVar#8|)) NIL))
                        (RETURN NIL))
                       (#1#
                        (PROGN
@@ -460,7 +487,7 @@
                          (LIST "\\item{\\em \\menuitemstyle{}}\\tab{0}{\\em "
                                (|escapeString| (SUBSTRING |line| 0 |tick|))
                                "} " (SUBSTRING |line| (+ |tick| 1) NIL))))))
-                     (SETQ |bfVar#7| (CDR |bfVar#7|))))
+                     (SETQ |bfVar#8| (CDR |bfVar#8|))))
                   |lines| NIL)
                  (|htSay| "\\endmenu ")
                  (|htSay| "\\endscroll\\newline ")
@@ -497,10 +524,10 @@
     (RETURN
      (PROGN
       (SETQ |acc| NIL)
-      ((LAMBDA (|bfVar#8| |keyline|)
+      ((LAMBDA (|bfVar#9| |keyline|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#8|) (PROGN (SETQ |keyline| (CAR |bfVar#8|)) NIL))
+           ((OR (ATOM |bfVar#9|) (PROGN (SETQ |keyline| (CAR |bfVar#9|)) NIL))
             (RETURN NIL))
            (#1='T
             (PROGN
@@ -530,20 +557,21 @@
              (SETQ |acc|
                      (CONS
                       (STRCONC |keyAndTick| |def|
-                       ((LAMBDA (|bfVar#9| |bfVar#11| |bfVar#10|)
+                       ((LAMBDA (|bfVar#10| |bfVar#12| |bfVar#11|)
                           (LOOP
                            (COND
-                            ((OR (ATOM |bfVar#11|)
+                            ((OR (ATOM |bfVar#12|)
                                  (PROGN
-                                  (SETQ |bfVar#10| (CAR |bfVar#11|))
+                                  (SETQ |bfVar#11| (CAR |bfVar#12|))
                                   NIL))
-                             (RETURN |bfVar#9|))
+                             (RETURN |bfVar#10|))
                             (#1#
-                             (SETQ |bfVar#9| (STRCONC |bfVar#9| |bfVar#10|))))
-                           (SETQ |bfVar#11| (CDR |bfVar#11|))))
+                             (SETQ |bfVar#10|
+                                     (STRCONC |bfVar#10| |bfVar#11|))))
+                           (SETQ |bfVar#12| (CDR |bfVar#12|))))
                         "" (NREVERSE |xtralines|) NIL))
                       |acc|)))))
-          (SETQ |bfVar#8| (CDR |bfVar#8|))))
+          (SETQ |bfVar#9| (CDR |bfVar#9|))))
        |results| NIL)
       (REVERSE |acc|)))))
 
@@ -578,34 +606,37 @@
 ;   maxWidth1 := MAX(9,maxWidth1)
 ;   maxWidth2 := MAX(41,maxWidth2)
 ;   tabset1 := STRINGIMAGE (maxWidth1)
-;   tabset2 := STRINGIMAGE (maxWidth2 + maxWidth1 - 1)
-;   htSayList(['"\tab{2}\newline Variable\tab{",
+;   tabset2 := STRINGIMAGE (maxWidth2 + maxWidth1 + 1)
+;   ht_add_strings(page, ['"\tab{2}\newline Variable\tab{",
 ;     STRINGIMAGE (maxWidth1 + quotient_INT(maxWidth2, 3)),
 ;      '"}Description\tab{",STRINGIMAGE(maxWidth2 + maxWidth1 + 2),
 ;       '"}Value\newline\beginitems "])
 ;   for setData in REVERSE okList repeat
-;       htSay '"\item"
+;       ht_add_string(page, '"\item")
 ;       label := STRCONC('"\menuitemstyle{",setData.setName,'"}")
-;       links := [label,[['text,'"\tab{",tabset1,'"}",setData.setLabel,'"\tab{",tabset2,'"}{\em ",htShowSetTreeValue setData,'"}"]],
+;       vv := htShowSetTreeValue(setData)
+;       if vv = '"" then
+;           vv := '"????"
+;       links := [label,[['text,'"\tab{",tabset1,'"}",setData.setLabel,'"\tab{",tabset2,'"}{\em ", vv, '"}"]],
 ;                 'htShowSetPage, setData.setName]
-;       htMakePage [['bcLispLinks, links,'options,'(indent . 0)]]
-;   htSay '"\enditems"
-;   htShowPage()
+;       ht_add_to_page(page, [['bcLispLinks, links, 'options, '(indent . 0)]])
+;   ht_add_string(page, '"\enditems")
+;   htShowPage1(page)
 
 (DEFUN |htShowSetTree| (|setTree|)
   (PROG (|page| |links| |maxWidth2| |maxWidth1| |okList| |tabset1| |tabset2|
-         |label|)
+         |label| |vv|)
     (RETURN
      (PROGN
       (SETQ |page| (|htInitPage| (|mkSetTitle|) NIL))
       (|htpSetProperty| |page| '|setTree| |setTree|)
       (SETQ |links| NIL)
       (SETQ |maxWidth1| (SETQ |maxWidth2| 0))
-      ((LAMBDA (|bfVar#12| |setData|)
+      ((LAMBDA (|bfVar#13| |setData|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#12|)
-                (PROGN (SETQ |setData| (CAR |bfVar#12|)) NIL))
+           ((OR (ATOM |bfVar#13|)
+                (PROGN (SETQ |setData| (CAR |bfVar#13|)) NIL))
             (RETURN NIL))
            (#1='T
             (COND
@@ -618,43 +649,44 @@
                 (SETQ |maxWidth2|
                         (MAX (|htShowCount| (STRINGIMAGE (ELT |setData| 1)))
                              |maxWidth2|))))))))
-          (SETQ |bfVar#12| (CDR |bfVar#12|))))
+          (SETQ |bfVar#13| (CDR |bfVar#13|))))
        |setTree| NIL)
       (SETQ |maxWidth1| (MAX 9 |maxWidth1|))
       (SETQ |maxWidth2| (MAX 41 |maxWidth2|))
       (SETQ |tabset1| (STRINGIMAGE |maxWidth1|))
-      (SETQ |tabset2| (STRINGIMAGE (- (+ |maxWidth2| |maxWidth1|) 1)))
-      (|htSayList|
+      (SETQ |tabset2| (STRINGIMAGE (+ (+ |maxWidth2| |maxWidth1|) 1)))
+      (|ht_add_strings| |page|
        (LIST "\\tab{2}\\newline Variable\\tab{"
              (STRINGIMAGE (+ |maxWidth1| (|quotient_INT| |maxWidth2| 3)))
              "}Description\\tab{"
              (STRINGIMAGE (+ (+ |maxWidth2| |maxWidth1|) 2))
              "}Value\\newline\\beginitems "))
-      ((LAMBDA (|bfVar#13| |setData|)
+      ((LAMBDA (|bfVar#14| |setData|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#13|)
-                (PROGN (SETQ |setData| (CAR |bfVar#13|)) NIL))
+           ((OR (ATOM |bfVar#14|)
+                (PROGN (SETQ |setData| (CAR |bfVar#14|)) NIL))
             (RETURN NIL))
            (#1#
             (PROGN
-             (|htSay| "\\item")
+             (|ht_add_string| |page| "\\item")
              (SETQ |label| (STRCONC "\\menuitemstyle{" (ELT |setData| 0) "}"))
+             (SETQ |vv| (|htShowSetTreeValue| |setData|))
+             (COND ((EQUAL |vv| "") (SETQ |vv| "????")))
              (SETQ |links|
                      (LIST |label|
                            (LIST
                             (LIST '|text| "\\tab{" |tabset1| "}"
                                   (ELT |setData| 1) "\\tab{" |tabset2|
-                                  "}{\\em " (|htShowSetTreeValue| |setData|)
-                                  "}"))
+                                  "}{\\em " |vv| "}"))
                            '|htShowSetPage| (ELT |setData| 0)))
-             (|htMakePage|
+             (|ht_add_to_page| |page|
               (LIST
                (LIST '|bcLispLinks| |links| '|options| '(|indent| . 0)))))))
-          (SETQ |bfVar#13| (CDR |bfVar#13|))))
+          (SETQ |bfVar#14| (CDR |bfVar#14|))))
        (REVERSE |okList|) NIL)
-      (|htSay| "\\enditems")
-      (|htShowPage|)))))
+      (|ht_add_string| |page| "\\enditems")
+      (|htShowPage1| |page|)))))
 
 ; htShowCount s == --# discounting {\em .. }
 ;   m := #s
@@ -800,44 +832,58 @@
       (|htSetLiterals2| |page| |name| |message| (EVAL |variable|) |values|
        |functionToCall|)))))
 
+; ht_set_description(page, name, message) ==
+;     ht_add_strings(page, ['"\centerline{Set {\em ", PNAME(name),
+;                           '"}}\newline"])
+;     ht_add_strings(page, ['"{\em Description: } ", message,
+;                           '"\newline\vspace{1} "])
+
+(DEFUN |ht_set_description| (|page| |name| |message|)
+  (PROG ()
+    (RETURN
+     (PROGN
+      (|ht_add_strings| |page|
+       (LIST "\\centerline{Set {\\em " (PNAME |name|) "}}\\newline"))
+      (|ht_add_strings| |page|
+       (LIST "{\\em Description: } " |message| "\\newline\\vspace{1} "))))))
+
 ; htSetLiterals2(page, name, message, cval, values, functionToCall) ==
-;   bcHt ['"\centerline{Set {\em ", name, '"}}\newline"]
-;   bcHt ['"{\em Description: } ", message, '"\newline\vspace{1} "]
-;   bcHt '"Select one of the following: \newline\tab{3} "
+;   ht_set_description(page, name, message)
+;   ht_add_string(page, '"Select one of the following: \newline\tab{3} ")
 ;   links := [[STRCONC('"",STRINGIMAGE opt), '"\newline\tab{3}", functionToCall, opt] for opt in values]
-;   htMakePage [['bcLispLinks, :links]]
+;   ht_add_to_page(page, [['bcLispLinks, :links]])
 ;   bcHt ['"\indent{0}\newline\vspace{1} The current setting is: {\em ",
 ;         translateTrueFalse2YesNo(cval), '"} "]
-;   htShowPage()
+;   htShowPage1(page)
 
 (DEFUN |htSetLiterals2|
        (|page| |name| |message| |cval| |values| |functionToCall|)
   (PROG (|links|)
     (RETURN
      (PROGN
-      (|bcHt| (LIST "\\centerline{Set {\\em " |name| "}}\\newline"))
-      (|bcHt| (LIST "{\\em Description: } " |message| "\\newline\\vspace{1} "))
-      (|bcHt| "Select one of the following: \\newline\\tab{3} ")
+      (|ht_set_description| |page| |name| |message|)
+      (|ht_add_string| |page|
+       "Select one of the following: \\newline\\tab{3} ")
       (SETQ |links|
-              ((LAMBDA (|bfVar#15| |bfVar#14| |opt|)
+              ((LAMBDA (|bfVar#16| |bfVar#15| |opt|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#14|)
-                        (PROGN (SETQ |opt| (CAR |bfVar#14|)) NIL))
-                    (RETURN (NREVERSE |bfVar#15|)))
+                   ((OR (ATOM |bfVar#15|)
+                        (PROGN (SETQ |opt| (CAR |bfVar#15|)) NIL))
+                    (RETURN (NREVERSE |bfVar#16|)))
                    ('T
-                    (SETQ |bfVar#15|
+                    (SETQ |bfVar#16|
                             (CONS
                              (LIST (STRCONC "" (STRINGIMAGE |opt|))
                                    "\\newline\\tab{3}" |functionToCall| |opt|)
-                             |bfVar#15|))))
-                  (SETQ |bfVar#14| (CDR |bfVar#14|))))
+                             |bfVar#16|))))
+                  (SETQ |bfVar#15| (CDR |bfVar#15|))))
                NIL |values| NIL))
-      (|htMakePage| (LIST (CONS '|bcLispLinks| |links|)))
+      (|ht_add_to_page| |page| (LIST (CONS '|bcLispLinks| |links|)))
       (|bcHt|
        (LIST "\\indent{0}\\newline\\vspace{1} The current setting is: {\\em "
              (|translateTrueFalse2YesNo| |cval|) "} "))
-      (|htShowPage|)))))
+      (|htShowPage1| |page|)))))
 
 ; htSetLiteral(htPage, val) ==
 ;   htInitPage('"Set Command", nil)
@@ -856,59 +902,52 @@
 ; htShowIntegerPage(htPage, setData) ==
 ;   page := htInitPage(mkSetTitle(), htpPropertyList htPage)
 ;   htpSetProperty(page, 'variable, setData.setVar)
-;   bcHt ['"\centerline{Set {\em ", setData.setName, '"}}\newline"]
-;   message := setData.setLabel
-;   bcHt ['"{\em Description: } ", message, '"\newline\vspace{1} "]
+;   ht_set_description(page, setData.setName, setData.setLabel)
 ;   [$htInitial,$htFinal] := setData.setLeaf
 ;   if $htFinal = $htInitial + 1 then
-;       bcHt '"Enter the integer {\em "
-;       bcHt stringize $htInitial
-;       bcHt '"} or {\em "
-;       bcHt stringize $htFinal
-;       bcHt '"}:"
+;       ht_add_strings(page, ['"Enter the integer {\em ", stringize($htInitial),
+;                             '"} or {\em ", stringize($htFinal), '"}:"])
 ;   else if null $htFinal then
-;       bcHt '"Enter an integer greater than {\em "
-;       bcHt stringize ($htInitial - 1)
-;       bcHt '"}:"
+;       ht_add_strings(page, ['"Enter an integer greater than {\em ",
+;                             stringize($htInitial - 1), '"}:"])
 ;   else
-;       bcHt '"Enter an integer between {\em "
-;       bcHt stringize $htInitial
-;       bcHt '"} and {\em "
-;       bcHt stringize $htFinal
-;       bcHt '"}:"
-;   htMakePage [
+;       ht_add_strings(page, ['"Enter an integer between {\em ",
+;          stringize($htInitial), '"} and {\em ", stringize($htFinal), '"}:"])
+;   ht_add_to_page(page, [
 ;     '(domainConditions (Satisfies S chkRange)),
-;       ['bcStrings,[5,eval setData.setVar,'value,'S]]]
-;   htSetvarDoneButton('"Select to Set Value",'htSetInteger)
-;   htShowPage()
+;       ['bcStrings, [5, eval(setData.setVar), 'value, 'S]]])
+;   htMakeDoneButton('"Select to Set Value", 'htSetInteger)
+;   htShowPage1(page)
 
 (DEFUN |htShowIntegerPage| (|htPage| |setData|)
-  (PROG (|page| |message| |LETTMP#1|)
+  (PROG (|page| |LETTMP#1|)
     (RETURN
      (PROGN
       (SETQ |page| (|htInitPage| (|mkSetTitle|) (|htpPropertyList| |htPage|)))
       (|htpSetProperty| |page| '|variable| (ELT |setData| 4))
-      (|bcHt| (LIST "\\centerline{Set {\\em " (ELT |setData| 0) "}}\\newline"))
-      (SETQ |message| (ELT |setData| 1))
-      (|bcHt| (LIST "{\\em Description: } " |message| "\\newline\\vspace{1} "))
+      (|ht_set_description| |page| (ELT |setData| 0) (ELT |setData| 1))
       (SETQ |LETTMP#1| (ELT |setData| 5))
       (SETQ |$htInitial| (CAR |LETTMP#1|))
       (SETQ |$htFinal| (CADR |LETTMP#1|))
       (COND
        ((EQUAL |$htFinal| (+ |$htInitial| 1))
-        (|bcHt| "Enter the integer {\\em ") (|bcHt| (|stringize| |$htInitial|))
-        (|bcHt| "} or {\\em ") (|bcHt| (|stringize| |$htFinal|)) (|bcHt| "}:"))
-       ((NULL |$htFinal|) (|bcHt| "Enter an integer greater than {\\em ")
-        (|bcHt| (|stringize| (- |$htInitial| 1))) (|bcHt| "}:"))
-       ('T (|bcHt| "Enter an integer between {\\em ")
-        (|bcHt| (|stringize| |$htInitial|)) (|bcHt| "} and {\\em ")
-        (|bcHt| (|stringize| |$htFinal|)) (|bcHt| "}:")))
-      (|htMakePage|
+        (|ht_add_strings| |page|
+         (LIST "Enter the integer {\\em " (|stringize| |$htInitial|)
+               "} or {\\em " (|stringize| |$htFinal|) "}:")))
+       ((NULL |$htFinal|)
+        (|ht_add_strings| |page|
+         (LIST "Enter an integer greater than {\\em "
+               (|stringize| (- |$htInitial| 1)) "}:")))
+       ('T
+        (|ht_add_strings| |page|
+         (LIST "Enter an integer between {\\em " (|stringize| |$htInitial|)
+               "} and {\\em " (|stringize| |$htFinal|) "}:"))))
+      (|ht_add_to_page| |page|
        (LIST '(|domainConditions| (|Satisfies| S |chkRange|))
              (LIST '|bcStrings|
                    (LIST 5 (|eval| (ELT |setData| 4)) '|value| 'S))))
-      (|htSetvarDoneButton| "Select to Set Value" '|htSetInteger|)
-      (|htShowPage|)))))
+      (|htMakeDoneButton| "Select to Set Value" '|htSetInteger|)
+      (|htShowPage1| |page|)))))
 
 ; htSetInteger(htPage) ==
 ;   htInitPage(mkSetTitle(), nil)
@@ -990,15 +1029,14 @@
 ; htShowFunctionPageContinued2(htPage, setData, cval, checker, phrase,
 ;                              fun_to_call) ==
 ;   page := htInitPage(mkSetTitle(), htpPropertyList htPage)
-;   bcHt ['"\centerline{Set {\em ", setData.setName, '"}}\newline"]
-;   bcHt ['"{\em Description: } ", setData.setLabel, '"\newline\vspace{1} "]
-;   htMakePage
+;   ht_set_description(page, setData.setName, setData.setLabel)
+;   ht_add_to_page(page,
 ;     [ ['domainConditions, ['Satisfies,'S,checker]],
 ;       ['text,:phrase],
 ;         ['inputStrings,
-;           [ '"", '"", 60, cval, 'value, 'S]]]
-;   htSetvarDoneButton('"Select To Set Value", fun_to_call)
-;   htShowPage()
+;           [ '"", '"", 60, cval, 'value, 'S]]])
+;   htMakeDoneButton('"Select To Set Value", fun_to_call)
+;   htShowPage1(page)
 
 (DEFUN |htShowFunctionPageContinued2|
        (|htPage| |setData| |cval| |checker| |phrase| |fun_to_call|)
@@ -1006,40 +1044,13 @@
     (RETURN
      (PROGN
       (SETQ |page| (|htInitPage| (|mkSetTitle|) (|htpPropertyList| |htPage|)))
-      (|bcHt| (LIST "\\centerline{Set {\\em " (ELT |setData| 0) "}}\\newline"))
-      (|bcHt|
-       (LIST "{\\em Description: } " (ELT |setData| 1)
-             "\\newline\\vspace{1} "))
-      (|htMakePage|
+      (|ht_set_description| |page| (ELT |setData| 0) (ELT |setData| 1))
+      (|ht_add_to_page| |page|
        (LIST (LIST '|domainConditions| (LIST '|Satisfies| 'S |checker|))
              (CONS '|text| |phrase|)
              (LIST '|inputStrings| (LIST "" "" 60 |cval| '|value| 'S))))
-      (|htSetvarDoneButton| "Select To Set Value" |fun_to_call|)
-      (|htShowPage|)))))
-
-; htSetvarDoneButton(message, func) ==
-;   bcHt '"\newline\vspace{1}\centerline{"
-;
-;   if message = '"Select to Set Value" or message = '"Select to Set Values"  then
-;     bchtMakeButton('"\lisplink",'"\ControlBitmap{ClickToSet}", func)
-;   else
-;     bchtMakeButton('"\lisplink",CONCAT('"\fbox{", message, '"}"), func)
-;
-;   bcHt '"} "
-
-(DEFUN |htSetvarDoneButton| (|message| |func|)
-  (PROG ()
-    (RETURN
-     (PROGN
-      (|bcHt| "\\newline\\vspace{1}\\centerline{")
-      (COND
-       ((OR (EQUAL |message| "Select to Set Value")
-            (EQUAL |message| "Select to Set Values"))
-        (|bchtMakeButton| "\\lisplink" "\\ControlBitmap{ClickToSet}" |func|))
-       ('T
-        (|bchtMakeButton| "\\lisplink" (CONCAT "\\fbox{" |message| "}")
-         |func|)))
-      (|bcHt| "} ")))))
+      (|htMakeDoneButton| "Select To Set Value" |fun_to_call|)
+      (|htShowPage1| |page|)))))
 
 ; htFunctionSetLiteral(htPage, val) ==
 ;   htInitPage('"Set Command", nil)
@@ -1113,70 +1124,64 @@
        (#1# (|htKill| |htPage| |value|)))))))
 
 ; htKill(htPage,value) ==
-;   htInitPage('"System Command", nil)
+;   page := htInitPage('"System Command", nil)
 ;   string := STRCONC('"{\em )set ",listOfStrings2String [value,:$path],'"}")
-;   htMakePage [
+;   ht_add_to_page(page, [
 ;      '(text
 ;         "{Here is the FriCAS system command you could have issued:}"
 ;             "\vspace{2}\newline\centerline{\tt"),
-;       ['text,:string]]
-;   htMakePage '((text . "}\vspace{1}\newline\rm"))
-;   htSay '"\vspace{2}{Select \  \UpButton{} \  to go back.}"
-;   htSay '"\newline{Select \  \ExitButton{QuitPage} \  to remove this window.}"
-;   htProcessDoitButton ['"Press to Remove Page",'"",'htDoNothing]
-;   htShowPage()
+;       ['text,:string]])
+;   ht_add_to_page(page, '((text . "}\vspace{1}\newline\rm")))
+;   ht_add_string(page, '"\vspace{2}{Select \  \UpButton{} \  to go back.}")
+;   ht_add_string(page,
+;       '"\newline{Select \  \ExitButton{QuitPage} \  to remove this window.}")
+;   htShowPage1(page)
 
 (DEFUN |htKill| (|htPage| |value|)
-  (PROG (|string|)
+  (PROG (|page| |string|)
     (RETURN
      (PROGN
-      (|htInitPage| "System Command" NIL)
+      (SETQ |page| (|htInitPage| "System Command" NIL))
       (SETQ |string|
               (STRCONC "{\\em )set "
                (|listOfStrings2String| (CONS |value| |$path|)) "}"))
-      (|htMakePage|
+      (|ht_add_to_page| |page|
        (LIST
         '(|text| "{Here is the FriCAS system command you could have issued:}"
           "\\vspace{2}\\newline\\centerline{\\tt")
         (CONS '|text| |string|)))
-      (|htMakePage| '((|text| . "}\\vspace{1}\\newline\\rm")))
-      (|htSay| "\\vspace{2}{Select \\  \\UpButton{} \\  to go back.}")
-      (|htSay|
+      (|ht_add_to_page| |page| '((|text| . "}\\vspace{1}\\newline\\rm")))
+      (|ht_add_string| |page|
+       "\\vspace{2}{Select \\  \\UpButton{} \\  to go back.}")
+      (|ht_add_string| |page|
        "\\newline{Select \\  \\ExitButton{QuitPage} \\  to remove this window.}")
-      (|htProcessDoitButton| (LIST "Press to Remove Page" "" '|htDoNothing|))
-      (|htShowPage|)))))
+      (|htShowPage1| |page|)))))
 
 ; htSetNotAvailable(htPage,whatToType) ==
-;   page := htInitPage('"Unavailable Set Command", htpPropertyList htPage)
-;   htInitPage('"Unavailable System Command", nil)
+;   page := htInitPage('"Unavailable system command", nil)
 ;   string := STRCONC('"{\em ",whatToType,'"}")
-;   htMakePage [
+;   ht_add_to_page(page, [
 ;      '(text "\vspace{1}\newline"
 ;         "{Sorry, but this system command is not available through HyperDoc. Please directly issue this command in a FriCAS window for more information:}"
 ;             "\vspace{2}\newline\centerline{\tt"),
-;       ['text,:string]]
-;   htMakePage '((text . "}\vspace{1}\newline"))
-;   htProcessDoitButton ['"Press to Remove Page",'"",'htDoNothing]
-;   htShowPage()
+;       ['text,:string]])
+;   ht_add_to_page(page, '((text . "}\vspace{1}\newline")))
+;   htShowPage1(page)
 
 (DEFUN |htSetNotAvailable| (|htPage| |whatToType|)
   (PROG (|page| |string|)
     (RETURN
      (PROGN
-      (SETQ |page|
-              (|htInitPage| "Unavailable Set Command"
-               (|htpPropertyList| |htPage|)))
-      (|htInitPage| "Unavailable System Command" NIL)
+      (SETQ |page| (|htInitPage| "Unavailable system command" NIL))
       (SETQ |string| (STRCONC "{\\em " |whatToType| "}"))
-      (|htMakePage|
+      (|ht_add_to_page| |page|
        (LIST
         '(|text| "\\vspace{1}\\newline"
           "{Sorry, but this system command is not available through HyperDoc. Please directly issue this command in a FriCAS window for more information:}"
           "\\vspace{2}\\newline\\centerline{\\tt")
         (CONS '|text| |string|)))
-      (|htMakePage| '((|text| . "}\\vspace{1}\\newline")))
-      (|htProcessDoitButton| (LIST "Press to Remove Page" "" '|htDoNothing|))
-      (|htShowPage|)))))
+      (|ht_add_to_page| |page| '((|text| . "}\\vspace{1}\\newline")))
+      (|htShowPage1| |page|)))))
 
 ; htDoNothing(htPage,command) == nil
 
@@ -1204,13 +1209,13 @@
      (COND
       ((STRINGP |x|)
        (COND
-        (((LAMBDA (|bfVar#17| |bfVar#16| |i|)
+        (((LAMBDA (|bfVar#18| |bfVar#17| |i|)
             (LOOP
-             (COND ((> |i| |bfVar#16|) (RETURN |bfVar#17|))
+             (COND ((> |i| |bfVar#17|) (RETURN |bfVar#18|))
                    (#1='T
                     (PROGN
-                     (SETQ |bfVar#17| (|char_to_digit| (ELT |x| |i|)))
-                     (COND ((NOT |bfVar#17|) (RETURN NIL))))))
+                     (SETQ |bfVar#18| (|char_to_digit| (ELT |x| |i|)))
+                     (COND ((NOT |bfVar#18|) (RETURN NIL))))))
              (SETQ |i| (+ |i| 1))))
           T (MAXINDEX |x|) 0)
          (PARSE-INTEGER |x|))
@@ -1282,28 +1287,28 @@
      (PROGN
       (SETQ |u| (|bcString2ListWords| |x|))
       (SETQ |parsedNames|
-              ((LAMBDA (|bfVar#19| |bfVar#18| |x|)
+              ((LAMBDA (|bfVar#20| |bfVar#19| |x|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#18|)
-                        (PROGN (SETQ |x| (CAR |bfVar#18|)) NIL))
-                    (RETURN (NREVERSE |bfVar#19|)))
+                   ((OR (ATOM |bfVar#19|)
+                        (PROGN (SETQ |x| (CAR |bfVar#19|)) NIL))
+                    (RETURN (NREVERSE |bfVar#20|)))
                    (#1='T
-                    (SETQ |bfVar#19|
-                            (CONS (|ncParseFromString| |x|) |bfVar#19|))))
-                  (SETQ |bfVar#18| (CDR |bfVar#18|))))
+                    (SETQ |bfVar#20|
+                            (CONS (|ncParseFromString| |x|) |bfVar#20|))))
+                  (SETQ |bfVar#19| (CDR |bfVar#19|))))
                NIL |u| NIL))
       (COND
-       (((LAMBDA (|bfVar#21| |bfVar#20| |x|)
+       (((LAMBDA (|bfVar#22| |bfVar#21| |x|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#20|) (PROGN (SETQ |x| (CAR |bfVar#20|)) NIL))
-              (RETURN |bfVar#21|))
+             ((OR (ATOM |bfVar#21|) (PROGN (SETQ |x| (CAR |bfVar#21|)) NIL))
+              (RETURN |bfVar#22|))
              (#1#
               (PROGN
-               (SETQ |bfVar#21| (IDENTP |x|))
-               (COND ((NOT |bfVar#21|) (RETURN NIL))))))
-            (SETQ |bfVar#20| (CDR |bfVar#20|))))
+               (SETQ |bfVar#22| (IDENTP |x|))
+               (COND ((NOT |bfVar#22|) (RETURN NIL))))))
+            (SETQ |bfVar#21| (CDR |bfVar#21|))))
          T |parsedNames| NIL)
         |parsedNames|)
        (#1# "Please enter a list of identifiers separated by blanks"))))))
@@ -1522,9 +1527,9 @@
 
 ; htSetCache(htPage) ==
 ;   $path := '(cache functions)
-;   htPage := htInitPage(mkSetTitle(),nil)
+;   page := htInitPage(mkSetTitle(), nil)
 ;   $valueList := nil
-;   htMakePage '(
+;   ht_add_to_page(page, '(
 ;    (text
 ;     "Use this system command to cause the FriCAS interpreter to `remember' "
 ;     "past values of interpreter functions. "
@@ -1544,17 +1549,17 @@
 ;       "\vspace{1}\newline "
 ;       "Enter {\em all} or a list of names (separate names by blanks):")
 ;    (inputStrings ("" "" 60 "all" names S))
-;    (doneButton "Push to enter names" htCacheAddChoice))
-;   htShowPage()
+;    (doneButton "Push to enter names" htCacheAddChoice)))
+;   htShowPage1(page)
 
 (DEFUN |htSetCache| (|htPage|)
-  (PROG ()
+  (PROG (|page|)
     (RETURN
      (PROGN
       (SETQ |$path| '(|cache| |functions|))
-      (SETQ |htPage| (|htInitPage| (|mkSetTitle|) NIL))
+      (SETQ |page| (|htInitPage| (|mkSetTitle|) NIL))
       (SETQ |$valueList| NIL)
-      (|htMakePage|
+      (|ht_add_to_page| |page|
        '((|text|
           "Use this system command to cause the FriCAS interpreter to `remember' "
           "past values of interpreter functions. "
@@ -1573,7 +1578,7 @@
           "Enter {\\em all} or a list of names (separate names by blanks):")
          (|inputStrings| ("" "" 60 "all" |names| S))
          (|doneButton| "Push to enter names" |htCacheAddChoice|)))
-      (|htShowPage|)))))
+      (|htShowPage1| |page|)))))
 
 ; htCacheAddChoice htPage ==
 ;   names := bcString2WordList htpLabelInputString(htPage,'names)
@@ -1582,7 +1587,7 @@
 ;   null rest names => htCacheOne names
 ;   page := htInitPage(mkSetTitle(),nil)
 ;   htpSetProperty(page,'names,names)
-;   htMakePage '(
+;   ht_add_to_page(page, '(
 ;     (domainConditions (Satisfies ALLPI chkAllPositiveInteger))
 ;     (text
 ;       "For each function, enter below a {\em cache length}, a positive integer. "
@@ -1592,13 +1597,13 @@
 ;       "To cache all past values, "
 ;       "enter {\em all}."
 ;       "\vspace{1}\newline "
-;       "For each function name, enter {\em all} or a positive integer:"))
-;   for i in 1.. for name in names repeat htMakePage [
+;       "For each function name, enter {\em all} or a positive integer:")))
+;   for i in 1.. for name in names repeat ht_add_to_page(page, [
 ;       ['inputStrings,
-;         [STRCONC('"Function {\em ",name,'"} will cache"),
-;           '"values",5,10,htMakeLabel('"c",i),'ALLPI]]]
-;   htSetvarDoneButton('"Select to Set Values",'htCacheSet)
-;   htShowPage()
+;         [STRCONC('"Function {\em ", name, '"} will cache"),
+;           '"values", 5, 10, htMakeLabel('"c", i), 'ALLPI]]])
+;   htMakeDoneButton('"Select to Set Values", 'htCacheSet)
+;   htShowPage1(page)
 
 (DEFUN |htCacheAddChoice| (|htPage|)
   (PROG (|names| |page|)
@@ -1613,7 +1618,7 @@
              (PROGN
               (SETQ |page| (|htInitPage| (|mkSetTitle|) NIL))
               (|htpSetProperty| |page| '|names| |names|)
-              (|htMakePage|
+              (|ht_add_to_page| |page|
                '((|domainConditions|
                   (|Satisfies| ALLPI |chkAllPositiveInteger|))
                  (|text|
@@ -1623,24 +1628,24 @@
                   "To cache all past values, " "enter {\\em all}."
                   "\\vspace{1}\\newline "
                   "For each function name, enter {\\em all} or a positive integer:")))
-              ((LAMBDA (|i| |bfVar#22| |name|)
+              ((LAMBDA (|i| |bfVar#23| |name|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#22|)
-                        (PROGN (SETQ |name| (CAR |bfVar#22|)) NIL))
+                   ((OR (ATOM |bfVar#23|)
+                        (PROGN (SETQ |name| (CAR |bfVar#23|)) NIL))
                     (RETURN NIL))
                    (#1#
-                    (|htMakePage|
+                    (|ht_add_to_page| |page|
                      (LIST
                       (LIST '|inputStrings|
                             (LIST
                              (STRCONC "Function {\\em " |name| "} will cache")
                              "values" 5 10 (|htMakeLabel| "c" |i|) 'ALLPI))))))
                   (SETQ |i| (+ |i| 1))
-                  (SETQ |bfVar#22| (CDR |bfVar#22|))))
+                  (SETQ |bfVar#23| (CDR |bfVar#23|))))
                1 |names| NIL)
-              (|htSetvarDoneButton| "Select to Set Values" '|htCacheSet|)
-              (|htShowPage|))))))))
+              (|htMakeDoneButton| "Select to Set Values" '|htCacheSet|)
+              (|htShowPage1| |page|))))))))
 
 ; htMakeLabel(prefix,i) == INTERN STRCONC(prefix,stringize i)
 
@@ -1656,34 +1661,32 @@
 ;   if (n := LASSOC('all,$cacheAlist)) then
 ;     $cacheCount := n
 ;     $cacheAlist := deleteAssoc('all,$cacheAlist)
-;   htInitPage('"Cache Summary",nil)
-;   bcHt '"In general, interpreter functions "
-;   bcHt
-;     $cacheCount = 0 => '"will {\em not} be cached."
-;     bcHt '"cache "
-;     htAllOrNum $cacheCount
-;     '"} values."
-;   bcHt '"\vspace{1}\newline "
+;   page := htInitPage('"Cache Summary", nil)
+;   ht_add_string(page, '"In general, interpreter functions ")
+;   if $cacheCount = 0 then
+;       ht_add_string(page, '"will {\em not} be cached.")
+;   else
+;       ht_add_string(page, '"cache ");
+;       htAllOrNum(page, $cacheCount);
+;       ht_add_string(page, '"} values.")
+;   ht_add_string(page, '"\vspace{1}\newline ")
 ;   if $cacheAlist then
-; --    bcHt '" However, \indent{3}"
-;     for [name,:val] in $cacheAlist | val ~= $cacheCount repeat
-;       bcHt '"\newline function {\em "
-;       bcHt stringize name
-;       bcHt '"} will cache "
-;       htAllOrNum val
-;       bcHt '"} values"
-;   htProcessDoitButton ['"Press to Remove Page",'"",'htDoNothing]
-;   htShowPage()
+;       for [name, :val] in $cacheAlist | val ~= $cacheCount repeat
+;           ht_add_strings(page, ['"\newline function {\em ", stringize(name),
+;                                 '"} will cache "])
+;           htAllOrNum(page, val)
+;           ht_add_string(page, '"} values")
+;   htShowPage1(page)
 
 (DEFUN |htCacheSet| (|htPage|)
-  (PROG (|names| |num| |n| |name| |val|)
+  (PROG (|names| |num| |n| |page| |name| |val|)
     (RETURN
      (PROGN
       (SETQ |names| (|htpProperty| |htPage| '|names|))
-      ((LAMBDA (|i| |bfVar#23| |name|)
+      ((LAMBDA (|i| |bfVar#24| |name|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#23|) (PROGN (SETQ |name| (CAR |bfVar#23|)) NIL))
+           ((OR (ATOM |bfVar#24|) (PROGN (SETQ |name| (CAR |bfVar#24|)) NIL))
             (RETURN NIL))
            (#1='T
             (PROGN
@@ -1694,67 +1697,65 @@
              (SETQ |$cacheAlist|
                      (ADDASSOC (INTERN |name|) |num| |$cacheAlist|)))))
           (SETQ |i| (+ |i| 1))
-          (SETQ |bfVar#23| (CDR |bfVar#23|))))
+          (SETQ |bfVar#24| (CDR |bfVar#24|))))
        1 |names| NIL)
       (COND
        ((SETQ |n| (LASSOC '|all| |$cacheAlist|)) (SETQ |$cacheCount| |n|)
         (SETQ |$cacheAlist| (|deleteAssoc| '|all| |$cacheAlist|))))
-      (|htInitPage| "Cache Summary" NIL)
-      (|bcHt| "In general, interpreter functions ")
-      (|bcHt|
-       (COND ((EQL |$cacheCount| 0) "will {\\em not} be cached.")
-             (#1#
-              (PROGN
-               (|bcHt| "cache ")
-               (|htAllOrNum| |$cacheCount|)
-               "} values."))))
-      (|bcHt| "\\vspace{1}\\newline ")
+      (SETQ |page| (|htInitPage| "Cache Summary" NIL))
+      (|ht_add_string| |page| "In general, interpreter functions ")
+      (COND
+       ((EQL |$cacheCount| 0)
+        (|ht_add_string| |page| "will {\\em not} be cached."))
+       (#1# (|ht_add_string| |page| "cache ")))
+      (|htAllOrNum| |page| |$cacheCount|)
+      (|ht_add_string| |page| "} values.")
+      (|ht_add_string| |page| "\\vspace{1}\\newline ")
       (COND
        (|$cacheAlist|
-        ((LAMBDA (|bfVar#25| |bfVar#24|)
+        ((LAMBDA (|bfVar#26| |bfVar#25|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#25|)
-                  (PROGN (SETQ |bfVar#24| (CAR |bfVar#25|)) NIL))
+             ((OR (ATOM |bfVar#26|)
+                  (PROGN (SETQ |bfVar#25| (CAR |bfVar#26|)) NIL))
               (RETURN NIL))
              (#1#
-              (AND (CONSP |bfVar#24|)
+              (AND (CONSP |bfVar#25|)
                    (PROGN
-                    (SETQ |name| (CAR |bfVar#24|))
-                    (SETQ |val| (CDR |bfVar#24|))
+                    (SETQ |name| (CAR |bfVar#25|))
+                    (SETQ |val| (CDR |bfVar#25|))
                     #1#)
                    (NOT (EQUAL |val| |$cacheCount|))
                    (PROGN
-                    (|bcHt| "\\newline function {\\em ")
-                    (|bcHt| (|stringize| |name|))
-                    (|bcHt| "} will cache ")
-                    (|htAllOrNum| |val|)
-                    (|bcHt| "} values")))))
-            (SETQ |bfVar#25| (CDR |bfVar#25|))))
+                    (|ht_add_strings| |page|
+                     (LIST "\\newline function {\\em " (|stringize| |name|)
+                           "} will cache "))
+                    (|htAllOrNum| |page| |val|)
+                    (|ht_add_string| |page| "} values")))))
+            (SETQ |bfVar#26| (CDR |bfVar#26|))))
          |$cacheAlist| NIL)))
-      (|htProcessDoitButton| (LIST "Press to Remove Page" "" '|htDoNothing|))
-      (|htShowPage|)))))
+      (|htShowPage1| |page|)))))
 
-; htAllOrNum(val) ==
+; htAllOrNum(page, val) ==
 ;     str :=
 ;         val = 'all => '"{\em all"
 ;         val = 0 => '"{\em no"
 ;         STRCONC('"the last {\em ",stringize val)
-;     bcHt(str)
+;     ht_add_string(page, str)
 
-(DEFUN |htAllOrNum| (|val|)
+(DEFUN |htAllOrNum| (|page| |val|)
   (PROG (|str|)
     (RETURN
      (PROGN
       (SETQ |str|
               (COND ((EQ |val| '|all|) "{\\em all") ((EQL |val| 0) "{\\em no")
                     ('T (STRCONC "the last {\\em " (|stringize| |val|)))))
-      (|bcHt| |str|)))))
+      (|ht_add_string| |page| |str|)))))
 
 ; htCacheOne names ==
 ;   page := htInitPage(mkSetTitle(),nil)
 ;   htpSetProperty(page,'names,names)
-;   htMakePage '(
+;   ht_add_to_page(page, '(
 ;     (domainConditions (Satisfies ALLPI chkAllPositiveInteger))
 ;     (text
 ;       "Enter below a {\em cache length}, a positive integer. "
@@ -1764,9 +1765,9 @@
 ;       "\vspace{1}\newline ")
 ;     (inputStrings
 ;       ("Enter {\em all} or a positive integer:"
-;        "" 5 10 c1 ALLPI)))
-;   htSetvarDoneButton('"Select to Set Value",'htCacheSet)
-;   htShowPage()
+;        "" 5 10 c1 ALLPI))))
+;   htMakeDoneButton('"Select to Set Value", 'htCacheSet)
+;   htShowPage1(page)
 
 (DEFUN |htCacheOne| (|names|)
   (PROG (|page|)
@@ -1774,7 +1775,7 @@
      (PROGN
       (SETQ |page| (|htInitPage| (|mkSetTitle|) NIL))
       (|htpSetProperty| |page| '|names| |names|)
-      (|htMakePage|
+      (|ht_add_to_page| |page|
        '((|domainConditions| (|Satisfies| ALLPI |chkAllPositiveInteger|))
          (|text| "Enter below a {\\em cache length}, a positive integer. "
           "This number tells how many past values will "
@@ -1782,5 +1783,5 @@
           "\\vspace{1}\\newline ")
          (|inputStrings|
           ("Enter {\\em all} or a positive integer:" "" 5 10 |c1| ALLPI))))
-      (|htSetvarDoneButton| "Select to Set Value" '|htCacheSet|)
-      (|htShowPage|)))))
+      (|htMakeDoneButton| "Select to Set Value" '|htCacheSet|)
+      (|htShowPage1| |page|)))))
