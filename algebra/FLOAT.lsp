@@ -524,7 +524,7 @@
                          (COND ((> (* 2 |lost|) (SPADCALL (QREFELT % 49))) |x|)
                                (#1#
                                 (SEQ (SPADCALL (+ 5 |lost|) (QREFELT % 37))
-                                     (LETT |e| (SPADCALL |x| (QREFELT % 68)))
+                                     (LETT |e| (SPADCALL |x| (QREFELT % 67)))
                                      (LETT |s|
                                            (SPADCALL
                                             (SPADCALL |e|
@@ -540,7 +540,7 @@
 (SDEFUN |FLOAT;cosh;2%;18| ((|x| (%)) (% (%)))
         (SPROG ((|e| (%)) (|c| (%)))
                (SEQ (SPADCALL 5 (QREFELT % 37))
-                    (LETT |e| (SPADCALL |x| (QREFELT % 68)))
+                    (LETT |e| (SPADCALL |x| (QREFELT % 67)))
                     (LETT |c|
                           (SPADCALL
                            (SPADCALL |e|
@@ -562,7 +562,7 @@
                          (COND ((> (* 2 |lost|) (SPADCALL (QREFELT % 49))) |x|)
                                (#1#
                                 (SEQ (SPADCALL (+ 6 |lost|) (QREFELT % 37))
-                                     (LETT |e| (SPADCALL |x| (QREFELT % 68)))
+                                     (LETT |e| (SPADCALL |x| (QREFELT % 67)))
                                      (LETT |e|
                                            (SPADCALL |e| |e| (QREFELT % 54)))
                                      (LETT |t|
@@ -596,7 +596,7 @@
                                                   (QREFELT % 55))
                                         (QREFELT % 38))
                                        (QREFELT % 55))
-                             (QREFELT % 72)))
+                             (QREFELT % 71)))
                       (SPADCALL (- 5 |p|) (QREFELT % 41))
                       (EXIT (SPADCALL |r| (QREFELT % 42)))))
                 #2# (EXIT #1#)))) 
@@ -620,7 +620,7 @@
                                    (|spadConstant| % 28) %)
                                   (QREFELT % 38))
                                  (QREFELT % 55))
-                       (QREFELT % 72)))
+                       (QREFELT % 71)))
                 (SPADCALL 5 (QREFELT % 41))
                 (EXIT (SPADCALL |r| (QREFELT % 42)))))) 
 
@@ -653,48 +653,48 @@
                            (SPADCALL |x| (|spadConstant| % 28) (QREFELT % 55))
                            (SPADCALL (|spadConstant| % 28) |x| (QREFELT % 44))
                            (QREFELT % 39))
-                          (QREFELT % 72))
+                          (QREFELT % 71))
                          2 (QREFELT % 31)))
                   (SPADCALL (- 5 |p|) (QREFELT % 41))
                   (EXIT (SPADCALL |r| (QREFELT % 42)))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |FLOAT;log;2%;23| ((|x| (%)) (% (%)))
-        (SPADCALL (SPADCALL |x| (SPADCALL (QREFELT % 49)) (QREFELT % 78))
+        (SPADCALL (SPADCALL |x| (SPADCALL (QREFELT % 49)) (QREFELT % 77))
                   (QREFELT % 42))) 
 
 (SDEFUN |FLOAT;log2;%;24| ((% (%)))
-        (SPADCALL (SPADCALL (SPADCALL (QREFELT % 49)) (QREFELT % 79))
+        (SPADCALL (SPADCALL (SPADCALL (QREFELT % 49)) (QREFELT % 78))
                   (QREFELT % 42))) 
 
 (SDEFUN |FLOAT;log10;%;25| ((% (%)))
-        (SPADCALL (SPADCALL (SPADCALL (QREFELT % 49)) (QREFELT % 81))
+        (SPADCALL (SPADCALL (SPADCALL (QREFELT % 49)) (QREFELT % 80))
                   (QREFELT % 42))) 
 
 (SDEFUN |FLOAT;log2;2%;26| ((|x| (%)) (% (%)))
         (SPROG ((|b| (|PositiveInteger|)) (|r| (%)))
                (SEQ (LETT |b| (+ (SPADCALL (QREFELT % 49)) 3))
                     (LETT |r|
-                          (SPADCALL (SPADCALL |x| |b| (QREFELT % 78))
-                                    (SPADCALL |b| (QREFELT % 79)) |b|
-                                    (QREFELT % 83)))
+                          (SPADCALL (SPADCALL |x| |b| (QREFELT % 77))
+                                    (SPADCALL |b| (QREFELT % 78)) |b|
+                                    (QREFELT % 82)))
                     (EXIT (SPADCALL |r| (QREFELT % 42)))))) 
 
 (SDEFUN |FLOAT;log10;2%;27| ((|x| (%)) (% (%)))
         (SPROG ((|b| (|PositiveInteger|)) (|r| (%)))
                (SEQ (LETT |b| (+ (SPADCALL (QREFELT % 49)) 3))
                     (LETT |r|
-                          (SPADCALL (SPADCALL |x| |b| (QREFELT % 78))
-                                    (SPADCALL |b| (QREFELT % 81)) |b|
-                                    (QREFELT % 83)))
+                          (SPADCALL (SPADCALL |x| |b| (QREFELT % 77))
+                                    (SPADCALL |b| (QREFELT % 80)) |b|
+                                    (QREFELT % 82)))
                     (EXIT (SPADCALL |r| (QREFELT % 42)))))) 
 
 (SDEFUN |FLOAT;exp;2%;28| ((|x| (%)) (% (%)))
-        (SPADCALL (SPADCALL |x| (SPADCALL (QREFELT % 49)) (QREFELT % 86))
+        (SPADCALL (SPADCALL |x| (SPADCALL (QREFELT % 49)) (QREFELT % 85))
                   (QREFELT % 42))) 
 
 (SDEFUN |FLOAT;exp1;%;29| ((% (%)))
-        (SPADCALL (SPADCALL (SPADCALL (QREFELT % 49)) (QREFELT % 87))
+        (SPADCALL (SPADCALL (SPADCALL (QREFELT % 49)) (QREFELT % 86))
                   (QREFELT % 42))) 
 
 (SDEFUN |FLOAT;sqrt;2%;30| ((|x| (%)) (% (%)))
@@ -1147,9 +1147,9 @@
                        (SPADCALL |p| (QREFELT % 37))
                        (LETT |r|
                              (SPADCALL
-                              (SPADCALL |y| (SPADCALL |x| (QREFELT % 72))
+                              (SPADCALL |y| (SPADCALL |x| (QREFELT % 71))
                                         (QREFELT % 54))
-                              (QREFELT % 68)))
+                              (QREFELT % 67)))
                        (SPADCALL |p| (QREFELT % 41))
                        (EXIT (SPADCALL |r| (QREFELT % 42))))))))) 
 
@@ -1557,20 +1557,20 @@
               |FLOAT;+;3%;69| |FLOAT;shift;%I%;55| (64 . ~=) |FLOAT;sign;%I;63|
               (70 . *) |FLOAT;bits;2Pi;32| (76 . ^) |FLOAT;*;I2%;74|
               |FLOAT;sin;2%;10| |FLOAT;cos;2%;12| |FLOAT;tan;2%;14| 'P
-              |FLOAT;precision;Pi;33| |FLOAT;exp;2%;28| |FLOAT;sinh;2%;17|
-              |FLOAT;cosh;2%;18| |FLOAT;tanh;2%;19| |FLOAT;log;2%;23|
-              |FLOAT;asinh;2%;20| |FLOAT;acosh;2%;21| |FLOAT;atanh;2%;22|
+              |FLOAT;exp;2%;28| |FLOAT;sinh;2%;17| |FLOAT;cosh;2%;18|
+              |FLOAT;tanh;2%;19| |FLOAT;log;2%;23| |FLOAT;asinh;2%;20|
+              |FLOAT;acosh;2%;21| |FLOAT;atanh;2%;22|
               (|Record| (|:| |mantissa| 13) (|:| |exponent| 13))
               (|FloatElementaryFunctions|) (82 . |log|) (88 . |log2|)
               |FLOAT;log2;%;24| (93 . |log10|) |FLOAT;log10;%;25|
               (98 . |quotient|) |FLOAT;log2;2%;26| |FLOAT;log10;2%;27|
               (105 . |exp|) (111 . |exp1|) |FLOAT;exp1;%;29|
-              |FLOAT;precision;2Pi;34| |FLOAT;digits;Pi;38|
-              |FLOAT;digits;2Pi;39| |FLOAT;relerror;3%;41| |FLOAT;base;Pi;44|
-              |FLOAT;one?;%B;47| |FLOAT;positive?;%B;50| |FLOAT;float;2I%;52|
-              |FLOAT;^;%I%;85| |FLOAT;float;2IPi%;53| |FLOAT;floor;2%;61|
-              |FLOAT;truncate;2%;64| |FLOAT;ceiling;2%;59| |FLOAT;round;2%;62|
-              (|Union| % '"failed") |FLOAT;recip;%U;65|
+              |FLOAT;precision;Pi;33| |FLOAT;precision;2Pi;34|
+              |FLOAT;digits;Pi;38| |FLOAT;digits;2Pi;39| |FLOAT;relerror;3%;41|
+              |FLOAT;base;Pi;44| |FLOAT;one?;%B;47| |FLOAT;positive?;%B;50|
+              |FLOAT;float;2I%;52| |FLOAT;^;%I%;85| |FLOAT;float;2IPi%;53|
+              |FLOAT;floor;2%;61| |FLOAT;truncate;2%;64| |FLOAT;ceiling;2%;59|
+              |FLOAT;round;2%;62| (|Union| % '"failed") |FLOAT;recip;%U;65|
               |FLOAT;differentiate;2%;66| |FLOAT;inv;2%;77| |FLOAT;^;3%;83|
               (|Fraction| 13) (116 . |0|) (120 . =) (126 . <) (132 . |1|)
               (136 . |numer|) (141 . |denom|) |FLOAT;^;%F%;84| 'SPACING
@@ -1704,12 +1704,12 @@
                                     9 8 0 17 1 9 8 0 18 1 9 8 0 19 1 13 13 0 22
                                     2 0 20 0 0 32 1 0 11 0 33 1 11 0 34 35 1 0
                                     0 0 48 1 51 13 13 52 2 13 20 0 0 57 2 0 0
-                                    36 0 59 2 0 0 0 36 61 2 77 76 76 36 78 1 77
-                                    76 36 79 1 77 76 36 81 3 77 76 76 76 36 83
-                                    2 77 76 76 36 86 1 77 76 36 87 0 108 0 109
+                                    36 0 59 2 0 0 0 36 61 2 76 75 75 36 77 1 76
+                                    75 36 78 1 76 75 36 80 3 76 75 75 75 36 82
+                                    2 76 75 75 36 85 1 76 75 36 86 0 108 0 109
                                     2 108 20 0 0 110 2 108 20 0 0 111 0 108 0
                                     112 1 108 13 0 113 1 108 13 0 114 2 130 20
-                                    11 0 131 0 133 0 134 3 136 11 76 13 135 137
+                                    11 0 131 0 133 0 134 3 136 11 75 13 135 137
                                     2 0 20 0 0 139 1 140 0 11 141 1 140 0 0 143
                                     1 145 0 144 146 1 36 145 0 147 1 13 145 0
                                     148 1 145 0 34 149 1 153 13 0 156 1 153 13
@@ -1717,24 +1717,24 @@
                                     169 169 0 170 2 0 20 0 0 1 1 0 20 0 23 1 0
                                     13 0 50 1 0 172 0 1 1 0 0 0 1 1 0 20 0 1 1
                                     0 0 0 100 1 0 11 0 33 2 0 11 0 119 1 1 0 0
-                                    0 71 1 0 0 0 65 2 0 103 0 0 1 1 0 0 0 1 1 0
+                                    0 70 1 0 0 0 65 2 0 103 0 0 1 1 0 0 0 1 1 0
                                     181 0 1 1 0 0 0 38 2 0 20 0 0 1 2 0 20 0 0
-                                    1 1 0 0 0 69 1 0 0 0 63 1 0 13 0 58 2 0 0 0
+                                    1 1 0 0 0 68 1 0 0 0 63 1 0 13 0 58 2 0 0 0
                                     13 56 2 0 8 11 13 132 1 0 0 0 1 1 0 0 0 1 0
                                     0 0 1 1 0 0 0 102 1 0 103 0 1 2 0 0 0 36 1
                                     2 0 0 0 119 1 1 0 165 0 166 1 0 161 0 162 1
                                     0 13 0 164 1 0 108 0 160 2 0 0 0 0 1 2 0 0
                                     0 0 92 1 0 103 0 104 2 0 108 0 119 167 3 0
                                     108 0 119 119 159 2 0 0 0 0 1 1 0 174 34 1
-                                    1 0 20 0 1 0 0 36 67 1 2 36 36 89 1 0 20 0
+                                    1 0 20 0 1 0 0 36 88 1 2 36 36 89 1 0 20 0
                                     95 2 0 0 0 36 1 0 0 0 30 3 0 183 0 182 183
                                     1 1 0 119 119 120 1 0 8 119 124 0 0 8 123 0
                                     0 8 125 1 0 8 119 126 0 0 8 121 1 0 8 119
                                     122 1 0 13 0 53 2 0 20 0 0 1 1 0 20 0 94 2
                                     0 0 0 13 1 1 0 0 0 42 1 0 0 0 1 1 0 20 0 25
                                     2 0 176 34 0 1 2 0 0 0 0 1 0 3 0 1 2 0 0 0
-                                    0 1 0 3 0 1 1 0 13 0 14 0 0 0 80 1 0 0 0 84
-                                    0 0 0 82 1 0 0 0 85 1 0 0 0 72 1 0 103 0 1
+                                    0 1 0 3 0 1 1 0 13 0 14 0 0 0 79 1 0 0 0 83
+                                    0 0 0 81 1 0 0 0 84 1 0 0 0 71 1 0 103 0 1
                                     2 0 0 0 36 1 2 0 0 0 119 1 2 0 173 0 0 1 1
                                     0 0 34 1 2 0 0 0 0 1 1 0 11 0 1 1 0 0 0 106
                                     1 2 36 13 37 2 0 169 169 0 171 1 0 184 0 1
@@ -1742,20 +1742,20 @@
                                     0 0 34 1 1 0 0 0 48 1 0 0 0 99 2 0 0 13 13
                                     96 3 0 0 13 13 36 98 1 0 181 0 1 2 0 178 0
                                     0 1 3 0 180 0 0 0 1 2 0 103 0 0 1 2 0 176
-                                    34 0 1 1 0 13 0 16 0 0 0 88 1 0 0 0 68 1 0
+                                    34 0 1 1 0 13 0 16 0 0 0 87 1 0 0 0 67 1 0
                                     119 0 1 2 0 177 0 0 1 0 0 36 90 1 2 36 36
                                     91 2 0 0 0 119 1 1 0 0 0 105 1 2 36 13 41 1
                                     0 0 0 1 1 0 0 0 1 1 0 0 0 1 1 0 0 0 1 1 0 0
-                                    0 70 1 0 0 0 64 1 0 151 0 152 1 0 153 0 154
+                                    0 69 1 0 0 0 64 1 0 151 0 152 1 0 153 0 154
                                     1 0 182 0 1 1 0 11 0 138 1 0 145 0 150 1 0
                                     0 153 158 2 0 0 0 0 1 1 0 140 0 142 1 0 0
                                     13 163 1 0 0 0 1 1 0 0 108 1 1 0 153 0 155
                                     1 1 0 108 1 0 0 119 1 1 0 0 0 101 0 0 36 49
-                                    1 2 36 36 60 0 0 36 93 1 0 0 0 75 1 0 0 0
+                                    1 2 36 36 60 0 0 36 93 1 0 0 0 74 1 0 0 0
                                     40 2 0 0 0 0 47 3 0 0 0 0 0 1 2 0 20 0 0 1
-                                    1 0 0 0 73 1 0 0 0 27 1 0 0 0 1 1 0 0 0 1 2
+                                    1 0 0 0 72 1 0 0 0 27 1 0 0 0 1 1 0 0 0 1 2
                                     0 0 0 0 1 2 0 20 0 0 1 1 0 0 0 1 1 0 0 0 1
-                                    1 0 0 0 1 1 0 0 0 1 1 0 0 0 74 1 0 0 0 43 1
+                                    1 0 0 0 1 1 0 0 0 1 1 0 0 0 73 1 0 0 0 43 1
                                     0 0 0 46 2 0 0 0 36 61 2 0 0 0 119 1 2 0 0
                                     0 13 97 2 0 0 0 108 115 2 0 0 0 0 107 2 0
                                     11 0 20 1 1 0 11 0 1 3 0 8 9 0 20 21 2 0 8

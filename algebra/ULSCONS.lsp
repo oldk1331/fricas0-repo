@@ -22,7 +22,7 @@
         (SPADCALL 0 (|spadConstant| % 15) (QREFELT % 10))) 
 
 (SDEFUN |ULSCONS;1;%;7| ((% (%)))
-        (SPADCALL 0 (|spadConstant| % 17) (QREFELT % 10))) 
+        (SPADCALL 0 (|spadConstant| % 16) (QREFELT % 10))) 
 
 (SDEFUN |ULSCONS;monomial;CoefI%;8| ((|s| (|Coef|)) (|e| (|Integer|)) (% (%)))
         (SPADCALL |e| (SPADCALL |s| (QREFELT % 18)) (QREFELT % 10))) 
@@ -352,7 +352,7 @@
                   (QREFELT % 10))) 
 
 (SDEFUN |ULSCONS;^;%Nni%;28| ((|x| (%)) (|n| (|NonNegativeInteger|)) (% (%)))
-        (COND ((ZEROP |n|) (|spadConstant| % 16))
+        (COND ((ZEROP |n|) (|spadConstant| % 17))
               ('T
                (SPADCALL (* |n| (|ULSCONS;getExpon| |x| %))
                          (SPADCALL (|ULSCONS;getUTS| |x| %) |n| (QREFELT % 69))
@@ -876,7 +876,7 @@
          ((#1=#:G312 NIL) (|xInv| (%)) (#2=#:G313 NIL)
           (|minusN| (|NonNegativeInteger|)))
          (SEQ
-          (COND ((ZEROP |n|) (|spadConstant| % 16))
+          (COND ((ZEROP |n|) (|spadConstant| % 17))
                 ((> |n| 0)
                  (SPADCALL (* |n| (|ULSCONS;getExpon| |x| %))
                            (SPADCALL (|ULSCONS;getUTS| |x| %)
@@ -944,13 +944,13 @@
         (SPROG ((|n| (|Integer|)) (#1=#:G336 NIL))
                (SEQ (LETT |n| (SPADCALL |x| (QREFELT % 12)))
                     (EXIT
-                     (COND ((>= |n| 0) (|spadConstant| % 17))
+                     (COND ((>= |n| 0) (|spadConstant| % 16))
                            (#2='T
                             (SEQ
                              (LETT |x| (SPADCALL (- |n|) |x| (QREFELT % 24)))
                              (LETT |n| (SPADCALL |x| (QREFELT % 12)))
                              (EXIT
-                              (COND ((EQL |n| 0) (|spadConstant| % 17))
+                              (COND ((EQL |n| 0) (|spadConstant| % 16))
                                     (#2#
                                      (SPADCALL (|spadConstant| % 25)
                                                (PROG1 (LETT #1# (- |n|))
@@ -1886,9 +1886,9 @@
               (|Integer|) |ULSCONS;laurent;IUTS%;3| |ULSCONS;taylorRep;%UTS;4|
               |ULSCONS;degree;%I;5|
               (CONS IDENTITY (FUNCALL (|dispatchFunction| |ULSCONS;0;%;6|) %))
-              (0 . |0|) (4 . |0|)
+              (0 . |0|) (4 . |0|) (8 . |1|)
               (CONS IDENTITY (FUNCALL (|dispatchFunction| |ULSCONS;1;%;7|) %))
-              (8 . |1|) (12 . |coerce|) |ULSCONS;monomial;CoefI%;8|
+              (12 . |coerce|) |ULSCONS;monomial;CoefI%;8|
               |ULSCONS;coerce;UTS%;9| |ULSCONS;coerce;Coef%;10| (17 . |coerce|)
               |ULSCONS;coerce;I%;11| |ULSCONS;removeZeroes;I2%;22| (22 . |1|)
               (|NonNegativeInteger|) (26 . |monomial|) (32 . *)
@@ -2103,7 +2103,7 @@
                  (|CoercibleTo| 219) (|BasicType|)
                  (|VariablesCommuteWithCoefficients|) (|CoercibleFrom| 7))
               (|makeByteWordVec2| 276
-                                  '(0 6 0 14 0 7 0 15 0 7 0 17 1 7 0 6 18 1 6 0
+                                  '(0 6 0 14 0 7 0 15 0 7 0 16 1 7 0 6 18 1 6 0
                                     9 22 0 6 0 25 2 7 0 6 26 27 2 7 0 0 0 28 1
                                     33 32 0 34 0 36 0 37 1 33 6 0 38 1 6 32 0
                                     39 1 33 0 0 40 0 9 0 41 2 9 0 0 0 42 2 36 0
@@ -2215,7 +2215,7 @@
                                     42 0 0 210 1 3 42 0 0 83 26 1 2 42 0 0 83 1
                                     2 3 0 0 276 1 3 3 0 0 276 26 1 2 32 32 0 0
                                     1 2 32 32 0 0 1 2 0 32 0 0 62 2 32 32 0 0 1
-                                    2 32 32 0 0 1 0 60 0 16 0 62 0 13 2 3 0 0 6
+                                    2 32 32 0 0 1 0 60 0 17 0 62 0 13 2 3 0 0 6
                                     1 2 3 0 0 0 144 2 3 0 7 7 145 2 64 0 0 0 67
                                     1 64 0 0 208 2 0 0 0 0 65 2 0 0 129 0 1 2 0
                                     0 0 0 68 2 0 0 6 0 134 2 0 0 0 6 1 2 15 0 0

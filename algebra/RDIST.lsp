@@ -99,7 +99,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|RandomDistributions| DV$1))
-          (LETT % (GETREFV 46))
+          (LETT % (GETREFV 45))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|RandomDistributions| (LIST DV$1)
@@ -139,8 +139,8 @@
               (|Record| (|:| |value| 6) (|:| |weight| 11)) (|List| 35)
               |RDIST;weighted;LM;1| (|RandomNumberSource|) (93 . |randnum|)
               (98 . |1|) (102 . |elt|) (|Set| 6) (108 . |members|)
-              (113 . |randnum|) |RDIST;uniform;SM;3|)
-           '#(|weighted| 117 |uniform| 122 |rdHack1| 127) 'NIL
+              |RDIST;uniform;SM;3|)
+           '#(|weighted| 113 |uniform| 118 |rdHack1| 123) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -159,7 +159,7 @@
                                   (|Vector| (|Integer|)) (|Integer|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 45
+                        (|makeByteWordVec2| 44
                                             '(0 7 0 8 2 7 9 6 0 10 0 11 0 12 2
                                               11 0 0 0 13 3 7 11 0 6 11 14 1 7
                                               15 0 16 1 15 17 0 18 0 17 0 19 2
@@ -168,7 +168,6 @@
                                               28 0 17 0 29 3 23 6 0 11 6 30 2 7
                                               11 0 6 31 3 25 11 0 11 11 32 1 38
                                               11 11 39 0 11 0 40 2 23 6 0 11 41
-                                              1 42 15 0 43 0 38 11 44 1 0 33 36
-                                              37 1 0 33 42 45 3 0 33 23 25 11
-                                              34)))))
+                                              1 42 15 0 43 1 0 33 36 37 1 0 33
+                                              42 44 3 0 33 23 25 11 34)))))
            '|lookupComplete|)) 

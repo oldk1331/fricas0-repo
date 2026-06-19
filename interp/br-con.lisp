@@ -1618,7 +1618,7 @@
 ;   $printTimeIfTrue : local := false
 ;   $printStorageIfTrue : local := false
 ;   $BreakMode : local := 'throw_reader
-;   CATCH('SPAD_READER, processInteractive(typeForm, nil))
+;   CATCH('SPAD_READER, CATCH('top_level, processInteractive(typeForm, nil)))
 ;     is [[h,:.],:t] and member(h,'(Type Category)) => t
 ;   false
 
@@ -1639,7 +1639,9 @@
        ((AND
          (PROGN
           (SETQ |ISTMP#1|
-                  (CATCH 'SPAD_READER (|processInteractive| |typeForm| NIL)))
+                  (CATCH 'SPAD_READER
+                    (CATCH '|top_level|
+                      (|processInteractive| |typeForm| NIL))))
           (AND (CONSP |ISTMP#1|)
                (PROGN
                 (SETQ |ISTMP#2| (CAR |ISTMP#1|))

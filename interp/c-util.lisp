@@ -41,7 +41,7 @@
 
 ; TAKE(n, l) ==
 ;     n >= 0 => [x for x in l for i in 1..n]
-;     DROP(#l + n, l)
+;     BREAK()
 
 (DEFUN TAKE (|n| |l|)
   (PROG ()
@@ -58,7 +58,7 @@
            (SETQ |bfVar#1| (CDR |bfVar#1|))
            (SETQ |i| (+ |i| 1))))
         NIL |l| NIL 1))
-      (#1# (DROP (+ (LENGTH |l|) |n|) |l|))))))
+      (#1# (BREAK))))))
 
 ; displaySemanticErrors() ==
 ;   n:= #($semanticErrorStack:= REMDUP $semanticErrorStack)
@@ -254,30 +254,14 @@
   (PROG () (RETURN (|unStackWarning| (LIST '|%b| |s| '|%d| "has no value")))))
 
 ; consProplistOf(var,proplist,prop,val) ==
-;   semchkProplist(var, proplist, prop)
-;   $InteractiveMode and (u:= assoc(prop,proplist)) =>
-;     RPLACD(u,val)
-;     proplist
-;   [[prop,:val],:proplist]
+;     $InteractiveMode => BREAK()
+;     [[prop,:val],:proplist]
 
 (DEFUN |consProplistOf| (|var| |proplist| |prop| |val|)
-  (PROG (|u|)
-    (RETURN
-     (PROGN
-      (|semchkProplist| |var| |proplist| |prop|)
-      (COND
-       ((AND |$InteractiveMode| (SETQ |u| (|assoc| |prop| |proplist|)))
-        (PROGN (RPLACD |u| |val|) |proplist|))
-       ('T (CONS (CONS |prop| |val|) |proplist|)))))))
-
-; warnLiteral x ==
-;     stackWarning(['%b,x,'%d, '"is BOTH a variable and a literal"])
-
-(DEFUN |warnLiteral| (|x|)
   (PROG ()
     (RETURN
-     (|stackWarning|
-      (LIST '|%b| |x| '|%d| "is BOTH a variable and a literal")))))
+     (COND (|$InteractiveMode| (BREAK))
+           ('T (CONS (CONS |prop| |val|) |proplist|))))))
 
 ; intersectionEnvironment(e,e') ==
 ;   ce:= makeCommonEnvironment(e,e')

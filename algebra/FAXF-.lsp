@@ -319,8 +319,8 @@
                 ((ZEROP (QCDR |qr|))
                  (SEQ
                   (LETT |pow|
-                        (|quotient_INT| (- (SPADCALL (QREFELT % 89)) 1)
-                                        (- (EXPT (SPADCALL (QREFELT % 90)) |s|)
+                        (|quotient_INT| (- (SPADCALL (QREFELT % 88)) 1)
+                                        (- (EXPT (SPADCALL (QREFELT % 89)) |s|)
                                            1)))
                   (EXIT
                    (SPADCALL |e|
@@ -328,7 +328,7 @@
                                (|check_subtype2| (>= #1# 0)
                                                  '(|NonNegativeInteger|)
                                                  '(|Integer|) #1#))
-                             (QREFELT % 91)))))
+                             (QREFELT % 90)))))
                 ('T
                  (|error|
                   "norm: second argument must divide degree of extension"))))))) 
@@ -340,7 +340,7 @@
                      (|:| |remainder| (|NonNegativeInteger|))))
           (|q| (|NonNegativeInteger|)) (|i| NIL) (#1=#:G111 NIL) (|a| (S)))
          (SEQ (LETT |qr| (|divide_INT| (SPADCALL (QREFELT % 12)) |s|))
-              (LETT |q| (SPADCALL (QREFELT % 90)))
+              (LETT |q| (SPADCALL (QREFELT % 89)))
               (EXIT
                (COND
                 ((ZEROP (QCDR |qr|))
@@ -353,7 +353,7 @@
                                    (SPADCALL |a|
                                              (SPADCALL |e|
                                                        (EXPT |q| (* |s| |i|))
-                                                       (QREFELT % 91))
+                                                       (QREFELT % 90))
                                              (QREFELT % 19)))))
                            (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
                       (EXIT |a|)))
@@ -362,7 +362,7 @@
                   "trace: second argument must divide degree of extension"))))))) 
 
 (SDEFUN |FAXF-;size;Nni;19| ((% (|NonNegativeInteger|)))
-        (EXPT (SPADCALL (QREFELT % 90)) (SPADCALL (QREFELT % 12)))) 
+        (EXPT (SPADCALL (QREFELT % 89)) (SPADCALL (QREFELT % 12)))) 
 
 (SDEFUN |FAXF-;createNormalElement;S;20| ((% (S)))
         (SPROG
@@ -371,7 +371,7 @@
          (SEQ
           (EXIT
            (COND
-            ((EQL (SPADCALL (QREFELT % 95)) (SPADCALL (QREFELT % 89)))
+            ((EQL (SPADCALL (QREFELT % 94)) (SPADCALL (QREFELT % 88)))
              (|spadConstant| % 60))
             ('T
              (SEQ
@@ -384,14 +384,14 @@
                              (PROG1 (LETT #1# |i|)
                                (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                                  '(|NonNegativeInteger|) #1#))
-                             (QREFELT % 96)))
+                             (QREFELT % 95)))
                       (EXIT
                        (COND
-                        ((NULL (SPADCALL |res| (QREFELT % 97)))
+                        ((NULL (SPADCALL |res| (QREFELT % 96)))
                          (PROGN
                           (LETT #3#
                                 (COND
-                                 ((SPADCALL |res| (QREFELT % 98))
+                                 ((SPADCALL |res| (QREFELT % 97))
                                   (PROGN
                                    (LETT #3#
                                          (PROGN
@@ -500,11 +500,11 @@
                         (|dispatchFunction|
                          |FAXF-;minimalPolynomial;SPiSup;16|)
                         %))
-             (QSETREFV % 92 (CONS (|dispatchFunction| |FAXF-;norm;SPiS;17|) %))
-             (QSETREFV % 93
+             (QSETREFV % 91 (CONS (|dispatchFunction| |FAXF-;norm;SPiS;17|) %))
+             (QSETREFV % 92
                        (CONS (|dispatchFunction| |FAXF-;trace;SPiS;18|) %))
-             (QSETREFV % 94 (CONS (|dispatchFunction| |FAXF-;size;Nni;19|) %))
-             (QSETREFV % 99
+             (QSETREFV % 93 (CONS (|dispatchFunction| |FAXF-;size;Nni;19|) %))
+             (QSETREFV % 98
                        (CONS
                         (|dispatchFunction| |FAXF-;createNormalElement;S;20|)
                         %))
@@ -543,10 +543,10 @@
               (232 . ~=) (|SparseUnivariatePolynomial| 6) (238 . |monomial|)
               (244 . -) (250 . |Frobenius|) (256 . *)
               (|SparseUnivariatePolynomial| %) (262 . |minimalPolynomial|)
-              (268 . |extensionDegree|) (272 . |size|) (276 . |size|) (280 . ^)
-              (286 . |norm|) (292 . |trace|) (298 . |size|)
-              (302 . |characteristic|) (306 . |index|) (311 . |inGroundField?|)
-              (316 . |normal?|) (321 . |createNormalElement|) (325 . +)
+              (268 . |size|) (272 . |size|) (276 . ^) (282 . |norm|)
+              (288 . |trace|) (294 . |size|) (298 . |characteristic|)
+              (302 . |index|) (307 . |inGroundField?|) (312 . |normal?|)
+              (317 . |createNormalElement|) (321 . |extensionDegree|) (325 . +)
               (331 . |0|) (335 . |gcd|) (341 . |1|) (345 . =) (351 . |normal?|)
               (356 . ~=) (362 . |degree|))
            '#(|transcendent?| 367 |transcendenceDegree| 372 |trace| 376 |size|
@@ -644,20 +644,20 @@
                                               1 6 0 0 77 1 0 78 0 79 2 21 34 0
                                               0 80 2 81 0 6 21 82 2 81 0 0 0 83
                                               2 6 0 0 21 84 2 81 0 0 0 85 2 0
-                                              86 0 11 87 0 6 23 88 0 6 21 89 0
-                                              7 21 90 2 6 0 0 21 91 2 0 0 0 11
-                                              92 2 0 0 0 11 93 0 0 21 94 0 6 21
-                                              95 1 6 0 11 96 1 6 34 0 97 1 6 34
-                                              0 98 0 0 0 99 2 81 0 0 0 100 0 81
-                                              0 101 2 81 0 0 0 102 0 81 0 103 2
-                                              81 34 0 0 104 1 0 34 0 105 2 6 34
-                                              0 0 106 1 0 11 0 107 1 0 34 0 36
-                                              0 0 21 22 1 0 7 0 40 2 0 0 0 11
-                                              93 0 0 21 94 1 0 0 14 20 1 0 34 0
-                                              105 1 0 7 0 42 2 0 0 0 11 92 2 0
-                                              86 0 11 87 1 0 43 0 76 1 0 43 0
-                                              73 2 0 69 0 0 70 2 0 0 0 43 47 0
-                                              0 23 25 0 0 11 37 1 0 23 0 27 1 0
-                                              11 0 107 0 0 0 99 1 0 31 9 33 1 0
-                                              78 0 79 1 0 34 0 35)))))
+                                              86 0 11 87 0 6 21 88 0 7 21 89 2
+                                              6 0 0 21 90 2 0 0 0 11 91 2 0 0 0
+                                              11 92 0 0 21 93 0 6 21 94 1 6 0
+                                              11 95 1 6 34 0 96 1 6 34 0 97 0 0
+                                              0 98 0 6 23 99 2 81 0 0 0 100 0
+                                              81 0 101 2 81 0 0 0 102 0 81 0
+                                              103 2 81 34 0 0 104 1 0 34 0 105
+                                              2 6 34 0 0 106 1 0 11 0 107 1 0
+                                              34 0 36 0 0 21 22 1 0 7 0 40 2 0
+                                              0 0 11 92 0 0 21 93 1 0 0 14 20 1
+                                              0 34 0 105 1 0 7 0 42 2 0 0 0 11
+                                              91 2 0 86 0 11 87 1 0 43 0 76 1 0
+                                              43 0 73 2 0 69 0 0 70 2 0 0 0 43
+                                              47 0 0 23 25 0 0 11 37 1 0 23 0
+                                              27 1 0 11 0 107 0 0 0 98 1 0 31 9
+                                              33 1 0 78 0 79 1 0 34 0 35)))))
            '|lookupComplete|)) 

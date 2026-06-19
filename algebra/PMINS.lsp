@@ -132,26 +132,26 @@
                                      (QCAR |uur|) |l| (|spadConstant| % 30)
                                      %))))))
                            (#2#
-                            (SEQ (LETT |w| (SPADCALL |p| (QREFELT % 39)))
+                            (SEQ (LETT |w| (SPADCALL |p| (QREFELT % 38)))
                                  (EXIT
                                   (COND
                                    ((QEQCAR |w| 0)
                                     (|PMINS;patternMatchSumProd| |x| (QCDR |w|)
-                                     |l| (ELT % 41) (|spadConstant| % 30) %))
+                                     |l| (ELT % 40) (|spadConstant| % 30) %))
                                    (#2#
                                     (SEQ
-                                     (LETT |w| (SPADCALL |p| (QREFELT % 42)))
+                                     (LETT |w| (SPADCALL |p| (QREFELT % 41)))
                                      (EXIT
                                       (COND
                                        ((QEQCAR |w| 0)
                                         (|PMINS;patternMatchSumProd| |x|
                                          (QCDR |w|) |l|
                                          (CONS #'|PMINS;patternMatchInner!0| %)
-                                         (|spadConstant| % 44) %))
+                                         (|spadConstant| % 43) %))
                                        (#2#
                                         (SEQ
                                          (LETT |uv|
-                                               (SPADCALL |p| (QREFELT % 47)))
+                                               (SPADCALL |p| (QREFELT % 46)))
                                          (EXIT
                                           (COND
                                            ((QEQCAR |uv| 0)
@@ -173,7 +173,7 @@
                                                                 (QCDR |r|)
                                                                 (QREFELT % 20))
                                                                |x|
-                                                               (QREFELT % 41)))
+                                                               (QREFELT % 40)))
                                                         (EXIT
                                                          (COND
                                                           ((QEQCAR |v| 0)
@@ -198,7 +198,7 @@
                                                       (SPADCALL
                                                        (SPADCALL (QCDR |r|) |x|
                                                                  (QREFELT %
-                                                                          48))
+                                                                          47))
                                                        (QCAR |uvr|) |l|
                                                        (QREFELT % 12)))
                                                      (#2#
@@ -211,7 +211,7 @@
                                                       18))))))))))))))))))))))))))) 
 
 (SDEFUN |PMINS;patternMatchInner!0| ((|i1| NIL) (|i2| NIL) (% NIL))
-        (CONS 0 (SPADCALL |i1| |i2| (QREFELT % 43)))) 
+        (CONS 0 (SPADCALL |i1| |i2| (QREFELT % 42)))) 
 
 (DECLAIM (NOTINLINE |PatternMatchIntegerNumberSystem;|)) 
 
@@ -220,7 +220,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|PatternMatchIntegerNumberSystem| DV$1))
-          (LETT % (GETREFV 49))
+          (LETT % (GETREFV 48))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PatternMatchIntegerNumberSystem|
@@ -263,12 +263,12 @@
               (60 . |1|) (|Record| (|:| |val| %) (|:| |exponent| %))
               (|Union| 31 '"failed") (64 . |isPower|)
               (|Record| (|:| |base| 6) (|:| |exponent| 27))
-              (69 . |perfectNthRoot|) (74 . |failed?|) (79 . |base|)
-              (|Union| (|List| %) '"failed") (83 . |isTimes|)
-              (|Union| % '"failed") (88 . |exquo|) (94 . |isPlus|) (99 . -)
-              (105 . |0|) (|Record| (|:| |num| %) (|:| |den| %))
-              (|Union| 45 '"failed") (109 . |isQuotient|) (114 . *))
-           '#(|patternMatch| 120) 'NIL
+              (69 . |perfectNthRoot|) (74 . |failed?|)
+              (|Union| (|List| %) '"failed") (79 . |isTimes|)
+              (|Union| % '"failed") (84 . |exquo|) (90 . |isPlus|) (95 . -)
+              (101 . |0|) (|Record| (|:| |num| %) (|:| |den| %))
+              (|Union| 44 '"failed") (105 . |isQuotient|) (110 . *))
+           '#(|patternMatch| 116) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS
@@ -281,15 +281,14 @@
                                   (|PatternMatchResult| (|Integer|) |#1|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 48
+                        (|makeByteWordVec2| 47
                                             '(1 8 7 0 9 3 10 0 8 6 0 11 4 10 0
                                               8 6 0 6 13 1 14 8 0 15 1 8 16 0
                                               17 0 10 0 18 1 6 0 19 20 1 8 7 0
                                               21 1 6 19 0 22 1 8 24 0 25 2 28
                                               26 6 27 29 0 6 0 30 1 8 32 0 33 1
-                                              28 34 6 35 1 10 7 0 36 0 6 0 37 1
-                                              8 38 0 39 2 6 40 0 0 41 1 8 38 0
-                                              42 2 6 0 0 0 43 0 6 0 44 1 8 46 0
-                                              47 2 6 0 19 0 48 3 0 10 6 8 10
-                                              12)))))
+                                              28 34 6 35 1 10 7 0 36 1 8 37 0
+                                              38 2 6 39 0 0 40 1 8 37 0 41 2 6
+                                              0 0 0 42 0 6 0 43 1 8 45 0 46 2 6
+                                              0 19 0 47 3 0 10 6 8 10 12)))))
            '|lookupComplete|)) 

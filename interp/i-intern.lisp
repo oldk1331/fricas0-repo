@@ -1609,7 +1609,7 @@
 
 (DEFUN |get| (|x| |prop| |e|) (PROG () (RETURN (|get1| |x| |prop| |e|))))
 
-; get0(x,prop,e) ==
+; get0(x, prop, e) ==
 ;   not(atom(x)) => get0(QCAR(x), prop, e)
 ;   (pl := getProplist(x, e)) => QLASSQ(prop, pl)
 ;   nil
@@ -1621,7 +1621,7 @@
            ((SETQ |pl| (|getProplist| |x| |e|)) (QLASSQ |prop| |pl|))
            ('T NIL)))))
 
-; get1(x,prop,e) ==
+; get1(x, prop, e) ==
 ;     --this is the old get
 ;   negHash := nil
 ;   null atom x => get(QCAR x,prop,e)
@@ -1674,7 +1674,7 @@
                    (SAY (LIST '|get1| |x| |prop| (AND |ress| T)))))
                  |ress|))))))))))
 
-; get2(x,prop,e) ==
+; get2(x, prop, e) ==
 ;   prop="modemap" and constructor? x =>
 ;     (u := getConstructorModemap(x)) => [u]
 ;     nil
@@ -1722,17 +1722,16 @@
                  (|remprop| |id| |prop| |$InteractiveFrame|)))))))))
 
 ; remprop(x,prop,e) ==
-;   u:= assoc(prop,pl:= getProplist(x,e)) =>
-;     e:= addBinding(x,DELASC(first u,pl),e)
+;     u := assoc(prop, pl := getProplist(x, e)) =>
+;         e := addBinding(x, DELLASOS(first(u), pl), e)
 ;     e
-;   e
 
 (DEFUN |remprop| (|x| |prop| |e|)
   (PROG (|pl| |u|)
     (RETURN
      (COND
       ((SETQ |u| (|assoc| |prop| (SETQ |pl| (|getProplist| |x| |e|))))
-       (PROGN (SETQ |e| (|addBinding| |x| (DELASC (CAR |u|) |pl|) |e|)) |e|))
+       (SETQ |e| (|addBinding| |x| (DELLASOS (CAR |u|) |pl|) |e|)))
       ('T |e|)))))
 
 ; fastSearchCurrentEnv(x,currentEnv) ==

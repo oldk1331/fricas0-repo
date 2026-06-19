@@ -168,7 +168,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|PosetFactory| DV$1))
-          (LETT % (GETREFV 31))
+          (LETT % (GETREFV 29))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|PosetFactory| (LIST DV$1)
@@ -201,12 +201,11 @@
               (18 . |concat|) (24 . |copy|) (|List| 13) (29 . |concat|)
               (|FiniteBiCPO| 7) (35 . |finitePoset|) |POSETF;powerset;LFbcpo;3|
               (|FiniteBiCPO| 6) (41 . |finitePoset|)
-              |POSETF;completelyOrderedSet;LFbcpo;4| (47 . |true|)
-              (51 . |false|) |POSETF;posetN5;LFbcpo;5|
+              |POSETF;completelyOrderedSet;LFbcpo;4| |POSETF;posetN5;LFbcpo;5|
               |POSETF;posetM5;LFbcpo;6| |POSETF;posetO6;LFbcpo;7|
               |POSETF;posetP6;LFbcpo;8| |POSETF;posetL7;LFbcpo;9|)
-           '#(|powerset| 55 |posetP6| 60 |posetO6| 65 |posetN5| 70 |posetM5| 75
-              |posetL7| 80 |completelyOrderedSet| 85)
+           '#(|powerset| 47 |posetP6| 52 |posetO6| 57 |posetN5| 62 |posetM5| 67
+              |posetL7| 72 |completelyOrderedSet| 77)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -236,12 +235,11 @@
                                  ((|FiniteBiCPO| |#1|) (|List| |#1|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 30
+                        (|makeByteWordVec2| 28
                                             '(2 7 0 0 6 8 2 9 0 0 7 10 2 9 0 0
                                               0 11 2 13 0 0 12 14 1 13 0 0 15 2
                                               16 0 0 13 17 2 18 0 9 16 19 2 21
-                                              0 7 16 22 0 12 0 24 0 12 0 25 1 0
-                                              18 7 20 1 0 21 7 29 1 0 21 7 28 1
-                                              0 21 7 26 1 0 21 7 27 1 0 21 7 30
-                                              1 0 21 7 23)))))
+                                              0 7 16 22 1 0 18 7 20 1 0 21 7 27
+                                              1 0 21 7 26 1 0 21 7 24 1 0 21 7
+                                              25 1 0 21 7 28 1 0 21 7 23)))))
            '|lookupComplete|)) 

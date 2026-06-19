@@ -431,7 +431,7 @@
                                               (SPADCALL |n| (QREFELT % 50)))
                                         (COND
                                          ((SPADCALL
-                                           (SPADCALL |x| 2 (QREFELT % 66)) |n|
+                                           (SPADCALL |x| 2 (QREFELT % 65)) |n|
                                            (QREFELT % 11))
                                           (LETT |x|
                                                 (SPADCALL |x|
@@ -440,7 +440,7 @@
                                         (LETT |y|
                                               (SPADCALL
                                                (SPADCALL
-                                                (SPADCALL |x| 2 (QREFELT % 66))
+                                                (SPADCALL |x| 2 (QREFELT % 65))
                                                 |n| (QREFELT % 37))
                                                (QREFELT % 18)))
                                         (EXIT
@@ -540,7 +540,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|IntegerFactorizationPackage| DV$1))
-          (LETT % (GETREFV 67))
+          (LETT % (GETREFV 66))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|IntegerFactorizationPackage|
@@ -590,9 +590,9 @@
               (182 . |inspect|) (187 . |count|) (193 . |remove!|)
               (|IntegerPrimesPackage| 6) (199 . |prime?|) (204 . |insert!|)
               (|Record| (|:| |base| 6) (|:| |exponent| 27))
-              (211 . |perfectNthRoot|) (216 . |base|) (220 . ^))
-           '#(|squareFree| 226 |factor| 231 |PollardSmallFactor| 236
-              |BasicMethod| 241)
+              (211 . |perfectNthRoot|) (216 . ^))
+           '#(|squareFree| 222 |factor| 227 |PollardSmallFactor| 232
+              |BasicMethod| 237)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -607,7 +607,7 @@
                                       ((|Union| |#1| "failed") |#1|))
                                      T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 66
+                        (|makeByteWordVec2| 65
                                             '(0 6 0 7 0 8 0 9 2 6 10 0 0 11 1 6
                                               0 0 12 0 6 0 13 0 8 0 14 2 6 10 0
                                               0 15 1 17 16 6 18 1 8 22 0 23 1 8
@@ -623,7 +623,7 @@
                                               0 55 1 53 10 0 56 1 53 6 0 57 2
                                               53 27 6 0 58 2 53 0 6 0 59 1 60
                                               10 6 61 3 53 0 6 0 27 62 1 17 63
-                                              6 64 0 6 0 65 2 6 0 0 42 66 1 0 8
-                                              6 19 1 0 8 6 32 1 0 16 6 44 1 0 8
-                                              6 51)))))
+                                              6 64 2 6 0 0 42 65 1 0 8 6 19 1 0
+                                              8 6 32 1 0 16 6 44 1 0 8 6
+                                              51)))))
            '|lookupComplete|)) 
