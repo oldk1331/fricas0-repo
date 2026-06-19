@@ -170,7 +170,6 @@
 ;   setOutputAlgebra "%initialize%"
 ;   loadExposureGroupData()
 ;   if $displayStartMsgs then say_msg("S2IZ0053", init_msg, ['"database"])
-;   mkLowerCaseConTable()
 ;   if not $ruleSetsInitialized then initializeRuleSets()
 ;   if $displayStartMsgs then say_msg("S2IZ0053", init_msg, ['"constructors"])
 ;   makeConstructorsAutoLoad()
@@ -209,7 +208,6 @@
       (COND
        (|$displayStartMsgs|
         (|say_msg| 'S2IZ0053 |init_msg| (LIST "database"))))
-      (|mkLowerCaseConTable|)
       (COND ((NULL |$ruleSetsInitialized|) (|initializeRuleSets|)))
       (COND
        (|$displayStartMsgs|

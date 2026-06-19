@@ -317,8 +317,6 @@
       (|kaf_close| |stream|)))))
 
 ; save_browser_data() ==
-;     buildLibdb([])
-;     dbSplitLibdb()
 ;     usersTb := mkUsersHashTable()
 ;     saveUsersHashTable(usersTb)
 ;     depTb := mkDependentsHashTable()
@@ -328,42 +326,10 @@
   (PROG (|depTb| |usersTb|)
     (RETURN
      (PROGN
-      (|buildLibdb| NIL)
-      (|dbSplitLibdb|)
       (SETQ |usersTb| (|mkUsersHashTable|))
       (|saveUsersHashTable| |usersTb|)
       (SETQ |depTb| (|mkDependentsHashTable|))
       (|saveDependentsHashTable| |depTb|)))))
-
-; getUsersOfConstructor(con) ==
-;   stream := readLib('"USERS.DAASE")
-;   val := kaf_read_list(stream, con)
-;   kaf_close(stream)
-;   val
-
-(DEFUN |getUsersOfConstructor| (|con|)
-  (PROG (|stream| |val|)
-    (RETURN
-     (PROGN
-      (SETQ |stream| (|readLib| "USERS.DAASE"))
-      (SETQ |val| (|kaf_read_list| |stream| |con|))
-      (|kaf_close| |stream|)
-      |val|))))
-
-; getDependentsOfConstructor(con) ==
-;   stream := readLib('"DEPENDENTS.DAASE")
-;   val := kaf_read_list(stream, con)
-;   kaf_close(stream)
-;   val
-
-(DEFUN |getDependentsOfConstructor| (|con|)
-  (PROG (|stream| |val|)
-    (RETURN
-     (PROGN
-      (SETQ |stream| (|readLib| "DEPENDENTS.DAASE"))
-      (SETQ |val| (|kaf_read_list| |stream| |con|))
-      (|kaf_close| |stream|)
-      |val|))))
 
 ; orderPredicateItems(pred1,sig,skip) ==
 ;   pred:= signatureTran pred1

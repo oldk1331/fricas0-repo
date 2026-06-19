@@ -3,37 +3,14 @@
 
 (IN-PACKAGE "BOOT")
 
-; $htLineList := nil
+; htSay2(page, x) == bcHt2(page, x)
 
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$htLineList| NIL))
+(DEFUN |htSay2| (|page| |x|) (PROG () (RETURN (|bcHt2| |page| |x|))))
 
-; $curPage := nil
+; htSayList1(page, lx) ==
+;   for x in lx repeat bcHt2(page, x)
 
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$curPage| NIL))
-
-; $activePageList := nil
-
-(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$activePageList| NIL))
-
-; htSay(x) ==
-;     bcHt(x)
-
-(DEFUN |htSay| (|x|) (PROG () (RETURN (|bcHt| |x|))))
-
-; htSayStandard(x) ==  --do AT MOST for $standard
-;     bcHt(x)
-
-(DEFUN |htSayStandard| (|x|) (PROG () (RETURN (|bcHt| |x|))))
-
-; htSayStandardList(lx) ==
-;     htSayList(lx)
-
-(DEFUN |htSayStandardList| (|lx|) (PROG () (RETURN (|htSayList| |lx|))))
-
-; htSayList(lx) ==
-;   for x in lx repeat bcHt(x)
-
-(DEFUN |htSayList| (|lx|)
+(DEFUN |htSayList1| (|page| |lx|)
   (PROG ()
     (RETURN
      ((LAMBDA (|bfVar#1| |x|)
@@ -41,101 +18,50 @@
          (COND
           ((OR (ATOM |bfVar#1|) (PROGN (SETQ |x| (CAR |bfVar#1|)) NIL))
            (RETURN NIL))
-          ('T (|bcHt| |x|)))
+          ('T (|bcHt2| |page| |x|)))
          (SETQ |bfVar#1| (CDR |bfVar#1|))))
       |lx| NIL))))
 
-; bcHt line ==
-;   $newPage =>  --this path affects both saturn and old lines
-;     text :=
-;       PAIRP line => [['text, :line]]
-;       STRINGP line => line
-;       [['text, line]]
-;     htpAddToPageDescription($curPage, text)
-;   PAIRP line =>
-;     $htLineList := NCONC(nreverse mapStringize COPY_-LIST line, $htLineList)
-;   $htLineList := [basicStringize line, :$htLineList]
+; bcHt2(page, line) == ht_add_item(page, line)
 
-(DEFUN |bcHt| (|line|)
-  (PROG (|text|)
-    (RETURN
-     (COND
-      (|$newPage|
-       (PROGN
-        (SETQ |text|
-                (COND ((CONSP |line|) (LIST (CONS '|text| |line|)))
-                      ((STRINGP |line|) |line|)
-                      (#1='T (LIST (LIST '|text| |line|)))))
-        (|htpAddToPageDescription| |$curPage| |text|)))
-      ((CONSP |line|)
-       (SETQ |$htLineList|
-               (NCONC (NREVERSE (|mapStringize| (COPY-LIST |line|)))
-                      |$htLineList|)))
-      (#1#
-       (SETQ |$htLineList| (CONS (|basicStringize| |line|) |$htLineList|)))))))
+(DEFUN |bcHt2| (|page| |line|) (PROG () (RETURN (|ht_add_item| |page| |line|))))
 
-; htpDestroyPage(pageName) ==
-;   pageName in $activePageList =>
-;     SET(pageName, nil)
-;     $activePageList := NREMOVE($activePageList, pageName)
+; htShowPage1(page) ==
+; -- show the page which has been computed
+;    ht_add_string(page, '"\endscroll")
+;    ht_show_page(page)
 
-(DEFUN |htpDestroyPage| (|pageName|)
+(DEFUN |htShowPage1| (|page|)
   (PROG ()
     (RETURN
-     (COND
-      ((|member| |pageName| |$activePageList|)
-       (IDENTITY
-        (PROGN
-         (SET |pageName| NIL)
-         (SETQ |$activePageList| (NREMOVE |$activePageList| |pageName|)))))))))
+     (PROGN (|ht_add_string| |page| "\\endscroll") (|ht_show_page| |page|)))))
+
+; htInitPage(title, propList) ==
+;     page := ht_new_page(propList)
+;     bcHt2(page, ['"\begin{page}{", htpName page, '"}{"])
+;     htSay2(page, title)
+;     ht_add_string(page, '"} \beginscroll ")
+;     page
+
+(DEFUN |htInitPage| (|title| |propList|)
+  (PROG (|page|)
+    (RETURN
+     (PROGN
+      (SETQ |page| (|ht_new_page| |propList|))
+      (|bcHt2| |page| (LIST "\\begin{page}{" (|htpName| |page|) "}{"))
+      (|htSay2| |page| |title|)
+      (|ht_add_string| |page| "} \\beginscroll ")
+      |page|))))
+
+; $activePageList := nil
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$activePageList| NIL))
 
 ; htpName htPage ==
 ; -- GENSYM whose value is the page
 ;   ELT(htPage, 0)
 
 (DEFUN |htpName| (|htPage|) (PROG () (RETURN (ELT |htPage| 0))))
-
-; htpSetName(htPage, val) ==
-;   SETELT(htPage, 0, val)
-
-(DEFUN |htpSetName| (|htPage| |val|)
-  (PROG () (RETURN (SETELT |htPage| 0 |val|))))
-
-; htpDomainConditions htPage ==
-; -- List of Domain conditions
-;   ELT(htPage, 1)
-
-(DEFUN |htpDomainConditions| (|htPage|) (PROG () (RETURN (ELT |htPage| 1))))
-
-; htpSetDomainConditions(htPage, val) ==
-;   SETELT(htPage, 1, val)
-
-(DEFUN |htpSetDomainConditions| (|htPage| |val|)
-  (PROG () (RETURN (SETELT |htPage| 1 |val|))))
-
-; htpDomainVariableAlist htPage ==
-; -- alist of pattern variables and conditions
-;   ELT(htPage, 2)
-
-(DEFUN |htpDomainVariableAlist| (|htPage|) (PROG () (RETURN (ELT |htPage| 2))))
-
-; htpSetDomainVariableAlist(htPage, val) ==
-;   SETELT(htPage, 2, val)
-
-(DEFUN |htpSetDomainVariableAlist| (|htPage| |val|)
-  (PROG () (RETURN (SETELT |htPage| 2 |val|))))
-
-; htpDomainPvarSubstList htPage ==
-; -- alist of user pattern variables to system vars
-;   ELT(htPage, 3)
-
-(DEFUN |htpDomainPvarSubstList| (|htPage|) (PROG () (RETURN (ELT |htPage| 3))))
-
-; htpSetDomainPvarSubstList(htPage, val) ==
-;   SETELT(htPage, 3, val)
-
-(DEFUN |htpSetDomainPvarSubstList| (|htPage| |val|)
-  (PROG () (RETURN (SETELT |htPage| 3 |val|))))
 
 ; htpRadioButtonAlist htPage ==
 ; -- alist of radio button group names and labels
@@ -166,23 +92,11 @@
          (SETQ |bfVar#2| (CDR |bfVar#2|))))
       (LASSOC |groupName| (|htpRadioButtonAlist| |htPage|)) NIL))))
 
-; htpSetRadioButtonAlist(htPage, val) ==
-;   SETELT(htPage, 4, val)
-
-(DEFUN |htpSetRadioButtonAlist| (|htPage| |val|)
-  (PROG () (RETURN (SETELT |htPage| 4 |val|))))
-
 ; htpInputAreaAlist htPage ==
 ; -- Alist of input-area labels, and default values
 ;   ELT(htPage, 5)
 
 (DEFUN |htpInputAreaAlist| (|htPage|) (PROG () (RETURN (ELT |htPage| 5))))
-
-; htpSetInputAreaAlist(htPage, val) ==
-;   SETELT(htPage, 5, val)
-
-(DEFUN |htpSetInputAreaAlist| (|htPage| |val|)
-  (PROG () (RETURN (SETELT |htPage| 5 |val|))))
 
 ; htpPropertyList htPage ==
 ; -- Association list of user-defined properties
@@ -229,349 +143,12 @@
         (COND ((EQUAL |s| "") |s|) (#1='T (|trimString| |s|))))
        (#1# NIL))))))
 
-; htpLabelFilteredInputString(htPage, label) ==
-; -- value user typed as input string on page
-;   props := LASSOC(label, htpInputAreaAlist htPage)
-;   props =>
-;     #props > 5 and ELT(props, 6) =>
-;       FUNCALL(SYMBOL_-FUNCTION ELT(props, 6), ELT(props, 0))
-;     ELT(props, 0)
-;   nil
-
-(DEFUN |htpLabelFilteredInputString| (|htPage| |label|)
-  (PROG (|props|)
-    (RETURN
-     (PROGN
-      (SETQ |props| (LASSOC |label| (|htpInputAreaAlist| |htPage|)))
-      (COND
-       (|props|
-        (COND
-         ((AND (< 5 (LENGTH |props|)) (ELT |props| 6))
-          (FUNCALL (SYMBOL-FUNCTION (ELT |props| 6)) (ELT |props| 0)))
-         (#1='T (ELT |props| 0))))
-       (#1# NIL))))))
-
-; htpLabelSpadValue(htPage, label) ==
-; -- Scratchpad value of parsed and evaled inputString, as (type . value)
-;   props := LASSOC(label, htpInputAreaAlist htPage)
-;   props => ELT(props, 1)
-;   nil
-
-(DEFUN |htpLabelSpadValue| (|htPage| |label|)
-  (PROG (|props|)
-    (RETURN
-     (PROGN
-      (SETQ |props| (LASSOC |label| (|htpInputAreaAlist| |htPage|)))
-      (COND (|props| (ELT |props| 1)) ('T NIL))))))
-
-; htpSetLabelSpadValue(htPage, label, val) ==
-; -- value user typed as input string on page
-;   props := LASSOC(label, htpInputAreaAlist htPage)
-;   props => SETELT(props, 1, val)
-;   nil
-
-(DEFUN |htpSetLabelSpadValue| (|htPage| |label| |val|)
-  (PROG (|props|)
-    (RETURN
-     (PROGN
-      (SETQ |props| (LASSOC |label| (|htpInputAreaAlist| |htPage|)))
-      (COND (|props| (SETELT |props| 1 |val|)) ('T NIL))))))
-
-; htpLabelErrorMsg(htPage, label) ==
-; -- error message associated with input area
-;   props := LASSOC(label, htpInputAreaAlist htPage)
-;   props => ELT(props, 2)
-;   nil
-
-(DEFUN |htpLabelErrorMsg| (|htPage| |label|)
-  (PROG (|props|)
-    (RETURN
-     (PROGN
-      (SETQ |props| (LASSOC |label| (|htpInputAreaAlist| |htPage|)))
-      (COND (|props| (ELT |props| 2)) ('T NIL))))))
-
-; htpSetLabelErrorMsg(htPage, label, val) ==
-; -- error message associated with input area
-;   props := LASSOC(label, htpInputAreaAlist htPage)
-;   props => SETELT(props, 2, val)
-;   nil
-
-(DEFUN |htpSetLabelErrorMsg| (|htPage| |label| |val|)
-  (PROG (|props|)
-    (RETURN
-     (PROGN
-      (SETQ |props| (LASSOC |label| (|htpInputAreaAlist| |htPage|)))
-      (COND (|props| (SETELT |props| 2 |val|)) ('T NIL))))))
-
-; htpLabelType(htPage, label) ==
-; -- either 'string or 'button
-;   props := LASSOC(label, htpInputAreaAlist htPage)
-;   props => ELT(props, 3)
-;   nil
-
-(DEFUN |htpLabelType| (|htPage| |label|)
-  (PROG (|props|)
-    (RETURN
-     (PROGN
-      (SETQ |props| (LASSOC |label| (|htpInputAreaAlist| |htPage|)))
-      (COND (|props| (ELT |props| 3)) ('T NIL))))))
-
-; htpLabelDefault(htPage, label) ==
-; -- default value for the input area
-;   msg := htpLabelInputString(htPage, label) =>
-;     msg = '"t" => 1
-;     msg = '"nil" => 0
-;     msg
-;   props := LASSOC(label, htpInputAreaAlist htPage)
-;   props =>
-;     ELT(props, 4)
-;   nil
-
-(DEFUN |htpLabelDefault| (|htPage| |label|)
-  (PROG (|msg| |props|)
-    (RETURN
-     (COND
-      ((SETQ |msg| (|htpLabelInputString| |htPage| |label|))
-       (COND ((EQUAL |msg| "t") 1) ((EQUAL |msg| "nil") 0) (#1='T |msg|)))
-      (#1#
-       (PROGN
-        (SETQ |props| (LASSOC |label| (|htpInputAreaAlist| |htPage|)))
-        (COND (|props| (ELT |props| 4)) (#1# NIL))))))))
-
-; htpLabelSpadType(htPage, label) ==
-; -- pattern variable for target domain for input area
-;   props := LASSOC(label, htpInputAreaAlist htPage)
-;   props => ELT(props, 5)
-;   nil
-
-(DEFUN |htpLabelSpadType| (|htPage| |label|)
-  (PROG (|props|)
-    (RETURN
-     (PROGN
-      (SETQ |props| (LASSOC |label| (|htpInputAreaAlist| |htPage|)))
-      (COND (|props| (ELT |props| 5)) ('T NIL))))))
-
-; htpLabelFilter(htPage, label) ==
-; -- string to string mapping applied to input area strings before parsing
-;   props := LASSOC(label, htpInputAreaAlist htPage)
-;   props => ELT(props, 6)
-;   nil
-
-(DEFUN |htpLabelFilter| (|htPage| |label|)
-  (PROG (|props|)
-    (RETURN
-     (PROGN
-      (SETQ |props| (LASSOC |label| (|htpInputAreaAlist| |htPage|)))
-      (COND (|props| (ELT |props| 6)) ('T NIL))))))
-
-; htpPageDescription htPage ==
-; -- a list of all the commands issued to create the basic-command page
-;   ELT(htPage, 7)
-
-(DEFUN |htpPageDescription| (|htPage|) (PROG () (RETURN (ELT |htPage| 7))))
-
-; htpSetPageDescription(htPage, pageDescription) ==
-;   SETELT(htPage, 7, pageDescription)
-
-(DEFUN |htpSetPageDescription| (|htPage| |pageDescription|)
-  (PROG () (RETURN (SETELT |htPage| 7 |pageDescription|))))
-
-; iht line ==
-; -- issue a single hyperteTeX line, or a group of lines
-;   $newPage => nil
-;   PAIRP line =>
-;     $htLineList := NCONC(nreverse mapStringize COPY_-LIST line, $htLineList)
-;   $htLineList := [basicStringize line, :$htLineList]
-
-(DEFUN |iht| (|line|)
-  (PROG ()
-    (RETURN
-     (COND (|$newPage| NIL)
-           ((CONSP |line|)
-            (SETQ |$htLineList|
-                    (NCONC (NREVERSE (|mapStringize| (COPY-LIST |line|)))
-                           |$htLineList|)))
-           ('T
-            (SETQ |$htLineList|
-                    (CONS (|basicStringize| |line|) |$htLineList|)))))))
-
-; bcIssueHt line ==
-;   PAIRP line => htMakePage1 line
-;   iht line
-
-(DEFUN |bcIssueHt| (|line|)
-  (PROG ()
-    (RETURN
-     (COND ((CONSP |line|) (|htMakePage1| |line|)) ('T (|iht| |line|))))))
-
-; mapStringize l ==
-;   ATOM l => l
-;   RPLACA(l, basicStringize first l)
-;   RPLACD(l, mapStringize rest l)
-;   l
-
-(DEFUN |mapStringize| (|l|)
-  (PROG ()
-    (RETURN
-     (COND ((ATOM |l|) |l|)
-           ('T
-            (PROGN
-             (RPLACA |l| (|basicStringize| (CAR |l|)))
-             (RPLACD |l| (|mapStringize| (CDR |l|)))
-             |l|))))))
-
-; basicStringize s ==
-;     STRINGP(s) => s
-;     s = '_% => '"\%"
-;     PRINC_-TO_-STRING(s)
-
-(DEFUN |basicStringize| (|s|)
-  (PROG ()
-    (RETURN
-     (COND ((STRINGP |s|) |s|) ((EQ |s| '%) "\\%")
-           ('T (PRINC-TO-STRING |s|))))))
-
 ; stringize s ==
 ;   STRINGP s => s
 ;   PRINC_-TO_-STRING s
 
 (DEFUN |stringize| (|s|)
   (PROG () (RETURN (COND ((STRINGP |s|) |s|) ('T (PRINC-TO-STRING |s|))))))
-
-; htProcessBcButtons buttons ==
-;   for [defaultValue, buttonName] in buttons repeat
-;     if NULL LASSOC(buttonName, htpInputAreaAlist $curPage) then
-;       setUpDefault(buttonName, ['button, defaultValue])
-;     k := htpLabelDefault($curPage,buttonName)
-;     k = 0 => iht ['"\off{",buttonName,'"}"]
-;     k = 1 => iht ['"\on{", buttonName,'"}"]
-;     iht ['"\inputbox[", htpLabelDefault($curPage, buttonName), '"]{",
-;          buttonName, '"}{\htbmfile{pick}}{\htbmfile{unpick}}"]
-
-(DEFUN |htProcessBcButtons| (|buttons|)
-  (PROG (|defaultValue| |ISTMP#1| |buttonName| |k|)
-    (RETURN
-     ((LAMBDA (|bfVar#4| |bfVar#3|)
-        (LOOP
-         (COND
-          ((OR (ATOM |bfVar#4|) (PROGN (SETQ |bfVar#3| (CAR |bfVar#4|)) NIL))
-           (RETURN NIL))
-          (#1='T
-           (AND (CONSP |bfVar#3|)
-                (PROGN
-                 (SETQ |defaultValue| (CAR |bfVar#3|))
-                 (SETQ |ISTMP#1| (CDR |bfVar#3|))
-                 (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                      (PROGN (SETQ |buttonName| (CAR |ISTMP#1|)) #1#)))
-                (PROGN
-                 (COND
-                  ((NULL
-                    (LASSOC |buttonName| (|htpInputAreaAlist| |$curPage|)))
-                   (|setUpDefault| |buttonName|
-                    (LIST '|button| |defaultValue|))))
-                 (SETQ |k| (|htpLabelDefault| |$curPage| |buttonName|))
-                 (COND ((EQL |k| 0) (|iht| (LIST "\\off{" |buttonName| "}")))
-                       ((EQL |k| 1) (|iht| (LIST "\\on{" |buttonName| "}")))
-                       (#1#
-                        (|iht|
-                         (LIST "\\inputbox["
-                               (|htpLabelDefault| |$curPage| |buttonName|) "]{"
-                               |buttonName|
-                               "}{\\htbmfile{pick}}{\\htbmfile{unpick}}"))))))))
-         (SETQ |bfVar#4| (CDR |bfVar#4|))))
-      |buttons| NIL))))
-
-; bcSadFaces() ==
-;   '"\space{1}{\em\htbitmap{error}\htbitmap{error}\htbitmap{error}}"
-
-(DEFUN |bcSadFaces| ()
-  (PROG ()
-    (RETURN
-     "\\space{1}{\\em\\htbitmap{error}\\htbitmap{error}\\htbitmap{error}}")))
-
-; htLispLinks(links,:option) ==
-;   [links,options] := beforeAfter('options,links)
-;   indent := LASSOC('indent,options) or 5
-;   iht '"\newline\indent{"
-;   iht stringize indent
-;   iht '"}\beginitems"
-;   for [message, info, func, :value] in links repeat
-;     iht '"\item["
-;     call := (IFCAR option => '"\lispmemolink"; '"\lispdownlink")
-;     htMakeButton(call,message, mkCurryFun(func, value))
-;     iht ['"]\space{}"]
-;     bcIssueHt info
-;   iht '"\enditems\indent{0} "
-
-(DEFUN |htLispLinks| (|links| &REST |option|)
-  (PROG (|LETTMP#1| |options| |indent| |message| |ISTMP#1| |info| |ISTMP#2|
-         |func| |value| |call|)
-    (RETURN
-     (PROGN
-      (SETQ |LETTMP#1| (|beforeAfter| '|options| |links|))
-      (SETQ |links| (CAR |LETTMP#1|))
-      (SETQ |options| (CADR |LETTMP#1|))
-      (SETQ |indent| (OR (LASSOC '|indent| |options|) 5))
-      (|iht| "\\newline\\indent{")
-      (|iht| (|stringize| |indent|))
-      (|iht| "}\\beginitems")
-      ((LAMBDA (|bfVar#6| |bfVar#5|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#6|) (PROGN (SETQ |bfVar#5| (CAR |bfVar#6|)) NIL))
-            (RETURN NIL))
-           (#1='T
-            (AND (CONSP |bfVar#5|)
-                 (PROGN
-                  (SETQ |message| (CAR |bfVar#5|))
-                  (SETQ |ISTMP#1| (CDR |bfVar#5|))
-                  (AND (CONSP |ISTMP#1|)
-                       (PROGN
-                        (SETQ |info| (CAR |ISTMP#1|))
-                        (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                        (AND (CONSP |ISTMP#2|)
-                             (PROGN
-                              (SETQ |func| (CAR |ISTMP#2|))
-                              (SETQ |value| (CDR |ISTMP#2|))
-                              #1#)))))
-                 (PROGN
-                  (|iht| "\\item[")
-                  (SETQ |call|
-                          (COND ((IFCAR |option|) "\\lispmemolink")
-                                (#1# "\\lispdownlink")))
-                  (|htMakeButton| |call| |message|
-                   (|mkCurryFun| |func| |value|))
-                  (|iht| (LIST "]\\space{}"))
-                  (|bcIssueHt| |info|)))))
-          (SETQ |bfVar#6| (CDR |bfVar#6|))))
-       |links| NIL)
-      (|iht| "\\enditems\\indent{0} ")))))
-
-; htLispMemoLinks(links) == htLispLinks(links,true)
-
-(DEFUN |htLispMemoLinks| (|links|) (PROG () (RETURN (|htLispLinks| |links| T))))
-
-; beforeAfter(x,u) == [[y for [y,:r] in tails u while x ~= y],r]
-
-(DEFUN |beforeAfter| (|x| |u|)
-  (PROG (|y| |r|)
-    (RETURN
-     (LIST
-      ((LAMBDA (|bfVar#8| |bfVar#7|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#7|) (EQUAL |x| |y|))
-            (RETURN (NREVERSE |bfVar#8|)))
-           (#1='T
-            (AND (CONSP |bfVar#7|)
-                 (PROGN
-                  (SETQ |y| (CAR |bfVar#7|))
-                  (SETQ |r| (CDR |bfVar#7|))
-                  #1#)
-                 (SETQ |bfVar#8| (CONS |y| |bfVar#8|)))))
-          (SETQ |bfVar#7| (CDR |bfVar#7|))))
-       NIL |u|)
-      |r|))))
 
 ; mkCurryFun(fun, val) ==
 ;   name := GENTEMP()
@@ -591,610 +168,21 @@
       (EVAL |code|)
       |name|))))
 
-; htRadioButtons [groupName, :buttons] ==
-;   htpSetRadioButtonAlist($curPage, [[groupName, :buttonNames buttons],
-;                                     : htpRadioButtonAlist $curPage])
-;   boxesName := GENTEMP()
-;   iht ['"\newline\indent{5}\radioboxes{", boxesName,
-;      '"}{\htbmfile{pick}}{\htbmfile{unpick}}\beginitems "]
-;   defaultValue := '"1"
-;   for [message, info, buttonName] in buttons repeat
-;     if NULL LASSOC(buttonName, htpInputAreaAlist $curPage) then
-;       setUpDefault(buttonName, ['button, defaultValue])
-;       defaultValue := '"0"
-;     iht ['"\item{\em\radiobox[", htpLabelDefault($curPage, buttonName), '"]{",
-;          buttonName, '"}{",boxesName, '"}\space{}"]
-;     bcIssueHt message
-;     iht '"\space{}}"
-;     bcIssueHt info
-;   iht '"\enditems\indent{0} "
-
-(DEFUN |htRadioButtons| (|bfVar#11|)
-  (PROG (|groupName| |buttons| |boxesName| |defaultValue| |message| |ISTMP#1|
-         |info| |ISTMP#2| |buttonName|)
-    (RETURN
-     (PROGN
-      (SETQ |groupName| (CAR |bfVar#11|))
-      (SETQ |buttons| (CDR |bfVar#11|))
-      (|htpSetRadioButtonAlist| |$curPage|
-       (CONS (CONS |groupName| (|buttonNames| |buttons|))
-             (|htpRadioButtonAlist| |$curPage|)))
-      (SETQ |boxesName| (GENTEMP))
-      (|iht|
-       (LIST "\\newline\\indent{5}\\radioboxes{" |boxesName|
-             "}{\\htbmfile{pick}}{\\htbmfile{unpick}}\\beginitems "))
-      (SETQ |defaultValue| "1")
-      ((LAMBDA (|bfVar#10| |bfVar#9|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#10|)
-                (PROGN (SETQ |bfVar#9| (CAR |bfVar#10|)) NIL))
-            (RETURN NIL))
-           (#1='T
-            (AND (CONSP |bfVar#9|)
-                 (PROGN
-                  (SETQ |message| (CAR |bfVar#9|))
-                  (SETQ |ISTMP#1| (CDR |bfVar#9|))
-                  (AND (CONSP |ISTMP#1|)
-                       (PROGN
-                        (SETQ |info| (CAR |ISTMP#1|))
-                        (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                        (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                             (PROGN
-                              (SETQ |buttonName| (CAR |ISTMP#2|))
-                              #1#)))))
-                 (PROGN
-                  (COND
-                   ((NULL
-                     (LASSOC |buttonName| (|htpInputAreaAlist| |$curPage|)))
-                    (|setUpDefault| |buttonName|
-                     (LIST '|button| |defaultValue|))
-                    (SETQ |defaultValue| "0")))
-                  (|iht|
-                   (LIST "\\item{\\em\\radiobox["
-                         (|htpLabelDefault| |$curPage| |buttonName|) "]{"
-                         |buttonName| "}{" |boxesName| "}\\space{}"))
-                  (|bcIssueHt| |message|)
-                  (|iht| "\\space{}}")
-                  (|bcIssueHt| |info|)))))
-          (SETQ |bfVar#10| (CDR |bfVar#10|))))
-       |buttons| NIL)
-      (|iht| "\\enditems\\indent{0} ")))))
-
-; htBcRadioButtons [groupName, :buttons] ==
-;   htpSetRadioButtonAlist($curPage, [[groupName, :buttonNames buttons],
-;                                     : htpRadioButtonAlist $curPage])
-;   boxesName := GENTEMP()
-;   iht ['"\radioboxes{", boxesName,
-;      '"}{\htbmfile{pick}}{\htbmfile{unpick}} "]
-;   defaultValue := '"1"
-;   for [message, info, buttonName] in buttons repeat
-;     if NULL LASSOC(buttonName, htpInputAreaAlist $curPage) then
-;       setUpDefault(buttonName, ['button, defaultValue])
-;       defaultValue := '"0"
-;     iht ['"{\em\radiobox[", htpLabelDefault($curPage, buttonName), '"]{",
-;          buttonName, '"}{",boxesName, '"}"]
-;     bcIssueHt message
-;     iht '"\space{}}"
-;     bcIssueHt info
-
-(DEFUN |htBcRadioButtons| (|bfVar#14|)
-  (PROG (|groupName| |buttons| |boxesName| |defaultValue| |message| |ISTMP#1|
-         |info| |ISTMP#2| |buttonName|)
-    (RETURN
-     (PROGN
-      (SETQ |groupName| (CAR |bfVar#14|))
-      (SETQ |buttons| (CDR |bfVar#14|))
-      (|htpSetRadioButtonAlist| |$curPage|
-       (CONS (CONS |groupName| (|buttonNames| |buttons|))
-             (|htpRadioButtonAlist| |$curPage|)))
-      (SETQ |boxesName| (GENTEMP))
-      (|iht|
-       (LIST "\\radioboxes{" |boxesName|
-             "}{\\htbmfile{pick}}{\\htbmfile{unpick}} "))
-      (SETQ |defaultValue| "1")
-      ((LAMBDA (|bfVar#13| |bfVar#12|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#13|)
-                (PROGN (SETQ |bfVar#12| (CAR |bfVar#13|)) NIL))
-            (RETURN NIL))
-           (#1='T
-            (AND (CONSP |bfVar#12|)
-                 (PROGN
-                  (SETQ |message| (CAR |bfVar#12|))
-                  (SETQ |ISTMP#1| (CDR |bfVar#12|))
-                  (AND (CONSP |ISTMP#1|)
-                       (PROGN
-                        (SETQ |info| (CAR |ISTMP#1|))
-                        (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                        (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                             (PROGN
-                              (SETQ |buttonName| (CAR |ISTMP#2|))
-                              #1#)))))
-                 (PROGN
-                  (COND
-                   ((NULL
-                     (LASSOC |buttonName| (|htpInputAreaAlist| |$curPage|)))
-                    (|setUpDefault| |buttonName|
-                     (LIST '|button| |defaultValue|))
-                    (SETQ |defaultValue| "0")))
-                  (|iht|
-                   (LIST "{\\em\\radiobox["
-                         (|htpLabelDefault| |$curPage| |buttonName|) "]{"
-                         |buttonName| "}{" |boxesName| "}"))
-                  (|bcIssueHt| |message|)
-                  (|iht| "\\space{}}")
-                  (|bcIssueHt| |info|)))))
-          (SETQ |bfVar#13| (CDR |bfVar#13|))))
-       |buttons| NIL)))))
-
-; buttonNames buttons ==
-;   [buttonName for [.,., buttonName] in buttons]
-
-(DEFUN |buttonNames| (|buttons|)
-  (PROG (|ISTMP#1| |ISTMP#2| |buttonName|)
-    (RETURN
-     ((LAMBDA (|bfVar#17| |bfVar#16| |bfVar#15|)
-        (LOOP
-         (COND
-          ((OR (ATOM |bfVar#16|)
-               (PROGN (SETQ |bfVar#15| (CAR |bfVar#16|)) NIL))
-           (RETURN (NREVERSE |bfVar#17|)))
-          (#1='T
-           (AND (CONSP |bfVar#15|)
-                (PROGN
-                 (SETQ |ISTMP#1| (CDR |bfVar#15|))
-                 (AND (CONSP |ISTMP#1|)
-                      (PROGN
-                       (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                       (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                            (PROGN (SETQ |buttonName| (CAR |ISTMP#2|)) #1#)))))
-                (SETQ |bfVar#17| (CONS |buttonName| |bfVar#17|)))))
-         (SETQ |bfVar#16| (CDR |bfVar#16|))))
-      NIL |buttons| NIL))))
-
-; htInputStrings strings ==
-;   iht '"\newline\indent{5}\beginitems "
-;   for [mess1, mess2, numChars, default, stringName, spadType, :filter]
-;    in strings repeat
-;     if NULL LASSOC(stringName, htpInputAreaAlist $curPage) then
-;       setUpDefault(stringName, ['string, default, spadType, filter])
-;     if htpLabelErrorMsg($curPage, stringName) then
-;       iht ['"\centerline{{\em ", htpLabelErrorMsg($curPage, stringName), '"}}"]
-;
-;       mess2 := CONCAT(mess2, bcSadFaces())
-;       htpSetLabelErrorMsg($curPage, stringName, nil)
-;     iht '"\item "
-;     bcIssueHt mess1
-;     iht ['"\inputstring{", stringName, '"}{",
-;          numChars, '"}{", htpLabelDefault($curPage,stringName), '"} "]
-;     bcIssueHt mess2
-;   iht '"\enditems\indent{0}\newline "
-
-(DEFUN |htInputStrings| (|strings|)
-  (PROG (|mess1| |ISTMP#1| |mess2| |ISTMP#2| |numChars| |ISTMP#3| |default|
-         |ISTMP#4| |stringName| |ISTMP#5| |spadType| |filter|)
-    (RETURN
-     (PROGN
-      (|iht| "\\newline\\indent{5}\\beginitems ")
-      ((LAMBDA (|bfVar#19| |bfVar#18|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#19|)
-                (PROGN (SETQ |bfVar#18| (CAR |bfVar#19|)) NIL))
-            (RETURN NIL))
-           (#1='T
-            (AND (CONSP |bfVar#18|)
-                 (PROGN
-                  (SETQ |mess1| (CAR |bfVar#18|))
-                  (SETQ |ISTMP#1| (CDR |bfVar#18|))
-                  (AND (CONSP |ISTMP#1|)
-                       (PROGN
-                        (SETQ |mess2| (CAR |ISTMP#1|))
-                        (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                        (AND (CONSP |ISTMP#2|)
-                             (PROGN
-                              (SETQ |numChars| (CAR |ISTMP#2|))
-                              (SETQ |ISTMP#3| (CDR |ISTMP#2|))
-                              (AND (CONSP |ISTMP#3|)
-                                   (PROGN
-                                    (SETQ |default| (CAR |ISTMP#3|))
-                                    (SETQ |ISTMP#4| (CDR |ISTMP#3|))
-                                    (AND (CONSP |ISTMP#4|)
-                                         (PROGN
-                                          (SETQ |stringName| (CAR |ISTMP#4|))
-                                          (SETQ |ISTMP#5| (CDR |ISTMP#4|))
-                                          (AND (CONSP |ISTMP#5|)
-                                               (PROGN
-                                                (SETQ |spadType|
-                                                        (CAR |ISTMP#5|))
-                                                (SETQ |filter| (CDR |ISTMP#5|))
-                                                #1#)))))))))))
-                 (PROGN
-                  (COND
-                   ((NULL
-                     (LASSOC |stringName| (|htpInputAreaAlist| |$curPage|)))
-                    (|setUpDefault| |stringName|
-                     (LIST '|string| |default| |spadType| |filter|))))
-                  (COND
-                   ((|htpLabelErrorMsg| |$curPage| |stringName|)
-                    (|iht|
-                     (LIST "\\centerline{{\\em "
-                           (|htpLabelErrorMsg| |$curPage| |stringName|) "}}"))
-                    (SETQ |mess2| (CONCAT |mess2| (|bcSadFaces|)))
-                    (|htpSetLabelErrorMsg| |$curPage| |stringName| NIL)))
-                  (|iht| "\\item ")
-                  (|bcIssueHt| |mess1|)
-                  (|iht|
-                   (LIST "\\inputstring{" |stringName| "}{" |numChars| "}{"
-                         (|htpLabelDefault| |$curPage| |stringName|) "} "))
-                  (|bcIssueHt| |mess2|)))))
-          (SETQ |bfVar#19| (CDR |bfVar#19|))))
-       |strings| NIL)
-      (|iht| "\\enditems\\indent{0}\\newline ")))))
-
-; htProcessDomainConditions condList ==
-;   htpSetDomainConditions($curPage, renamePatternVariables condList)
-;   htpSetDomainVariableAlist($curPage, computeDomainVariableAlist())
-
-(DEFUN |htProcessDomainConditions| (|condList|)
-  (PROG ()
-    (RETURN
-     (PROGN
-      (|htpSetDomainConditions| |$curPage|
-       (|renamePatternVariables| |condList|))
-      (|htpSetDomainVariableAlist| |$curPage|
-       (|computeDomainVariableAlist|))))))
-
-; renamePatternVariables condList ==
-;   htpSetDomainPvarSubstList($curPage,
-;     renamePatternVariables1(condList, nil, $PatternVariableList))
-;   substFromAlist(condList, htpDomainPvarSubstList $curPage)
-
-(DEFUN |renamePatternVariables| (|condList|)
-  (PROG ()
-    (RETURN
-     (PROGN
-      (|htpSetDomainPvarSubstList| |$curPage|
-       (|renamePatternVariables1| |condList| NIL |$PatternVariableList|))
-      (|substFromAlist| |condList| (|htpDomainPvarSubstList| |$curPage|))))))
-
-; renamePatternVariables1(condList, substList, patVars) ==
-;   null condList => substList
-;   [cond, :restConds] := condList
-;   cond is ['isDomain, pv, pattern] or cond is ['ofCategory, pv, pattern]
-;     or cond is ['Satisfies, pv, cond] =>
-;       if pv = $EmptyMode then nsubst := substList
-;       else nsubst := [[pv, :car patVars], :substList]
-;       renamePatternVariables1(restConds, nsubst, rest patVars)
-;   substList
-
-(DEFUN |renamePatternVariables1| (|condList| |substList| |patVars|)
-  (PROG (|cond| |restConds| |ISTMP#1| |pv| |ISTMP#2| |pattern| |nsubst|)
-    (RETURN
-     (COND ((NULL |condList|) |substList|)
-           (#1='T
-            (PROGN
-             (SETQ |cond| (CAR |condList|))
-             (SETQ |restConds| (CDR |condList|))
-             (COND
-              ((OR
-                (AND (CONSP |cond|) (EQ (CAR |cond|) '|isDomain|)
-                     (PROGN
-                      (SETQ |ISTMP#1| (CDR |cond|))
-                      (AND (CONSP |ISTMP#1|)
-                           (PROGN
-                            (SETQ |pv| (CAR |ISTMP#1|))
-                            (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                            (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                                 (PROGN
-                                  (SETQ |pattern| (CAR |ISTMP#2|))
-                                  #1#))))))
-                (AND (CONSP |cond|) (EQ (CAR |cond|) '|ofCategory|)
-                     (PROGN
-                      (SETQ |ISTMP#1| (CDR |cond|))
-                      (AND (CONSP |ISTMP#1|)
-                           (PROGN
-                            (SETQ |pv| (CAR |ISTMP#1|))
-                            (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                            (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                                 (PROGN
-                                  (SETQ |pattern| (CAR |ISTMP#2|))
-                                  #1#))))))
-                (AND (CONSP |cond|) (EQ (CAR |cond|) '|Satisfies|)
-                     (PROGN
-                      (SETQ |ISTMP#1| (CDR |cond|))
-                      (AND (CONSP |ISTMP#1|)
-                           (PROGN
-                            (SETQ |pv| (CAR |ISTMP#1|))
-                            (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                            (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                                 (PROGN
-                                  (SETQ |cond| (CAR |ISTMP#2|))
-                                  #1#)))))))
-               (PROGN
-                (COND ((EQUAL |pv| |$EmptyMode|) (SETQ |nsubst| |substList|))
-                      (#1#
-                       (SETQ |nsubst|
-                               (CONS (CONS |pv| (CAR |patVars|))
-                                     |substList|))))
-                (|renamePatternVariables1| |restConds| |nsubst|
-                 (CDR |patVars|))))
-              (#1# |substList|))))))))
-
-; substFromAlist(l, substAlist) ==
-;   for [pvar, :replace] in substAlist repeat
-;     l := substitute(replace, pvar, l)
-;   l
-
-(DEFUN |substFromAlist| (|l| |substAlist|)
-  (PROG (|pvar| |replace|)
-    (RETURN
-     (PROGN
-      ((LAMBDA (|bfVar#21| |bfVar#20|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#21|)
-                (PROGN (SETQ |bfVar#20| (CAR |bfVar#21|)) NIL))
-            (RETURN NIL))
-           (#1='T
-            (AND (CONSP |bfVar#20|)
-                 (PROGN
-                  (SETQ |pvar| (CAR |bfVar#20|))
-                  (SETQ |replace| (CDR |bfVar#20|))
-                  #1#)
-                 (SETQ |l| (|substitute| |replace| |pvar| |l|)))))
-          (SETQ |bfVar#21| (CDR |bfVar#21|))))
-       |substAlist| NIL)
-      |l|))))
-
-; computeDomainVariableAlist() ==
-;   [[pvar, :pvarCondList pvar] for [., :pvar] in
-;     htpDomainPvarSubstList $curPage]
-
-(DEFUN |computeDomainVariableAlist| ()
-  (PROG (|pvar|)
-    (RETURN
-     ((LAMBDA (|bfVar#24| |bfVar#23| |bfVar#22|)
-        (LOOP
-         (COND
-          ((OR (ATOM |bfVar#23|)
-               (PROGN (SETQ |bfVar#22| (CAR |bfVar#23|)) NIL))
-           (RETURN (NREVERSE |bfVar#24|)))
-          (#1='T
-           (AND (CONSP |bfVar#22|) (PROGN (SETQ |pvar| (CDR |bfVar#22|)) #1#)
-                (SETQ |bfVar#24|
-                        (CONS (CONS |pvar| (|pvarCondList| |pvar|))
-                              |bfVar#24|)))))
-         (SETQ |bfVar#23| (CDR |bfVar#23|))))
-      NIL (|htpDomainPvarSubstList| |$curPage|) NIL))))
-
-; pvarCondList pvar ==
-;   nreverse pvarCondList1([pvar], nil, htpDomainConditions $curPage)
-
-(DEFUN |pvarCondList| (|pvar|)
-  (PROG ()
-    (RETURN
-     (NREVERSE
-      (|pvarCondList1| (LIST |pvar|) NIL (|htpDomainConditions| |$curPage|))))))
-
-; pvarCondList1(pvarList, activeConds, condList) ==
-;   null condList => activeConds
-;   [cond, : restConds] := condList
-;   cond is [., pv, pattern] and pv in pvarList =>
-;     pvarCondList1(nconc(pvarList, pvarsOfPattern pattern),
-;                   [cond, :activeConds], restConds)
-;   pvarCondList1(pvarList, activeConds, restConds)
-
-(DEFUN |pvarCondList1| (|pvarList| |activeConds| |condList|)
-  (PROG (|cond| |restConds| |ISTMP#1| |pv| |ISTMP#2| |pattern|)
-    (RETURN
-     (COND ((NULL |condList|) |activeConds|)
-           (#1='T
-            (PROGN
-             (SETQ |cond| (CAR |condList|))
-             (SETQ |restConds| (CDR |condList|))
-             (COND
-              ((AND (CONSP |cond|)
-                    (PROGN
-                     (SETQ |ISTMP#1| (CDR |cond|))
-                     (AND (CONSP |ISTMP#1|)
-                          (PROGN
-                           (SETQ |pv| (CAR |ISTMP#1|))
-                           (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                           (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                                (PROGN
-                                 (SETQ |pattern| (CAR |ISTMP#2|))
-                                 #1#)))))
-                    (|member| |pv| |pvarList|))
-               (|pvarCondList1| (NCONC |pvarList| (|pvarsOfPattern| |pattern|))
-                (CONS |cond| |activeConds|) |restConds|))
-              (#1#
-               (|pvarCondList1| |pvarList| |activeConds| |restConds|)))))))))
-
-; pvarsOfPattern pattern ==
-;   NULL LISTP pattern => nil
-;   [pvar for pvar in rest pattern | pvar in $PatternVariableList]
-
-(DEFUN |pvarsOfPattern| (|pattern|)
-  (PROG ()
-    (RETURN
-     (COND ((NULL (LISTP |pattern|)) NIL)
-           (#1='T
-            ((LAMBDA (|bfVar#26| |bfVar#25| |pvar|)
-               (LOOP
-                (COND
-                 ((OR (ATOM |bfVar#25|)
-                      (PROGN (SETQ |pvar| (CAR |bfVar#25|)) NIL))
-                  (RETURN (NREVERSE |bfVar#26|)))
-                 (#1#
-                  (AND (|member| |pvar| |$PatternVariableList|)
-                       (SETQ |bfVar#26| (CONS |pvar| |bfVar#26|)))))
-                (SETQ |bfVar#25| (CDR |bfVar#25|))))
-             NIL (CDR |pattern|) NIL))))))
-
 ; htMakeDoneButton(page, message, func) ==
-;   bcHt '"\newline\vspace{1}\centerline{"
-;   if message = '"Continue" then
-;     bchtMakeButton('"\lispdownlink", "\ContinueBitmap", func)
-;   else
-;     bchtMakeButton('"\lispdownlink",CONCAT('"\fbox{", message, '"}"), func)
-;   bcHt '"} "
+;     ht_add_to_page(page, [['doneButton, message, func]])
 
 (DEFUN |htMakeDoneButton| (|page| |message| |func|)
   (PROG ()
     (RETURN
-     (PROGN
-      (|bcHt| "\\newline\\vspace{1}\\centerline{")
-      (COND
-       ((EQUAL |message| "Continue")
-        (|bchtMakeButton| "\\lispdownlink" '|\\ContinueBitmap| |func|))
-       ('T
-        (|bchtMakeButton| "\\lispdownlink" (CONCAT "\\fbox{" |message| "}")
-         |func|)))
-      (|bcHt| "} ")))))
-
-; htProcessDoneButton [label , func] ==
-;   iht '"\newline\vspace{1}\centerline{"
-;
-;   if label = '"Continue" then
-;     htMakeButton('"\lispdownlink", "\ContinueBitmap", func)
-;   else if label = '"Push to enter names" then
-;     htMakeButton('"\lispdownlink",'"\ControlBitmap{ClickToSet}", func)
-;   else
-;     htMakeButton('"\lispdownlink", CONCAT('"\fbox{", label, '"}"), func)
-;
-;   iht '"} "
-
-(DEFUN |htProcessDoneButton| (|bfVar#27|)
-  (PROG (|label| |func|)
-    (RETURN
-     (PROGN
-      (SETQ |label| (CAR |bfVar#27|))
-      (SETQ |func| (CADR |bfVar#27|))
-      (|iht| "\\newline\\vspace{1}\\centerline{")
-      (COND
-       ((EQUAL |label| "Continue")
-        (|htMakeButton| "\\lispdownlink" '|\\ContinueBitmap| |func|))
-       ((EQUAL |label| "Push to enter names")
-        (|htMakeButton| "\\lispdownlink" "\\ControlBitmap{ClickToSet}" |func|))
-       ('T
-        (|htMakeButton| "\\lispdownlink" (CONCAT "\\fbox{" |label| "}")
-         |func|)))
-      (|iht| "} ")))))
-
-; bchtMakeButton(htCommand, message, func) ==
-;   bcHt [htCommand, '"{", message,
-;        '"}{(|htDoneButton| '|", func, '"| (PROGN "]
-;   for [id, ., ., ., type, :.] in htpInputAreaAlist $curPage repeat
-;     bcHt ['"(|htpSetLabelInputString| ", htpName $curPage, '"'|", id, '"| "]
-;     if type = 'string then
-;       bcHt ['"_"\stringvalue{", id, '"}_""]
-;     else
-;       bcHt ['"_"\boxvalue{", id, '"}_""]
-;     bcHt '") "
-;   bcHt [htpName $curPage, '"))} "]
-
-(DEFUN |bchtMakeButton| (|htCommand| |message| |func|)
-  (PROG (|id| |ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4| |type|)
-    (RETURN
-     (PROGN
-      (|bcHt|
-       (LIST |htCommand| "{" |message| "}{(|htDoneButton| '|" |func|
-             "| (PROGN "))
-      ((LAMBDA (|bfVar#29| |bfVar#28|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#29|)
-                (PROGN (SETQ |bfVar#28| (CAR |bfVar#29|)) NIL))
-            (RETURN NIL))
-           (#1='T
-            (AND (CONSP |bfVar#28|)
-                 (PROGN
-                  (SETQ |id| (CAR |bfVar#28|))
-                  (SETQ |ISTMP#1| (CDR |bfVar#28|))
-                  (AND (CONSP |ISTMP#1|)
-                       (PROGN
-                        (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                        (AND (CONSP |ISTMP#2|)
-                             (PROGN
-                              (SETQ |ISTMP#3| (CDR |ISTMP#2|))
-                              (AND (CONSP |ISTMP#3|)
-                                   (PROGN
-                                    (SETQ |ISTMP#4| (CDR |ISTMP#3|))
-                                    (AND (CONSP |ISTMP#4|)
-                                         (PROGN
-                                          (SETQ |type| (CAR |ISTMP#4|))
-                                          #1#)))))))))
-                 (PROGN
-                  (|bcHt|
-                   (LIST "(|htpSetLabelInputString| " (|htpName| |$curPage|)
-                         "'|" |id| "| "))
-                  (COND
-                   ((EQ |type| '|string|)
-                    (|bcHt| (LIST "\"\\stringvalue{" |id| "}\"")))
-                   (#1# (|bcHt| (LIST "\"\\boxvalue{" |id| "}\""))))
-                  (|bcHt| ") ")))))
-          (SETQ |bfVar#29| (CDR |bfVar#29|))))
-       (|htpInputAreaAlist| |$curPage|) NIL)
-      (|bcHt| (LIST (|htpName| |$curPage|) "))} "))))))
-
-; htProcessDoitButton [label, command, func] ==
-;   fun := mkCurryFun(func, [command])
-;   iht '"\newline\vspace{1}\centerline{"
-;   htMakeButton('"\lispcommand", CONCAT('"\fbox{", label, '"}"), fun)
-;   iht '"} "
-;   iht '"\vspace{2}{Select \  \UpButton{} \  to go back one page.}"
-;   iht '"\newline{Select \  \ExitButton{QuitPage} \  to remove this window.}"
-
-(DEFUN |htProcessDoitButton| (|bfVar#30|)
-  (PROG (|label| |command| |func| |fun|)
-    (RETURN
-     (PROGN
-      (SETQ |label| (CAR |bfVar#30|))
-      (SETQ |command| (CADR . #1=(|bfVar#30|)))
-      (SETQ |func| (CADDR . #1#))
-      (SETQ |fun| (|mkCurryFun| |func| (LIST |command|)))
-      (|iht| "\\newline\\vspace{1}\\centerline{")
-      (|htMakeButton| "\\lispcommand" (CONCAT "\\fbox{" |label| "}") |fun|)
-      (|iht| "} ")
-      (|iht| "\\vspace{2}{Select \\  \\UpButton{} \\  to go back one page.}")
-      (|iht|
-       "\\newline{Select \\  \\ExitButton{QuitPage} \\  to remove this window.}")))))
+     (|ht_add_to_page| |page| (LIST (LIST '|doneButton| |message| |func|))))))
 
 ; htMakeDoitButton(page, label, command) ==
-;   -- use bitmap button if just plain old "Do It"
-;   if label = '"Do It" then
-;     bcHt '"\newline\vspace{1}\centerline{\lispcommand{\DoItBitmap}{(|doDoitButton| "
-;   else
-;     bcHt ['"\newline\vspace{1}\centerline{\lispcommand{\fbox{", label,
-;        '"}}{(|doDoitButton| "]
-;   bcHt htpName $curPage
-;   bcHt ['" _"", htEscapeString command, '"_""]
-;   bcHt '")}}"
-;
-;   bcHt '"\vspace{2}{Select \  \UpButton{} \  to go back one page.}"
-;   bcHt '"\newline{Select \  \ExitButton{QuitPage} \  to remove this window.}"
+;     ht_add_to_page(page, [['doitButton, label, command]])
 
 (DEFUN |htMakeDoitButton| (|page| |label| |command|)
   (PROG ()
     (RETURN
-     (PROGN
-      (COND
-       ((EQUAL |label| "Do It")
-        (|bcHt|
-         "\\newline\\vspace{1}\\centerline{\\lispcommand{\\DoItBitmap}{(|doDoitButton| "))
-       ('T
-        (|bcHt|
-         (LIST "\\newline\\vspace{1}\\centerline{\\lispcommand{\\fbox{" |label|
-               "}}{(|doDoitButton| "))))
-      (|bcHt| (|htpName| |$curPage|))
-      (|bcHt| (LIST " \"" (|htEscapeString| |command|) "\""))
-      (|bcHt| ")}}")
-      (|bcHt| "\\vspace{2}{Select \\  \\UpButton{} \\  to go back one page.}")
-      (|bcHt|
-       "\\newline{Select \\  \\ExitButton{QuitPage} \\  to remove this window.}")))))
+     (|ht_add_to_page| |page| (LIST (LIST '|doitButton| |label| |command|))))))
 
 ; doDoitButton(htPage, command) ==
 ;   executeInterpreterCommand command
@@ -1222,100 +210,18 @@
       (|princPrompt|)
       (FORCE-OUTPUT)))))
 
-; htDoneButton(func, htPage, :optionalArgs) ==
-; ------> Handle argument values passed from page if present
-;   if optionalArgs then
-;     htpSetInputAreaAlist(htPage, first optionalArgs)
-;   typeCheckInputAreas htPage =>
-;     htMakeErrorPage htPage
+; htDoneButton(func, htPage) ==
 ;   NULL FBOUNDP func =>
 ;     systemError ['"unknown function", func]
 ;   FUNCALL(SYMBOL_-FUNCTION func, htPage)
 
-(DEFUN |htDoneButton| (|func| |htPage| &REST |optionalArgs|)
+(DEFUN |htDoneButton| (|func| |htPage|)
   (PROG ()
     (RETURN
-     (PROGN
-      (COND
-       (|optionalArgs| (|htpSetInputAreaAlist| |htPage| (CAR |optionalArgs|))))
-      (COND ((|typeCheckInputAreas| |htPage|) (|htMakeErrorPage| |htPage|))
-            ((NULL (FBOUNDP |func|))
-             (|systemError| (LIST "unknown function" |func|)))
-            ('T (FUNCALL (SYMBOL-FUNCTION |func|) |htPage|)))))))
-
-; typeCheckInputAreas htPage ==
-;   -- This needs to be severely beefed up
-;   errorCondition := false
-;   for entry in htpInputAreaAlist htPage
-;    | entry is [stringName, ., ., ., 'string, ., spadType, filter] repeat
-;     string := htpLabelFilteredInputString(htPage, stringName)
-;     null(ncParseFromString(string)) =>
-;         -- FIXME: this effectively ignores errors, but otherwise
-;         -- search without parameters does not work
-;         -- errorCondition := true
-;         htpSetLabelErrorMsg(htPage, '"Syntax Error", '"Syntax Error")
-;     nil
-;   errorCondition
-
-(DEFUN |typeCheckInputAreas| (|htPage|)
-  (PROG (|errorCondition| |stringName| |ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4|
-         |ISTMP#5| |ISTMP#6| |spadType| |ISTMP#7| |filter| |string|)
-    (RETURN
-     (PROGN
-      (SETQ |errorCondition| NIL)
-      ((LAMBDA (|bfVar#31| |entry|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#31|) (PROGN (SETQ |entry| (CAR |bfVar#31|)) NIL))
-            (RETURN NIL))
-           (#1='T
-            (AND (CONSP |entry|)
-                 (PROGN
-                  (SETQ |stringName| (CAR |entry|))
-                  (SETQ |ISTMP#1| (CDR |entry|))
-                  (AND (CONSP |ISTMP#1|)
-                       (PROGN
-                        (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                        (AND (CONSP |ISTMP#2|)
-                             (PROGN
-                              (SETQ |ISTMP#3| (CDR |ISTMP#2|))
-                              (AND (CONSP |ISTMP#3|)
-                                   (PROGN
-                                    (SETQ |ISTMP#4| (CDR |ISTMP#3|))
-                                    (AND (CONSP |ISTMP#4|)
-                                         (EQ (CAR |ISTMP#4|) '|string|)
-                                         (PROGN
-                                          (SETQ |ISTMP#5| (CDR |ISTMP#4|))
-                                          (AND (CONSP |ISTMP#5|)
-                                               (PROGN
-                                                (SETQ |ISTMP#6|
-                                                        (CDR |ISTMP#5|))
-                                                (AND (CONSP |ISTMP#6|)
-                                                     (PROGN
-                                                      (SETQ |spadType|
-                                                              (CAR |ISTMP#6|))
-                                                      (SETQ |ISTMP#7|
-                                                              (CDR |ISTMP#6|))
-                                                      (AND (CONSP |ISTMP#7|)
-                                                           (EQ (CDR |ISTMP#7|)
-                                                               NIL)
-                                                           (PROGN
-                                                            (SETQ |filter|
-                                                                    (CAR
-                                                                     |ISTMP#7|))
-                                                            #1#)))))))))))))))
-                 (PROGN
-                  (SETQ |string|
-                          (|htpLabelFilteredInputString| |htPage|
-                           |stringName|))
-                  (COND
-                   ((NULL (|ncParseFromString| |string|))
-                    (|htpSetLabelErrorMsg| |htPage| "Syntax Error"
-                     "Syntax Error"))
-                   (#1# NIL))))))
-          (SETQ |bfVar#31| (CDR |bfVar#31|))))
-       (|htpInputAreaAlist| |htPage|) NIL)
-      |errorCondition|))))
+     (COND
+      ((NULL (FBOUNDP |func|))
+       (|systemError| (LIST "unknown function" |func|)))
+      ('T (FUNCALL (SYMBOL-FUNCTION |func|) |htPage|))))))
 
 ; quoteString string == CONCAT('"_"", string, '"_"")
 
@@ -1371,39 +277,40 @@
 (DEFUN |bcBlankLine| (|page|)
   (PROG () (RETURN (|ht_add_string| |page| "\\vspace{1}\\newline "))))
 
-; errorPage(htPage,[heading,kind,:info]) ==
-;   kind = 'invalidType => kInvalidTypePage first info
-;   if heading = 'error then page := htInitPage('"Error",nil) else
-;                            page := htInitPage(heading,nil)
+; errorPage([heading, kind, :info]) ==
+;   kind = 'invalidType => BREAK()
+;   page :=
+;       heading = 'error => htInitPage('"Error", nil)
+;       htInitPage(heading, nil)
 ;   bcBlankLine(page)
-;   for x in info repeat htSay x
-;   htShowPage()
+;   for x in info repeat htSay2(page, x)
+;   htShowPage1(page)
 
-(DEFUN |errorPage| (|htPage| |bfVar#33|)
+(DEFUN |errorPage| (|bfVar#4|)
   (PROG (|heading| |kind| |info| |page|)
     (RETURN
      (PROGN
-      (SETQ |heading| (CAR |bfVar#33|))
-      (SETQ |kind| (CADR . #1=(|bfVar#33|)))
+      (SETQ |heading| (CAR |bfVar#4|))
+      (SETQ |kind| (CADR . #1=(|bfVar#4|)))
       (SETQ |info| (CDDR . #1#))
-      (COND ((EQ |kind| '|invalidType|) (|kInvalidTypePage| (CAR |info|)))
+      (COND ((EQ |kind| '|invalidType|) (BREAK))
             (#2='T
              (PROGN
-              (COND
-               ((EQ |heading| '|error|)
-                (SETQ |page| (|htInitPage| "Error" NIL)))
-               (#2# (SETQ |page| (|htInitPage| |heading| NIL))))
+              (SETQ |page|
+                      (COND
+                       ((EQ |heading| '|error|) (|htInitPage| "Error" NIL))
+                       (#2# (|htInitPage| |heading| NIL))))
               (|bcBlankLine| |page|)
-              ((LAMBDA (|bfVar#32| |x|)
+              ((LAMBDA (|bfVar#3| |x|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#32|)
-                        (PROGN (SETQ |x| (CAR |bfVar#32|)) NIL))
+                   ((OR (ATOM |bfVar#3|)
+                        (PROGN (SETQ |x| (CAR |bfVar#3|)) NIL))
                     (RETURN NIL))
-                   (#2# (|htSay| |x|)))
-                  (SETQ |bfVar#32| (CDR |bfVar#32|))))
+                   (#2# (|htSay2| |page| |x|)))
+                  (SETQ |bfVar#3| (CDR |bfVar#3|))))
                |info| NIL)
-              (|htShowPage|))))))))
+              (|htShowPage1| |page|))))))))
 
 ; bcFinish(name,arg,:args) == bcGen bcMkFunction(name,arg,args)
 
@@ -1419,23 +326,23 @@
     (RETURN
      (PROGN
       (SETQ |args|
-              ((LAMBDA (|bfVar#35| |bfVar#34| |x|)
+              ((LAMBDA (|bfVar#6| |bfVar#5| |x|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#34|)
-                        (PROGN (SETQ |x| (CAR |bfVar#34|)) NIL))
-                    (RETURN (NREVERSE |bfVar#35|)))
-                   (#1='T (AND |x| (SETQ |bfVar#35| (CONS |x| |bfVar#35|)))))
-                  (SETQ |bfVar#34| (CDR |bfVar#34|))))
+                   ((OR (ATOM |bfVar#5|)
+                        (PROGN (SETQ |x| (CAR |bfVar#5|)) NIL))
+                    (RETURN (NREVERSE |bfVar#6|)))
+                   (#1='T (AND |x| (SETQ |bfVar#6| (CONS |x| |bfVar#6|)))))
+                  (SETQ |bfVar#5| (CDR |bfVar#5|))))
                NIL |args| NIL))
       (STRCONC |name| "(" |arg|
-       ((LAMBDA (|bfVar#37| |bfVar#36| |x|)
+       ((LAMBDA (|bfVar#8| |bfVar#7| |x|)
           (LOOP
            (COND
-            ((OR (ATOM |bfVar#36|) (PROGN (SETQ |x| (CAR |bfVar#36|)) NIL))
-             (RETURN |bfVar#37|))
-            (#1# (SETQ |bfVar#37| (STRCONC |bfVar#37| (STRCONC "," |x|)))))
-           (SETQ |bfVar#36| (CDR |bfVar#36|))))
+            ((OR (ATOM |bfVar#7|) (PROGN (SETQ |x| (CAR |bfVar#7|)) NIL))
+             (RETURN |bfVar#8|))
+            (#1# (SETQ |bfVar#8| (STRCONC |bfVar#8| (STRCONC "," |x|)))))
+           (SETQ |bfVar#7| (CDR |bfVar#7|))))
         "" |args| NIL)
        ")")))))
 
@@ -1444,14 +351,14 @@
 (DEFUN |bcFindString| (|s| |i| |n| |char|)
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#38| |j|)
+     ((LAMBDA (|bfVar#9| |j|)
         (LOOP
-         (COND ((> |j| |n|) (RETURN |bfVar#38|))
+         (COND ((> |j| |n|) (RETURN |bfVar#9|))
                ('T
                 (AND (EQUAL (ELT |s| |j|) |char|)
                      (PROGN
-                      (SETQ |bfVar#38| |j|)
-                      (COND (|bfVar#38| (RETURN |bfVar#38|)))))))
+                      (SETQ |bfVar#9| |j|)
+                      (COND (|bfVar#9| (RETURN |bfVar#9|)))))))
          (SETQ |j| (+ |j| 1))))
       NIL |i|))))
 
@@ -1505,15 +412,15 @@
            (#1='T
             (PROGN
              (SETQ |k|
-                     ((LAMBDA (|bfVar#39| |j|)
+                     ((LAMBDA (|bfVar#10| |j|)
                         (LOOP
-                         (COND ((> |j| |n|) (RETURN |bfVar#39|))
+                         (COND ((> |j| |n|) (RETURN |bfVar#10|))
                                (#1#
                                 (AND (NOT (EQUAL (ELT |s| |j|) (|char| '| |)))
                                      (PROGN
-                                      (SETQ |bfVar#39| |j|)
+                                      (SETQ |bfVar#10| |j|)
                                       (COND
-                                       (|bfVar#39| (RETURN |bfVar#39|)))))))
+                                       (|bfVar#10| (RETURN |bfVar#10|)))))))
                          (SETQ |j| (+ |j| 1))))
                       NIL |i|))
              (COND ((NULL (INTEGERP |k|)) NIL)

@@ -1648,7 +1648,8 @@
                          (EXIT (SPADCALL (NREVERSE |arg_l|) (QREFELT % 113)))))
               (LETT |res|
                     (|make_domain_form| (SPADCALL |kind| (QREFELT % 62))
-                     (SPADCALL |name| (QREFELT % 62)) |args|))
+                                        (SPADCALL |name| (QREFELT % 62))
+                                        |args|))
               (EXIT
                (COND
                 ((QEQCAR |res| 1)

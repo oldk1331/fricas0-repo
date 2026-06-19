@@ -7,34 +7,6 @@
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL) (SETQ |$historyDisplayWidth| 120))
 
-; downlink page ==
-;   htInitPage('"Bridge",nil)
-;   htSayList(['"\replacepage{", page, '"}"])
-;   htShowPage()
-
-(DEFUN |downlink| (|page|)
-  (PROG ()
-    (RETURN
-     (PROGN
-      (|htInitPage| "Bridge" NIL)
-      (|htSayList| (LIST "\\replacepage{" |page| "}"))
-      (|htShowPage|)))))
-
-; dbNonEmptyPattern pattern ==
-;   null pattern => '"*"
-;   pattern := STRINGIMAGE pattern
-;   #pattern > 0 => pattern
-;   '"*"
-
-(DEFUN |dbNonEmptyPattern| (|pattern|)
-  (PROG ()
-    (RETURN
-     (COND ((NULL |pattern|) "*")
-           (#1='T
-            (PROGN
-             (SETQ |pattern| (STRINGIMAGE |pattern|))
-             (COND ((< 0 (LENGTH |pattern|)) |pattern|) (#1# "*"))))))))
-
 ; htSystemVariables() ==
 ;     not $fullScreenSysVars => htSetVars()
 ;     classlevel := $UserLevel
@@ -382,204 +354,6 @@
       (SET |name| |value|)
       (|htSystemVariables|)))))
 
-; htGloss(pattern) == htGlossPage(nil,dbNonEmptyPattern pattern or '"*",true)
-
-(DEFUN |htGloss| (|pattern|)
-  (PROG ()
-    (RETURN (|htGlossPage| NIL (OR (|dbNonEmptyPattern| |pattern|) "*") T))))
-
-; htGlossPage(htPage,pattern,tryAgain?) ==
-;   $wildCard: local := char '_*
-;   pattern = '"*" => downlink 'GlossaryPage
-;   filter := pmTransFilter pattern
-;   grepForm := mkGrepPattern(filter,'none)
-;   $key: local := 'none
-;   results := applyGrep(grepForm,'gloss)
-;   defstream := MAKE_INSTREAM(STRCONC($spadroot,
-;                                      '"/algebra/glossdef.text"))
-;   lines := gatherGlossLines(results,defstream)
-;   heading :=
-;     pattern = '"" => '"Glossary"
-;     null lines => ['"No glossary items match {\em ",pattern,'"}"]
-;     ['"Glossary items matching {\em ",pattern,'"}"]
-;   null lines =>
-;     tryAgain? and #pattern > 0 =>
-;       (pattern.(k := MAXINDEX(pattern))) = char 's =>
-;         htGlossPage(htPage,SUBSTRING(pattern,0,k),true)
-;       UPPER_-CASE_-P pattern.0 =>
-;         htGlossPage(htPage,DOWNCASE pattern,false)
-;       errorPage(htPage,['"Sorry",nil,['"\centerline{",:heading,'"}"]])
-;     errorPage(htPage,['"Sorry",nil,['"\centerline{",:heading,'"}"]])
-;   htInitPageNoScroll(nil,heading)
-;   htSay('"\beginscroll\beginmenu")
-;   for line in lines repeat
-;     tick := charPosition($tick,line,1)
-;     htSayList(['"\item{\em \menuitemstyle{}}\tab{0}{\em ",
-;                escapeString SUBSTRING(line,0,tick),'"} ",
-;                SUBSTRING(line,tick + 1,nil)])
-;   htSay '"\endmenu "
-;   htSay '"\endscroll\newline "
-;   htMakePage [['bcLinks,['"Search",'"",'htGlossSearch,nil]]]
-;   htSay '" for glossary entry matching "
-;   htMakePage [['bcStrings, [24,'"*",'filter,'EM]]]
-;   htShowPageNoScroll()
-
-(DEFUN |htGlossPage| (|htPage| |pattern| |tryAgain?|)
-  (PROG (|$key| |$wildCard| |tick| |k| |heading| |lines| |defstream| |results|
-         |grepForm| |filter|)
-    (DECLARE (SPECIAL |$key| |$wildCard|))
-    (RETURN
-     (PROGN
-      (SETQ |$wildCard| (|char| '*))
-      (COND ((EQUAL |pattern| "*") (|downlink| '|GlossaryPage|))
-            (#1='T
-             (PROGN
-              (SETQ |filter| (|pmTransFilter| |pattern|))
-              (SETQ |grepForm| (|mkGrepPattern| |filter| '|none|))
-              (SETQ |$key| '|none|)
-              (SETQ |results| (|applyGrep| |grepForm| '|gloss|))
-              (SETQ |defstream|
-                      (MAKE_INSTREAM
-                       (STRCONC |$spadroot| "/algebra/glossdef.text")))
-              (SETQ |lines| (|gatherGlossLines| |results| |defstream|))
-              (SETQ |heading|
-                      (COND ((EQUAL |pattern| "") "Glossary")
-                            ((NULL |lines|)
-                             (LIST "No glossary items match {\\em " |pattern|
-                                   "}"))
-                            (#1#
-                             (LIST "Glossary items matching {\\em " |pattern|
-                                   "}"))))
-              (COND
-               ((NULL |lines|)
-                (COND
-                 ((AND |tryAgain?| (< 0 (LENGTH |pattern|)))
-                  (COND
-                   ((EQUAL (ELT |pattern| (SETQ |k| (MAXINDEX |pattern|)))
-                           (|char| '|s|))
-                    (|htGlossPage| |htPage| (SUBSTRING |pattern| 0 |k|) T))
-                   ((UPPER-CASE-P (ELT |pattern| 0))
-                    (|htGlossPage| |htPage| (DOWNCASE |pattern|) NIL))
-                   (#1#
-                    (|errorPage| |htPage|
-                     (LIST "Sorry" NIL
-                           (CONS "\\centerline{"
-                                 (APPEND |heading| (CONS "}" NIL))))))))
-                 (#1#
-                  (|errorPage| |htPage|
-                   (LIST "Sorry" NIL
-                         (CONS "\\centerline{"
-                               (APPEND |heading| (CONS "}" NIL))))))))
-               (#1#
-                (PROGN
-                 (|htInitPageNoScroll| NIL |heading|)
-                 (|htSay| "\\beginscroll\\beginmenu")
-                 ((LAMBDA (|bfVar#8| |line|)
-                    (LOOP
-                     (COND
-                      ((OR (ATOM |bfVar#8|)
-                           (PROGN (SETQ |line| (CAR |bfVar#8|)) NIL))
-                       (RETURN NIL))
-                      (#1#
-                       (PROGN
-                        (SETQ |tick| (|charPosition| |$tick| |line| 1))
-                        (|htSayList|
-                         (LIST "\\item{\\em \\menuitemstyle{}}\\tab{0}{\\em "
-                               (|escapeString| (SUBSTRING |line| 0 |tick|))
-                               "} " (SUBSTRING |line| (+ |tick| 1) NIL))))))
-                     (SETQ |bfVar#8| (CDR |bfVar#8|))))
-                  |lines| NIL)
-                 (|htSay| "\\endmenu ")
-                 (|htSay| "\\endscroll\\newline ")
-                 (|htMakePage|
-                  (LIST
-                   (LIST '|bcLinks| (LIST "Search" "" '|htGlossSearch| NIL))))
-                 (|htSay| " for glossary entry matching ")
-                 (|htMakePage|
-                  (LIST (LIST '|bcStrings| (LIST 24 "*" '|filter| 'EM))))
-                 (|htShowPageNoScroll|)))))))))))
-
-; gatherGlossLines(results,defstream) ==
-;   acc := nil
-;   for keyline in results repeat
-;     n := charPosition($tick,keyline,0)
-;     keyAndTick := SUBSTRING(keyline,0,n + 1)
-;     byteAddress := string2Integer SUBSTRING(keyline,n + 1,nil)
-;     FILE_-POSITION(defstream,byteAddress)
-;     line := read_line defstream
-;     k := charPosition($tick,line,1)
-;     pointer := SUBSTRING(line,0,k)
-;     def := SUBSTRING(line,k + 1,nil)
-;     xtralines := nil
-;     while (x := read_line defstream) and
-;       (j := charPosition($tick,x,1)) and (nextPointer := SUBSTRING(x,0,j))
-;         and (nextPointer = pointer) repeat
-;           xtralines := [SUBSTRING(x,j + 1,nil),:xtralines]
-;     acc := [STRCONC(keyAndTick,def, "STRCONC"/NREVERSE xtralines),:acc]
-;   REVERSE acc
-
-(DEFUN |gatherGlossLines| (|results| |defstream|)
-  (PROG (|acc| |n| |keyAndTick| |byteAddress| |line| |k| |pointer| |def|
-         |xtralines| |x| |j| |nextPointer|)
-    (RETURN
-     (PROGN
-      (SETQ |acc| NIL)
-      ((LAMBDA (|bfVar#9| |keyline|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#9|) (PROGN (SETQ |keyline| (CAR |bfVar#9|)) NIL))
-            (RETURN NIL))
-           (#1='T
-            (PROGN
-             (SETQ |n| (|charPosition| |$tick| |keyline| 0))
-             (SETQ |keyAndTick| (SUBSTRING |keyline| 0 (+ |n| 1)))
-             (SETQ |byteAddress|
-                     (|string2Integer| (SUBSTRING |keyline| (+ |n| 1) NIL)))
-             (FILE-POSITION |defstream| |byteAddress|)
-             (SETQ |line| (|read_line| |defstream|))
-             (SETQ |k| (|charPosition| |$tick| |line| 1))
-             (SETQ |pointer| (SUBSTRING |line| 0 |k|))
-             (SETQ |def| (SUBSTRING |line| (+ |k| 1) NIL))
-             (SETQ |xtralines| NIL)
-             ((LAMBDA ()
-                (LOOP
-                 (COND
-                  ((NOT
-                    (AND (SETQ |x| (|read_line| |defstream|))
-                         (SETQ |j| (|charPosition| |$tick| |x| 1))
-                         (SETQ |nextPointer| (SUBSTRING |x| 0 |j|))
-                         (EQUAL |nextPointer| |pointer|)))
-                   (RETURN NIL))
-                  (#1#
-                   (SETQ |xtralines|
-                           (CONS (SUBSTRING |x| (+ |j| 1) NIL)
-                                 |xtralines|)))))))
-             (SETQ |acc|
-                     (CONS
-                      (STRCONC |keyAndTick| |def|
-                       ((LAMBDA (|bfVar#10| |bfVar#12| |bfVar#11|)
-                          (LOOP
-                           (COND
-                            ((OR (ATOM |bfVar#12|)
-                                 (PROGN
-                                  (SETQ |bfVar#11| (CAR |bfVar#12|))
-                                  NIL))
-                             (RETURN |bfVar#10|))
-                            (#1#
-                             (SETQ |bfVar#10|
-                                     (STRCONC |bfVar#10| |bfVar#11|))))
-                           (SETQ |bfVar#12| (CDR |bfVar#12|))))
-                        "" (NREVERSE |xtralines|) NIL))
-                      |acc|)))))
-          (SETQ |bfVar#9| (CDR |bfVar#9|))))
-       |results| NIL)
-      (REVERSE |acc|)))))
-
-; htGlossSearch(htPage,junk) ==  htGloss htpLabelInputString(htPage,'filter)
-
-(DEFUN |htGlossSearch| (|htPage| |junk|)
-  (PROG () (RETURN (|htGloss| (|htpLabelInputString| |htPage| '|filter|)))))
-
 ; htSetVars() ==
 ;   $path := nil
 ;   $lastTree := nil
@@ -632,11 +406,10 @@
       (|htpSetProperty| |page| '|setTree| |setTree|)
       (SETQ |links| NIL)
       (SETQ |maxWidth1| (SETQ |maxWidth2| 0))
-      ((LAMBDA (|bfVar#13| |setData|)
+      ((LAMBDA (|bfVar#8| |setData|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#13|)
-                (PROGN (SETQ |setData| (CAR |bfVar#13|)) NIL))
+           ((OR (ATOM |bfVar#8|) (PROGN (SETQ |setData| (CAR |bfVar#8|)) NIL))
             (RETURN NIL))
            (#1='T
             (COND
@@ -649,7 +422,7 @@
                 (SETQ |maxWidth2|
                         (MAX (|htShowCount| (STRINGIMAGE (ELT |setData| 1)))
                              |maxWidth2|))))))))
-          (SETQ |bfVar#13| (CDR |bfVar#13|))))
+          (SETQ |bfVar#8| (CDR |bfVar#8|))))
        |setTree| NIL)
       (SETQ |maxWidth1| (MAX 9 |maxWidth1|))
       (SETQ |maxWidth2| (MAX 41 |maxWidth2|))
@@ -661,11 +434,10 @@
              "}Description\\tab{"
              (STRINGIMAGE (+ (+ |maxWidth2| |maxWidth1|) 2))
              "}Value\\newline\\beginitems "))
-      ((LAMBDA (|bfVar#14| |setData|)
+      ((LAMBDA (|bfVar#9| |setData|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#14|)
-                (PROGN (SETQ |setData| (CAR |bfVar#14|)) NIL))
+           ((OR (ATOM |bfVar#9|) (PROGN (SETQ |setData| (CAR |bfVar#9|)) NIL))
             (RETURN NIL))
            (#1#
             (PROGN
@@ -683,7 +455,7 @@
              (|ht_add_to_page| |page|
               (LIST
                (LIST '|bcLispLinks| |links| '|options| '(|indent| . 0)))))))
-          (SETQ |bfVar#14| (CDR |bfVar#14|))))
+          (SETQ |bfVar#9| (CDR |bfVar#9|))))
        (REVERSE |okList|) NIL)
       (|ht_add_string| |page| "\\enditems")
       (|htShowPage1| |page|)))))
@@ -852,8 +624,8 @@
 ;   ht_add_string(page, '"Select one of the following: \newline\tab{3} ")
 ;   links := [[STRCONC('"",STRINGIMAGE opt), '"\newline\tab{3}", functionToCall, opt] for opt in values]
 ;   ht_add_to_page(page, [['bcLispLinks, :links]])
-;   bcHt ['"\indent{0}\newline\vspace{1} The current setting is: {\em ",
-;         translateTrueFalse2YesNo(cval), '"} "]
+;   bcHt2(page, ['"\indent{0}\newline\vspace{1} The current setting is: {\em ",
+;         translateTrueFalse2YesNo(cval), '"} "])
 ;   htShowPage1(page)
 
 (DEFUN |htSetLiterals2|
@@ -865,28 +637,27 @@
       (|ht_add_string| |page|
        "Select one of the following: \\newline\\tab{3} ")
       (SETQ |links|
-              ((LAMBDA (|bfVar#16| |bfVar#15| |opt|)
+              ((LAMBDA (|bfVar#11| |bfVar#10| |opt|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#15|)
-                        (PROGN (SETQ |opt| (CAR |bfVar#15|)) NIL))
-                    (RETURN (NREVERSE |bfVar#16|)))
+                   ((OR (ATOM |bfVar#10|)
+                        (PROGN (SETQ |opt| (CAR |bfVar#10|)) NIL))
+                    (RETURN (NREVERSE |bfVar#11|)))
                    ('T
-                    (SETQ |bfVar#16|
+                    (SETQ |bfVar#11|
                             (CONS
                              (LIST (STRCONC "" (STRINGIMAGE |opt|))
                                    "\\newline\\tab{3}" |functionToCall| |opt|)
-                             |bfVar#16|))))
-                  (SETQ |bfVar#15| (CDR |bfVar#15|))))
+                             |bfVar#11|))))
+                  (SETQ |bfVar#10| (CDR |bfVar#10|))))
                NIL |values| NIL))
       (|ht_add_to_page| |page| (LIST (CONS '|bcLispLinks| |links|)))
-      (|bcHt|
+      (|bcHt2| |page|
        (LIST "\\indent{0}\\newline\\vspace{1} The current setting is: {\\em "
              (|translateTrueFalse2YesNo| |cval|) "} "))
       (|htShowPage1| |page|)))))
 
 ; htSetLiteral(htPage, val) ==
-;   htInitPage('"Set Command", nil)
 ;   SET(htpProperty(htPage, 'variable), translateYesNo2TrueFalse val)
 ;   htKill(htPage,val)
 
@@ -894,7 +665,6 @@
   (PROG ()
     (RETURN
      (PROGN
-      (|htInitPage| "Set Command" NIL)
       (SET (|htpProperty| |htPage| '|variable|)
            (|translateYesNo2TrueFalse| |val|))
       (|htKill| |htPage| |val|)))))
@@ -953,7 +723,7 @@
 ;   htInitPage(mkSetTitle(), nil)
 ;   val := chkRange htpLabelInputString(htPage,'value)
 ;   not INTEGERP val =>
-;     errorPage(htPage,['"Value Error",nil,'"\vspace{3}\centerline{{\em ",val,'"}}\vspace{2}\newline\centerline{Click on \UpBitmap{} to re-enter value}"])
+;     errorPage(['"Value Error",nil,'"\vspace{3}\centerline{{\em ",val,'"}}\vspace{2}\newline\centerline{Click on \UpBitmap{} to re-enter value}"])
 ;   SET(htpProperty(htPage, 'variable), val)
 ;   htKill(htPage,val)
 
@@ -965,7 +735,7 @@
       (SETQ |val| (|chkRange| (|htpLabelInputString| |htPage| '|value|)))
       (COND
        ((NULL (INTEGERP |val|))
-        (|errorPage| |htPage|
+        (|errorPage|
          (LIST "Value Error" NIL "\\vspace{3}\\centerline{{\\em " |val|
                "}}\\vspace{2}\\newline\\centerline{Click on \\UpBitmap{} to re-enter value}")))
        ('T
@@ -1209,13 +979,13 @@
      (COND
       ((STRINGP |x|)
        (COND
-        (((LAMBDA (|bfVar#18| |bfVar#17| |i|)
+        (((LAMBDA (|bfVar#13| |bfVar#12| |i|)
             (LOOP
-             (COND ((> |i| |bfVar#17|) (RETURN |bfVar#18|))
+             (COND ((> |i| |bfVar#12|) (RETURN |bfVar#13|))
                    (#1='T
                     (PROGN
-                     (SETQ |bfVar#18| (|char_to_digit| (ELT |x| |i|)))
-                     (COND ((NOT |bfVar#18|) (RETURN NIL))))))
+                     (SETQ |bfVar#13| (|char_to_digit| (ELT |x| |i|)))
+                     (COND ((NOT |bfVar#13|) (RETURN NIL))))))
              (SETQ |i| (+ |i| 1))))
           T (MAXINDEX |x|) 0)
          (PARSE-INTEGER |x|))
@@ -1287,28 +1057,28 @@
      (PROGN
       (SETQ |u| (|bcString2ListWords| |x|))
       (SETQ |parsedNames|
-              ((LAMBDA (|bfVar#20| |bfVar#19| |x|)
+              ((LAMBDA (|bfVar#15| |bfVar#14| |x|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#19|)
-                        (PROGN (SETQ |x| (CAR |bfVar#19|)) NIL))
-                    (RETURN (NREVERSE |bfVar#20|)))
+                   ((OR (ATOM |bfVar#14|)
+                        (PROGN (SETQ |x| (CAR |bfVar#14|)) NIL))
+                    (RETURN (NREVERSE |bfVar#15|)))
                    (#1='T
-                    (SETQ |bfVar#20|
-                            (CONS (|ncParseFromString| |x|) |bfVar#20|))))
-                  (SETQ |bfVar#19| (CDR |bfVar#19|))))
+                    (SETQ |bfVar#15|
+                            (CONS (|ncParseFromString| |x|) |bfVar#15|))))
+                  (SETQ |bfVar#14| (CDR |bfVar#14|))))
                NIL |u| NIL))
       (COND
-       (((LAMBDA (|bfVar#22| |bfVar#21| |x|)
+       (((LAMBDA (|bfVar#17| |bfVar#16| |x|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#21|) (PROGN (SETQ |x| (CAR |bfVar#21|)) NIL))
-              (RETURN |bfVar#22|))
+             ((OR (ATOM |bfVar#16|) (PROGN (SETQ |x| (CAR |bfVar#16|)) NIL))
+              (RETURN |bfVar#17|))
              (#1#
               (PROGN
-               (SETQ |bfVar#22| (IDENTP |x|))
-               (COND ((NOT |bfVar#22|) (RETURN NIL))))))
-            (SETQ |bfVar#21| (CDR |bfVar#21|))))
+               (SETQ |bfVar#17| (IDENTP |x|))
+               (COND ((NOT |bfVar#17|) (RETURN NIL))))))
+            (SETQ |bfVar#16| (CDR |bfVar#16|))))
          T |parsedNames| NIL)
         |parsedNames|)
        (#1# "Please enter a list of identifiers separated by blanks"))))))
@@ -1631,11 +1401,11 @@
                   "To cache all past values, " "enter {\\em all}."
                   "\\vspace{1}\\newline "
                   "For each function name, enter {\\em all} or a positive integer:")))
-              ((LAMBDA (|i| |bfVar#23| |name|)
+              ((LAMBDA (|i| |bfVar#18| |name|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#23|)
-                        (PROGN (SETQ |name| (CAR |bfVar#23|)) NIL))
+                   ((OR (ATOM |bfVar#18|)
+                        (PROGN (SETQ |name| (CAR |bfVar#18|)) NIL))
                     (RETURN NIL))
                    (#1#
                     (|ht_add_to_page| |page|
@@ -1645,7 +1415,7 @@
                              (STRCONC "Function {\\em " |name| "} will cache")
                              "values" 5 10 (|htMakeLabel| "c" |i|) 'ALLPI))))))
                   (SETQ |i| (+ |i| 1))
-                  (SETQ |bfVar#23| (CDR |bfVar#23|))))
+                  (SETQ |bfVar#18| (CDR |bfVar#18|))))
                1 |names| NIL)
               (|htMakeDoneButton| |page| "Select to Set Values" '|htCacheSet|)
               (|htShowPage1| |page|))))))))
@@ -1686,10 +1456,10 @@
     (RETURN
      (PROGN
       (SETQ |names| (|htpProperty| |htPage| '|names|))
-      ((LAMBDA (|i| |bfVar#24| |name|)
+      ((LAMBDA (|i| |bfVar#19| |name|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#24|) (PROGN (SETQ |name| (CAR |bfVar#24|)) NIL))
+           ((OR (ATOM |bfVar#19|) (PROGN (SETQ |name| (CAR |bfVar#19|)) NIL))
             (RETURN NIL))
            (#1='T
             (PROGN
@@ -1700,7 +1470,7 @@
              (SETQ |$cacheAlist|
                      (|assoc_add| (INTERN |name|) |num| |$cacheAlist|)))))
           (SETQ |i| (+ |i| 1))
-          (SETQ |bfVar#24| (CDR |bfVar#24|))))
+          (SETQ |bfVar#19| (CDR |bfVar#19|))))
        1 |names| NIL)
       (COND
        ((SETQ |n| (LASSOC '|all| |$cacheAlist|)) (SETQ |$cacheCount| |n|)
@@ -1716,17 +1486,17 @@
       (|ht_add_string| |page| "\\vspace{1}\\newline ")
       (COND
        (|$cacheAlist|
-        ((LAMBDA (|bfVar#26| |bfVar#25|)
+        ((LAMBDA (|bfVar#21| |bfVar#20|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#26|)
-                  (PROGN (SETQ |bfVar#25| (CAR |bfVar#26|)) NIL))
+             ((OR (ATOM |bfVar#21|)
+                  (PROGN (SETQ |bfVar#20| (CAR |bfVar#21|)) NIL))
               (RETURN NIL))
              (#1#
-              (AND (CONSP |bfVar#25|)
+              (AND (CONSP |bfVar#20|)
                    (PROGN
-                    (SETQ |name| (CAR |bfVar#25|))
-                    (SETQ |val| (CDR |bfVar#25|))
+                    (SETQ |name| (CAR |bfVar#20|))
+                    (SETQ |val| (CDR |bfVar#20|))
                     #1#)
                    (NOT (EQUAL |val| |$cacheCount|))
                    (PROGN
@@ -1735,7 +1505,7 @@
                            "} will cache "))
                     (|htAllOrNum| |page| |val|)
                     (|ht_add_string| |page| "} values")))))
-            (SETQ |bfVar#26| (CDR |bfVar#26|))))
+            (SETQ |bfVar#21| (CDR |bfVar#21|))))
          |$cacheAlist| NIL)))
       (|htShowPage1| |page|)))))
 
