@@ -1,8 +1,8 @@
 
 (SDEFUN |UFD-;squareFreePart;2S;1| ((|x| (S)) (% (S)))
         (SPROG
-         ((|s| (|Factored| S)) (|f| NIL) (#1=#:G11 NIL) (#2=#:G9 (S))
-          (#3=#:G7 (S)) (#4=#:G8 NIL))
+         ((|s| (|Factored| S)) (|f| NIL) (#1=#:G13 NIL) (#2=#:G11 (S))
+          (#3=#:G9 (S)) (#4=#:G10 NIL))
          (SEQ
           (SPADCALL
            (SPADCALL (LETT |s| (SPADCALL |x| (QREFELT % 8))) (QREFELT % 10))
@@ -22,7 +22,23 @@
            (QREFELT % 15))))) 
 
 (SDEFUN |UFD-;prime?;SB;2| ((|x| (S)) (% (|Boolean|)))
-        (EQL (SPADCALL (SPADCALL |x| (QREFELT % 18)) (QREFELT % 20)) 1)) 
+        (SPROG
+         ((|f|
+           (|List|
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| S)
+                      (|:| |exponent| (|NonNegativeInteger|))))))
+         (SEQ
+          (COND ((SPADCALL |x| (QREFELT % 19)) NIL)
+                (#1='T
+                 (SEQ
+                  (LETT |f|
+                        (SPADCALL (SPADCALL |x| (QREFELT % 20))
+                                  (QREFELT % 14)))
+                  (EXIT
+                   (COND
+                    ((EQL (LENGTH |f|) 1) (EQL (QVELT (|SPADfirst| |f|) 2) 1))
+                    (#1# NIL))))))))) 
 
 (DECLAIM (NOTINLINE |UniqueFactorizationDomain&;|)) 
 
@@ -31,7 +47,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|))
           (LETT |dv$| (LIST '|UniqueFactorizationDomain&| DV$1))
-          (LETT % (GETREFV 23))
+          (LETT % (GETREFV 22))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|stuffDomainSlots| %)
@@ -44,10 +60,11 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Factored| %)
               (0 . |squareFree|) (|Factored| 6) (5 . |unit|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flag| 11) (|:| |factor| 6) (|:| |exponent| 19))
+              (|Record| (|:| |flag| 11) (|:| |factor| 6)
+                        (|:| |exponent| (|NonNegativeInteger|)))
               (|List| 12) (10 . |factorList|) (15 . *) (21 . |1|)
-              |UFD-;squareFreePart;2S;1| (25 . |factor|) (|NonNegativeInteger|)
-              (30 . |numberOfFactors|) (|Boolean|) |UFD-;prime?;SB;2|)
+              |UFD-;squareFreePart;2S;1| (|Boolean|) (25 . |zero?|)
+              (30 . |factor|) |UFD-;prime?;SB;2|)
            '#(|squareFreePart| 35 |prime?| 40) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -57,9 +74,9 @@
                              (LIST '((|squareFreePart| (|#1| |#1|)) T)
                                    '((|prime?| ((|Boolean|) |#1|)) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 22
+                        (|makeByteWordVec2| 21
                                             '(1 6 7 0 8 1 9 6 0 10 1 9 13 0 14
-                                              2 6 0 0 0 15 0 6 0 16 1 6 7 0 18
-                                              1 9 19 0 20 1 0 0 0 17 1 0 21 0
-                                              22)))))
+                                              2 6 0 0 0 15 0 6 0 16 1 6 18 0 19
+                                              1 6 7 0 20 1 0 0 0 17 1 0 18 0
+                                              21)))))
            '|lookupComplete|)) 
