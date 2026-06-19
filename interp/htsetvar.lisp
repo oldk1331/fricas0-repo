@@ -1657,7 +1657,7 @@
 ;   for i in 1.. for name in names repeat
 ;     num := chkAllNonNegativeInteger
 ;              htpLabelInputString(htPage,htMakeLabel('"c",i))
-;     $cacheAlist := ADDASSOC(INTERN name,num,$cacheAlist)
+;     $cacheAlist := assoc_add(INTERN(name), num, $cacheAlist)
 ;   if (n := LASSOC('all,$cacheAlist)) then
 ;     $cacheCount := n
 ;     $cacheAlist := deleteAssoc('all,$cacheAlist)
@@ -1695,7 +1695,7 @@
                       (|htpLabelInputString| |htPage|
                        (|htMakeLabel| "c" |i|))))
              (SETQ |$cacheAlist|
-                     (ADDASSOC (INTERN |name|) |num| |$cacheAlist|)))))
+                     (|assoc_add| (INTERN |name|) |num| |$cacheAlist|)))))
           (SETQ |i| (+ |i| 1))
           (SETQ |bfVar#24| (CDR |bfVar#24|))))
        1 |names| NIL)

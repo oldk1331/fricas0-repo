@@ -1723,7 +1723,7 @@
 
 ; remprop(x,prop,e) ==
 ;     u := assoc(prop, pl := getProplist(x, e)) =>
-;         e := addBinding(x, DELLASOS(first(u), pl), e)
+;         e := addBinding(x, assoc_del(first(u), pl), e)
 ;     e
 
 (DEFUN |remprop| (|x| |prop| |e|)
@@ -1731,7 +1731,7 @@
     (RETURN
      (COND
       ((SETQ |u| (|assoc| |prop| (SETQ |pl| (|getProplist| |x| |e|))))
-       (SETQ |e| (|addBinding| |x| (DELLASOS (CAR |u|) |pl|) |e|)))
+       (SETQ |e| (|addBinding| |x| (|assoc_del| (CAR |u|) |pl|) |e|)))
       ('T |e|)))))
 
 ; fastSearchCurrentEnv(x,currentEnv) ==

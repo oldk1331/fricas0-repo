@@ -294,18 +294,10 @@
 ;   res0 := []
 ;   for l in dl repeat
 ;       res0 := APPEND(l, res0)
-;   res := eliminateDuplicatePropertyLists res0 where
-;     eliminateDuplicatePropertyLists contour ==
-;       contour is [[x,:.],:contour'] =>
-;         LASSOC(x,contour') =>
-;                                --save some CONSing if possible
-;           [first contour,:DELLASOS(x,eliminateDuplicatePropertyLists contour')]
-;         [first contour,:eliminateDuplicatePropertyLists contour']
-;       nil
-;   res
+;   eliminateDuplicatePropertyLists(res0)
 
 (DEFUN |deltaContour| (|bfVar#8| |bfVar#9|)
-  (PROG (|il2| |el'| |il1| |el| |n1| |n2| |dl| |c1| |c2| |cd| |res0| |res|)
+  (PROG (|il2| |el'| |il1| |el| |n1| |n2| |dl| |c1| |c2| |cd| |res0|)
     (RETURN
      (PROGN
       (SETQ |il2| (CAR |bfVar#9|))
@@ -355,11 +347,18 @@
                       (#1# (SETQ |res0| (APPEND |l| |res0|))))
                      (SETQ |bfVar#7| (CDR |bfVar#7|))))
                   |dl| NIL)
-                 (SETQ |res|
-                         (|deltaContour,eliminateDuplicatePropertyLists|
-                          |res0|))
-                 |res|))))))))))
-(DEFUN |deltaContour,eliminateDuplicatePropertyLists| (|contour|)
+                 (|eliminateDuplicatePropertyLists| |res0|)))))))))))
+
+; eliminateDuplicatePropertyLists(contour) ==
+;     contour is [[x,:.],:contour'] =>
+;         LASSOC(x,contour') =>
+;                                --save some CONSing if possible
+;             [first(contour), :assoc_del(x,
+;                 eliminateDuplicatePropertyLists(contour'))]
+;         [first(contour), :eliminateDuplicatePropertyLists(contour')]
+;     nil
+
+(DEFUN |eliminateDuplicatePropertyLists| (|contour|)
   (PROG (|ISTMP#1| |x| |contour'|)
     (RETURN
      (COND
@@ -371,11 +370,11 @@
        (COND
         ((LASSOC |x| |contour'|)
          (CONS (CAR |contour|)
-               (DELLASOS |x|
-                (|deltaContour,eliminateDuplicatePropertyLists| |contour'|))))
+               (|assoc_del| |x|
+                (|eliminateDuplicatePropertyLists| |contour'|))))
         (#1#
          (CONS (CAR |contour|)
-               (|deltaContour,eliminateDuplicatePropertyLists| |contour'|)))))
+               (|eliminateDuplicatePropertyLists| |contour'|)))))
       (#1# NIL)))))
 
 ; intersectionContour(c, c', ce) ==

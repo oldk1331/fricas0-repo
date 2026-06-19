@@ -980,8 +980,8 @@
 
 ; computeTargetMode(lhs, rhs) ==
 ;     PRETTYPRINT(["computeTargetMode", lhs])
-;     rhs is ['CAPSULE,:.] => MOAN(['"target category of ", lhs,_
-;           '" cannot be determined from definition"],nil)
+;     rhs is ['CAPSULE,:.] => bright_warn([['"target category of ", lhs,
+;           '" cannot be determined from definition"], nil])
 ;     rhs is ['SubDomain,D,:.] => computeTargetMode(lhs,D)
 ;     rhs is ['add,D,['CAPSULE,:.]] => computeTargetMode(lhs,D)
 ;     rhs is ['Record,:l] => ['RecordCategory,:l]
@@ -1008,10 +1008,11 @@
       (PRETTYPRINT (LIST '|computeTargetMode| |lhs|))
       (COND
        ((AND (CONSP |rhs|) (EQ (CAR |rhs|) 'CAPSULE))
-        (MOAN
-         (LIST "target category of " |lhs|
-               " cannot be determined from definition")
-         NIL))
+        (|bright_warn|
+         (LIST
+          (LIST "target category of " |lhs|
+                " cannot be determined from definition")
+          NIL)))
        ((AND (CONSP |rhs|) (EQ (CAR |rhs|) '|SubDomain|)
              (PROGN
               (SETQ |ISTMP#1| (CDR |rhs|))

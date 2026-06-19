@@ -261,7 +261,7 @@
 ;   l is ["?"] => _?t()
 ;   traceList:= [transTraceItem x for x in l] or return nil
 ;   for x in traceList repeat $optionAlist:=
-;     ADDASSOC(x, options, $optionAlist)
+;       assoc_add(x, options, $optionAlist)
 ;   optionList:= getTraceOptions(options)
 ;   if (domainList := LASSOC("of", optionList)) then
 ;       LASSOC("ops", optionList) => throw_msg("S2IT0004",
@@ -416,7 +416,8 @@
               ((OR (ATOM |bfVar#4|) (PROGN (SETQ |x| (CAR |bfVar#4|)) NIL))
                (RETURN NIL))
               (#1#
-               (SETQ |$optionAlist| (ADDASSOC |x| |options| |$optionAlist|))))
+               (SETQ |$optionAlist|
+                       (|assoc_add| |x| |options| |$optionAlist|))))
              (SETQ |bfVar#4| (CDR |bfVar#4|))))
           |traceList| NIL)
          (SETQ |optionList| (|getTraceOptions| |options|))
@@ -1090,7 +1091,7 @@
 ;                      "%d", '"not traced"])
 ;     $trace_names := remove_equal(X, $trace_names)
 ;     $mathTraceList := REMOVE((STRINGP(X) => INTERN(X); X), $mathTraceList)
-;     $letAssoc := DELASC(X, $letAssoc)
+;     $letAssoc := assoc_del(X, $letAssoc)
 ;     Y := (IS_GENVAR(X) => devaluate(EVAL(X)); X)
 ;     $timer_list := remove_equal(STRINGIMAGE(Y), $timer_list)
 ;     SET(INTERN(STRCONC(Y, ",TIMER")), 0)
@@ -1134,7 +1135,7 @@
              (SETQ |$mathTraceList|
                      (REMOVE (COND ((STRINGP X) (INTERN X)) (#1# X))
                              |$mathTraceList|))
-             (SETQ |$letAssoc| (DELASC X |$letAssoc|))
+             (SETQ |$letAssoc| (|assoc_del| X |$letAssoc|))
              (SETQ Y (COND ((IS_GENVAR X) (|devaluate| (EVAL X))) (#1# X)))
              (SETQ |$timer_list|
                      (|remove_equal| (STRINGIMAGE Y) |$timer_list|))
@@ -1208,8 +1209,8 @@
 ; saveMapSig(funNames) ==
 ;   for name in funNames repeat
 ;     map:= rassoc(name,$mapSubNameAlist) =>
-;       $tracedMapSignatures:= ADDASSOC(name,getMapSig(map,name),
-;         $tracedMapSignatures)
+;             $tracedMapSignatures := assoc_add(name, getMapSig(map, name),
+;                                               $tracedMapSignatures)
 
 (DEFUN |saveMapSig| (|funNames|)
   (PROG (|map|)
@@ -1224,7 +1225,7 @@
             ((SETQ |map| (|rassoc| |name| |$mapSubNameAlist|))
              (IDENTITY
               (SETQ |$tracedMapSignatures|
-                      (ADDASSOC |name| (|getMapSig| |map| |name|)
+                      (|assoc_add| |name| (|getMapSig| |map| |name|)
                        |$tracedMapSignatures|)))))))
          (SETQ |bfVar#14| (CDR |bfVar#14|))))
       |funNames| NIL))))
@@ -3040,7 +3041,7 @@
 ;       rplac(first domain.n, bpiPointer)
 ;       rplac(CDDDR pair, nil)
 ;       if assoc(key := BPINAME bpiPointer, $letAssoc) then
-;                 $letAssoc := DELASC(key, $letAssoc)
+;                 $letAssoc := assoc_del(key, $letAssoc)
 ;   newSigSlotNumberAlist:= [x for x in sigSlotNumberAlist | CDDDR x]
 ;   newSigSlotNumberAlist => rplac(rest pair, newSigSlotNumberAlist)
 ;   $trace_names := DELASC(domain, $trace_names)
@@ -3104,7 +3105,8 @@
                        (COND
                         ((|assoc| (SETQ |key| (BPINAME |bpiPointer|))
                           |$letAssoc|)
-                         (SETQ |$letAssoc| (DELASC |key| |$letAssoc|))))))))
+                         (SETQ |$letAssoc|
+                                 (|assoc_del| |key| |$letAssoc|))))))))
                (SETQ |bfVar#87| (CDR |bfVar#87|))))
             |sigSlotNumberAlist| NIL)
            (SETQ |newSigSlotNumberAlist|
@@ -4053,7 +4055,7 @@
 ;     $break_condition : local := BREAKCONDITION
 ;     $monitor_caller : local := rassocSub(WHOCALLED(6), $mapSubNameAlist)
 ;     NOT(STRINGP TRACECODE) =>
-;         MOAN('"set TRACECODE to \'1911\' and restart")
+;         bright_warn(['"set TRACECODE to \'1911\' and restart"])
 ;     C := char_to_digit(TRACECODE.0)
 ;     V := char_to_digit(TRACECODE.1)
 ;     A := char_to_digit(TRACECODE.2)
@@ -4137,7 +4139,7 @@
       (SETQ |$monitor_caller| (|rassocSub| (WHOCALLED 6) |$mapSubNameAlist|))
       (COND
        ((NULL (STRINGP TRACECODE))
-        (MOAN "set TRACECODE to \\'1911\\' and restart"))
+        (|bright_warn| (LIST "set TRACECODE to \\'1911\\' and restart")))
        (#1='T
         (PROGN
          (SETQ C (|char_to_digit| (ELT TRACECODE 0)))

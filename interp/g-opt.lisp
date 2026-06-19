@@ -554,7 +554,7 @@
 ; compileTimeBindingOf u ==
 ;   NULL(name:= BPINAME u)  => system_error("S2OO0001",
 ;       '"Irregular slot entry: %1s", [u])
-;   name="Undef" => MOAN '"optimiser found unknown function"
+;   name = "Undef" => bright_warn(['"optimiser found unknown function"])
 ;   name
 
 (DEFUN |compileTimeBindingOf| (|u|)
@@ -563,7 +563,8 @@
      (COND
       ((NULL (SETQ |name| (BPINAME |u|)))
        (|system_error| 'S2OO0001 "Irregular slot entry: %1s" (LIST |u|)))
-      ((EQ |name| '|Undef|) (MOAN "optimiser found unknown function"))
+      ((EQ |name| '|Undef|)
+       (|bright_warn| (LIST "optimiser found unknown function")))
       ('T |name|)))))
 
 ; optMkRecord ["mkRecord",:u] ==

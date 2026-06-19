@@ -727,6 +727,131 @@
       (SETQ |f| (|compiledLookup| '= (LIST (LIST '|Boolean|) '% '%) |d|))
       (COND ((NULL |f|) NIL) ('T (GET (BPINAME (CAR |f|)) '|SPADreplace|)))))))
 
+; DELASC(k, l) == [e for e in l | ATOM(e) or not(first(e) = k)]
+
+(DEFUN DELASC (|k| |l|)
+  (PROG ()
+    (RETURN
+     ((LAMBDA (|bfVar#6| |bfVar#5| |e|)
+        (LOOP
+         (COND
+          ((OR (ATOM |bfVar#5|) (PROGN (SETQ |e| (CAR |bfVar#5|)) NIL))
+           (RETURN (NREVERSE |bfVar#6|)))
+          ('T
+           (AND (OR (ATOM |e|) (NULL (EQUAL (CAR |e|) |k|)))
+                (SETQ |bfVar#6| (CONS |e| |bfVar#6|)))))
+         (SETQ |bfVar#5| (CDR |bfVar#5|))))
+      NIL |l| NIL))))
+
+; assoc_del(k, l) == [e for e in l | not(first(e) = k)]
+
+(DEFUN |assoc_del| (|k| |l|)
+  (PROG ()
+    (RETURN
+     ((LAMBDA (|bfVar#8| |bfVar#7| |e|)
+        (LOOP
+         (COND
+          ((OR (ATOM |bfVar#7|) (PROGN (SETQ |e| (CAR |bfVar#7|)) NIL))
+           (RETURN (NREVERSE |bfVar#8|)))
+          ('T
+           (AND (NULL (EQUAL (CAR |e|) |k|))
+                (SETQ |bfVar#8| (CONS |e| |bfVar#8|)))))
+         (SETQ |bfVar#7| (CDR |bfVar#7|))))
+      NIL |l| NIL))))
+
+; assoc_add(k, d, l) == cons([k, :d], assoc_del(k, l))
+
+(DEFUN |assoc_add| (|k| |d| |l|)
+  (PROG () (RETURN (CONS (CONS |k| |d|) (|assoc_del| |k| |l|)))))
+
+; ASSOCLEFT(l) == [CAR(e) for e in l]
+
+(DEFUN ASSOCLEFT (|l|)
+  (PROG ()
+    (RETURN
+     ((LAMBDA (|bfVar#10| |bfVar#9| |e|)
+        (LOOP
+         (COND
+          ((OR (ATOM |bfVar#9|) (PROGN (SETQ |e| (CAR |bfVar#9|)) NIL))
+           (RETURN (NREVERSE |bfVar#10|)))
+          ('T (SETQ |bfVar#10| (CONS (CAR |e|) |bfVar#10|))))
+         (SETQ |bfVar#9| (CDR |bfVar#9|))))
+      NIL |l| NIL))))
+
+; ASSOCRIGHT(l) == [CDR(e) for e in l]
+
+(DEFUN ASSOCRIGHT (|l|)
+  (PROG ()
+    (RETURN
+     ((LAMBDA (|bfVar#12| |bfVar#11| |e|)
+        (LOOP
+         (COND
+          ((OR (ATOM |bfVar#11|) (PROGN (SETQ |e| (CAR |bfVar#11|)) NIL))
+           (RETURN (NREVERSE |bfVar#12|)))
+          ('T (SETQ |bfVar#12| (CONS (CDR |e|) |bfVar#12|))))
+         (SETQ |bfVar#11| (CDR |bfVar#11|))))
+      NIL |l| NIL))))
+
+; LASSOC(k, l) ==
+;     res := nil
+;     found := false
+;     for e in l while not(found) repeat
+;         if CAR(e) = k then
+;             res := CDR(e)
+;             found := true
+;     res
+
+(DEFUN LASSOC (|k| |l|)
+  (PROG (|res| |found|)
+    (RETURN
+     (PROGN
+      (SETQ |res| NIL)
+      (SETQ |found| NIL)
+      ((LAMBDA (|bfVar#13| |e|)
+         (LOOP
+          (COND
+           ((OR (ATOM |bfVar#13|) (PROGN (SETQ |e| (CAR |bfVar#13|)) NIL)
+                |found|)
+            (RETURN NIL))
+           ('T
+            (COND
+             ((EQUAL (CAR |e|) |k|) (SETQ |res| (CDR |e|)) (SETQ |found| T)))))
+          (SETQ |bfVar#13| (CDR |bfVar#13|))))
+       |l| NIL)
+      |res|))))
+
+; rassoc(k, l) ==
+;     res := nil
+;     found := false
+;     for e in l while not(found) repeat
+;         if CDR(e) = k then
+;             res := CAR(e)
+;             found := true
+;     res
+
+(DEFUN |rassoc| (|k| |l|)
+  (PROG (|res| |found|)
+    (RETURN
+     (PROGN
+      (SETQ |res| NIL)
+      (SETQ |found| NIL)
+      ((LAMBDA (|bfVar#14| |e|)
+         (LOOP
+          (COND
+           ((OR (ATOM |bfVar#14|) (PROGN (SETQ |e| (CAR |bfVar#14|)) NIL)
+                |found|)
+            (RETURN NIL))
+           ('T
+            (COND
+             ((EQUAL (CDR |e|) |k|) (SETQ |res| (CAR |e|)) (SETQ |found| T)))))
+          (SETQ |bfVar#14| (CDR |bfVar#14|))))
+       |l| NIL)
+      |res|))))
+
+; QLASSQ(p, al) == CDR(ASSQ(p, al))
+
+(DEFUN QLASSQ (|p| |al|) (PROG () (RETURN (CDR (ASSQ |p| |al|)))))
+
 ; hashable(d) ==
 ;     (p := known_Lisp_equalty?(d)) = 'EQ or p = 'EQL or p = 'EQUAL
 
@@ -739,6 +864,12 @@
 ; read_line(st) == READ_-LINE(st, nil, nil)
 
 (DEFUN |read_line| (|st|) (PROG () (RETURN (READ-LINE |st| NIL NIL))))
+
+; bright_warn(m) ==
+;     sayBrightly(["%l", '"===> ", m, "%l"])
+
+(DEFUN |bright_warn| (|m|)
+  (PROG () (RETURN (|sayBrightly| (LIST '|%l| "===> " |m| '|%l|)))))
 
 ; COT(x) == COS(x)/SIN(x)
 
