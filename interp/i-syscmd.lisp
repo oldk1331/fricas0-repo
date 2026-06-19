@@ -478,7 +478,7 @@
 ;       abbQuery(key)
 ;     type is 'remove =>
 ;       DELDATABASE(key,'ABBREVIATION)
-;     ODDP(#al) => say_m0sg("S2IZ0002", CONCAT(
+;     ODDP(#al) => say_msg("S2IZ0002", CONCAT(
 ;             '"%1b must be followed by an alternating list of abbreviation(s)",
 ;             '" and name(s). Issue %b )abbrev ? %d for more information."),
 ;             [type])
@@ -532,7 +532,7 @@
                         (#1# (|abbQuery| |key|))))
                  ((EQ |type| '|remove|) (DELDATABASE |key| 'ABBREVIATION))
                  ((ODDP (LENGTH |al|))
-                  (|say_m0sg| 'S2IZ0002
+                  (|say_msg| 'S2IZ0002
                    (CONCAT
                     "%1b must be followed by an alternating list of abbreviation(s)"
                     " and name(s). Issue %b )abbrev ? %d for more information.")
