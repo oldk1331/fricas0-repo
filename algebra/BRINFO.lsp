@@ -3006,15 +3006,20 @@
                                       (|:| |condition| (|SExpression|))
                                       (|:| |origin| (|SExpression|))
                                       (|:| |documentation| (|String|)))))))))
-         (SEQ (LETT |pat| (|BRINFO;add_stars| |pat| %))
-              (LETT |pcu| (SPADCALL |pat| (QREFELT % 50)))
-              (EXIT
-               (COND ((QEQCAR |pcu| 1) (CONS 1 (QCDR |pcu|)))
-                     ('T
-                      (SEQ (LETT |pc| (QCDR |pcu|))
-                           (LETT |cl| (|BRINFO;search_con_doc| |pc| %))
-                           (LETT |opl| (|BRINFO;search_ops_doc| |pc| %))
-                           (EXIT (CONS 0 (CONS |cl| |opl|)))))))))) 
+         (SEQ
+          (COND
+           ((EQUAL |pat| "")
+            (CONS 1 (SPADCALL (LIST "Invalid pattern") (QREFELT % 48))))
+           (#1='T
+            (SEQ (LETT |pat| (|BRINFO;add_stars| |pat| %))
+                 (LETT |pcu| (SPADCALL |pat| (QREFELT % 50)))
+                 (EXIT
+                  (COND ((QEQCAR |pcu| 1) (CONS 1 (QCDR |pcu|)))
+                        (#1#
+                         (SEQ (LETT |pc| (QCDR |pcu|))
+                              (LETT |cl| (|BRINFO;search_con_doc| |pc| %))
+                              (LETT |opl| (|BRINFO;search_ops_doc| |pc| %))
+                              (EXIT (CONS 0 (CONS |cl| |opl|))))))))))))) 
 
 (SDEFUN |BRINFO;search_general;SU;88|
         ((|pat| (|String|))
