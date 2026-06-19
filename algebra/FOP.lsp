@@ -14,7 +14,7 @@
           ((NULL
             (EQUAL (SPADCALL (QREFELT % 8) (QREFELT % 19))
                    (STRINGIMAGE (ELT |$fortran_out_rec| |$file_off|))))
-           (SEQ (SPADCALL (ELT |$fortran_out_rec| |$file_off|) (QREFELT % 20))
+           (SEQ (SPADCALL (QREFELT % 8) (QREFELT % 20))
                 (EXIT
                  (SPADCALL (STRINGIMAGE (ELT |$fortran_out_rec| |$file_off|))
                            (QREFELT % 8) (QREFELT % 18))))))

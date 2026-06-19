@@ -516,6 +516,7 @@
     (RETURN (|get_lisp_stream| (ELT |$formatted_out_rec| |$stream_off|)))))
 
 ; get_out_rec(branch) ==
+;     branch = 'algebra => $algebra_out_rec
 ;     branch = 'fortran => $fortran_out_rec
 ;     branch = 'mathml => $mathml_out_rec
 ;     branch = 'texmacs => $texmacs_out_rec
@@ -528,7 +529,8 @@
 (DEFUN |get_out_rec| (|branch|)
   (PROG ()
     (RETURN
-     (COND ((EQ |branch| '|fortran|) |$fortran_out_rec|)
+     (COND ((EQ |branch| '|algebra|) |$algebra_out_rec|)
+           ((EQ |branch| '|fortran|) |$fortran_out_rec|)
            ((EQ |branch| '|mathml|) |$mathml_out_rec|)
            ((EQ |branch| '|texmacs|) |$texmacs_out_rec|)
            ((EQ |branch| '|html|) |$html_out_rec|)
