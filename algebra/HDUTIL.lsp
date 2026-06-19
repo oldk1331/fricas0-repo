@@ -47,7 +47,7 @@
                                 (COND ((EQL |n| 0) '|0|) ((EQL |n| 1) '|1|)
                                       (#2='T
                                        (|error|
-                                        "unexpeted integer as operation"))))))
+                                        "unexpected integer as operation"))))))
                          (#2# (|error| "unexpected operation"))))
                   (LETT |ns| (SPADCALL |ops| (QREFELT % 24)))
                   (LETT |cat|

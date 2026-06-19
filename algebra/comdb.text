@@ -107,7 +107,7 @@
 6355`A set \spad{S} is PatternMatchable over \spad{R} if \spad{S} can lift the pattern-matching functions of \spad{S} over the integers and float to itself (necessary for matching in towers).
 6417`A is fully retractable to \spad{B} means that A is retractable to \spad{B}, and, in addition, if \spad{B} is retractable to the integers or rational numbers then so is A. In particular, what we are asserting is that there are no integers (rationals) in A which don\spad{'t} retract into \spad{B}.
 6476`This category is a model for the function field of a plane algebraic curve.
-6645`Specializaton of \spadtype{FunctionSpace2} for \spadtype{Kernel}.
+6645`Specialization of \spadtype{FunctionSpace2} for \spadtype{Kernel}.
 6700`A space of formal functions with arguments in an arbitrary ordered set.
 6778`This category describes domains where \spadfun{\spad{gcd}} can be computed but where there is no guarantee of the existence of \spadfun{factor} operation for factorization into irreducibles. However, if such a \spadfun{factor} operation exist, factorization will be unique up to order and units.
 6820`GradedAlgebra(\spad{R}, \spad{E}) denotes ``E-graded \spad{R}-algebra\spad{''}. A graded algebra is a graded module together with a degree preserving \spad{R}-linear map, called the {\em product}. \blankline The name ``product\spad{''} is written out in full so inner and outer products with the same mapping type can be distinguished by name.
@@ -160,7 +160,7 @@
 9869`A multi-dictionary is a dictionary which may contain duplicates. As for any dictionary, its size is assumed large so that copying (non-destructive) operations are generally to be avoided.
 9930`The class of all euclidean domains such that \spad{euclideanSize(a*b)=euclideanSize(a)*euclideanSize(b)}.
 9987`A multi-set aggregate is a set which keeps track of the multiplicity of its elements.
-10052`General catogory for skew polynomials.
+10052`General category for skew polynomials.
 10168`\spadtype{MultivariateTaylorSeriesCategory} is the most general multivariate Taylor series category.
 10258`NonAssociativeAlgebra is the category of non associative algebras (modules which are themselves non associative rngs). Axioms \indented{3}{\spad{r*}(a*b) = (r*a)\spad{*b} = a*(\spad{r*b})}
 10329`A NonAssociativeRing is a non associative \spad{rng} which has a unit, the multiplication is not necessarily commutative or associative.
@@ -264,7 +264,7 @@
 17507`\spadtype{UnivariatePowerSeriesCategory} is the most general univariate power series category with exponents in an ordered abelian monoid. Note: this category exports a substitution function if it is possible to multiply exponents. Note: this category exports a derivative operation if it is possible to multiply coefficients by exponents.
 17606`\spadtype{UnivariatePuiseuxSeriesCategory} is the category of Puiseux series in one variable.
 17681`This is a category of univariate Puiseux series constructed from univariate Laurent series. A Puiseux series is represented by a pair \spad{[r, f(x)]}, where \spad{r} is a positive rational number and \spad{f(x)} is a Laurent series. This pair represents the Puiseux series \spad{f(x^r)}.
-17814`This is category of power series with rational expnents.
+17814`This is category of power series with rational exponents.
 17922`This is the category of univariate skew polynomials over an Ore coefficient ring. The multiplication is given by \spad{x a = \sigma(a) x + \delta a}. This category is an evolution of the types \indented{2}{MonogenicLinearOperator, OppositeMonogenicLinearOperator, and} \indented{2}{NonCommutativeOperatorDivision} developed by Jean Della Dora and Stephen \spad{M}. Watt.
 17995`\spadtype{UnivariateTaylorSeriesCategory} is the category of Taylor series in one variable.
 18068`VarCat represents a variable in Lambda and Ski domains. Since we are working in terms of functions then a variable will be a function (possibly a constant function) a variable has a name represented by a String. If the Lambda or Ski calculus is typed then the variable will also have a type.
@@ -502,7 +502,7 @@
 41459`Support for modular algebraic \spad{GCD}, case of single extension using U32VectorPolynomialOperations.
 41630`Support for modular algebraic \spad{GCD}, case of multiple extensions.
 41876`Support for modular algebraic \spad{GCD}, case of multiple extensions and fractional coefficients.
-42107`This package implements an interface to polynomial evaluation for mulivariate polynomials.
+42107`This package implements an interface to polynomial evaluation for multivariate polynomials.
 42217`This package implements an interface to polynomial evaluation for polynomials with rational function coefficients.
 42384`This package implements operations needed by \spadtype{ModularFactorizationGeneral} in case of prime fields of characteristic small enough to use machine arithmetic.
 42547`This package implements operations needed by \spadtype{ModularFactorizationGeneral} in case of general finite fields.
@@ -1185,7 +1185,7 @@
 121721`\spad{appendRow!(A, r)} appends the row \spad{r} at the end of the matrix \spad{A}.
 121821`\spad{appendSupport! (f, lst)} appends variables not in the support.
 121972`\spad{apply '}function' represented by this graph to vertex index 'a'
-122052`\spad{elt(mm, \spad{pi})} returns the product of the entries indexed by the integer partition \spad{pi} (as in partitioned moments).
+122052`\spad{apply(mm, \spad{pi})} returns the product of the entries indexed by the integer partition \spad{pi} (as in partitioned moments).
 122109`\spad{apply(m, a)} defines a left operation of \spad{n} by \spad{n} matrices where \spad{n} is the rank of the algebra in terms of matrix-vector multiplication, this is a substitute for a left module structure. Error: if shape of matrix doesn\spad{'t} fit.
 122177`\spad{apply(p, d)} computes the distribution of the random variable \spad{p(X)}\$ where \spad{X} has distribution \spad{d}.
 122275`\spad{A(i, j)} returns \$A_{\spad{i}, \spad{j}}\$
@@ -3528,7 +3528,7 @@
 399105`\spad{float(s)} returns \spad{s} as an element of \spad{Flt}; Error: if \spad{s} is not an atom that also belongs to \spad{Flt}.
 399231`\spad{float(a, e)} returns \spad{a * base() ^ e}.
 399368`\spad{float(a, e, b)} returns \spad{a * b ^ e}.
-399445`fixed_mr(\spad{f}, \spad{d}, \spad{mr}) is the floating conversion.
+399445`\spad{floating_mr(f, d, mr)} is the floating conversion.
 399661`\spad{floor(x)} returns the largest integer below or equal \spad{x}.
 399762`\spad{floor x} returns the largest integer \spad{<= x}.
 399806`\spad{floor(x)} returns the largest integer below or equal \spad{x}.
@@ -4374,7 +4374,7 @@
 507766`\spad{interval(f)} creates a new interval around \spad{f}.
 507832`\spad{interval(f)} creates a new interval around \spad{f}.
 507882`\spad{interval(i, j)} creates list [\spad{i}, \spad{i+1}, ..., \spad{j}]
-507998`\spad{interval(x,y)} creates a new interval \spad{[x,y]}, if \spad{x<=y}; returns \spad{[y,x]}, if \spad{y<x}.
+507998`\spad{interval(x,y)} creates a new interval \spad{[x,y]}, if \spad{x<=y} and \spad{[y,x]}, if \spad{y<x}.
 508102`\spad{intoMatrix(lp, lvar)} converts linear in symbols lvar system of polynomials \spad{lp} = 0 into matrix form
 508243`\spad{inv(x)} returns interval(1/sup(\spad{x}),1/inf(\spad{x})) if not contains?(\spad{x},0). It is an error, if the interval contains 0.
 508325`\spad{inv(x)} \undocumented
@@ -4870,7 +4870,7 @@
 560810`\spad{linearlyDependenceOverZ([v1, ..., vn])} returns \spad{[c1, ..., cn]} if \spad{c1*v1 + ... + cn*vn = 0} and not all the \spad{ci}\spad{'s} are 0, "failed" if the \spad{vi}\spad{'s} are linearly independent over the integers.
 560918`\spad{linearExtend: (f, x)} returns the linear extension of a multilinear map defined on the basis of \spad{M2} applied to a linear combination
 561022`\spad{linearExtend: (f, x)} returns the linear extension of a map defined on the basis of \spad{M2} applied to a linear combination
-561098`\spad{linearExtend: (f, x)} returns the linear extension of a map defined on the basis applied to a linear combination
+561098`\spad{linearExtend(f, x)} returns the linear extension of a map defined on the basis applied to a linear combination
 561185`\spad{linearization(f)} returns the element \spad{f} as linearization with entries represented by admissible linear systems in minimal refined form.
 561255`\spad{linearization(f)} returns the element \spad{f} as linearization.
 561353`\spad{linearize(sys)} tries to retract all equations in \spad{sys} to a linear one. If that is not possible, an error occurs.
@@ -4878,7 +4878,7 @@
 561649`\spad{linearlyDependentOverConstants?([v1, ..., vn], ld)} returns \spad{true} if the \spad{vi}\spad{'s} are linearly dependent over constants, \spad{false} otherwise.
 561759`\spad{linearlyDependentOverZ?([v1, ..., vn])} returns \spad{true} if the \spad{vi}\spad{'s} are linearly dependent over the integers, \spad{false} otherwise.
 561845`\spad{linearPolynomials(lp)} returns \spad{lps, nlps} where \spad{lps} is a list of the linear polynomials in \spad{lp}, and \spad{nlps} are the other ones.
-561968`\spad{linearSearch(f)} searches the cache, calling \spad{f(y)} find desired \spad{y}. It returns \spad{y} from cache if \spad{f}(\spad{y}) is \spad{true} or "failed" if no such \spad{y} exists.
+561968`\spad{linearSearch(f)} searches the cache, calling \spad{f(y)} to find desired \spad{y}. It returns \spad{y} from cache if \spad{f}(\spad{y}) is \spad{true} or "failed" if no such \spad{y} exists.
 562044`\spad{lineColorDefault()} returns the default color of lines connecting points in a 2D viewport.
 562107`\spad{lineColorDefault(p)} sets the default color of lines connecting points in a 2D viewport to the palette \spad{p}.
 562177`\spad{lineIntersect(n, p)} returns the point where a line, from the centre of the boundary to the point \spad{p}, intersects with the boundary. \spad{n:} \% is the boundary \spad{p:} \spad{PT} is the point at the end of the line (outside boundary)
@@ -6722,7 +6722,7 @@
 752313`\spad{read sequentially} reads one item from the file.
 752353`\spad{read!(f)} extracts a value from file \spad{f}. The state of \spad{f} is modified so a subsequent call to \spadfun{read!} will return the next element.
 752402`\spad{read(f, key)} reads item with the key \spad{key} from \spad{f}.
-752460`\spad{read(f, key, val)} reads item with the \spad{key} \spad{key} from \spad{f}. If \spad{key} is not presents returns \spad{val}.
+752460`\spad{read(f, key, val)} reads item with the \spad{key} \spad{key} from \spad{f}. If \spad{key} is not present, \spad{val} is returned.
 752523`\spad{readable?(f)} tests if the named file exists and whether it can be opened for reading.
 752578`\spad{readIfCan reads} one item from the file, otherwise returns \spad{"failed"}
 752639`\spad{readIfCan!(f)} returns a value from the file \spad{f}, if possible. If \spad{f} is not open for reading, or if \spad{f} is at the end of file then \spad{"failed"} is the result.
@@ -9136,7 +9136,7 @@
 1051038`This package provides functions for testing whether a divisor on a curve is a torsion divisor.
 1051253`Utilities for PFOQ and PFO.
 1051416`Package with the conversion functions among different kind of polynomials
-1051481`Groebner functions for \spad{P} \spad{F} This package is an interface package to the groebner basis package which allows you to compute groebner bases for polynomials in either lexicographic ordering or total degree ordering refined by reverse lex. The input is the ordinary polynomial type which is internally converted to a type with the required ordering. The resulting grobner basis is converted back to ordinary polynomials. The ordering among the variables is controlled by an explicit list of variables which is passed as a second argument. The coefficient domain is allowed to be any \spad{gcd} domain, but the groebner basis is computed as if the polynomials were over a field.
+1051481`Groebner functions for \spad{P} \spad{F} This package is an interface package to the groebner basis package which allows you to compute groebner bases for polynomials in either lexicographic ordering or total degree ordering refined by reverse lex. The input is the ordinary polynomial type which is internally converted to a type with the required ordering. The resulting groebner basis is converted back to ordinary polynomials. The ordering among the variables is controlled by an explicit list of variables which is passed as a second argument. The coefficient domain is allowed to be any \spad{gcd} domain, but the groebner basis is computed as if the polynomials were over a field.
 1051535`This package provides a coerce from polynomials over algebraic numbers to \spadtype{Expression Integer}.
 1051590`This package provides a very general map function, which given a set \spad{S} and polynomials over \spad{R} with maps from the variables into \spad{S} and the coefficients into \spad{S}, maps polynomials into \spad{S}. \spad{S} is assumed to support \spad{+}, \spad{*} and \spad{^}.
 1051759`This package transforms multivariate polynomials or fractions into univariate polynomials or fractions, and back.
