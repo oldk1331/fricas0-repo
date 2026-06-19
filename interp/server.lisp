@@ -317,26 +317,13 @@
        |lines| NIL)))))
 
 ; parseAndEvalToString str ==
-;   $collectOutput:local := true
-;   $outputLines: local := nil
-;   $IOindex: local := nil
-;   v := CATCH('SPAD_READER, CATCH('top_level, parseAndEvalStr str))
-;   v = 'restart => ['"error"]
-;   NREVERSE $outputLines
+;     $IOindex: local := nil
+;     parseAndEvalToStringEqNum(str)
 
 (DEFUN |parseAndEvalToString| (|str|)
-  (PROG (|$IOindex| |$outputLines| |$collectOutput| |v|)
-    (DECLARE (SPECIAL |$IOindex| |$outputLines| |$collectOutput|))
-    (RETURN
-     (PROGN
-      (SETQ |$collectOutput| T)
-      (SETQ |$outputLines| NIL)
-      (SETQ |$IOindex| NIL)
-      (SETQ |v|
-              (CATCH 'SPAD_READER
-                (CATCH '|top_level| (|parseAndEvalStr| |str|))))
-      (COND ((EQ |v| '|restart|) (LIST "error"))
-            ('T (NREVERSE |$outputLines|)))))))
+  (PROG (|$IOindex|)
+    (DECLARE (SPECIAL |$IOindex|))
+    (RETURN (PROGN (SETQ |$IOindex| NIL) (|parseAndEvalToStringEqNum| |str|)))))
 
 ; parseAndEvalToStringEqNum str ==
 ;   $collectOutput:local := true

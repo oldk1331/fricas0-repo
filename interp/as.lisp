@@ -2770,7 +2770,7 @@
 
 ; asyTypeJoinItem x ==
 ;   result := asyTypeUnit x
-;   isLowerCaseLetter (PNAME opOf result).0 =>
+;   LOWER_-CASE_-P((PNAME opOf result).0) =>
 ;     $opStack := [[['ATTRIBUTE,result],:$predlist],:$opStack]
 ;   $conStack := [[result,:$predlist],:$conStack]
 
@@ -2780,7 +2780,7 @@
      (PROGN
       (SETQ |result| (|asyTypeUnit| |x|))
       (COND
-       ((|isLowerCaseLetter| (ELT (PNAME (|opOf| |result|)) 0))
+       ((LOWER-CASE-P (ELT (PNAME (|opOf| |result|)) 0))
         (SETQ |$opStack|
                 (CONS (CONS (LIST 'ATTRIBUTE |result|) |$predlist|)
                       |$opStack|)))
