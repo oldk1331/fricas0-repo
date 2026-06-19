@@ -555,7 +555,6 @@
 ; htSetVars() ==
 ;   $path := nil
 ;   $lastTree := nil
-;   if 0 ~= LASTATOM $setOptions then htMarkTree($setOptions,0)
 ;   htShowSetTree($setOptions)
 
 (DEFUN |htSetVars| ()
@@ -564,12 +563,9 @@
      (PROGN
       (SETQ |$path| NIL)
       (SETQ |$lastTree| NIL)
-      (COND
-       ((NOT (EQL 0 (LASTATOM |$setOptions|))) (|htMarkTree| |$setOptions| 0)))
       (|htShowSetTree| |$setOptions|)))))
 
 ; htShowSetTree(setTree) ==
-;   $path := TAKE(- LASTATOM setTree,$path)
 ;   page := htInitPage(mkSetTitle(),nil)
 ;   htpSetProperty(page, 'setTree, setTree)
 ;   links := nil
@@ -601,7 +597,6 @@
          |label|)
     (RETURN
      (PROGN
-      (SETQ |$path| (TAKE (- (LASTATOM |setTree|)) |$path|))
       (SETQ |page| (|htInitPage| (|mkSetTitle|) NIL))
       (|htpSetProperty| |page| '|setTree| |setTree|)
       (SETQ |links| NIL)
@@ -745,7 +740,7 @@
 
 ; htShowSetPage(htPage, branch) ==
 ;   setTree := htpProperty(htPage, 'setTree)
-;   $path := [branch, :TAKE(- LASTATOM(setTree), $path)]
+;   $path := [branch]
 ;   setData := assoc(branch, setTree)
 ;   null setData =>
 ;     systemError('"No Set Data")
@@ -765,7 +760,7 @@
     (RETURN
      (PROGN
       (SETQ |setTree| (|htpProperty| |htPage| '|setTree|))
-      (SETQ |$path| (CONS |branch| (TAKE (- (LASTATOM |setTree|)) |$path|)))
+      (SETQ |$path| (LIST |branch|))
       (SETQ |setData| (|assoc| |branch| |setTree|))
       (COND ((NULL |setData|) (|systemError| "No Set Data"))
             (#1='T
@@ -1409,28 +1404,6 @@
             (|htMakePathKey,fn| (STRCONC |a| "." (PNAME (CAR |b|)))
              (CDR |b|)))))))
 
-; htMarkTree(tree,n) ==
-;   RPLACD(LASTNODE(tree), n)
-;   for branch in tree repeat
-;     branch.3 = 'TREE => htMarkTree(branch.5,n + 1)
-
-(DEFUN |htMarkTree| (|tree| |n|)
-  (PROG ()
-    (RETURN
-     (PROGN
-      (RPLACD (LASTNODE |tree|) |n|)
-      ((LAMBDA (|bfVar#22| |branch|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#22|) (PROGN (SETQ |branch| (CAR |bfVar#22|)) NIL))
-            (RETURN NIL))
-           ('T
-            (COND
-             ((EQ (ELT |branch| 3) 'TREE)
-              (IDENTITY (|htMarkTree| (ELT |branch| 5) (+ |n| 1)))))))
-          (SETQ |bfVar#22| (CDR |bfVar#22|))))
-       |tree| NIL)))))
-
 ; htSetHistory htPage ==
 ;   msg := '"when the history facility is on (yes), results of computations are saved in memory"
 ;   data := ['history,msg,'history,'LITERALS,'$HiFiAccess,'(on off yes no)]
@@ -1548,7 +1521,7 @@
       (|htKill| |page| |val|)))))
 
 ; htSetCache(htPage) ==
-;   $path := '(functions cache)
+;   $path := '(cache functions)
 ;   htPage := htInitPage(mkSetTitle(),nil)
 ;   $valueList := nil
 ;   htMakePage '(
@@ -1578,7 +1551,7 @@
   (PROG ()
     (RETURN
      (PROGN
-      (SETQ |$path| '(|functions| |cache|))
+      (SETQ |$path| '(|cache| |functions|))
       (SETQ |htPage| (|htInitPage| (|mkSetTitle|) NIL))
       (SETQ |$valueList| NIL)
       (|htMakePage|
@@ -1650,11 +1623,11 @@
                   "To cache all past values, " "enter {\\em all}."
                   "\\vspace{1}\\newline "
                   "For each function name, enter {\\em all} or a positive integer:")))
-              ((LAMBDA (|i| |bfVar#23| |name|)
+              ((LAMBDA (|i| |bfVar#22| |name|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#23|)
-                        (PROGN (SETQ |name| (CAR |bfVar#23|)) NIL))
+                   ((OR (ATOM |bfVar#22|)
+                        (PROGN (SETQ |name| (CAR |bfVar#22|)) NIL))
                     (RETURN NIL))
                    (#1#
                     (|htMakePage|
@@ -1664,7 +1637,7 @@
                              (STRCONC "Function {\\em " |name| "} will cache")
                              "values" 5 10 (|htMakeLabel| "c" |i|) 'ALLPI))))))
                   (SETQ |i| (+ |i| 1))
-                  (SETQ |bfVar#23| (CDR |bfVar#23|))))
+                  (SETQ |bfVar#22| (CDR |bfVar#22|))))
                1 |names| NIL)
               (|htSetvarDoneButton| "Select to Set Values" '|htCacheSet|)
               (|htShowPage|))))))))
@@ -1707,10 +1680,10 @@
     (RETURN
      (PROGN
       (SETQ |names| (|htpProperty| |htPage| '|names|))
-      ((LAMBDA (|i| |bfVar#24| |name|)
+      ((LAMBDA (|i| |bfVar#23| |name|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#24|) (PROGN (SETQ |name| (CAR |bfVar#24|)) NIL))
+           ((OR (ATOM |bfVar#23|) (PROGN (SETQ |name| (CAR |bfVar#23|)) NIL))
             (RETURN NIL))
            (#1='T
             (PROGN
@@ -1721,7 +1694,7 @@
              (SETQ |$cacheAlist|
                      (ADDASSOC (INTERN |name|) |num| |$cacheAlist|)))))
           (SETQ |i| (+ |i| 1))
-          (SETQ |bfVar#24| (CDR |bfVar#24|))))
+          (SETQ |bfVar#23| (CDR |bfVar#23|))))
        1 |names| NIL)
       (COND
        ((SETQ |n| (LASSOC '|all| |$cacheAlist|)) (SETQ |$cacheCount| |n|)
@@ -1738,17 +1711,17 @@
       (|bcHt| "\\vspace{1}\\newline ")
       (COND
        (|$cacheAlist|
-        ((LAMBDA (|bfVar#26| |bfVar#25|)
+        ((LAMBDA (|bfVar#25| |bfVar#24|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#26|)
-                  (PROGN (SETQ |bfVar#25| (CAR |bfVar#26|)) NIL))
+             ((OR (ATOM |bfVar#25|)
+                  (PROGN (SETQ |bfVar#24| (CAR |bfVar#25|)) NIL))
               (RETURN NIL))
              (#1#
-              (AND (CONSP |bfVar#25|)
+              (AND (CONSP |bfVar#24|)
                    (PROGN
-                    (SETQ |name| (CAR |bfVar#25|))
-                    (SETQ |val| (CDR |bfVar#25|))
+                    (SETQ |name| (CAR |bfVar#24|))
+                    (SETQ |val| (CDR |bfVar#24|))
                     #1#)
                    (NOT (EQUAL |val| |$cacheCount|))
                    (PROGN
@@ -1757,7 +1730,7 @@
                     (|bcHt| "} will cache ")
                     (|htAllOrNum| |val|)
                     (|bcHt| "} values")))))
-            (SETQ |bfVar#26| (CDR |bfVar#26|))))
+            (SETQ |bfVar#25| (CDR |bfVar#25|))))
          |$cacheAlist| NIL)))
       (|htProcessDoitButton| (LIST "Press to Remove Page" "" '|htDoNothing|))
       (|htShowPage|)))))
