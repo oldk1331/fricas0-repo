@@ -206,7 +206,7 @@
 ;   $UserLevel = 'development => l
 ;   nl := NIL
 ;   for syn in reverse l repeat
-;     cmd := STRING2ID_N(rest(syn), 1)
+;     cmd := first_symbol(rest(syn))
 ;     null(selectOption(cmd, commandsForUserLevel($systemCommands), nil)) =>
 ;         nil
 ;     nl := [syn,:nl]
@@ -227,7 +227,7 @@
                    (RETURN NIL))
                   (#1#
                    (PROGN
-                    (SETQ |cmd| (STRING2ID_N (CDR |syn|) 1))
+                    (SETQ |cmd| (|first_symbol| (CDR |syn|)))
                     (COND
                      ((NULL
                        (|selectOption| |cmd|
@@ -569,7 +569,7 @@
 ;         '" there are several hundred abbreviations, please confirm your",
 ;         '" request by typing %b y %d or %b yes %d and then pressing %b",
 ;         '" Enter %d :"), [])
-;   MEMQ(STRING2ID_N(x, 1), '(Y YES)) =>
+;   x =>
 ;     whatSpad2Cmd '(categories)
 ;     whatSpad2Cmd '(domains)
 ;     whatSpad2Cmd '(packages)
@@ -590,7 +590,7 @@
                 " Enter %d :")
                NIL))
       (COND
-       ((MEMQ (STRING2ID_N |x| 1) '(Y YES))
+       (|x|
         (PROGN
          (|whatSpad2Cmd| '(|categories|))
          (|whatSpad2Cmd| '(|domains|))
@@ -995,8 +995,7 @@
 ;     closeInterpreterFrame(NIL)
 ;   x := query_user_msg("S2IZ0072",
 ;         '"This is the last FriCAS session.  Do you want to kill FriCAS?", [])
-;   MEMQ(STRING2ID_N(x, 1), '(YES Y)) =>
-;     QUIT()
+;   x => QUIT()
 ;   nil
 
 (DEFUN |close| (|args|)
@@ -1047,8 +1046,7 @@
                        (|query_user_msg| 'S2IZ0072
                         "This is the last FriCAS session.  Do you want to kill FriCAS?"
                         NIL))
-               (COND ((MEMQ (STRING2ID_N |x| 1) '(YES Y)) (QUIT))
-                     (#1# NIL)))))))))))))))
+               (COND (|x| (QUIT)) (#1# NIL)))))))))))))))
 
 ; must_find_file(af, ft) ==
 ;     not(af1 := make_input_filename2(af, ft)) => throw_msg("S2IL0003",
@@ -2160,7 +2158,7 @@
 ;             '" operations (functions) be displayed.  As there are several",
 ;             '" hundred operations, please confirm your request by typing",
 ;             '" %b y %d or %b yes %d and then pressing %b Enter %d :"), [])
-;         if MEMQ(STRING2ID_N(x, 1), '(Y YES)) then
+;         if x then
 ;             for op in allOperations() repeat reportOpSymbol(op)
 ;         else say_msg("S2IZ0059", CONCAT(
 ;             '"Since you did not respond with %b y %d or %b yes %d the",
@@ -2183,7 +2181,7 @@
                   " %b y %d or %b yes %d and then pressing %b Enter %d :")
                  NIL))
         (COND
-         ((MEMQ (STRING2ID_N |x| 1) '(Y YES))
+         (|x|
           ((LAMBDA (|bfVar#46| |op|)
              (LOOP
               (COND
@@ -3394,7 +3392,7 @@
 ;             '"User verification required: do you really want to import",
 ;             '" everything from the frame %1b ?  If so, please enter",
 ;             '" %b y %d or %b yes %d :"), [fname])
-;     MEMQ(STRING2ID_N(x, 1), '(Y YES)) =>
+;     x =>
 ;       vars := NIL
 ;       for [v,:props] in CAAR fenv repeat
 ;         v = "--macros" =>
@@ -3471,7 +3469,7 @@
                          " %b y %d or %b yes %d :")
                         (LIST |fname|)))
                (COND
-                ((MEMQ (STRING2ID_N |x| 1) '(Y YES))
+                (|x|
                  (PROGN
                   (SETQ |vars| NIL)
                   ((LAMBDA (|bfVar#64| |bfVar#63|)
@@ -3707,7 +3705,7 @@
 ;          '"Turning on the history facility will clear the contents of",
 ;          '"the workspace.  Please enter %b y %d or %b yes %d if you really",
 ;          '" want to do this:"), [])
-;       MEMQ(STRING2ID_N(x, 1), '(Y YES)) =>
+;       x =>
 ;         histFileErase histFileName()
 ;         $HiFiAccess:= 'T
 ;         $options := nil
@@ -3794,7 +3792,7 @@
                                 " want to do this:")
                                NIL))
                       (COND
-                       ((MEMQ (STRING2ID_N |x| 1) '(Y YES))
+                       (|x|
                         (PROGN
                          (|histFileErase| (|histFileName|))
                          (SETQ |$HiFiAccess| 'T)
@@ -5275,7 +5273,7 @@
 ;   x := query_user_msg("S2IZ0031", CONCAT(
 ;         '"Please enter %b y %d or %b yes %d if you really want to leave the",
 ;         '" interactive environment and return to the operating system:"), [])
-;   MEMQ(STRING2ID_N(x, 1), '(Y YES)) => leaveScratchpad()
+;   x => leaveScratchpad()
 ;   say_msg("S2IZ0032", CONCAT(
 ;         '"You have chosen to remain in the %b FriCAS %d",
 ;         '" interactive environment."), [])
@@ -5293,7 +5291,7 @@
                        "Please enter %b y %d or %b yes %d if you really want to leave the"
                        " interactive environment and return to the operating system:")
                       NIL))
-             (COND ((MEMQ (STRING2ID_N |x| 1) '(Y YES)) (|leaveScratchpad|))
+             (COND (|x| (|leaveScratchpad|))
                    (#1#
                     (PROGN
                      (|say_msg| 'S2IZ0032
@@ -6319,7 +6317,7 @@
 
 ; processSynonymLine line ==
 ;   line := STRING_-LEFT_-TRIM('" ", line)
-;   key := STRING2ID_N (line, 1)
+;   key := first_symbol(line)
 ;   value := SUBSTRING(line, # STRINGIMAGE key, nil)
 ;   value := STRING_-LEFT_-TRIM('" ", value)
 ;   [key, :value]
@@ -6329,7 +6327,7 @@
     (RETURN
      (PROGN
       (SETQ |line| (STRING-LEFT-TRIM " " |line|))
-      (SETQ |key| (STRING2ID_N |line| 1))
+      (SETQ |key| (|first_symbol| |line|))
       (SETQ |value| (SUBSTRING |line| (LENGTH (STRINGIMAGE |key|)) NIL))
       (SETQ |value| (STRING-LEFT-TRIM " " |value|))
       (CONS |key| |value|)))))
@@ -7548,7 +7546,9 @@
 ; satisfiesRegularExpressions(name,patterns) ==
 ;   -- this is a first cut
 ;   nf := true
-;   dname := DOWNCASE COPY name
+;   if SYMBOLP(name) then
+;       name := PNAME(name)
+;   dname := DOWNCASE(name)
 ;   for pattern in patterns while nf repeat
 ;     -- use @ as a wildcard
 ;     STRPOS(pattern,dname,0,'"@") => nf := nil
@@ -7559,7 +7559,8 @@
     (RETURN
      (PROGN
       (SETQ |nf| T)
-      (SETQ |dname| (DOWNCASE (COPY |name|)))
+      (COND ((SYMBOLP |name|) (SETQ |name| (PNAME |name|))))
+      (SETQ |dname| (DOWNCASE |name|))
       ((LAMBDA (|bfVar#162| |pattern|)
          (LOOP
           (COND
@@ -7585,7 +7586,7 @@
 ;   to := search_str('" ", line, 1)
 ;   if to then to := to - 1
 ;   synstr := SUBSTRING (line, 1, to)
-;   syn := STRING2ID_N (synstr, 1)
+;   syn := first_symbol(synstr)
 ;   null (fun := LASSOC (syn, $CommandSynonymAlist)) => NIL
 ;   to := search_str('")", fun, 1)
 ;   if to and to ~= #fun - 1 then
@@ -7614,7 +7615,7 @@
       (SETQ |to| (|search_str| " " |line| 1))
       (COND (|to| (SETQ |to| (- |to| 1))))
       (SETQ |synstr| (SUBSTRING |line| 1 |to|))
-      (SETQ |syn| (STRING2ID_N |synstr| 1))
+      (SETQ |syn| (|first_symbol| |synstr|))
       (COND ((NULL (SETQ |fun| (LASSOC |syn| |$CommandSynonymAlist|))) NIL)
             (#1#
              (PROGN

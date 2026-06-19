@@ -878,3 +878,18 @@
 ; is_char?(c) == CHARACTERP(c)
 
 (DEFUN |is_char?| (|c|) (PROG () (RETURN (CHARACTERP |c|))))
+
+; first_symbol(s) ==
+;     pos := search_str('" ", s, 0)
+;     INTERN(SUBSTRING(s, 0, pos))
+
+(DEFUN |first_symbol| (|s|)
+  (PROG (|pos|)
+    (RETURN
+     (PROGN
+      (SETQ |pos| (|search_str| " " |s| 0))
+      (INTERN (SUBSTRING |s| 0 |pos|))))))
+
+; DOWNCASE(s) == STRING_-DOWNCASE(s)
+
+(DEFUN DOWNCASE (|s|) (PROG () (RETURN (STRING-DOWNCASE |s|))))

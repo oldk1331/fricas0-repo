@@ -529,7 +529,7 @@
 ;           '" the substring %1b . Please confirm your request to have these",
 ;           '" listed by typing %b y %d or %b yes %d and then pressing",
 ;           '" %b Enter %d :"), [op1])
-;       null MEMQ(STRING2ID_N(x, 1),'(Y YES)) =>
+;       not(x) =>
 ;         ok := nil
 ;         say_msg("S2IZ0061", CONCAT(
 ;           '"Since you did not respond with %b y %d or %b yes %d the list of",
@@ -577,7 +577,7 @@
                      " %b Enter %d :")
                     (LIST |op1|)))
            (COND
-            ((NULL (MEMQ (STRING2ID_N |x| 1) '(Y YES)))
+            ((NULL |x|)
              (PROGN
               (SETQ |ok| NIL)
               (|say_msg| 'S2IZ0061

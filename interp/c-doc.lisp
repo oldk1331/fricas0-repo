@@ -596,7 +596,6 @@
 ;   u := checkComments(name,lines)
 ;   $recheckingFlag := true
 ;   checkRewrite(name,[u])
-;   $recheckingFlag := false
 ;   u
 
 (DEFUN |transformAndRecheckComments| (|name| |lines|)
@@ -615,7 +614,6 @@
       (SETQ |u| (|checkComments| |name| |lines|))
       (SETQ |$recheckingFlag| T)
       (|checkRewrite| |name| (LIST |u|))
-      (SETQ |$recheckingFlag| NIL)
       |u|))))
 
 ; checkRewrite(name, lines) ==    --similar to checkComments from c-doc

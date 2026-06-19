@@ -1307,7 +1307,10 @@
 ;     ['STEP,outputTran n,init',outputTran step,:final']
 ;   x is ["IN",n,s] => ["IN",outputTran n,outputTran s]
 ;   x is [op,p] and op in '(_| UNTIL WHILE) =>
-;     op:= DOWNCASE op
+;     op :=
+;         op = 'WHILE => "while"
+;         op = 'UNTIL => "until"
+;         op
 ;     ['CONCATB,op,outputTran p]
 ;   throwKeyedMsg("S2IX0008",['outputTranIterate,['"illegal iterate: ",x]])
 
@@ -1364,7 +1367,9 @@
                   (PROGN (SETQ |p| (CAR |ISTMP#1|)) #1#)))
             (|member| |op| '(|\|| UNTIL WHILE)))
        (PROGN
-        (SETQ |op| (DOWNCASE |op|))
+        (SETQ |op|
+                (COND ((EQ |op| 'WHILE) '|while|) ((EQ |op| 'UNTIL) '|until|)
+                      (#1# |op|)))
         (LIST 'CONCATB |op| (|outputTran| |p|))))
       (#1#
        (|throwKeyedMsg| 'S2IX0008
