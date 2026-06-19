@@ -1052,7 +1052,7 @@
 ;       [rhs])
 ;   $declaredMode: local := NIL
 ;   m:= evaluateType unabbrev rhs
-;   not isLegitimateMode(m, NIL, NIL) => throw_msg_eval_invalid_type(m)
+;   not isLegitimateMode(m, NIL, NIL) => throw_msg_invalid_type(m)
 ;   $declaredMode:= m
 ;   not atom(lhs) and putTarget(lhs,m)
 ;   ms := bottomUp lhs
@@ -1108,7 +1108,7 @@
         (SETQ |m| (|evaluateType| (|unabbrev| |rhs|)))
         (COND
          ((NULL (|isLegitimateMode| |m| NIL NIL))
-          (|throw_msg_eval_invalid_type| |m|))
+          (|throw_msg_invalid_type| |m|))
          (#1#
           (PROGN
            (SETQ |$declaredMode| |m|)
@@ -1144,7 +1144,7 @@
 ;         err_msg_local_type(rhs)
 ;   $declaredMode: local := NIL
 ;   m := evaluateType unabbrev rhs
-;   not isLegitimateMode(m, NIL, NIL) => throw_msg_eval_invalid_type(m)
+;   not isLegitimateMode(m, NIL, NIL) => throw_msg_invalid_type(m)
 ;   $declaredMode:= m
 ;   -- 05/16/89 (RSS) following line commented out to give correct
 ;   -- semantic difference between :: and @
@@ -1194,7 +1194,7 @@
            (SETQ |m| (|evaluateType| (|unabbrev| |rhs|)))
            (COND
             ((NULL (|isLegitimateMode| |m| NIL NIL))
-             (|throw_msg_eval_invalid_type| |m|))
+             (|throw_msg_invalid_type| |m|))
             (#1#
              (PROGN
               (SETQ |$declaredMode| |m|)
@@ -4219,7 +4219,7 @@
 ;   mode = $Void => throw_msg_pos("S2IS0015",
 ;       '"An identifier cannot be declared to have type %b Void %d:", [], op)
 ;   not isLegitimateMode(mode, nil, nil) =>
-;         throw_msg_eval_invalid_type(mode, false, op)
+;         throw_msg_invalid_type2(mode, false, op)
 ;   err_m := '"%1bp is a %2 , not a domain, and declarations require domains."
 ;   categoryForm?(mode) =>
 ;         throw_msg_pos("S2IE0011", err_m, [mode, 'category], op)
@@ -4280,7 +4280,7 @@
            "An identifier cannot be declared to have type %b Void %d:" NIL
            |op|))
          ((NULL (|isLegitimateMode| |mode| NIL NIL))
-          (|throw_msg_eval_invalid_type| |mode| NIL |op|))
+          (|throw_msg_invalid_type2| |mode| NIL |op|))
          (#1#
           (PROGN
            (SETQ |err_m|
