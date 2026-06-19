@@ -73,7 +73,7 @@
 ; get_io_index_stream(dir_name, io?) ==
 ;     ds := (io? => 'io; 'input)
 ;     ind_name := CONCAT(dir_name, '"/", $index_filename)
-;     open_stream(ind_name, ds, false)
+;     open_stream2(ind_name, ds, false)
 
 (DEFUN |get_io_index_stream| (|dir_name| |io?|)
   (PROG (|ds| |ind_name|)
@@ -81,7 +81,7 @@
      (PROGN
       (SETQ |ds| (COND (|io?| '|io|) ('T '|input|)))
       (SETQ |ind_name| (CONCAT |dir_name| "/" |$index_filename|))
-      (|open_stream| |ind_name| |ds| NIL)))))
+      (|open_stream2| |ind_name| |ds| NIL)))))
 
 ; get_io_index_table(stream, io?) ==
 ;     pos := READ(stream, nil, nil)
@@ -115,37 +115,64 @@
          NIL))
        ('T NIL))))))
 
-; kaf_open(name, io?) ==
+; kaf_open2(name, io?) ==
 ;     full_name :=
 ;         io? => name
 ;         make_input_filename1(name)
+;     NULL(full_name) => nil
+;     res1 := true
 ;     if io? then
 ;         kind := file_kind(full_name)
-;         if kind = -1 then
-;             makedir(full_name)
-;         else if kind = 0 then
-;             ERROR(FORMAT(nil, '"~s is an existing file, not a library",
-;                   full_name))
+;         res1 :=
+;             kind = -1 => makedir(full_name) = 0
+;             kind = 0 => nil
+;             true
+;     NULL(res1) => nil
 ;     stream := get_io_index_stream(full_name, io?)
+;     NULL(stream) => nil
 ;     make_kaf((io? => 'output; 'input), full_name,
 ;              get_io_index_table(stream, io?), stream)
 
-(DEFUN |kaf_open| (|name| |io?|)
-  (PROG (|full_name| |kind| |stream|)
+(DEFUN |kaf_open2| (|name| |io?|)
+  (PROG (|full_name| |res1| |kind| |stream|)
     (RETURN
      (PROGN
       (SETQ |full_name|
               (COND (|io?| |name|) (#1='T (|make_input_filename1| |name|))))
-      (COND
-       (|io?| (SETQ |kind| (|file_kind| |full_name|))
-        (COND ((EQUAL |kind| (- 1)) (|makedir| |full_name|))
-              ((EQL |kind| 0)
-               (ERROR
-                (FORMAT NIL "~s is an existing file, not a library"
-                        |full_name|))))))
-      (SETQ |stream| (|get_io_index_stream| |full_name| |io?|))
-      (|make_kaf| (COND (|io?| '|output|) (#1# '|input|)) |full_name|
-       (|get_io_index_table| |stream| |io?|) |stream|)))))
+      (COND ((NULL |full_name|) NIL)
+            (#1#
+             (PROGN
+              (SETQ |res1| T)
+              (COND
+               (|io?| (SETQ |kind| (|file_kind| |full_name|))
+                (SETQ |res1|
+                        (COND
+                         ((EQUAL |kind| (- 1)) (EQL (|makedir| |full_name|) 0))
+                         ((EQL |kind| 0) NIL) (#1# T)))))
+              (COND ((NULL |res1|) NIL)
+                    (#1#
+                     (PROGN
+                      (SETQ |stream| (|get_io_index_stream| |full_name| |io?|))
+                      (COND ((NULL |stream|) NIL)
+                            (#1#
+                             (|make_kaf|
+                              (COND (|io?| '|output|) (#1# '|input|))
+                              |full_name| (|get_io_index_table| |stream| |io?|)
+                              |stream|)))))))))))))
+
+; kaf_open(name, io?) ==
+;     res1 := kaf_open2(name, io?)
+;     NULL(res1) =>
+;         ERROR(FORMAT(nil, '"Can not open ~s", name))
+;     res1
+
+(DEFUN |kaf_open| (|name| |io?|)
+  (PROG (|res1|)
+    (RETURN
+     (PROGN
+      (SETQ |res1| (|kaf_open2| |name| |io?|))
+      (COND ((NULL |res1|) (ERROR (FORMAT NIL "Can not open ~s" |name|)))
+            ('T |res1|))))))
 
 ; kaf_close(kaf) ==
 ;     istr := kaf_index_stream(kaf)
@@ -662,11 +689,14 @@
 (DEFUN |delete_file| (|f|) (PROG () (RETURN (DELETE-FILE |f|))))
 
 ; MAKE_INSTREAM(name) ==
-;     open_stream(make_input_filename1(name), 'input, false)
+;     NULL(fn := make_input_filename1(name)) => nil
+;     open_stream2(fn, 'input, false)
 
 (DEFUN MAKE_INSTREAM (|name|)
-  (PROG ()
-    (RETURN (|open_stream| (|make_input_filename1| |name|) '|input| NIL))))
+  (PROG (|fn|)
+    (RETURN
+     (COND ((NULL (SETQ |fn| (|make_input_filename1| |name|))) NIL)
+           ('T (|open_stream2| |fn| '|input| NIL))))))
 
 ; MAKE_OUTSTREAM(name) == open_stream(name, 'output, false)
 
