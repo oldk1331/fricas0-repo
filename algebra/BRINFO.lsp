@@ -22,8 +22,8 @@
          (% #1=(|SExpression|)))
         (SPROG
          ((|op| (|SExpression|)) (|args| (|List| (|SExpression|)))
-          (#2=#:G139 NIL) (#3=#:G140 NIL) (#4=#:G141 NIL) (|arg| NIL)
-          (#5=#:G142 NIL) (|v| #1#) (|nargs| (|List| #1#))
+          (#2=#:G135 NIL) (#3=#:G136 NIL) (#4=#:G137 NIL) (|arg| NIL)
+          (#5=#:G138 NIL) (|v| #1#) (|nargs| (|List| #1#))
           (|av| (|SExpression|)))
          (SEQ
           (COND ((NULL (SPADCALL |pred| (QREFELT % 13))) |pred|)
@@ -156,7 +156,7 @@
 
 (SDEFUN |BRINFO;downcase;2S;7| ((|s| (|String|)) (% (|String|)))
         (SPROG
-         ((|res| (|String|)) (|shift| (|Integer|)) (|i| NIL) (#1=#:G157 NIL)
+         ((|res| (|String|)) (|shift| (|Integer|)) (|i| NIL) (#1=#:G153 NIL)
           (|c| (|Character|)))
          (SEQ
           (LETT |res|
@@ -199,25 +199,24 @@
                  (#1# NIL))))) 
 
 (SDEFUN |BRINFO;convert_pattern;SU;9|
-        ((|pat| (|String|)) (% (|Union| (|SExpression|) (|ErrorIndicator|))))
-        (SPROG ((|pc| (|SExpression|)))
-               (SEQ (LETT |pc| (|pmTransFilter| |pat|))
+        ((|pat| (|String|))
+         (% (|Union| (|LogicalMatchingAutomaton|) (|ErrorIndicator|))))
+        (SPROG ((|pu| (|Union| (|LogicalMatchingAutomaton|) "failed")))
+               (SEQ (LETT |pu| (SPADCALL |pat| 'T (QREFELT % 45)))
                     (EXIT
                      (COND
-                      ((|BRINFO;is_error?| |pc| %)
-                       (CONS 1 (SPADCALL |pc| (QREFELT % 15))))
-                      ('T (CONS 0 |pc|))))))) 
+                      ((QEQCAR |pu| 1)
+                       (CONS 1
+                             (SPADCALL (LIST "Invalid pattern")
+                                       (QREFELT % 48))))
+                      ('T (CONS 0 (QCDR |pu|)))))))) 
 
-(SDEFUN |BRINFO;do_match;SeSB;10|
-        ((|pat| (|SExpression|)) (|s| (|String|)) (% (|Boolean|)))
-        (SPROG ((|res1| (|SExpression|)))
-               (SEQ
-                (LETT |res1|
-                      (|superMatch?| |pat| (SPADCALL |s| (QREFELT % 40))))
-                (EXIT (NULL (SPADCALL |res1| (QREFELT % 18))))))) 
+(SDEFUN |BRINFO;do_match;LmaSB;10|
+        ((|pat| (|LogicalMatchingAutomaton|)) (|s| (|String|)) (% (|Boolean|)))
+        (SPADCALL |pat| (SPADCALL |s| (QREFELT % 40)) (QREFELT % 52))) 
 
-(SDEFUN |BRINFO;filter_ops;Se2L;11|
-        ((|pat| (|SExpression|))
+(SDEFUN |BRINFO;filter_ops;Lma2L;11|
+        ((|pat| (|LogicalMatchingAutomaton|))
          (|opl|
           (|List|
            (|Record| (|:| |name| (|Symbol|))
@@ -237,7 +236,7 @@
                                      (|:| |origin| (|SExpression|))
                                      (|:| |documentation| (|String|)))))))))
         (SPROG
-         ((|opr| NIL) (#1=#:G183 NIL)
+         ((|opr| NIL) (#1=#:G181 NIL)
           (|res|
            (|List|
             (|Record| (|:| |name| (|Symbol|))
@@ -255,8 +254,8 @@
                    (SEQ
                     (EXIT
                      (COND
-                      ((SPADCALL |pat| (SPADCALL (QCAR |opr|) (QREFELT % 46))
-                                 (QREFELT % 45))
+                      ((SPADCALL |pat| (SPADCALL (QCAR |opr|) (QREFELT % 54))
+                                 (QREFELT % 53))
                        (LETT |res| (CONS |opr| |res|))))))
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (EXIT (NREVERSE |res|))))) 
@@ -283,14 +282,13 @@
                                       (|:| |origin| (|SExpression|))
                                       (|:| |documentation| (|String|)))))))
            (|ErrorIndicator|))))
-        (SPROG ((|pc| (|Union| (|SExpression|) (|ErrorIndicator|))))
-               (SEQ (LETT |pc| (SPADCALL |pat| (QREFELT % 44)))
-                    (EXIT
-                     (COND ((QEQCAR |pc| 1) (CONS 1 (QCDR |pc|)))
-                           ('T
-                            (CONS 0
-                                  (SPADCALL (QCDR |pc|) |opl|
-                                            (QREFELT % 50))))))))) 
+        (SPROG
+         ((|pc| (|Union| (|LogicalMatchingAutomaton|) (|ErrorIndicator|))))
+         (SEQ (LETT |pc| (SPADCALL |pat| (QREFELT % 50)))
+              (EXIT
+               (COND ((QEQCAR |pc| 1) (CONS 1 (QCDR |pc|)))
+                     ('T
+                      (CONS 0 (SPADCALL (QCDR |pc|) |opl| (QREFELT % 58))))))))) 
 
 (SDEFUN |BRINFO;constructor_name?;SB;13| ((|name| (|Symbol|)) (% (|Boolean|)))
         (SPROG ((|res1| (|SExpression|)))
@@ -325,8 +323,8 @@
                                      (|:| |documentation| (|String|)))))))))
         (SPROG
          ((|cl| #1=(|List| (|SExpression|))) (|dl| #1#) (|opr| NIL)
-          (#2=#:G217 NIL) (|sd| NIL) (#3=#:G218 NIL) (|np| (|SExpression|))
-          (#4=#:G216 NIL)
+          (#2=#:G215 NIL) (|sd| NIL) (#3=#:G216 NIL) (|np| (|SExpression|))
+          (#4=#:G214 NIL)
           (|r1|
            (|Record| (|:| |signature| (|SExpression|))
                      (|:| |condition| (|SExpression|))
@@ -383,7 +381,7 @@
                                            ((SPADCALL |np| (QREFELT % 18))
                                             (PROGN
                                              (LETT #4# |$NoValue|)
-                                             (GO #5=#:G203)))
+                                             (GO #5=#:G201)))
                                            ('T
                                             (VECTOR (QVELT |sd| 0) |np|
                                                     (QVELT |sd| 2)
@@ -427,14 +425,14 @@
                                         (|:| |condition| (|SExpression|))
                                         (|:| |origin| (|SExpression|))
                                         (|:| |documentation| (|String|)))))))
-          (|f1| NIL) (#2=#:G233 NIL) (|n_sd| #1#) (|n_sig| (|SExpression|))
-          (#3=#:G232 NIL)
+          (|f1| NIL) (#2=#:G231 NIL) (|n_sd| #1#) (|n_sig| (|SExpression|))
+          (#3=#:G230 NIL)
           (|cl|
            (|List|
             (|Record| (|:| |form| (|SExpression|))
                       (|:| |condition| (|SExpression|)))))
-          (|c1| NIL) (#4=#:G234 NIL))
-         (SEQ (LETT |opl| (QCDR (SPADCALL |dom_form| (QREFELT % 58))))
+          (|c1| NIL) (#4=#:G232 NIL))
+         (SEQ (LETT |opl| (QCDR (SPADCALL |dom_form| (QREFELT % 66))))
               (LETT |fl| (|BRINFO;flatten_opll| (LIST |opl|) %))
               (SEQ (LETT |f1| NIL) (LETT #2# |fl|) G190
                    (COND
@@ -451,17 +449,17 @@
                                  (QREFELT % 20)))
                           (EXIT
                            (COND
-                            ((SPADCALL |n_sig| |op_tab| (QREFELT % 60))
-                             (PROGN (LETT #3# |$NoValue|) (GO #5=#:G222)))
+                            ((SPADCALL |n_sig| |op_tab| (QREFELT % 68))
+                             (PROGN (LETT #3# |$NoValue|) (GO #5=#:G220)))
                             ('T
                              (SPADCALL |op_tab| |n_sig|
                                        (VECTOR (QVELT |n_sd| 0) 'T
                                                (QVELT |n_sd| 2)
                                                (QVELT |n_sd| 3))
-                                       (QREFELT % 61)))))))
+                                       (QREFELT % 69)))))))
                     #5# (EXIT #3#))
                    (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
-              (LETT |cl| (SPADCALL |dom_form| (QREFELT % 63)))
+              (LETT |cl| (SPADCALL |dom_form| (QREFELT % 71)))
               (EXIT
                (SEQ (LETT |c1| NIL) (LETT #4# |cl|) G190
                     (COND
@@ -485,9 +483,9 @@
                                     (|:| |origin| (|SExpression|))
                                     (|:| |documentation| (|String|))))))))
         (SPROG
-         ((|opr| NIL) (#1=#:G249 NIL) (|name| (|Symbol|)) (|sig_cond| NIL)
-          (#2=#:G250 NIL) (|scl| (|List| (|SExpression|)))
-          (|n_sig| (|SExpression|)) (|n_cond| (|SExpression|)) (#3=#:G248 NIL)
+         ((|opr| NIL) (#1=#:G247 NIL) (|name| (|Symbol|)) (|sig_cond| NIL)
+          (#2=#:G248 NIL) (|scl| (|List| (|SExpression|)))
+          (|n_sig| (|SExpression|)) (|n_cond| (|SExpression|)) (#3=#:G246 NIL)
           (|sd|
            (|Record| (|:| |signature| (|SExpression|))
                      (|:| |condition| (|SExpression|))
@@ -534,7 +532,7 @@
                              (EXIT
                               (COND
                                ((SPADCALL |n_cond| (QREFELT % 18))
-                                (PROGN (LETT #3# |$NoValue|) (GO #4=#:G238)))
+                                (PROGN (LETT #3# |$NoValue|) (GO #4=#:G236)))
                                ('T
                                 (SEQ
                                  (LETT |sd|
@@ -581,7 +579,7 @@
                                      (|:| |condition| (|SExpression|))
                                      (|:| |origin| (|SExpression|))
                                      (|:| |documentation| (|String|)))))))
-          (|opr| NIL) (#1=#:G265 NIL) (|name| (|Symbol|))
+          (|opr| NIL) (#1=#:G263 NIL) (|name| (|Symbol|))
           (|o_sd|
            #2=(|Record| (|:| |signature| #3=(|SExpression|))
                         (|:| |condition| (|SExpression|))
@@ -593,7 +591,7 @@
                      (|:| |condition| (|SExpression|))
                      (|:| |origin| (|SExpression|))
                      (|:| |documentation| (|String|))))
-          (#4=#:G264 NIL) (|sd2| #2#)
+          (#4=#:G262 NIL) (|sd2| #2#)
           (|fl2|
            (|List|
             (|Record| (|:| |name| (|Symbol|))
@@ -602,14 +600,14 @@
                                      (|:| |condition| (|SExpression|))
                                      (|:| |origin| (|SExpression|))
                                      (|:| |documentation| (|String|))))))))
-         (SEQ (LETT |op_tab| (SPADCALL (QREFELT % 64)))
+         (SEQ (LETT |op_tab| (SPADCALL (QREFELT % 72)))
               (|BRINFO;fill_op_tab| |dom_form| |op_tab| %)
               (LETT |op| (SPADCALL |form| (QREFELT % 14)))
               (LETT |args| (CDR (SPADCALL |dom_form| (QREFELT % 17))))
               (LETT |ople|
                     (SPADCALL |args| (|get_database| |op| 'OPERATIONALIST)
                               (QREFELT % 8)))
-              (LETT |anc_lst| (SPADCALL |form| |dom_form| (QREFELT % 65)))
+              (LETT |anc_lst| (SPADCALL |form| |dom_form| (QREFELT % 73)))
               (LETT |fl1|
                     (|BRINFO;fix_ops| (SPADCALL |ople| (QREFELT % 17))
                      |anc_lst| %))
@@ -628,11 +626,11 @@
                                        (SPADCALL |sig| (QREFELT % 17)))
                                  (QREFELT % 20)))
                           (LETT |n_sd|
-                                (SPADCALL |op_tab| |n_sig| (QREFELT % 66)))
+                                (SPADCALL |op_tab| |n_sig| (QREFELT % 74)))
                           (EXIT
                            (COND
                             ((SPADCALL (QVELT |n_sd| 1) (QREFELT % 18))
-                             (PROGN (LETT #4# |$NoValue|) (GO #5=#:G253)))
+                             (PROGN (LETT #4# |$NoValue|) (GO #5=#:G251)))
                             ('T
                              (SEQ (QSETVELT |n_sd| 1 NIL)
                                   (LETT |sd2|
@@ -647,14 +645,14 @@
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (LETT |fl2|
                     (SPADCALL (CONS (|function| |BRINFO;fun_cmp|) %) |fl2|
-                              (QREFELT % 70)))
+                              (QREFELT % 78)))
               (EXIT (|BRINFO;group_funs| |fl2| %))))) 
 
 (SDEFUN |BRINFO;sex_order|
         ((|s1| (|SExpression|)) (|s2| (|SExpression|)) (% (|Boolean|)))
         (SPROG
          ((|e1| #1=(|SExpression|)) (|e2| #1#)
-          (|sl1| #2=(|List| (|SExpression|))) (|sl2| #2#) (#3=#:G286 NIL))
+          (|sl1| #2=(|List| (|SExpression|))) (|sl2| #2#) (#3=#:G284 NIL))
          (SEQ
           (EXIT
            (COND
@@ -671,7 +669,7 @@
                                   ((NULL |sl1|)
                                    (PROGN
                                     (LETT #3# (NULL (NULL |sl2|)))
-                                    (GO #5=#:G285)))
+                                    (GO #5=#:G283)))
                                   ((NULL |sl2|)
                                    (PROGN (LETT #3# NIL) (GO #5#)))
                                   ('T
@@ -691,22 +689,22 @@
                                             (GO #5#))))))))))
                                NIL (GO G190) G191 (EXIT NIL)))))))
             ((SPADCALL |s1| (QREFELT % 41)) NIL)
-            ((SPADCALL |s1| (QREFELT % 72))
-             (COND ((NULL (SPADCALL |s2| (QREFELT % 72))) 'T)
+            ((SPADCALL |s1| (QREFELT % 80))
+             (COND ((NULL (SPADCALL |s2| (QREFELT % 80))) 'T)
                    (#4#
-                    (CGREATERP (SPADCALL |s2| (QREFELT % 73))
-                               (SPADCALL |s1| (QREFELT % 73))))))
-            ((SPADCALL |s2| (QREFELT % 72)) NIL)
-            ((SPADCALL |s1| (QREFELT % 74))
-             (COND ((NULL (SPADCALL |s2| (QREFELT % 74))) 'T)
+                    (CGREATERP (SPADCALL |s2| (QREFELT % 81))
+                               (SPADCALL |s1| (QREFELT % 81))))))
+            ((SPADCALL |s2| (QREFELT % 80)) NIL)
+            ((SPADCALL |s1| (QREFELT % 82))
+             (COND ((NULL (SPADCALL |s2| (QREFELT % 82))) 'T)
                    (#4#
-                    (< (SPADCALL |s1| (QREFELT % 75))
-                       (SPADCALL |s2| (QREFELT % 75))))))
-            ((SPADCALL |s2| (QREFELT % 74)) NIL)
+                    (< (SPADCALL |s1| (QREFELT % 83))
+                       (SPADCALL |s2| (QREFELT % 83))))))
+            ((SPADCALL |s2| (QREFELT % 82)) NIL)
             ('T
              (CGREATERP
-              (SPADCALL (SPADCALL |s2| (QREFELT % 12)) (QREFELT % 46))
-              (SPADCALL (SPADCALL |s1| (QREFELT % 12)) (QREFELT % 46))))))
+              (SPADCALL (SPADCALL |s2| (QREFELT % 12)) (QREFELT % 54))
+              (SPADCALL (SPADCALL |s1| (QREFELT % 12)) (QREFELT % 54))))))
           #5# (EXIT #3#)))) 
 
 (SDEFUN |BRINFO;gr1_ord|
@@ -773,7 +771,7 @@
                                     (|:| |condition| (|SExpression|))
                                     (|:| |origin| (|SExpression|))
                                     (|:| |documentation| (|String|))))))
-          (|a1| NIL) (#3=#:G308 NIL) (|on| #1#) (|res1| (|List| #2#))
+          (|a1| NIL) (#3=#:G306 NIL) (|on| #1#) (|res1| (|List| #2#))
           (|res|
            (|List|
             (|Record| (|:| |name| (|Symbol|))
@@ -786,7 +784,7 @@
          (SEQ
           (LETT |lst|
                 (SPADCALL (CONS (|function| |BRINFO;gr2_ord|) %) |lst|
-                          (QREFELT % 79)))
+                          (QREFELT % 87)))
           (LETT |a0| (|SPADfirst| |lst|)) (LETT |lst| (CDR |lst|))
           (LETT |on| (QVELT |a0| 1)) (LETT |res1| (LIST (QVELT |a0| 2)))
           (LETT |res| NIL)
@@ -839,7 +837,7 @@
                                     (|:| |condition| (|SExpression|))
                                     (|:| |origin| (|SExpression|))
                                     (|:| |documentation| (|String|))))))
-          (|gr| NIL) (#2=#:G326 NIL) (|t| #1#)
+          (|gr| NIL) (#2=#:G324 NIL) (|t| #1#)
           (|r1|
            #3=(|Record| (|:| |i| (|Integer|)) (|:| |name| (|Symbol|))
                         (|:| |sd|
@@ -877,7 +875,7 @@
                  (SEQ
                   (LETT |grd|
                         (SPADCALL (CONS (|function| |BRINFO;gr1_ord|) %) |grd|
-                                  (QREFELT % 83)))
+                                  (QREFELT % 91)))
                   (LETT |e1| (|SPADfirst| |grd|)) (LETT |ot| (QVELT |e1| 0))
                   (LETT |res1|
                         (LIST
@@ -937,8 +935,8 @@
                                             (|:| |documentation|
                                                  (|String|))))))))))))
         (SPROG
-         ((|opr| NIL) (#1=#:G337 NIL) (|name| (|Symbol|)) (|sd| NIL)
-          (#2=#:G338 NIL)
+         ((|opr| NIL) (#1=#:G335 NIL) (|name| (|Symbol|)) (|sd| NIL)
+          (#2=#:G336 NIL)
           (|r1|
            #3=(|Record| (|:| |grp_tag| (|SExpression|)) (|:| |i| (|Integer|))
                         (|:| |name| (|Symbol|))
@@ -1056,8 +1054,8 @@
                                                  (|String|))))))))))))
         (SPROG
          ((|con_name| (|Symbol|)) (|dom| (|None|)) (|dom_name| (|SExpression|))
-          (|pred_lst| (|List| (|SExpression|))) (|opr| NIL) (#1=#:G357 NIL)
-          (|op| (|Symbol|)) (|sd| NIL) (#2=#:G358 NIL) (|sig1| (|SExpression|))
+          (|pred_lst| (|List| (|SExpression|))) (|opr| NIL) (#1=#:G355 NIL)
+          (|op| (|Symbol|)) (|sd| NIL) (#2=#:G356 NIL) (|sig1| (|SExpression|))
           (|sig_imp| (|SExpression|))
           (|r1|
            #3=(|Record| (|:| |grp_tag| (|SExpression|)) (|:| |i| (|Integer|))
@@ -1186,20 +1184,20 @@
                         (|:| |condition| (|SExpression|))
                         (|:| |origin| (|SExpression|))
                         (|:| |documentation| (|String|))))
-          (|sd2| #1#) (#2=#:G383 NIL))
+          (|sd2| #1#) (#2=#:G381 NIL))
          (SEQ
           (EXIT
            (SEQ G190 NIL
                 (SEQ
                  (EXIT
                   (COND ((NULL |sdl1|) (NULL (NULL |sdl2|)))
-                        ((NULL |sdl2|) (PROGN (LETT #2# NIL) (GO #3=#:G382)))
+                        ((NULL |sdl2|) (PROGN (LETT #2# NIL) (GO #3=#:G380)))
                         ('T
                          (SEQ (LETT |sd1| (|SPADfirst| |sdl1|))
                               (LETT |sd2| (|SPADfirst| |sdl2|))
                               (EXIT
                                (COND
-                                ((SPADCALL |sd1| |sd2| (QREFELT % 89))
+                                ((SPADCALL |sd1| |sd2| (QREFELT % 97))
                                  (SEQ (LETT |sdl1| (CDR |sdl1|))
                                       (EXIT (LETT |sdl2| (CDR |sdl2|)))))
                                 ('T
@@ -1233,7 +1231,7 @@
                      (COND
                       ((EQUAL |n1| |n2|)
                        (|BRINFO;sdl_cmp| (QCDR |r1|) (QCDR |r2|) %))
-                      ('T (SPADCALL |n1| |n2| (QREFELT % 90)))))))) 
+                      ('T (SPADCALL |n1| |n2| (QREFELT % 98)))))))) 
 
 (SDEFUN |BRINFO;sig_cmp|
         ((|r1|
@@ -1265,20 +1263,20 @@
          ((|r1|
            #1=(|Record| (|:| |signature| (|SExpression|))
                         (|:| |condition| (|SExpression|))))
-          (|r2| #1#) (#2=#:G398 NIL))
+          (|r2| #1#) (#2=#:G396 NIL))
          (SEQ
           (EXIT
            (SEQ G190 NIL
                 (SEQ
                  (EXIT
                   (COND ((NULL |l1|) (NULL (NULL |l2|)))
-                        ((NULL |l2|) (PROGN (LETT #2# NIL) (GO #3=#:G397)))
+                        ((NULL |l2|) (PROGN (LETT #2# NIL) (GO #3=#:G395)))
                         ('T
                          (SEQ (LETT |r1| (|SPADfirst| |l1|))
                               (LETT |r2| (|SPADfirst| |l2|))
                               (EXIT
                                (COND
-                                ((SPADCALL |r1| |r2| (QREFELT % 92))
+                                ((SPADCALL |r1| |r2| (QREFELT % 100))
                                  (SEQ (LETT |l1| (CDR |l1|))
                                       (EXIT (LETT |l2| (CDR |l2|)))))
                                 ('T
@@ -1308,7 +1306,7 @@
                      (COND
                       ((EQUAL |n1| |n2|)
                        (|BRINFO;sigs_cmp| (QCDR |r1|) (QCDR |r2|) %))
-                      ('T (SPADCALL |n1| |n2| (QREFELT % 90)))))))) 
+                      ('T (SPADCALL |n1| |n2| (QREFELT % 98)))))))) 
 
 (SDEFUN |BRINFO;op_name| ((|ne| (|SExpression|)) (% (|Symbol|)))
         (SPROG ((|ni| (|Integer|)))
@@ -1316,8 +1314,8 @@
                 (COND
                  ((SPADCALL |ne| (QREFELT % 10))
                   (SPADCALL |ne| (QREFELT % 12)))
-                 ((SPADCALL |ne| (QREFELT % 74))
-                  (SEQ (LETT |ni| (SPADCALL |ne| (QREFELT % 75)))
+                 ((SPADCALL |ne| (QREFELT % 82))
+                  (SEQ (LETT |ni| (SPADCALL |ne| (QREFELT % 83)))
                        (EXIT
                         (COND ((EQL |ni| 0) '|0|) ((EQL |ni| 1) '|1|)
                               (#1='T
@@ -1335,7 +1333,7 @@
                            (|Record| (|:| |signature| (|SExpression|))
                                      (|:| |condition| (|SExpression|)))))))))
         (SPROG
-         ((|r1| (|SExpression|)) (#1=#:G422 NIL) (|name| #2=(|Symbol|))
+         ((|r1| (|SExpression|)) (#1=#:G420 NIL) (|name| #2=(|Symbol|))
           (|r2|
            #3=(|Record| (|:| |signature| (|SExpression|))
                         (|:| |condition| (|SExpression|))))
@@ -1387,7 +1385,7 @@
                             (CONS (CONS |oname| (NREVERSE |res1|)) |opl|))
                       (EXIT
                        (SPADCALL (CONS (|function| |BRINFO;opr2_cmp|) %) |opl|
-                                 (QREFELT % 96))))))))) 
+                                 (QREFELT % 104))))))))) 
 
 (SDEFUN |BRINFO;convert_doc1| ((|d1| (|SExpression|)) (% (|SExpression|)))
         (SPROG
@@ -1424,8 +1422,8 @@
 (SDEFUN |BRINFO;convert_doc|
         ((|doc| (|List| (|SExpression|))) (% (|List| (|SExpression|))))
         (SPROG
-         ((#1=#:G437 NIL) (|good?| (|Boolean|)) (#2=#:G438 NIL) (|d1| NIL)
-          (#3=#:G439 NIL))
+         ((#1=#:G435 NIL) (|good?| (|Boolean|)) (#2=#:G436 NIL) (|d1| NIL)
+          (#3=#:G437 NIL))
          (SEQ (LETT |good?| 'T)
               (SEQ (LETT |d1| NIL) (LETT #1# |doc|) G190
                    (COND
@@ -1456,7 +1454,7 @@
                             (EXIT (NREVERSE #2#)))))))
               (EXIT
                (SPADCALL (CONS (|function| |BRINFO;sex_order|) %) |doc|
-                         (QREFELT % 98)))))) 
+                         (QREFELT % 106)))))) 
 
 (SDEFUN |BRINFO;add_origin|
         ((|sigs|
@@ -1470,7 +1468,7 @@
                      (|:| |condition| (|SExpression|))
                      (|:| |origin| (|SExpression|))
                      (|:| |documentation| (|String|))))))
-        (SPROG ((#1=#:G444 NIL) (|sig| NIL) (#2=#:G445 NIL))
+        (SPROG ((#1=#:G442 NIL) (|sig| NIL) (#2=#:G443 NIL))
                (SEQ
                 (PROGN
                  (LETT #1# NIL)
@@ -1500,13 +1498,13 @@
                      (|:| |origin| (|SExpression|))
                      (|:| |documentation| (|String|))))))
         (SPROG
-         ((|sig| NIL) (#1=#:G457 NIL)
+         ((|sig| NIL) (#1=#:G455 NIL)
           (|r1|
            (|Record| (|:| |signature| (|SExpression|))
                      (|:| |condition| (|SExpression|))
                      (|:| |origin| (|SExpression|))
                      (|:| |documentation| (|String|))))
-          (|d1| NIL) (#2=#:G458 NIL) (|found| (|Boolean|))
+          (|d1| NIL) (#2=#:G456 NIL) (|found| (|Boolean|))
           (|res|
            (|List|
             (|Record| (|:| |signature| (|SExpression|))
@@ -1537,7 +1535,7 @@
                                              (SPADCALL
                                               (SPADCALL |d1| (QREFELT % 15))
                                               (QREFELT % 14))
-                                             (QREFELT % 73)))
+                                             (QREFELT % 81)))
                                   (EXIT (LETT |found| 'T)))))))
                              (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))
                         (EXIT (LETT |res| (CONS |r1| |res|))))
@@ -1582,7 +1580,7 @@
                            (|List|
                             (|Record| (|:| |signature| (|SExpression|))
                                       (|:| |condition| (|SExpression|))))))))
-          (|r1| NIL) (#1=#:G478 NIL) (|name| (|Symbol|)) (#2=#:G477 NIL)
+          (|r1| NIL) (#1=#:G476 NIL) (|name| (|Symbol|)) (#2=#:G475 NIL)
           (|d1| (|SExpression|)) (|dname| (|Symbol|))
           (|sdl|
            (|List|
@@ -1629,7 +1627,7 @@
                                                      ((NULL
                                                        (SPADCALL |dname| |name|
                                                                  (QREFELT %
-                                                                          90)))
+                                                                          98)))
                                                       (GO G191)))
                                                     (SEQ
                                                      (LETT |doc| (CDR |doc|))
@@ -1638,7 +1636,7 @@
                                                        ((NULL |doc|)
                                                         (PROGN
                                                          (LETT #2# 1)
-                                                         (GO #3=#:G466)))
+                                                         (GO #3=#:G464)))
                                                        ('T
                                                         (SEQ
                                                          (LETT |d1|
@@ -1684,13 +1682,13 @@
           (|res| (|None|)))
          (SEQ
           (LETT |lib|
-                (SPADCALL (SPADCALL "DEPENDENTS.DAASE" (QREFELT % 100)) "input"
-                          (QREFELT % 102)))
+                (SPADCALL (SPADCALL "DEPENDENTS.DAASE" (QREFELT % 108)) "input"
+                          (QREFELT % 110)))
           (LETT |l| NIL)
           (LETT |res|
-                (SPADCALL |lib| (SPADCALL |c| (QREFELT % 46)) |l|
-                          (QREFELT % 104)))
-          (SPADCALL |lib| (QREFELT % 106)) (EXIT |res|)))) 
+                (SPADCALL |lib| (SPADCALL |c| (QREFELT % 54)) |l|
+                          (QREFELT % 112)))
+          (SPADCALL |lib| (QREFELT % 114)) (EXIT |res|)))) 
 
 (SDEFUN |BRINFO;users;SL;46| ((|c| (|Symbol|)) (% (|List| (|Symbol|))))
         (SPROG
@@ -1698,13 +1696,13 @@
           (|res| (|None|)))
          (SEQ
           (LETT |lib|
-                (SPADCALL (SPADCALL "USERS.DAASE" (QREFELT % 100)) "input"
-                          (QREFELT % 102)))
+                (SPADCALL (SPADCALL "USERS.DAASE" (QREFELT % 108)) "input"
+                          (QREFELT % 110)))
           (LETT |l| NIL)
           (LETT |res|
-                (SPADCALL |lib| (SPADCALL |c| (QREFELT % 46)) |l|
-                          (QREFELT % 104)))
-          (SPADCALL |lib| (QREFELT % 106)) (EXIT |res|)))) 
+                (SPADCALL |lib| (SPADCALL |c| (QREFELT % 54)) |l|
+                          (QREFELT % 112)))
+          (SPADCALL |lib| (QREFELT % 114)) (EXIT |res|)))) 
 
 (SDEFUN |BRINFO;uses;S2SeL;47|
         ((|c| (|Symbol|)) (|cf| (|SExpression|)) (|dom| (|SExpression|))
@@ -1714,7 +1712,7 @@
                      (|:| |condition| (|SExpression|))))))
         (SPROG
          ((|con_args| (|List| (|Symbol|))) (|c_lst| (|List| (|SExpression|)))
-          (#1=#:G490 NIL) (#2=#:G491 NIL))
+          (#1=#:G488 NIL) (#2=#:G489 NIL))
          (SEQ (LETT |c_lst| (|getImports| |c|))
               (COND
                ((NULL (SPADCALL |dom| (QREFELT % 18)))
@@ -1786,7 +1784,7 @@
                 (SPADCALL (SPADCALL |c| (QREFELT % 14)) (QREFELT % 12)))
           (LETT |args| (CDR (SPADCALL |c| (QREFELT % 17))))
           (LETT |r1|
-                (|getConstructorExports| (SPADCALL |con_name| (QREFELT % 112))
+                (|getConstructorExports| (SPADCALL |con_name| (QREFELT % 120))
                                          'T))
           (LETT |r1| (SPADCALL |args| |r1| (QREFELT % 8)))
           (LETT |cl| (SPADCALL |r1| (QREFELT % 14)))
@@ -1822,15 +1820,15 @@
                                            (|:| |documentation|
                                                 (|String|)))))))))))
         (SPROG ((|cf| (|SExpression|)))
-               (SEQ (LETT |cf| (SPADCALL |c| (QREFELT % 112)))
+               (SEQ (LETT |cf| (SPADCALL |c| (QREFELT % 120)))
                     (EXIT
                      (COND
                       ((SPADCALL |cf| (QREFELT % 18))
                        (SEQ
-                        (SPADCALL (SPADCALL |c| (QREFELT % 114))
-                                  (QREFELT % 115))
+                        (SPADCALL (SPADCALL |c| (QREFELT % 122))
+                                  (QREFELT % 123))
                         (EXIT (|error| "con_exports: not a constructor"))))
-                      ('T (SPADCALL |cf| (QREFELT % 58)))))))) 
+                      ('T (SPADCALL |cf| (QREFELT % 66)))))))) 
 
 (SDEFUN |BRINFO;flatten_opll|
         ((|ll|
@@ -1852,8 +1850,8 @@
                                     (|:| |origin| (|SExpression|))
                                     (|:| |documentation| (|String|))))))))
         (SPROG
-         ((|l1| NIL) (#1=#:G512 NIL) (|r1| NIL) (#2=#:G513 NIL)
-          (|name| (|Symbol|)) (|sd| NIL) (#3=#:G514 NIL)
+         ((|l1| NIL) (#1=#:G510 NIL) (|r1| NIL) (#2=#:G511 NIL)
+          (|name| (|Symbol|)) (|sd| NIL) (#3=#:G512 NIL)
           (|res1|
            (|List|
             (|Record| (|:| |name| (|Symbol|))
@@ -1946,7 +1944,7 @@
                         (#5# (|BRINFO;sex_order| |sig1| |sig2| %))))))
                 ((EQUAL |n1| '|0|) 'T) ((EQUAL |n2| '|0|) NIL)
                 ((EQUAL |n1| '|1|) 'T) ((EQUAL |n2| '|1|) NIL)
-                (#5# (SPADCALL |n1| |n2| (QREFELT % 90)))))))) 
+                (#5# (SPADCALL |n1| |n2| (QREFELT % 98)))))))) 
 
 (SDEFUN |BRINFO;group_funs|
         ((|fl|
@@ -1974,7 +1972,7 @@
                                     (|:| |condition| (|SExpression|))
                                     (|:| |origin| (|SExpression|))
                                     (|:| |documentation| (|String|))))))
-          (#1=#:G532 NIL) (|name| #2=(|Symbol|)) (|oname| #2#)
+          (#1=#:G530 NIL) (|name| #2=(|Symbol|)) (|oname| #2#)
           (|sdl|
            (|List|
             (|Record| (|:| |signature| (|SExpression|))
@@ -2056,7 +2054,7 @@
                  (SEQ (LETT |fl| (|BRINFO;flatten_opll| |ll| %))
                       (LETT |fl|
                             (SPADCALL (CONS (|function| |BRINFO;fun_cmp|) %)
-                                      |fl| (QREFELT % 70)))
+                                      |fl| (QREFELT % 78)))
                       (EXIT (|BRINFO;group_funs| |fl| %)))))))) 
 
 (MAKEPROP '|BRINFO;all_con_names| '|SPADreplace| '|allConstructors|) 
@@ -2074,9 +2072,9 @@
                                      (|:| |origin| (|SExpression|))
                                      (|:| |documentation| (|String|)))))))))
         (SPROG
-         ((|cl| (|List| (|Symbol|))) (|c| NIL) (#1=#:G549 NIL)
-          (|cf| (|SExpression|)) (#2=#:G548 NIL)
-          (|cfl| (|List| (|SExpression|))) (#3=#:G550 NIL) (#4=#:G551 NIL)
+         ((|cl| (|List| (|Symbol|))) (|c| NIL) (#1=#:G547 NIL)
+          (|cf| (|SExpression|)) (#2=#:G546 NIL)
+          (|cfl| (|List| (|SExpression|))) (#3=#:G548 NIL) (#4=#:G549 NIL)
           (|opll|
            (|List|
             (|List|
@@ -2095,10 +2093,10 @@
                    (SEQ
                     (EXIT
                      (COND
-                      ((SPADCALL |c| (QREFELT % 116))
-                       (PROGN (LETT #2# |$NoValue|) (GO #5=#:G540)))
+                      ((SPADCALL |c| (QREFELT % 124))
+                       (PROGN (LETT #2# |$NoValue|) (GO #5=#:G538)))
                       ('T
-                       (SEQ (LETT |cf| (SPADCALL |c| (QREFELT % 112)))
+                       (SEQ (LETT |cf| (SPADCALL |c| (QREFELT % 120)))
                             (EXIT
                              (COND
                               ((SPADCALL |cf| (QREFELT % 18))
@@ -2116,7 +2114,7 @@
                           (SEQ
                            (EXIT
                             (LETT #3#
-                                  (CONS (QCDR (SPADCALL |cf| (QREFELT % 58)))
+                                  (CONS (QCDR (SPADCALL |cf| (QREFELT % 66)))
                                         #3#))))
                           (LETT #4# (CDR #4#)) (GO G190) G191
                           (EXIT (NREVERSE #3#)))))
@@ -2137,10 +2135,10 @@
            (|ErrorIndicator|))))
         (SEQ
          (COND
-          ((NULL (QREFELT % 119))
-           (SEQ (SETELT % 118 (SPADCALL (QREFELT % 117)))
-                (EXIT (SETELT % 119 'T)))))
-         (EXIT (SPADCALL |pat| (QREFELT % 118) (QREFELT % 52))))) 
+          ((NULL (QREFELT % 127))
+           (SEQ (SETELT % 126 (SPADCALL (QREFELT % 125)))
+                (EXIT (SETELT % 127 'T)))))
+         (EXIT (SPADCALL |pat| (QREFELT % 126) (QREFELT % 60))))) 
 
 (SDEFUN |BRINFO;string_to_integer|
         ((|s| (|String|)) (% (|Union| (|Integer|) "failed")))
@@ -2148,7 +2146,7 @@
                (SEQ (LETT |res| (|string2Integer| |s|))
                     (EXIT
                      (COND ((SPADCALL |res| (QREFELT % 18)) (CONS 1 "failed"))
-                           ('T (CONS 0 (SPADCALL |res| (QREFELT % 75))))))))) 
+                           ('T (CONS 0 (SPADCALL |res| (QREFELT % 83))))))))) 
 
 (SDEFUN |BRINFO;load_docs|
         ((|fl|
@@ -2161,13 +2159,13 @@
                                     (|:| |documentation| (|String|)))))))
          (% (|Void|)))
         (SPROG
-         ((|f1| NIL) (#1=#:G570 NIL)
+         ((|f1| NIL) (#1=#:G568 NIL)
           (|sd|
            (|Record| (|:| |signature| (|SExpression|))
                      (|:| |condition| (|SExpression|))
                      (|:| |origin| (|SExpression|))
                      (|:| |documentation| (|String|))))
-          (#2=#:G569 NIL) (|ku| (|Union| (|Integer|) "failed"))
+          (#2=#:G567 NIL) (|ku| (|Union| (|Integer|) "failed"))
           (|k| (|Integer|)) (|ds| (|String|)))
          (SEQ (LETT |f1| NIL) (LETT #1# |fl|) G190
               (COND
@@ -2178,7 +2176,7 @@
                      (EXIT
                       (COND
                        ((EQUAL |ds| "")
-                        (PROGN (LETT #2# |$NoValue|) (GO #3=#:G563)))
+                        (PROGN (LETT #2# |$NoValue|) (GO #3=#:G561)))
                        ('T
                         (SEQ (LETT |ku| (|BRINFO;string_to_integer| |ds| %))
                              (EXIT
@@ -2231,7 +2229,7 @@
                                      (|:| |condition| (|SExpression|))
                                      (|:| |origin| (|SExpression|))
                                      (|:| |documentation| (|String|))))))))
-         (SEQ (LETT |res1| (SPADCALL "*" (QREFELT % 121)))
+         (SEQ (LETT |res1| (SPADCALL "*" (QREFELT % 129)))
               (EXIT
                (COND
                 ((QEQCAR |res1| 1) (|error| "ops_from_libdb: search failed"))
@@ -2241,7 +2239,7 @@
                       (|BRINFO;load_docs| |fl| %)
                       (LETT |fl|
                             (SPADCALL (CONS (|function| |BRINFO;fun_cmp|) %)
-                                      |fl| (QREFELT % 70)))
+                                      |fl| (QREFELT % 78)))
                       (EXIT (|BRINFO;group_funs| |fl| %))))))))) 
 
 (SDEFUN |BRINFO;constructor_kind;2S;61| ((|name| (|Symbol|)) (% (|Symbol|)))
@@ -2306,19 +2304,19 @@
            (|Record| (|:| |form| (|SExpression|))
                      (|:| |condition| (|SExpression|))))))
         (SPROG
-         ((|pl| (|List| (|SExpression|))) (|p| NIL) (#1=#:G614 NIL)
-          (#2=#:G615 NIL) (|np| (|SExpression|))
+         ((|pl| (|List| (|SExpression|))) (|p| NIL) (#1=#:G612 NIL)
+          (#2=#:G613 NIL) (|np| (|SExpression|))
           (|ls2|
            (|List|
             (|Record| (|:| |form| (|SExpression|))
                       (|:| |condition| (|SExpression|)))))
-          (|r2| NIL) (#3=#:G616 NIL) (|form1| (|SExpression|)) (#4=#:G617 NIL)
+          (|r2| NIL) (#3=#:G614 NIL) (|form1| (|SExpression|)) (#4=#:G615 NIL)
           (|nl|
            (|List|
             (|Record| (|:| |form| (|SExpression|))
                       (|:| |condition| (|SExpression|)))))
-          (#5=#:G613 NIL) (|r1| NIL) (#6=#:G618 NIL) (|npred| (|SExpression|))
-          (#7=#:G612 NIL))
+          (#5=#:G611 NIL) (|r1| NIL) (#6=#:G616 NIL) (|npred| (|SExpression|))
+          (#7=#:G610 NIL))
          (SEQ
           (COND
            ((SPADCALL |cf| (QREFELT % 13))
@@ -2374,7 +2372,7 @@
                                                           (QCDR |r2|)))
                                         |nl|))
                                  (EXIT
-                                  (PROGN (LETT #5# 1) (GO #8=#:G604))))))))
+                                  (PROGN (LETT #5# 1) (GO #8=#:G602))))))))
                             (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL)))
                       #8# (EXIT #5#))))
                (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
@@ -2388,7 +2386,7 @@
                       (EXIT
                        (COND
                         ((SPADCALL |npred| (QREFELT % 18))
-                         (PROGN (LETT #7# |$NoValue|) (GO #9=#:G607)))
+                         (PROGN (LETT #7# |$NoValue|) (GO #9=#:G605)))
                         ('T
                          (LETT |ls|
                                (CONS (CONS (QCAR |r1|) |npred|) |ls|)))))))
@@ -2403,9 +2401,9 @@
            (|Record| (|:| |form| (|SExpression|))
                      (|:| |condition| (|SExpression|))))))
         (SPROG
-         ((|args| (|List| (|SExpression|))) (#1=#:G626 NIL) (#2=#:G627 NIL)
-          (|dom_args| (|List| (|SExpression|))) (|dom_arg| NIL) (#3=#:G629 NIL)
-          (|arg| NIL) (#4=#:G628 NIL)
+         ((|args| (|List| (|SExpression|))) (#1=#:G624 NIL) (#2=#:G625 NIL)
+          (|dom_args| (|List| (|SExpression|))) (|dom_arg| NIL) (#3=#:G627 NIL)
+          (|arg| NIL) (#4=#:G626 NIL)
           (|res|
            (|List|
             (|Record| (|:| |form| (|SExpression|))
@@ -2489,7 +2487,7 @@
 
 (SDEFUN |BRINFO;default_name?;SB;71| ((|n| (|Symbol|)) (% (|Boolean|)))
         (SPROG ((|ns| (|String|)))
-               (SEQ (LETT |ns| (SPADCALL |n| (QREFELT % 46)))
+               (SEQ (LETT |ns| (SPADCALL |n| (QREFELT % 54)))
                     (EXIT
                      (|eql_SI| (SPADCALL |ns| (QCSIZE |ns|) (QREFELT % 35))
                                (|STR_to_CHAR| "&")))))) 
@@ -2501,7 +2499,7 @@
                     (|:| |domains| (|List| (|Symbol|)))
                     (|:| |packages| (|List| (|Symbol|))))))
         (SPROG
-         ((|n| NIL) (#1=#:G651 NIL) (#2=#:G650 NIL) (|kind| (|Symbol|))
+         ((|n| NIL) (#1=#:G649 NIL) (#2=#:G648 NIL) (|kind| (|Symbol|))
           (|cats| #3=(|List| (|Symbol|))) (|doms| #3#) (|packs| #3#))
          (SEQ (LETT |cats| (LETT |doms| (LETT |packs| NIL)))
               (SEQ (LETT |n| NIL) (LETT #1# |lst|) G190
@@ -2511,11 +2509,11 @@
                    (SEQ
                     (EXIT
                      (COND
-                      ((OR (SPADCALL |n| (QREFELT % 116))
+                      ((OR (SPADCALL |n| (QREFELT % 124))
                            (EQUAL |n| '|Category|))
-                       (PROGN (LETT #2# |$NoValue|) (GO #4=#:G641)))
+                       (PROGN (LETT #2# |$NoValue|) (GO #4=#:G639)))
                       ('T
-                       (SEQ (LETT |kind| (SPADCALL |n| (QREFELT % 123)))
+                       (SEQ (LETT |kind| (SPADCALL |n| (QREFELT % 131)))
                             (EXIT
                              (COND
                               ((EQUAL |kind| '|category|)
@@ -2539,7 +2537,7 @@
                     (|:| |domains| (|List| (|Symbol|)))
                     (|:| |packages| (|List| (|Symbol|))))))
         (SPROG
-         ((#1=#:G658 NIL) (|cn| NIL) (#2=#:G659 NIL)
+         ((#1=#:G656 NIL) (|cn| NIL) (#2=#:G657 NIL)
           (|cnl| (|List| (|Symbol|))))
          (SEQ
           (LETT |cnl|
@@ -2553,12 +2551,12 @@
                       (SEQ
                        (EXIT
                         (COND
-                         ((NULL (SPADCALL |cn| (QREFELT % 116)))
+                         ((NULL (SPADCALL |cn| (QREFELT % 124)))
                           (LETT #1# (CONS |cn| #1#))))))
                       (LETT #2# (CDR #2#)) (GO G190) G191
                       (EXIT (NREVERSE #1#)))))
           (EXIT
-           (|BRINFO;split_constructors| (SPADCALL |cnl| (QREFELT % 127)) %))))) 
+           (|BRINFO;split_constructors| (SPADCALL |cnl| (QREFELT % 135)) %))))) 
 
 (SDEFUN |BRINFO;split_ops|
         ((|lst| (|List| (|String|)))
@@ -2566,7 +2564,7 @@
           (|Record| (|:| |con| (|List| (|Symbol|)))
                     (|:| |opl| (|List| (|String|))))))
         (SPROG
-         ((|str| NIL) (#1=#:G667 NIL) (|k| (|Integer|)) (|sym| (|Symbol|))
+         ((|str| NIL) (#1=#:G665 NIL) (|k| (|Integer|)) (|sym| (|Symbol|))
           (|cnl| (|List| (|Symbol|))) (|opl| (|List| (|String|))))
          (SEQ (LETT |opl| NIL) (LETT |cnl| NIL) (LETT |opl| NIL)
               (SEQ (LETT |str| NIL) (LETT #1# |lst|) G190
@@ -2582,22 +2580,22 @@
                       ('T
                        (SEQ
                         (LETT |k|
-                              (SPADCALL (QREFELT % 31) |str| (QREFELT % 130)))
+                              (SPADCALL (QREFELT % 31) |str| (QREFELT % 138)))
                         (LETT |sym|
                               (SPADCALL
                                (SPADCALL |str|
-                                         (SPADCALL 2 (- |k| 1) (QREFELT % 132))
-                                         (QREFELT % 133))
-                               (QREFELT % 134)))
+                                         (SPADCALL 2 (- |k| 1) (QREFELT % 140))
+                                         (QREFELT % 141))
+                               (QREFELT % 142)))
                         (EXIT (LETT |cnl| (CONS |sym| |cnl|))))))))
                    (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
               (LETT |cnl| (NREVERSE |cnl|)) (LETT |opl| (NREVERSE |opl|))
               (EXIT (CONS |cnl| |opl|))))) 
 
-(SDEFUN |BRINFO;filter_symbols;Se2L;75|
-        ((|pc| (|SExpression|)) (|sl| (|List| (|Symbol|)))
+(SDEFUN |BRINFO;filter_symbols;Lma2L;75|
+        ((|pc| (|LogicalMatchingAutomaton|)) (|sl| (|List| (|Symbol|)))
          (% (|List| (|Symbol|))))
-        (SPROG ((|sy| NIL) (#1=#:G673 NIL) (|res| (|List| (|Symbol|))))
+        (SPROG ((|sy| NIL) (#1=#:G671 NIL) (|res| (|List| (|Symbol|))))
                (SEQ (LETT |res| NIL)
                     (SEQ (LETT |sy| NIL) (LETT #1# |sl|) G190
                          (COND
@@ -2606,8 +2604,8 @@
                          (SEQ
                           (EXIT
                            (COND
-                            ((SPADCALL |pc| (SPADCALL |sy| (QREFELT % 46))
-                                       (QREFELT % 45))
+                            ((SPADCALL |pc| (SPADCALL |sy| (QREFELT % 54))
+                                       (QREFELT % 53))
                              (LETT |res| (CONS |sy| |res|))))))
                          (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
                     (EXIT (NREVERSE |res|))))) 
@@ -2621,14 +2619,14 @@
                      (|:| |packages| (|List| (|Symbol|))))
            (|ErrorIndicator|))))
         (SPROG
-         ((|pc| (|Union| (|SExpression|) (|ErrorIndicator|))) (#1=#:G692 NIL)
-          (|cn| NIL) (#2=#:G693 NIL) (|cnl| (|List| (|Symbol|)))
-          (|cnl2| (|List| (|Symbol|)))
+         ((|pc| (|Union| (|LogicalMatchingAutomaton|) (|ErrorIndicator|)))
+          (#1=#:G690 NIL) (|cn| NIL) (#2=#:G691 NIL)
+          (|cnl| (|List| (|Symbol|))) (|cnl2| (|List| (|Symbol|)))
           (|res1|
            (|Record| (|:| |categories| (|List| (|Symbol|)))
                      (|:| |domains| (|List| (|Symbol|)))
                      (|:| |packages| (|List| (|Symbol|))))))
-         (SEQ (LETT |pc| (SPADCALL |pat| (QREFELT % 44)))
+         (SEQ (LETT |pc| (SPADCALL |pat| (QREFELT % 50)))
               (EXIT
                (COND ((QEQCAR |pc| 1) (CONS 1 (QCDR |pc|)))
                      (#3='T
@@ -2645,15 +2643,15 @@
                                    (SEQ
                                     (EXIT
                                      (COND
-                                      ((NULL (SPADCALL |cn| (QREFELT % 116)))
+                                      ((NULL (SPADCALL |cn| (QREFELT % 124)))
                                        (LETT #1# (CONS |cn| #1#))))))
                                    (LETT #2# (CDR #2#)) (GO G190) G191
                                    (EXIT (NREVERSE #1#)))))
                        (LETT |cnl2|
-                             (SPADCALL (QCDR |pc|) |cnl| (QREFELT % 135)))
+                             (SPADCALL (QCDR |pc|) |cnl| (QREFELT % 143)))
                        (LETT |res1|
                              (|BRINFO;split_constructors|
-                              (SPADCALL |cnl2| (QREFELT % 127)) %))
+                              (SPADCALL |cnl2| (QREFELT % 135)) %))
                        (EXIT
                         (COND ((EQUAL |tag| '|k|) (CONS 0 |res1|))
                               ((EQUAL |tag| '|c|)
@@ -2666,16 +2664,16 @@
 
 (SDEFUN |BRINFO;get_conname| ((|form| (|String|)) (% (|String|)))
         (SPROG ((|k| (|Integer|)))
-               (SEQ (LETT |k| (SPADCALL (QREFELT % 29) |form| (QREFELT % 130)))
+               (SEQ (LETT |k| (SPADCALL (QREFELT % 29) |form| (QREFELT % 138)))
                     (EXIT
                      (COND
                       ((< |k| 1)
                        (SPADCALL |form|
-                                 (SPADCALL 2 (QCSIZE |form|) (QREFELT % 132))
-                                 (QREFELT % 133)))
+                                 (SPADCALL 2 (QCSIZE |form|) (QREFELT % 140))
+                                 (QREFELT % 141)))
                       ('T
-                       (SPADCALL |form| (SPADCALL 2 (- |k| 1) (QREFELT % 132))
-                                 (QREFELT % 133)))))))) 
+                       (SPADCALL |form| (SPADCALL 2 (- |k| 1) (QREFELT % 140))
+                                 (QREFELT % 141)))))))) 
 
 (MAKEPROP '|BRINFO;constructor_form;SSe;78| '|SPADreplace|
           '|getConstructorForm|) 
@@ -2688,7 +2686,7 @@
         (SPROG ((|form| (|List| (|SExpression|))))
                (SEQ
                 (LETT |form|
-                      (SPADCALL (SPADCALL |name| (QREFELT % 112))
+                      (SPADCALL (SPADCALL |name| (QREFELT % 120))
                                 (QREFELT % 17)))
                 (EXIT (CDR |form|))))) 
 
@@ -2714,7 +2712,7 @@
                                              (QREFELT % 17)))
                              (EXIT
                               (SPADCALL (SPADCALL |doc| 2 (QREFELT % 23))
-                                        (QREFELT % 73)))))))))) 
+                                        (QREFELT % 81)))))))))) 
 
 (SDEFUN |BRINFO;expand_op_line|
         ((|l1| (|String|))
@@ -2749,21 +2747,21 @@
                (LETT |#G179| (CDR |#G179|))
                (LETT |doc| (|SPADfirst| |#G179|))
                |#G178|)
-              (LETT |name| (SPADCALL |name_s| (QREFELT % 134)))
-              (LETT |pred| (SPADCALL |pred_s| (QREFELT % 140)))
+              (LETT |name| (SPADCALL |name_s| (QREFELT % 142)))
+              (LETT |pred| (SPADCALL |pred_s| (QREFELT % 148)))
               (COND ((SPADCALL |pred| (QREFELT % 18)) (LETT |pred| 'T)))
-              (LETT |sig| (SPADCALL |sig_s| (QREFELT % 140)))
+              (LETT |sig| (SPADCALL |sig_s| (QREFELT % 148)))
               (EXIT
                (COND
                 ((SPADCALL (SPADCALL |sig| (QREFELT % 14))
                            (SPADCALL '|Mapping| (QREFELT % 42))
-                           (QREFELT % 141))
+                           (QREFELT % 149))
                  (|error| "expand_op_lines: unexpected signature"))
                 ('T
                  (SEQ (LETT |sig| (SPADCALL |sig| (QREFELT % 15)))
                       (LETT |con_sym|
                             (SPADCALL (|BRINFO;get_conname| |origs| %)
-                                      (QREFELT % 134)))
+                                      (QREFELT % 142)))
                       (LETT |orig_l|
                             (CONS (SPADCALL |con_sym| (QREFELT % 42))
                                   (|BRINFO;get_constructor_args| |con_sym| %)))
@@ -2792,7 +2790,7 @@
                                        (|:| |condition| (|SExpression|))
                                        (|:| |origin| (|SExpression|))
                                        (|:| |documentation| (|String|))))))
-          (|l1| NIL) (#2=#:G721 NIL) (|#G190| #1#) (|name| #3=(|Symbol|))
+          (|l1| NIL) (#2=#:G719 NIL) (|#G190| #1#) (|name| #3=(|Symbol|))
           (|sig1|
            #4=(|Record| (|:| |signature| (|SExpression|))
                         (|:| |condition| (|SExpression|))
@@ -2811,7 +2809,7 @@
          (SEQ
           (COND ((NULL |lst|) NIL)
                 ('T
-                 (SEQ (LETT |lst| (SPADCALL |lst| (QREFELT % 143)))
+                 (SEQ (LETT |lst| (SPADCALL |lst| (QREFELT % 150)))
                       (LETT |res| NIL)
                       (PROGN
                        (LETT |#G188|
@@ -2868,56 +2866,26 @@
                            ('T
                             (CONS 0 (|BRINFO;expand_op_lines| |res1| %)))))))) 
 
-(SDEFUN |BRINFO;add_stars| ((|pc| (|SExpression|)) (% (|SExpression|)))
-        (SPROG
-         ((|pat1| (|String|)) (|pre| (|String|)) (|post| (|String|))
-          (|op| (|SExpression|)) (#1=#:G738 NIL) (|arg| NIL) (#2=#:G739 NIL)
-          (|args| (|List| (|SExpression|))))
-         (SEQ
-          (COND
-           ((SPADCALL |pc| (QREFELT % 72))
-            (SEQ (LETT |pat1| (SPADCALL |pc| (QREFELT % 73)))
-                 (LETT |pre|
-                       (COND
-                        ((|eql_SI| (SPADCALL |pat1| 1 (QREFELT % 35))
-                                   (QREFELT % 30))
-                         "")
-                        (#3='T "*")))
-                 (LETT |post|
-                       (COND
-                        ((|eql_SI|
-                          (SPADCALL |pat1| (QCSIZE |pat1|) (QREFELT % 35))
-                          (QREFELT % 30))
-                         "")
-                        (#3# "*")))
-                 (EXIT
-                  (SPADCALL
-                   (SPADCALL (LIST |pre| |pat1| |post|) (QREFELT % 144))
-                   (QREFELT % 145)))))
-           ((SPADCALL |pc| (QREFELT % 41))
-            (SEQ (LETT |op| (SPADCALL |pc| (QREFELT % 14)))
-                 (LETT |args|
-                       (SPADCALL (SPADCALL |pc| (QREFELT % 15))
-                                 (QREFELT % 17)))
-                 (LETT |args|
-                       (PROGN
-                        (LETT #1# NIL)
-                        (SEQ (LETT |arg| NIL) (LETT #2# |args|) G190
-                             (COND
-                              ((OR (ATOM #2#)
-                                   (PROGN (LETT |arg| (CAR #2#)) NIL))
-                               (GO G191)))
-                             (SEQ
-                              (EXIT
-                               (LETT #1#
-                                     (CONS (|BRINFO;add_stars| |arg| %) #1#))))
-                             (LETT #2# (CDR #2#)) (GO G190) G191
-                             (EXIT (NREVERSE #1#)))))
-                 (EXIT (SPADCALL (CONS |op| |args|) (QREFELT % 20)))))
-           (#3# (|error| "add_stars: unimplemented")))))) 
+(SDEFUN |BRINFO;add_stars| ((|pat1| (|String|)) (% (|String|)))
+        (SPROG ((|pre| (|String|)) (|post| (|String|)))
+               (SEQ
+                (LETT |pre|
+                      (COND
+                       ((|eql_SI| (SPADCALL |pat1| 1 (QREFELT % 35))
+                                  (QREFELT % 30))
+                        "")
+                       (#1='T "*")))
+                (LETT |post|
+                      (COND
+                       ((|eql_SI|
+                         (SPADCALL |pat1| (QCSIZE |pat1|) (QREFELT % 35))
+                         (QREFELT % 30))
+                        "")
+                       (#1# "*")))
+                (EXIT (SPADCALL (LIST |pre| |pat1| |post|) (QREFELT % 151)))))) 
 
 (SDEFUN |BRINFO;search_ops_doc|
-        ((|pc| (|SExpression|))
+        ((|pc| (|LogicalMatchingAutomaton|))
          (%
           (|List|
            (|Record| (|:| |name| (|Symbol|))
@@ -2928,8 +2896,8 @@
                                      (|:| |origin| (|SExpression|))
                                      (|:| |documentation| (|String|)))))))))
         (SPROG
-         ((|opr| NIL) (#1=#:G751 NIL) (|name| (|Symbol|)) (|sd| NIL)
-          (#2=#:G752 NIL)
+         ((|opr| NIL) (#1=#:G742 NIL) (|name| (|Symbol|)) (|sd| NIL)
+          (#2=#:G743 NIL)
           (|res|
            (|List|
             (|Record| (|:| |name| (|Symbol|))
@@ -2940,11 +2908,11 @@
                                      (|:| |documentation| (|String|))))))))
          (SEQ
           (COND
-           ((NULL (QREFELT % 119))
-            (SEQ (SETELT % 118 (SPADCALL (QREFELT % 117)))
-                 (EXIT (SETELT % 119 'T)))))
+           ((NULL (QREFELT % 127))
+            (SEQ (SETELT % 126 (SPADCALL (QREFELT % 125)))
+                 (EXIT (SETELT % 127 'T)))))
           (LETT |res| NIL)
-          (SEQ (LETT |opr| NIL) (LETT #1# (QREFELT % 118)) G190
+          (SEQ (LETT |opr| NIL) (LETT #1# (QREFELT % 126)) G190
                (COND
                 ((OR (ATOM #1#) (PROGN (LETT |opr| (CAR #1#)) NIL)) (GO G191)))
                (SEQ (LETT |name| (QCAR |opr|))
@@ -2956,21 +2924,21 @@
                           (SEQ
                            (EXIT
                             (COND
-                             ((SPADCALL |pc| (QVELT |sd| 3) (QREFELT % 45))
+                             ((SPADCALL |pc| (QVELT |sd| 3) (QREFELT % 53))
                               (LETT |res| (CONS (CONS |name| |sd|) |res|))))))
                           (LETT #2# (CDR #2#)) (GO G190) G191 (EXIT NIL))))
                (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
           (EXIT (|BRINFO;group_funs| (NREVERSE |res|) %))))) 
 
 (SDEFUN |BRINFO;search_con_doc|
-        ((|pc| (|SExpression|))
+        ((|pc| (|LogicalMatchingAutomaton|))
          (%
           (|Record| (|:| |categories| (|List| (|Symbol|)))
                     (|:| |domains| (|List| (|Symbol|)))
                     (|:| |packages| (|List| (|Symbol|))))))
         (SPROG
-         ((#1=#:G761 NIL) (#2=#:G762 NIL) (|cnl| (|List| (|Symbol|)))
-          (|cn| NIL) (#3=#:G763 NIL) (|doc| (|String|))
+         ((#1=#:G752 NIL) (#2=#:G753 NIL) (|cnl| (|List| (|Symbol|)))
+          (|cn| NIL) (#3=#:G754 NIL) (|doc| (|String|))
           (|res1| (|List| (|Symbol|))))
          (SEQ
           (LETT |cnl|
@@ -2984,7 +2952,7 @@
                       (SEQ
                        (EXIT
                         (COND
-                         ((NULL (SPADCALL |cn| (QREFELT % 116)))
+                         ((NULL (SPADCALL |cn| (QREFELT % 124)))
                           (LETT #1# (CONS |cn| #1#))))))
                       (LETT #2# (CDR #2#)) (GO G190) G191
                       (EXIT (NREVERSE #1#)))))
@@ -2992,15 +2960,15 @@
           (SEQ (LETT |cn| NIL) (LETT #3# |cnl|) G190
                (COND
                 ((OR (ATOM #3#) (PROGN (LETT |cn| (CAR #3#)) NIL)) (GO G191)))
-               (SEQ (LETT |doc| (SPADCALL |cn| (QREFELT % 138)))
+               (SEQ (LETT |doc| (SPADCALL |cn| (QREFELT % 146)))
                     (EXIT
                      (COND
-                      ((SPADCALL |pc| (SPADCALL |cn| (QREFELT % 138))
-                                 (QREFELT % 45))
+                      ((SPADCALL |pc| (SPADCALL |cn| (QREFELT % 146))
+                                 (QREFELT % 53))
                        (LETT |res1| (CONS |cn| |res1|))))))
                (LETT #3# (CDR #3#)) (GO G190) G191 (EXIT NIL))
           (EXIT
-           (|BRINFO;split_constructors| (SPADCALL |res1| (QREFELT % 127)) %))))) 
+           (|BRINFO;split_constructors| (SPADCALL |res1| (QREFELT % 135)) %))))) 
 
 (SDEFUN |BRINFO;search_documentation;SU;87|
         ((|pat| (|String|))
@@ -3023,8 +2991,8 @@
                                                  (|String|)))))))))
            (|ErrorIndicator|))))
         (SPROG
-         ((|pcu| (|Union| (|SExpression|) (|ErrorIndicator|)))
-          (|pc| (|SExpression|))
+         ((|pcu| (|Union| (|LogicalMatchingAutomaton|) (|ErrorIndicator|)))
+          (|pc| (|LogicalMatchingAutomaton|))
           (|cl|
            (|Record| (|:| |categories| (|List| (|Symbol|)))
                      (|:| |domains| (|List| (|Symbol|)))
@@ -3038,11 +3006,12 @@
                                       (|:| |condition| (|SExpression|))
                                       (|:| |origin| (|SExpression|))
                                       (|:| |documentation| (|String|)))))))))
-         (SEQ (LETT |pcu| (SPADCALL |pat| (QREFELT % 44)))
+         (SEQ (LETT |pat| (|BRINFO;add_stars| |pat| %))
+              (LETT |pcu| (SPADCALL |pat| (QREFELT % 50)))
               (EXIT
                (COND ((QEQCAR |pcu| 1) (CONS 1 (QCDR |pcu|)))
                      ('T
-                      (SEQ (LETT |pc| (|BRINFO;add_stars| (QCDR |pcu|) %))
+                      (SEQ (LETT |pc| (QCDR |pcu|))
                            (LETT |cl| (|BRINFO;search_con_doc| |pc| %))
                            (LETT |opl| (|BRINFO;search_ops_doc| |pc| %))
                            (EXIT (CONS 0 (CONS |cl| |opl|)))))))))) 
@@ -3085,11 +3054,11 @@
                                        (|:| |origin| (|SExpression|))
                                        (|:| |documentation| (|String|)))))))
             (|ErrorIndicator|))))
-         (SEQ (LETT |cu| (SPADCALL |pat| '|k| (QREFELT % 137)))
+         (SEQ (LETT |cu| (SPADCALL |pat| '|k| (QREFELT % 145)))
               (EXIT
                (COND ((QEQCAR |cu| 1) (CONS 1 (QCDR |cu|)))
                      (#1='T
-                      (SEQ (LETT |ou| (SPADCALL |pat| (QREFELT % 120)))
+                      (SEQ (LETT |ou| (SPADCALL |pat| (QREFELT % 128)))
                            (EXIT
                             (COND ((QEQCAR |ou| 1) (CONS 1 (QCDR |ou|)))
                                   (#1#
@@ -3103,7 +3072,7 @@
   (SPROG ((|dv$| NIL) (% NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|BrowserInformation|))
-          (LETT % (GETREFV 152))
+          (LETT % (GETREFV 158))
           (QSETREFV % 0 |dv$|)
           (QSETREFV % 3 (LETT |pv$| (|buildPredVector| 0 0 NIL)))
           (|haddProp| |$ConstructorCache| '|BrowserInformation| NIL (CONS 1 %))
@@ -3115,13 +3084,13 @@
           (QSETREFV % 29 (|STR_to_CHAR| "("))
           (QSETREFV % 30 (|STR_to_CHAR| "*"))
           (QSETREFV % 31 (|STR_to_CHAR| "`"))
-          (QSETREFV % 118 NIL)
-          (QSETREFV % 119 NIL)
+          (QSETREFV % 126 NIL)
+          (QSETREFV % 127 NIL)
           %))) 
 
 (DEFUN |BrowserInformation| ()
   (SPROG NIL
-         (PROG (#1=#:G794)
+         (PROG (#1=#:G785)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|BrowserInformation|))
@@ -3150,76 +3119,76 @@
               '|char_Z| '|char_lpar| '|char_star| '|char_tick| (|Character|)
               (58 . |space|) (|String|) (62 . |elt|) (68 . >=) (74 . <=)
               (80 . |char|) (85 . |setelt!|) |BRINFO;downcase;2S;7|
-              (92 . |list?|) (97 . |convert|) (|Union| 6 (|ErrorIndicator|))
-              |BRINFO;convert_pattern;SU;9| |BRINFO;do_match;SeSB;10|
-              (102 . |string|)
+              (92 . |list?|) (97 . |convert|) (|Union| 51 '"failed")
+              (|LogicalRegularExpressionMatch|) (102 . |parse_pattern|)
+              (|List| 34) (|ErrorIndicator|) (108 . |coerce|) (|Union| 51 47)
+              |BRINFO;convert_pattern;SU;9| (|LogicalMatchingAutomaton|)
+              (113 . |do_match|) |BRINFO;do_match;LmaSB;10| (119 . |string|)
               (|Record| (|:| |signature| 6) (|:| |condition| 6)
                         (|:| |origin| 6) (|:| |documentation| 34))
-              (|Record| (|:| |name| 11) (|:| |sdl| (|List| 47))) (|List| 48)
-              |BRINFO;filter_ops;Se2L;11| (|Union| 49 (|ErrorIndicator|))
+              (|Record| (|:| |name| 11) (|:| |sdl| (|List| 55))) (|List| 56)
+              |BRINFO;filter_ops;Lma2L;11| (|Union| 57 47)
               |BRINFO;search_opl;SLU;12| |BRINFO;constructor_name?;SB;13|
               |BRINFO;exposed_constructor?;SB;14|
               |BRINFO;simp_ops_conditions;L2SeL;15|
               (|Record| (|:| |form| 6) (|:| |condition| 6))
-              (|Record| (|:| |cats| 62) (|:| |ops| 49)) |BRINFO;exports;SeR;49|
-              (|XHashTable| 6 47) (107 . |key?|) (113 . |setelt!|) (|List| 56)
-              |BRINFO;parents;SeL;70| (120 . |empty|)
-              |BRINFO;ancestors;2SeL;62| (124 . |elt|)
-              (|Record| (|:| |name| 11) (|:| |sd| 47)) (|Mapping| 9 67 67)
-              (|List| 67) (130 . |sort|) |BRINFO;operations;2SeL;18|
-              (136 . |string?|) (141 . |string|) (146 . |integer?|)
-              (151 . |integer|)
-              (|Record| (|:| |i| 22) (|:| |name| 11) (|:| |sd| 47))
-              (|Mapping| 9 76 76) (|List| 76) (156 . |sort|)
+              (|Record| (|:| |cats| 70) (|:| |ops| 57)) |BRINFO;exports;SeR;49|
+              (|XHashTable| 6 55) (124 . |key?|) (130 . |setelt!|) (|List| 64)
+              |BRINFO;parents;SeL;70| (137 . |empty|)
+              |BRINFO;ancestors;2SeL;62| (141 . |elt|)
+              (|Record| (|:| |name| 11) (|:| |sd| 55)) (|Mapping| 9 75 75)
+              (|List| 75) (147 . |sort|) |BRINFO;operations;2SeL;18|
+              (153 . |string?|) (158 . |string|) (163 . |integer?|)
+              (168 . |integer|)
+              (|Record| (|:| |i| 22) (|:| |name| 11) (|:| |sd| 55))
+              (|Mapping| 9 84 84) (|List| 84) (173 . |sort|)
               (|Record| (|:| |grp_tag| 6) (|:| |i| 22) (|:| |name| 11)
-                        (|:| |sd| 47))
-              (|Mapping| 9 80 80) (|List| 80) (162 . |sort|)
-              (|Record| (|:| |grp_tag| 6) (|:| |ops| 49)) (|List| 84)
+                        (|:| |sd| 55))
+              (|Mapping| 9 88 88) (|List| 88) (179 . |sort|)
+              (|Record| (|:| |grp_tag| 6) (|:| |ops| 57)) (|List| 92)
               |BRINFO;group_by_condition;LL;25| |BRINFO;group_by_origin;LL;26|
-              |BRINFO;group_by_implementation;LSeLL;27| (168 . =) (174 . <)
-              (|Record| (|:| |signature| 6) (|:| |condition| 6)) (180 . =)
-              (|Record| (|:| |name| 11) (|:| |sigs| (|List| 91)))
-              (|Mapping| 9 93 93) (|List| 93) (186 . |sort|) (|Mapping| 9 6 6)
-              (192 . |sort|) (|FileName|) (198 . |coerce|)
-              (|BasicKeyedAccessFile|) (203 . |open|) (|None|) (209 . |read|)
-              (|Void|) (216 . |close!|) (|List| 11) |BRINFO;dependents;SL;45|
+              |BRINFO;group_by_implementation;LSeLL;27| (185 . =) (191 . <)
+              (|Record| (|:| |signature| 6) (|:| |condition| 6)) (197 . =)
+              (|Record| (|:| |name| 11) (|:| |sigs| (|List| 99)))
+              (|Mapping| 9 101 101) (|List| 101) (203 . |sort|)
+              (|Mapping| 9 6 6) (209 . |sort|) (|FileName|) (215 . |coerce|)
+              (|BasicKeyedAccessFile|) (220 . |open|) (|None|) (226 . |read|)
+              (|Void|) (233 . |close!|) (|List| 11) |BRINFO;dependents;SL;45|
               |BRINFO;users;SL;46| |BRINFO;uses;S2SeL;47|
               |BRINFO;search_path;2SeNL;48| |BRINFO;constructor_form;SSe;78|
-              (|OutputForm|) (221 . |coerce|) (226 . |print|)
+              (|OutputForm|) (238 . |coerce|) (243 . |print|)
               |BRINFO;default_name?;SB;71| |BRINFO;ops_from_exports;L;56|
               '|all_ops| '|all_ops_initialized|
               |BRINFO;search_operations;SU;57|
               |BRINFO;search_operations_libdb;SU;83|
               |BRINFO;ops_from_libdb;L;60| |BRINFO;constructor_kind;2S;61|
               |BRINFO;children;2SeL;63| |BRINFO;descendants;2SeL;64|
-              |BRINFO;domains;2SeL;69| (231 . |sort|)
-              (|Record| (|:| |categories| 107) (|:| |domains| 107)
-                        (|:| |packages| 107))
-              |BRINFO;all_constructors;R;73| (236 . |position|)
-              (|UniversalSegment| 22) (242 . SEGMENT) (248 . |elt|)
-              (254 . |coerce|) |BRINFO;filter_symbols;Se2L;75|
-              (|Union| 128 (|ErrorIndicator|))
-              |BRINFO;search_constructors;SSU;76|
+              |BRINFO;domains;2SeL;69| (248 . |sort|)
+              (|Record| (|:| |categories| 115) (|:| |domains| 115)
+                        (|:| |packages| 115))
+              |BRINFO;all_constructors;R;73| (253 . |position|)
+              (|UniversalSegment| 22) (259 . SEGMENT) (265 . |elt|)
+              (271 . |coerce|) |BRINFO;filter_symbols;Lma2L;75|
+              (|Union| 136 47) |BRINFO;search_constructors;SSU;76|
               |BRINFO;constructor_documentation;SS;80| (|InputForm|)
-              (259 . |parse|) (264 . ~=) (|List| 34) (270 . |sort|)
-              (275 . |concat|) (280 . |convert|)
-              (|Record| (|:| |con_info| 128) (|:| |op_info| 49))
-              (|Union| 146 (|ErrorIndicator|))
-              |BRINFO;search_documentation;SU;87| |BRINFO;search_general;SU;88|
-              (|Record| (|:| |grp_tag| 6) (|:| |constrs| 62)) (|List| 150))
-           '#(|uses| 285 |users| 292 |sublis_formal| 297 |simp_ops_conditions|
-              303 |search_path| 310 |search_opl| 317 |search_operations_libdb|
-              323 |search_operations| 328 |search_general| 333
-              |search_documentation| 338 |search_constructors| 343 |parents|
-              349 |ops_from_libdb| 354 |ops_from_exports| 358 |operations| 362
-              |group_by_origin| 368 |group_by_implementation| 373
-              |group_by_condition| 380 |filter_symbols| 390 |filter_ops| 396
-              |exposed_constructor?| 402 |exports| 407 |downcase| 412 |domains|
-              417 |do_match| 423 |descendants| 429 |dependents| 435
-              |default_name?| 440 |convert_pattern| 445 |constructor_signature|
-              450 |constructor_name?| 461 |constructor_kind| 466
-              |constructor_form| 471 |constructor_documentation| 476 |children|
-              481 |ancestors| 487 |all_constructors| 493)
+              (276 . |parse|) (281 . ~=) (287 . |sort|) (292 . |concat|)
+              (|Record| (|:| |con_info| 136) (|:| |op_info| 57))
+              (|Union| 152 47) |BRINFO;search_documentation;SU;87|
+              |BRINFO;search_general;SU;88|
+              (|Record| (|:| |grp_tag| 6) (|:| |constrs| 70)) (|List| 156))
+           '#(|uses| 297 |users| 304 |sublis_formal| 309 |simp_ops_conditions|
+              315 |search_path| 322 |search_opl| 329 |search_operations_libdb|
+              335 |search_operations| 340 |search_general| 345
+              |search_documentation| 350 |search_constructors| 355 |parents|
+              361 |ops_from_libdb| 366 |ops_from_exports| 370 |operations| 374
+              |group_by_origin| 380 |group_by_implementation| 385
+              |group_by_condition| 392 |filter_symbols| 402 |filter_ops| 408
+              |exposed_constructor?| 414 |exports| 419 |downcase| 424 |domains|
+              429 |do_match| 435 |descendants| 441 |dependents| 447
+              |default_name?| 452 |convert_pattern| 457 |constructor_signature|
+              462 |constructor_name?| 473 |constructor_kind| 478
+              |constructor_form| 483 |constructor_documentation| 488 |children|
+              493 |ancestors| 499 |all_constructors| 505)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -3598,11 +3567,13 @@
                                                          (|String|)))))))))
                                 T)
                               '((|convert_pattern|
-                                 ((|Union| (|SExpression|) (|ErrorIndicator|))
+                                 ((|Union| (|LogicalMatchingAutomaton|)
+                                           (|ErrorIndicator|))
                                   (|String|)))
                                 T)
                               '((|do_match|
-                                 ((|Boolean|) (|SExpression|) (|String|)))
+                                 ((|Boolean|) (|LogicalMatchingAutomaton|)
+                                  (|String|)))
                                 T)
                               '((|filter_ops|
                                  ((|List|
@@ -3618,7 +3589,7 @@
                                                          (|SExpression|))
                                                     (|:| |documentation|
                                                          (|String|)))))))
-                                  (|SExpression|)
+                                  (|LogicalMatchingAutomaton|)
                                   (|List|
                                    (|Record| (|:| |name| (|Symbol|))
                                              (|:| |sdl|
@@ -3634,7 +3605,8 @@
                                                          (|String|)))))))))
                                 T)
                               '((|filter_symbols|
-                                 ((|List| (|Symbol|)) (|SExpression|)
+                                 ((|List| (|Symbol|))
+                                  (|LogicalMatchingAutomaton|)
                                   (|List| (|Symbol|))))
                                 T)
                               '((|ops_from_exports|
@@ -3691,7 +3663,7 @@
                                   (|SExpression|)))
                                 T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 151
+                        (|makeByteWordVec2| 157
                                             '(1 6 9 0 10 1 6 11 0 12 1 6 9 0 13
                                               1 6 0 0 14 1 6 0 0 15 1 6 16 0 17
                                               1 6 9 0 18 2 7 9 6 0 19 1 6 0 16
@@ -3699,37 +3671,37 @@
                                               32 0 33 2 34 32 0 22 35 2 32 9 0
                                               0 36 2 32 9 0 0 37 1 32 0 22 38 3
                                               34 32 0 22 32 39 1 6 9 0 41 1 6 0
-                                              11 42 1 11 34 0 46 2 59 9 6 0 60
-                                              3 59 47 0 6 47 61 0 59 0 64 2 59
-                                              47 0 6 66 2 69 0 68 0 70 1 6 9 0
-                                              72 1 6 34 0 73 1 6 9 0 74 1 6 22
-                                              0 75 2 78 0 77 0 79 2 82 0 81 0
-                                              83 2 47 9 0 0 89 2 11 9 0 0 90 2
-                                              91 9 0 0 92 2 95 0 94 0 96 2 7 0
-                                              97 0 98 1 99 0 34 100 2 101 0 99
-                                              34 102 3 101 103 0 34 103 104 1
-                                              101 105 0 106 1 11 113 0 114 1
-                                              113 105 0 115 1 107 0 0 127 2 34
-                                              22 32 0 130 2 131 0 22 22 132 2
-                                              34 0 0 131 133 1 11 0 34 134 1
-                                              139 0 34 140 2 6 9 0 0 141 1 142
-                                              0 0 143 1 34 0 16 144 1 6 0 34
-                                              145 3 0 62 11 6 6 110 1 0 107 11
-                                              109 2 0 6 7 6 8 3 0 49 49 6 6 55
-                                              3 0 62 6 6 103 111 2 0 51 34 49
-                                              52 1 0 51 34 121 1 0 51 34 120 1
-                                              0 147 34 149 1 0 147 34 148 2 0
-                                              136 34 11 137 1 0 62 6 63 0 0 49
-                                              122 0 0 49 117 2 0 49 6 6 71 1 0
-                                              85 49 87 3 0 85 7 6 49 88 1 0 85
-                                              49 86 1 0 151 62 1 2 0 107 6 107
-                                              135 2 0 49 6 49 50 1 0 9 11 54 1
-                                              0 57 6 58 1 0 34 34 40 2 0 62 6 6
-                                              126 2 0 9 6 34 45 2 0 62 6 6 125
-                                              1 0 107 11 108 1 0 9 11 116 1 0
-                                              43 34 44 1 0 6 11 24 2 0 6 11 7
-                                              25 1 0 9 11 53 1 0 11 11 123 1 0
-                                              6 11 112 1 0 34 11 138 2 0 62 6 6
-                                              124 2 0 62 6 6 65 0 0 128
-                                              129)))))
+                                              11 42 2 44 43 34 9 45 1 47 0 46
+                                              48 2 51 9 0 34 52 1 11 34 0 54 2
+                                              67 9 6 0 68 3 67 55 0 6 55 69 0
+                                              67 0 72 2 67 55 0 6 74 2 77 0 76
+                                              0 78 1 6 9 0 80 1 6 34 0 81 1 6 9
+                                              0 82 1 6 22 0 83 2 86 0 85 0 87 2
+                                              90 0 89 0 91 2 55 9 0 0 97 2 11 9
+                                              0 0 98 2 99 9 0 0 100 2 103 0 102
+                                              0 104 2 7 0 105 0 106 1 107 0 34
+                                              108 2 109 0 107 34 110 3 109 111
+                                              0 34 111 112 1 109 113 0 114 1 11
+                                              121 0 122 1 121 113 0 123 1 115 0
+                                              0 135 2 34 22 32 0 138 2 139 0 22
+                                              22 140 2 34 0 0 139 141 1 11 0 34
+                                              142 1 147 0 34 148 2 6 9 0 0 149
+                                              1 46 0 0 150 1 34 0 16 151 3 0 70
+                                              11 6 6 118 1 0 115 11 117 2 0 6 7
+                                              6 8 3 0 57 57 6 6 63 3 0 70 6 6
+                                              111 119 2 0 59 34 57 60 1 0 59 34
+                                              129 1 0 59 34 128 1 0 153 34 155
+                                              1 0 153 34 154 2 0 144 34 11 145
+                                              1 0 70 6 71 0 0 57 130 0 0 57 125
+                                              2 0 57 6 6 79 1 0 93 57 95 3 0 93
+                                              7 6 57 96 1 0 93 57 94 1 0 157 70
+                                              1 2 0 115 51 115 143 2 0 57 51 57
+                                              58 1 0 9 11 62 1 0 65 6 66 1 0 34
+                                              34 40 2 0 70 6 6 134 2 0 9 51 34
+                                              53 2 0 70 6 6 133 1 0 115 11 116
+                                              1 0 9 11 124 1 0 49 34 50 1 0 6
+                                              11 24 2 0 6 11 7 25 1 0 9 11 61 1
+                                              0 11 11 131 1 0 6 11 120 1 0 34
+                                              11 146 2 0 70 6 6 132 2 0 70 6 6
+                                              73 0 0 136 137)))))
            '|lookupComplete|)) 
