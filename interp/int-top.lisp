@@ -145,7 +145,7 @@
 ; SpadInterpretStream(step_num, source, interactive?) ==
 ;     pile?                    := not interactive?
 ;
-;     $inclAssertions: local := ["AIX", "CommonLisp"] -- Jan 28/90
+;     $inclAssertions : local := $sys_assertions
 ;
 ;
 ;     $lastPos               : local := $nopos   ------------>!!!
@@ -166,7 +166,7 @@
     (RETURN
      (PROGN
       (SETQ |pile?| (NULL |interactive?|))
-      (SETQ |$inclAssertions| (LIST 'AIX '|CommonLisp|))
+      (SETQ |$inclAssertions| |$sys_assertions|)
       (SETQ |$lastPos| |$nopos|)
       (SETQ |$erMsgToss| NIL)
       (SETQ |$ncMsgList| NIL)
