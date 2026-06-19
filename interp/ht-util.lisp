@@ -1039,7 +1039,7 @@
 ;   if message = '"Continue" then
 ;     bchtMakeButton('"\lispdownlink", "\ContinueBitmap", func)
 ;   else
-;     bchtMakeButton('"\lispdownlink",CONCAT('"\box{", message, '"}"), func)
+;     bchtMakeButton('"\lispdownlink",CONCAT('"\fbox{", message, '"}"), func)
 ;   bcHt '"} "
 
 (DEFUN |htMakeDoneButton| (|message| |func|)
@@ -1051,7 +1051,7 @@
        ((EQUAL |message| "Continue")
         (|bchtMakeButton| "\\lispdownlink" '|\\ContinueBitmap| |func|))
        ('T
-        (|bchtMakeButton| "\\lispdownlink" (CONCAT "\\box{" |message| "}")
+        (|bchtMakeButton| "\\lispdownlink" (CONCAT "\\fbox{" |message| "}")
          |func|)))
       (|bcHt| "} ")))))
 
@@ -1063,7 +1063,7 @@
 ;   else if label = '"Push to enter names" then
 ;     htMakeButton('"\lispdownlink",'"\ControlBitmap{ClickToSet}", func)
 ;   else
-;     htMakeButton('"\lispdownlink", CONCAT('"\box{", label, '"}"), func)
+;     htMakeButton('"\lispdownlink", CONCAT('"\fbox{", label, '"}"), func)
 ;
 ;   iht '"} "
 
@@ -1080,7 +1080,7 @@
        ((EQUAL |label| "Push to enter names")
         (|htMakeButton| "\\lispdownlink" "\\ControlBitmap{ClickToSet}" |func|))
        ('T
-        (|htMakeButton| "\\lispdownlink" (CONCAT "\\box{" |label| "}")
+        (|htMakeButton| "\\lispdownlink" (CONCAT "\\fbox{" |label| "}")
          |func|)))
       (|iht| "} ")))))
 
@@ -1143,7 +1143,7 @@
 ; htProcessDoitButton [label, command, func] ==
 ;   fun := mkCurryFun(func, [command])
 ;   iht '"\newline\vspace{1}\centerline{"
-;   htMakeButton('"\lispcommand", CONCAT('"\box{", label, '"}"), fun)
+;   htMakeButton('"\lispcommand", CONCAT('"\fbox{", label, '"}"), fun)
 ;   iht '"} "
 ;   iht '"\vspace{2}{Select \  \UpButton{} \  to go back one page.}"
 ;   iht '"\newline{Select \  \ExitButton{QuitPage} \  to remove this window.}"
@@ -1157,7 +1157,7 @@
       (SETQ |func| (CADDR . #1#))
       (SETQ |fun| (|mkCurryFun| |func| (LIST |command|)))
       (|iht| "\\newline\\vspace{1}\\centerline{")
-      (|htMakeButton| "\\lispcommand" (CONCAT "\\box{" |label| "}") |fun|)
+      (|htMakeButton| "\\lispcommand" (CONCAT "\\fbox{" |label| "}") |fun|)
       (|iht| "} ")
       (|iht| "\\vspace{2}{Select \\  \\UpButton{} \\  to go back one page.}")
       (|iht|
@@ -1168,7 +1168,7 @@
 ;   if label = '"Do It" then
 ;     bcHt '"\newline\vspace{1}\centerline{\lispcommand{\DoItBitmap}{(|doDoitButton| "
 ;   else
-;     bcHt ['"\newline\vspace{1}\centerline{\lispcommand{\box{", label,
+;     bcHt ['"\newline\vspace{1}\centerline{\lispcommand{\fbox{", label,
 ;        '"}}{(|doDoitButton| "]
 ;   bcHt htpName $curPage
 ;   bcHt ['" _"", htEscapeString command, '"_""]
@@ -1187,7 +1187,7 @@
          "\\newline\\vspace{1}\\centerline{\\lispcommand{\\DoItBitmap}{(|doDoitButton| "))
        ('T
         (|bcHt|
-         (LIST "\\newline\\vspace{1}\\centerline{\\lispcommand{\\box{" |label|
+         (LIST "\\newline\\vspace{1}\\centerline{\\lispcommand{\\fbox{" |label|
                "}}{(|doDoitButton| "))))
       (|bcHt| (|htpName| |$curPage|))
       (|bcHt| (LIST " \"" (|htEscapeString| |command|) "\""))
