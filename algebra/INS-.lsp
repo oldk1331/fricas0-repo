@@ -166,8 +166,8 @@
                    ((SPADCALL |x| (QREFELT % 81))
                     (LETT |x| (SPADCALL |x| |p| (QREFELT % 82)))))
                   (EXIT
-                   (COND ((SPADCALL |x| (QREFELT % 61)) (|spadConstant| % 9))
-                         ((SPADCALL |n| (QREFELT % 61)) (|spadConstant| % 20))
+                   (COND ((SPADCALL |n| (QREFELT % 61)) (|spadConstant| % 20))
+                         ((SPADCALL |x| (QREFELT % 61)) (|spadConstant| % 9))
                          ('T
                           (SEQ (LETT |y| (|spadConstant| % 20)) (LETT |z| |x|)
                                (EXIT

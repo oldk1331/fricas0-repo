@@ -319,7 +319,7 @@
                   (COND
                    ((MINUSP |x|) (LETT |x| (SPADCALL |x| |p| (QREFELT % 48)))))
                   (EXIT
-                   (COND ((ZEROP |x|) 0) ((ZEROP |n|) 1)
+                   (COND ((ZEROP |n|) 1) ((ZEROP |x|) 0)
                          ('T
                           (SEQ (LETT |y| 1) (LETT |z| |x|)
                                (EXIT
