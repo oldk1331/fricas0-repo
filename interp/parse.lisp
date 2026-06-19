@@ -306,7 +306,7 @@
 ;   b =>
 ;     null INTEGERP a =>
 ;             bright_warn(['"first arg ", a, '" for exit must be integer"])
-;             ['exit, 1, a])
+;             ['exit, 1, a]
 ;     ['exit,a,:b]
 ;   ['exit,1,a]
 
@@ -324,7 +324,7 @@
          ((NULL (INTEGERP |a|))
           (PROGN
            (|bright_warn| (LIST "first arg " |a| " for exit must be integer"))
-           (("pile syntax error"))))
+           (LIST '|exit| 1 |a|)))
          (#1='T (CONS '|exit| (CONS |a| |b|)))))
        (#1# (LIST '|exit| 1 |a|)))))))
 
