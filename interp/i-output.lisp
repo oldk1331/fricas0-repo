@@ -2614,30 +2614,31 @@
         |u|))))))
 
 ; opWidth(op,has2Arguments) ==
-;   op = "EQUATNUM" => 4
-;   NUMBERP op => 2+SIZE STRINGIMAGE op
-;   if null has2Arguments then
-;     a := GETL(op, "PREFIXOP") => return SIZE a
-;   else
-;     a := GETL(op, "INFIXOP") => return SIZE a
-;   STRINGP op => 2 + # op
-;   2+SIZE PNAME op
+;     op = "EQUATNUM" => 4
+;     NUMBERP op => 2 + #STRINGIMAGE(op)
+;     if null has2Arguments then
+;         a := GETL(op, "PREFIXOP") => return #a
+;     else
+;         a := GETL(op, "INFIXOP") => return #a
+;     STRINGP op => 2 + #op
+;     2 + #PNAME(op)
 
 (DEFUN |opWidth| (|op| |has2Arguments|)
   (PROG (|a|)
     (RETURN
      (COND ((EQ |op| 'EQUATNUM) 4)
-           ((NUMBERP |op|) (+ 2 (SIZE (STRINGIMAGE |op|))))
+           ((NUMBERP |op|) (+ 2 (LENGTH (STRINGIMAGE |op|))))
            (#1='T
             (PROGN
              (COND
               ((NULL |has2Arguments|)
                (COND
                 ((SETQ |a| (GETL |op| 'PREFIXOP))
-                 (IDENTITY (RETURN (SIZE |a|))))))
-              ((SETQ |a| (GETL |op| 'INFIXOP)) (IDENTITY (RETURN (SIZE |a|)))))
+                 (IDENTITY (RETURN (LENGTH |a|))))))
+              ((SETQ |a| (GETL |op| 'INFIXOP))
+               (IDENTITY (RETURN (LENGTH |a|)))))
              (COND ((STRINGP |op|) (+ 2 (LENGTH |op|)))
-                   (#1# (+ 2 (SIZE (PNAME |op|)))))))))))
+                   (#1# (+ 2 (LENGTH (PNAME |op|)))))))))))
 
 ; matrixBorder(x,y1,y2,d,leftOrRight) ==
 ;   y1 = y2 =>
@@ -3190,12 +3191,12 @@
 ;   xCenter := quotient_INT(maxWidth - 1, 2) + x
 ;   d:=APP(arg,x+2+maxWidth,y,d)
 ;   d:=
-;       atom bot and SIZE atom2String bot = 1 => APP(bot,xCenter,y-2,d)
+;       atom(bot) and #atom2String(bot) = 1 => APP(bot,xCenter,y-2,d)
 ;       APP(bot, x + quotient_INT(maxWidth - botWidth, 2),
 ;           y - 2 - superspan(bot), d)
 ;   if top then
 ;     d:=
-;       atom top and SIZE atom2String top = 1 => APP(top,xCenter,y+2,d)
+;       atom(top) and #atom2String(top) = 1 => APP(top,xCenter,y+2,d)
 ;       APP(top, x + quotient_INT(maxWidth - topWidth, 2),
 ;           y + 2 + subspan(top), d)
 ;   delta := (kind = 'pi => 2; 1)
@@ -3233,7 +3234,7 @@
       (SETQ |d| (APP |arg| (+ (+ |x| 2) |maxWidth|) |y| |d|))
       (SETQ |d|
               (COND
-               ((AND (ATOM |bot|) (EQL (SIZE (|atom2String| |bot|)) 1))
+               ((AND (ATOM |bot|) (EQL (LENGTH (|atom2String| |bot|)) 1))
                 (APP |bot| |xCenter| (- |y| 2) |d|))
                (#1#
                 (APP |bot| (+ |x| (|quotient_INT| (- |maxWidth| |botWidth|) 2))
@@ -3242,7 +3243,7 @@
        (|top|
         (SETQ |d|
                 (COND
-                 ((AND (ATOM |top|) (EQL (SIZE (|atom2String| |top|)) 1))
+                 ((AND (ATOM |top|) (EQL (LENGTH (|atom2String| |top|)) 1))
                   (APP |top| |xCenter| (+ |y| 2) |d|))
                  (#1#
                   (APP |top|
@@ -3929,7 +3930,7 @@
 ;   firsttime:=(linelength>3)
 ;   if linelength>2 then
 ;      linelength:=linelength-1
-;   while SIZE(num) > linelength repeat
+;   while #num > linelength repeat
 ;     if $collectOutput then
 ;        $outputLines := [CONCAT(blnks, SUBSTRING(num,0,linelength),under),
 ;                         :$outputLines]
@@ -3957,7 +3958,7 @@
       (COND ((< 2 |linelength|) (SETQ |linelength| (- |linelength| 1))))
       ((LAMBDA ()
          (LOOP
-          (COND ((NOT (< |linelength| (SIZE |num|))) (RETURN NIL))
+          (COND ((NOT (< |linelength| (LENGTH |num|))) (RETURN NIL))
                 (#1#
                  (PROGN
                   (COND
@@ -3983,7 +3984,7 @@
 ; outputString(start,linelength,str) ==
 ;   if start > 1 then blnks := filler_spaces(start - 1)
 ;   else blnks := '""
-;   while SIZE(str) > linelength repeat
+;   while #str > linelength repeat
 ;     if $collectOutput then
 ;        $outputLines := [CONCAT(blnks, SUBSTRING(str,0,linelength)),
 ;                         :$outputLines]
@@ -4003,7 +4004,7 @@
             (#1='T (SETQ |blnks| "")))
       ((LAMBDA ()
          (LOOP
-          (COND ((NOT (< |linelength| (SIZE |str|))) (RETURN NIL))
+          (COND ((NOT (< |linelength| (LENGTH |str|))) (RETURN NIL))
                 (#1#
                  (PROGN
                   (COND

@@ -1250,7 +1250,8 @@
                 (PROGN
                  (LETT #6#
                        (GETREFV
-                        (SIZE #9=(SPADCALL (QVELT |irec| 1) (QREFELT % 131)))))
+                        (LENGTH
+                         #9=(SPADCALL (QVELT |irec| 1) (QREFELT % 131)))))
                  (SEQ (LETT |ni| NIL) (LETT #7# #9#) (LETT #8# 0) G190
                       (COND
                        ((OR (ATOM #7#) (PROGN (LETT |ni| (CAR #7#)) NIL))
@@ -1372,7 +1373,7 @@
                              (PROGN
                               (LETT #2#
                                     (GETREFV
-                                     (SIZE
+                                     (LENGTH
                                       #8=(SPADCALL (QVELT |irec| 1)
                                                    (QREFELT % 131)))))
                               (SEQ (LETT |ni| NIL) (LETT #3# #8#) (LETT #4# 0)

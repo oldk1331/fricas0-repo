@@ -1925,7 +1925,7 @@
 ; L2DP(l, source is [.,S], target is [.,n,T]) ==
 ;   -- need to know size of the list
 ;   l = '_$fromCoerceable_$ => nil
-;   n ~= SIZE l => coercionFailure()
+;   n ~= #l => coercionFailure()
 ;   (v := coerceInt(objNewWrap(LIST2VEC l,['Vector,S]),['Vector,T])) or
 ;     coercionFailure()
 ;   V2DP(objValUnwrap v, ['Vector, T], target)
@@ -1938,7 +1938,7 @@
       (SETQ T$ (CADDR . #1#))
       (SETQ S (CADR |source|))
       (COND ((EQ |l| '|$fromCoerceable$|) NIL)
-            ((NOT (EQL |n| (SIZE |l|))) (|coercionFailure|))
+            ((NOT (EQL |n| (LENGTH |l|))) (|coercionFailure|))
             ('T
              (PROGN
               (OR
@@ -1952,7 +1952,7 @@
 ; V2DP(v, source is [.,S], target is [.,n,T]) ==
 ;   -- need to know size of the vector
 ;   v = '_$fromCoerceable_$ => nil
-;   n ~= SIZE v => coercionFailure()
+;   n ~= #v => coercionFailure()
 ;   (v1 := coerceInt(objNewWrap(v,source),['Vector,T])) or
 ;     coercionFailure()
 ;   dpFun  := getFunctionFromDomain('directProduct, target, [['Vector,T]])
@@ -1966,7 +1966,7 @@
       (SETQ T$ (CADDR . #1#))
       (SETQ S (CADR |source|))
       (COND ((EQ |v| '|$fromCoerceable$|) NIL)
-            ((NOT (EQL |n| (SIZE |v|))) (|coercionFailure|))
+            ((NOT (EQL |n| (LENGTH |v|))) (|coercionFailure|))
             ('T
              (PROGN
               (OR

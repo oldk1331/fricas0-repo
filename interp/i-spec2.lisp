@@ -108,7 +108,7 @@
 ;       msg_comp_failure("S2IS0032",
 ;           '"Cannot compile a $-expression involving a local variable.", [])
 ;   EQ(D,'Lisp) => upLispCall(op,form)
-;   if VECP D and (SIZE(D) > 0) then D := D.0
+;   if VECP(D) and #D > 0 then D := D.0
 ;   t := evaluateType unabbrev D
 ;   categoryForm?(t) => throw_msg("S2IE0012", CONCAT(
 ;      '"The right-hand side of the $ operator must be a package or domain",
@@ -189,7 +189,7 @@
          ((EQ D '|Lisp|) (|upLispCall| |op| |form|))
          (#1#
           (PROGN
-           (COND ((AND (VECP D) (< 0 (SIZE D))) (SETQ D (ELT D 0))))
+           (COND ((AND (VECP D) (< 0 (LENGTH D))) (SETQ D (ELT D 0))))
            (SETQ |t| (|evaluateType| (|unabbrev| D)))
            (COND
             ((|categoryForm?| |t|)

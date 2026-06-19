@@ -1317,7 +1317,7 @@
                  (LETT |t|
                        (SPADCALL (ELT % 47)
                                  (PROGN
-                                  (LETT #9# (GETREFV (SIZE |rowBoxes|)))
+                                  (LETT #9# (GETREFV (LENGTH |rowBoxes|)))
                                   (SEQ (LETT |b| NIL) (LETT #10# |rowBoxes|)
                                        (LETT #11# 0) G190
                                        (COND

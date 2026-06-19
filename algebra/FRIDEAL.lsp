@@ -396,7 +396,7 @@
                     (SPADCALL (SPADCALL |b| (QREFELT % 72)) (QREFELT % 115)))
               (LETT |va|
                     (PROGN
-                     (LETT #2# (GETREFV (SIZE |nr|)))
+                     (LETT #2# (GETREFV (LENGTH |nr|)))
                      (SEQ (LETT |m| NIL) (LETT #3# |nr|) (LETT #4# 0) G190
                           (COND
                            ((OR (ATOM #3#) (PROGN (LETT |m| (CAR #3#)) NIL))

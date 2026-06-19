@@ -3727,7 +3727,7 @@
 ;         fg => MKQ($monitor_value)
 ;         spadThrowBrightly('"cannot ask for value before execution")
 ;     n = 9 => MKQ($monitor_caller)
-;     n <= SIZE($monitor_args) => MKQ(ELT($monitor_args, n - 1))
+;     n <= #$monitor_args => MKQ(ELT($monitor_args, n - 1))
 ;     spadThrowBrightly(['"FUNCTION", "%b", $monitor_name, "%d",
 ;                           '"does not have", "%b", n, "%d", '"arguments"])
 
@@ -3740,7 +3740,7 @@
              (#1='T
               (|spadThrowBrightly| "cannot ask for value before execution"))))
       ((EQL |n| 9) (MKQ |$monitor_caller|))
-      ((NOT (< (SIZE |$monitor_args|) |n|))
+      ((NOT (< (LENGTH |$monitor_args|) |n|))
        (MKQ (ELT |$monitor_args| (- |n| 1))))
       (#1#
        (|spadThrowBrightly|

@@ -27,7 +27,7 @@
           (PROGN
            (LETT #1#
                  (GETREFV
-                  (SIZE
+                  (LENGTH
                    #4=(|SETMN;enum| (QREFELT % 6) (QREFELT % 7) (QREFELT % 7)
                        %))))
            (SEQ (LETT |b| NIL) (LETT #2# #4#) (LETT |i| 1) (LETT #3# 0) G190

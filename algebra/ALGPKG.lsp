@@ -1414,7 +1414,7 @@
                        NIL (GO G190) G191 (EXIT NIL))
                   (EXIT
                    (PROGN
-                    (LETT #2# (GETREFV (SIZE #5=(REVERSE |lj|))))
+                    (LETT #2# (GETREFV (LENGTH #5=(REVERSE |lj|))))
                     (SEQ (LETT #3# #5#) (LETT #4# 0) G190
                          (COND
                           ((OR (ATOM #3#) (PROGN (LETT |j| (CAR #3#)) NIL))

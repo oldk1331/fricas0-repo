@@ -377,7 +377,7 @@
 ; newLookupInCategories(op, sig, dom, dollar, check_num) ==
 ;   slot4 := dom.4
 ;   catVec := CADR slot4
-;   SIZE catVec = 0 => nil                      --early exit if no categories
+;   #catVec = 0 => nil                      --early exit if no categories
 ;   INTEGERP IFCDR catVec.0 => BREAK()
 ;   $lookupDefaults : local := nil
 ;   if $monitorNewWorld = true then sayBrightly concat('"----->",
@@ -404,7 +404,7 @@
 ;             null code => nil
 ;             byteVector := CDDDR infovec.3
 ;             endPos :=
-;               code+2 > max => SIZE byteVector
+;               code+2 > max => #byteVector
 ;               opvec.(code+2)
 ;             check_num and not(nrunNumArgCheck(#(QCDR sig), byteVector,
 ;                                               opvec.code, endPos)) => nil
@@ -441,7 +441,7 @@
      (PROGN
       (SETQ |slot4| (ELT |dom| 4))
       (SETQ |catVec| (CADR |slot4|))
-      (COND ((EQL (SIZE |catVec|) 0) NIL)
+      (COND ((EQL (LENGTH |catVec|) 0) NIL)
             ((INTEGERP (IFCDR (ELT |catVec| 0))) (BREAK))
             (#1='T
              (PROGN
@@ -503,7 +503,7 @@
                                                                         (+
                                                                          |code|
                                                                          2))
-                                                                     (SIZE
+                                                                     (LENGTH
                                                                       |byteVector|))
                                                                     (#1#
                                                                      (ELT

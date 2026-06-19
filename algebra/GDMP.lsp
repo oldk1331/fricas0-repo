@@ -293,7 +293,7 @@
                                   (CONS
                                    (SPADCALL
                                     (PROGN
-                                     (LETT #3# (GETREFV (SIZE |perm|)))
+                                     (LETT #3# (GETREFV (LENGTH |perm|)))
                                      (SEQ (LETT |j| NIL) (LETT #4# |perm|)
                                           (LETT #5# 0) G190
                                           (COND

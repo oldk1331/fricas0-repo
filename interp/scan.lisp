@@ -1378,12 +1378,12 @@
 ; substringMatch (l,d,i)==
 ;        h := STR_ELT(l, i)
 ;        u:=ELT(d,h)
-;        ll:=SIZE l
+;        ll := #l
 ;        done:=false
 ;        s1:='""
-;        for j in 0.. SIZE u - 1 while not done repeat
+;        for j in 0..(#u - 1) while not done repeat
 ;           s:=ELT(u,j)
-;           ls:=SIZE s
+;           ls := #s
 ;           done:=if ls+i > ll
 ;                 then false
 ;                 else
@@ -1403,7 +1403,7 @@
      (PROGN
       (SETQ |h| (STR_ELT |l| |i|))
       (SETQ |u| (ELT |d| |h|))
-      (SETQ |ll| (SIZE |l|))
+      (SETQ |ll| (LENGTH |l|))
       (SETQ |done| NIL)
       (SETQ |s1| "")
       ((LAMBDA (|bfVar#8| |j|)
@@ -1412,7 +1412,7 @@
                 (#1='T
                  (PROGN
                   (SETQ |s| (ELT |u| |j|))
-                  (SETQ |ls| (SIZE |s|))
+                  (SETQ |ls| (LENGTH |s|))
                   (SETQ |done|
                           (COND ((< |ll| (+ |ls| |i|)) NIL)
                                 (#1# (SETQ |eql| T)
@@ -1431,7 +1431,7 @@
                                  (COND (|eql| (SETQ |s1| |s|) T)
                                        (#1# NIL))))))))
           (SETQ |j| (+ |j| 1))))
-       (- (SIZE |u|) 1) 0)
+       (- (LENGTH |u|) 1) 0)
       |s1|))))
 
 ; punctuation? c == c < 256 and ELT_BVEC(scanPun, c) = 1

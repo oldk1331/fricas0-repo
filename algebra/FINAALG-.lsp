@@ -380,7 +380,7 @@
                           (EXIT (NREVERSE #1#)))))
               (LETT |symbolsForCoef|
                     (PROGN
-                     (LETT #3# (GETREFV (SIZE |listOfNumbers|)))
+                     (LETT #3# (GETREFV (LENGTH |listOfNumbers|)))
                      (SEQ (LETT |i| NIL) (LETT #4# |listOfNumbers|)
                           (LETT #5# 0) G190
                           (COND
@@ -564,7 +564,7 @@
                                                                         #6=(QVSIZE
                                                                             |vectorOfCoef|)
                                                                         2))
-                                                                      (SIZE
+                                                                      (LENGTH
                                                                        #7=(REVERSE
                                                                            |listOfPowers|)))))
                                                               (SEQ (LETT |i| 2)
@@ -705,7 +705,7 @@
                                                                         #6=(QVSIZE
                                                                             |vectorOfCoef|)
                                                                         2))
-                                                                      (SIZE
+                                                                      (LENGTH
                                                                        #7=(REVERSE
                                                                            |listOfPowers|)))))
                                                               (SEQ (LETT |i| 2)

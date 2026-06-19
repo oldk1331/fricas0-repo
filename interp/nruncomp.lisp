@@ -1489,8 +1489,8 @@
 ;   domainShell := GETREFV (6 + $NRTdeltaLength)
 ;   for i in 0..4 repeat domainShell.i := base_shell.i
 ;   $template := GETREFV (6 + $NRTdeltaLength)
-;   $SetFunctions:= GETREFV SIZE domainShell
-;   $MissingFunctionInfo:= GETREFV SIZE domainShell
+;   $SetFunctions:= GETREFV(#domainShell)
+;   $MissingFunctionInfo:= GETREFV(#domainShell)
 ;   catNames := ['%, :[GENVAR() for u in rest(catvecListMaker)]]
 ;   domname:='dv_$
 ;
@@ -1617,8 +1617,8 @@
           (SETQ |i| (+ |i| 1))))
        0)
       (SETQ |$template| (GETREFV (+ 6 |$NRTdeltaLength|)))
-      (SETQ |$SetFunctions| (GETREFV (SIZE |domainShell|)))
-      (SETQ |$MissingFunctionInfo| (GETREFV (SIZE |domainShell|)))
+      (SETQ |$SetFunctions| (GETREFV (LENGTH |domainShell|)))
+      (SETQ |$MissingFunctionInfo| (GETREFV (LENGTH |domainShell|)))
       (SETQ |catNames|
               (CONS '%
                     ((LAMBDA (|bfVar#68| |bfVar#67| |u|)

@@ -523,7 +523,7 @@
 ;         '" which contain %1b in their names.  This is the same output you",
 ;           '" would get by issuing %ceon %b )what operations %1 %d %ceoff"),
 ;             [op1])
-;     if SIZE PNAME op1 < 3 then
+;     if #PNAME(op1) < 3 then
 ;       x := query_user_msg("S2IZ0060", CONCAT(
 ;           '"%l There are possibly a great many operation names containing",
 ;           '" the substring %1b . Please confirm your request to have these",
@@ -566,7 +566,7 @@
            " would get by issuing %ceon %b )what operations %1 %d %ceoff")
           (LIST |op1|))
          (COND
-          ((< (SIZE (PNAME |op1|)) 3)
+          ((< (LENGTH (PNAME |op1|)) 3)
            (SETQ |x|
                    (|query_user_msg| 'S2IZ0060
                     (CONCAT
@@ -980,7 +980,7 @@
 ;       null rest argl => [ '":", form2String1 first argl ]
 ;       formDecl2String(argl.0,argl.1)
 ;   op = "#" and PAIRP argl and LISTP first argl =>
-;     STRINGIMAGE SIZE first argl
+;         STRINGIMAGE(#first(argl))
 ;   op = 'Join => formJoin2String argl
 ;   op = "ATTRIBUTE" => form2String1 first argl
 ;   op = "0" => 0
@@ -1100,7 +1100,7 @@
                 ((NULL (CDR |argl|)) (LIST ":" (|form2String1| (CAR |argl|))))
                 (#1# (|formDecl2String| (ELT |argl| 0) (ELT |argl| 1)))))
          ((AND (EQ |op| '|#|) (CONSP |argl|) (LISTP (CAR |argl|)))
-          (STRINGIMAGE (SIZE (CAR |argl|))))
+          (STRINGIMAGE (LENGTH (CAR |argl|))))
          ((EQ |op| '|Join|) (|formJoin2String| |argl|))
          ((EQ |op| 'ATTRIBUTE) (|form2String1| (CAR |argl|)))
          ((EQ |op| '|0|) 0) ((EQ |op| '|1|) 1)
@@ -2106,7 +2106,7 @@
 
 ; isInternalFunctionName(op) ==
 ;   (not IDENTP(op)) or (op = "*") or (op = "**") => NIL
-;   (1 = SIZE(op':= PNAME op)) or (char("*") ~= op'.0) => NIL
+;   (1 = #(op':= PNAME op)) or (char("*") ~= op'.0) => NIL
 ;   -- if there is a semicolon in the name then it is the name of
 ;   -- a compiled spad function
 ;   null(e := search_str('"_;", op', 1)) => NIL
@@ -2120,7 +2120,7 @@
   (PROG (|op'| |e| |y| |table| |s|)
     (RETURN
      (COND ((OR (NULL (IDENTP |op|)) (EQ |op| '*) (EQ |op| '**)) NIL)
-           ((OR (EQL 1 (SIZE (SETQ |op'| (PNAME |op|))))
+           ((OR (EQL 1 (LENGTH (SETQ |op'| (PNAME |op|))))
                 (NOT (EQUAL (|char| '*) (ELT |op'| 0))))
             NIL)
            ((NULL (SETQ |e| (|search_str| ";" |op'| 1))) NIL)

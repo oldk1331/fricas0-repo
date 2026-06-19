@@ -481,7 +481,7 @@
 ; noBlankBeforeP word==
 ;     INTEGERP word => false
 ;     word in $msgdbNoBlanksBeforeGroup => true
-;     if STRINGP word and SIZE word > 1 then
+;     if STRINGP(word) and #word > 1 then
 ;        word.0 = char '% and word.1 = char 'x => return true
 ;        word.0 = char " " => return true
 ;     (PAIRP word) and (first word in $msgdbListPrims) => true
@@ -495,7 +495,7 @@
            (#1='T
             (PROGN
              (COND
-              ((AND (STRINGP |word|) (< 1 (SIZE |word|)))
+              ((AND (STRINGP |word|) (< 1 (LENGTH |word|)))
                (COND
                 ((AND (EQUAL (ELT |word| 0) (|char| '%))
                       (EQUAL (ELT |word| 1) (|char| '|x|)))
@@ -520,7 +520,7 @@
 ; noBlankAfterP word==
 ;     INTEGERP word => false
 ;     word in $msgdbNoBlanksAfterGroup => true
-;     if STRINGP word and (s := SIZE word) > 1 then
+;     if STRINGP(word) and (s := #word) > 1 then
 ;        word.0 = char '% and word.1 = char 'x => return true
 ;        word.(s-1) = char " " => return true
 ;     (PAIRP word) and (first word in $msgdbListPrims) => true
@@ -534,7 +534,7 @@
            (#1='T
             (PROGN
              (COND
-              ((AND (STRINGP |word|) (< 1 (SETQ |s| (SIZE |word|))))
+              ((AND (STRINGP |word|) (< 1 (SETQ |s| (LENGTH |word|))))
                (COND
                 ((AND (EQUAL (ELT |word| 0) (|char| '%))
                       (EQUAL (ELT |word| 1) (|char| '|x|)))
@@ -1560,7 +1560,7 @@
 ; sayAsManyPerLineAsPossible l ==
 ;   -- it is assumed that l is a list of strings
 ;   l := [atom2String a for a in l]
-;   m := 1 + "MAX"/[SIZE(a) for a in l]
+;   m := 1 + "MAX"/[#a for a in l]
 ;   -- w will be the field width in which we will display the elements
 ;   m > $LINELENGTH =>
 ;     for a in l repeat sayMSG a
@@ -1600,7 +1600,7 @@
                       ((OR (ATOM |bfVar#23|)
                            (PROGN (SETQ |a| (CAR |bfVar#23|)) NIL))
                        (RETURN |bfVar#24|))
-                      (#1# (SETQ |bfVar#24| (MAX |bfVar#24| (SIZE |a|)))))
+                      (#1# (SETQ |bfVar#24| (MAX |bfVar#24| (LENGTH |a|)))))
                      (SETQ |bfVar#23| (CDR |bfVar#23|))))
                   -999999 |l| NIL)))
       (COND

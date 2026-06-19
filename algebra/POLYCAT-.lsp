@@ -845,7 +845,7 @@
                          (EXIT
                           (CONS 0
                                 (PROGN
-                                 (LETT #18# (GETREFV (SIZE |monslist|)))
+                                 (LETT #18# (GETREFV (LENGTH |monslist|)))
                                  (SEQ (LETT #19# |monslist|) (LETT #20# 0) G190
                                       (COND
                                        ((OR (ATOM #19#)

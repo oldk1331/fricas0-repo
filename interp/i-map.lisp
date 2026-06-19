@@ -58,7 +58,7 @@
 ; isInternalMapName name ==
 ;   -- this only returns true or false as a "best guess"
 ;   (not IDENTP(name)) or (name = "*") or (name = "**") => false
-;   sz := SIZE (name' := PNAME name)
+;   sz := #(name' := PNAME name)
 ;   (sz < 7) or (char("*") ~= name'.0) => false
 ;   null(char_to_digit(name'.1)) => false
 ;   null(search_str('"_;", name', 1)) => false
@@ -71,7 +71,7 @@
      (COND ((OR (NULL (IDENTP |name|)) (EQ |name| '*) (EQ |name| '**)) NIL)
            (#1='T
             (PROGN
-             (SETQ |sz| (SIZE (SETQ |name'| (PNAME |name|))))
+             (SETQ |sz| (LENGTH (SETQ |name'| (PNAME |name|))))
              (COND
               ((OR (< |sz| 7) (NOT (EQUAL (|char| '*) (ELT |name'| 0)))) NIL)
               ((NULL (|char_to_digit| (ELT |name'| 1))) NIL)

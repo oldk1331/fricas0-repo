@@ -1256,8 +1256,8 @@
 ;   (t is [t0]) and (sd := getImmediateSuperDomain(t0)) and sd ~= t0 =>
 ;     resolveTCat(sd,c)
 ;
-;   SIZE(td := deconstructT t) ~= 2=> NIL
-;   SIZE(tc := deconstructT c) ~= 2 => NIL
+;   #(td := deconstructT t) ~= 2=> NIL
+;   #(tc := deconstructT c) ~= 2 => NIL
 ;   ut := underDomainOf t
 ;   null isValidType(uc := last tc) => NIL
 ;   null canCoerceFrom(ut,uc) => NIL
@@ -1278,8 +1278,8 @@
                  (SETQ |sd| (|getImmediateSuperDomain| |t0|))
                  (NOT (EQUAL |sd| |t0|)))
             (|resolveTCat| |sd| |c|))
-           ((NOT (EQL (SIZE (SETQ |td| (|deconstructT| |t|))) 2)) NIL)
-           ((NOT (EQL (SIZE (SETQ |tc| (|deconstructT| |c|))) 2)) NIL)
+           ((NOT (EQL (LENGTH (SETQ |td| (|deconstructT| |t|))) 2)) NIL)
+           ((NOT (EQL (LENGTH (SETQ |tc| (|deconstructT| |c|))) 2)) NIL)
            (#1#
             (PROGN
              (SETQ |ut| (|underDomainOf| |t|))

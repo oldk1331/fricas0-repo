@@ -1197,7 +1197,7 @@
 ;             ret_val := ["LIST2VEC", ["COLLECT", :l]]
 ;             return nil -- break loop
 ;         op in '(IN ON) =>
-;             conds := [["SIZE", CADDR(iter)], :conds]
+;             conds := [["LENGTH", CADDR(iter)], :conds]
 ;         op in '(STEP ISTEP) =>
 ;             [., var, start, step, :opt_limit] := iter
 ;             if start = 0 and step = 1 then
@@ -1254,7 +1254,7 @@
                 (SETQ |ret_val| (LIST 'LIST2VEC (CONS 'COLLECT |l|)))
                 (RETURN NIL)))
               ((|member| |op| '(IN ON))
-               (SETQ |conds| (CONS (LIST 'SIZE (CADDR |iter|)) |conds|)))
+               (SETQ |conds| (CONS (LIST 'LENGTH (CADDR |iter|)) |conds|)))
               ((|member| |op| '(STEP ISTEP))
                (PROGN
                 (SETQ |var| (CADR . #2=(|iter|)))

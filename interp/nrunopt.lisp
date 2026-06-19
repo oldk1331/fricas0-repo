@@ -22,7 +22,7 @@
 ; makeDomainTemplate vec ==
 ; --NOTES: This function is called at compile time to create the template
 ; --  (slot 0 of the infovec); called by getInfovecCode from compDefineFunctor1
-;   newVec := GETREFV SIZE vec
+;   newVec := GETREFV(#vec)
 ;   for index in 0..MAXINDEX vec repeat
 ;     item := vec.index
 ;     null item => nil
@@ -37,7 +37,7 @@
   (PROG (|newVec| |item|)
     (RETURN
      (PROGN
-      (SETQ |newVec| (GETREFV (SIZE |vec|)))
+      (SETQ |newVec| (GETREFV (LENGTH |vec|)))
       ((LAMBDA (|bfVar#1| |index|)
          (LOOP
           (COND ((> |index| |bfVar#1|) (RETURN NIL))
@@ -1539,7 +1539,7 @@
 ;   print_full1(infovec.1)
 ;   vec := getCodeVector1(infovec)
 ;   vec := (PAIRP vec => rest vec; vec)
-;   sayBrightly ['"Information vector has ",SIZE vec,'" entries"]
+;   sayBrightly(['"Information vector has ", #vec, '" entries"])
 ;   dcData1 vec
 
 (DEFUN |dcData| (|con|)
@@ -1552,7 +1552,8 @@
       (|print_full1| (ELT |infovec| 1))
       (SETQ |vec| (|getCodeVector1| |infovec|))
       (SETQ |vec| (COND ((CONSP |vec|) (CDR |vec|)) ('T |vec|)))
-      (|sayBrightly| (LIST "Information vector has " (SIZE |vec|) " entries"))
+      (|sayBrightly|
+       (LIST "Information vector has " (LENGTH |vec|) " entries"))
       (|dcData1| |vec|)))))
 
 ; dcData1 vec ==
@@ -1618,19 +1619,19 @@
 ;        lazyNodes := lazyNodes + numberOfNodes item
 ;   tSize := sum(vectorSize(1 + maxindex),nodeSize(lazyNodes + latch))
 ;   -- functions are free in the template vector
-;   oSize := vectorSize(SIZE infovec.1)
+;   oSize := vectorSize(#(infovec.1))
 ;   aSize := numberOfNodes infovec.2
 ;   slot4 := infovec.3
 ;   catvec :=
 ;     VECP CDDR slot4 => BREAK()
 ;     CADDR slot4
 ;   n := MAXINDEX catvec
-;   cSize := sum(nodeSize(2), vectorSize(SIZE first slot4), vectorSize(n + 1),
+;   cSize := sum(nodeSize(2), vectorSize(#first(slot4)), vectorSize(n + 1),
 ;                nodeSize(+/[numberOfNodes catvec.i for i in 0..n]))
 ;   codeVector :=
 ;     VECP CDDR slot4 => BREAK()
 ;     CDDDR slot4
-;   vSize := halfWordSize(SIZE codeVector)
+;   vSize := halfWordSize(#codeVector)
 ;   itotal := sum(tSize,oSize,aSize,cSize,vSize)
 ;   if null quiet then sayBrightly ['"infovec total = ",itotal,'" BYTES"]
 ;   if null quiet then
@@ -1695,7 +1696,7 @@
               (SETQ |tSize|
                       (|sum| (|vectorSize| (+ 1 |maxindex|))
                        (|nodeSize| (+ |lazyNodes| |latch|))))
-              (SETQ |oSize| (|vectorSize| (SIZE (ELT |infovec| 1))))
+              (SETQ |oSize| (|vectorSize| (LENGTH (ELT |infovec| 1))))
               (SETQ |aSize| (|numberOfNodes| (ELT |infovec| 2)))
               (SETQ |slot4| (ELT |infovec| 3))
               (SETQ |catvec|
@@ -1703,7 +1704,8 @@
                             (#1# (CADDR |slot4|))))
               (SETQ |n| (MAXINDEX |catvec|))
               (SETQ |cSize|
-                      (|sum| (|nodeSize| 2) (|vectorSize| (SIZE (CAR |slot4|)))
+                      (|sum| (|nodeSize| 2)
+                       (|vectorSize| (LENGTH (CAR |slot4|)))
                        (|vectorSize| (+ |n| 1))
                        (|nodeSize|
                         ((LAMBDA (|bfVar#78| |i|)
@@ -1719,7 +1721,7 @@
               (SETQ |codeVector|
                       (COND ((VECP (CDDR |slot4|)) (BREAK))
                             (#1# (CDDDR |slot4|))))
-              (SETQ |vSize| (|halfWordSize| (SIZE |codeVector|)))
+              (SETQ |vSize| (|halfWordSize| (LENGTH |codeVector|)))
               (SETQ |itotal| (|sum| |tSize| |oSize| |aSize| |cSize| |vSize|))
               (COND
                ((NULL |quiet|)

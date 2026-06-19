@@ -97,7 +97,7 @@
 ;           VECP x => MKQ x
 ;           mkEvalable x
 ;         x is ['QUOTE,:.] => x
-;         x is ['_#,y] => ['SIZE,MKQ y]
+;         x is ['_#, y] => ['LENGTH, MKQ(y)]
 ;         MKQ x
 ;     [op,:[mkEvalable x for x in argl]]
 ;   form=$EmptyMode => $Integer
@@ -150,7 +150,7 @@
                                                    (PROGN
                                                     (SETQ |y| (CAR |ISTMP#1|))
                                                     #1#))))
-                                        (LIST 'SIZE (MKQ |y|)))
+                                        (LIST 'LENGTH (MKQ |y|)))
                                        (#1# (MKQ |x|)))
                                       |bfVar#6|))))
                            (SETQ |bfVar#4| (CDR |bfVar#4|))

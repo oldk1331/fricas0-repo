@@ -58,7 +58,7 @@
                           (EXIT (NREVERSE #1#)))))
               (LETT |symbolsForCoef|
                     (PROGN
-                     (LETT #3# (GETREFV (SIZE |listOfNumbers|)))
+                     (LETT #3# (GETREFV (LENGTH |listOfNumbers|)))
                      (SEQ (LETT |i| NIL) (LETT #4# |listOfNumbers|)
                           (LETT #5# 0) G190
                           (COND

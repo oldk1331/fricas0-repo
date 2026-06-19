@@ -117,7 +117,7 @@
      (SETQ |item| (LIST |cname| (|get_database| |cname| 'ABBREVIATION) NIL)))))
 
 ; constructorAbbreviationErrorCheck(c,a,typ) ==
-;   siz := SIZE (s := PNAME a)
+;   siz := #(s := PNAME a)
 ;   if typ = 'category and siz > 7 then
 ;       throw_error_msg('precompilation, "S2IL0021", CONCAT(
 ;           '"Category abbreviations must have 7 or fewer characters",
@@ -137,7 +137,7 @@
   (PROG (|s| |siz| |abb| |name| |type|)
     (RETURN
      (PROGN
-      (SETQ |siz| (SIZE (SETQ |s| (PNAME |a|))))
+      (SETQ |siz| (LENGTH (SETQ |s| (PNAME |a|))))
       (COND
        ((AND (EQ |typ| '|category|) (< 7 |siz|))
         (|throw_error_msg| '|precompilation| 'S2IL0021

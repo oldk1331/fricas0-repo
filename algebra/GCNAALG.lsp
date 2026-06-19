@@ -329,7 +329,7 @@
                       (EXIT (NREVERSE #1#)))))
           (LETT |sFC|
                 (PROGN
-                 (LETT #3# (GETREFV (SIZE |lON|)))
+                 (LETT #3# (GETREFV (LENGTH |lON|)))
                  (SEQ (LETT |i| NIL) (LETT #4# |lON|) (LETT #5# 0) G190
                       (COND
                        ((OR (ATOM #4#) (PROGN (LETT |i| (CAR #4#)) NIL))
@@ -360,7 +360,7 @@
                       (EXIT (NREVERSE #1#)))))
           (LETT |sFC|
                 (PROGN
-                 (LETT #3# (GETREFV (SIZE |lON|)))
+                 (LETT #3# (GETREFV (LENGTH |lON|)))
                  (SEQ (LETT |i| NIL) (LETT #4# |lON|) (LETT #5# 0) G190
                       (COND
                        ((OR (ATOM #4#) (PROGN (LETT |i| (CAR #4#)) NIL))
@@ -452,7 +452,7 @@
                      (EXIT (NREVERSE #1#)))))
      (QSETREFV % 18
                (PROGN
-                (LETT #3# (GETREFV (SIZE #9=(QREFELT % 14))))
+                (LETT #3# (GETREFV (LENGTH #9=(QREFELT % 14))))
                 (SEQ (LETT |i| NIL) (LETT #4# #9#) (LETT #5# 0) G190
                      (COND
                       ((OR (ATOM #4#) (PROGN (LETT |i| (CAR #4#)) NIL))
