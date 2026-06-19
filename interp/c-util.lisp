@@ -1098,6 +1098,7 @@
 ;   (name:= first domain)="Category" => true
 ;   ASSQ(name,domainList) => true
 ;   isFunctor name => false
+;   -- XXX a lie?  Used only for warnings so does not matter much.
 ;   true --is not a functor
 
 (DEFUN |isDomainInScope| (|domain| |e|)
