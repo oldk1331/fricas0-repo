@@ -47,21 +47,19 @@
 (SDEFUN |FNAME;writable?;%B;11| ((|f| (%)) (% (|Boolean|)))
         (SPROG ((|n| (|String|)) (|r1| (|Integer|)))
                (SEQ (LETT |n| (SPADCALL |f| (QREFELT % 9)))
-                    (COND ((EQUAL |n| "") (LETT |n| ".")))
-                    (LETT |r1| (|writablep| |n|))
+                    (LETT |r1| (|writablep| |n| 0))
                     (EXIT
-                     (COND ((> |r1| 0) 'T)
+                     (COND ((> |r1| 0) 'T) ((EQL |r1| 0) NIL)
                            ('T
                             (SEQ (LETT |n| (|file_directory| |n|))
                                  (COND ((EQUAL |n| "") (LETT |n| ".")))
-                                 (LETT |r1| (|writablep| |n|))
+                                 (LETT |r1| (|writablep| |n| 1))
                                  (EXIT (> |r1| 0))))))))) 
 
 (SDEFUN |FNAME;new;3S%;12| ((|d| #1=(|String|)) (|pref| #1#) (|e| #1#) (% (%)))
         (SPROG ((|r1| (|Integer|)))
                (SEQ (COND ((EQUAL |d| "") (LETT |d| ".")))
-                    (LETT |r1| (|file_kind| |d|))
-                    (COND ((> |r1| 0) (LETT |r1| (|writablep| |d|))))
+                    (LETT |r1| (|writablep| |d| 1))
                     (EXIT
                      (COND ((> |r1| 0) (|new_fname| |d| |pref| |e|))
                            ('T
