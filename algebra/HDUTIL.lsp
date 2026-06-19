@@ -66,7 +66,7 @@
         ((|word| (|String|)) (|pl| (|List| (|SExpression|)))
          (|do_link| (|Boolean|)) (|acc| (|List| (|String|)))
          (% (|List| (|String|))))
-        (SPROG ((|p| NIL) (#1=#:G74 NIL) (|first| (|Boolean|)))
+        (SPROG ((|p| NIL) (#1=#:G75 NIL) (|first| (|Boolean|)))
                (SEQ (LETT |first| 'T)
                     (SEQ (LETT |p| NIL) (LETT #1# |pl|) G190
                          (COND
@@ -131,7 +131,7 @@
 (SDEFUN |HDUTIL;unquote| ((|x| (|SExpression|)) (% (|SExpression|)))
         (SPROG
          ((|xl| (|List| (|SExpression|))) (|op1| (|SExpression|))
-          (#1=#:G97 NIL) (|x1| NIL) (#2=#:G98 NIL))
+          (#1=#:G98 NIL) (|x1| NIL) (#2=#:G99 NIL))
          (SEQ
           (COND
            ((OR (SPADCALL |x| (QREFELT % 32))
@@ -174,7 +174,7 @@
         ((|val| (|SExpression|)) (|t_op| (|Symbol|))
          (|t_args| (|List| (|SExpression|))) (|k| (|Integer|)) (% (|String|)))
         (SPROG
-         ((#1=#:G105 NIL) (|t_arg| NIL) (#2=#:G106 NIL)
+         ((#1=#:G106 NIL) (|t_arg| NIL) (#2=#:G107 NIL)
           (|la| (|List| (|SExpression|))) (|t_sig| (|SExpression|))
           (|tal| (|List| (|SExpression|))))
          (SEQ
@@ -200,7 +200,7 @@
 (SDEFUN |HDUTIL;cons_list_to|
         ((|l| (|List| (|String|))) (|acc| (|List| (|String|)))
          (% (|List| (|String|))))
-        (SPROG ((|s| NIL) (#1=#:G111 NIL))
+        (SPROG ((|s| NIL) (#1=#:G112 NIL))
                (SEQ
                 (SEQ (LETT |s| NIL) (LETT #1# |l|) G190
                      (COND
@@ -225,7 +225,7 @@
 (SDEFUN |HDUTIL;list_to_string|
         ((|ty| (|SExpression|)) (|l| (|List| (|SExpression|))) (% (|String|)))
         (SPROG
-         ((|ty1| (|SExpression|)) (|s1| NIL) (#1=#:G128 NIL)
+         ((|ty1| (|SExpression|)) (|s1| NIL) (#1=#:G129 NIL)
           (|first1| (|Boolean|)) (|lss| (|List| (|String|))))
          (SEQ
           (LETT |ty1|
@@ -264,7 +264,7 @@
         (SPROG
          ((|efl| #1=(|List| (|SExpression|))) (|sig| (|List| (|SExpression|)))
           (|a_type| #2=(|SExpression|)) (|fl| #1#) (|op1| (|SExpression|))
-          (|ls1l| #1#) (|s1| NIL) (#3=#:G164 NIL) (|first1| (|Boolean|))
+          (|ls1l| #1#) (|s1| NIL) (#3=#:G166 NIL) (|first1| (|Boolean|))
           (|lss| (|List| (|String|))) (|ls1| #2#) (|s| (|String|)))
          (SEQ
           (COND
@@ -308,8 +308,10 @@
                    (EXIT
                     (COND
                      ((SPADCALL |form| (QREFELT % 16))
-                      (SPADCALL (SPADCALL |form| (QREFELT % 20))
-                                (QREFELT % 24)))
+                      (COND ((EQUAL (SPADCALL |form| (QREFELT % 20)) 'T$) "T")
+                            (#4#
+                             (SPADCALL (SPADCALL |form| (QREFELT % 20))
+                                       (QREFELT % 24)))))
                      ((SPADCALL |form| (QREFELT % 21))
                       (STRINGIMAGE (SPADCALL |form| (QREFELT % 23))))
                      (#4#
@@ -452,9 +454,9 @@
          (|lef| (|List| (|SExpression|))) (|do_link| (|Boolean|))
          (|acc| (|List| (|String|))) (% (|List| (|String|))))
         (SPROG
-         ((#1=#:G177 NIL) (#2=#:G178 NIL) (|co_sig| (|List| (|Boolean|)))
-          (|k| NIL) (|ef| NIL) (#3=#:G181 NIL) (|form| NIL) (#4=#:G180 NIL)
-          (|k?| NIL) (#5=#:G179 NIL) (|first| (|Boolean|)))
+         ((#1=#:G179 NIL) (#2=#:G180 NIL) (|co_sig| (|List| (|Boolean|)))
+          (|k| NIL) (|ef| NIL) (#3=#:G183 NIL) (|form| NIL) (#4=#:G182 NIL)
+          (|k?| NIL) (#5=#:G181 NIL) (|first| (|Boolean|)))
          (SEQ
           (LETT |co_sig|
                 (COND
@@ -518,7 +520,7 @@
         ((|args| (|List| (|SExpression|))) (|do_link| (|Boolean|))
          (|acc| (|List| (|String|))) (% (|List| (|String|))))
         (SPROG
-         ((|arg| NIL) (#1=#:G193 NIL) (|first| (|Boolean|))
+         ((|arg| NIL) (#1=#:G195 NIL) (|first| (|Boolean|))
           (|#G76| #2=(|List| (|SExpression|))) (|col| NIL) (|lab| NIL)
           (|#G77| #2#) (|type| NIL))
          (SEQ (LETT |acc| (CONS "(" |acc|)) (LETT |first| 'T)
@@ -556,7 +558,7 @@
          (% (|List| (|String|))))
         (SPROG
          ((|a1| (|SExpression|)) (|l1| (|List| (|SExpression|)))
-          (#1=#:G202 NIL) (#2=#:G203 NIL) (|arg| NIL) (#3=#:G204 NIL))
+          (#1=#:G204 NIL) (#2=#:G205 NIL) (|arg| NIL) (#3=#:G206 NIL))
          (SEQ
           (COND ((NULL |args|) (CONS "()" |acc|))
                 ('T
@@ -577,7 +579,7 @@
                                      (LETT #1#
                                            (|HDUTIL;record_args_to_strings|
                                             |args| |do_link| |acc| %))
-                                     (GO #4=#:G199))))))))))
+                                     (GO #4=#:G201))))))))))
                         (LETT |args|
                               (PROGN
                                (LETT #2# NIL)
@@ -604,10 +606,10 @@
          (|do_args| (|Boolean|)) (|do_link| (|Boolean|))
          (|acc| (|List| (|String|))) (% (|List| (|String|))))
         (SPROG
-         ((|s| (|String|)) (|op| (|Symbol|)) (#1=#:G226 NIL) (|f1| NIL)
-          (#2=#:G227 NIL) (|efa| (|List| (|SExpression|)))
-          (|target| (|SExpression|)) (#3=#:G228 NIL) (#4=#:G229 NIL)
-          (|args| (|List| (|SExpression|))) (|arg| NIL) (#5=#:G230 NIL)
+         ((|s| (|String|)) (|op| (|Symbol|)) (#1=#:G228 NIL) (|f1| NIL)
+          (#2=#:G229 NIL) (|efa| (|List| (|SExpression|)))
+          (|target| (|SExpression|)) (#3=#:G230 NIL) (#4=#:G231 NIL)
+          (|args| (|List| (|SExpression|))) (|arg| NIL) (#5=#:G232 NIL)
           (|first| (|Boolean|)))
          (SEQ
           (COND
@@ -765,8 +767,8 @@
         ((|name| (|Symbol|)) (|con| (|List| (|SExpression|)))
          (% (|List| (|String|))))
         (SPROG
-         ((|lc| (|List| (|SExpression|))) (#1=#:G241 NIL) (|c1| NIL)
-          (#2=#:G242 NIL) (|elc| (|List| (|SExpression|)))
+         ((|lc| (|List| (|SExpression|))) (#1=#:G243 NIL) (|c1| NIL)
+          (#2=#:G244 NIL) (|elc| (|List| (|SExpression|)))
           (|res1| (|List| (|String|))))
          (SEQ (LETT |lc| (CDR |con|))
               (LETT |elc|
@@ -804,7 +806,7 @@
 
 (DEFUN |HyperdocUtilities| ()
   (SPROG NIL
-         (PROG (#1=#:G244)
+         (PROG (#1=#:G246)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|HyperdocUtilities|))
