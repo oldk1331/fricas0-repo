@@ -239,7 +239,7 @@
 (SDEFUN |MATSTOR;copyCol!|
         ((|bCol| (|PrimitiveArray| R))
          (|bb| (|PrimitiveArray| (|PrimitiveArray| R))) (|j| (|Integer|))
-         (|n1| (|Integer|)) (% (|PrimitiveArray| R)))
+         (|n1| (|Integer|)) (% (|Void|)))
         (SPROG ((|i| NIL) (#1=#:G101 NIL))
                (SEQ (LETT |i| 0) (LETT #1# |n1|) G190
                     (COND ((|greater_SI| |i| #1#) (GO G191)))

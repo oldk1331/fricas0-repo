@@ -261,23 +261,22 @@
 
 (SDEFUN |LAUPOL;retractIfCan;%U;31| ((|p| (%)) (% (|Union| UP "failed")))
         (SPROG ((#1=#:G96 NIL))
-               (COND
-                ((< (SPADCALL |p| (QREFELT % 19)) 0)
-                 (|error| "Not retractable"))
-                ('T
-                 (CONS 0
-                       (SPADCALL (|LAUPOL;poly| |p| %)
-                                 (SPADCALL (|spadConstant| % 13)
-                                           (PROG1
-                                               (LETT #1#
-                                                     (SPADCALL |p|
-                                                               (QREFELT % 19)))
-                                             (|check_subtype2| (>= #1# 0)
-                                                               '(|NonNegativeInteger|)
-                                                               '(|Integer|)
-                                                               #1#))
-                                           (QREFELT % 37))
-                                 (QREFELT % 43))))))) 
+               (COND ((< (SPADCALL |p| (QREFELT % 19)) 0) (CONS 1 "failed"))
+                     ('T
+                      (CONS 0
+                            (SPADCALL (|LAUPOL;poly| |p| %)
+                                      (SPADCALL (|spadConstant| % 13)
+                                                (PROG1
+                                                    (LETT #1#
+                                                          (SPADCALL |p|
+                                                                    (QREFELT %
+                                                                             19)))
+                                                  (|check_subtype2| (>= #1# 0)
+                                                                    '(|NonNegativeInteger|)
+                                                                    '(|Integer|)
+                                                                    #1#))
+                                                (QREFELT % 37))
+                                      (QREFELT % 43))))))) 
 
 (SDEFUN |LAUPOL;retractIfCan;%U;32| ((|p| (%)) (% (|Union| R "failed")))
         (COND

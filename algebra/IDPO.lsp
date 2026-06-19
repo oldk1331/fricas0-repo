@@ -677,7 +677,7 @@
          (SEQ (LETT |xr| |x|) (LETT |yr| |y|) (LETT |res| NIL)
               (SEQ G190
                    (COND
-                    ((NULL (COND ((NULL |x|) NIL) ('T (NULL (NULL |yr|)))))
+                    ((NULL (COND ((NULL |xr|) NIL) ('T (NULL (NULL |yr|)))))
                      (GO G191)))
                    (SEQ (LETT |x1| (|SPADfirst| |xr|))
                         (LETT |y1| (|SPADfirst| |yr|))

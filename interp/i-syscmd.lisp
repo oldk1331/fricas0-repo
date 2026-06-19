@@ -73,7 +73,7 @@
 ;    ['fin,           :'development], ['frame,         :'interpreter], _
 ;    ['help,          :'interpreter], ['history,       :'interpreter], _
 ;    ['lisp,          :'development], ['library,       :'interpreter], _
-;    ['load,          :'interpreter], ['ltrace,        :'interpreter], _
+;    ['ltrace,        :'interpreter], _
 ;    ['nopiles,       :'interpreter], ['piles,         :'interpreter], _
 ;    ['pquit,         :'interpreter], ['quit,          :'interpreter], _
 ;    ['read,          :'interpreter], ['set,           :'interpreter], _
@@ -95,7 +95,7 @@
                 (CONS '|fin| '|development|) (CONS '|frame| '|interpreter|)
                 (CONS '|help| '|interpreter|) (CONS '|history| '|interpreter|)
                 (CONS '|lisp| '|development|) (CONS '|library| '|interpreter|)
-                (CONS '|load| '|interpreter|) (CONS '|ltrace| '|interpreter|)
+                (CONS '|ltrace| '|interpreter|)
                 (CONS '|nopiles| '|interpreter|) (CONS '|piles| '|interpreter|)
                 (CONS '|pquit| '|interpreter|) (CONS '|quit| '|interpreter|)
                 (CONS '|read| '|interpreter|) (CONS '|set| '|interpreter|)
@@ -120,24 +120,24 @@
            NIL |$systemCommands| NIL)))
 
 ; $noParseCommands := ['boot, 'copyright, 'credits, 'fin, 'lisp, 'piles,
-;     'pquit, 'quit, 'suspend, 'synonym, 'system, 'version]
+;     'pquit, 'quit, 'synonym, 'system, 'version]
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ |$noParseCommands|
           (LIST '|boot| '|copyright| '|credits| '|fin| '|lisp| '|piles|
-                '|pquit| '|quit| '|suspend| '|synonym| '|system| '|version|)))
+                '|pquit| '|quit| '|synonym| '|system| '|version|)))
 
 ; $tokenCommands := ['abbreviations, 'cd, 'clear, 'close, 'compile,
-;     'depends, 'display, 'edit, 'frame, 'frame, 'help, 'history, 'input, _
-;     'library, 'load, 'ltrace, 'nopiles, 'read, 'set, 'spool, 'undo, _
+;     'depends, 'display, 'edit, 'frame, 'help, 'history, 'input, _
+;     'library, 'ltrace, 'nopiles, 'read, 'set, 'spool, 'undo, _
 ;     'what, 'with]
 
 (EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
   (SETQ |$tokenCommands|
           (LIST '|abbreviations| '|cd| '|clear| '|close| '|compile| '|depends|
-                '|display| '|edit| '|frame| '|frame| '|help| '|history|
-                '|input| '|library| '|load| '|ltrace| '|nopiles| '|read| '|set|
-                '|spool| '|undo| '|what| '|with|)))
+                '|display| '|edit| '|frame| '|help| '|history| '|input|
+                '|library| '|ltrace| '|nopiles| '|read| '|set| '|spool| '|undo|
+                '|what| '|with|)))
 
 ; systemCommand [[op,:argl],:options] ==
 ;   $options: local:= options

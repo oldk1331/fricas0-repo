@@ -1184,7 +1184,7 @@
 
 ; store_category_data(stream) ==
 ;     genCategoryTable()
-;     $store_category_data_mater := []
+;     master := []
 ;     for key_val in nreverse(H_KEY_VALS($has_category_hash)) repeat
 ;         key := first(key_val)
 ;         val := rest(key_val)
@@ -1195,11 +1195,11 @@
 ;     print_db_item(stream, master)
 
 (DEFUN |store_category_data| (|stream|)
-  (PROG (|key| |val| |posv| |master|)
+  (PROG (|master| |key| |val| |posv|)
     (RETURN
      (PROGN
       (|genCategoryTable|)
-      (SETQ |$store_category_data_mater| NIL)
+      (SETQ |master| NIL)
       ((LAMBDA (|bfVar#8| |key_val|)
          (LOOP
           (COND

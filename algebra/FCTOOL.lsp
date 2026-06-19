@@ -1910,7 +1910,7 @@
 
 (SDEFUN |FCTOOL;changeExprLength;IV;55| ((|i| (|Integer|)) (% (|Void|)))
         (SPROG ((|nl| (|Integer|)))
-               (SEQ (LETT |nl| (+ |$maximumFortranExpressionLength| 1))
+               (SEQ (LETT |nl| (+ |$maximumFortranExpressionLength| |i|))
                     (EXIT (SETF |$maximumFortranExpressionLength| |nl|))))) 
 
 (SDEFUN |FCTOOL;getStatement;OfBL;56|

@@ -24,7 +24,7 @@
 (SDEFUN |FST;coerce;%S;4| ((|t| (%)) (% (|Symbol|)))
         (COND ((QEQCAR |t| 0) '|real|) ((QEQCAR |t| 1) '|integer|)
               ((QEQCAR |t| 2) '|complex|) ((QEQCAR |t| 3) '|character|)
-              ((QEQCAR |t| 5) (QREFELT % 7)) ((QEQCAR |t| 5) (QREFELT % 9))
+              ((QEQCAR |t| 5) (QREFELT % 7)) ((QEQCAR |t| 6) (QREFELT % 9))
               ('T '|logical|))) 
 
 (SDEFUN |FST;coerce;S%;5| ((|s| (|Symbol|)) (% (%)))

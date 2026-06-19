@@ -231,7 +231,7 @@
                            (LETT |noTorsionB| NIL)))))))
                      (LETT #4# (CDR #4#)) (GO G190) G191 (EXIT NIL))
                 (COND
-                 ((SPADCALL |noTorsionA| |noTorsionA| (QREFELT % 56))
+                 ((SPADCALL |noTorsionA| |noTorsionB| (QREFELT % 56))
                   (PROGN (LETT #5# NIL) (GO #6=#:G71))))
                 (EXIT (EQL (LENGTH (QCDR |a|)) (LENGTH (QCDR |b|))))))
           #6# (EXIT #5#)))) 

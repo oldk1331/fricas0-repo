@@ -8048,7 +8048,7 @@
 931305`\spad{tableau(symb, chi)} computes the tableau parametrized by a given one-form.
 931435`\spad{tableau(symb, lchi)} computes the extended tableau parametrized by a given list of one-forms.
 931571`\spad{tableForDiscreteLogarithm(a, n)} returns a table of the discrete logarithms of \spad{a^0} up to \spad{a^(n-1)} which, called with key \spad{lookup(a^i)} returns \spad{i} for \spad{i} in \spad{0..n-1}. Error: if not called for prime divisors of order of \indented{7}{multiplicative group.}
-931685`\spad{tablePow(maxdeg, prime, lpol)} constructs the table with the coefficients of the Extended Euclidean Algorithm for lpol. Here the right side is \spad{x^k}, for \spad{k} less to \spad{maxdeg}. The operation returns "failed" when the elements are not coprime modulo \spad{prime}.
+931685`\spad{tablePow(maxdeg, prime, lpol)} constructs the table with the coefficients of the Extended Euclidean Algorithm for lpol. Here the right side is \spad{x^k}, for \spad{k} less than or equal to \spad{maxdeg}. The operation returns "failed" when the elements are not coprime modulo \spad{prime}.
 931950`\spad{tail(l)} returns the doubly-linked aggregate \spad{l} starting at its second element. Error: if \spad{l} is empty.
 932002`\spad{tail(p)} returns its reductum, where \spad{p} is viewed as a univariate polynomial in its main variable.
 932064`\spad{tail(u)} returns the last node of \spad{u}. Error if \spad{u} is empty.

@@ -453,30 +453,24 @@
               (LETT |nlpval|
                     (COND ((SPADCALL |Lvar| |nlvar| (QREFELT % 85)) |Lpval|)
                           ('T
-                           (LETT |nlpval|
-                                 (PROGN
-                                  (LETT #1# NIL)
-                                  (SEQ (LETT |mvar| NIL) (LETT #2# |nlvar|)
-                                       G190
-                                       (COND
-                                        ((OR (ATOM #2#)
-                                             (PROGN
-                                              (LETT |mvar| (CAR #2#))
-                                              NIL))
-                                         (GO G191)))
-                                       (SEQ
-                                        (EXIT
-                                         (LETT #1#
-                                               (CONS
-                                                (SPADCALL |Lpval|
-                                                          (SPADCALL |mvar|
-                                                                    |Lvar|
-                                                                    (QREFELT %
-                                                                             100))
-                                                          (QREFELT % 101))
-                                                #1#))))
-                                       (LETT #2# (CDR #2#)) (GO G190) G191
-                                       (EXIT (NREVERSE #1#))))))))
+                           (PROGN
+                            (LETT #1# NIL)
+                            (SEQ (LETT |mvar| NIL) (LETT #2# |nlvar|) G190
+                                 (COND
+                                  ((OR (ATOM #2#)
+                                       (PROGN (LETT |mvar| (CAR #2#)) NIL))
+                                   (GO G191)))
+                                 (SEQ
+                                  (EXIT
+                                   (LETT #1#
+                                         (CONS
+                                          (SPADCALL |Lpval|
+                                                    (SPADCALL |mvar| |Lvar|
+                                                              (QREFELT % 100))
+                                                    (QREFELT % 101))
+                                          #1#))))
+                                 (LETT #2# (CDR #2#)) (GO G190) G191
+                                 (EXIT (NREVERSE #1#)))))))
               (EXIT (|GDMP;evalSortedVarlist| |p| |nlvar| |nlpval| %))))) 
 
 (SDEFUN |GDMP;multivariate;SupOvl%;27|

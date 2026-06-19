@@ -151,8 +151,7 @@
         (SPROG
          ((|d| (|NonNegativeInteger|)) (|k| NIL) (#1=#:G46 NIL)
           (|g| (|Integer|)))
-         (SEQ (|SparseUnivariatePolynomial| (|Integer|))
-              (LETT |d| (SPADCALL |a| (QREFELT % 30)))
+         (SEQ (LETT |d| (SPADCALL |a| (QREFELT % 30)))
               (LETT |g|
                     (SPADCALL |a| (SPADCALL |a| (QREFELT % 50))
                               (QREFELT % 51)))

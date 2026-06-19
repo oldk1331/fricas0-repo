@@ -248,25 +248,26 @@
 
 (SDEFUN |SMP;linearExtend;M%R;22|
         ((|f| (|Mapping| R (|IndexedExponents| |VarSet|))) (|p| (%)) (% (R)))
-        (SPROG ((|res| (%)))
-               (SEQ (LETT |res| (|spadConstant| % 12))
+        (SPROG ((|res| (R)))
+               (SEQ (LETT |res| (QCDR (|spadConstant| % 12)))
                     (SEQ G190
                          (COND
                           ((NULL (NULL (SPADCALL |p| (QREFELT % 18))))
                            (GO G191)))
                          (SEQ
                           (LETT |res|
-                                (SPADCALL
+                                (QCDR
                                  (SPADCALL
-                                  (CONS 0 (SPADCALL |p| (QREFELT % 37)))
-                                  (CONS 0
-                                        (SPADCALL (SPADCALL |p| (QREFELT % 76))
-                                                  |f|))
-                                  (QREFELT % 79))
-                                 |res| (QREFELT % 52)))
+                                  (SPADCALL
+                                   (CONS 0 (SPADCALL |p| (QREFELT % 37)))
+                                   (CONS 0
+                                         (SPADCALL
+                                          (SPADCALL |p| (QREFELT % 76)) |f|))
+                                   (QREFELT % 79))
+                                  (CONS 0 |res|) (QREFELT % 52))))
                           (EXIT (LETT |p| (SPADCALL |p| (QREFELT % 80)))))
                          NIL (GO G190) G191 (EXIT NIL))
-                    (EXIT (QCDR |res|))))) 
+                    (EXIT |res|)))) 
 
 (SDEFUN |SMP;listOfTerms;%L;23|
         ((|p| (%))
@@ -1572,26 +1573,24 @@
                        (COND
                         ((SPADCALL |Lvar| |nlvar| (QREFELT % 197)) |Lpval|)
                         ('T
-                         (LETT |nlpval|
-                               (PROGN
-                                (LETT #1# NIL)
-                                (SEQ (LETT |mvar| NIL) (LETT #2# |nlvar|) G190
-                                     (COND
-                                      ((OR (ATOM #2#)
-                                           (PROGN (LETT |mvar| (CAR #2#)) NIL))
-                                       (GO G191)))
-                                     (SEQ
-                                      (EXIT
-                                       (LETT #1#
-                                             (CONS
-                                              (SPADCALL |Lpval|
-                                                        (SPADCALL |mvar| |Lvar|
-                                                                  (QREFELT %
-                                                                           198))
-                                                        (QREFELT % 199))
-                                              #1#))))
-                                     (LETT #2# (CDR #2#)) (GO G190) G191
-                                     (EXIT (NREVERSE #1#))))))))
+                         (PROGN
+                          (LETT #1# NIL)
+                          (SEQ (LETT |mvar| NIL) (LETT #2# |nlvar|) G190
+                               (COND
+                                ((OR (ATOM #2#)
+                                     (PROGN (LETT |mvar| (CAR #2#)) NIL))
+                                 (GO G191)))
+                               (SEQ
+                                (EXIT
+                                 (LETT #1#
+                                       (CONS
+                                        (SPADCALL |Lpval|
+                                                  (SPADCALL |mvar| |Lvar|
+                                                            (QREFELT % 198))
+                                                  (QREFELT % 199))
+                                        #1#))))
+                               (LETT #2# (CDR #2#)) (GO G190) G191
+                               (EXIT (NREVERSE #1#)))))))
                  (EXIT (|SMP;evalSortedVarlist| |p| |nlvar| |nlpval| %)))))))) 
 
 (SDEFUN |SMP;eval;%LL%;79|
