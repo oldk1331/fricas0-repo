@@ -179,7 +179,7 @@
             (|error| "empty list passed to principalIdeal"))
            ((SPADCALL (CDR |l|) NIL (QREFELT % 38))
             (SEQ (LETT |uca| (SPADCALL (|SPADfirst| |l|) (QREFELT % 22)))
-                 (EXIT (CONS (LIST (QVELT |uca| 0)) (QVELT |uca| 1)))))
+                 (EXIT (CONS (LIST (QVELT |uca| 2)) (QVELT |uca| 1)))))
            ((SPADCALL (CDR (CDR |l|)) NIL (QREFELT % 38))
             (SEQ
              (LETT |u|
