@@ -1324,14 +1324,17 @@
            ('T "Please enter a positive integer")))))
 
 ; chkOutputFileName s ==
-;   bcString2WordList s in '(console) => 'console
-;   chkDirectory s
+;     u := find_symbol(s)
+;     first(u) = 0 and rest(u) = 'console => 'console
+;     s
 
 (DEFUN |chkOutputFileName| (|s|)
-  (PROG ()
+  (PROG (|u|)
     (RETURN
-     (COND ((|member| (|bcString2WordList| |s|) '(|console|)) '|console|)
-           ('T (|chkDirectory| |s|))))))
+     (PROGN
+      (SETQ |u| (|find_symbol| |s|))
+      (COND ((AND (EQL (CAR |u|) 0) (EQ (CDR |u|) '|console|)) '|console|)
+            ('T |s|))))))
 
 ; chkDirectory s == s
 
