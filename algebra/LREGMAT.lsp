@@ -303,109 +303,159 @@
         (SPROG
          ((|st| (|s_R|)) (|string_priority| (|PositiveInteger|)) (|t| (U))
           (|s1| (|String|)) (|tr| (|t_R|)) (|post_wild| #1=(|Boolean|))
-          (#2=#:G138 NIL) (|sl| (|List| (|String|))) (|need_star| #1#)
-          (#3=#:G139 NIL) (|ba| (|BasicMatchingAutomaton|))
-          (|stack_priority| (|NonNegativeInteger|)) (#4=#:G141 NIL)
-          (#5=#:G142 NIL) (#6=#:G140 NIL)
+          (#2=#:G139 NIL) (|sl| (|List| (|String|))) (|need_star| #1#)
+          (#3=#:G140 NIL) (|ba| (|BasicMatchingAutomaton|))
+          (|stack_priority| (|NonNegativeInteger|)) (#4=#:G142 NIL)
+          (#5=#:G143 NIL) (#6=#:G141 NIL)
           (|stacku| (|Union| (|List| U2) "failed")) (|stack| (|List| U2))
           (|top| (U2)))
          (SEQ
           (EXIT
-           (SEQ (LETT |st| (CONS |s| 1)) (LETT |stack| NIL)
-                (LETT |string_priority| 9) (LETT |stack_priority| 0)
-                (SEQ
-                 (EXIT
-                  (SEQ G190 NIL
-                       (SEQ
-                        (EXIT
-                         (SEQ (LETT |t| (|LREGMAT;get_token| |st| %))
-                              (EXIT
-                               (COND
-                                ((QEQCAR |t| 1)
-                                 (SEQ (LETT |stack_priority| |string_priority|)
-                                      (LETT |s1| (QCDR |t|))
-                                      (COND
-                                       (|downcase|
-                                        (LETT |s1|
-                                              (SPADCALL |s1| (QREFELT % 35)))))
-                                      (EXIT
-                                       (LETT |stack|
-                                             (CONS (CONS 1 |s1|) |stack|)))))
-                                ('T
-                                 (SEQ (LETT |tr| (QCDR |t|))
-                                      (EXIT
-                                       (COND
-                                        ((EQUAL (QCAR |tr|) '|star|)
-                                         (SEQ
-                                          (LETT |stack_priority|
-                                                |string_priority|)
-                                          (EXIT
-                                           (LETT |stack|
-                                                 (CONS (CONS 0 |tr|)
-                                                       |stack|)))))
-                                        ('T
-                                         (SEQ
-                                          (COND
-                                           ((EQL |stack_priority|
-                                                 |string_priority|)
+           (COND
+            ((EQUAL |s| "*")
+             (SEQ (LETT |ba| (SPADCALL NIL 'T NIL (QREFELT % 37)))
+                  (EXIT (CONS 0 (SPADCALL |ba| (QREFELT % 38))))))
+            (#7='T
+             (SEQ (LETT |st| (CONS |s| 1)) (LETT |stack| NIL)
+                  (LETT |string_priority| 9) (LETT |stack_priority| 0)
+                  (SEQ
+                   (EXIT
+                    (SEQ G190 NIL
+                         (SEQ
+                          (EXIT
+                           (SEQ (LETT |t| (|LREGMAT;get_token| |st| %))
+                                (EXIT
+                                 (COND
+                                  ((QEQCAR |t| 1)
+                                   (SEQ
+                                    (LETT |stack_priority| |string_priority|)
+                                    (LETT |s1| (QCDR |t|))
+                                    (COND
+                                     (|downcase|
+                                      (LETT |s1|
+                                            (SPADCALL |s1| (QREFELT % 40)))))
+                                    (EXIT
+                                     (LETT |stack|
+                                           (CONS (CONS 1 |s1|) |stack|)))))
+                                  ('T
+                                   (SEQ (LETT |tr| (QCDR |t|))
+                                        (EXIT
+                                         (COND
+                                          ((EQUAL (QCAR |tr|) '|star|)
+                                           (SEQ
+                                            (LETT |stack_priority|
+                                                  |string_priority|)
+                                            (EXIT
+                                             (LETT |stack|
+                                                   (CONS (CONS 0 |tr|)
+                                                         |stack|)))))
+                                          ('T
+                                           (SEQ
                                             (COND
-                                             ((NULL |stack|)
-                                              (PROGN
-                                               (LETT #5# (CONS 1 "failed"))
-                                               (GO #7=#:G137)))
-                                             ('T
-                                              (SEQ
-                                               (LETT |top|
-                                                     (|SPADfirst| |stack|))
-                                               (LETT |stack| (CDR |stack|))
-                                               (LETT |post_wild|
-                                                     (NULL (QEQCAR |top| 1)))
-                                               (COND
-                                                (|post_wild|
+                                             ((EQL |stack_priority|
+                                                   |string_priority|)
+                                              (COND
+                                               ((NULL |stack|)
+                                                (PROGN
+                                                 (LETT #5# (CONS 1 "failed"))
+                                                 (GO #8=#:G138)))
+                                               ('T
+                                                (SEQ
+                                                 (LETT |top|
+                                                       (|SPADfirst| |stack|))
+                                                 (LETT |stack| (CDR |stack|))
+                                                 (LETT |post_wild|
+                                                       (NULL (QEQCAR |top| 1)))
                                                  (COND
-                                                  ((QEQCAR |top| 0)
+                                                  (|post_wild|
                                                    (COND
-                                                    ((OR
-                                                      (NULL
-                                                       (EQUAL
-                                                        (QCAR (QCDR |top|))
-                                                        '|star|))
-                                                      (NULL |stack|))
+                                                    ((QEQCAR |top| 0)
+                                                     (COND
+                                                      ((OR
+                                                        (NULL
+                                                         (EQUAL
+                                                          (QCAR (QCDR |top|))
+                                                          '|star|))
+                                                        (NULL |stack|))
+                                                       (PROGN
+                                                        (LETT #5#
+                                                              (CONS 1
+                                                                    "failed"))
+                                                        (GO #8#)))
+                                                      ('T
+                                                       (SEQ
+                                                        (LETT |top|
+                                                              (|SPADfirst|
+                                                               |stack|))
+                                                        (EXIT
+                                                         (LETT |stack|
+                                                               (CDR
+                                                                |stack|)))))))
+                                                    ('T
                                                      (PROGN
                                                       (LETT #5#
                                                             (CONS 1 "failed"))
-                                                      (GO #7#)))
-                                                    ('T
-                                                     (SEQ
-                                                      (LETT |top|
-                                                            (|SPADfirst|
-                                                             |stack|))
-                                                      (EXIT
-                                                       (LETT |stack|
-                                                             (CDR
-                                                              |stack|)))))))
-                                                  ('T
-                                                   (PROGN
-                                                    (LETT #5#
-                                                          (CONS 1 "failed"))
-                                                    (GO #7#))))))
-                                               (LETT |sl| NIL)
-                                               (LETT |need_star| NIL)
-                                               (SEQ
-                                                (EXIT
-                                                 (SEQ G190 NIL
-                                                      (SEQ
-                                                       (EXIT
-                                                        (COND
-                                                         (|need_star|
+                                                      (GO #8#))))))
+                                                 (LETT |sl| NIL)
+                                                 (LETT |need_star| NIL)
+                                                 (SEQ
+                                                  (EXIT
+                                                   (SEQ G190 NIL
+                                                        (SEQ
+                                                         (EXIT
                                                           (COND
-                                                           ((QEQCAR |top| 0)
+                                                           (|need_star|
                                                             (COND
-                                                             ((NULL
-                                                               (EQUAL
-                                                                (QCAR
-                                                                 (QCDR |top|))
-                                                                '|star|))
+                                                             ((QEQCAR |top| 0)
+                                                              (COND
+                                                               ((NULL
+                                                                 (EQUAL
+                                                                  (QCAR
+                                                                   (QCDR
+                                                                    |top|))
+                                                                  '|star|))
+                                                                (SEQ
+                                                                 (LETT |stack|
+                                                                       (CONS
+                                                                        |top|
+                                                                        |stack|))
+                                                                 (EXIT
+                                                                  (PROGN
+                                                                   (LETT #3#
+                                                                         |$NoValue|)
+                                                                   (GO
+                                                                    #9=#:G121)))))
+                                                               ('T
+                                                                (SEQ
+                                                                 (LETT
+                                                                  |need_star|
+                                                                  NIL)
+                                                                 (EXIT
+                                                                  (COND
+                                                                   ((NULL
+                                                                     |stack|)
+                                                                    (PROGN
+                                                                     (LETT #3#
+                                                                           1)
+                                                                     (GO #9#)))
+                                                                   ('T
+                                                                    (SEQ
+                                                                     (LETT
+                                                                      |top|
+                                                                      (|SPADfirst|
+                                                                       |stack|))
+                                                                     (LETT
+                                                                      |stack|
+                                                                      (CDR
+                                                                       |stack|))
+                                                                     (EXIT
+                                                                      (PROGN
+                                                                       (LETT
+                                                                        #2#
+                                                                        |$NoValue|)
+                                                                       (GO
+                                                                        #10=#:G112)))))))))))
+                                                             ('T
                                                               (SEQ
                                                                (LETT |stack|
                                                                      (CONS
@@ -415,35 +465,31 @@
                                                                 (PROGN
                                                                  (LETT #3#
                                                                        |$NoValue|)
-                                                                 (GO
-                                                                  #8=#:G120)))))
-                                                             ('T
-                                                              (SEQ
-                                                               (LETT
-                                                                |need_star|
-                                                                NIL)
-                                                               (EXIT
-                                                                (COND
-                                                                 ((NULL
-                                                                   |stack|)
-                                                                  (PROGN
-                                                                   (LETT #3# 1)
-                                                                   (GO #8#)))
-                                                                 ('T
-                                                                  (SEQ
-                                                                   (LETT |top|
-                                                                         (|SPADfirst|
-                                                                          |stack|))
-                                                                   (LETT
-                                                                    |stack|
-                                                                    (CDR
-                                                                     |stack|))
-                                                                   (EXIT
-                                                                    (PROGN
-                                                                     (LETT #2#
-                                                                           |$NoValue|)
-                                                                     (GO
-                                                                      #9=#:G111)))))))))))
+                                                                 (GO #9#)))))))
+                                                           ((QEQCAR |top| 1)
+                                                            (SEQ
+                                                             (LETT |sl|
+                                                                   (CONS
+                                                                    (QCDR
+                                                                     |top|)
+                                                                    |sl|))
+                                                             (LETT |need_star|
+                                                                   'T)
+                                                             (EXIT
+                                                              (COND
+                                                               ((NULL |stack|)
+                                                                (PROGN
+                                                                 (LETT #3# 1)
+                                                                 (GO #9#)))
+                                                               ('T
+                                                                (SEQ
+                                                                 (LETT |top|
+                                                                       (|SPADfirst|
+                                                                        |stack|))
+                                                                 (EXIT
+                                                                  (LETT |stack|
+                                                                        (CDR
+                                                                         |stack|)))))))))
                                                            ('T
                                                             (SEQ
                                                              (LETT |stack|
@@ -453,124 +499,94 @@
                                                               (PROGN
                                                                (LETT #3#
                                                                      |$NoValue|)
-                                                               (GO #8#)))))))
-                                                         ((QEQCAR |top| 1)
-                                                          (SEQ
-                                                           (LETT |sl|
-                                                                 (CONS
-                                                                  (QCDR |top|)
-                                                                  |sl|))
-                                                           (LETT |need_star|
-                                                                 'T)
-                                                           (EXIT
-                                                            (COND
-                                                             ((NULL |stack|)
-                                                              (PROGN
-                                                               (LETT #3# 1)
-                                                               (GO #8#)))
-                                                             ('T
-                                                              (SEQ
-                                                               (LETT |top|
-                                                                     (|SPADfirst|
-                                                                      |stack|))
-                                                               (EXIT
-                                                                (LETT |stack|
-                                                                      (CDR
-                                                                       |stack|)))))))))
-                                                         ('T
-                                                          (SEQ
-                                                           (LETT |stack|
-                                                                 (CONS |top|
-                                                                       |stack|))
-                                                           (EXIT
-                                                            (PROGN
-                                                             (LETT #3#
-                                                                   |$NoValue|)
-                                                             (GO #8#)))))))
-                                                       #9# (EXIT #2#))
-                                                      NIL (GO G190) G191
-                                                      (EXIT NIL)))
-                                                #8# (EXIT #3#))
-                                               (EXIT
-                                                (COND
-                                                 ((NULL |sl|)
-                                                  (PROGN
-                                                   (LETT #5# (CONS 1 "failed"))
-                                                   (GO #7#)))
-                                                 ('T
-                                                  (SEQ
-                                                   (LETT |ba|
-                                                         (SPADCALL |sl|
-                                                                   (NULL
-                                                                    |need_star|)
-                                                                   |post_wild|
-                                                                   (QREFELT %
-                                                                            39)))
-                                                   (LETT |stack|
-                                                         (CONS
-                                                          (CONS 2
-                                                                (SPADCALL |ba|
-                                                                          (QREFELT
-                                                                           %
-                                                                           40)))
-                                                          |stack|))
-                                                   (EXIT
-                                                    (LETT |stack_priority|
-                                                          0)))))))))))
-                                          (EXIT
-                                           (COND
-                                            ((EQUAL (QCAR |tr|) '|lpar|)
-                                             (LETT |stack|
-                                                   (CONS (CONS 0 |tr|)
-                                                         |stack|)))
-                                            ((EQUAL (QCAR |tr|) '|eos|)
-                                             (PROGN
-                                              (LETT #4# 1)
-                                              (GO #10=#:G130)))
-                                            ('T
-                                             (SEQ
-                                              (LETT |stacku|
-                                                    (|LREGMAT;reduce_stack|
-                                                     |stack| (QCAR |tr|)
-                                                     (QCDR |tr|) %))
-                                              (EXIT
-                                               (COND
-                                                ((QEQCAR |stacku| 1)
-                                                 (PROGN
-                                                  (LETT #5# (CONS 1 "failed"))
-                                                  (GO #7#)))
-                                                ('T
-                                                 (SEQ
-                                                  (LETT |stack|
-                                                        (QCDR |stacku|))
-                                                  (EXIT
-                                                   (COND
-                                                    ((EQUAL (QCAR |tr|)
-                                                            '|rpar|)
-                                                     (PROGN
-                                                      (LETT #6# |$NoValue|)
-                                                      (GO #11=#:G100)))
-                                                    ('T
+                                                               (GO #9#)))))))
+                                                         #10# (EXIT #2#))
+                                                        NIL (GO G190) G191
+                                                        (EXIT NIL)))
+                                                  #9# (EXIT #3#))
+                                                 (EXIT
+                                                  (COND
+                                                   ((NULL |sl|)
+                                                    (PROGN
+                                                     (LETT #5#
+                                                           (CONS 1 "failed"))
+                                                     (GO #8#)))
+                                                   ('T
+                                                    (SEQ
+                                                     (LETT |ba|
+                                                           (SPADCALL |sl|
+                                                                     (NULL
+                                                                      |need_star|)
+                                                                     |post_wild|
+                                                                     (QREFELT %
+                                                                              37)))
                                                      (LETT |stack|
-                                                           (CONS (CONS 0 |tr|)
-                                                                 (QCDR
-                                                                  |stacku|))))))))))))))))))))))))
-                        #11# (EXIT #6#))
-                       NIL (GO G190) G191 (EXIT NIL)))
-                 #10# (EXIT #4#))
-                (LETT |stacku| (|LREGMAT;reduce_stack| |stack| '|eos| 0 %))
-                (EXIT
-                 (COND ((QEQCAR |stacku| 1) (CONS 1 "failed"))
-                       (#12='T
-                        (SEQ (LETT |stack| (QCDR |stacku|))
-                             (COND
-                              ((NULL (EQL (LENGTH |stack|) 1))
-                               (EXIT (CONS 1 "failed"))))
-                             (LETT |top| (|SPADfirst| |stack|))
-                             (EXIT
-                              (COND ((QEQCAR |top| 2) (CONS 0 (QCDR |top|)))
-                                    (#12# (CONS 1 "failed"))))))))))
-          #7# (EXIT #5#)))) 
+                                                           (CONS
+                                                            (CONS 2
+                                                                  (SPADCALL
+                                                                   |ba|
+                                                                   (QREFELT %
+                                                                            38)))
+                                                            |stack|))
+                                                     (EXIT
+                                                      (LETT |stack_priority|
+                                                            0)))))))))))
+                                            (EXIT
+                                             (COND
+                                              ((EQUAL (QCAR |tr|) '|lpar|)
+                                               (LETT |stack|
+                                                     (CONS (CONS 0 |tr|)
+                                                           |stack|)))
+                                              ((EQUAL (QCAR |tr|) '|eos|)
+                                               (PROGN
+                                                (LETT #4# 1)
+                                                (GO #11=#:G131)))
+                                              ('T
+                                               (SEQ
+                                                (LETT |stacku|
+                                                      (|LREGMAT;reduce_stack|
+                                                       |stack| (QCAR |tr|)
+                                                       (QCDR |tr|) %))
+                                                (EXIT
+                                                 (COND
+                                                  ((QEQCAR |stacku| 1)
+                                                   (PROGN
+                                                    (LETT #5#
+                                                          (CONS 1 "failed"))
+                                                    (GO #8#)))
+                                                  ('T
+                                                   (SEQ
+                                                    (LETT |stack|
+                                                          (QCDR |stacku|))
+                                                    (EXIT
+                                                     (COND
+                                                      ((EQUAL (QCAR |tr|)
+                                                              '|rpar|)
+                                                       (PROGN
+                                                        (LETT #6# |$NoValue|)
+                                                        (GO #12=#:G106)))
+                                                      ('T
+                                                       (LETT |stack|
+                                                             (CONS
+                                                              (CONS 0 |tr|)
+                                                              (QCDR
+                                                               |stacku|))))))))))))))))))))))))
+                          #12# (EXIT #6#))
+                         NIL (GO G190) G191 (EXIT NIL)))
+                   #11# (EXIT #4#))
+                  (LETT |stacku| (|LREGMAT;reduce_stack| |stack| '|eos| 0 %))
+                  (EXIT
+                   (COND ((QEQCAR |stacku| 1) (CONS 1 "failed"))
+                         (#7#
+                          (SEQ (LETT |stack| (QCDR |stacku|))
+                               (COND
+                                ((NULL (EQL (LENGTH |stack|) 1))
+                                 (EXIT (CONS 1 "failed"))))
+                               (LETT |top| (|SPADfirst| |stack|))
+                               (EXIT
+                                (COND ((QEQCAR |top| 2) (CONS 0 (QCDR |top|)))
+                                      (#7# (CONS 1 "failed"))))))))))))
+          #8# (EXIT #5#)))) 
 
 (DECLAIM (NOTINLINE |LogicalRegularExpressionMatch;|)) 
 
@@ -611,7 +627,7 @@
 
 (DEFUN |LogicalRegularExpressionMatch| ()
   (SPROG NIL
-         (PROG (#1=#:G144)
+         (PROG (#1=#:G145)
            (RETURN
             (COND
              ((LETT #1#
@@ -642,9 +658,9 @@
               '|not_tok| (|Character|) (|Integer|) (|String|) (0 . |elt|)
               (|List| 22) (6 . |construct|) 'U2 (|LogicalMatchingAutomaton|)
               (11 . |make_not|) (|List| %) (16 . |make_and|) (21 . |make_or|)
-              (|BrowserInformation|) (26 . |downcase|) (|List| 24) (|Boolean|)
-              (|BasicMatchingAutomaton|) (31 . |make_automaton|)
-              (38 . |convert|) (|Union| 29 '#1="failed")
+              (|List| 24) (|Boolean|) (|BasicMatchingAutomaton|)
+              (26 . |make_automaton|) (33 . |convert|) (|BrowserInformation|)
+              (38 . |downcase|) (|Union| 29 '#1="failed")
               |LREGMAT;parse_pattern;SBU;3|)
            '#(|parse_pattern| 43) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
@@ -661,6 +677,6 @@
                         (|makeByteWordVec2| 42
                                             '(2 24 22 0 23 25 1 24 0 26 27 1 29
                                               0 0 30 1 29 0 31 32 1 29 0 31 33
-                                              1 34 24 24 35 3 38 0 36 37 37 39
-                                              1 29 0 38 40 2 0 41 24 37 42)))))
+                                              3 36 0 34 35 35 37 1 29 0 36 38 1
+                                              39 24 24 40 2 0 41 24 35 42)))))
            '|lookupComplete|)) 

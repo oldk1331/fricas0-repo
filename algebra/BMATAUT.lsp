@@ -90,71 +90,73 @@
         ((|pat| (|List| (|String|))) (|pre_wild| (|Boolean|))
          (|post_wild| (|Boolean|)) (% (%)))
         (SPROG
-         ((|p1| NIL) (#1=#:G52 NIL) (|start| #2=(|MatchingAutomatonNode|))
-          (|i| NIL) (#3=#:G53 NIL) (|c| (|Character|)) (|prev| #2#) (|n| #2#)
+         ((|p1| NIL) (#1=#:G55 NIL) (|start| #2=(|MatchingAutomatonNode|))
+          (|i| NIL) (#3=#:G56 NIL) (|c| (|Character|)) (|prev| #2#) (|n| #2#)
           (|sl| (|List| (|MatchingAutomatonNode|)))
           (|sv| (|PrimitiveArray| (|MatchingAutomatonNode|))) (|ra| (%)))
          (SEQ
-          (COND ((NULL |pat|) (|error| "empty pattern"))
-                ('T
-                 (SEQ (LETT |sl| NIL)
-                      (SEQ (LETT |p1| NIL) (LETT #1# |pat|) G190
-                           (COND
-                            ((OR (ATOM #1#) (PROGN (LETT |p1| (CAR #1#)) NIL))
-                             (GO G191)))
-                           (SEQ
-                            (COND
-                             (|pre_wild|
-                              (SEQ
-                               (LETT |n|
-                                     (SPADCALL 'T (|STR_to_CHAR| " ") NIL
-                                               (QREFELT % 18)))
-                               (SPADCALL |n| |n| (QREFELT % 20))
-                               (COND ((NULL |sl|) (LETT |start| |n|))
-                                     ('T (SPADCALL |prev| |n| (QREFELT % 20))))
+          (COND
+           ((NULL |pat|)
+            (COND
+             ((OR |pre_wild| |post_wild|)
+              (SEQ
+               (LETT |n| (SPADCALL 'T (|STR_to_CHAR| " ") 'T (QREFELT % 18)))
+               (SPADCALL |n| |n| (QREFELT % 20))
+               (LETT |sv| (SPADCALL (LIST |n|) (QREFELT % 23)))
+               (EXIT (LETT |ra| (CONS |n| |sv|)))))
+             ('T (|error| "empty pattern"))))
+           ('T
+            (SEQ (LETT |sl| NIL)
+                 (SEQ (LETT |p1| NIL) (LETT #1# |pat|) G190
+                      (COND
+                       ((OR (ATOM #1#) (PROGN (LETT |p1| (CAR #1#)) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (COND
+                        (|pre_wild|
+                         (SEQ
+                          (LETT |n|
+                                (SPADCALL 'T (|STR_to_CHAR| " ") NIL
+                                          (QREFELT % 18)))
+                          (SPADCALL |n| |n| (QREFELT % 20))
+                          (COND ((NULL |sl|) (LETT |start| |n|))
+                                ('T (SPADCALL |prev| |n| (QREFELT % 20))))
+                          (LETT |sl| (CONS |n| |sl|))
+                          (EXIT (LETT |prev| |n|)))))
+                       (EXIT
+                        (COND
+                         ((SPADCALL |p1| (QREFELT % 24))
+                          (|error| "empty string in pattern"))
+                         ('T
+                          (SEQ (LETT |c| (SPADCALL |p1| 1 (QREFELT % 25)))
+                               (LETT |n| (SPADCALL NIL |c| NIL (QREFELT % 18)))
+                               (COND ((NULL |sl|) (LETT |start| |n|)))
                                (LETT |sl| (CONS |n| |sl|))
-                               (EXIT (LETT |prev| |n|)))))
-                            (EXIT
-                             (COND
-                              ((SPADCALL |p1| (QREFELT % 21))
-                               (|error| "empty string in pattern"))
-                              ('T
-                               (SEQ (LETT |c| (SPADCALL |p1| 1 (QREFELT % 22)))
-                                    (LETT |n|
-                                          (SPADCALL NIL |c| NIL
-                                                    (QREFELT % 18)))
-                                    (COND ((NULL |sl|) (LETT |start| |n|)))
-                                    (LETT |sl| (CONS |n| |sl|))
-                                    (COND
-                                     (|pre_wild|
-                                      (SPADCALL |prev| |n| (QREFELT % 23))))
-                                    (LETT |prev| |n|) (LETT |pre_wild| 'T)
-                                    (EXIT
-                                     (SEQ (LETT |i| 2) (LETT #3# (QCSIZE |p1|))
-                                          G190
-                                          (COND
-                                           ((|greater_SI| |i| #3#) (GO G191)))
-                                          (SEQ
-                                           (LETT |c|
-                                                 (SPADCALL |p1| |i|
-                                                           (QREFELT % 22)))
-                                           (LETT |n|
-                                                 (SPADCALL NIL |c| NIL
-                                                           (QREFELT % 18)))
-                                           (LETT |sl| (CONS |n| |sl|))
-                                           (SPADCALL |prev| |n| (QREFELT % 20))
-                                           (EXIT (LETT |prev| |n|)))
-                                          (LETT |i| (|inc_SI| |i|)) (GO G190)
-                                          G191 (EXIT NIL))))))))
-                           (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
-                      (LETT |n|
-                            (SPADCALL 'T (|STR_to_CHAR| " ") 'T
-                                      (QREFELT % 18)))
-                      (LETT |sl| (CONS |n| |sl|))
-                      (SPADCALL |prev| |n| (QREFELT % 20))
-                      (COND (|post_wild| (SPADCALL |n| |n| (QREFELT % 20))))
-                      (LETT |sv| (SPADCALL |sl| (QREFELT % 26)))
-                      (EXIT (LETT |ra| (CONS |start| |sv|))))))))) 
+                               (COND
+                                (|pre_wild|
+                                 (SPADCALL |prev| |n| (QREFELT % 26))))
+                               (LETT |prev| |n|) (LETT |pre_wild| 'T)
+                               (EXIT
+                                (SEQ (LETT |i| 2) (LETT #3# (QCSIZE |p1|)) G190
+                                     (COND ((|greater_SI| |i| #3#) (GO G191)))
+                                     (SEQ
+                                      (LETT |c|
+                                            (SPADCALL |p1| |i| (QREFELT % 25)))
+                                      (LETT |n|
+                                            (SPADCALL NIL |c| NIL
+                                                      (QREFELT % 18)))
+                                      (LETT |sl| (CONS |n| |sl|))
+                                      (SPADCALL |prev| |n| (QREFELT % 20))
+                                      (EXIT (LETT |prev| |n|)))
+                                     (LETT |i| (|inc_SI| |i|)) (GO G190) G191
+                                     (EXIT NIL))))))))
+                      (LETT #1# (CDR #1#)) (GO G190) G191 (EXIT NIL))
+                 (LETT |n| (SPADCALL 'T (|STR_to_CHAR| " ") 'T (QREFELT % 18)))
+                 (LETT |sl| (CONS |n| |sl|))
+                 (SPADCALL |prev| |n| (QREFELT % 20))
+                 (COND (|post_wild| (SPADCALL |n| |n| (QREFELT % 20))))
+                 (LETT |sv| (SPADCALL |sl| (QREFELT % 23)))
+                 (EXIT (LETT |ra| (CONS |start| |sv|))))))))) 
 
 (DECLAIM (NOTINLINE |BasicMatchingAutomaton;|)) 
 
@@ -178,7 +180,7 @@
 
 (DEFUN |BasicMatchingAutomaton| ()
   (SPROG NIL
-         (PROG (#1=#:G55)
+         (PROG (#1=#:G58)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|BasicMatchingAutomaton|))
@@ -202,9 +204,9 @@
               (|MatchingAutomatonNode|) (0 . |next|) (|Integer|)
               (6 . |set_gen!|) (12 . |alt|) (|Boolean|) (17 . |accepting?|)
               (|String|) |BMATAUT;do_match;%SB;2| (22 . |new|) (|Void|)
-              (29 . |set_next!|) (35 . |empty?|) (40 . |elt|) (46 . |set_alt!|)
-              (|List| 9) (|PrimitiveArray| 9) (52 . |construct|) (|List| 16)
-              |BMATAUT;make_automaton;L2B%;3|)
+              (29 . |set_next!|) (|List| 9) (|PrimitiveArray| 9)
+              (35 . |construct|) (40 . |empty?|) (45 . |elt|) (51 . |set_alt!|)
+              (|List| 16) |BMATAUT;make_automaton;L2B%;3|)
            '#(|make_automaton| 57 |do_match| 64) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -221,8 +223,8 @@
                         (|makeByteWordVec2| 28
                                             '(2 9 7 0 8 10 2 9 11 0 11 12 1 9 7
                                               0 13 1 9 14 0 15 3 9 0 14 8 14 18
-                                              2 9 19 0 0 20 1 16 14 0 21 2 16 8
-                                              0 11 22 2 9 19 0 0 23 1 25 0 24
+                                              2 9 19 0 0 20 1 22 0 21 23 1 16
+                                              14 0 24 2 16 8 0 11 25 2 9 19 0 0
                                               26 3 0 0 27 14 14 28 2 0 14 0 16
                                               17)))))
            '|lookupComplete|)) 
