@@ -3831,7 +3831,7 @@
       '|done|))))
 
 ; say_file_or_core_msg(in_core?) ==
-;     inCore => say_msg("S2IH0032", CONCAT(
+;     in_core? => say_msg("S2IH0032", CONCAT(
 ;         '"When the history facility is active, history information will be",
 ;         '" maintained in memory (and not in an external file)."), nil)
 ;     say_msg("S2IH0031", CONCAT(
@@ -3842,7 +3842,7 @@
   (PROG ()
     (RETURN
      (COND
-      (|inCore|
+      (|in_core?|
        (|say_msg| 'S2IH0032
         (CONCAT
          "When the history facility is active, history information will be"
@@ -3855,18 +3855,18 @@
          " maintained in a file (and not in an internal table).")
         NIL))))))
 
-; setHistoryCore inCore ==
-;   inCore = $useInternalHistoryTable =>
-;       inCore => say_msg("S2IH0030", CONCAT(
+; setHistoryCore in_core? ==
+;   in_core? = $useInternalHistoryTable =>
+;       in_core? => say_msg("S2IH0030", CONCAT(
 ;           '"History information is already being maintained in memory",
 ;           '" (and not in an external file)."), nil)
 ;       say_msg("S2IH0029", CONCAT(
 ;           '"History information is already being maintained in an",
 ;           '" external file (and not in memory)."), nil)
 ;   not $HiFiAccess =>
-;     $useInternalHistoryTable := inCore
-;     say_file_or_core_msg(inCore)
-;   inCore =>
+;     $useInternalHistoryTable := in_core?
+;     say_file_or_core_msg(in_core?)
+;   in_core? =>
 ;     $internalHistoryTable := NIL
 ;     if $IOindex ~= 0 then
 ;       -- actually put something in there
@@ -3879,7 +3879,7 @@
 ;     say_file_or_core_msg(true)
 ;   $HiFiAccess:= 'NIL
 ;   histFileErase histFileName()
-;   str := kaf_open(histFileName(), false)
+;   str := kaf_open(histFileName(), true)
 ;   for [n,:rec] in reverse $internalHistoryTable repeat
 ;       SPADRWRITE(str, object2String2(n), rec)
 ;   kaf_close(str)
@@ -3888,13 +3888,13 @@
 ;   $useInternalHistoryTable := NIL
 ;   say_file_or_core_msg(false)
 
-(DEFUN |setHistoryCore| (|inCore|)
+(DEFUN |setHistoryCore| (|in_core?|)
   (PROG (|l| |vec| |str| |n| |rec|)
     (RETURN
      (COND
-      ((EQUAL |inCore| |$useInternalHistoryTable|)
+      ((EQUAL |in_core?| |$useInternalHistoryTable|)
        (COND
-        (|inCore|
+        (|in_core?|
          (|say_msg| 'S2IH0030
           (CONCAT "History information is already being maintained in memory"
                   " (and not in an external file).")
@@ -3906,9 +3906,9 @@
           NIL))))
       ((NULL |$HiFiAccess|)
        (PROGN
-        (SETQ |$useInternalHistoryTable| |inCore|)
-        (|say_file_or_core_msg| |inCore|)))
-      (|inCore|
+        (SETQ |$useInternalHistoryTable| |in_core?|)
+        (|say_file_or_core_msg| |in_core?|)))
+      (|in_core?|
        (PROGN
         (SETQ |$internalHistoryTable| NIL)
         (COND
@@ -3934,7 +3934,7 @@
        (PROGN
         (SETQ |$HiFiAccess| 'NIL)
         (|histFileErase| (|histFileName|))
-        (SETQ |str| (|kaf_open| (|histFileName|) NIL))
+        (SETQ |str| (|kaf_open| (|histFileName|) T))
         ((LAMBDA (|bfVar#76| |bfVar#75|)
            (LOOP
             (COND
