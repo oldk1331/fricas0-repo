@@ -131,79 +131,6 @@
            (#1# (SETQ |k| (+ |k| 1)))))))
       (LIST (SUBSEQ |l| |k0| |k|) (+ |k| 1))))))
 
-; DEFPARAMETER($msg_hash, nil)
-
-(DEFPARAMETER |$msg_hash| NIL)
-
-; cacheKeyedMsg1(in_file) ==
-;     key := nil
-;     line := '""
-;     msg := '""
-;     repeat
-;         line := READ_-LINE(in_file, nil, nil)
-;         null(line) =>
-;             if key then HPUT($msg_hash, key, msg)
-;             -- THROW('DONE, nil)
-;             return nil
-;         #line = 0 => "iterate"
-;         line.0 = char('"S") =>
-;             if key then HPUT($msg_hash, key, msg)
-;             key := INTERN(line, "BOOT")
-;             msg := '""
-;         msg := CONCAT(msg, line)
-
-(DEFUN |cacheKeyedMsg1| (|in_file|)
-  (PROG (|key| |line| |msg|)
-    (RETURN
-     (PROGN
-      (SETQ |key| NIL)
-      (SETQ |line| "")
-      (SETQ |msg| "")
-      ((LAMBDA ()
-         (LOOP
-          (COND (NIL (RETURN NIL))
-                (#1='T
-                 (PROGN
-                  (SETQ |line| (READ-LINE |in_file| NIL NIL))
-                  (COND
-                   ((NULL |line|)
-                    (PROGN
-                     (COND (|key| (HPUT |$msg_hash| |key| |msg|)))
-                     (RETURN NIL)))
-                   ((EQL (LENGTH |line|) 0) '|iterate|)
-                   ((EQUAL (ELT |line| 0) (|char| "S"))
-                    (PROGN
-                     (COND (|key| (HPUT |$msg_hash| |key| |msg|)))
-                     (SETQ |key| (INTERN |line| 'BOOT))
-                     (SETQ |msg| "")))
-                   (#1# (SETQ |msg| (CONCAT |msg| |line|))))))))))))))
-
-; cacheKeyedMsg(db_name) ==
-;     CATCH('DONE, handle_input_file(db_name, function cacheKeyedMsg1, []))
-
-(DEFUN |cacheKeyedMsg| (|db_name|)
-  (PROG ()
-    (RETURN
-     (CATCH 'DONE (|handle_input_file| |db_name| #'|cacheKeyedMsg1| NIL)))))
-
-; getKeyedMsg(key) ==
-;     STRINGP(key) => key
-;     if not($msg_hash) then
-;         $msg_hash := MAKE_HASHTABLE('EQ)
-;         cacheKeyedMsg($defaultMsgDatabaseName)
-;     HGET($msg_hash, key)
-
-(DEFUN |getKeyedMsg| (|key|)
-  (PROG ()
-    (RETURN
-     (COND ((STRINGP |key|) |key|)
-           ('T
-            (PROGN
-             (COND
-              ((NULL |$msg_hash|) (SETQ |$msg_hash| (MAKE_HASHTABLE 'EQ))
-               (|cacheKeyedMsg| |$defaultMsgDatabaseName|)))
-             (HGET |$msg_hash| |key|)))))))
-
 ; segmentKeyedMsg(msg) == string2Words msg
 
 (DEFUN |segmentKeyedMsg| (|msg|) (PROG () (RETURN (|string2Words| |msg|))))
@@ -748,19 +675,6 @@
         (|srcPosDisplay| |sp|)))
       (|throw_msg| |key| |msg| |args|)))))
 
-; throwKeyedMsgSP(key, args, atree) ==
-;     throw_msg_pos(key, getKeyedMsg(key), args, atree)
-
-(DEFUN |throwKeyedMsgSP| (|key| |args| |atree|)
-  (PROG ()
-    (RETURN (|throw_msg_pos| |key| (|getKeyedMsg| |key|) |args| |atree|))))
-
-; throwKeyedMsg(key, args) ==
-;     throw_msg(key, getKeyedMsg(key), args)
-
-(DEFUN |throwKeyedMsg| (|key| |args|)
-  (PROG () (RETURN (|throw_msg| |key| (|getKeyedMsg| |key|) |args|))))
-
 ; throw_msg(key, msg, args) ==
 ;     $noEvalTypeMsg => spadThrow()
 ;     sayMSG '" "
@@ -1075,13 +989,6 @@
 
 (DEFUN |msg_comp_failure| (|key| |msg| |args|)
   (PROG () (RETURN (|msg_comp_failure1| |key| |msg| |args| NIL))))
-
-; keyedMsgCompFailureSP(key, args, atree) ==
-;     msg_comp_failure1(key, getKeyedMsg(key), args, atree)
-
-(DEFUN |keyedMsgCompFailureSP| (|key| |args| |atree|)
-  (PROG ()
-    (RETURN (|msg_comp_failure1| |key| (|getKeyedMsg| |key|) |args| |atree|))))
 
 ; throwMsgCannotCoerceWithValue(val,t1,t2) ==
 ;   val' :=

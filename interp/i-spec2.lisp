@@ -1358,7 +1358,9 @@
         (LIST "isPatMatch" "unknown form of is predicate")))))))
 
 ; upiterate t ==
-;   null $repeatBodyLabel => throwKeyedMsg("S2IS0029",['"iterate"])
+;   null $repeatBodyLabel => throw_msg("S2IS0029",
+;         '"A(n) %1b statement may only be used within a %b repeat %d loop.",
+;         ['"iterate"])
 ;   $iterateCount := $iterateCount + 1
 ;   code := ['THROW,$repeatBodyLabel,'(voidValue)]
 ;   $genValue => THROW(eval $repeatBodyLabel,voidValue())
@@ -1369,7 +1371,10 @@
   (PROG (|code|)
     (RETURN
      (COND
-      ((NULL |$repeatBodyLabel|) (|throwKeyedMsg| 'S2IS0029 (LIST "iterate")))
+      ((NULL |$repeatBodyLabel|)
+       (|throw_msg| 'S2IS0029
+        "A(n) %1b statement may only be used within a %b repeat %d loop."
+        (LIST "iterate")))
       (#1='T
        (PROGN
         (SETQ |$iterateCount| (+ |$iterateCount| 1))
@@ -1382,7 +1387,9 @@
 
 ; upbreak t ==
 ;   t isnt [op,.] => nil
-;   null $repeatLabel => throwKeyedMsg("S2IS0029",['"break"])
+;   null $repeatLabel => throw_msg("S2IS0029",
+;         '"A(n) %1b statement may only be used within a %b repeat %d loop.",
+;         ['"break"])
 ;   $breakCount := $breakCount + 1
 ;   code := ['THROW,$repeatLabel,'(voidValue)]
 ;   $genValue => THROW(eval $repeatLabel,voidValue())
@@ -1400,7 +1407,10 @@
               (SETQ |ISTMP#1| (CDR |t|))
               (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)))))
        NIL)
-      ((NULL |$repeatLabel|) (|throwKeyedMsg| 'S2IS0029 (LIST "break")))
+      ((NULL |$repeatLabel|)
+       (|throw_msg| 'S2IS0029
+        "A(n) %1b statement may only be used within a %b repeat %d loop."
+        (LIST "break")))
       (#1='T
        (PROGN
         (SETQ |$breakCount| (+ |$breakCount| 1))
@@ -1411,6 +1421,16 @@
                 (|putValue| |op| (|objNew| |code| |$Void|))
                 (|putModeSet| |op| (LIST |$Void|)))))))))))
 
+; throw_msg_invalid_lhs(l) == throw_msg("S2IS0027",
+;     '"%1b is not valid on the left-hand side of an assignment expression.", l)
+
+(DEFUN |throw_msg_invalid_lhs| (|l|)
+  (PROG ()
+    (RETURN
+     (|throw_msg| 'S2IS0027
+      "%1b is not valid on the left-hand side of an assignment expression."
+      |l|))))
+
 ; upLET t ==
 ;   -- analyzes and evaluates the righthand side, and does the variable
 ;   -- binding
@@ -1419,16 +1439,16 @@
 ;   PAIRP lhs =>
 ;     var:= getUnname first lhs
 ;     var = 'construct => upLETWithPatternOnLhs t
-;     var = 'QUOTE => throwKeyedMsg("S2IS0027",['"A quoted form"])
+;     var = 'QUOTE => throw_msg_invalid_lhs(['"A quoted form"])
 ;     upLETWithFormOnLhs(op,lhs,rhs)
 ;   var:= getUnname lhs
 ;   var = $immediateDataSymbol =>
 ;     -- following will be immediate data, so probably ok to not
 ;     -- specially format it
 ;     obj := objValUnwrap coerceInteractive(getValue lhs,$OutputForm)
-;     throwKeyedMsg("S2IS0027",[obj])
+;     throw_msg_invalid_lhs([obj])
 ;   var in '(% %%) =>               -- for history
-;     throwKeyedMsg("S2IS0027",[var])
+;         throw_msg_invalid_lhs([var])
 ;   (IDENTP var) and not (var in '(true false elt QUOTE)) =>
 ;     var ~= (var' := unabbrev(var)) =>  -- constructor abbreviation
 ;         throw_msg("S2IS0028", CONCAT(
@@ -1459,7 +1479,7 @@
 ;     val:=evalLET(lhs,rhs)
 ;     putValue(op,val)
 ;     putModeSet(op,[objMode(val)])
-;   throwKeyedMsg("S2IS0027",[var])
+;   throw_msg_invalid_lhs([var])
 
 (DEFUN |upLET| (|t|)
   (PROG (|$declaredMode| |rhsMs| |val| |m| |var'| |obj| |var| |rhs| |ISTMP#2|
@@ -1488,7 +1508,7 @@
            (SETQ |var| (|getUnname| (CAR |lhs|)))
            (COND ((EQ |var| '|construct|) (|upLETWithPatternOnLhs| |t|))
                  ((EQ |var| 'QUOTE)
-                  (|throwKeyedMsg| 'S2IS0027 (LIST "A quoted form")))
+                  (|throw_msg_invalid_lhs| (LIST "A quoted form")))
                  (#1# (|upLETWithFormOnLhs| |op| |lhs| |rhs|)))))
          (#1#
           (PROGN
@@ -1499,8 +1519,8 @@
               (SETQ |obj|
                       (|objValUnwrap|
                        (|coerceInteractive| (|getValue| |lhs|) |$OutputForm|)))
-              (|throwKeyedMsg| 'S2IS0027 (LIST |obj|))))
-            ((|member| |var| '(% %%)) (|throwKeyedMsg| 'S2IS0027 (LIST |var|)))
+              (|throw_msg_invalid_lhs| (LIST |obj|))))
+            ((|member| |var| '(% %%)) (|throw_msg_invalid_lhs| (LIST |var|)))
             ((AND (IDENTP |var|)
                   (NULL (|member| |var| '(|true| |false| |elt| QUOTE))))
              (COND
@@ -1551,7 +1571,7 @@
                       (SETQ |val| (|evalLET| |lhs| |rhs|))
                       (|putValue| |op| |val|)
                       (|putModeSet| |op| (LIST (|objMode| |val|)))))))))))))
-            (#1# (|throwKeyedMsg| 'S2IS0027 (LIST |var|)))))))))))))
+            (#1# (|throw_msg_invalid_lhs| (LIST |var|)))))))))))))
 
 ; isTupleForm f ==
 ;     -- have to do following since "Tuple" is an internal form name
@@ -1892,12 +1912,25 @@
        (#1# (|putIntSymTab| |name| '|value| |value| |$e|)))
       (|objVal| |value|)))))
 
+; throw_msg_tuple() == throw_msg("S2IS0039", CONCAT(
+;     '"If there is a tuple on the left-hand side of an assignment then ",
+;     '"there must also be one on the right-hand side."), [])
+
+(DEFUN |throw_msg_tuple| ()
+  (PROG ()
+    (RETURN
+     (|throw_msg| 'S2IS0039
+      (CONCAT
+       "If there is a tuple on the left-hand side of an assignment then "
+       "there must also be one on the right-hand side.")
+      NIL))))
+
 ; upLETWithFormOnLhs(op,lhs,rhs) ==
 ;   -- bottomUp for assignment to forms (setelt, table or tuple)
 ;   lhs' := getUnnameIfCan lhs
 ;   rhs' := getUnnameIfCan rhs
 ;   lhs' = 'Tuple =>
-;     rhs' ~= 'Tuple => throwKeyedMsg("S2IS0039",NIL)
+;     rhs' ~= 'Tuple => throw_msg_tuple()
 ;     #(lhs) ~= #(rhs) => throw_msg("S2IS0038", CONCAT(
 ;         '"Assignments with tuples must have the same size tuples on each",
 ;         '" side of the %b := %d ."), [])
@@ -1923,7 +1956,7 @@
 ;     ms := bottomUp seq
 ;     putValue(op,getValue seq)
 ;     putModeSet(op,ms)
-;   rhs' = 'Tuple => throwKeyedMsg("S2IS0039",NIL)
+;   rhs' = 'Tuple => throw_msg_tuple()
 ;   tree:= seteltable(lhs,rhs) => upSetelt(op,lhs,tree)
 ;   throw_msg("S2IS0060", CONCAT(
 ;       '"The form on the left hand side of an assignment must be a",
@@ -1938,7 +1971,7 @@
       (SETQ |rhs'| (|getUnnameIfCan| |rhs|))
       (COND
        ((EQ |lhs'| '|Tuple|)
-        (COND ((NOT (EQ |rhs'| '|Tuple|)) (|throwKeyedMsg| 'S2IS0039 NIL))
+        (COND ((NOT (EQ |rhs'| '|Tuple|)) (|throw_msg_tuple|))
               ((NOT (EQL (LENGTH |lhs|) (LENGTH |rhs|)))
                (|throw_msg| 'S2IS0038
                 (CONCAT
@@ -2011,7 +2044,7 @@
                 (SETQ |ms| (|bottomUp| |seq|))
                 (|putValue| |op| (|getValue| |seq|))
                 (|putModeSet| |op| |ms|)))))
-       ((EQ |rhs'| '|Tuple|) (|throwKeyedMsg| 'S2IS0039 NIL))
+       ((EQ |rhs'| '|Tuple|) (|throw_msg_tuple|))
        ((SETQ |tree| (|seteltable| |lhs| |rhs|))
         (|upSetelt| |op| |lhs| |tree|))
        (#1#
@@ -2485,7 +2518,7 @@
 ; uppretend t ==
 ;   t isnt [op,expr,type] => NIL
 ;   mode := evaluateType unabbrev type
-;   not isValidType(mode) => throwKeyedMsg("S2IE0004",[mode])
+;   not isValidType(mode) => throw_msg_eval_invalid_type(mode)
 ;   bottomUp expr
 ;   putValue(op,objNew(objVal getValue expr,mode))
 ;   putModeSet(op,[mode])
@@ -2510,8 +2543,7 @@
        (PROGN
         (SETQ |mode| (|evaluateType| (|unabbrev| |type|)))
         (COND
-         ((NULL (|isValidType| |mode|))
-          (|throwKeyedMsg| 'S2IE0004 (LIST |mode|)))
+         ((NULL (|isValidType| |mode|)) (|throw_msg_eval_invalid_type| |mode|))
          (#1#
           (PROGN
            (|bottomUp| |expr|)
@@ -3479,7 +3511,7 @@
 ;   val := objNewWrap(asTupleNew(0,NIL), defMode)
 ;   tar and not isPartialMode(tar) =>
 ;     null (val' := coerceInteractive(val,tar)) =>
-;       throwKeyedMsg("S2IS0013",[tar])
+;             throw_msg_null(tar)
 ;     putValue(op,val')
 ;     putModeSet(op,[tar])
 ;   putValue(op,val)
@@ -3506,7 +3538,7 @@
        ((AND |tar| (NULL (|isPartialMode| |tar|)))
         (COND
          ((NULL (SETQ |val'| (|coerceInteractive| |val| |tar|)))
-          (|throwKeyedMsg| 'S2IS0013 (LIST |tar|)))
+          (|throw_msg_null| |tar|))
          (#1#
           (PROGN (|putValue| |op| |val'|) (|putModeSet| |op| (LIST |tar|))))))
        (#1#

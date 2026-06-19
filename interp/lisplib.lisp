@@ -560,14 +560,14 @@
                 (LIST |fname| |typ| (LIST |fn| |$spadLibFT|)))))))))))
 
 ; getPartialConstructorModemapSig(c) ==
-;   (s := getConstructorSignature c) => rest s
-;   throwEvalTypeMsg("S2IL0015",[c])
+;     (s := getConstructorSignature(c)) => rest(s)
+;     throw_msg_unknown_type(c, true)
 
 (DEFUN |getPartialConstructorModemapSig| (|c|)
   (PROG (|s|)
     (RETURN
      (COND ((SETQ |s| (|getConstructorSignature| |c|)) (CDR |s|))
-           ('T (|throwEvalTypeMsg| 'S2IL0015 (LIST |c|)))))))
+           ('T (|throw_msg_unknown_type| |c| T))))))
 
 ; getConstructorOps(form, kind) ==
 ;     kind is 'category => getCategoryOps(form)

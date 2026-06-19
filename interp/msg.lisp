@@ -123,22 +123,14 @@
       (|setMsgText| |msg| |text|)))))
 
 ; getMsgInfoFromKey msg ==
-;     text :=
-;         msgKey := getMsgKey? msg =>   --temp  oldmsgs use key tostoretext
-;            getKeyedMsg msgKey
-;         getMsgKey msg                  --temp oldmsgs
-;     text := segmentKeyedMsg(text)
+;     text := segmentKeyedMsg(getMsgKey(msg))
 ;     substituteSegmentedMsg(text, getMsgArgL(msg))
 
 (DEFUN |getMsgInfoFromKey| (|msg|)
-  (PROG (|msgKey| |text|)
+  (PROG (|text|)
     (RETURN
      (PROGN
-      (SETQ |text|
-              (COND
-               ((SETQ |msgKey| (|getMsgKey?| |msg|)) (|getKeyedMsg| |msgKey|))
-               ('T (|getMsgKey| |msg|))))
-      (SETQ |text| (|segmentKeyedMsg| |text|))
+      (SETQ |text| (|segmentKeyedMsg| (|getMsgKey| |msg|)))
       (|substituteSegmentedMsg| |text| (|getMsgArgL| |msg|))))))
 
 ; processChPosesForOneLine msgList ==

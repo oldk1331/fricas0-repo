@@ -1469,6 +1469,37 @@
                  (CONS (CONS (CONS |spl| |pl|) (CDR (CAR |env|))) (CDR |env|)))
          (|bottomUp| |t|))))))))
 
+; $msg_no_op1 := CONCAT(
+;     '"Cannot find a definition or applicable library operation named ",
+;     '"%1ob with argument type(s) %b %ceon %2P %ceoff %d %l ",
+;     '"Perhaps you should use _"@_" to indicate the required return type, ",
+;     '"or _"$_" to specify which version of the function you need.")
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (SETQ |$msg_no_op1|
+          (CONCAT
+           "Cannot find a definition or applicable library operation named "
+           "%1ob with argument type(s) %b %ceon %2P %ceoff %d %l "
+           "Perhaps you should use \"@\" to indicate the required return type, "
+           "or \"$\" to specify which version of the function you need.")))
+
+; $msg_no_op2 :=
+;     '"Cannot find a no-argument definition or library operation named %1b ."
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (SETQ |$msg_no_op2|
+          "Cannot find a no-argument definition or library operation named %1b ."))
+
+; $msg_no_app := CONCAT(
+;     '"Cannot find application of object of type %1b to argument(s) of ",
+;     '"type(s) %b %ceon %2 %ceoff %d .")
+
+(EVAL-WHEN (:EXECUTE :LOAD-TOPLEVEL)
+  (SETQ |$msg_no_app|
+          (CONCAT
+           "Cannot find application of object of type %1b to argument(s) of "
+           "type(s) %b %ceon %2 %ceoff %d .")))
+
 ; bottomUpForm0(t,op,opName,argl,argModeSetList) ==
 ;   op0 := op
 ;   opName0 := opName
@@ -1492,12 +1523,10 @@
 ;       (u := bottomUpRecordElt(t, op, m, argl, $env)) => u
 ;   m is ['Union,:.] and argModeSetList is [[['Variable,x]]] =>
 ;       member(x,getUnionOrRecordTags m) and (u := bottomUpElt t) => u
-;       not $genValue =>
-;         amsl := printableArgModeSetList()
-;         throwKeyedMsgSP("S2IB0008",['"the union object",amsl], op)
-;       object := retract getValue op
-;       object = 'failed =>
-;         throwKeyedMsgSP("S2IB0008",['"the union object",amsl], op)
+;       not($genValue) or (object := retract(getValue(op))) = 'failed =>
+;             amsl := printableArgModeSetList()
+;             throw_msg_pos("S2IB0008", $msg_no_op1,
+;                           ['"the union object", amsl], op)
 ;       putModeSet(op,[objMode(object)])
 ;       putValue(op,object)
 ;       (u := bottomUpElt t) => u
@@ -1531,6 +1560,9 @@
 ;     msgKey :=
 ;         null amsl => "S2IB0013"
 ;         "S2IB0012"
+;     msg :=
+;         null(amsl) => '"Cannot find application of object of type %1b ."
+;         $msg_no_app
 ;   else
 ;     msgKey :=
 ;         null amsl => "S2IB0011"
@@ -1538,16 +1570,21 @@
 ;             opName1 := n
 ;             "S2IB0008g"
 ;         "S2IB0008"
+;     msg :=
+;             null(amsl) => $msg_no_op2
+;             isSharpVarWithNum(opName1) => "Unknown problem"
+;             $msg_no_op1
 ;
 ;   sayIntelligentMessageAboutOpAvailability(opName1, #argl)
 ;
 ;   not $genValue =>
-;     keyedMsgCompFailureSP(msgKey,[opName1, amsl], op0)
-;   throwKeyedMsgSP(msgKey,[opName1, amsl], op0)
+;         msg_comp_failure1(msgKey, msg, [opName1, amsl], op0)
+;   throw_msg_pos(msgKey, msg, [opName1, amsl], op0)
 
 (DEFUN |bottomUpForm0| (|t| |op| |opName| |argl| |argModeSetList|)
   (PROG (|op0| |opName0| |m| |ISTMP#1| |ISTMP#2| |rargs| |rtype| |code| |val|
-         |u| |ISTMP#3| |x| |amsl| |object| |var| |o| |opName1| |msgKey| |n|)
+         |u| |ISTMP#3| |x| |object| |amsl| |var| |o| |opName1| |msgKey| |msg|
+         |n|)
     (RETURN
      (PROGN
       (SETQ |op0| |op|)
@@ -1602,26 +1639,21 @@
                  ((AND (|member| |x| (|getUnionOrRecordTags| |m|))
                        (SETQ |u| (|bottomUpElt| |t|)))
                   |u|)
-                 ((NULL |$genValue|)
+                 ((OR (NULL |$genValue|)
+                      (EQ (SETQ |object| (|retract| (|getValue| |op|)))
+                          '|failed|))
                   (PROGN
                    (SETQ |amsl| (|printableArgModeSetList|))
-                   (|throwKeyedMsgSP| 'S2IB0008
+                   (|throw_msg_pos| 'S2IB0008 |$msg_no_op1|
                     (LIST "the union object" |amsl|) |op|)))
                  (#1#
                   (PROGN
-                   (SETQ |object| (|retract| (|getValue| |op|)))
-                   (COND
-                    ((EQ |object| '|failed|)
-                     (|throwKeyedMsgSP| 'S2IB0008
-                      (LIST "the union object" |amsl|) |op|))
-                    (#1#
-                     (PROGN
-                      (|putModeSet| |op| (LIST (|objMode| |object|)))
-                      (|putValue| |op| |object|)
-                      (COND ((SETQ |u| (|bottomUpElt| |t|)) |u|)
-                            (#1#
-                             (|bottomUpForm0| |t| |op| |opName| |argl|
-                              |argModeSetList|))))))))))
+                   (|putModeSet| |op| (LIST (|objMode| |object|)))
+                   (|putValue| |op| |object|)
+                   (COND ((SETQ |u| (|bottomUpElt| |t|)) |u|)
+                         (#1#
+                          (|bottomUpForm0| |t| |op| |opName| |argl|
+                           |argModeSetList|)))))))
                ((AND (NOT (EQ |opName| '|elt|)) (NOT (EQ |opName| '|apply|))
                      (EQL (LENGTH |argl|) 1)
                      (PROGN
@@ -1666,21 +1698,31 @@
                              (|prefix2String| (|objMode| |o|)))
                             (#1# "<unknown type>")))
                    (SETQ |msgKey|
-                           (COND ((NULL |amsl|) 'S2IB0013) (#1# 'S2IB0012))))
+                           (COND ((NULL |amsl|) 'S2IB0013) (#1# 'S2IB0012)))
+                   (SETQ |msg|
+                           (COND
+                            ((NULL |amsl|)
+                             "Cannot find application of object of type %1b .")
+                            (#1# |$msg_no_app|))))
                   (#1#
                    (SETQ |msgKey|
                            (COND ((NULL |amsl|) 'S2IB0011)
                                  ((SETQ |n| (|isSharpVarWithNum| |opName1|))
                                   (PROGN (SETQ |opName1| |n|) '|S2IB0008g|))
-                                 (#1# 'S2IB0008)))))
+                                 (#1# 'S2IB0008)))
+                   (SETQ |msg|
+                           (COND ((NULL |amsl|) |$msg_no_op2|)
+                                 ((|isSharpVarWithNum| |opName1|)
+                                  '|Unknown problem|)
+                                 (#1# |$msg_no_op1|)))))
                  (|sayIntelligentMessageAboutOpAvailability| |opName1|
                   (LENGTH |argl|))
                  (COND
                   ((NULL |$genValue|)
-                   (|keyedMsgCompFailureSP| |msgKey| (LIST |opName1| |amsl|)
+                   (|msg_comp_failure1| |msgKey| |msg| (LIST |opName1| |amsl|)
                     |op0|))
                   (#1#
-                   (|throwKeyedMsgSP| |msgKey| (LIST |opName1| |amsl|)
+                   (|throw_msg_pos| |msgKey| |msg| (LIST |opName1| |amsl|)
                     |op0|)))))))))))))
 
 ; sayIntelligentMessageAboutOpAvailability(opName, nArgs) ==

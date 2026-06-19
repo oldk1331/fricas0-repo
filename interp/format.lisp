@@ -525,7 +525,7 @@
 ;             [op1])
 ;     if SIZE PNAME op1 < 3 then
 ;       x := query_user_msg("S2IZ0060", CONCAT(
-;           '"%l There are possibly a great many operation names containing".
+;           '"%l There are possibly a great many operation names containing",
 ;           '" the substring %1b . Please confirm your request to have these",
 ;           '" listed by typing %b y %d or %b yes %d and then pressing",
 ;           '" %b Enter %d :"), [op1])
@@ -570,9 +570,8 @@
            (SETQ |x|
                    (|query_user_msg| 'S2IZ0060
                     (CONCAT
-                     (ELT
-                      "%l There are possibly a great many operation names containing"
-                      " the substring %1b . Please confirm your request to have these")
+                     "%l There are possibly a great many operation names containing"
+                     " the substring %1b . Please confirm your request to have these"
                      " listed by typing %b y %d or %b yes %d and then pressing"
                      " %b Enter %d :")
                     (LIST |op1|)))

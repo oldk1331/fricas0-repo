@@ -65,12 +65,11 @@
       ('T |d|)))))
 
 ; getConstructorAbbreviation op ==
-;   constructor?(op) or throwKeyedMsg("S2IL0015",[op])
+;   constructor?(op) or throw_msg_unknown_type(op, false)
 
 (DEFUN |getConstructorAbbreviation| (|op|)
   (PROG ()
-    (RETURN
-     (OR (|constructor?| |op|) (|throwKeyedMsg| 'S2IL0015 (LIST |op|))))))
+    (RETURN (OR (|constructor?| |op|) (|throw_msg_unknown_type| |op| NIL)))))
 
 ; mkUserConstructorAbbreviation(c,a,type) ==
 ;   if not atom c then c := first c  --  Existing constructors will be wrapped

@@ -40,22 +40,20 @@
                     |target|))))))))
 
 ; spad2BootCoerce(x,source,target) ==
-;   -- x : source and we wish to coerce to target
-;   -- used in spad code for Any
-;   null isValidType source => throwKeyedMsg("S2IE0004",[source])
-;   null isValidType target => throwKeyedMsg("S2IE0004",[target])
-;   x' := coerceInteractive(objNewWrap(x,source),target) =>
-;     objValUnwrap(x')
-;   throwMsgCannotCoerceWithValue(wrap(x), source, target)
+;     -- x : source and we wish to coerce to target
+;     -- used in spad code for Any
+;     null(isValidType(source)) => throw_msg_invalid_type(source)
+;     null(isValidType(target)) => throw_msg_invalid_type(target)
+;     x' := coerceInteractive(objNewWrap(x, source), target) =>
+;         objValUnwrap(x')
+;     throwMsgCannotCoerceWithValue(wrap(x), source, target)
 
 (DEFUN |spad2BootCoerce| (|x| |source| |target|)
   (PROG (|x'|)
     (RETURN
      (COND
-      ((NULL (|isValidType| |source|))
-       (|throwKeyedMsg| 'S2IE0004 (LIST |source|)))
-      ((NULL (|isValidType| |target|))
-       (|throwKeyedMsg| 'S2IE0004 (LIST |target|)))
+      ((NULL (|isValidType| |source|)) (|throw_msg_invalid_type| |source|))
+      ((NULL (|isValidType| |target|)) (|throw_msg_invalid_type| |target|))
       ((SETQ |x'| (|coerceInteractive| (|objNewWrap| |x| |source|) |target|))
        (|objValUnwrap| |x'|))
       ('T (|throwMsgCannotCoerceWithValue| (|wrap| |x|) |source| |target|))))))

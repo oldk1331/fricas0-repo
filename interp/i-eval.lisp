@@ -292,9 +292,9 @@
 ;     op='Enumeration => form
 ;     evaluateFormAsType form
 ;   constructor? form =>
-;     ATOM form => evaluateType [form]
-;     throwEvalTypeMsg("S2IE0003",[form,form])
-;   throwEvalTypeMsg("S2IE0004", [form])
+;         ATOM(form) => evaluateType([form])
+;         throw_eval_msg_not_full([form, form])
+;   throw_msg_eval_invalid_type(form)
 
 (DEFUN |evaluateType| (|form|)
   (PROG (|domain| |ISTMP#1| |form'| |op| |argl| |x| |sigs| |ISTMP#2| |ISTMP#3|
@@ -439,8 +439,8 @@
              (#1# (|evaluateFormAsType| |form|))))
            ((|constructor?| |form|)
             (COND ((ATOM |form|) (|evaluateType| (LIST |form|)))
-                  (#1# (|throwEvalTypeMsg| 'S2IE0003 (LIST |form| |form|)))))
-           (#1# (|throwEvalTypeMsg| 'S2IE0004 (LIST |form|)))))))
+                  (#1# (|throw_eval_msg_not_full| (LIST |form| |form|)))))
+           (#1# (|throw_msg_eval_invalid_type| |form|))))))
 
 ; evaluateFormAsType form ==
 ;   form is [op,:args] and constructor? op => evaluateType1 form
@@ -448,7 +448,7 @@
 ;   -- ??? Maybe we should be more careful about generalized types.
 ;   bottomUp t is [m] and (m = ["Mode"] or isCategoryForm(m)) =>
 ;     objVal getValue t
-;   throwEvalTypeMsg("S2IE0004",[form])
+;   throw_msg_eval_invalid_type(form)
 
 (DEFUN |evaluateFormAsType| (|form|)
   (PROG (|op| |args| |t| |ISTMP#1| |m|)
@@ -469,7 +469,7 @@
                  (PROGN (SETQ |m| (CAR |ISTMP#1|)) #1#)))
            (OR (EQUAL |m| (LIST '|Mode|)) (|isCategoryForm| |m|)))
           (|objVal| (|getValue| |t|)))
-         (#1# (|throwEvalTypeMsg| 'S2IE0004 (LIST |form|))))))))))
+         (#1# (|throw_msg_eval_invalid_type| |form|)))))))))
 
 ; evaluateType1 form ==
 ;   --evaluates the arguments passed to a constructor
@@ -481,13 +481,13 @@
 ;             [form])
 ;     [.,:ml] := sig
 ;     ml := replaceSharps(ml,form)
-;     # argl ~= #ml => throwEvalTypeMsg("S2IE0003",[form,form])
+;     #argl ~= #ml => throw_eval_msg_not_full([form, form])
 ;     for x in argl for m in ml for argnum in 1.. repeat
 ;       typeList := [v,:typeList] where v ==
 ;         categoryForm?(m) =>
 ;           m := evaluateType(SUBST(x, '%, m))
 ;           evalCategory(x' := (evaluateType x), m) => x'
-;           throwEvalTypeMsg("S2IE0004",[form])
+;           throw_msg_eval_invalid_type(form)
 ;         m := evaluateType m
 ;         get_database(opOf(m), 'CONSTRUCTORKIND) = 'domain and
 ;             (tree := mkAtree x) and  putTarget(tree,m) and ((bottomUp tree) is [m1]) =>
@@ -521,7 +521,7 @@
            (SETQ |ml| (|replaceSharps| |ml| |form|))
            (COND
             ((NOT (EQL (LENGTH |argl|) (LENGTH |ml|)))
-             (|throwEvalTypeMsg| 'S2IE0003 (LIST |form| |form|)))
+             (|throw_eval_msg_not_full| (LIST |form| |form|)))
             (#1#
              (PROGN
               ((LAMBDA (|bfVar#31| |x| |bfVar#32| |m| |argnum|)
@@ -544,8 +544,7 @@
                                    (SETQ |x'| (|evaluateType| |x|)) |m|)
                                   |x'|)
                                  (#1#
-                                  (|throwEvalTypeMsg| 'S2IE0004
-                                   (LIST |form|))))))
+                                  (|throw_msg_eval_invalid_type| |form|)))))
                               (#1#
                                (PROGN
                                 (SETQ |m| (|evaluateType| |m|))
@@ -606,11 +605,61 @@
       (COND (|$noEvalTypeMsg| (|spadThrow|))
             ('T (|throw_msg| |key| |msg| |args|)))))))
 
-; throwEvalTypeMsg(key, args) ==
-;     throw_eval_type_msg(key, getKeyedMsg(key), args)
+; throw_eval_msg_not_full(l) == throw_eval_type_msg("S2IE0003", CONCAT(
+;     '"Although %1b is the name of a constructor, a full type must be ",
+;     '"specified in the context you have used it.  Issue %b )show %2 %d ",
+;     '"for more information."), l)
 
-(DEFUN |throwEvalTypeMsg| (|key| |args|)
-  (PROG () (RETURN (|throw_eval_type_msg| |key| (|getKeyedMsg| |key|) |args|))))
+(DEFUN |throw_eval_msg_not_full| (|l|)
+  (PROG ()
+    (RETURN
+     (|throw_eval_type_msg| 'S2IE0003
+      (CONCAT "Although %1b is the name of a constructor, a full type must be "
+              "specified in the context you have used it.  Issue %b )show %2 %d "
+              "for more information.")
+      |l|))))
+
+; throw_type_msg(key, msg, args, eval?, pos) ==
+;     eval? => throw_eval_type_msg(key, msg, args)
+;     throw_msg_pos(key, msg, args, pos)
+
+(DEFUN |throw_type_msg| (|key| |msg| |args| |eval?| |pos|)
+  (PROG ()
+    (RETURN
+     (COND (|eval?| (|throw_eval_type_msg| |key| |msg| |args|))
+           ('T (|throw_msg_pos| |key| |msg| |args| |pos|))))))
+
+; throw_msg_invalid_type2(t, eval?, pos) == throw_type_msg("S2IE0004",
+;     '"%1bp is not a valid type.", [t], eval?, pos)
+
+(DEFUN |throw_msg_invalid_type2| (|t| |eval?| |pos|)
+  (PROG ()
+    (RETURN
+     (|throw_type_msg| 'S2IE0004 "%1bp is not a valid type." (LIST |t|) |eval?|
+      |pos|))))
+
+; throw_msg_eval_invalid_type(t) == throw_msg_invalid_type2(t, true, nil)
+
+(DEFUN |throw_msg_eval_invalid_type| (|t|)
+  (PROG () (RETURN (|throw_msg_invalid_type2| |t| T NIL))))
+
+; throw_msg_invalid_type(t) == throw_msg_invalid_type2(t, false, nil)
+
+(DEFUN |throw_msg_invalid_type| (|t|)
+  (PROG () (RETURN (|throw_msg_invalid_type2| |t| NIL NIL))))
+
+; throw_msg_unknown_type(t, eval?) == throw_type_msg("S2IL0015", CONCAT(
+;     '"%1b is an unknown constructor and so is unavailable. Did you ",
+;     '"mean to use %b -> %d but type something different instead?"), [t],
+;     eval?, nil)
+
+(DEFUN |throw_msg_unknown_type| (|t| |eval?|)
+  (PROG ()
+    (RETURN
+     (|throw_type_msg| 'S2IL0015
+      (CONCAT "%1b is an unknown constructor and so is unavailable. Did you "
+              "mean to use %b -> %d but type something different instead?")
+      (LIST |t|) |eval?| NIL))))
 
 ; makeOrdinal i ==
 ;   ('(first second third fourth fifth sixth seventh eighth ninth tenth)).(i-1)
@@ -1107,9 +1156,21 @@
           (AND |t'| (|wrapped2Quote| (|objVal| |t'|)))))))
       (#1# (|systemErrorHere| "getArgValue"))))))
 
+; throw_msg_convert(l) == throw_msg("S2IE0013", CONCAT(
+;     '"The argument to the side-effect producing operation %1b is not ",
+;     '"allowed to be converted from type %2bp to type %3bp ."), l)
+
+(DEFUN |throw_msg_convert| (|l|)
+  (PROG ()
+    (RETURN
+     (|throw_msg| 'S2IE0013
+      (CONCAT "The argument to the side-effect producing operation %1b is not "
+              "allowed to be converted from type %2bp to type %3bp .")
+      |l|))))
+
 ; getArgValue2(a,t,se?,opName) ==
 ;   se? and (objMode(getValue a) ~= t) =>
-;     throwKeyedMsg("S2IE0013", [opName, objMode(getValue a), t])
+;         throw_msg_convert([opName, objMode(getValue a), t])
 ;   getArgValue(a,t)
 
 (DEFUN |getArgValue2| (|a| |t| |se?| |opName|)
@@ -1117,8 +1178,7 @@
     (RETURN
      (COND
       ((AND |se?| (NOT (EQUAL (|objMode| (|getValue| |a|)) |t|)))
-       (|throwKeyedMsg| 'S2IE0013
-        (LIST |opName| (|objMode| (|getValue| |a|)) |t|)))
+       (|throw_msg_convert| (LIST |opName| (|objMode| (|getValue| |a|)) |t|)))
       ('T (|getArgValue| |a| |t|))))))
 
 ; getArgValueOrThrow(x, type) ==
@@ -1215,7 +1275,7 @@
 
 ; getArgValueComp2(arg, type, cond, se?, opName) ==
 ;   se? and (objMode(getValue arg) ~= type) =>
-;     throwKeyedMsg("S2IE0013", [opName, objMode(getValue arg), type])
+;         throw_msg_convert([opName, objMode(getValue arg), type])
 ;   getArgValueComp(arg, type, cond)
 
 (DEFUN |getArgValueComp2| (|arg| |type| |cond| |se?| |opName|)
@@ -1223,7 +1283,7 @@
     (RETURN
      (COND
       ((AND |se?| (NOT (EQUAL (|objMode| (|getValue| |arg|)) |type|)))
-       (|throwKeyedMsg| 'S2IE0013
+       (|throw_msg_convert|
         (LIST |opName| (|objMode| (|getValue| |arg|)) |type|)))
       ('T (|getArgValueComp| |arg| |type| |cond|))))))
 
