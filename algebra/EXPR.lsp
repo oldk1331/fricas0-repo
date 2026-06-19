@@ -656,9 +656,9 @@
 (SDEFUN |EXPR;charlierC;4%;130| ((|n| (%)) (|a| (%)) (|z| (%)) (% (%)))
         (SPADCALL |n| |a| |z| (QREFELT % 338))) 
 
-(SDEFUN |EXPR;hahn_p;6%;131|
-        ((|n| (%)) (|a| (%)) (|b| (%)) (|c| (%)) (|z| (%)) (% (%)))
-        (SPADCALL |n| |a| |b| |c| |z| (QREFELT % 340))) 
+(SDEFUN |EXPR;hahn_p;7%;131|
+        ((|n| (%)) (|a| (%)) (|b| (%)) (|c| (%)) (|d| (%)) (|z| (%)) (% (%)))
+        (SPADCALL |n| |a| |b| |c| |d| |z| (QREFELT % 340))) 
 
 (SDEFUN |EXPR;hahnQ;6%;132|
         ((|n| (%)) (|a| (%)) (|b| (%)) (|c| (%)) (|z| (%)) (% (%)))
@@ -2607,7 +2607,7 @@
                     (CONS (|dispatchFunction| |EXPR;riemannZeta;2%;129|) %))
           (QSETREFV % 339
                     (CONS (|dispatchFunction| |EXPR;charlierC;4%;130|) %))
-          (QSETREFV % 341 (CONS (|dispatchFunction| |EXPR;hahn_p;6%;131|) %))
+          (QSETREFV % 341 (CONS (|dispatchFunction| |EXPR;hahn_p;7%;131|) %))
           (QSETREFV % 343 (CONS (|dispatchFunction| |EXPR;hahnQ;6%;132|) %))
           (QSETREFV % 345 (CONS (|dispatchFunction| |EXPR;hahnR;6%;133|) %))
           (QSETREFV % 347 (CONS (|dispatchFunction| |EXPR;hahnS;6%;134|) %))
@@ -2968,116 +2968,116 @@
               (1531 . |jacobiTheta|) (1537 . |jacobiTheta|) (1543 . |lerchPhi|)
               (1550 . |lerchPhi|) (1557 . |riemannZeta|) (1562 . |riemannZeta|)
               (1567 . |charlierC|) (1574 . |charlierC|) (1581 . |hahn_p|)
-              (1590 . |hahn_p|) (1599 . |hahnQ|) (1608 . |hahnQ|)
-              (1617 . |hahnR|) (1626 . |hahnR|) (1635 . |hahnS|)
-              (1644 . |hahnS|) (1653 . |hermiteH|) (1659 . |hermiteH|)
-              (1665 . |krawtchoukK|) (1673 . |krawtchoukK|) (1681 . |jacobiP|)
-              (1689 . |jacobiP|) (1697 . |laguerreL|) (1704 . |laguerreL|)
-              (1711 . |meixnerM|) (1719 . |meixnerM|) (1727 . |meixnerP|)
-              (1735 . |meixnerP|) (1743 . |racahR|) (1753 . |racahR|)
-              (1763 . |wilsonW|) (1773 . |wilsonW|) (1783 . |hypergeometricF|)
-              (|List| %) (1790 . |hypergeometricF|) (1797 . |meijerG|)
-              (1806 . |meijerG|) (|CombinatorialFunction| 6 $$) (1815 . ^)
-              (1821 . |factorial|) (1826 . |factorial|) (1831 . |binomial|)
-              (1837 . |binomial|) (1843 . |permutation|) (1849 . |permutation|)
-              (1855 . |factorials|) (1860 . |factorials|) (1865 . |factorials|)
-              (1871 . |factorials|) (1877 . |summation|) (1883 . |summation|)
-              (|SegmentBinding| $$) (1889 . |summation|) (|SegmentBinding| %)
-              (1895 . |summation|) (1901 . |product|) (1907 . |product|)
-              (1913 . |product|) (1919 . |product|)
-              (|LiouvillianFunction| 6 $$) (1925 . |erf|) (1930 . |erf|)
-              (1935 . |erfi|) (1940 . |erfi|) (1945 . |Ei|) (1950 . |Ei|)
-              (1955 . |Si|) (1960 . |Si|) (1965 . |Ci|) (1970 . |Ci|)
-              (1975 . |Shi|) (1980 . |Shi|) (1985 . |Chi|) (1990 . |Chi|)
-              (1995 . |li|) (2000 . |li|) (2005 . |dilog|) (2010 . |dilog|)
-              (2015 . |fresnelS|) (2020 . |fresnelS|) (2025 . |fresnelC|)
-              (2030 . |fresnelC|) (2035 . |integral|) (2041 . |integral|)
-              (2047 . |integral|) (2053 . |integral|) (2059 . |belong?|)
-              (2064 . |operator|) (2069 . |belong?|) (2074 . |operator|)
-              (2079 . |belong?|) (2084 . |operator|) (2089 . |belong?|)
-              (2094 . |operator|) (2099 . |belong?|) (2104 . |operator|)
-              (|Fraction| 41) (2109 . |coerce|) (|Fraction| 433)
+              (1591 . |hahn_p|) (1601 . |hahnQ|) (1610 . |hahnQ|)
+              (1619 . |hahnR|) (1628 . |hahnR|) (1637 . |hahnS|)
+              (1646 . |hahnS|) (1655 . |hermiteH|) (1661 . |hermiteH|)
+              (1667 . |krawtchoukK|) (1675 . |krawtchoukK|) (1683 . |jacobiP|)
+              (1691 . |jacobiP|) (1699 . |laguerreL|) (1706 . |laguerreL|)
+              (1713 . |meixnerM|) (1721 . |meixnerM|) (1729 . |meixnerP|)
+              (1737 . |meixnerP|) (1745 . |racahR|) (1755 . |racahR|)
+              (1765 . |wilsonW|) (1775 . |wilsonW|) (1785 . |hypergeometricF|)
+              (|List| %) (1792 . |hypergeometricF|) (1799 . |meijerG|)
+              (1808 . |meijerG|) (|CombinatorialFunction| 6 $$) (1817 . ^)
+              (1823 . |factorial|) (1828 . |factorial|) (1833 . |binomial|)
+              (1839 . |binomial|) (1845 . |permutation|) (1851 . |permutation|)
+              (1857 . |factorials|) (1862 . |factorials|) (1867 . |factorials|)
+              (1873 . |factorials|) (1879 . |summation|) (1885 . |summation|)
+              (|SegmentBinding| $$) (1891 . |summation|) (|SegmentBinding| %)
+              (1897 . |summation|) (1903 . |product|) (1909 . |product|)
+              (1915 . |product|) (1921 . |product|)
+              (|LiouvillianFunction| 6 $$) (1927 . |erf|) (1932 . |erf|)
+              (1937 . |erfi|) (1942 . |erfi|) (1947 . |Ei|) (1952 . |Ei|)
+              (1957 . |Si|) (1962 . |Si|) (1967 . |Ci|) (1972 . |Ci|)
+              (1977 . |Shi|) (1982 . |Shi|) (1987 . |Chi|) (1992 . |Chi|)
+              (1997 . |li|) (2002 . |li|) (2007 . |dilog|) (2012 . |dilog|)
+              (2017 . |fresnelS|) (2022 . |fresnelS|) (2027 . |fresnelC|)
+              (2032 . |fresnelC|) (2037 . |integral|) (2043 . |integral|)
+              (2049 . |integral|) (2055 . |integral|) (2061 . |belong?|)
+              (2066 . |operator|) (2071 . |belong?|) (2076 . |operator|)
+              (2081 . |belong?|) (2086 . |operator|) (2091 . |belong?|)
+              (2096 . |operator|) (2101 . |belong?|) (2106 . |operator|)
+              (|Fraction| 41) (2111 . |coerce|) (|Fraction| 433)
               (|PolynomialCategoryQuotientFunctions| 514 15 6 41 428)
-              (2114 . |univariate|) (|SparseUnivariatePolynomial| 428)
-              (2120 . |numer|) (2125 . |degree|) (2131 . |degree|)
-              (2136 . |rem|) (2142 . |coerce|) (2147 . |elt|) (2153 . |0|)
-              (2157 . ~=) (2163 . |leadingCoefficient|) (2168 . |reductum|)
-              (2173 . |concat|) (2179 . |removeDuplicates|) (2184 . =)
-              (2190 . |coefficients|) (|Mapping| 9 $$) (2195 . |every?|)
+              (2116 . |univariate|) (|SparseUnivariatePolynomial| 428)
+              (2122 . |numer|) (2127 . |degree|) (2133 . |degree|)
+              (2138 . |rem|) (2144 . |coerce|) (2149 . |elt|) (2155 . |0|)
+              (2159 . ~=) (2165 . |leadingCoefficient|) (2170 . |reductum|)
+              (2175 . |concat|) (2181 . |removeDuplicates|) (2186 . =)
+              (2192 . |coefficients|) (|Mapping| 9 $$) (2197 . |every?|)
               (|Mapping| 41 $$)
               (|UnivariatePolynomialCategoryFunctions2| $$ 133 41 120)
-              (2201 . |map|) (2207 . |retract|) (2212 . |monomial|)
-              (2218 . |coerce|) (2223 . -) (2229 . =) (|Polynomial| 57)
-              (2235 . |1|) (2239 . |1|) (2243 . |monomial|) (2250 . |coerce|)
+              (2203 . |map|) (2209 . |retract|) (2214 . |monomial|)
+              (2220 . |coerce|) (2225 . -) (2231 . =) (|Polynomial| 57)
+              (2237 . |1|) (2241 . |1|) (2245 . |monomial|) (2252 . |coerce|)
               (|Mapping| 458 15) (|Mapping| 458 57)
-              (|PolynomialCategoryLifting| 514 15 57 41 458) (2255 . |map|)
-              (2262 . |multivariate|) 'MD 'MOP1 'MGCD1 (2268 . |coerce|)
+              (|PolynomialCategoryLifting| 514 15 57 41 458) (2257 . |map|)
+              (2264 . |multivariate|) 'MD 'MOP1 'MGCD1 (2270 . |coerce|)
               (|Mapping| 41 27) (|Mapping| 41 57)
               (|PolynomialCategoryLifting| (|IndexedExponents| 27) 27 57 458
                                            41)
-              (2273 . |map|) (|Mapping| $$ 41)
+              (2275 . |map|) (|Mapping| $$ 41)
               (|UnivariatePolynomialCategoryFunctions2| 41 120 $$ 133)
-              (2280 . |map|) 'MEV2 'MOP2 'MGCD2 (|Fraction| 458) (2286 . /)
-              (2292 . |coerce|) (|SparseUnivariatePolynomial| 482)
-              (2297 . |coerce|) (|Mapping| 482 $$)
+              (2282 . |map|) 'MEV2 'MOP2 'MGCD2 (|Fraction| 458) (2288 . /)
+              (2294 . |coerce|) (|SparseUnivariatePolynomial| 482)
+              (2299 . |coerce|) (|Mapping| 482 $$)
               (|UnivariatePolynomialCategoryFunctions2| $$ 133 482 485)
-              (2302 . |map|) (2308 . =) (2314 . |1|) (2318 . |gcdPolynomial|)
-              (2324 . |concat|) (2330 . |algtower|) (2335 . |kernels|)
-              (2340 . |setUnion|) (2346 . |sort|) (2351 . |new|)
-              (2355 . |cons|) (2361 . |setDifference|) (|List| 458)
-              (2367 . |algebraicGcd|)
+              (2304 . |map|) (2310 . =) (2316 . |1|) (2320 . |gcdPolynomial|)
+              (2326 . |concat|) (2332 . |algtower|) (2337 . |kernels|)
+              (2342 . |setUnion|) (2348 . |sort|) (2353 . |new|)
+              (2357 . |cons|) (2363 . |setDifference|) (|List| 458)
+              (2369 . |algebraicGcd|)
               (|Record| (|:| |var| 27) (|:| |coef| 485)) (|List| 503)
-              (2377 . |algebraicGcd|) (2387 . |gcdPolynomial|)
-              (|GcdDomain&| $$) (2393 . |gcdPolynomial|) (|Factored| 133)
-              (|ExpressionFactorPolynomial| 6 $$) (2399 . |factorPolynomial|)
-              (|Factored| 118) (2404 . |factorPolynomial|)
-              (|IndexedExponents| 15) (2409 . |0|) (2413 . |monomial|)
-              (|AlgebraicNumber|) (2419 . |coerce|) (|Fraction| 57) (2424 . ^)
-              (2430 . ^) (2436 . |minPoly|) (2441 . |definingPolynomial|)
-              (2446 . |definingPolynomial|) (2451 . |retract|)
-              (2456 . |retract|) (2461 . |retractIfCan|) (2466 . |coerce|)
+              (2379 . |algebraicGcd|) (2389 . |gcdPolynomial|)
+              (|GcdDomain&| $$) (2395 . |gcdPolynomial|) (|Factored| 133)
+              (|ExpressionFactorPolynomial| 6 $$) (2401 . |factorPolynomial|)
+              (|Factored| 118) (2406 . |factorPolynomial|)
+              (|IndexedExponents| 15) (2411 . |0|) (2415 . |monomial|)
+              (|AlgebraicNumber|) (2421 . |coerce|) (|Fraction| 57) (2426 . ^)
+              (2432 . ^) (2438 . |minPoly|) (2443 . |definingPolynomial|)
+              (2448 . |definingPolynomial|) (2453 . |retract|)
+              (2458 . |retract|) (2463 . |retractIfCan|) (2468 . |coerce|)
               (|Expression| 6) (|Mapping| 6 57) (|Expression| 57)
-              (|FunctionSpaceFunctions2| 57 531 6 529) (2471 . |map|)
-              (2477 . /) (|Union| 517 '"failed") (2483 . |retractIfCan|)
-              (2488 . |coerce|) (2493 . |coerce|) (2498 . |is?|)
-              (|Union| 27 '#1#) (2504 . |retractIfCan|)
-              (|SparseUnivariatePolynomial| 517) (2509 . |0|) (2513 . |0|)
-              (2517 . ~=) (2523 . |degree|) (2528 . |monomial|) (2534 . +)
-              (2540 . |rootOf|) (2546 . |operator|) (2551 . |elt|)
-              (|Union| 15 '"failed") (2557 . |mainVariable|)
-              (2562 . |leadingCoefficient|) (2567 . |0|) (2571 . |ground?|)
-              (2576 . ^) (2582 . *) (2588 . +) (|InputForm|) (2594 . |convert|)
-              (2599 . |convert|) (|List| 10) (2604 . |eval|) (2612 . |eval|)
-              (2620 . |variables|) (2625 . |concat|)
-              (2630 . |removeDuplicates|) (2635 . |scripted?|) (|Mapping| 9 27)
-              (2640 . |select|) (|MakeUnaryCompiledFunction| $$ $$ $$)
-              (2646 . |compiledFunction|) (|Mapping| % %) (|List| 574)
-              (2652 . |eval|) (2659 . |coerce|) (|Equation| $$) (2664 . =)
-              (|List| 632) (2670 . |subst|) (|PatternMatchResult| 57 $$)
+              (|FunctionSpaceFunctions2| 57 531 6 529) (2473 . |map|)
+              (2479 . /) (|Union| 517 '"failed") (2485 . |retractIfCan|)
+              (2490 . |coerce|) (2495 . |coerce|) (2500 . |is?|)
+              (|Union| 27 '#1#) (2506 . |retractIfCan|)
+              (|SparseUnivariatePolynomial| 517) (2511 . |0|) (2515 . |0|)
+              (2519 . ~=) (2525 . |degree|) (2530 . |monomial|) (2536 . +)
+              (2542 . |rootOf|) (2548 . |operator|) (2553 . |elt|)
+              (|Union| 15 '"failed") (2559 . |mainVariable|)
+              (2564 . |leadingCoefficient|) (2569 . |0|) (2573 . |ground?|)
+              (2578 . ^) (2584 . *) (2590 . +) (|InputForm|) (2596 . |convert|)
+              (2601 . |convert|) (|List| 10) (2606 . |eval|) (2614 . |eval|)
+              (2622 . |variables|) (2627 . |concat|)
+              (2632 . |removeDuplicates|) (2637 . |scripted?|) (|Mapping| 9 27)
+              (2642 . |select|) (|MakeUnaryCompiledFunction| $$ $$ $$)
+              (2648 . |compiledFunction|) (|Mapping| % %) (|List| 574)
+              (2654 . |eval|) (2661 . |coerce|) (|Equation| $$) (2666 . =)
+              (|List| 632) (2672 . |subst|) (|PatternMatchResult| 57 $$)
               (|Pattern| 57) (|PatternMatchFunctionSpace| 57 6 $$)
-              (2676 . |patternMatch|) (|PatternMatchResult| 57 %)
-              (2683 . |patternMatch|) (|PatternMatchResult| (|Float|) $$)
+              (2678 . |patternMatch|) (|PatternMatchResult| 57 %)
+              (2685 . |patternMatch|) (|PatternMatchResult| (|Float|) $$)
               (|Pattern| (|Float|))
               (|PatternMatchFunctionSpace| (|Float|) 6 $$)
-              (2690 . |patternMatch|) (|PatternMatchResult| (|Float|) %)
-              (2697 . |patternMatch|) (2704 . |reducedSystem|)
-              (2709 . |reducedSystem|) (|PatternMatchKernel| 57 $$)
-              (2715 . |patternMatch|) (|PatternMatchResult| 57 45)
+              (2692 . |patternMatch|) (|PatternMatchResult| (|Float|) %)
+              (2699 . |patternMatch|) (2706 . |reducedSystem|)
+              (2711 . |reducedSystem|) (|PatternMatchKernel| 57 $$)
+              (2717 . |patternMatch|) (|PatternMatchResult| 57 45)
               (|Mapping| 598 15 583 598)
               (|PatternMatchPolynomialCategory| 57 514 15 6 45)
-              (2722 . |patternMatch|) (|PatternMatchKernel| (|Float|) $$)
-              (2730 . |patternMatch|) (|PatternMatchResult| (|Float|) 45)
+              (2724 . |patternMatch|) (|PatternMatchKernel| (|Float|) $$)
+              (2732 . |patternMatch|) (|PatternMatchResult| (|Float|) 45)
               (|Mapping| 604 15 589 604)
               (|PatternMatchPolynomialCategory| (|Float|) 514 15 6 45)
-              (2737 . |patternMatch|) (2745 . |monomial|)
+              (2739 . |patternMatch|) (2747 . |monomial|)
               (|Record| (|:| |k| 15) (|:| |c| 57)) (|List| 609)
-              (2751 . |listOfTerms|) (2756 . |zero?|) (2761 . |constantKernel|)
-              (|OutputForm|) (2766 . |coerce|) (2771 . |coerce|)
-              (2776 . |eval|) (2783 . |map|) (|Mapping| $$ 15)
-              (|ListToMap| 15 $$) (2789 . |match|) (2797 . |subst|)
-              (2804 . |kernel|) (|Union| 365 '#2="failed") (2810 . |isPlus|)
-              (2815 . |first|) (|Record| (|:| |coef| 57) (|:| |var| 12))
-              (|Union| 627 '#2#) (2820 . |isMult|) (2825 . |retractIfCan|)
+              (2753 . |listOfTerms|) (2758 . |zero?|) (2763 . |constantKernel|)
+              (|OutputForm|) (2768 . |coerce|) (2773 . |coerce|)
+              (2778 . |eval|) (2785 . |map|) (|Mapping| $$ 15)
+              (|ListToMap| 15 $$) (2791 . |match|) (2799 . |subst|)
+              (2806 . |kernel|) (|Union| 365 '#2="failed") (2812 . |isPlus|)
+              (2817 . |first|) (|Record| (|:| |coef| 57) (|:| |var| 12))
+              (|Union| 627 '#2#) (2822 . |isMult|) (2827 . |retractIfCan|)
               (|String|) (|Equation| %) (|Mapping| % 365) (|List| 633)
               (|Union| 152 '#3="failed") (|Union| % '#3#) (|Union| 638 '#3#)
               (|List| 118) (|Record| (|:| |mat| 640) (|:| |vec| (|Vector| 57)))
@@ -3094,63 +3094,63 @@
               (|Union| 57 '#1#) (|Union| 105 '#1#) (|List| 35)
               (|Record| (|:| |var| 12) (|:| |exponent| 57)) (|Union| 658 '#2#)
               (|Record| (|:| |val| %) (|:| |exponent| 57)) (|Union| 660 '#2#))
-           '#(~= 2830 |zerosOf| 2836 |zeroOf| 2863 |zero?| 2890 |wilsonW| 2895
-              |whittakerW| 2905 |whittakerM| 2912 |weierstrassZeta| 2919
-              |weierstrassSigma| 2926 |weierstrassPPrime| 2933
-              |weierstrassPInverse| 2940 |weierstrassP| 2947 |weberE| 2954
-              |variables| 2960 |univariate| 2970 |unitStep| 2976 |unitNormal|
-              2981 |unitCanonical| 2986 |unit?| 2991 |tower| 2996 |tanh| 3006
-              |tan| 3011 |summation| 3016 |subtractIfCan| 3028 |subst| 3034
-              |struveL| 3053 |struveH| 3059 |squareFreePolynomial| 3065
-              |squareFreePart| 3070 |squareFree| 3075 |sqrt| 3080
-              |solveLinearPolynomialEquation| 3085 |smaller?| 3091 |sizeLess?|
-              3097 |sinh| 3103 |sin| 3108 |sign| 3113 |setSimplifyDenomsFlag|
-              3118 |sech| 3123 |sec| 3128 |sample| 3133 |rootsOf| 3137
-              |rootSum| 3164 |rootOf| 3171 |rightRecip| 3198 |rightPower| 3203
-              |riemannZeta| 3215 |retractIfCan| 3220 |retract| 3260 |rem| 3300
-              |reducedSystem| 3306 |reduce| 3328 |recip| 3333 |racahR| 3338
-              |quo| 3348 |product| 3354 |principalIdeal| 3366 |prime?| 3371
-              |polylog| 3376 |polygamma| 3382 |plenaryPower| 3388 |pi| 3394
-              |permutation| 3398 |patternMatch| 3404 |paren| 3418 |opposite?|
-              3423 |operators| 3429 |operator| 3434 |one?| 3439 |odd?| 3444
-              |numerator| 3449 |numer| 3454 |number?| 3459 |nthRoot| 3464
-              |multiEuclidean| 3470 |minPoly| 3476 |meixnerP| 3481 |meixnerM|
-              3489 |meijerG| 3497 |map| 3506 |mainKernel| 3512 |lommelS2| 3517
-              |lommelS1| 3524 |log| 3531 |li| 3536 |lerchPhi| 3541 |legendreQ|
-              3548 |legendreP| 3555 |leftRecip| 3562 |leftPower| 3567 |lcmCoef|
-              3579 |lcm| 3585 |latex| 3596 |lambertW| 3601 |laguerreL| 3606
-              |kummerU| 3613 |kummerM| 3620 |krawtchoukK| 3627 |kernels| 3635
-              |kernel| 3645 |kelvinKer| 3657 |kelvinKei| 3663 |kelvinBer| 3669
-              |kelvinBei| 3675 |jacobiZeta| 3681 |jacobiTheta| 3687 |jacobiSn|
-              3693 |jacobiP| 3699 |jacobiDn| 3707 |jacobiCn| 3713 |isTimes|
-              3719 |isPower| 3724 |isPlus| 3729 |isMult| 3734 |isExpt| 3739
-              |is?| 3756 |inv| 3768 |integral| 3773 |hypergeometricF| 3785
-              |hermiteH| 3792 |height| 3798 |hankelH2| 3803 |hankelH1| 3809
-              |hahn_p| 3815 |hahnS| 3824 |hahnR| 3833 |hahnQ| 3842 |ground?|
-              3851 |ground| 3856 |getSimplifyDenomsFlag| 3861 |gcdPolynomial|
-              3865 |gcd| 3871 |fresnelS| 3882 |fresnelC| 3887 |freeOf?| 3892
-              |fractionPart| 3904 |floor| 3909 |factorials| 3914 |factorial|
-              3925 |factorSquareFreePolynomial| 3930 |factorPolynomial| 3935
-              |factor| 3940 |extendedEuclidean| 3945 |exquo| 3958
-              |expressIdealMember| 3964 |exp| 3970 |even?| 3975 |eval| 3980
-              |euclideanSize| 4124 |erfi| 4129 |erf| 4134 |elt| 4139
-              |ellipticPi| 4235 |ellipticK| 4242 |ellipticF| 4247 |ellipticE|
-              4253 |divide| 4264 |distribute| 4270 |diracDelta| 4281 |dilog|
-              4286 |digamma| 4291 |differentiate| 4296 |denominator| 4322
-              |denom| 4327 |definingPolynomial| 4332 |csch| 4337 |csc| 4342
-              |coth| 4347 |cot| 4352 |cosh| 4357 |cos| 4362 |convert| 4367
-              |conjugate| 4387 |conditionP| 4398 |commutator| 4403 |coerce|
-              4409 |charthRoot| 4479 |charlierC| 4484 |characteristic| 4491
-              |ceiling| 4495 |box| 4500 |binomial| 4505 |besselY| 4511
-              |besselK| 4517 |besselJ| 4523 |besselI| 4529 |belong?| 4535
-              |atanh| 4540 |atan| 4545 |associator| 4550 |associates?| 4557
-              |asinh| 4563 |asin| 4568 |asech| 4573 |asec| 4578 |applyQuote|
-              4583 |antiCommutator| 4619 |annihilate?| 4625 |angerJ| 4631
-              |algtower| 4637 |airyBiPrime| 4647 |airyBi| 4652 |airyAiPrime|
-              4657 |airyAi| 4662 |acsch| 4667 |acsc| 4672 |acoth| 4677 |acot|
-              4682 |acosh| 4687 |acos| 4692 |abs| 4697 ^ 4702 |Si| 4732 |Shi|
-              4737 |Gamma| 4742 |Ei| 4753 D 4758 |Ci| 4784 |Chi| 4789 |Beta|
-              4794 = 4807 |1| 4813 |0| 4817 / 4821 - 4833 + 4844 * 4850)
+           '#(~= 2832 |zerosOf| 2838 |zeroOf| 2865 |zero?| 2892 |wilsonW| 2897
+              |whittakerW| 2907 |whittakerM| 2914 |weierstrassZeta| 2921
+              |weierstrassSigma| 2928 |weierstrassPPrime| 2935
+              |weierstrassPInverse| 2942 |weierstrassP| 2949 |weberE| 2956
+              |variables| 2962 |univariate| 2972 |unitStep| 2978 |unitNormal|
+              2983 |unitCanonical| 2988 |unit?| 2993 |tower| 2998 |tanh| 3008
+              |tan| 3013 |summation| 3018 |subtractIfCan| 3030 |subst| 3036
+              |struveL| 3055 |struveH| 3061 |squareFreePolynomial| 3067
+              |squareFreePart| 3072 |squareFree| 3077 |sqrt| 3082
+              |solveLinearPolynomialEquation| 3087 |smaller?| 3093 |sizeLess?|
+              3099 |sinh| 3105 |sin| 3110 |sign| 3115 |setSimplifyDenomsFlag|
+              3120 |sech| 3125 |sec| 3130 |sample| 3135 |rootsOf| 3139
+              |rootSum| 3166 |rootOf| 3173 |rightRecip| 3200 |rightPower| 3205
+              |riemannZeta| 3217 |retractIfCan| 3222 |retract| 3262 |rem| 3302
+              |reducedSystem| 3308 |reduce| 3330 |recip| 3335 |racahR| 3340
+              |quo| 3350 |product| 3356 |principalIdeal| 3368 |prime?| 3373
+              |polylog| 3378 |polygamma| 3384 |plenaryPower| 3390 |pi| 3396
+              |permutation| 3400 |patternMatch| 3406 |paren| 3420 |opposite?|
+              3425 |operators| 3431 |operator| 3436 |one?| 3441 |odd?| 3446
+              |numerator| 3451 |numer| 3456 |number?| 3461 |nthRoot| 3466
+              |multiEuclidean| 3472 |minPoly| 3478 |meixnerP| 3483 |meixnerM|
+              3491 |meijerG| 3499 |map| 3508 |mainKernel| 3514 |lommelS2| 3519
+              |lommelS1| 3526 |log| 3533 |li| 3538 |lerchPhi| 3543 |legendreQ|
+              3550 |legendreP| 3557 |leftRecip| 3564 |leftPower| 3569 |lcmCoef|
+              3581 |lcm| 3587 |latex| 3598 |lambertW| 3603 |laguerreL| 3608
+              |kummerU| 3615 |kummerM| 3622 |krawtchoukK| 3629 |kernels| 3637
+              |kernel| 3647 |kelvinKer| 3659 |kelvinKei| 3665 |kelvinBer| 3671
+              |kelvinBei| 3677 |jacobiZeta| 3683 |jacobiTheta| 3689 |jacobiSn|
+              3695 |jacobiP| 3701 |jacobiDn| 3709 |jacobiCn| 3715 |isTimes|
+              3721 |isPower| 3726 |isPlus| 3731 |isMult| 3736 |isExpt| 3741
+              |is?| 3758 |inv| 3770 |integral| 3775 |hypergeometricF| 3787
+              |hermiteH| 3794 |height| 3800 |hankelH2| 3805 |hankelH1| 3811
+              |hahn_p| 3817 |hahnS| 3827 |hahnR| 3836 |hahnQ| 3845 |ground?|
+              3854 |ground| 3859 |getSimplifyDenomsFlag| 3864 |gcdPolynomial|
+              3868 |gcd| 3874 |fresnelS| 3885 |fresnelC| 3890 |freeOf?| 3895
+              |fractionPart| 3907 |floor| 3912 |factorials| 3917 |factorial|
+              3928 |factorSquareFreePolynomial| 3933 |factorPolynomial| 3938
+              |factor| 3943 |extendedEuclidean| 3948 |exquo| 3961
+              |expressIdealMember| 3967 |exp| 3973 |even?| 3978 |eval| 3983
+              |euclideanSize| 4127 |erfi| 4132 |erf| 4137 |elt| 4142
+              |ellipticPi| 4238 |ellipticK| 4245 |ellipticF| 4250 |ellipticE|
+              4256 |divide| 4267 |distribute| 4273 |diracDelta| 4284 |dilog|
+              4289 |digamma| 4294 |differentiate| 4299 |denominator| 4325
+              |denom| 4330 |definingPolynomial| 4335 |csch| 4340 |csc| 4345
+              |coth| 4350 |cot| 4355 |cosh| 4360 |cos| 4365 |convert| 4370
+              |conjugate| 4390 |conditionP| 4401 |commutator| 4406 |coerce|
+              4412 |charthRoot| 4482 |charlierC| 4487 |characteristic| 4494
+              |ceiling| 4498 |box| 4503 |binomial| 4508 |besselY| 4514
+              |besselK| 4520 |besselJ| 4526 |besselI| 4532 |belong?| 4538
+              |atanh| 4543 |atan| 4548 |associator| 4553 |associates?| 4560
+              |asinh| 4566 |asin| 4571 |asech| 4576 |asec| 4581 |applyQuote|
+              4586 |antiCommutator| 4622 |annihilate?| 4628 |angerJ| 4634
+              |algtower| 4640 |airyBiPrime| 4650 |airyBi| 4655 |airyAiPrime|
+              4660 |airyAi| 4665 |acsch| 4670 |acsc| 4675 |acoth| 4680 |acot|
+              4685 |acosh| 4690 |acos| 4695 |abs| 4700 ^ 4705 |Si| 4735 |Shi|
+              4740 |Gamma| 4745 |Ei| 4756 D 4761 |Ci| 4787 |Chi| 4792 |Beta|
+              4797 = 4810 |1| 4816 |0| 4820 / 4824 - 4836 + 4847 * 4853)
            'NIL
            (CONS
             (|makeByteWordVec2| 34
@@ -3328,9 +3328,9 @@
                                     2 0 0 0 0 331 2 219 2 2 2 332 2 0 0 0 0 333
                                     3 219 2 2 2 2 334 3 0 0 0 0 0 335 1 219 2 2
                                     336 1 0 0 0 337 3 219 2 2 2 2 338 3 0 0 0 0
-                                    0 339 5 219 2 2 2 2 2 2 340 5 0 0 0 0 0 0 0
-                                    341 5 219 2 2 2 2 2 2 342 5 0 0 0 0 0 0 0
-                                    343 5 219 2 2 2 2 2 2 344 5 0 0 0 0 0 0 0
+                                    0 339 6 219 2 2 2 2 2 2 2 340 6 0 0 0 0 0 0
+                                    0 0 341 5 219 2 2 2 2 2 2 342 5 0 0 0 0 0 0
+                                    0 343 5 219 2 2 2 2 2 2 344 5 0 0 0 0 0 0 0
                                     345 5 219 2 2 2 2 2 2 346 5 0 0 0 0 0 0 0
                                     347 2 219 2 2 2 348 2 0 0 0 0 349 4 219 2 2
                                     2 2 2 350 4 0 0 0 0 0 0 351 4 219 2 2 2 2 2
@@ -3465,8 +3465,8 @@
                                     10 1 1 17 659 0 1 2 0 9 0 10 1 2 0 9 0 27
                                     76 1 9 0 0 1 2 1 0 0 27 415 2 1 0 0 385 417
                                     3 39 0 365 365 0 366 2 1 0 0 0 349 1 0 35 0
-                                    1 2 1 0 0 0 293 2 1 0 0 0 291 5 1 0 0 0 0 0
-                                    0 341 5 1 0 0 0 0 0 0 347 5 1 0 0 0 0 0 0
+                                    1 2 1 0 0 0 293 2 1 0 0 0 291 6 1 0 0 0 0 0
+                                    0 0 341 5 1 0 0 0 0 0 0 347 5 1 0 0 0 0 0 0
                                     345 5 1 0 0 0 0 0 0 343 1 0 9 0 70 1 0 6 0
                                     1 0 1 9 127 2 1 118 118 118 506 1 1 0 365 1
                                     2 1 0 0 0 1 1 1 0 0 411 1 1 0 0 413 2 0 9 0

@@ -399,7 +399,7 @@
           (QSETREFV % 108 (SPADCALL '|lerchPhi| 3 (QREFELT % 10)))
           (QSETREFV % 109 (SPADCALL '|riemannZeta| 1 (QREFELT % 10)))
           (QSETREFV % 110 (SPADCALL '|charlierC| 3 (QREFELT % 10)))
-          (QSETREFV % 111 (SPADCALL '|hahn_p| 5 (QREFELT % 10)))
+          (QSETREFV % 111 (SPADCALL '|hahn_p| 6 (QREFELT % 10)))
           (QSETREFV % 112 (SPADCALL '|hahnQ| 5 (QREFELT % 10)))
           (QSETREFV % 113 (SPADCALL '|hahnR| 5 (QREFELT % 10)))
           (QSETREFV % 114 (SPADCALL '|hahnS| 5 (QREFELT % 10)))

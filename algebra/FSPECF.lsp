@@ -1751,27 +1751,28 @@
         (|FSPECF;grad3| |l| |t| (QREFELT % 51)
          (CONS (|function| |FSPECF;eLaguerreLGrad_z|) %) %)) 
 
-(SDEFUN |FSPECF;hahn_p;6F;208|
-        ((|n| (F)) (|a| (F)) (|b| (F)) (|c| (F)) (|z| (F)) (% (F)))
-        (SPADCALL (QREFELT % 44) |n| |a| |b| |c| |z| (QREFELT % 224))) 
+(SDEFUN |FSPECF;hahn_p;7F;208|
+        ((|n| (F)) (|a| (F)) (|b| (F)) (|c| (F)) (|d| (F)) (|z| (F)) (% (F)))
+        (SPADCALL (QREFELT % 44) |n| |a| |b| |c| |d| |z| (QREFELT % 224))) 
 
 (SDEFUN |FSPECF;e_hahn_p|
-        ((|n| (F)) (|a| (F)) (|b| (F)) (|c| (F)) (|z| (F)) (% (F)))
+        ((|n| (F)) (|a| (F)) (|b| (F)) (|c| (F)) (|d| (F)) (|z| (F)) (% (F)))
         (COND
          ((SPADCALL |n| (|spadConstant| % 92) (QREFELT % 94))
           (|spadConstant| % 96))
          ('T
-          (SPADCALL (QREFELT % 44) (LIST |n| |a| |b| |c| |z|)
+          (SPADCALL (QREFELT % 44) (LIST |n| |a| |b| |c| |d| |z|)
                     (QREFELT % 121))))) 
 
 (SDEFUN |FSPECF;el_hahn_p| ((|l| (|List| F)) (% (F)))
         (|FSPECF;e_hahn_p| (SPADCALL |l| 1 (QREFELT % 117))
          (SPADCALL |l| 2 (QREFELT % 117)) (SPADCALL |l| 3 (QREFELT % 117))
-         (SPADCALL |l| 4 (QREFELT % 117)) (SPADCALL |l| 5 (QREFELT % 117)) %)) 
+         (SPADCALL |l| 4 (QREFELT % 117)) (SPADCALL |l| 5 (QREFELT % 117))
+         (SPADCALL |l| 6 (QREFELT % 117)) %)) 
 
 (SDEFUN |FSPECF;hahnQ;6F;211|
         ((|n| (F)) (|a| (F)) (|b| (F)) (|c| (F)) (|z| (F)) (% (F)))
-        (SPADCALL (QREFELT % 45) |n| |a| |b| |c| |z| (QREFELT % 224))) 
+        (SPADCALL (QREFELT % 45) |n| |a| |b| |c| |z| (QREFELT % 226))) 
 
 (SDEFUN |FSPECF;e_hahnQ|
         ((|n| (F)) (|a| (F)) (|b| (F)) (|c| (F)) (|z| (F)) (% (F)))
@@ -1789,7 +1790,7 @@
 
 (SDEFUN |FSPECF;hahnR;6F;214|
         ((|n| (F)) (|a| (F)) (|b| (F)) (|c| (F)) (|z| (F)) (% (F)))
-        (SPADCALL (QREFELT % 46) |n| |a| |b| |c| |z| (QREFELT % 224))) 
+        (SPADCALL (QREFELT % 46) |n| |a| |b| |c| |z| (QREFELT % 226))) 
 
 (SDEFUN |FSPECF;e_hahnR|
         ((|n| (F)) (|a| (F)) (|b| (F)) (|c| (F)) (|z| (F)) (% (F)))
@@ -1807,7 +1808,7 @@
 
 (SDEFUN |FSPECF;hahnS;6F;217|
         ((|n| (F)) (|a| (F)) (|b| (F)) (|c| (F)) (|z| (F)) (% (F)))
-        (SPADCALL (QREFELT % 47) |n| |a| |b| |c| |z| (QREFELT % 224))) 
+        (SPADCALL (QREFELT % 47) |n| |a| |b| |c| |z| (QREFELT % 226))) 
 
 (SDEFUN |FSPECF;e_hahnS|
         ((|n| (F)) (|a| (F)) (|b| (F)) (|c| (F)) (|z| (F)) (% (F)))
@@ -1878,7 +1879,7 @@
 
 (SDEFUN |FSPECF;racahR;7F;229|
         ((|n| (F)) (|a| (F)) (|b| (F)) (|c| (F)) (|d| (F)) (|z| (F)) (% (F)))
-        (SPADCALL (QREFELT % 54) |n| |a| |b| |c| |d| |z| (QREFELT % 232))) 
+        (SPADCALL (QREFELT % 54) |n| |a| |b| |c| |d| |z| (QREFELT % 224))) 
 
 (SDEFUN |FSPECF;e_racahR|
         ((|n| (F)) (|a| (F)) (|b| (F)) (|c| (F)) (|d| (F)) (|z| (F)) (% (F)))
@@ -1897,12 +1898,12 @@
 
 (SDEFUN |FSPECF;wilsonW;7F;232|
         ((|n| (F)) (|a| (F)) (|b| (F)) (|c| (F)) (|d| (F)) (|z| (F)) (% (F)))
-        (SPADCALL (QREFELT % 55) |n| |a| |b| |c| |d| |z| (QREFELT % 232))) 
+        (SPADCALL (QREFELT % 55) |n| |a| |b| |c| |d| |z| (QREFELT % 224))) 
 
 (SDEFUN |FSPECF;e_wilsonW|
         ((|n| (F)) (|a| (F)) (|b| (F)) (|c| (F)) (|d| (F)) (|z| (F)) (% (F)))
         (COND
-         ((SPADCALL |n| (|spadConstant| % 96) (QREFELT % 94))
+         ((SPADCALL |n| (|spadConstant| % 92) (QREFELT % 94))
           (|spadConstant| % 96))
          ('T
           (SPADCALL (QREFELT % 55) (LIST |n| |a| |b| |c| |d| |z|)
@@ -4694,47 +4695,47 @@
               |FSPECF;lerchPhi;4F;183| '|opRiemannZeta|
               |FSPECF;riemannZeta;2F;187| |FSPECF;charlierC;4F;190|
               |FSPECF;hermiteH;3F;193| (255 . |elt|) |FSPECF;jacobiP;5F;198|
-              |FSPECF;laguerreL;4F;203| (264 . |elt|) |FSPECF;hahn_p;6F;208|
-              |FSPECF;hahnQ;6F;211| |FSPECF;hahnR;6F;214| |FSPECF;hahnS;6F;217|
-              |FSPECF;krawtchoukK;5F;220| |FSPECF;meixnerM;5F;223|
-              |FSPECF;meixnerP;5F;226| (274 . |elt|) |FSPECF;racahR;7F;229|
-              |FSPECF;wilsonW;7F;232| (285 . |has?|) |FSPECF;belong?;BoB;235|
-              (291 . |is?|) |FSPECF;operator;2Bo;236| (297 . |kernel|)
-              (303 . |zero?|) (308 . |one?|) (313 . |smaller?|)
-              (|Union| 184 '#1="failed") (319 . |retractIfCan|)
-              (324 . |retract_Q|) (329 . |coerce|) (334 . |coerce_Q|)
-              (339 . |sign|) (344 . |evaluate|) (350 . |ceiling|)
-              (355 . |coerce|) (360 . |floor|) (365 . |fractionPart|)
-              (370 . |iAiryAi|) (375 . |iAiryAiPrime|) (380 . |iAiryBi|)
-              (385 . |iAiryBiPrime|) (390 . |exp|) (395 . |iLambertW|)
-              (400 . |log|) (405 . |dilog|) (410 . |iiPolylog|)
-              (416 . |second|) (|Union| 267 '#1#) (421 . |retractIfCan|)
-              (|Polynomial| 6) (|Fraction| 266) (426 . |numer|)
-              (|Union| 6 '"failed") (431 . |retractIfCan|) (436 . |denom|)
-              (441 . |abs|) (446 . |coerce|) (451 . |iiabs|) (|Union| 10 '#1#)
-              (456 . |retractIfCan|) (|List| 203) (461 . |kernels|)
-              (|NonNegativeInteger|) (466 . |height|) (471 . |0|) (475 . =)
-              (481 . |coerce|) (486 . |1|) |FSPECF;iiconjugate;2F;277|
-              (|Mapping| % %) (490 . |map|) (|Mapping| 7 205) (|List| 205)
-              (|ListFunctions2| 205 7) (496 . |map|) (502 . |eval|)
-              (509 . |conjugate|) (|SparseMultivariatePolynomial| 6 203)
-              (514 . |numer|) (|Mapping| 6 6) (519 . |map|) (525 . |coerce|)
-              (530 . |denom|) (535 . |retractIfCan|) (540 . |Gamma|)
-              (545 . |iiGamma|) (550 . |Beta|) (556 . |iiBeta|)
-              (561 . |digamma|) (566 . |iidigamma|) (571 . |polygamma|)
-              (577 . |iipolygamma|) (582 . |besselJ|) (588 . |iiBesselJ|)
-              (593 . |besselY|) (599 . |iiBesselY|) (604 . |besselI|)
-              (610 . |iiBesselI|) (615 . |besselK|) (621 . |iiBesselK|)
-              (626 . |airyAi|) (631 . |iiAiryAi|) (636 . |airyAiPrime|)
-              (641 . |iiAiryAiPrime|) (646 . |airyBi|) (651 . |iiAiryBi|)
-              (656 . |airyBiPrime|) (661 . |iiAiryBiPrime|) (|Union| 97 '#1#)
-              (666 . |retractIfCan|) (671 . |factorial|) (676 . |third|)
-              (681 . |iiHypergeometricF|) (|List| 10) (686 . |variables|)
-              (691 . |member?|) (|Segment| 7) (697 . |segment|)
-              (|SegmentBinding| 7) (703 . |equation|) (|SegmentBinding| %)
-              (709 . |integral|) (|OutputForm|) (|List| 339) (715 . |elt|)
-              (721 . |overbar|) (|Mapping| 339 340) (726 . |display|)
-              (732 . |retract|) (|List| 97) (|Mapping| 97 7)
+              |FSPECF;laguerreL;4F;203| (264 . |elt|) |FSPECF;hahn_p;7F;208|
+              (275 . |elt|) |FSPECF;hahnQ;6F;211| |FSPECF;hahnR;6F;214|
+              |FSPECF;hahnS;6F;217| |FSPECF;krawtchoukK;5F;220|
+              |FSPECF;meixnerM;5F;223| |FSPECF;meixnerP;5F;226|
+              |FSPECF;racahR;7F;229| |FSPECF;wilsonW;7F;232| (285 . |has?|)
+              |FSPECF;belong?;BoB;235| (291 . |is?|) |FSPECF;operator;2Bo;236|
+              (297 . |kernel|) (303 . |zero?|) (308 . |one?|)
+              (313 . |smaller?|) (|Union| 184 '#1="failed")
+              (319 . |retractIfCan|) (324 . |retract_Q|) (329 . |coerce|)
+              (334 . |coerce_Q|) (339 . |sign|) (344 . |evaluate|)
+              (350 . |ceiling|) (355 . |coerce|) (360 . |floor|)
+              (365 . |fractionPart|) (370 . |iAiryAi|) (375 . |iAiryAiPrime|)
+              (380 . |iAiryBi|) (385 . |iAiryBiPrime|) (390 . |exp|)
+              (395 . |iLambertW|) (400 . |log|) (405 . |dilog|)
+              (410 . |iiPolylog|) (416 . |second|) (|Union| 267 '#1#)
+              (421 . |retractIfCan|) (|Polynomial| 6) (|Fraction| 266)
+              (426 . |numer|) (|Union| 6 '"failed") (431 . |retractIfCan|)
+              (436 . |denom|) (441 . |abs|) (446 . |coerce|) (451 . |iiabs|)
+              (|Union| 10 '#1#) (456 . |retractIfCan|) (|List| 203)
+              (461 . |kernels|) (|NonNegativeInteger|) (466 . |height|)
+              (471 . |0|) (475 . =) (481 . |coerce|) (486 . |1|)
+              |FSPECF;iiconjugate;2F;277| (|Mapping| % %) (490 . |map|)
+              (|Mapping| 7 205) (|List| 205) (|ListFunctions2| 205 7)
+              (496 . |map|) (502 . |eval|) (509 . |conjugate|)
+              (|SparseMultivariatePolynomial| 6 203) (514 . |numer|)
+              (|Mapping| 6 6) (519 . |map|) (525 . |coerce|) (530 . |denom|)
+              (535 . |retractIfCan|) (540 . |Gamma|) (545 . |iiGamma|)
+              (550 . |Beta|) (556 . |iiBeta|) (561 . |digamma|)
+              (566 . |iidigamma|) (571 . |polygamma|) (577 . |iipolygamma|)
+              (582 . |besselJ|) (588 . |iiBesselJ|) (593 . |besselY|)
+              (599 . |iiBesselY|) (604 . |besselI|) (610 . |iiBesselI|)
+              (615 . |besselK|) (621 . |iiBesselK|) (626 . |airyAi|)
+              (631 . |iiAiryAi|) (636 . |airyAiPrime|) (641 . |iiAiryAiPrime|)
+              (646 . |airyBi|) (651 . |iiAiryBi|) (656 . |airyBiPrime|)
+              (661 . |iiAiryBiPrime|) (|Union| 97 '#1#) (666 . |retractIfCan|)
+              (671 . |factorial|) (676 . |third|) (681 . |iiHypergeometricF|)
+              (|List| 10) (686 . |variables|) (691 . |member?|) (|Segment| 7)
+              (697 . |segment|) (|SegmentBinding| 7) (703 . |equation|)
+              (|SegmentBinding| %) (709 . |integral|) (|OutputForm|)
+              (|List| 339) (715 . |elt|) (721 . |overbar|) (|Mapping| 339 340)
+              (726 . |display|) (732 . |retract|) (|List| 97) (|Mapping| 97 7)
               (|ListFunctions2| 7 97) (737 . |map|) (743 . |first|)
               (749 . |rest|) (755 . ~=) (761 . |elt|) (|List| 192)
               (767 . |rest|) (|SExpression|) (773 . |integer|) (778 . |rest|)
@@ -4760,13 +4761,13 @@
               |iiAiryAi| 1179 |iLambertW| 1184 |iAiryBiPrime| 1189 |iAiryBi|
               1194 |iAiryAiPrime| 1199 |iAiryAi| 1204 |hypergeometricF| 1209
               |hermiteH| 1216 |hankelH2| 1222 |hankelH1| 1228 |hahn_p| 1234
-              |hahnS| 1243 |hahnR| 1252 |hahnQ| 1261 |fractionPart| 1270
-              |floor| 1275 |ellipticPi| 1280 |ellipticK| 1287 |ellipticF| 1292
-              |ellipticE| 1298 |diracDelta| 1309 |digamma| 1314 |conjugate|
-              1319 |coerce_Q| 1324 |charlierC| 1329 |ceiling| 1336 |besselY|
-              1341 |besselK| 1347 |besselJ| 1353 |besselI| 1359 |belong?| 1365
-              |angerJ| 1370 |airyBiPrime| 1376 |airyBi| 1381 |airyAiPrime| 1386
-              |airyAi| 1391 |abs| 1396 |Gamma| 1401 |Beta| 1412)
+              |hahnS| 1244 |hahnR| 1253 |hahnQ| 1262 |fractionPart| 1271
+              |floor| 1276 |ellipticPi| 1281 |ellipticK| 1288 |ellipticF| 1293
+              |ellipticE| 1299 |diracDelta| 1310 |digamma| 1315 |conjugate|
+              1320 |coerce_Q| 1325 |charlierC| 1330 |ceiling| 1337 |besselY|
+              1342 |besselK| 1348 |besselJ| 1354 |besselI| 1360 |belong?| 1366
+              |angerJ| 1371 |airyBiPrime| 1377 |airyBi| 1382 |airyAiPrime| 1387
+              |airyAi| 1392 |abs| 1397 |Gamma| 1402 |Beta| 1413)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -4839,7 +4840,8 @@
                               '((|lerchPhi| (|#2| |#2| |#2| |#2|)) T)
                               '((|riemannZeta| (|#2| |#2|)) T)
                               '((|charlierC| (|#2| |#2| |#2| |#2|)) T)
-                              '((|hahn_p| (|#2| |#2| |#2| |#2| |#2| |#2|)) T)
+                              '((|hahn_p| (|#2| |#2| |#2| |#2| |#2| |#2| |#2|))
+                                T)
                               '((|hahnQ| (|#2| |#2| |#2| |#2| |#2| |#2|)) T)
                               '((|hahnR| (|#2| |#2| |#2| |#2| |#2| |#2|)) T)
                               '((|hahnS| (|#2| |#2| |#2| |#2| |#2| |#2|)) T)
@@ -4910,8 +4912,8 @@
                                               192 0 193 1 192 0 101 194 2 9 0 0
                                               195 196 2 7 93 0 9 202 1 7 203 0
                                               204 1 205 99 0 206 5 7 0 9 0 0 0
-                                              0 221 6 7 0 9 0 0 0 0 0 224 7 7 0
-                                              9 0 0 0 0 0 0 232 2 9 93 0 10 235
+                                              0 221 7 7 0 9 0 0 0 0 0 0 224 6 7
+                                              0 9 0 0 0 0 0 226 2 9 93 0 10 235
                                               2 9 93 0 10 237 2 7 0 9 0 239 1 7
                                               93 0 240 1 7 93 0 241 2 7 93 0 0
                                               242 1 7 243 0 244 1 0 243 7 245 1
@@ -4964,13 +4966,13 @@
                                               7 7 7 153 1 0 7 7 62 1 0 7 7 218
                                               1 0 243 7 245 6 0 7 7 7 7 7 7 7
                                               233 2 0 7 7 7 86 2 0 7 7 7 76 1 0
-                                              9 9 238 4 0 7 7 7 7 7 231 4 0 7 7
-                                              7 7 7 230 5 1 7 99 99 99 99 7 104
+                                              9 9 238 4 0 7 7 7 7 7 232 4 0 7 7
+                                              7 7 7 231 5 1 7 99 99 99 99 7 104
                                               3 0 7 7 7 7 164 3 0 7 7 7 7 162 3
                                               0 7 7 7 7 216 3 0 7 7 7 7 172 3 0
                                               7 7 7 7 170 1 0 7 7 85 3 0 7 7 7
                                               7 223 3 0 7 7 7 7 168 3 0 7 7 7 7
-                                              166 4 0 7 7 7 7 7 229 2 0 7 7 7
+                                              166 4 0 7 7 7 7 7 230 2 0 7 7 7
                                               179 2 0 7 7 7 178 2 0 7 7 7 175 2
                                               0 7 7 7 174 2 0 7 7 7 212 2 0 7 7
                                               7 214 2 0 7 7 7 201 4 0 7 7 7 7 7
@@ -4984,10 +4986,10 @@
                                               1 0 7 7 259 1 0 7 7 257 1 0 7 7
                                               256 1 0 7 7 255 1 0 7 7 254 3 1 7
                                               99 99 7 103 2 0 7 7 7 220 2 0 7 7
-                                              7 160 2 0 7 7 7 158 5 0 7 7 7 7 7
-                                              7 225 5 0 7 7 7 7 7 7 228 5 0 7 7
-                                              7 7 7 7 227 5 0 7 7 7 7 7 7 226 1
-                                              0 7 7 66 1 0 7 7 65 3 0 7 7 7 7
+                                              7 160 2 0 7 7 7 158 6 0 7 7 7 7 7
+                                              7 7 225 5 0 7 7 7 7 7 7 229 5 0 7
+                                              7 7 7 7 7 228 5 0 7 7 7 7 7 7 227
+                                              1 0 7 7 66 1 0 7 7 65 3 0 7 7 7 7
                                               199 1 0 7 7 182 2 0 7 7 7 191 1 0
                                               7 7 183 2 0 7 7 7 190 1 0 7 7 67
                                               1 0 7 7 75 1 0 7 7 68 1 0 7 184

@@ -211,32 +211,32 @@
               994 |isTimes| 1000 |isPower| 1005 |isPlus| 1010 |isMult| 1015
               |isExpt| 1020 |is?| 1037 |inv| 1049 |integral| 1054
               |hypergeometricF| 1066 |hermiteH| 1073 |height| 1079 |hankelH2|
-              1084 |hankelH1| 1090 |hahn_p| 1096 |hahnS| 1105 |hahnR| 1114
-              |hahnQ| 1123 |ground?| 1132 |ground| 1137 |getNotation| 1142
-              |gcdPolynomial| 1146 |gcd| 1152 |function| 1163 |fresnelS| 1169
-              |fresnelC| 1174 |freeOf?| 1179 |fractionPart| 1197 |formalDiff2|
-              1202 |formalDiff| 1216 |floor| 1234 |factorials| 1239 |factorial|
-              1250 |factor| 1255 |extractSymbol| 1260 |extendedEuclidean| 1265
-              |exquo| 1278 |expressIdealMember| 1284 |exp| 1290 |even?| 1295
-              |eval| 1300 |euclideanSize| 1444 |erfi| 1449 |erf| 1454 |elt|
-              1459 |ellipticPi| 1555 |ellipticK| 1562 |ellipticF| 1567
-              |ellipticE| 1573 |divide| 1584 |distribute| 1590 |diracDelta|
-              1601 |dimension| 1606 |dilog| 1613 |digamma| 1618 |differentiate|
-              1623 |denominator| 1655 |denom| 1660 |definingPolynomial| 1665
-              |dSubst| 1670 |csch| 1677 |csc| 1682 |coth| 1687 |cot| 1692
-              |cosh| 1697 |cos| 1702 |convert| 1707 |const?| 1727 |conjugate|
-              1732 |commutator| 1743 |coerce| 1749 |class| 1829 |charlierC|
-              1834 |characteristic| 1841 |ceiling| 1845 |box| 1850 |binomial|
-              1855 |besselY| 1861 |besselK| 1867 |besselJ| 1873 |besselI| 1879
-              |belong?| 1885 |autoReduce| 1890 |atanh| 1895 |atan| 1900
-              |associator| 1905 |associates?| 1912 |asinh| 1918 |asin| 1923
-              |asech| 1928 |asec| 1933 |applyQuote| 1938 |antiCommutator| 1974
-              |annihilate?| 1980 |angerJ| 1986 |algtower| 1992 |airyBiPrime|
-              2002 |airyBi| 2007 |airyAiPrime| 2012 |airyAi| 2017 |acsch| 2022
-              |acsc| 2027 |acoth| 2032 |acot| 2037 |acosh| 2042 |acos| 2047
-              |abs| 2052 ^ 2057 X 2087 U 2096 |Si| 2105 |Shi| 2110 P 2115
-              |Gamma| 2137 |Ei| 2148 D 2153 |Ci| 2179 |Chi| 2184 |Beta| 2189 =
-              2202 |1| 2208 |0| 2212 / 2216 - 2228 + 2239 * 2245)
+              1084 |hankelH1| 1090 |hahn_p| 1096 |hahnS| 1106 |hahnR| 1115
+              |hahnQ| 1124 |ground?| 1133 |ground| 1138 |getNotation| 1143
+              |gcdPolynomial| 1147 |gcd| 1153 |function| 1164 |fresnelS| 1170
+              |fresnelC| 1175 |freeOf?| 1180 |fractionPart| 1198 |formalDiff2|
+              1203 |formalDiff| 1217 |floor| 1235 |factorials| 1240 |factorial|
+              1251 |factor| 1256 |extractSymbol| 1261 |extendedEuclidean| 1266
+              |exquo| 1279 |expressIdealMember| 1285 |exp| 1291 |even?| 1296
+              |eval| 1301 |euclideanSize| 1445 |erfi| 1450 |erf| 1455 |elt|
+              1460 |ellipticPi| 1556 |ellipticK| 1563 |ellipticF| 1568
+              |ellipticE| 1574 |divide| 1585 |distribute| 1591 |diracDelta|
+              1602 |dimension| 1607 |dilog| 1614 |digamma| 1619 |differentiate|
+              1624 |denominator| 1656 |denom| 1661 |definingPolynomial| 1666
+              |dSubst| 1671 |csch| 1678 |csc| 1683 |coth| 1688 |cot| 1693
+              |cosh| 1698 |cos| 1703 |convert| 1708 |const?| 1728 |conjugate|
+              1733 |commutator| 1744 |coerce| 1750 |class| 1830 |charlierC|
+              1835 |characteristic| 1842 |ceiling| 1846 |box| 1851 |binomial|
+              1856 |besselY| 1862 |besselK| 1868 |besselJ| 1874 |besselI| 1880
+              |belong?| 1886 |autoReduce| 1891 |atanh| 1896 |atan| 1901
+              |associator| 1906 |associates?| 1913 |asinh| 1919 |asin| 1924
+              |asech| 1929 |asec| 1934 |applyQuote| 1939 |antiCommutator| 1975
+              |annihilate?| 1981 |angerJ| 1987 |algtower| 1993 |airyBiPrime|
+              2003 |airyBi| 2008 |airyAiPrime| 2013 |airyAi| 2018 |acsch| 2023
+              |acsc| 2028 |acoth| 2033 |acot| 2038 |acosh| 2043 |acos| 2048
+              |abs| 2053 ^ 2058 X 2088 U 2097 |Si| 2106 |Shi| 2111 P 2116
+              |Gamma| 2138 |Ei| 2149 D 2154 |Ci| 2180 |Chi| 2185 |Beta| 2190 =
+              2203 |1| 2209 |0| 2213 / 2217 - 2229 + 2240 * 2246)
            'NIL
            (CONS
             (|makeByteWordVec2| 16
@@ -378,24 +378,24 @@
                                     85 0 8 1 2 5 85 0 44 1 1 14 85 0 1 2 0 10 0
                                     8 1 2 0 10 0 44 1 1 0 0 0 1 2 0 0 0 8 1 2 0
                                     0 0 64 1 3 20 0 32 32 0 1 2 0 0 0 0 1 1 0
-                                    28 0 1 2 0 0 0 0 1 2 0 0 0 0 1 5 0 0 0 0 0
-                                    0 0 1 5 0 0 0 0 0 0 0 1 5 0 0 0 0 0 0 0 1 5
-                                    0 0 0 0 0 0 0 1 1 0 10 0 1 1 0 27 0 1 0 0 8
-                                    1 2 0 31 31 31 1 1 0 0 32 1 2 0 0 0 0 1 2 0
-                                    0 8 32 1 1 0 0 0 1 1 0 0 0 1 2 0 10 0 6 1 2
-                                    0 10 0 8 1 2 0 10 0 0 1 1 0 0 0 1 3 0 38 0
-                                    26 36 1 3 0 39 32 26 36 1 2 0 0 0 26 1 2 0
-                                    0 0 30 1 2 0 32 32 26 1 1 0 0 0 1 1 0 0 0 1
-                                    2 0 0 0 8 1 1 0 0 0 1 1 0 57 0 1 1 0 36 36
-                                    1 3 0 59 0 0 0 1 2 0 61 0 0 1 2 0 20 0 0 1
-                                    2 0 60 32 0 1 1 0 0 0 1 1 20 10 0 1 3 0 0 0
-                                    44 45 1 3 0 0 0 44 46 1 3 0 0 0 47 48 1 3 0
-                                    0 0 8 46 1 3 0 0 0 47 49 1 3 0 0 0 8 45 1 3
-                                    0 0 0 29 49 1 3 0 0 0 29 48 1 3 0 0 0 0 0 1
-                                    3 0 0 0 32 32 1 2 0 0 0 53 1 2 0 0 0 54 1 3
-                                    0 0 0 51 32 1 3 0 0 0 50 0 1 4 7 0 0 44 0 8
-                                    1 4 7 0 0 47 32 8 1 4 5 0 0 8 28 46 1 4 5 0
-                                    0 29 30 48 1 4 5 0 0 8 28 45 1 4 5 0 0 29
+                                    28 0 1 2 0 0 0 0 1 2 0 0 0 0 1 6 0 0 0 0 0
+                                    0 0 0 1 5 0 0 0 0 0 0 0 1 5 0 0 0 0 0 0 0 1
+                                    5 0 0 0 0 0 0 0 1 1 0 10 0 1 1 0 27 0 1 0 0
+                                    8 1 2 0 31 31 31 1 1 0 0 32 1 2 0 0 0 0 1 2
+                                    0 0 8 32 1 1 0 0 0 1 1 0 0 0 1 2 0 10 0 6 1
+                                    2 0 10 0 8 1 2 0 10 0 0 1 1 0 0 0 1 3 0 38
+                                    0 26 36 1 3 0 39 32 26 36 1 2 0 0 0 26 1 2
+                                    0 0 0 30 1 2 0 32 32 26 1 1 0 0 0 1 1 0 0 0
+                                    1 2 0 0 0 8 1 1 0 0 0 1 1 0 57 0 1 1 0 36
+                                    36 1 3 0 59 0 0 0 1 2 0 61 0 0 1 2 0 20 0 0
+                                    1 2 0 60 32 0 1 1 0 0 0 1 1 20 10 0 1 3 0 0
+                                    0 44 45 1 3 0 0 0 44 46 1 3 0 0 0 47 48 1 3
+                                    0 0 0 8 46 1 3 0 0 0 47 49 1 3 0 0 0 8 45 1
+                                    3 0 0 0 29 49 1 3 0 0 0 29 48 1 3 0 0 0 0 0
+                                    1 3 0 0 0 32 32 1 2 0 0 0 53 1 2 0 0 0 54 1
+                                    3 0 0 0 51 32 1 3 0 0 0 50 0 1 4 7 0 0 44 0
+                                    8 1 4 7 0 0 47 32 8 1 4 5 0 0 8 28 46 1 4 5
+                                    0 0 29 30 48 1 4 5 0 0 8 28 45 1 4 5 0 0 29
                                     30 49 1 1 0 28 0 1 1 0 0 0 1 1 0 0 0 1 2 0
                                     0 44 32 1 10 0 0 44 0 0 0 0 0 0 0 0 0 1 8 0
                                     0 44 0 0 0 0 0 0 0 1 9 0 0 44 0 0 0 0 0 0 0

@@ -846,26 +846,26 @@
               |jacobiTheta| 843 |jacobiSn| 849 |jacobiP| 855 |jacobiDn| 863
               |jacobiCn| 869 |inv| 875 |increasePrecision| 880
               |hypergeometricF| 885 |hermiteH| 892 |hashUpdate!| 898 |hash| 904
-              |hankelH2| 909 |hankelH1| 915 |hahn_p| 921 |hahnS| 930 |hahnR|
-              939 |hahnQ| 948 |gcdPolynomial| 957 |gcd| 963 |fractionPart| 974
-              |floor| 979 |float| 984 |factor| 997 |extendedEuclidean| 1002
-              |exquo| 1015 |expressIdealMember| 1021 |exponent| 1027 |exp1|
-              1032 |exp| 1036 |euclideanSize| 1041 |ellipticPi| 1046
-              |ellipticK| 1053 |ellipticF| 1058 |ellipticE| 1064
-              |doubleFloatFormat| 1075 |divide| 1080 |diracDelta| 1086 |digits|
-              1091 |digamma| 1100 |differentiate| 1105 |decreasePrecision| 1116
-              |csch| 1121 |csc| 1126 |coth| 1131 |cot| 1136 |cosh| 1141 |cos|
-              1146 |convert| 1151 |conjugate| 1176 |commutator| 1181 |coerce|
-              1187 |charlierC| 1212 |characteristic| 1219 |ceiling| 1223 |bits|
-              1228 |besselY| 1237 |besselK| 1243 |besselJ| 1249 |besselI| 1255
-              |base| 1261 |atanh| 1265 |atan| 1270 |associator| 1281
-              |associates?| 1288 |asinh| 1294 |asin| 1299 |asech| 1304 |asec|
-              1309 |antiCommutator| 1314 |annihilate?| 1320 |angerJ| 1326
-              |airyBiPrime| 1332 |airyBi| 1337 |airyAiPrime| 1342 |airyAi| 1347
-              |acsch| 1352 |acsc| 1357 |acoth| 1362 |acot| 1367 |acosh| 1372
-              |acos| 1377 |abs| 1382 ^ 1387 |OMwrite| 1417 |Gamma| 1441 D 1452
-              |Beta| 1463 >= 1476 > 1482 = 1488 <= 1494 < 1500 |1| 1506 |0|
-              1510 / 1514 - 1526 + 1537 * 1543)
+              |hankelH2| 909 |hankelH1| 915 |hahn_p| 921 |hahnS| 931 |hahnR|
+              940 |hahnQ| 949 |gcdPolynomial| 958 |gcd| 964 |fractionPart| 975
+              |floor| 980 |float| 985 |factor| 998 |extendedEuclidean| 1003
+              |exquo| 1016 |expressIdealMember| 1022 |exponent| 1028 |exp1|
+              1033 |exp| 1037 |euclideanSize| 1042 |ellipticPi| 1047
+              |ellipticK| 1054 |ellipticF| 1059 |ellipticE| 1065
+              |doubleFloatFormat| 1076 |divide| 1081 |diracDelta| 1087 |digits|
+              1092 |digamma| 1101 |differentiate| 1106 |decreasePrecision| 1117
+              |csch| 1122 |csc| 1127 |coth| 1132 |cot| 1137 |cosh| 1142 |cos|
+              1147 |convert| 1152 |conjugate| 1177 |commutator| 1182 |coerce|
+              1188 |charlierC| 1213 |characteristic| 1220 |ceiling| 1224 |bits|
+              1229 |besselY| 1238 |besselK| 1244 |besselJ| 1250 |besselI| 1256
+              |base| 1262 |atanh| 1266 |atan| 1271 |associator| 1282
+              |associates?| 1289 |asinh| 1295 |asin| 1300 |asech| 1305 |asec|
+              1310 |antiCommutator| 1315 |annihilate?| 1321 |angerJ| 1327
+              |airyBiPrime| 1333 |airyBi| 1338 |airyAiPrime| 1343 |airyAi| 1348
+              |acsch| 1353 |acsc| 1358 |acoth| 1363 |acot| 1368 |acosh| 1373
+              |acos| 1378 |abs| 1383 ^ 1388 |OMwrite| 1418 |Gamma| 1442 D 1453
+              |Beta| 1464 >= 1477 > 1483 = 1489 <= 1495 < 1501 |1| 1507 |0|
+              1511 / 1515 - 1527 + 1538 * 1544)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -978,10 +978,10 @@
                                     1 2 0 0 0 0 143 4 0 0 0 0 0 0 1 2 0 0 0 0
                                     147 2 0 0 0 0 145 1 0 0 0 1 1 2 17 19 1 3 4
                                     0 182 182 0 1 2 0 0 0 0 1 2 0 89 89 0 90 1
-                                    0 193 0 1 2 0 0 0 0 1 2 0 0 0 0 1 5 0 0 0 0
-                                    0 0 0 1 5 0 0 0 0 0 0 0 1 5 0 0 0 0 0 0 0 1
-                                    5 0 0 0 0 0 0 0 1 2 0 184 184 184 1 2 0 0 0
-                                    0 1 1 0 0 182 1 1 0 0 0 1 1 0 0 0 1 3 0 0
+                                    0 193 0 1 2 0 0 0 0 1 2 0 0 0 0 1 6 0 0 0 0
+                                    0 0 0 0 1 5 0 0 0 0 0 0 0 1 5 0 0 0 0 0 0 0
+                                    1 5 0 0 0 0 0 0 0 1 2 0 184 184 184 1 2 0 0
+                                    0 0 1 1 0 0 182 1 1 0 0 0 1 1 0 0 0 1 3 0 0
                                     19 19 17 153 2 0 0 19 19 1 1 0 190 0 1 2 0
                                     187 0 0 1 3 0 189 0 0 0 1 2 0 91 0 0 1 2 0
                                     185 182 0 1 1 0 19 0 21 0 0 0 31 1 0 0 0 58

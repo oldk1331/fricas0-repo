@@ -5365,8 +5365,8 @@ oguessRec`2`x`(List(Fraction(Integer)),List(GuessOption))->List(Expression(Integ
 oguessRec`2`x`(List(Fraction(Polynomial(Integer))),List(GuessOption))->List(Expression(Integer))`pGuessPolynomialInteger``0
 oguessRec`2`x`(List(Fraction(Polynomial(R))),List(GuessOption))->List(Expression(Integer))`pGuessPolynomial(R)``0
 ohadamard`2`n`(UnivariateFormalPowerSeries(Coef),UnivariateFormalPowerSeries(Coef))->UnivariateFormalPowerSeries(Coef)`pUnivariateFormalPowerSeriesFunctions(Coef)``0
-ohahn_p`5`n`(F,F,F,F,F)->F`pFunctionalSpecialFunction(R,F)``620492
-ohahn_p`5`x`(%,%,%,%,%)->%`cSpecialFunctionCategory``620574
+ohahn_p`6`n`(F,F,F,F,F,F)->F`pFunctionalSpecialFunction(R,F)``620492
+ohahn_p`6`x`(%,%,%,%,%,%)->%`cSpecialFunctionCategory``620574
 ohahnQ`5`n`(F,F,F,F,F)->F`pFunctionalSpecialFunction(R,F)``620656
 ohahnQ`5`x`(%,%,%,%,%)->%`cSpecialFunctionCategory``620715
 ohahnR`5`n`(F,F,F,F,F)->F`pFunctionalSpecialFunction(R,F)``620780
