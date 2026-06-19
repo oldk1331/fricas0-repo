@@ -1373,14 +1373,14 @@
 
 ; errorPage(htPage,[heading,kind,:info]) ==
 ;   kind = 'invalidType => kInvalidTypePage first info
-;   if heading = 'error then htInitPage('"Error",nil) else
-;                            htInitPage(heading,nil)
-;   bcBlankLine()
+;   if heading = 'error then page := htInitPage('"Error",nil) else
+;                            page := htInitPage(heading,nil)
+;   bcBlankLine(page)
 ;   for x in info repeat htSay x
 ;   htShowPage()
 
 (DEFUN |errorPage| (|htPage| |bfVar#33|)
-  (PROG (|heading| |kind| |info|)
+  (PROG (|heading| |kind| |info| |page|)
     (RETURN
      (PROGN
       (SETQ |heading| (CAR |bfVar#33|))
@@ -1389,9 +1389,11 @@
       (COND ((EQ |kind| '|invalidType|) (|kInvalidTypePage| (CAR |info|)))
             (#2='T
              (PROGN
-              (COND ((EQ |heading| '|error|) (|htInitPage| "Error" NIL))
-                    (#2# (|htInitPage| |heading| NIL)))
-              (|bcBlankLine|)
+              (COND
+               ((EQ |heading| '|error|)
+                (SETQ |page| (|htInitPage| "Error" NIL)))
+               (#2# (SETQ |page| (|htInitPage| |heading| NIL))))
+              (|bcBlankLine| |page|)
               ((LAMBDA (|bfVar#32| |x|)
                  (LOOP
                   (COND
