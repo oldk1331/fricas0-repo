@@ -1576,3 +1576,60 @@
         T (MAXINDEX |s|) 0)
        (PARSE-INTEGER |s|))
       (#1# NIL)))))
+
+; substring?(part, whole, startpos) ==
+; --This function should be replaced by STRING<
+;   np := SIZE part
+;   nw := SIZE whole
+;   np > nw - startpos => false
+;   and/[CHAR_-EQUAL(ELT(part, ip), ELT(whole, iw))
+;       for ip in 0..np-1 for iw in startpos.. ]
+
+(DEFUN |substring?| (|part| |whole| |startpos|)
+  (PROG (|np| |nw|)
+    (RETURN
+     (PROGN
+      (SETQ |np| (SIZE |part|))
+      (SETQ |nw| (SIZE |whole|))
+      (COND ((< (- |nw| |startpos|) |np|) NIL)
+            (#1='T
+             ((LAMBDA (|bfVar#21| |bfVar#20| |ip| |iw|)
+                (LOOP
+                 (COND ((> |ip| |bfVar#20|) (RETURN |bfVar#21|))
+                       (#1#
+                        (PROGN
+                         (SETQ |bfVar#21|
+                                 (CHAR-EQUAL (ELT |part| |ip|)
+                                             (ELT |whole| |iw|)))
+                         (COND ((NOT |bfVar#21|) (RETURN NIL))))))
+                 (SETQ |ip| (+ |ip| 1))
+                 (SETQ |iw| (+ |iw| 1))))
+              T (- |np| 1) 0 |startpos|)))))))
+
+; charPosition(c,t,startpos) ==
+;   n := SIZE t
+;   startpos < 0 or startpos > n => n
+;   k:= startpos
+;   for i in startpos .. n-1 repeat
+;     c = ELT(t,i) => return nil
+;     k := k+1
+;   k
+
+(DEFUN |charPosition| (|c| |t| |startpos|)
+  (PROG (|n| |k|)
+    (RETURN
+     (PROGN
+      (SETQ |n| (SIZE |t|))
+      (COND ((OR (MINUSP |startpos|) (< |n| |startpos|)) |n|)
+            (#1='T
+             (PROGN
+              (SETQ |k| |startpos|)
+              ((LAMBDA (|bfVar#22| |i|)
+                 (LOOP
+                  (COND ((> |i| |bfVar#22|) (RETURN NIL))
+                        (#1#
+                         (COND ((EQUAL |c| (ELT |t| |i|)) (RETURN NIL))
+                               (#1# (SETQ |k| (+ |k| 1))))))
+                  (SETQ |i| (+ |i| 1))))
+               (- |n| 1) |startpos|)
+              |k|)))))))
