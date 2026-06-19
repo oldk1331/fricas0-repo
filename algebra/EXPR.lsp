@@ -334,7 +334,7 @@
                                  (COND
                                   ((|EXPR;simple_root| |r| %)
                                    (PROGN
-                                    (LETT #1# (|EXPR;root_reduce| |x| |r| %))
+                                    (LETT #1# (|EXPR;root_reduce| |x1| |r| %))
                                     (GO #4=#:G139))))))))
                              (LETT |sas| (SPADCALL (QREFELT % 131)))
                              (SEQ (LETT |k| NIL) (LETT #2# |akl|) G190
