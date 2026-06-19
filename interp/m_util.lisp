@@ -480,7 +480,7 @@
 ;     while k >=0 and not(is_dir_separator?(n.k)) repeat
 ;         k := k - 1
 ;     k < 0 => '""
-;     k = 0 => "/"
+;     k = 0 => '"/"
 ;     SUBSTRING(n, 0, k)
 
 (DEFUN |file_directory| (|n|)
@@ -496,7 +496,7 @@
                   (NULL (|is_dir_separator?| (ELT |n| |k|)))))
             (RETURN NIL))
            (#1='T (SETQ |k| (- |k| 1)))))))
-      (COND ((MINUSP |k|) "") ((EQL |k| 0) '/) (#1# (SUBSTRING |n| 0 |k|)))))))
+      (COND ((MINUSP |k|) "") ((EQL |k| 0) "/") (#1# (SUBSTRING |n| 0 |k|)))))))
 
 ; make_filename2(n, e) ==
 ;     has_extention?(n, e) => n
